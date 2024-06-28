@@ -1,0 +1,154 @@
+syntax = "proto3";
+package sf.gear.type.v1;
+
+import "google/protobuf/any.proto";
+
+option go_package = "github.com/streamingfast/firehose-gear/pb/sf/gear/type/v1;pbgear";
+
+
+message Block {
+  uint64 number = 1;
+  bytes hash = 2;
+  Header header = 3;
+  //TODO: there are 2 levels of extrinsics
+  // the onces coming from the block itself and the ones
+  // which we fetch with the extrinsics retriever given a block hash
+  repeated Extrinsic extrinsics = 4;
+  repeated Event events = 5;
+  //TODO: how do we store the logs here?
+  bytes justification = 6;
+}
+
+message Header {
+  // [32]byte
+  bytes parent_hash = 1;
+  // [32]byte
+  bytes state_root = 2;
+  // [32]byte
+  bytes extrinsics_root = 3;
+  repeated DigestItem digest = 4;
+}
+
+message DigestItem {
+  bool is_changes_trie_root = 1;
+  // [32]byte
+  bytes as_changes_trie_root = 2;
+  bool is_pre_runtime = 3;
+  PreRuntime as_pre_runtime = 4;
+  bool is_consensus = 5;
+  Consensus as_consensus = 6;
+  bool is_seal = 7;
+  Seal as_seal = 8;
+  bool is_changes_trie_signal = 9;
+  ChangesTrieSignal as_changes_trie_signal = 10;
+  bool is_other = 11;
+  bytes as_other = 12;
+}
+
+message PreRuntime {
+  uint32 consensus_engine_id = 1;
+  bytes bytes = 2;
+}
+
+message Consensus {
+  uint32 consensus_engine_id = 1;
+  bytes bytes = 2;
+}
+
+message Seal {
+  uint32 consensus_engine_id = 1;
+  bytes bytes = 2;
+}
+
+message ChangesTrieSignal {
+  bool is_new_configuration = 1;
+  bytes as_new_configuration = 2;
+}
+
+message Extrinsic {
+  string name = 1;
+  repeated Field call_fields = 2;
+  CallIndex call_index = 3;
+  uint32 version = 4;
+  Signature signature = 5;
+}
+
+message Field {
+  string name = 1;
+  google.protobuf.Any value = 2;
+  int64 lookup_index = 3;
+}
+
+message CallIndex {
+  uint32 section_index = 1;
+  uint32 method_index = 2;
+}
+
+message Event {
+  string name = 1;
+  repeated Field fields = 2;
+  // [2]byte
+  string id = 3;
+  Phase phase = 4;
+  // [32]byte
+  repeated bytes topics = 5;
+}
+
+message Phase {
+   bool is_apply_extrinsic = 1;
+   uint32 as_apply_extrinsic = 2;
+   bool is_finalization = 3;
+   bool is_initialization = 4;
+}
+
+message Signature {
+  Signer signer = 1;
+  SignatureDef signature = 2;
+  Era era = 12;
+  uint32 none = 13;
+  PaymentFields payment_fields = 14;
+}
+
+message Signer {
+  bool is_ID  = 1;
+  // [32]byte
+  bytes as_ID = 2;
+  bool is_index = 3;
+  uint32 as_index = 4;
+  bool is_raw = 5;
+  bytes as_raw = 6;
+  bool is_address_32 = 7;
+  // [32]byte
+  bytes as_address_32 = 8;
+  bool is_address_20 = 9;
+  // [20]byte
+  bytes as_address_20 = 10;
+}
+
+message SignatureDef {
+  bool is_ed25519 = 1;
+  // [64]byte
+  bytes as_ed25519 = 2;
+  bool is_sr25519 = 3;
+  // [64]byte
+  bytes as_sr25519 = 4;
+  bool is_ecdsa = 5;
+  // [65]byte
+  bytes as_ecdsa = 6;
+}
+
+message Era {
+  bool is_immortal_era = 1;
+  bool is_mortal_era = 2;
+  MortalEra as_mortal_era = 3;
+}
+
+message MortalEra {
+  uint32 first = 1;
+  uint32 last = 2;
+}
+
+message PaymentFields {
+  // big.Int
+  string tip = 1;
+}
