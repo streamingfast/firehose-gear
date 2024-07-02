@@ -22,7 +22,7 @@ func NewFetchCmd(logger *zap.Logger, tracer logging.Tracer) *cobra.Command {
 		RunE:  fetchRunE(logger, tracer),
 	}
 
-	cmd.Flags().StringArray("gear-endpoints", []string{"https://vara-mainnet.public.blastapi.io"}, "List of endpoints to use to fetch different method calls")
+	cmd.Flags().StringArray("endpoints", []string{"https://vara-mainnet.public.blastapi.io"}, "List of endpoints to use to fetch different method calls")
 	cmd.Flags().String("state-dir", "/data/poller", "interval between fetch")
 	cmd.Flags().Duration("interval-between-fetch", 0, "interval between fetch")
 	cmd.Flags().Duration("latest-block-retry-interval", time.Second, "interval between fetch")
@@ -34,7 +34,7 @@ func NewFetchCmd(logger *zap.Logger, tracer logging.Tracer) *cobra.Command {
 func fetchRunE(logger *zap.Logger, tracer logging.Tracer) firecore.CommandExecutor {
 	return func(cmd *cobra.Command, args []string) error {
 		ctx := cmd.Context()
-		rpcEndpoints := sflags.MustGetStringArray(cmd, "gear-endpoints")
+		rpcEndpoints := sflags.MustGetStringArray(cmd, "endpoints")
 		stateDir := sflags.MustGetString(cmd, "state-dir")
 		startBlock, err := strconv.ParseUint(args[0], 10, 64)
 		if err != nil {

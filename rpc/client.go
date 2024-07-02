@@ -16,7 +16,6 @@ type Client struct {
 	client              *gsrpc.SubstrateAPI
 	extrinsicsRetriever retriever.DefaultExtrinsicRetriever
 	eventsRetriever     retriever.EventRetriever
-	// logsRetriever       retriever.EventRetriever
 }
 
 func NewClient(rpcEndpoint string) *Client {
@@ -40,19 +39,14 @@ func NewClient(rpcEndpoint string) *Client {
 		log.Fatalf("Error creating extrinsic retriever: %v", err)
 	}
 
-	// client.RPC.Chain.GetBlock()
-
 	eventRetriever, err := retriever.NewDefaultEventRetriever(state.NewEventProvider(client.RPC.State), client.RPC.State)
 	if err != nil {
 		log.Fatalf("Error creating event retriever: %v", err)
 	}
 
-	// logRetriever, err := retru
-
 	return &Client{
 		client:              client,
 		extrinsicsRetriever: extrinsicRetriever,
 		eventsRetriever:     eventRetriever,
-		// logsRetriever:       logRetriever,
 	}
 }

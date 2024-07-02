@@ -2,12 +2,14 @@ package rpc
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"math/big"
+	"reflect"
 	"time"
 
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/parser"
-	retriever "github.com/centrifuge/go-substrate-rpc-client/v4/registry/retriever"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/chain/generic"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	pbbstream "github.com/streamingfast/bstream/pb/sf/bstream/v1"
@@ -19,9 +21,7 @@ import (
 )
 
 type Fetcher struct {
-	gearClients        *firecoreRPC.Clients[*Client]
-	extrinsicRetriever *firecoreRPC.Clients[retriever.DefaultExtrinsicRetriever]
-	eventsRetriever    *firecoreRPC.Clients[retriever.EventRetriever]
+	gearClients *firecoreRPC.Clients[*Client]
 
 	fetchInterval            time.Duration
 	latestBlockRetryInterval time.Duration
@@ -50,6 +50,7 @@ func (f *Fetcher) Fetch(ctx context.Context, requestBlockNum uint64) (b *pbbstre
 	f.logger.Info("fetching block", zap.Uint64("block_num", requestBlockNum))
 
 	sleepDuration := time.Duration(0)
+	//TODO: move this logic in the firecore binary, as we do this in all the fetchers
 	for f.latestBlockNum < requestBlockNum {
 		time.Sleep(sleepDuration)
 
@@ -132,8 +133,8 @@ func (f *Fetcher) fetchBlock(_ context.Context, blockHash types.Hash) (*types.Si
 }
 
 func (f *Fetcher) fetchExtrinsics(_ context.Context, blockHash types.Hash) ([]*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields], error) {
-	return firecoreRPC.WithClients(f.extrinsicRetriever, func(client retriever.DefaultExtrinsicRetriever) ([]*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields], error) {
-		extrinsincs, err := client.GetExtrinsics(blockHash)
+	return firecoreRPC.WithClients(f.gearClients, func(client *Client) ([]*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields], error) {
+		extrinsincs, err := client.extrinsicsRetriever.GetExtrinsics(blockHash)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get extrinsics: %w", err)
 		}
@@ -142,8 +143,8 @@ func (f *Fetcher) fetchExtrinsics(_ context.Context, blockHash types.Hash) ([]*p
 }
 
 func (f *Fetcher) fetchEvents(_ context.Context, blockHash types.Hash) ([]*parser.Event, error) {
-	return firecoreRPC.WithClients(f.eventsRetriever, func(client retriever.EventRetriever) ([]*parser.Event, error) {
-		events, err := client.GetEvents(blockHash)
+	return firecoreRPC.WithClients(f.gearClients, func(client *Client) ([]*parser.Event, error) {
+		events, err := client.eventsRetriever.GetEvents(blockHash)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get events: %w", err)
 		}
@@ -157,12 +158,23 @@ func convertBlock(
 	extrinsics []*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields],
 	events []*parser.Event,
 ) (*pbbstream.Block, error) {
+	convertedExtrinsics, err := convertExtrinsics(extrinsics)
+	if err != nil {
+		return nil, fmt.Errorf("failed to convert extrinsics: %w", err)
+	}
+
+	convertedEvents, err := convertEvents(events)
+	if err != nil {
+		return nil, fmt.Errorf("failed to convert events: %w", err)
+	}
+
 	block := &pbgear.Block{
 		Number:        uint64(b.Block.Header.Number),
-		Hash:          blockHash[:],
+		Hash:          blockHash.Hex(),
 		Header:        convertHeader(b),
-		Extrinsics:    convertExtrinsics(extrinsics),
-		Events:        convertEvents(events),
+		Extrinsics:    convertedExtrinsics,
+		Events:        convertedEvents,
+		DigestItems:   convertLogs(b.Block.Header.Digest),
 		Justification: b.Justification,
 	}
 
@@ -200,7 +212,8 @@ func fetchTimestampFromExtrinsics(extrinsics []*parser.Extrinsic[types.MultiAddr
 		if extrinsic.Name == TIMESTAMP_SET_NAME {
 			for _, callField := range extrinsic.CallFields {
 				if callField.Name == TIMESTAMP_FIELD_NAME {
-					return callField.Value.(uint64)
+					// return callField.Value.(uint64)
+					return 0
 				}
 			}
 		}
@@ -210,30 +223,67 @@ func fetchTimestampFromExtrinsics(extrinsics []*parser.Extrinsic[types.MultiAddr
 
 func convertHeader(b *types.SignedBlock) *pbgear.Header {
 	return &pbgear.Header{
-		ParentHash:     b.Block.Header.ParentHash[:],
-		StateRoot:      b.Block.Header.StateRoot[:],
-		ExtrinsicsRoot: b.Block.Header.ExtrinsicsRoot[:],
-		Digest:         convertDigest(b.Block.Header.Digest),
+		ParentHash:     b.Block.Header.ParentHash.Hex(),
+		StateRoot:      b.Block.Header.StateRoot.Hex(),
+		ExtrinsicsRoot: b.Block.Header.ExtrinsicsRoot.Hex(),
 	}
 }
 
-func convertDigest(digestItems []types.DigestItem) []*pbgear.DigestItem {
+func convertLogs(digestItems []types.DigestItem) []*pbgear.DigestItem {
 	digest := make([]*pbgear.DigestItem, len(digestItems))
 	for i, item := range digestItems {
-		digest[i] = &pbgear.DigestItem{
-			IsChangesTrieRoot:   item.IsChangesTrieRoot,
-			AsChangesTrieRoot:   item.AsChangesTrieRoot[:],
-			IsPreRuntime:        item.IsPreRuntime,
-			AsPreRuntime:        convertPreRuntime(item.AsPreRuntime),
-			IsConsensus:         item.IsConsensus,
-			AsConsensus:         convertAsConsensus(item.AsConsensus),
-			IsSeal:              item.IsSeal,
-			AsSeal:              convertSeal(item.AsSeal),
-			IsChangesTrieSignal: item.IsChangesTrieSignal,
-			AsChangesTrieSignal: convertChangesTrieSignal(item.AsChangesTrieSignal),
-			IsOther:             item.IsOther,
-			AsOther:             item.AsOther,
+
+		digestItem := &pbgear.DigestItem{}
+
+		if item.IsChangesTrieRoot {
+			digestItem = &pbgear.DigestItem{
+				Item: &pbgear.DigestItem_AsChangesTrieRoot{
+					AsChangesTrieRoot: item.AsChangesTrieRoot.Hex(),
+				},
+			}
 		}
+
+		if item.IsPreRuntime {
+			digestItem = &pbgear.DigestItem{
+				Item: &pbgear.DigestItem_AsPreRuntime{
+					AsPreRuntime: convertPreRuntime(item.AsPreRuntime),
+				},
+			}
+		}
+
+		if item.IsConsensus {
+			digestItem = &pbgear.DigestItem{
+				Item: &pbgear.DigestItem_AsConsensus{
+					AsConsensus: convertAsConsensus(item.AsConsensus),
+				},
+			}
+		}
+
+		if item.IsSeal {
+			digestItem = &pbgear.DigestItem{
+				Item: &pbgear.DigestItem_AsSeal{
+					AsSeal: convertSeal(item.AsSeal),
+				},
+			}
+		}
+
+		if item.IsChangesTrieSignal {
+			digestItem = &pbgear.DigestItem{
+				Item: &pbgear.DigestItem_AsChangesTrieSignal{
+					AsChangesTrieSignal: convertChangesTrieSignal(item.AsChangesTrieSignal),
+				},
+			}
+		}
+
+		if item.IsOther {
+			digestItem = &pbgear.DigestItem{
+				Item: &pbgear.DigestItem_AsOther{
+					AsOther: item.AsOther,
+				},
+			}
+		}
+
+		digest[i] = digestItem
 	}
 	return digest
 }
@@ -267,31 +317,58 @@ func convertChangesTrieSignal(signal types.ChangesTrieSignal) *pbgear.ChangesTri
 	}
 }
 
-func convertExtrinsics(extrinsics []*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields]) []*pbgear.Extrinsic {
+func convertExtrinsics(extrinsics []*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields]) ([]*pbgear.Extrinsic, error) {
 	gearExtrinsics := make([]*pbgear.Extrinsic, 0, len(extrinsics))
 	for _, extrinsic := range extrinsics {
+		callFields, err := convertDecodedFields(extrinsic.CallFields)
+		if err != nil {
+			return nil, fmt.Errorf("failed to convert decoded fields: %w", err)
+		}
 		gearExtrinsics = append(gearExtrinsics, &pbgear.Extrinsic{
 			Name:       extrinsic.Name,
-			CallFields: convertDecodedFields(extrinsic.CallFields),
+			CallFields: callFields,
 			CallIndex:  convertCallIndex(extrinsic.CallIndex),
 			Version:    uint32(extrinsic.Version),
 			Signature:  convertExtrinsicsSignature(extrinsic.Signature),
 		})
 	}
 
-	return gearExtrinsics
+	return gearExtrinsics, nil
 }
 
-func convertDecodedFields(callFields []*registry.DecodedField) []*pbgear.Field {
+func convertDecodedFields(callFields []*registry.DecodedField) ([]*pbgear.Field, error) {
 	fields := make([]*pbgear.Field, 0, len(callFields))
 	for _, callField := range callFields {
-		fields = append(fields, &pbgear.Field{
+		field := &pbgear.Field{
 			Name:        callField.Name,
-			Value:       callField.Value.(*anypb.Any),
 			LookupIndex: callField.LookupIndex,
-		})
+		}
+
+		switch t := callField.Value.(type) {
+		case registry.DecodedFields:
+			val, err := convertDecodedFields(t)
+			if err != nil {
+				return nil, err
+			}
+
+			field.Value = &pbgear.Field_Fields{
+				Fields: &pbgear.Fields{
+					Value: val,
+				},
+			}
+		default:
+			val, err := json.Marshal(callField.Value)
+			if err != nil {
+				return nil, err
+			}
+			field.Value = &pbgear.Field_JsonValue{
+				JsonValue: string(val),
+			}
+		}
+
+		fields = append(fields, field)
 	}
-	return fields
+	return fields, nil
 }
 
 func convertCallIndex(callIndex types.CallIndex) *pbgear.CallIndex {
@@ -302,25 +379,94 @@ func convertCallIndex(callIndex types.CallIndex) *pbgear.CallIndex {
 }
 
 func convertExtrinsicsSignature(signature generic.GenericExtrinsicSignature[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields]) *pbgear.Signature {
-	pbgearSignature := &pbgear.Signature{}
+	v := reflect.ValueOf(signature)
 
-	// todo: convert the signatures
+	// a generic struct can be instantiated and be nil or empty
+	if signature == nil || v.IsZero() {
+		return nil
+	}
 
-	return pbgearSignature
+	return &pbgear.Signature{
+		Era:           convertEra(signature.GetEra()),
+		None:          convertNone(signature.GetNonce()),
+		Signer:        convertSigner(signature.GetSigner()),
+		Signature:     convertSignature(signature.GetSignature()),
+		PaymentFields: convertPaymentFields(signature.GetPaymentFields()),
+	}
 }
 
-func convertEvents(events []*parser.Event) []*pbgear.Event {
+func convertSigner(signer types.MultiAddress) *pbgear.Signer {
+	return &pbgear.Signer{
+		Is_ID:        signer.IsID,
+		As_ID:        signer.AsID.ToHexString(),
+		IsIndex:      signer.IsIndex,
+		AsIndex:      uint32(signer.AsIndex),
+		IsRaw:        signer.IsRaw,
+		AsRaw:        signer.AsRaw,
+		IsAddress_32: signer.IsAddress32,
+		AsAddress_32: string(signer.AsAddress32[:]),
+		IsAddress_20: signer.IsAddress20,
+		AsAddress_20: string(signer.AsAddress20[:]),
+	}
+}
+
+func convertSignature(signature types.MultiSignature) *pbgear.SignatureDef {
+	return &pbgear.SignatureDef{
+		IsEd25519: signature.IsEcdsa,
+		AsEd25519: signature.AsEd25519.Hex(),
+		IsSr25519: signature.IsSr25519,
+		AsSr25519: signature.AsSr25519.Hex(),
+		IsEcdsa:   signature.IsEcdsa,
+		AsEcdsa:   signature.AsEcdsa.Hex(),
+	}
+}
+
+func convertEra(era types.ExtrinsicEra) *pbgear.Era {
+	if &era == nil {
+		return nil
+	}
+	return &pbgear.Era{
+		IsImmortalEra: era.IsImmortalEra,
+		IsMortalEra:   era.IsMortalEra,
+		AsMortalEra:   convertMortalEra(era.AsMortalEra),
+	}
+}
+
+func convertMortalEra(era types.MortalEra) *pbgear.MortalEra {
+	return &pbgear.MortalEra{
+		First: uint32(era.First),
+		Last:  uint32(era.Second),
+	}
+}
+
+func convertNone(nonce types.UCompact) string {
+	b := big.Int(nonce)
+	return b.String()
+}
+
+func convertPaymentFields(paymentFields generic.DefaultPaymentFields) *pbgear.PaymentFields {
+	b := big.Int(paymentFields.Tip)
+	return &pbgear.PaymentFields{
+		Tip: b.String(),
+	}
+}
+
+func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 	pbgearEvent := make([]*pbgear.Event, 0, len(events))
 	for _, evt := range events {
+		fields, err := convertDecodedFields(evt.Fields)
+		if err != nil {
+			return nil, err
+		}
 		pbgearEvent = append(pbgearEvent, &pbgear.Event{
 			Name:   evt.Name,
-			Fields: convertDecodedFields(evt.Fields),
+			Fields: fields,
 			Id:     string(evt.EventID[:]),
 			Phase:  convertPhase(evt.Phase),
 			Topics: convertTopics(evt.Topics),
 		})
 	}
-	return pbgearEvent
+	return pbgearEvent, nil
 }
 
 func convertPhase(phase *types.Phase) *pbgear.Phase {
@@ -332,10 +478,10 @@ func convertPhase(phase *types.Phase) *pbgear.Phase {
 	}
 
 }
-func convertTopics(hashes []types.Hash) [][]byte {
-	topics := make([][]byte, 0, len(hashes))
+func convertTopics(hashes []types.Hash) []string {
+	topics := make([]string, 0, len(hashes))
 	for _, hash := range hashes {
-		topics = append(topics, hash[:])
+		topics = append(topics, hash.Hex())
 	}
 	return topics
 }
