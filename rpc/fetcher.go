@@ -212,8 +212,8 @@ func fetchTimestampFromExtrinsics(extrinsics []*parser.Extrinsic[types.MultiAddr
 		if extrinsic.Name == TIMESTAMP_SET_NAME {
 			for _, callField := range extrinsic.CallFields {
 				if callField.Name == TIMESTAMP_FIELD_NAME {
-					// return callField.Value.(uint64)
-					return 0
+					val := callField.Value.(types.UCompact)
+					return uint64(val.Int64())
 				}
 			}
 		}
