@@ -19,6 +19,13 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
+type FetchedBlockData struct {
+	latestFinalizedHead uint64
+	blockHash           types.Hash
+	block               *types.SignedBlock
+	events              []*parser.Event
+}
+
 type Fetcher struct {
 	gearClients *firecoreRPC.Clients[*Client]
 
@@ -66,33 +73,58 @@ func (f *Fetcher) Fetch(ctx context.Context, requestBlockNum uint64) (b *pbbstre
 		sleepDuration = f.latestBlockRetryInterval
 	}
 
-	//TODO: how to compute block hash from block
-	// or maybe should we compute it in the substreams foundational module?
-	blockHash, err := f.fetchBlockHash(ctx, requestBlockNum)
+	blockData, err := f.fetchBlockData(ctx, requestBlockNum)
 	if err != nil {
-		return nil, false, fmt.Errorf("failed to get block hash for block %d: %w", requestBlockNum, err)
-	}
-
-	f.logger.Info("fetching block", zap.Uint64("block_num", requestBlockNum))
-	block, err := f.fetchBlock(ctx, blockHash)
-	if err != nil {
-		return nil, false, fmt.Errorf("fetching block %d: %w", requestBlockNum, err)
-	}
-	f.logger.Debug("block fetched successfully", zap.Uint64("block_num", requestBlockNum))
-
-	events, err := f.fetchEvents(ctx, blockHash)
-	if err != nil {
-		return nil, false, fmt.Errorf("fetching events for block %d: %w", requestBlockNum, err)
+		return nil, false, fmt.Errorf("fetching block data: %w", err)
 	}
 
 	f.logger.Info("converting block", zap.Uint64("block_num", requestBlockNum))
-	bstreamBlock, err := convertBlock(blockHash, block, events)
+	bstreamBlock, err := convertBlock(blockData)
 	if err != nil {
 		return nil, false, fmt.Errorf("converting block %d from rpc response: %w", requestBlockNum, err)
 	}
 
 	return bstreamBlock, false, nil
+}
 
+func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*FetchedBlockData, error) {
+	return firecoreRPC.WithClients(f.gearClients, func(client *Client) (*FetchedBlockData, error) {
+		latestFinalizedHead, err := client.client.RPC.Chain.GetFinalizedHead()
+		if err != nil {
+			return nil, fmt.Errorf("unable to fetch latest finalized head: %w", err)
+		}
+
+		headBlock, err := client.client.RPC.Chain.GetBlock(latestFinalizedHead)
+		if err != nil {
+			return nil, fmt.Errorf("failed to get block: %w", err)
+		}
+
+		blockHash, err := client.client.RPC.Chain.GetBlockHash(requestedBlockNum)
+		if err != nil {
+			return nil, fmt.Errorf("unable to fetch latest block header: %w", err)
+		}
+
+		block, err := client.client.RPC.Chain.GetBlock(blockHash)
+		if err != nil {
+			return nil, fmt.Errorf("failed to get block: %w", err)
+		}
+
+		fetchedBlockData := &FetchedBlockData{
+			latestFinalizedHead: uint64(headBlock.Block.Header.Number),
+			blockHash:           blockHash,
+			block:               block,
+		}
+
+		if requestedBlockNum > 0 {
+			events, err := client.eventsRetriever.GetEvents(blockHash)
+			if err != nil {
+				return nil, fmt.Errorf("failed to get events: %w", err)
+			}
+			fetchedBlockData.events = events
+		}
+
+		return fetchedBlockData, nil
+	})
 }
 
 func (f *Fetcher) fetchLatestBlockNum(_ context.Context) (uint64, error) {
@@ -105,75 +137,37 @@ func (f *Fetcher) fetchLatestBlockNum(_ context.Context) (uint64, error) {
 	})
 }
 
-func (f *Fetcher) fetchBlockHash(_ context.Context, requestedBlockNum uint64) (types.Hash, error) {
-	return firecoreRPC.WithClients(f.gearClients, func(client *Client) (types.Hash, error) {
-		var hash types.Hash
-		hash, err := client.client.RPC.Chain.GetBlockHash(requestedBlockNum)
-		if err != nil {
-			return hash, fmt.Errorf("unable to fetch latest block header: %w", err)
-		}
-		return hash, nil
-	})
-}
-
-func (f *Fetcher) fetchBlock(_ context.Context, blockHash types.Hash) (*types.SignedBlock, error) {
-	return firecoreRPC.WithClients(f.gearClients, func(client *Client) (*types.SignedBlock, error) {
-		block, err := client.client.RPC.Chain.GetBlock(blockHash)
-		if err != nil {
-			return nil, fmt.Errorf("failed to get block: %w", err)
-		}
-		return block, nil
-	})
-}
-
-func (f *Fetcher) fetchExtrinsics(_ context.Context, blockHash types.Hash) ([]*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields], error) {
-	return firecoreRPC.WithClients(f.gearClients, func(client *Client) ([]*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields], error) {
-		extrinsincs, err := client.extrinsicsRetriever.GetExtrinsics(blockHash)
-		if err != nil {
-			return nil, fmt.Errorf("failed to get extrinsics: %w", err)
-		}
-		return extrinsincs, nil
-	})
-}
-
-func (f *Fetcher) fetchEvents(_ context.Context, blockHash types.Hash) ([]*parser.Event, error) {
-	return firecoreRPC.WithClients(f.gearClients, func(client *Client) ([]*parser.Event, error) {
-		events, err := client.eventsRetriever.GetEvents(blockHash)
-		if err != nil {
-			return nil, fmt.Errorf("failed to get events: %w", err)
-		}
-		return events, nil
-	})
-}
-
-func convertBlock(
-	blockHash types.Hash,
-	b *types.SignedBlock,
-	events []*parser.Event,
-) (*pbbstream.Block, error) {
-	convertedEvents, err := convertEvents(events)
+func convertBlock(data *FetchedBlockData) (*pbbstream.Block, error) {
+	convertedEvents, err := convertEvents(data.events)
 	if err != nil {
 		return nil, fmt.Errorf("failed to convert events: %w", err)
 	}
 
+	b := data.block
+	latestFinalizedHead := data.latestFinalizedHead
+	blockHash := data.blockHash
+
 	block := &pbgear.Block{
-		Number:        uint64(b.Block.Header.Number),
-		Hash:          blockHash.Hex(),
-		Header:        convertHeader(b),
-		Extrinsics:    convertExtrinsics(b.Block.Extrinsics),
-		Events:        convertedEvents,
-		DigestItems:   convertLogs(b.Block.Header.Digest),
-		Justification: b.Justification,
+		Number: uint64(b.Block.Header.Number),
+		Hash:   blockHash.Hex(),
 	}
 
-	timestampBytes := b.Block.Extrinsics[0].Method.Args
-	timestampDecoder := scale.NewDecoder(bytes.NewBuffer(timestampBytes))
-	timestamp, err := timestampDecoder.DecodeUintCompact()
-	if err != nil {
-		return nil, fmt.Errorf("unable to decode timestamp: %w", err)
-	}
+	timestamp := big.NewInt(0)
 
-	fmt.Println("timestamp: ", timestamp)
+	if b.Block.Header.Number > 0 {
+		block.Header = convertHeader(b)
+		block.Extrinsics = convertExtrinsics(b.Block.Extrinsics)
+		block.Events = convertedEvents
+		block.DigestItems = convertLogs(b.Block.Header.Digest)
+		block.Justification = b.Justification
+
+		timestampBytes := b.Block.Extrinsics[0].Method.Args
+		timestampDecoder := scale.NewDecoder(bytes.NewBuffer(timestampBytes))
+		timestamp, err = timestampDecoder.DecodeUintCompact()
+		if err != nil {
+			return nil, fmt.Errorf("unable to decode timestamp: %w", err)
+		}
+	}
 
 	anyBlock, err := anypb.New(block)
 	if err != nil {
@@ -186,12 +180,23 @@ func convertBlock(
 	}
 
 	libNum := uint64(0)
+	if latestFinalizedHead > block.Number && block.Number > 0 {
+		libNum = block.Number - 1
+	}
+
+	parentHash := ""
+	if block.Number > 0 {
+		parentHash = block.Header.ParentHash
+	}
+
+	if block.Number == 0 {
+		parentHash = "0x0000000000000000000000000000000000000000000000000000000000000000"
+	}
 
 	bstreamBlock := &pbbstream.Block{
-		Number:   block.Number,
-		Id:       string(block.Hash),
-		ParentId: string(block.Header.ParentHash),
-		// the timestamp needs to be fetched from the extrinsics and get the item called timestamp (set)
+		Number:    block.Number,
+		Id:        block.Hash,
+		ParentId:  parentHash,
 		Timestamp: timestamppb.New(time.Unix(timestamp.Int64(), 0)),
 		LibNum:    libNum,
 		ParentNum: parentBlockNum,
