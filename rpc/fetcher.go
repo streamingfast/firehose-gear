@@ -1,16 +1,15 @@
 package rpc
 
 import (
+	"bytes"
 	"context"
-	"encoding/json"
 	"fmt"
 	"math/big"
-	"reflect"
 	"time"
 
-	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/parser"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/chain/generic"
+	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	pbbstream "github.com/streamingfast/bstream/pb/sf/bstream/v1"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
@@ -81,18 +80,13 @@ func (f *Fetcher) Fetch(ctx context.Context, requestBlockNum uint64) (b *pbbstre
 	}
 	f.logger.Debug("block fetched successfully", zap.Uint64("block_num", requestBlockNum))
 
-	extrinsics, err := f.fetchExtrinsics(ctx, blockHash)
-	if err != nil {
-		return nil, false, fmt.Errorf("fetching extrinsics for block %d: %w", requestBlockNum, err)
-	}
-
 	events, err := f.fetchEvents(ctx, blockHash)
 	if err != nil {
 		return nil, false, fmt.Errorf("fetching events for block %d: %w", requestBlockNum, err)
 	}
 
 	f.logger.Info("converting block", zap.Uint64("block_num", requestBlockNum))
-	bstreamBlock, err := convertBlock(blockHash, block, extrinsics, events)
+	bstreamBlock, err := convertBlock(blockHash, block, events)
 	if err != nil {
 		return nil, false, fmt.Errorf("converting block %d from rpc response: %w", requestBlockNum, err)
 	}
@@ -155,14 +149,8 @@ func (f *Fetcher) fetchEvents(_ context.Context, blockHash types.Hash) ([]*parse
 func convertBlock(
 	blockHash types.Hash,
 	b *types.SignedBlock,
-	extrinsics []*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields],
 	events []*parser.Event,
 ) (*pbbstream.Block, error) {
-	convertedExtrinsics, err := convertExtrinsics(extrinsics)
-	if err != nil {
-		return nil, fmt.Errorf("failed to convert extrinsics: %w", err)
-	}
-
 	convertedEvents, err := convertEvents(events)
 	if err != nil {
 		return nil, fmt.Errorf("failed to convert events: %w", err)
@@ -172,11 +160,20 @@ func convertBlock(
 		Number:        uint64(b.Block.Header.Number),
 		Hash:          blockHash.Hex(),
 		Header:        convertHeader(b),
-		Extrinsics:    convertedExtrinsics,
+		Extrinsics:    convertExtrinsics(b.Block.Extrinsics),
 		Events:        convertedEvents,
 		DigestItems:   convertLogs(b.Block.Header.Digest),
 		Justification: b.Justification,
 	}
+
+	timestampBytes := b.Block.Extrinsics[0].Method.Args
+	timestampDecoder := scale.NewDecoder(bytes.NewBuffer(timestampBytes))
+	timestamp, err := timestampDecoder.DecodeUintCompact()
+	if err != nil {
+		return nil, fmt.Errorf("unable to decode timestamp: %w", err)
+	}
+
+	fmt.Println("timestamp: ", timestamp)
 
 	anyBlock, err := anypb.New(block)
 	if err != nil {
@@ -195,30 +192,13 @@ func convertBlock(
 		Id:       string(block.Hash),
 		ParentId: string(block.Header.ParentHash),
 		// the timestamp needs to be fetched from the extrinsics and get the item called timestamp (set)
-		Timestamp: timestamppb.New(time.Unix(int64(fetchTimestampFromExtrinsics(extrinsics)), 0)),
+		Timestamp: timestamppb.New(time.Unix(timestamp.Int64(), 0)),
 		LibNum:    libNum,
 		ParentNum: parentBlockNum,
 		Payload:   anyBlock,
 	}
 
 	return bstreamBlock, nil
-}
-
-const TIMESTAMP_SET_NAME = "Timestamp.set"
-const TIMESTAMP_FIELD_NAME = "now"
-
-func fetchTimestampFromExtrinsics(extrinsics []*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields]) uint64 {
-	for _, extrinsic := range extrinsics {
-		if extrinsic.Name == TIMESTAMP_SET_NAME {
-			for _, callField := range extrinsic.CallFields {
-				if callField.Name == TIMESTAMP_FIELD_NAME {
-					val := callField.Value.(types.UCompact)
-					return uint64(val.Int64())
-				}
-			}
-		}
-	}
-	panic("timestamp not found in extrinsics")
 }
 
 func convertHeader(b *types.SignedBlock) *pbgear.Header {
@@ -317,92 +297,63 @@ func convertChangesTrieSignal(signal types.ChangesTrieSignal) *pbgear.ChangesTri
 	}
 }
 
-func convertExtrinsics(extrinsics []*parser.Extrinsic[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields]) ([]*pbgear.Extrinsic, error) {
+func convertExtrinsics(extrinsics []types.Extrinsic) []*pbgear.Extrinsic {
 	gearExtrinsics := make([]*pbgear.Extrinsic, 0, len(extrinsics))
 	for _, extrinsic := range extrinsics {
-		callFields, err := convertDecodedFields(extrinsic.CallFields)
-		if err != nil {
-			return nil, fmt.Errorf("failed to convert decoded fields: %w", err)
-		}
 		gearExtrinsics = append(gearExtrinsics, &pbgear.Extrinsic{
-			Name:       extrinsic.Name,
-			CallFields: callFields,
-			CallIndex:  convertCallIndex(extrinsic.CallIndex),
-			Version:    uint32(extrinsic.Version),
-			Signature:  convertExtrinsicsSignature(extrinsic.Signature),
+			Version:   uint32(extrinsic.Version),
+			Signature: convertExtrinsicSignature(extrinsic.Signature),
+			Method:    convertExtrinsicCall(extrinsic.Method),
 		})
 	}
-
-	return gearExtrinsics, nil
+	return gearExtrinsics
 }
 
-func convertDecodedFields(callFields []*registry.DecodedField) ([]*pbgear.Field, error) {
-	fields := make([]*pbgear.Field, 0, len(callFields))
-	for _, callField := range callFields {
-		field := &pbgear.Field{
-			Name:        callField.Name,
-			LookupIndex: callField.LookupIndex,
-		}
-
-		switch t := callField.Value.(type) {
-		case registry.DecodedFields:
-			val, err := convertDecodedFields(t)
-			if err != nil {
-				return nil, err
-			}
-
-			field.Value = &pbgear.Field_Fields{
-				Fields: &pbgear.Fields{
-					Value: val,
-				},
-			}
-		default:
-			val, err := json.Marshal(callField.Value)
-			if err != nil {
-				return nil, err
-			}
-			field.Value = &pbgear.Field_JsonValue{
-				JsonValue: string(val),
-			}
-		}
-
-		fields = append(fields, field)
+func convertExtrinsicSignature(signature types.ExtrinsicSignatureV4) *pbgear.Signature {
+	nonce := big.Int(signature.Nonce)
+	tip := big.Int(signature.Tip)
+	return &pbgear.Signature{
+		Signer:    convertMultiAddress(signature.Signer),
+		Signature: convertMultiSignature(signature.Signature),
+		Era:       convertExtrinsicEra(signature.Era),
+		Nonce:     nonce.String(),
+		Tip:       tip.String(),
 	}
-	return fields, nil
 }
 
-func convertCallIndex(callIndex types.CallIndex) *pbgear.CallIndex {
+func convertExtrinsicCall(call types.Call) *pbgear.Call {
+	return &pbgear.Call{
+		CallIndex: convertExtrinsicCallIndex(call.CallIndex),
+		Args:      call.Args,
+	}
+}
+
+func convertExtrinsicCallIndex(callIndex types.CallIndex) *pbgear.CallIndex {
 	return &pbgear.CallIndex{
 		SectionIndex: uint32(callIndex.SectionIndex),
 		MethodIndex:  uint32(callIndex.MethodIndex),
 	}
 }
 
-func convertExtrinsicsSignature(signature generic.GenericExtrinsicSignature[types.MultiAddress, types.MultiSignature, generic.DefaultPaymentFields]) *pbgear.Signature {
-	v := reflect.ValueOf(signature)
-
-	// a generic struct can be instantiated and be nil or empty
-	if signature == nil || v.IsZero() {
-		return nil
-	}
-
-	return &pbgear.Signature{
-		Era:           convertEra(signature.GetEra()),
-		None:          convertNone(signature.GetNonce()),
-		Signer:        convertSigner(signature.GetSigner()),
-		Signature:     convertSignature(signature.GetSignature()),
-		PaymentFields: convertPaymentFields(signature.GetPaymentFields()),
+func convertMultiSignature(signature types.MultiSignature) *pbgear.MultiSignature {
+	return &pbgear.MultiSignature{
+		IsEd_25519: signature.IsEcdsa,
+		AsEd_25519: signature.AsEd25519.Hex(),
+		IsSr_25519: signature.IsSr25519,
+		AsSr_25519: signature.AsSr25519.Hex(),
+		IsEcdsa:    signature.IsEcdsa,
+		AsEcdsa:    signature.AsEcdsa.Hex(),
 	}
 }
 
-func convertSigner(signer types.MultiAddress) *pbgear.Signer {
-	return &pbgear.Signer{
-		Is_ID:        signer.IsID,
-		As_ID:        signer.AsID.ToHexString(),
+func convertMultiAddress(signer types.MultiAddress) *pbgear.MultiAddress {
+	return &pbgear.MultiAddress{
+		IsId:         signer.IsID,
+		AsId:         signer.AsID.ToHexString(),
 		IsIndex:      signer.IsIndex,
 		AsIndex:      uint32(signer.AsIndex),
 		IsRaw:        signer.IsRaw,
-		AsRaw:        signer.AsRaw,
+		AsRaw:        string(signer.AsRaw),
 		IsAddress_32: signer.IsAddress32,
 		AsAddress_32: string(signer.AsAddress32[:]),
 		IsAddress_20: signer.IsAddress20,
@@ -410,22 +361,11 @@ func convertSigner(signer types.MultiAddress) *pbgear.Signer {
 	}
 }
 
-func convertSignature(signature types.MultiSignature) *pbgear.SignatureDef {
-	return &pbgear.SignatureDef{
-		IsEd25519: signature.IsEcdsa,
-		AsEd25519: signature.AsEd25519.Hex(),
-		IsSr25519: signature.IsSr25519,
-		AsSr25519: signature.AsSr25519.Hex(),
-		IsEcdsa:   signature.IsEcdsa,
-		AsEcdsa:   signature.AsEcdsa.Hex(),
-	}
-}
-
-func convertEra(era types.ExtrinsicEra) *pbgear.Era {
+func convertExtrinsicEra(era types.ExtrinsicEra) *pbgear.ExtrinsicEra {
 	if &era == nil {
 		return nil
 	}
-	return &pbgear.Era{
+	return &pbgear.ExtrinsicEra{
 		IsImmortalEra: era.IsImmortalEra,
 		IsMortalEra:   era.IsMortalEra,
 		AsMortalEra:   convertMortalEra(era.AsMortalEra),
@@ -434,8 +374,8 @@ func convertEra(era types.ExtrinsicEra) *pbgear.Era {
 
 func convertMortalEra(era types.MortalEra) *pbgear.MortalEra {
 	return &pbgear.MortalEra{
-		First: uint32(era.First),
-		Last:  uint32(era.Second),
+		First:  uint32(era.First),
+		Second: uint32(era.Second),
 	}
 }
 
@@ -454,13 +394,14 @@ func convertPaymentFields(paymentFields generic.DefaultPaymentFields) *pbgear.Pa
 func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 	pbgearEvent := make([]*pbgear.Event, 0, len(events))
 	for _, evt := range events {
-		fields, err := convertDecodedFields(evt.Fields)
-		if err != nil {
-			return nil, err
-		}
+		// TODO: add the fields as bytes directly, and decode them in the substreams
+		// fields, err := convertDecodedFields(evt.Fields)
+		// if err != nil {
+		// 	return nil, err
+		// }
 		pbgearEvent = append(pbgearEvent, &pbgear.Event{
-			Name:   evt.Name,
-			Fields: fields,
+			Name: evt.Name,
+			// Fields: fields,
 			Id:     string(evt.EventID[:]),
 			Phase:  convertPhase(evt.Phase),
 			Topics: convertTopics(evt.Topics),
