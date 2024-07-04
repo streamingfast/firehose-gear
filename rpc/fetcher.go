@@ -148,19 +148,17 @@ func convertBlock(data *FetchedBlockData) (*pbbstream.Block, error) {
 	blockHash := data.blockHash
 
 	block := &pbgear.Block{
-		Number: uint64(b.Block.Header.Number),
-		Hash:   blockHash.Hex(),
+		Number:        uint64(b.Block.Header.Number),
+		Hash:          blockHash.Hex(),
+		Header:        convertHeader(b),
+		Extrinsics:    convertExtrinsics(b.Block.Extrinsics),
+		Events:        convertedEvents,
+		DigestItems:   convertLogs(b.Block.Header.Digest),
+		Justification: b.Justification,
 	}
 
 	timestamp := big.NewInt(0)
-
 	if b.Block.Header.Number > 0 {
-		block.Header = convertHeader(b)
-		block.Extrinsics = convertExtrinsics(b.Block.Extrinsics)
-		block.Events = convertedEvents
-		block.DigestItems = convertLogs(b.Block.Header.Digest)
-		block.Justification = b.Justification
-
 		timestampBytes := b.Block.Extrinsics[0].Method.Args
 		timestampDecoder := scale.NewDecoder(bytes.NewBuffer(timestampBytes))
 		timestamp, err = timestampDecoder.DecodeUintCompact()
@@ -184,19 +182,10 @@ func convertBlock(data *FetchedBlockData) (*pbbstream.Block, error) {
 		libNum = block.Number - 1
 	}
 
-	parentHash := ""
-	if block.Number > 0 {
-		parentHash = block.Header.ParentHash
-	}
-
-	if block.Number == 0 {
-		parentHash = "0x0000000000000000000000000000000000000000000000000000000000000000"
-	}
-
 	bstreamBlock := &pbbstream.Block{
 		Number:    block.Number,
 		Id:        block.Hash,
-		ParentId:  parentHash,
+		ParentId:  block.Header.ParentHash,
 		Timestamp: timestamppb.New(time.Unix(timestamp.Int64(), 0)),
 		LibNum:    libNum,
 		ParentNum: parentBlockNum,
