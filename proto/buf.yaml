@@ -1,5 +1,5 @@
 version: v1
-name: buf.build/streamingfast/firehose-starknet
+name: buf.build/streamingfast/firehose-gear
 deps:
   - buf.build/googleapis/googleapis
 breaking:
