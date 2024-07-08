@@ -10,12 +10,14 @@ import (
 	retriever "github.com/centrifuge/go-substrate-rpc-client/v4/registry/retriever"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/state"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/chain/generic"
+	rpcState "github.com/centrifuge/go-substrate-rpc-client/v4/rpc/state"
 )
 
 type Client struct {
 	client              *gsrpc.SubstrateAPI
 	extrinsicsRetriever retriever.DefaultExtrinsicRetriever
 	eventsRetriever     retriever.EventRetriever
+	state               rpcState.State
 }
 
 func NewClient(rpcEndpoint string) *Client {
@@ -48,5 +50,6 @@ func NewClient(rpcEndpoint string) *Client {
 		client:              client,
 		extrinsicsRetriever: extrinsicRetriever,
 		eventsRetriever:     eventRetriever,
+		state:               client.RPC.State,
 	}
 }

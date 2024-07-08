@@ -36,7 +36,8 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to marshal block: %v", err)
 	}
-	fmt.Println("block: ", string(j))
+	_ = j
+	// fmt.Println("block: ", string(j))
 
 	chain := generic.NewDefaultChain(api.Client)
 	factory := registry.NewFactory()
@@ -60,17 +61,17 @@ func main() {
 		log.Fatalf("Failed to get extrinsics: %v", err)
 	}
 
-	fmt.Println("---------------------------------------------")
-	fmt.Println("- Extrinsics")
-	fmt.Println("---------------------------------------------")
-	fmt.Println("Number of extrinsics: ", len(extrinsics))
+	// fmt.Println("---------------------------------------------")
+	// fmt.Println("- Extrinsics")
+	// fmt.Println("---------------------------------------------")
+	// fmt.Println("Number of extrinsics: ", len(extrinsics))
 	for _, extrinsic := range extrinsics {
 		j, err := json.MarshalIndent(extrinsic, "", "  ")
 		if err != nil {
 			log.Fatalf("Failed to marshal extrinsic: %v", err)
 		}
-
-		fmt.Println(string(j))
+		_ = j
+		// fmt.Println(string(j))
 	}
 
 	eventRetriever, err := retriever.NewDefaultEventRetriever(state.NewEventProvider(api.RPC.State), api.RPC.State)
@@ -83,18 +84,19 @@ func main() {
 		log.Fatalf("Failed to get events: %v", err)
 	}
 
-	fmt.Println("---------------------------------------------")
-	fmt.Println("- Events")
-	fmt.Println("---------------------------------------------")
-	fmt.Println("Number of events: ", len(events))
+	// fmt.Println("---------------------------------------------")
+	// fmt.Println("- Events")
+	// fmt.Println("---------------------------------------------")
+	// fmt.Println("Number of events: ", len(events))
 
 	for _, event := range events {
 		j, err := json.MarshalIndent(event, "", "  ")
 		if err != nil {
 			log.Fatalf("Failed to marshal event: %v", err)
 		}
+		_ = j
 
-		fmt.Println(string(j))
+		// fmt.Println(string(j))
 		//log.Printf("Event ID: %x \n", event.EventID)
 		//log.Printf("Event Name: %s \n", event.Name)
 		//log.Printf("Event Fields Count: %d \n", len(event.Fields))
@@ -104,4 +106,16 @@ func main() {
 		//	log.Printf("Field Value: %v \n", v)
 		//}
 	}
+
+	metadata, err := api.RPC.State.GetMetadata(blockHash)
+	if err != nil {
+		log.Fatalf("Failed to get metadata: %v", err)
+	}
+
+	m, err := json.MarshalIndent(metadata, "", "  ")
+	if err != nil {
+		log.Fatalf("Failed to marshal extrinsic: %v", err)
+	}
+
+	fmt.Println(string(m))
 }

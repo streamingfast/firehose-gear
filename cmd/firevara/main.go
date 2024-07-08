@@ -5,13 +5,12 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
-	"github.com/streamingfast/firehose-core/cmd/tools"
 	"github.com/streamingfast/logging"
 	"go.uber.org/zap"
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "firegear",
+	Use:   "firevara",
 	Short: "Firehose Gear (for Vara) block fetching and tooling",
 	Args:  cobra.ExactArgs(1),
 }
@@ -20,7 +19,7 @@ func init() {
 	logging.InstantiateLoggers(logging.WithDefaultLevel(zap.InfoLevel))
 
 	rootCmd.AddCommand(NewFetchCmd(logger, tracer))
-	rootCmd.AddCommand(tools.ToolsCmd)
+	rootCmd.AddCommand(ToolsCmd)
 }
 
 func main() {
