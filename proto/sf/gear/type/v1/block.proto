@@ -21,6 +21,8 @@ message Header {
   string state_root = 2;
   // [32]byte
   string extrinsics_root = 3;
+  uint32 spec_version = 4;
+  bytes updated_metadata = 5;
 }
 
 message DigestItem {

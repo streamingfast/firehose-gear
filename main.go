@@ -117,5 +117,16 @@ func main() {
 		log.Fatalf("Failed to marshal extrinsic: %v", err)
 	}
 
-	fmt.Println(string(m))
+	_ = m
+
+	block0, err := types.NewHashFromHexString("0x1555a60f789e322c607f8b8df062cf0441484897b547028c378509d5e56eec48")
+	if err != nil {
+		log.Fatalf("Failed to create block hash: %v", err)
+	}
+	specVerion, err := api.RPC.State.GetRuntimeVersion(block0)
+	if err != nil {
+		log.Fatalf("Failed to get runtime version: %v", err)
+	}
+
+	fmt.Println("Spec Version: ", specVerion.SpecVersion)
 }

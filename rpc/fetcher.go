@@ -7,6 +7,7 @@ import (
 	"math/big"
 	"time"
 
+	cclient "github.com/centrifuge/go-substrate-rpc-client/v4/client"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/parser"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/chain/generic"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
@@ -19,11 +20,17 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
+var specVersion uint32
+var metadata string
+
 type FetchedBlockData struct {
 	latestFinalizedHead uint64
 	blockHash           types.Hash
 	block               *types.SignedBlock
+	previousSpecVerion  uint32
+	specVersion         uint32
 	events              []*parser.Event
+	metadata            []byte
 }
 
 type Fetcher struct {
@@ -121,6 +128,32 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 				return nil, fmt.Errorf("failed to get events: %w", err)
 			}
 			fetchedBlockData.events = events
+
+			previousBlockhash := block.Block.Header.ParentHash
+			previousRuntimeVersion, err := client.state.GetRuntimeVersion(previousBlockhash)
+			if err != nil {
+				return nil, fmt.Errorf("failed to get runtime version at previous block hash %s: %w", previousBlockhash.Hex(), err)
+			}
+
+			previousSpecVersion := uint32(previousRuntimeVersion.SpecVersion)
+
+			// if the previous spec version is different from the current specVersion, we fetch the metadata and then we store the metadata
+			if specVersion != previousSpecVersion {
+				runtimeVersion, err := client.state.GetRuntimeVersion(blockHash)
+				if err != nil {
+					return nil, fmt.Errorf("failed to get runtime version at block hash %s: %w", blockHash.Hex(), err)
+				}
+
+				specVersion = uint32(runtimeVersion.SpecVersion)
+				err = cclient.CallWithBlockHash(client.client.Client, &metadata, "state_getMetadata", &blockHash)
+				if err != nil {
+					return nil, err
+				}
+			}
+
+			fetchedBlockData.previousSpecVerion = previousSpecVersion
+			fetchedBlockData.specVersion = specVersion
+			fetchedBlockData.metadata = []byte(metadata)
 		}
 
 		return fetchedBlockData, nil
@@ -150,7 +183,7 @@ func convertBlock(data *FetchedBlockData) (*pbbstream.Block, error) {
 	block := &pbgear.Block{
 		Number:        uint64(b.Block.Header.Number),
 		Hash:          blockHash.Hex(),
-		Header:        convertHeader(b),
+		Header:        convertHeader(data),
 		Extrinsics:    convertExtrinsics(b.Block.Extrinsics),
 		Events:        convertedEvents,
 		DigestItems:   convertLogs(b.Block.Header.Digest),
@@ -195,12 +228,21 @@ func convertBlock(data *FetchedBlockData) (*pbbstream.Block, error) {
 	return bstreamBlock, nil
 }
 
-func convertHeader(b *types.SignedBlock) *pbgear.Header {
-	return &pbgear.Header{
-		ParentHash:     b.Block.Header.ParentHash.Hex(),
-		StateRoot:      b.Block.Header.StateRoot.Hex(),
-		ExtrinsicsRoot: b.Block.Header.ExtrinsicsRoot.Hex(),
+func convertHeader(fetchedBlockData *FetchedBlockData) *pbgear.Header {
+	h := &pbgear.Header{
+		ParentHash:     fetchedBlockData.block.Block.Header.ParentHash.Hex(),
+		StateRoot:      fetchedBlockData.block.Block.Header.StateRoot.Hex(),
+		ExtrinsicsRoot: fetchedBlockData.block.Block.Header.ExtrinsicsRoot.Hex(),
+		SpecVersion:    specVersion,
 	}
+
+	// set the metadata if the previous spec version is different from the current spec version
+	// this means that the metadata has been updated
+	if fetchedBlockData.previousSpecVerion != fetchedBlockData.specVersion {
+		h.UpdatedMetadata = []byte(fetchedBlockData.metadata)
+	}
+
+	return h
 }
 
 func convertLogs(digestItems []types.DigestItem) []*pbgear.DigestItem {
