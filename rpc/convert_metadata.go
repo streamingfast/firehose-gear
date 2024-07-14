@@ -84,8 +84,9 @@ func convertTypesFromv14(metadata substrateTypes.MetadataV14) (*types.Types, err
 			ttype := convertType.convertPortableTypeV14(portableType, allMetadataTypes)
 			variants := ttype.(*types.Variants)
 			callFunctions := variants.ToCallFunctions()
+			str := stringy.New(string(pallet.Name))
 			protobufMessage := &types.ProtobufMessage{
-				Name:          string(pallet.Name),
+				Name:          str.PascalCase().Get(),
 				Messages:      variants.ToProtobufMessages(),
 				CallFunctions: callFunctions,
 			}
