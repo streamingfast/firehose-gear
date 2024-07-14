@@ -9,7 +9,7 @@ import (
 )
 
 type IType interface {
-	ToProtoMessage() string
+	ToProtoMessage(options ...string) string
 }
 
 type Types struct {
@@ -37,7 +37,7 @@ type Composite struct {
 	CompositeFields []*CompositeField
 }
 
-func (c *Composite) ToProtoMessage() string {
+func (c *Composite) ToProtoMessage(options ...string) string {
 	var sb strings.Builder
 	for _, f := range c.CompositeFields {
 		sb.WriteString(f.Type.ToProtoMessage())
@@ -50,7 +50,7 @@ type CompositeField struct {
 	Type IType
 }
 
-func (f *CompositeField) ToProtoMessage() string {
+func (f *CompositeField) ToProtoMessage(options ...string) string {
 	if f.Name == "" {
 		return f.Type.ToProtoMessage()
 	}
@@ -126,7 +126,7 @@ func (v *Variants) ToProtobufMessages() []*ProtobufMessage {
 	return protobufMessages
 }
 
-func (v *Variants) ToProtoMessage() string {
+func (v *Variants) ToProtoMessage(options ...string) string {
 	var sb strings.Builder
 
 	if v.isAnOption() {
@@ -185,9 +185,9 @@ func (v *Variant) ToProtobufMessage() *ProtobufMessage {
 			Type: field.Type.ToProtoMessage(),
 		})
 	}
-
+	str := stringy.New(v.Name)
 	return &ProtobufMessage{
-		Name:          v.Name,
+		Name:          str.PascalCase().Get(),
 		ProtobufTypes: protobufTypes,
 	}
 }
@@ -216,7 +216,7 @@ type Sequence struct {
 }
 
 // TODO: fix this
-func (s *Sequence) ToProtoMessage() string {
+func (s *Sequence) ToProtoMessage(options ...string) string {
 	t, ok := s.Item.(*Primitive)
 	if ok {
 		if t.Si0TypeDefPrimitive.IsU8 {
@@ -242,7 +242,7 @@ type Array struct {
 }
 
 // TODO: fix this
-func (a *Array) ToProtoMessage() string {
+func (a *Array) ToProtoMessage(options ...string) string {
 	t, ok := a.Type.(*Primitive)
 	if ok {
 		if t.Si0TypeDefPrimitive.IsU8 {
@@ -260,7 +260,7 @@ type Tuple struct {
 	Items []IType
 }
 
-func (t *Tuple) ToProtoMessage() string {
+func (t *Tuple) ToProtoMessage(options ...string) string {
 	var sb strings.Builder
 	sb.WriteString(fmt.Sprintf("\n\t\tmessage Tuple_%s {\n", t.Name))
 	for i, item := range t.Items {
@@ -291,7 +291,7 @@ type Primitive struct {
 	Si0TypeDefPrimitive *Type
 }
 
-func (p *Primitive) ToProtoMessage() string {
+func (p *Primitive) ToProtoMessage(options ...string) string {
 	return p.Si0TypeDefPrimitive.ToProtoMessage()
 }
 
@@ -299,7 +299,7 @@ type Compact struct {
 	Type IType
 }
 
-func (c *Compact) ToProtoMessage() string {
+func (c *Compact) ToProtoMessage(options ...string) string {
 	return c.Type.ToProtoMessage()
 }
 
@@ -308,13 +308,13 @@ type BitSequence struct {
 	BitOrderType IType
 }
 
-func (b *BitSequence) ToProtoMessage() string {
+func (b *BitSequence) ToProtoMessage(options ...string) string {
 	panic("not implemented")
 }
 
 type HistoricMetaCompat string
 
-func (h HistoricMetaCompat) ToProtoMessage() string {
+func (h HistoricMetaCompat) ToProtoMessage(options ...string) string {
 	panic("not implemented")
 }
 

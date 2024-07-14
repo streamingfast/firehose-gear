@@ -5,6 +5,7 @@ import (
 	"slices"
 
 	substrateTypes "github.com/centrifuge/go-substrate-rpc-client/v4/types"
+	"github.com/gobeam/stringy"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
 	"github.com/streamingfast/firehose-gear/types"
 	"github.com/streamingfast/logging"

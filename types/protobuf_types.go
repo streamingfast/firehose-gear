@@ -42,7 +42,7 @@ type ProtobufMessage struct {
 	ProtobufTypes []*ProtobufType
 }
 
-func (p *ProtobufMessage) ToProtoMessage() string {
+func (p *ProtobufMessage) ToProtoMessage(options ...string) string {
 	var sb strings.Builder
 	sb.WriteString(fmt.Sprintf("\nmessage %s {\n", p.Name))
 
