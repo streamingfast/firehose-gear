@@ -24,3 +24,5 @@ data/*
 /firevara
 devel/data/*
 devel/firehose-data/*
+.vscode/*
+.env

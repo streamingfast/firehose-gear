@@ -1,0 +1,146 @@
+syntax = "proto3";
+package sf.gear.extrinsics.type.v1;
+
+message Gear {
+    oneof CallFunction {
+        UploadCode upload_code = 1;
+        UploadProgram upload_program = 2;
+        CreateProgram create_program = 3;
+        SendMessage send_message = 4;
+        SendReply send_reply = 5;
+        ClaimValue claim_value = 6;
+        Run run = 7;
+        SetExecuteInherent set_execute_inherent = 8;
+    }
+
+    message UploadCode{
+        bytes code = 1;
+    }
+
+    message UploadProgram {
+        bytes code = 1;
+        bytes salt = 2;
+        bytes init_payload = 3;
+        uint64 gas_limit = 4;
+        string value = 5; // uint128
+        bool keep_alive = 6;
+    }
+
+    message CreateProgram {
+        bytes code_id = 1; // [32]byte
+        bytes salt = 2;
+        bytes init_payload = 3;
+        uint64 gas_limit = 4;
+        string value = 5; // uint128
+        bool keep_alive = 6;
+    }
+
+    message SendMessage {
+        bytes destination = 1; // [32]byte
+        bytes payload = 2;
+        uint64 gas_limit = 3;
+        string value = 4; // uint128
+        bool keep_alive = 5;
+    }
+
+    message SendReply {
+        bytes reply_to_id = 1; // [32]byte
+        bytes payload = 2;
+        uint64 gas_limit = 3;
+        string value = 4; // uint128
+        bool keep_alive = 5;
+    }
+
+    message ClaimValue {
+        bytes message_id = 1; // [32]byte
+    }
+
+    message Run {
+        optional uint64 max_gas = 1;
+    }
+    
+    message SetExecuteInherent {
+        bool value = 1;
+    }
+}
+
+message System {
+	oneof CallFunction {
+		Remark remark = 1;
+		SetHeapPages set_heap_pages = 2;
+		SetCode set_code = 3;
+		SetCodeWithoutChecks set_code_without_checks = 4;
+		SetStorage set_storage = 5;
+		KillStorage kill_storage = 6;
+		KillPrefix kill_prefix = 7;
+		RemarkWithEvent remark_with_event = 8;
+	}
+	message Remark {
+		bytes remark = 1;
+	}
+	message SetHeapPages {
+		uint32 pages = 1;
+	}
+	message SetCode {
+		bytes code = 1;
+	}
+	message SetCodeWithoutChecks {
+		bytes code = 1;
+	}
+    message SetStorage {
+        repeated Tuple_Items items = 1; 
+
+        message Tuple_Items {
+            bytes items_1 = 1;
+            bytes items_2 = 2;
+        }
+    }
+	message KillStorage {
+		repeated bytes keys = 1;
+	}
+	message KillPrefix {
+		bytes prefix = 1;
+		uint32 subkeys = 2;
+	}
+	message RemarkWithEvent {
+		bytes remark = 1;
+	}
+}
+
+message Timestamp {
+	oneof CallFunction {
+		Set set = 1;
+	}
+	message Set {
+		uint64 now = 1;
+	}
+}
+
+message Babe {
+    oneof CallFunction {
+        ReportEquivocation report_equivocation = 1;
+        ReportEquivocationUnsigned report_equivocation_unsigned = 2;
+        PlanConfig plan_config = 3;
+    }
+
+    message ReportEquivocation {
+        EquivocationProof equivocation_proof = 1;
+
+        message EquivocationProof {
+            Offender offender = 1;
+
+            message Offender {
+                bytes offender = 1;
+            }
+        }
+    }
+
+    message ReportEquivocationUnsigned {
+        bytes equivocation_proof = 1;
+        bytes key_owner_proof = 2;
+    }
+
+    message PlanConfig {
+        bytes config = 1;
+    }
+}

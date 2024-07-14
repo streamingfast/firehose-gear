@@ -30,6 +30,10 @@ func convertMetadataE(logger *zap.Logger, tracer logging.Tracer) firecore.Comman
 		blockHash := sflags.MustGetString(cmd, "block-hash")
 		endpoint := args[0]
 
+		if endpoint == "" {
+			return fmt.Errorf("missing endpoint")
+		}
+
 		if blockHash != "" && !strings.HasPrefix(blockHash, "0x") {
 			blockHash = "0x" + blockHash
 		}
@@ -44,7 +48,15 @@ func convertMetadataE(logger *zap.Logger, tracer logging.Tracer) firecore.Comman
 			return fmt.Errorf("converting metadata: %w", err)
 		}
 
-		fmt.Println(metadata)
+		for _, t := range metadata.Types {
+			msg := t.ToProtoMessage()
+			if msg == "" {
+				continue
+			}
+			fmt.Println(msg)
+		}
+
+		// fmt.Println(metadata)
 		return nil
 	}
 }

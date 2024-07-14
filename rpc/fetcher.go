@@ -387,6 +387,7 @@ func convertChangesTrieSignal(signal types.ChangesTrieSignal) *pbgear.ChangesTri
 func convertExtrinsics(extrinsics []types.Extrinsic) []*pbgear.Extrinsic {
 	gearExtrinsics := make([]*pbgear.Extrinsic, 0, len(extrinsics))
 	for _, extrinsic := range extrinsics {
+
 		gearExtrinsics = append(gearExtrinsics, &pbgear.Extrinsic{
 			Version:   uint32(extrinsic.Version),
 			Signature: convertExtrinsicSignature(extrinsic.Signature),

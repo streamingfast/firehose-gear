@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	blockHash, err := types.NewHashFromHexString("0x53cde3f3c1909cdc98c4e724c569f5517511928d451811916ebb181bc7d7f7f7")
+	blockHash, err := types.NewHashFromHexString("0xcd73e68bd2bb5f3110ab1e7e62f7381038d088eab970a57dacbad5e76690a3db")
 	if err != nil {
 		log.Fatalf("Failed to create block hash: %v", err)
 	}
@@ -71,7 +71,7 @@ func main() {
 			log.Fatalf("Failed to marshal extrinsic: %v", err)
 		}
 		_ = j
-		// fmt.Println(string(j))
+		fmt.Println(string(j))
 	}
 
 	eventRetriever, err := retriever.NewDefaultEventRetriever(state.NewEventProvider(api.RPC.State), api.RPC.State)
@@ -116,17 +116,18 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to marshal extrinsic: %v", err)
 	}
-
 	_ = m
 
-	block0, err := types.NewHashFromHexString("0x1555a60f789e322c607f8b8df062cf0441484897b547028c378509d5e56eec48")
-	if err != nil {
-		log.Fatalf("Failed to create block hash: %v", err)
-	}
-	specVerion, err := api.RPC.State.GetRuntimeVersion(block0)
-	if err != nil {
-		log.Fatalf("Failed to get runtime version: %v", err)
-	}
+	// fmt.Println(string(m))
 
-	fmt.Println("Spec Version: ", specVerion.SpecVersion)
+	// block0, err := types.NewHashFromHexString("0x1555a60f789e322c607f8b8df062cf0441484897b547028c378509d5e56eec48")
+	// if err != nil {
+	// 	log.Fatalf("Failed to create block hash: %v", err)
+	// }
+	// specVerion, err := api.RPC.State.GetRuntimeVersion(block0)
+	// if err != nil {
+	// 	log.Fatalf("Failed to get runtime version: %v", err)
+	// }
+
+	// fmt.Println("Spec Version: ", specVerion.SpecVersion)
 }
