@@ -27,6 +27,12 @@ func (p *ProtobufMessages) ToProtoMessage() string {
 	sb.WriteString(p.GetSyntaxName())
 	sb.WriteString(p.GetPackageName())
 
+	sb.WriteString("message Params {\n")
+	for i, message := range p.Messages {
+		sb.WriteString(fmt.Sprintf("%s = %d;\n", message.ToOneOfCallFunctions(), i+1))
+	}
+	sb.WriteString("}\n")
+
 	for _, message := range p.Messages {
 		sb.WriteString(message.ToProtoMessage())
 	}
@@ -34,32 +40,20 @@ func (p *ProtobufMessages) ToProtoMessage() string {
 	return sb.String()
 }
 
-// All the fields that can be present in a protobuf
 type ProtobufMessage struct {
-	Name          string
-	CallFunctions *CallFunctions
-	Messages      []*ProtobufMessage
-	ProtobufTypes []*ProtobufType
+	Name string
 }
 
 func (p *ProtobufMessage) ToProtoMessage(options ...string) string {
 	var sb strings.Builder
 	sb.WriteString(fmt.Sprintf("\nmessage %s {\n", p.Name))
-
-	if p.CallFunctions != nil {
-		sb.WriteString(p.CallFunctions.ToProtoMessage())
-	}
-
-	for i, pt := range p.ProtobufTypes {
-		sb.WriteString(fmt.Sprintf("\t%s = %d;\n", pt.ToProtoMessage(), i+1))
-	}
-
-	for _, m := range p.Messages {
-		sb.WriteString(fmt.Sprintf("\t%s", m.ToProtoMessage()))
-	}
-
 	sb.WriteString("}\n")
 	return sb.String()
+}
+
+func (p *ProtobufMessage) ToOneOfCallFunctions() string {
+	str := stringy.New(p.Name)
+	return fmt.Sprintf("\t\t%s %s", str.PascalCase().Get(), utils.ToSnakeCase(p.Name))
 }
 
 type CallFunctionProtobufMessageType struct {

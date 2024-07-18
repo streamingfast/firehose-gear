@@ -48,15 +48,7 @@ func convertMetadataE(logger *zap.Logger, tracer logging.Tracer) firecore.Comman
 			return fmt.Errorf("converting metadata: %w", err)
 		}
 
-		for _, t := range metadata.Types {
-			msg := t.ToProtoMessage()
-			if msg == "" {
-				continue
-			}
-			fmt.Println(msg)
-		}
-
-		// fmt.Println(metadata)
+		_ = metadata
 		return nil
 	}
 }

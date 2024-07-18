@@ -16,7 +16,7 @@ import (
 )
 
 func main() {
-	blockHash, err := types.NewHashFromHexString("0xcd73e68bd2bb5f3110ab1e7e62f7381038d088eab970a57dacbad5e76690a3db")
+	blockHash, err := types.NewHashFromHexString("0x7720f26b49f715dcc116728db3a0cf00a331418867ad45b9b3505593c050f50c")
 	if err != nil {
 		log.Fatalf("Failed to create block hash: %v", err)
 	}
@@ -61,10 +61,10 @@ func main() {
 		log.Fatalf("Failed to get extrinsics: %v", err)
 	}
 
-	// fmt.Println("---------------------------------------------")
-	// fmt.Println("- Extrinsics")
-	// fmt.Println("---------------------------------------------")
-	// fmt.Println("Number of extrinsics: ", len(extrinsics))
+	fmt.Println("---------------------------------------------")
+	fmt.Println("- Extrinsics")
+	fmt.Println("---------------------------------------------")
+	fmt.Println("Number of extrinsics: ", len(extrinsics))
 	for _, extrinsic := range extrinsics {
 		j, err := json.MarshalIndent(extrinsic, "", "  ")
 		if err != nil {

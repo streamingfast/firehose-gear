@@ -3,6 +3,8 @@ package rpc
 import (
 	"bytes"
 	"context"
+	"encoding/hex"
+	"encoding/json"
 	"fmt"
 	"math/big"
 	"time"
@@ -234,7 +236,7 @@ func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block,
 
 	block := &pbgear.Block{
 		Number:        uint64(b.Block.Header.Number),
-		Hash:          blockHash.Hex(),
+		Hash:          blockHash[:],
 		Header:        convertHeader(data, specVersion, data.metadata),
 		Extrinsics:    convertExtrinsics(b.Block.Extrinsics),
 		Events:        convertedEvents,
@@ -269,9 +271,9 @@ func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block,
 
 	bstreamBlock := &pbbstream.Block{
 		Number:    block.Number,
-		Id:        block.Hash,
-		ParentId:  block.Header.ParentHash,
-		Timestamp: timestamppb.New(time.Unix(timestamp.Int64(), 0)),
+		Id:        hex.EncodeToString(block.Hash),
+		ParentId:  hex.EncodeToString(block.Header.ParentHash),
+		Timestamp: timestamppb.New(time.UnixMilli(timestamp.Int64())),
 		LibNum:    libNum,
 		ParentNum: parentBlockNum,
 		Payload:   anyBlock,
@@ -282,9 +284,9 @@ func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block,
 
 func convertHeader(fetchedBlockData *FetchedBlockData, specVersion uint32, metadata []byte) *pbgear.Header {
 	h := &pbgear.Header{
-		ParentHash:     fetchedBlockData.block.Block.Header.ParentHash.Hex(),
-		StateRoot:      fetchedBlockData.block.Block.Header.StateRoot.Hex(),
-		ExtrinsicsRoot: fetchedBlockData.block.Block.Header.ExtrinsicsRoot.Hex(),
+		ParentHash:     fetchedBlockData.block.Block.Header.ParentHash[:],
+		StateRoot:      fetchedBlockData.block.Block.Header.StateRoot[:],
+		ExtrinsicsRoot: fetchedBlockData.block.Block.Header.ExtrinsicsRoot[:],
 		SpecVersion:    specVersion,
 	}
 
@@ -306,7 +308,7 @@ func convertLogs(digestItems []types.DigestItem) []*pbgear.DigestItem {
 		if item.IsChangesTrieRoot {
 			digestItem = &pbgear.DigestItem{
 				Item: &pbgear.DigestItem_AsChangesTrieRoot{
-					AsChangesTrieRoot: item.AsChangesTrieRoot.Hex(),
+					AsChangesTrieRoot: item.AsChangesTrieRoot[:],
 				},
 			}
 		}
@@ -426,26 +428,26 @@ func convertExtrinsicCallIndex(callIndex types.CallIndex) *pbgear.CallIndex {
 func convertMultiSignature(signature types.MultiSignature) *pbgear.MultiSignature {
 	return &pbgear.MultiSignature{
 		IsEd_25519: signature.IsEcdsa,
-		AsEd_25519: signature.AsEd25519.Hex(),
+		AsEd_25519: signature.AsEd25519[:],
 		IsSr_25519: signature.IsSr25519,
-		AsSr_25519: signature.AsSr25519.Hex(),
+		AsSr_25519: signature.AsSr25519[:],
 		IsEcdsa:    signature.IsEcdsa,
-		AsEcdsa:    signature.AsEcdsa.Hex(),
+		AsEcdsa:    signature.AsEcdsa[:],
 	}
 }
 
 func convertMultiAddress(signer types.MultiAddress) *pbgear.MultiAddress {
 	return &pbgear.MultiAddress{
 		IsId:         signer.IsID,
-		AsId:         signer.AsID.ToHexString(),
+		AsId:         signer.AsID[:],
 		IsIndex:      signer.IsIndex,
 		AsIndex:      uint32(signer.AsIndex),
 		IsRaw:        signer.IsRaw,
-		AsRaw:        string(signer.AsRaw),
+		AsRaw:        signer.AsRaw,
 		IsAddress_32: signer.IsAddress32,
-		AsAddress_32: string(signer.AsAddress32[:]),
+		AsAddress_32: signer.AsAddress32[:],
 		IsAddress_20: signer.IsAddress20,
-		AsAddress_20: string(signer.AsAddress20[:]),
+		AsAddress_20: signer.AsAddress20[:],
 	}
 }
 
@@ -481,17 +483,17 @@ func convertPaymentFields(paymentFields generic.DefaultPaymentFields) *pbgear.Pa
 
 func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 	pbgearEvent := make([]*pbgear.Event, 0, len(events))
-	for _, evt := range events {
-		// TODO: add the fields as bytes directly, and decode them in the substreams
+	for i, evt := range events {
+		fmt.Println("EVENT NUM", i)
 		fields, err := convertEventFields(evt.Fields)
-
 		if err != nil {
 			return nil, err
 		}
+
 		pbgearEvent = append(pbgearEvent, &pbgear.Event{
 			Name:   evt.Name,
 			Fields: fields,
-			Id:     string(evt.EventID[:]),
+			Id:     evt.EventID[:],
 			Phase:  convertPhase(evt.Phase),
 			Topics: convertTopics(evt.Topics),
 		})
@@ -501,14 +503,20 @@ func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 
 func convertEventFields(fields registry.DecodedFields) ([][]byte, error) {
 	out := make([][]byte, 0)
-	for _, field := range fields {
+	for i, field := range fields {
 		buffer := bytes.NewBuffer(nil)
 		fieldEncoder := scale.NewEncoder(buffer)
-		err := fieldEncoder.Encode(field)
+		err := fieldEncoder.Encode(field.Value)
 		if err != nil {
 			return nil, fmt.Errorf("failed to encode field: %w", err)
 		}
 		out = append(out, buffer.Bytes())
+		fmt.Printf("event %d field: %s type: %s\n", i, hex.EncodeToString(buffer.Bytes()), field.Name)
+		b, err := json.MarshalIndent(field.Value, "", "  ")
+		if err != nil {
+			return nil, fmt.Errorf("failed to marshal field: %w", err)
+		}
+		fmt.Println(string(b))
 	}
 	return out, nil
 }
@@ -522,10 +530,10 @@ func convertPhase(phase *types.Phase) *pbgear.Phase {
 	}
 
 }
-func convertTopics(hashes []types.Hash) []string {
-	topics := make([]string, 0, len(hashes))
+func convertTopics(hashes []types.Hash) [][]byte {
+	topics := make([][]byte, 0, len(hashes))
 	for _, hash := range hashes {
-		topics = append(topics, hash.Hex())
+		topics = append(topics, hash[:])
 	}
 	return topics
 }

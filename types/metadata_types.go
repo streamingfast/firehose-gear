@@ -10,31 +10,24 @@ import (
 
 type IType interface {
 	ToProtoMessage(options ...string) string
+	GetName() string
 }
 
 type Types struct {
 	Types []IType
 }
 
-type CallFunctions struct {
-	MessageTypes []*CallFunctionProtobufMessageType
-	Variant      *Variants
-}
-
-func (c *CallFunctions) ToProtoMessage(options ...string) string {
-	var sb strings.Builder
-	sb.WriteString("\toneof CallFunctions {\n")
-
-	for i, mt := range c.MessageTypes {
-		sb.WriteString(fmt.Sprintf("\t\t%s = %d;\n", mt.ToProtoMessage(), i+1))
-	}
-
-	sb.WriteString("\t}\n")
-	return sb.String()
+type BaseType struct {
+	Optional bool
 }
 
 type Composite struct {
+	BaseType
 	CompositeFields []*CompositeField
+}
+
+func (c *Composite) GetName() string {
+	return "Composite"
 }
 
 func (c *Composite) ToProtoMessage(options ...string) string {
@@ -58,24 +51,18 @@ func (f *CompositeField) ToProtoMessage(options ...string) string {
 	return fmt.Sprintf("%s %s", f.Type.ToProtoMessage(), f.Name)
 }
 
-type VariantField struct {
-	Name string
-	Type IType
-}
-
-func (f *VariantField) ToProtoMessage() string {
-	return fmt.Sprintf("%s %s", f.Type.ToProtoMessage(), f.Name)
-}
-
-func (f *VariantField) ToProtobufType() *ProtobufType {
-	return &ProtobufType{
-		Name: f.Name,
-		Type: f.Type.ToProtoMessage(),
-	}
+func (f *CompositeField) GetName() string {
+	str := stringy.New(f.Name)
+	return str.PascalCase().Get()
 }
 
 type Variants struct {
+	BaseType
 	Variants []*Variant
+}
+
+func (v *Variants) GetName() string {
+	return "Variants"
 }
 
 func (v *Variants) VariantNames() string {
@@ -90,49 +77,8 @@ func (v *Variants) VariantNames() string {
 	return sb.String()
 }
 
-func (v *Variants) ToCallFunctions() *CallFunctions {
-	var cfMessageTypes []*CallFunctionProtobufMessageType
-	for _, variant := range v.Variants {
-		// if a variant is a simple type, then we don't need to create a call function for it
-		if variant.isSimpleType() {
-			continue
-		}
-
-		cfMessageTypes = append(cfMessageTypes, &CallFunctionProtobufMessageType{
-			MessageType: variant.Name,
-		})
-	}
-	return &CallFunctions{
-		MessageTypes: cfMessageTypes,
-		Variant:      v,
-	}
-}
-
-func (v *Variants) ToProtobufType() []*ProtobufType {
-	var protobufTypes []*ProtobufType
-	for _, variant := range v.Variants {
-		if variant.isSimpleType() {
-			protobufTypes = append(protobufTypes, variant.ToProtobufType()...)
-		}
-	}
-	return protobufTypes
-}
-
-func (v *Variants) ToProtobufMessages() []*ProtobufMessage {
-	var protobufMessages []*ProtobufMessage
-	for _, variant := range v.Variants {
-		protobufMessages = append(protobufMessages, variant.ToProtobufMessage())
-	}
-	return protobufMessages
-}
-
 func (v *Variants) ToProtoMessage(options ...string) string {
 	var sb strings.Builder
-
-	if v.isAnOption() {
-		sb.WriteString(fmt.Sprintf("optional %s", v.Variants[1].VariantFields[0].Type.ToProtoMessage()))
-		return sb.String()
-	}
 
 	for _, variant := range v.Variants {
 		sb.WriteString(variant.ToProtoMessage())
@@ -141,30 +87,18 @@ func (v *Variants) ToProtoMessage(options ...string) string {
 	return sb.String()
 }
 
-func (v *Variants) isAnOption() bool {
-	isNonePresent := false
-	isSomePresent := false
-	for _, vari := range v.Variants {
-		if vari.Name == "None" {
-			isNonePresent = true
-			continue
-		}
-
-		if vari.Name == "Some" {
-			isSomePresent = true
-			continue
-		}
-	}
-	return isNonePresent && isSomePresent
-}
-
 type Variant struct {
 	Name          string
 	VariantFields []*VariantField
 	Index         uint64
 }
 
-func (v *Variant) ToProtoMessage() string {
+func (v *Variant) GetName() string {
+	str := stringy.New(v.Name)
+	return fmt.Sprintf("Variant%s", str.PascalCase().Get())
+}
+
+func (v *Variant) ToProtoMessage(options ...string) string {
 	var sb strings.Builder
 
 	tabs := "\t"
@@ -177,45 +111,35 @@ func (v *Variant) ToProtoMessage() string {
 	return sb.String()
 }
 
-func (v *Variant) ToProtobufMessage() *ProtobufMessage {
-	var protobufTypes []*ProtobufType
-	for _, field := range v.VariantFields {
-		protobufTypes = append(protobufTypes, &ProtobufType{
-			Name: v.Name,
-			Type: field.Type.ToProtoMessage(),
-		})
-	}
-	str := stringy.New(v.Name)
-	return &ProtobufMessage{
-		Name:          str.PascalCase().Get(),
-		ProtobufTypes: protobufTypes,
-	}
+type VariantField struct {
+	Name string
+	Type IType
 }
 
-func (v *Variant) isSimpleType() bool {
-	for _, field := range v.VariantFields {
-		if field.Name != "" {
-			return false
-		}
-	}
-	return true
+func (f *VariantField) ToProtoMessage(options ...string) string {
+	return fmt.Sprintf("%s %s", f.Type.ToProtoMessage(), f.Name)
 }
 
-func (v *Variant) ToProtobufType() []*ProtobufType {
-	var protobufTypes []*ProtobufType
-	if v.isSimpleType() {
-		for _, field := range v.VariantFields {
-			protobufTypes = append(protobufTypes, field.ToProtobufType())
-		}
+func (f *VariantField) GetName() string {
+	str := stringy.New(f.Name)
+	return fmt.Sprintf("VariantField%s", str.PascalCase().Get())
+}
+
+func (f *VariantField) ToProtobufType() *ProtobufType {
+	return &ProtobufType{
+		Name: f.Name,
+		Type: f.Type.ToProtoMessage(),
 	}
-	return protobufTypes
 }
 
 type Sequence struct {
 	Item IType
 }
 
-// TODO: fix this
+func (s *Sequence) GetName() string {
+	return fmt.Sprintf("Sequence%s", s.Item.GetName())
+}
+
 func (s *Sequence) ToProtoMessage(options ...string) string {
 	t, ok := s.Item.(*Primitive)
 	if ok {
@@ -241,7 +165,10 @@ type Array struct {
 	Type IType
 }
 
-// TODO: fix this
+func (a *Array) GetName() string {
+	return fmt.Sprintf("Array%s", a.Type.GetName())
+}
+
 func (a *Array) ToProtoMessage(options ...string) string {
 	t, ok := a.Type.(*Primitive)
 	if ok {
@@ -260,6 +187,11 @@ type Tuple struct {
 	Items []IType
 }
 
+func (t *Tuple) GetName() string {
+	str := stringy.New(t.Name)
+	return fmt.Sprintf("Tuple%s", str.PascalCase().Get())
+}
+
 func (t *Tuple) ToProtoMessage(options ...string) string {
 	var sb strings.Builder
 	sb.WriteString(fmt.Sprintf("\n\t\tmessage Tuple_%s {\n", t.Name))
@@ -271,24 +203,12 @@ func (t *Tuple) ToProtoMessage(options ...string) string {
 	return sb.String()
 }
 
-func (t *Tuple) ToProtobufMessage() *ProtobufMessage {
-	var protobufTypes []*ProtobufType
-
-	for i, item := range t.Items {
-		protobufTypes = append(protobufTypes, &ProtobufType{
-			Name: fmt.Sprintf("%s_%d", t.Name, i+1),
-			Type: item.ToProtoMessage(),
-		})
-	}
-
-	return &ProtobufMessage{
-		Name:          fmt.Sprintf("Tuple_%s", t.Name),
-		ProtobufTypes: protobufTypes,
-	}
-}
-
 type Primitive struct {
 	Si0TypeDefPrimitive *Type
+}
+
+func (p *Primitive) GetName() string {
+	return p.Si0TypeDefPrimitive.GetName()
 }
 
 func (p *Primitive) ToProtoMessage(options ...string) string {
@@ -297,6 +217,10 @@ func (p *Primitive) ToProtoMessage(options ...string) string {
 
 type Compact struct {
 	Type IType
+}
+
+func (c *Compact) GetName() string {
+	return fmt.Sprintf("Compact%s", c.Type.GetName())
 }
 
 func (c *Compact) ToProtoMessage(options ...string) string {
@@ -308,11 +232,19 @@ type BitSequence struct {
 	BitOrderType IType
 }
 
+func (b *BitSequence) GetName() string {
+	return "BitSequence"
+}
+
 func (b *BitSequence) ToProtoMessage(options ...string) string {
 	panic("not implemented")
 }
 
 type HistoricMetaCompat string
+
+func (h HistoricMetaCompat) GetName() string {
+	return "HistoricMetaCompat"
+}
 
 func (h HistoricMetaCompat) ToProtoMessage(options ...string) string {
 	panic("not implemented")
@@ -334,6 +266,70 @@ type Type struct {
 	IsI64  bool
 	IsI128 bool
 	IsI256 bool
+}
+
+func (t *Type) GetName() string {
+	if t.IsBool {
+		return "Bool"
+	}
+
+	if t.IsChar {
+		return "Char"
+	}
+
+	if t.IsStr {
+		return "String"
+	}
+
+	if t.IsU128 {
+		return "Uint128"
+	}
+
+	if t.IsU256 {
+		return "Uint256"
+	}
+
+	if t.IsI128 {
+		return "Int128"
+	}
+
+	if t.IsI256 {
+		return "Int256"
+	}
+
+	if t.IsU8 {
+		return "Uint8"
+	}
+
+	if t.IsU16 {
+		return "Uint16"
+	}
+
+	if t.IsU32 {
+		return "Uint32"
+	}
+
+	if t.IsU64 {
+		return "Uint64"
+	}
+
+	if t.IsI8 {
+		return "Int8"
+	}
+
+	if t.IsI16 {
+		return "Int16"
+	}
+
+	if t.IsI32 {
+		return "Int32"
+	}
+
+	if t.IsI64 {
+		return "Int64"
+	}
+
+	panic("unknown type")
 }
 
 func (t *Type) ToProtoMessage(options ...string) string {

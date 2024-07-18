@@ -144,3 +144,75 @@ message Babe {
         bytes config = 1;
     }
 }
+
+// Params will be inside all the messages
+message Params {
+    string name = 1;
+    string type = 2;
+
+    oneof Value {
+        CompactU128 compact_u128 = 3;
+        String string = 4;
+        VariantEraPaidU32 variant_era_paid_u32 = 5;
+    }
+
+    message CompactU128 {
+        string value = 1;
+    }
+
+    message String {
+        string value = 1;
+    }
+
+    message VariantEraPaidU32 {
+        uint32 value = 1;
+    }
+}
+
+message Call {
+    string name = 1;
+    string module = 2; // <- this is the module name (first level)
+    Params params = 3;
+}
+
+message Block {
+    repeated Extrinsic extrinsics = 1;
+}
+
+message Extrinsic {
+    oneof CallFunction {
+        Balance_TransferAllowDeath transfer_allow_death = 1;
+        Timestamp_Set transfer_allow_death_set = 2;
+    }
+}
+
+message Balance_TransferAllowDeath{
+    SPRuntimeMultiAddressMultiAddress dest = 1;
+    CompactU128 value = 2;
+}
+
+message Timestamp_Set {
+    Timestamp_Set_Set set = 1;    
+}
+
+message SPRuntimeMultiAddressMultiAddress {
+    
+}
+
+message CompactU128 {
+    string value = 1;
+}
+
+message Timestamp_Set_Set {
+    uint64 now = 1;
+}
+
+message Scheduler_Schedule {
+    uint32 when = 1;
+    optional Tuple_maybe_periodic maybe_periodic = 2;
+
+    message Tuple_maybe_periodic {
+        uint32 maybe_periodic_1 = 1;
+        uint32 maybe_periodic_2 = 2;
+    }
+}
