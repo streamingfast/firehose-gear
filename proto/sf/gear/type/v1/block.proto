@@ -113,20 +113,6 @@ message Call {
   bytes args = 2;
 }
 
-message Field {
-  string name = 1;
-  int64 lookup_index = 2;
-
-  oneof value {
-    string json_value = 3;
-    Fields fields = 4;
-  }
-}
-
-message Fields {
-  repeated Field value = 1;
-}
-
 message CallIndex {
   uint32 section_index = 1;
   uint32 method_index = 2;
@@ -134,7 +120,7 @@ message CallIndex {
 
 message Event {
   string name = 1;
-  repeated Field fields = 2;
+  repeated bytes fields = 2;
   // [2]byte
   string id = 3;
   Phase phase = 4;

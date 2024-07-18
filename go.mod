@@ -136,7 +136,7 @@ require (
 	github.com/streamingfast/pbgo v0.0.6-0.20240430190514-722fe9d82e5d // indirect
 	github.com/streamingfast/sf-tracing v0.0.0-20240430173521-888827872b90 // indirect
 	github.com/streamingfast/shutter v1.5.0 // indirect
-	github.com/streamingfast/substreams v1.8.0 // indirect
+	github.com/streamingfast/substreams v1.9.1 // indirect
 	github.com/subosito/gotenv v1.4.2 // indirect
 	github.com/teris-io/shortid v0.0.0-20171029131806-771a37caa5cf // indirect
 	github.com/whyrusleeping/tar-utils v0.0.0-20201201191210-20a61371de5b // indirect
@@ -189,7 +189,7 @@ require (
 	github.com/pierrec/xxHash v0.1.5 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/rs/cors v1.10.0 // indirect
-	github.com/streamingfast/firehose-core v1.5.4-0.20240627152952-7accd60755e3
+	github.com/streamingfast/firehose-core v1.5.6-0.20240718130745-448b71acbd14
 	github.com/streamingfast/logging v0.0.0-20230608130331-f22c91403091
 	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/stretchr/testify v1.8.4

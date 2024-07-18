@@ -8,6 +8,7 @@ import (
 	"time"
 
 	cclient "github.com/centrifuge/go-substrate-rpc-client/v4/client"
+	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/parser"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/chain/generic"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
@@ -387,7 +388,6 @@ func convertChangesTrieSignal(signal types.ChangesTrieSignal) *pbgear.ChangesTri
 func convertExtrinsics(extrinsics []types.Extrinsic) []*pbgear.Extrinsic {
 	gearExtrinsics := make([]*pbgear.Extrinsic, 0, len(extrinsics))
 	for _, extrinsic := range extrinsics {
-
 		gearExtrinsics = append(gearExtrinsics, &pbgear.Extrinsic{
 			Version:   uint32(extrinsic.Version),
 			Signature: convertExtrinsicSignature(extrinsic.Signature),
@@ -483,19 +483,34 @@ func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 	pbgearEvent := make([]*pbgear.Event, 0, len(events))
 	for _, evt := range events {
 		// TODO: add the fields as bytes directly, and decode them in the substreams
-		// fields, err := convertDecodedFields(evt.Fields)
-		// if err != nil {
-		// 	return nil, err
-		// }
+		fields, err := convertEventFields(evt.Fields)
+
+		if err != nil {
+			return nil, err
+		}
 		pbgearEvent = append(pbgearEvent, &pbgear.Event{
-			Name: evt.Name,
-			// Fields: fields,
+			Name:   evt.Name,
+			Fields: fields,
 			Id:     string(evt.EventID[:]),
 			Phase:  convertPhase(evt.Phase),
 			Topics: convertTopics(evt.Topics),
 		})
 	}
 	return pbgearEvent, nil
+}
+
+func convertEventFields(fields registry.DecodedFields) ([][]byte, error) {
+	out := make([][]byte, 0)
+	for _, field := range fields {
+		buffer := bytes.NewBuffer(nil)
+		fieldEncoder := scale.NewEncoder(buffer)
+		err := fieldEncoder.Encode(field)
+		if err != nil {
+			return nil, fmt.Errorf("failed to encode field: %w", err)
+		}
+		out = append(out, buffer.Bytes())
+	}
+	return out, nil
 }
 
 func convertPhase(phase *types.Phase) *pbgear.Phase {
