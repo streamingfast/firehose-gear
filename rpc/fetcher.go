@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"encoding/hex"
-	"encoding/json"
 	"fmt"
 	"math/big"
 	"time"
@@ -483,8 +482,7 @@ func convertPaymentFields(paymentFields generic.DefaultPaymentFields) *pbgear.Pa
 
 func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 	pbgearEvent := make([]*pbgear.Event, 0, len(events))
-	for i, evt := range events {
-		fmt.Println("EVENT NUM", i)
+	for _, evt := range events {
 		fields, err := convertEventFields(evt.Fields)
 		if err != nil {
 			return nil, err
@@ -503,7 +501,7 @@ func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 
 func convertEventFields(fields registry.DecodedFields) ([][]byte, error) {
 	out := make([][]byte, 0)
-	for i, field := range fields {
+	for _, field := range fields {
 		buffer := bytes.NewBuffer(nil)
 		fieldEncoder := scale.NewEncoder(buffer)
 		err := fieldEncoder.Encode(field)
@@ -511,12 +509,12 @@ func convertEventFields(fields registry.DecodedFields) ([][]byte, error) {
 			return nil, fmt.Errorf("failed to encode field: %w", err)
 		}
 		out = append(out, buffer.Bytes())
-		fmt.Printf("event %d field: %s type: %s\n", i, hex.EncodeToString(buffer.Bytes()), field.Name)
-		b, err := json.MarshalIndent(field, "", "  ")
-		if err != nil {
-			return nil, fmt.Errorf("failed to marshal field: %w", err)
-		}
-		fmt.Println(string(b))
+		// fmt.Printf("event %d field: %s type: %s\n", i, hex.EncodeToString(buffer.Bytes()), field.Name)
+		// b, err := json.MarshalIndent(field, "", "  ")
+		// if err != nil {
+		// 	return nil, fmt.Errorf("failed to marshal field: %w", err)
+		// }
+		// fmt.Println(string(b))
 	}
 	return out, nil
 }
