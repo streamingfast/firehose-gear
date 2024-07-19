@@ -2,9 +2,12 @@ package rpc
 
 import (
 	"fmt"
+	"strings"
 
 	substrateTypes "github.com/centrifuge/go-substrate-rpc-client/v4/types"
+	"github.com/gobeam/stringy"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
+	"github.com/streamingfast/firehose-gear/protobuf"
 	"github.com/streamingfast/firehose-gear/types"
 	"github.com/streamingfast/logging"
 	"go.uber.org/zap"
@@ -37,8 +40,9 @@ func (mc *MetadataConverter) Convert(blockHash string) (map[string]types.IType, 
 	switch metadata.Version {
 	case 14:
 		tc := &TypeConverter{
-			types:     make(map[string]types.IType),
-			seenTypes: make(map[int64]types.IType),
+			types:        make(map[string]types.IType),
+			seenTypes:    make(map[int64]types.IType),
+			seenMessages: make(map[string]*protobuf.Message),
 		}
 		return tc.convertTypesFromv14(metadata.AsMetadataV14)
 	default:
@@ -66,27 +70,193 @@ func (mc *MetadataConverter) fetchStateMetadata(blockHash string) (*substrateTyp
 type TypeConverter struct {
 	// here we pass in the id of the types map, if we have already SEEN the id, we skip
 	// nothing to do, we have already processed it
-	types     map[string]types.IType
-	seenTypes map[int64]types.IType
-	// add the all metadata types here
-	name string // <- mostly used for tuples
+	types                              map[string]types.IType
+	seenTypes                          map[int64]types.IType
+	seenMessages                       map[string]*protobuf.Message
+	allMetadataTypes                   []substrateTypes.PortableTypeV14
+	currentFieldNameToBeRemovedSomehow string
 }
 
 func (tc *TypeConverter) UpdateName(name string) {
-	tc.name = name
+	// tc.name = name
 }
 
 func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14) (map[string]types.IType, error) {
 	allMetadataTypes := metadata.Lookup.Types
+	c.allMetadataTypes = allMetadataTypes
 
-	// Utility, Whitelist, Scheduler, Proxy, Multisig
-	// Any pallet that contains the call type, will cause and infinite loop
-	for _, portableType := range allMetadataTypes {
-		ttype := c.convertPortableTypeV14(portableType, allMetadataTypes)
-		c.seenTypes[portableType.ID.Int64()] = ttype
+	for i, pallet := range metadata.Pallets {
+		if i > 10000 {
+			break
+		}
+		// Call
+		if pallet.HasCalls {
+			idx := pallet.Calls.Type.Int64()
+
+			variants := c.allMetadataTypes[idx]
+
+			calls := variants.Type.Def.Variant
+			for _, variant := range calls.Variants {
+				str := stringy.New(string(variant.Name) + "_Call")
+				message := &protobuf.Message{
+					Name: str.PascalCase().Get(), // identity.set_subs
+				}
+				c.ProcessCallFields(variant, message)
+				c.seenMessages[message.Name] = message
+			}
+		}
 	}
 
-	return c.FetchNames(), nil
+	for _, seenMsg := range c.seenMessages {
+		fmt.Println(seenMsg.ToProto())
+	}
+
+	return nil, nil
+}
+
+func (c *TypeConverter) ProcessCallFields(variant substrateTypes.Si1Variant, message *protobuf.Message) {
+	for _, f := range variant.Fields {
+		fieldName := string(f.Name) // identity.set_subs.subs
+		c.currentFieldNameToBeRemovedSomehow = fieldName
+		field := c.ProcessField(f) // this should return the interface Field (either basic or optional)
+		if field != nil {
+			field.SetName(fieldName)
+			message.Fields = append(message.Fields, field)
+		}
+		c.currentFieldNameToBeRemovedSomehow = "WARK"
+	}
+}
+
+func (c *TypeConverter) ProcessField(f substrateTypes.Si1Field) protobuf.Field {
+	idx := f.Type.Int64()
+	ttype := c.allMetadataTypes[idx]
+
+	return c.ProcessFieldType(ttype) // 177
+}
+
+func (c *TypeConverter) ProcessFieldType(ttype substrateTypes.PortableTypeV14) protobuf.Field {
+	if len(ttype.Type.Path) != 0 {
+		isOptional := ttype.Type.Path[len(ttype.Type.Path)-1]
+		if isOptional == "Option" {
+			ttype := c.ProcessOptionalType(ttype)
+			return &protobuf.BasicField{
+				Optional: true,
+				Type:     ttype,
+			}
+		}
+	}
+
+	if ttype.Type.Def.IsPrimitive {
+		return &protobuf.BasicField{
+			Type: c.convertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName(),
+		}
+	}
+
+	if ttype.Type.Def.IsSequence {
+		lookupId := ttype.Type.Def.Sequence.Type.Int64()
+		lookupType := c.allMetadataTypes[lookupId] // 178
+		typeName := c.ExtractTypeName(lookupType)
+
+		return &protobuf.RepeatedField{
+			Type: typeName,
+		}
+	}
+
+	if ttype.Type.Def.IsTuple {
+		return c.ProcessTupleType(ttype.Type.Def.Tuple)
+	}
+
+	if ttype.Type.Def.IsVariant {
+		return c.ProcessVariantType(ttype.Type.Def.Variant)
+	}
+
+	// panic(fmt.Sprintf("unsupported type: %v", ttype.Type.Def))
+	return nil
+}
+
+func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14) string {
+	name := ""
+	if ttype.Type.Def.IsPrimitive {
+		name = c.convertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName()
+	}
+
+	if ttype.Type.Def.IsTuple {
+		name = c.ExtractTypeNameFromTuple(ttype.Type.Def.Tuple)
+	}
+
+	if ttype.Type.Def.IsComposite {
+		name = c.ExtractTypeNameFromPath(ttype.Type.Path)
+	}
+
+	if ttype.Type.Def.IsVariant {
+		name = c.ExtractTypeNameFromPath(ttype.Type.Path)
+	}
+
+	if ttype.Type.Def.IsSequence {
+		name = fmt.Sprintf("%s_list", c.currentFieldNameToBeRemovedSomehow)
+	}
+
+	if _, ok := c.seenMessages[name]; ok {
+		return name
+	}
+
+	return name
+}
+
+func (c *TypeConverter) ExtractTypeNameFromTuple(tuple substrateTypes.Si1TypeDefTuple) string {
+	var name strings.Builder
+	name.WriteString("Tuple_")
+	for _, item := range tuple {
+		lookupId := item.Int64()
+		ttype := c.allMetadataTypes[lookupId]
+		name.WriteString(c.ExtractTypeName(ttype))
+	}
+
+	return name.String()
+}
+
+func (c *TypeConverter) ExtractTypeNameFromPath(path substrateTypes.Si1Path) string {
+	parts := make([]string, 0)
+	for _, p := range path {
+		parts = append(parts, string(p))
+	}
+	return strings.Join(parts, "_")
+}
+
+func (c *TypeConverter) ProcessTupleType(tuple substrateTypes.Si1TypeDefTuple) *protobuf.BasicField {
+	field := &protobuf.BasicField{
+		Type: c.ExtractTypeNameFromTuple(tuple),
+	}
+
+	return field
+}
+
+func (c *TypeConverter) ProcessVariantType(variant substrateTypes.Si1TypeDefVariant) *protobuf.OneOfField {
+	field := &protobuf.OneOfField{}
+	for _, v := range variant.Variants {
+		for _, f := range v.Fields {
+			ttype := c.allMetadataTypes[f.Type.Int64()]
+
+			if len(ttype.Type.Path) != 0 {
+				typeName := c.ExtractTypeNameFromPath(ttype.Type.Path)
+				field.Types = append(field.Types, typeName)
+				continue
+			}
+
+			field.Types = append(field.Types, c.ExtractTypeName(ttype))
+		}
+	}
+
+	return field
+}
+
+func (c *TypeConverter) ProcessOptionalType(ttype substrateTypes.PortableTypeV14) string {
+	variant := ttype.Type.Def.Variant
+	some := variant.Variants[1]
+	someField := some.Fields[0]
+	tttype := c.allMetadataTypes[someField.Type.Int64()]
+
+	return c.ExtractTypeName(tttype)
 }
 
 func (c *TypeConverter) GetTypeNames(ttype types.IType) []string {
@@ -383,7 +553,7 @@ func (tc *TypeConverter) convertArrayType(a substrateTypes.Si1TypeDefArray, allM
 
 func (tc *TypeConverter) convertTupleType(t substrateTypes.Si1TypeDefTuple, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Tuple {
 	tup := &types.Tuple{
-		Name: tc.name,
+		// Name: tc.name,
 	}
 	items := make([]types.IType, 0)
 

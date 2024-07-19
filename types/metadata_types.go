@@ -208,7 +208,11 @@ type Primitive struct {
 }
 
 func (p *Primitive) GetName() string {
-	return p.Si0TypeDefPrimitive.GetName()
+	return p.Si0TypeDefPrimitive.GetProtoFieldName()
+}
+
+func (p *Primitive) GetProtoFieldName() string {
+	return p.Si0TypeDefPrimitive.GetProtoFieldName()
 }
 
 func (p *Primitive) ToProtoMessage(options ...string) string {
@@ -268,7 +272,7 @@ type Type struct {
 	IsI256 bool
 }
 
-func (t *Type) GetName() string {
+func (t *Type) GetProtoFieldName() string {
 	if t.IsBool {
 		return "Bool"
 	}

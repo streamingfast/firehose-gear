@@ -506,13 +506,13 @@ func convertEventFields(fields registry.DecodedFields) ([][]byte, error) {
 	for i, field := range fields {
 		buffer := bytes.NewBuffer(nil)
 		fieldEncoder := scale.NewEncoder(buffer)
-		err := fieldEncoder.Encode(field.Value)
+		err := fieldEncoder.Encode(field)
 		if err != nil {
 			return nil, fmt.Errorf("failed to encode field: %w", err)
 		}
 		out = append(out, buffer.Bytes())
 		fmt.Printf("event %d field: %s type: %s\n", i, hex.EncodeToString(buffer.Bytes()), field.Name)
-		b, err := json.MarshalIndent(field.Value, "", "  ")
+		b, err := json.MarshalIndent(field, "", "  ")
 		if err != nil {
 			return nil, fmt.Errorf("failed to marshal field: %w", err)
 		}

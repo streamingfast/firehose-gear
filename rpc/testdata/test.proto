@@ -180,32 +180,83 @@ message Block {
 }
 
 message Extrinsic {
-    oneof CallFunction {
-        Balance_TransferAllowDeath transfer_allow_death = 1;
-        Timestamp_Set transfer_allow_death_set = 2;
+    Field field = 1;
+    // oneof CallFunction {
+    //     Balance_TransferAllowDeath transfer_allow_death = 1;
+    //     Timestamp_Set transfer_allow_death_set = 2;
+    // }
+}
+
+message Field {
+    string name  = 1;
+
+}
+
+
+//
+// in calls_events.proto
+//
+message Balance_Event_Superbob {}
+message Balance_Call_Supermama {}
+
+message Utility_Call_Batch {
+    repeated types.PalletUtilityPalletCall calls = 1;
+}
+message Utility_Call_AsDerivative {
+    uint32 index = 1;
+    types.VaraRuntimeRuntimeCall call = 2;
+}
+message Utility_Call_ForceBatch{}
+
+message Utility_Event_BatchInterrupted{}
+message Utility_Event_ItemFailed{}
+
+
+//
+// types.proto
+//
+
+message VaraRuntimeRuntimeCall {
+    oneof variant {
+        FrameSystemPalletCall system = 1; // Variant::Index + 1
+        PalletUtilityPalletCall utility = 9; // Variant::Index + 1
     }
 }
 
-message Balance_TransferAllowDeath{
-    SPRuntimeMultiAddressMultiAddress dest = 1;
-    CompactU128 value = 2;
+message FrameSystemPalletCall {
+  oneof variant {
+     bytes remark = 1;
+
+  }
 }
 
-message Timestamp_Set {
-    Timestamp_Set_Set set = 1;    
-}
+message Balance {
+    message Event_TransferAllowDeath{
+        SPRuntimeMultiAddressMultiAddress dest = 1;
+        CompactU128 value = 2;
+    }
 
-message SPRuntimeMultiAddressMultiAddress {
+    message Event_TransferAllowDeath_SPRuntimeMultiAddressMultiAddress {
     
+    }
+    
+    message Event_TransferAllowDeath_CompactU128 {
+        string value = 1;
+    }    
 }
 
-message CompactU128 {
-    string value = 1;
+
+
+message Timestamp {
+    Timestamp_Set set = 1;    
+
+    message Timestamp_Set {
+        uint64 now = 1;
+    }
 }
 
-message Timestamp_Set_Set {
-    uint64 now = 1;
-}
+
+
 
 message Scheduler_Schedule {
     uint32 when = 1;
@@ -215,4 +266,46 @@ message Scheduler_Schedule {
         uint32 maybe_periodic_1 = 1;
         uint32 maybe_periodic_2 = 2;
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+message Identity_Set_Subs_Call {
+    repeated Tuple_AccountID_PalletIdentity subs = 1;
+    
+}
+
+//Vec<Tuple:AccountIdpallet_identity:types:Data>
+message Tuple_sp_core_crypto_AccountId32_pallet_identity_types_Data { // 177 -> [0, 144]
+    sp_core_crypto_AccountId32 col1 = 1;
+    pallet_identity_types_Data col2 = 2;
+}
+
+message sp_core_crypto_AccountId32 { // 0
+    bytes value = 1;
+}
+
+message pallet_identity_types_Data { // 144
+    
+}
+
+message KillStorageCall {
+	repeated Keys keys = 1;    
+}
+
+message Keys {
+    bytes keys = 1;
 }
