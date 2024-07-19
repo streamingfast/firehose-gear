@@ -111,9 +111,14 @@ message Timestamp {
 	oneof CallFunction {
 		Set set = 1;
 	}
+
 	message Set {
-		uint64 now = 1;
+		Uint64 now = 1;
 	}
+
+    message Uint64 {
+        uint64 value = 1;
+    }
 }
 
 message Babe {
@@ -309,3 +314,21 @@ message KillStorageCall {
 message Keys {
     bytes keys = 1;
 }
+
+message Compact_uint32_GEN {
+	uint32 value
+}
+
+message pallet_conviction_voting_vote_AccountVote_GEN {
+	oneof vote {
+		pallet_conviction_voting_vote_AccountVote_standard
+        pallet_conviction_voting_vote_AccountVote_split
+        pallet_conviction_voting_vote_AccountVote_splitAbstain 
+    }
+}
+
+message ConvictionVoting_Vote_Call {
+	Compact_uint32 poll_index
+	pallet_conviction_voting_vote_AccountVote vote
+}
+

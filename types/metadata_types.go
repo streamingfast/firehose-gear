@@ -208,11 +208,11 @@ type Primitive struct {
 }
 
 func (p *Primitive) GetName() string {
-	return p.Si0TypeDefPrimitive.GetProtoFieldName()
+	return p.Si0TypeDefPrimitive.ToProtoMessage()
 }
 
 func (p *Primitive) GetProtoFieldName() string {
-	return p.Si0TypeDefPrimitive.GetProtoFieldName()
+	return p.Si0TypeDefPrimitive.ToProtoMessage()
 }
 
 func (p *Primitive) ToProtoMessage(options ...string) string {

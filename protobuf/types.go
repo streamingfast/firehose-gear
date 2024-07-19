@@ -6,8 +6,9 @@ import (
 )
 
 type Field interface {
-	SetName(name string)
-	ToProto() string
+	GetType() string
+	IsPrimitive() bool
+	ToProto(idx int) (string, int)
 }
 
 type Proto struct {
@@ -22,7 +23,7 @@ type Enums struct {
 }
 
 type Message struct {
-	Name   string // Utility_Batch_Call, Utility_Batch_Storage
+	Name   string
 	Fields []Field
 }
 
@@ -30,8 +31,12 @@ func (m *Message) ToProto() string {
 	var sb strings.Builder
 
 	sb.WriteString("message " + m.Name + " {\n")
+	idx := 0
+	str := ""
 	for _, field := range m.Fields {
-		sb.WriteString("\t" + field.ToProto() + "\n")
+		idx++
+		str, idx = field.ToProto(idx)
+		sb.WriteString("\t" + str + "\n")
 	}
 	sb.WriteString("}\n")
 
@@ -39,52 +44,70 @@ func (m *Message) ToProto() string {
 }
 
 type RepeatedField struct {
-	Type string
-	Name string
+	Type      string
+	Name      string
+	Primitive bool
 }
 
-func (r *RepeatedField) SetName(name string) {
-	r.Name = name
+func (r *RepeatedField) GetType() string {
+	return r.Type
 }
 
-func (r *RepeatedField) ToProto() string {
-	return "repeated " + r.Type + " " + r.Name
+func (r *RepeatedField) ToProto(idx int) (string, int) {
+	str := fmt.Sprintf("repeated %s %s = %d;\n", r.Type, r.Name, idx)
+	return str, idx
+}
+
+func (r *RepeatedField) IsPrimitive() bool {
+	return r.Primitive
 }
 
 type BasicField struct {
-	Optional bool
-	Type     string
-	Name     string
+	Optional  bool
+	Type      string
+	Name      string
+	Primitive bool
 }
 
-func (b *BasicField) SetName(name string) {
-	b.Name = name
+func (r *BasicField) GetType() string {
+	return r.Type
 }
 
-func (b *BasicField) ToProto() string {
+func (b *BasicField) ToProto(idx int) (string, int) {
+	str := fmt.Sprintf("%s %s = %d;", b.Type, b.Name, idx)
 	if b.Optional {
-		return "optional " + b.Type + " " + b.Name
+		str = "optional " + str
 	}
-	return b.Type + " " + b.Name
+	return str, idx
+}
+
+func (r *BasicField) IsPrimitive() bool {
+	return r.Primitive
 }
 
 type OneOfField struct {
-	Name  string
-	Types []string
+	Name      string
+	Types     []*BasicField
+	Primitive bool
 }
 
-func (o *OneOfField) SetName(name string) {
-	o.Name = name
+func (r *OneOfField) GetType() string {
+	panic("OneOfField does not have a type")
 }
 
-func (o *OneOfField) ToProto() string {
+func (o *OneOfField) ToProto(idx int) (string, int) {
 	var sb strings.Builder
 
 	sb.WriteString("oneof " + o.Name + " {\n")
-	for i, field := range o.Types {
-		sb.WriteString(fmt.Sprintf("\t%s = %d;\n", field, i+1))
+	for _, field := range o.Types {
+		sb.WriteString(fmt.Sprintf("\t\t%s %s = %d;\n", field.Type, field.Name, idx))
+		idx++
 	}
-	sb.WriteString("}")
+	sb.WriteString("\t}")
+	idx--
+	return sb.String(), idx
+}
 
-	return sb.String()
+func (r *OneOfField) IsPrimitive() bool {
+	return r.Primitive
 }

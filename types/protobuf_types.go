@@ -24,14 +24,14 @@ func (p *ProtobufMessages) GetPackageName() string {
 
 func (p *ProtobufMessages) ToProtoMessage() string {
 	var sb strings.Builder
-	sb.WriteString(p.GetSyntaxName())
-	sb.WriteString(p.GetPackageName())
+	// sb.WriteString(p.GetSyntaxName())
+	// sb.WriteString(p.GetPackageName())
 
-	sb.WriteString("message Params {\n")
-	for i, message := range p.Messages {
-		sb.WriteString(fmt.Sprintf("%s = %d;\n", message.ToOneOfCallFunctions(), i+1))
-	}
-	sb.WriteString("}\n")
+	// sb.WriteString("message Params {\n")
+	// for i, message := range p.Messages {
+	// 	sb.WriteString(fmt.Sprintf("%s = %d;\n", message.ToOneOfCallFunctions(), i+1))
+	// }
+	// sb.WriteString("}\n")
 
 	for _, message := range p.Messages {
 		sb.WriteString(message.ToProtoMessage())
