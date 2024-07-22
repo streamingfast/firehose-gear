@@ -148,11 +148,13 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	}
 
 	var sb strings.Builder
-	sb.WriteString("syntax = \"proto3\";\n\n")
+	sb.WriteString("syntax = \"proto3\";\n")
+	sb.WriteString("package sf.gear.metadata.type.v1;\n")
+	sb.WriteString("option go_package = \"github.com/streamingfast/firehose-gear/pb/sf/gear/type/v1;pbgear\";\n")
 	for _, out := range outputs {
 		sb.WriteString(out.ToProto())
 	}
-	err := os.WriteFile("../proto/output.proto", []byte(sb.String()), 0644)
+	err := os.WriteFile("../proto/sf/gear/metadata/type/v1/output.proto", []byte(sb.String()), 0644)
 	if err != nil {
 		return nil, fmt.Errorf("writing output.proto: %w", err)
 	}
