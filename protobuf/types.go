@@ -7,6 +7,7 @@ import (
 
 type Field interface {
 	GetType() string
+	SetOptional()
 	IsPrimitive() bool
 	ToProto(idx int) (string, int)
 }
@@ -49,17 +50,21 @@ type RepeatedField struct {
 	Primitive bool
 }
 
-func (r *RepeatedField) GetType() string {
-	return r.Type
+func (f *RepeatedField) SetOptional() {
+	panic("Repeated fields can not be set with an optional")
 }
 
-func (r *RepeatedField) ToProto(idx int) (string, int) {
-	str := fmt.Sprintf("repeated %s %s = %d;\n", r.Type, r.Name, idx)
+func (f *RepeatedField) GetType() string {
+	return f.Type
+}
+
+func (f *RepeatedField) ToProto(idx int) (string, int) {
+	str := fmt.Sprintf("repeated %s %s = %d;\n", f.Type, f.Name, idx)
 	return str, idx
 }
 
-func (r *RepeatedField) IsPrimitive() bool {
-	return r.Primitive
+func (f *RepeatedField) IsPrimitive() bool {
+	return f.Primitive
 }
 
 type BasicField struct {
@@ -69,20 +74,24 @@ type BasicField struct {
 	Primitive bool
 }
 
-func (r *BasicField) GetType() string {
-	return r.Type
+func (f *BasicField) GetType() string {
+	return f.Type
 }
 
-func (b *BasicField) ToProto(idx int) (string, int) {
-	str := fmt.Sprintf("%s %s = %d;", b.Type, b.Name, idx)
-	if b.Optional {
+func (f *BasicField) SetOptional() {
+	f.Optional = true
+}
+
+func (f *BasicField) ToProto(idx int) (string, int) {
+	str := fmt.Sprintf("%s %s = %d;", f.Type, f.Name, idx)
+	if f.Optional {
 		str = "optional " + str
 	}
 	return str, idx
 }
 
-func (r *BasicField) IsPrimitive() bool {
-	return r.Primitive
+func (f *BasicField) IsPrimitive() bool {
+	return f.Primitive
 }
 
 type OneOfField struct {
@@ -91,15 +100,15 @@ type OneOfField struct {
 	Primitive bool
 }
 
-func (r *OneOfField) GetType() string {
+func (f *OneOfField) GetType() string {
 	panic("OneOfField does not have a type")
 }
 
-func (o *OneOfField) ToProto(idx int) (string, int) {
+func (f *OneOfField) ToProto(idx int) (string, int) {
 	var sb strings.Builder
 
-	sb.WriteString("oneof " + o.Name + " {\n")
-	for _, field := range o.Types {
+	sb.WriteString("oneof " + f.Name + " {\n")
+	for _, field := range f.Types {
 		sb.WriteString(fmt.Sprintf("\t\t%s %s = %d;\n", field.Type, field.Name, idx))
 		idx++
 	}
@@ -108,6 +117,10 @@ func (o *OneOfField) ToProto(idx int) (string, int) {
 	return sb.String(), idx
 }
 
-func (r *OneOfField) IsPrimitive() bool {
-	return r.Primitive
+func (f *OneOfField) SetOptional() {
+	panic("One field can not be set with an optional")
+}
+
+func (f *OneOfField) IsPrimitive() bool {
+	return f.Primitive
 }
