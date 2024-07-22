@@ -22,10 +22,6 @@ type Proto struct {
 	Version  string
 	Imports  string
 	Messages []*Message
-	Enums    []*Enums
-}
-
-type Enums struct {
 }
 
 type Message struct {
@@ -108,7 +104,7 @@ type RepeatedField struct {
 	Primitive bool
 }
 
-func (f *RepeatedField) ToFuncName() string {
+func (f *RepeatedField) ToFuncName(meta *types.Metadata) string {
 	return "to_repeated" + f.Name
 }
 
@@ -146,7 +142,7 @@ type OneOfField struct {
 	Primitive bool
 }
 
-func (f *OneOfField) ToFuncName() string {
+func (f *OneOfField) ToFuncName(meta *types.Metadata) string {
 	return "to_oneof_" + f.Name
 }
 

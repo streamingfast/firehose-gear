@@ -11,6 +11,7 @@ import (
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
 	"github.com/streamingfast/firehose-gear/protobuf"
 	"github.com/streamingfast/firehose-gear/types"
+	"github.com/streamingfast/firehose-gear/utils"
 	"github.com/streamingfast/logging"
 	"go.uber.org/zap"
 )
@@ -19,6 +20,9 @@ type MetadataConverter struct {
 	gearClients *firecoreRPC.Clients[*Client]
 	logger      *zap.Logger
 	tracer      logging.Tracer
+
+	tc       *TypeConverter
+	metaData *substrateTypes.Metadata
 }
 
 func NewMetadataConverter(gearClients *firecoreRPC.Clients[*Client], logger *zap.Logger, tracer logging.Tracer) *MetadataConverter {
@@ -29,23 +33,38 @@ func NewMetadataConverter(gearClients *firecoreRPC.Clients[*Client], logger *zap
 	}
 }
 
+func (mc *MetadataConverter) FetchMessages() []*protobuf.Message {
+	outputs := make([]*protobuf.Message, 0)
+	for _, seenMsg := range mc.tc.messages {
+		if seenMsg != nil {
+			outputs = append(outputs, seenMsg)
+		}
+	}
+	return outputs
+}
+
+func (mc *MetadataConverter) FetchMetadata() *substrateTypes.Metadata {
+	return mc.metaData
+}
+
 func (mc *MetadataConverter) Convert(blockHash string) (map[string]types.IType, error) {
 	metadata, err := mc.fetchStateMetadata(blockHash)
 	if err != nil {
 		return nil, fmt.Errorf("fetching state metadata: %w", err)
 	}
 
+	mc.metaData = metadata
 	if metadata.Version != 14 {
 		return nil, nil
 	}
 
 	switch metadata.Version {
 	case 14:
-		tc := &TypeConverter{
-			seenMessages:     make(map[string]*protobuf.Message),
+		mc.tc = &TypeConverter{
+			messages:         make(map[string]*protobuf.Message),
 			allMetadataTypes: []substrateTypes.PortableTypeV14{},
 		}
-		return tc.convertTypesFromv14(metadata.AsMetadataV14)
+		return mc.tc.convertTypesFromv14(metadata.AsMetadataV14)
 	default:
 		fmt.Println("Unsupported metadata version", metadata.Version)
 	}
@@ -69,7 +88,7 @@ func (mc *MetadataConverter) fetchStateMetadata(blockHash string) (*substrateTyp
 }
 
 type TypeConverter struct {
-	seenMessages     map[string]*protobuf.Message
+	messages         map[string]*protobuf.Message
 	allMetadataTypes []substrateTypes.PortableTypeV14
 }
 
@@ -113,8 +132,7 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	}
 
 	outputs := make([]*protobuf.Message, 0)
-
-	for _, seenMsg := range c.seenMessages {
+	for _, seenMsg := range c.messages {
 		if seenMsg != nil {
 			outputs = append(outputs, seenMsg)
 		}
@@ -143,8 +161,6 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 		//if variant.Name != "report_equivocation_unsigned" { //lowercase
 		//	continue
 		//}
-		fmt.Println("Processing call", variant.Name)
-
 		callName := string(variant.Name)
 		messageName := stringy.New(palletName).PascalCase().Get() + "_" + stringy.New(callName).PascalCase().Get() + "_Call"
 		message := &protobuf.Message{
@@ -152,7 +168,7 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 		}
 
 		c.ProcessCallFields(variant, message, palletName, callName)
-		c.seenMessages[message.Name] = message
+		c.messages[message.Name] = message
 	}
 }
 
@@ -176,7 +192,7 @@ func (c *TypeConverter) ProcessField(f substrateTypes.Si1Field, palletName strin
 func (c *TypeConverter) FieldForPrimitive(ttype substrateTypes.PortableTypeV14, fieldName string) *protobuf.BasicField {
 	return &protobuf.BasicField{
 		Name:      fieldName,
-		Type:      ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName(),
+		Type:      types.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName(),
 		Primitive: true,
 		LookupID:  ttype.ID.Int64(),
 	}
@@ -295,12 +311,12 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 	}
 
 	if !ttype.Type.Def.IsVariant {
-		if _, ok := c.seenMessages[field.GetType()]; !ok {
+		if _, ok := c.messages[field.GetType()]; !ok {
 			if field.IsPrimitive() {
-				c.seenMessages[field.GetType()] = nil
+				c.messages[field.GetType()] = nil
 			} else {
 				msg := c.MessageForType(field.GetType(), ttype, palletName, callName, fieldName)
-				c.seenMessages[field.GetType()] = msg
+				c.messages[field.GetType()] = msg
 			}
 		}
 	}
@@ -311,7 +327,7 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) string {
 	typeName := ""
 	if ttype.Type.Def.IsPrimitive {
-		typeName = c.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).ToProtoMessage()
+		return types.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).ToProtoType()
 	}
 
 	if ttype.Type.Def.IsTuple {
@@ -337,12 +353,12 @@ func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14, pa
 		typeName = fmt.Sprintf("Compact_%s", typeName)
 	}
 
-	return typeName
+	return utils.ToPascalCase(typeName)
 }
 
 func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.Message {
 	msg := &protobuf.Message{
-		Name: typeName,
+		Name: utils.ToPascalCase(typeName),
 	}
 
 	if ttype.Type.Def.IsTuple {
@@ -458,7 +474,7 @@ func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ strin
 
 func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTypes.Si1Variant, palletName string, callName string, fieldName string) {
 	msg := &protobuf.Message{
-		Name: name,
+		Name: utils.ToPascalCase(name),
 	}
 
 	for i, f := range variant.Fields {
@@ -472,7 +488,7 @@ func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTyp
 		msg.Fields = append(msg.Fields, field)
 	}
 
-	c.seenMessages[msg.Name] = msg
+	c.messages[msg.Name] = msg
 }
 
 func (c *TypeConverter) ExtractTypeNameFromTuple(tuple substrateTypes.Si1TypeDefTuple, palletName string, callName string, fieldName string) string {
@@ -488,7 +504,7 @@ func (c *TypeConverter) ExtractTypeNameFromTuple(tuple substrateTypes.Si1TypeDef
 		name.WriteString(c.ExtractTypeName(ttype, palletName, callName, fieldName))
 	}
 
-	return name.String()
+	return utils.ToPascalCase(name.String())
 }
 
 func (c *TypeConverter) ExtractTypeNameFromPath(path substrateTypes.Si1Path) string {
@@ -522,13 +538,13 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 		LookupID: ttype.ID.Int64(),
 	}
 
-	if _, found := c.seenMessages[msgName]; found {
+	if _, found := c.messages[msgName]; found {
 		return f
 	}
 
 	oneOf := &protobuf.OneOfField{Name: "value"}
 	msg := &protobuf.Message{
-		Name:   msgName,
+		Name:   utils.ToPascalCase(msgName),
 		Fields: []protobuf.Field{oneOf},
 	}
 
@@ -540,12 +556,12 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 			LookupID: math.MaxInt64,
 		})
 
-		if _, ok := c.seenMessages[typeName]; !ok {
+		if _, ok := c.messages[typeName]; !ok {
 			c.MessageForVariantTypes(typeName, v, palletName, callName, string(v.Name))
 		}
 	}
 
-	c.seenMessages[msgName] = msg
+	c.messages[msgName] = msg
 	return f
 }
 

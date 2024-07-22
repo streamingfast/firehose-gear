@@ -1,0 +1,16 @@
+package gen_types
+
+import (
+    "github.com/centrifuge/go-substrate-rpc-client/v4/registry"
+    pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1"
+)
+
+{{- $metadata := .Metadata }}
+{{- $messages := .Messages }}
+{{ range $msg := $messages }}
+func {{ $msg.ToFuncName $metadata }}(callFields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
+    return &pbgear.{{ $msg.Name }}{{"{"}}
+
+    {{"}"}}
+}
+{{ end }}
