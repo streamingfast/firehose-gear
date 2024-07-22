@@ -417,9 +417,12 @@ func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ strin
 			palletCallNames := palletCalls.Type.Def.Variant.Variants
 
 			for _, palletCallName := range palletCallNames { // remark
+				n := string(palletName) + "_"
+				n += stringy.New(string(palletCallName.Name)).PascalCase().Get()
+				n += "_Call"
 				of.Types = append(of.Types, &protobuf.BasicField{
 					Name: fmt.Sprintf("%s_%s", palletName, string(palletCallName.Name)),
-					Type: fmt.Sprintf("%s_%s_Call", palletName, string(palletCallName.Name)),
+					Type: n,
 				})
 			}
 		}
