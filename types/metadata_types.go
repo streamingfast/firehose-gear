@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/gobeam/stringy"
-	"github.com/streamingfast/firehose-gear/utils"
 )
 
 type IType interface {
@@ -63,18 +62,6 @@ type Variants struct {
 
 func (v *Variants) GetName() string {
 	return "Variants"
-}
-
-func (v *Variants) VariantNames() string {
-	var sb strings.Builder
-
-	for _, variant := range v.Variants {
-		str := stringy.New(variant.Name)
-		pascalStr := str.PascalCase().Get()
-		snakeStr := utils.ToSnakeCase(variant.Name)
-		sb.WriteString(fmt.Sprintf("\t\t%s %s = %d;\n", pascalStr, snakeStr, variant.Index))
-	}
-	return sb.String()
 }
 
 func (v *Variants) ToProtoMessage(options ...string) string {
