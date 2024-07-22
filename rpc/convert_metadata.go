@@ -77,9 +77,9 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	c.allMetadataTypes = allMetadataTypes
 
 	for _, pallet := range metadata.Pallets {
-		// if pallet.Name != "Bounties" {
-		// 	continue
-		// }
+		//if pallet.Name != "Babe" {
+		//	continue
+		//}
 		if pallet.HasCalls {
 			callIdx := pallet.Calls.Type.Int64()
 			palletName := string(pallet.Name)
@@ -139,9 +139,9 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 
 	calls := variants.Type.Def.Variant
 	for _, variant := range calls.Variants {
-		// if variant.Name != "propose_curator" {
-		// 	continue
-		// }
+		//if variant.Name != "report_equivocation_unsigned" { //lowercase
+		//	continue
+		//}
 		fmt.Println("Processing call", variant.Name)
 
 		callName := string(variant.Name)
@@ -249,9 +249,19 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 
 	case ttype.Type.Def.IsSequence:
 		field = c.FieldForSequence(ttype, palletName, callName, fieldName)
+		lookupId := ttype.Type.Def.Sequence.Type.Int64()
+		t := c.allMetadataTypes[lookupId]
+		if t.Type.Def.IsTuple {
+			ttype = t
+		}
 
 	case ttype.Type.Def.IsArray:
 		field = c.FieldForArray(ttype, palletName, callName, fieldName)
+		lookupId := ttype.Type.Def.Array.Type.Int64()
+		t := c.allMetadataTypes[lookupId]
+		if t.Type.Def.IsTuple {
+			ttype = t
+		}
 
 	case ttype.Type.Def.IsTuple:
 		field = c.FieldForTuple(ttype, palletName, callName, fieldName)
@@ -260,7 +270,6 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 		}
 
 	case ttype.Type.Def.IsVariant:
-
 		field = c.FieldForVariant(ttype, palletName, callName, fieldName)
 		if optional {
 			field.SetOptional()
@@ -332,7 +341,13 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 
 	if ttype.Type.Def.IsTuple {
 		if typeName != "Tuple_Null" {
-			msg.Fields = append(msg.Fields, c.FieldForTuple(ttype, palletName, callName, fieldName))
+
+			for i, idx := range ttype.Type.Def.Tuple {
+				lookupId := idx.Int64()
+				t := c.allMetadataTypes[lookupId]
+				f := c.FieldForType(t, palletName, callName, fmt.Sprintf("value_%d", i))
+				msg.Fields = append(msg.Fields, f)
+			}
 		}
 	}
 
