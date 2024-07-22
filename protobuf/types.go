@@ -28,6 +28,12 @@ type Message struct {
 	Fields []Field
 }
 
+func (m *Message) ToGo() string {
+	var sb strings.Builder
+
+	sb.WriteString(fmt.Sprintf("func"))
+}
+
 func (m *Message) ToProto() string {
 	var sb strings.Builder
 

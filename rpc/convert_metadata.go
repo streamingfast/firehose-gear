@@ -408,15 +408,8 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 	if ttype.Type.Def.IsCompact {
 		lookupId := ttype.Type.Def.Compact.Type.Int64()
 		childType := c.allMetadataTypes[lookupId]
-		// typeName := c.ExtractTypeName(childType, palletName, callName, fieldName)
 
-		field := c.FieldForType(childType, palletName, callName, fieldName)
-
-		// field := &protobuf.BasicField{
-		// 	Name:      "value",
-		// 	Type:      typeName,
-		// 	Primitive: ttype.Type.Def.IsPrimitive,
-		// }
+		field := c.FieldForType(childType, palletName, callName, "value")
 
 		msg.Fields = append(msg.Fields, field)
 	}
