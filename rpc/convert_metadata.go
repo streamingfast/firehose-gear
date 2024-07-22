@@ -228,45 +228,55 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 	}
 
 	var field protobuf.Field
+	var optional bool
 	if len(ttype.Type.Path) != 0 {
 		isOptional := ttype.Type.Path[len(ttype.Type.Path)-1]
-		if isOptional == "Option" {
-			optionType := c.ProcessOptionalType(ttype, palletName, callName, fieldName)
-			field = &protobuf.BasicField{
-				Optional:  true,
-				Name:      fieldName,
-				Type:      optionType,
-				Primitive: ttype.Type.Def.IsPrimitive,
-			}
+		optional = isOptional == "Option"
+	}
+
+	if optional {
+		lookupId := ttype.Type.Def.Variant.Variants[1].Fields[0].Type.Int64()
+		ttype = c.allMetadataTypes[lookupId]
+	}
+
+	switch {
+	case ttype.Type.Def.IsPrimitive:
+		field = c.FieldForPrimitive(ttype, fieldName)
+		if optional {
+			field.SetOptional()
 		}
-	}
+		return field
 
-	if ttype.Type.Def.IsPrimitive {
-		return c.FieldForPrimitive(ttype, fieldName)
-	}
-
-	if ttype.Type.Def.IsSequence {
+	case ttype.Type.Def.IsSequence:
 		field = c.FieldForSequence(ttype, palletName, callName, fieldName)
-	}
 
-	if ttype.Type.Def.IsArray {
+	case ttype.Type.Def.IsArray:
 		field = c.FieldForArray(ttype, palletName, callName, fieldName)
-	}
 
-	if ttype.Type.Def.IsTuple {
+	case ttype.Type.Def.IsTuple:
 		field = c.FieldForTuple(ttype, palletName, callName, fieldName)
-	}
+		if optional {
+			field.SetOptional()
+		}
 
-	if ttype.Type.Def.IsVariant {
+	case ttype.Type.Def.IsVariant:
+
 		field = c.FieldForVariant(ttype, palletName, callName, fieldName)
-	}
+		if optional {
+			field.SetOptional()
+		}
 
-	if ttype.Type.Def.IsCompact {
+	case ttype.Type.Def.IsCompact:
 		field = c.FieldForCompact(ttype, palletName, callName, fieldName)
-	}
+		if optional {
+			field.SetOptional()
+		}
 
-	if ttype.Type.Def.IsComposite {
+	case ttype.Type.Def.IsComposite:
 		field = c.FieldForComposite(ttype, palletName, callName, fieldName)
+		if optional {
+			field.SetOptional()
+		}
 	}
 
 	if !ttype.Type.Def.IsVariant {
