@@ -77,9 +77,9 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	c.allMetadataTypes = allMetadataTypes
 
 	for _, pallet := range metadata.Pallets {
-		if pallet.Name != "Bounties" {
-			continue
-		}
+		// if pallet.Name != "Bounties" {
+		// 	continue
+		// }
 		if pallet.HasCalls {
 			callIdx := pallet.Calls.Type.Int64()
 			palletName := string(pallet.Name)
@@ -139,7 +139,7 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 
 	calls := variants.Type.Def.Variant
 	for _, variant := range calls.Variants {
-		// if variant.Name != "accept_curator" {
+		// if variant.Name != "propose_curator" {
 		// 	continue
 		// }
 		fmt.Println("Processing call", variant.Name)
@@ -321,7 +321,9 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 	}
 
 	if ttype.Type.Def.IsTuple {
-		msg.Fields = append(msg.Fields, c.FieldForTuple(ttype, palletName, callName, fieldName))
+		if typeName != "Tuple_Null" {
+			msg.Fields = append(msg.Fields, c.FieldForTuple(ttype, palletName, callName, fieldName))
+		}
 	}
 
 	if ttype.Type.Def.IsComposite {
@@ -381,13 +383,15 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 	if ttype.Type.Def.IsCompact {
 		lookupId := ttype.Type.Def.Compact.Type.Int64()
 		childType := c.allMetadataTypes[lookupId]
-		typeName := c.ExtractTypeName(childType, palletName, callName, fieldName)
+		// typeName := c.ExtractTypeName(childType, palletName, callName, fieldName)
 
-		field := &protobuf.BasicField{
-			Name:      "value",
-			Type:      typeName,
-			Primitive: ttype.Type.Def.IsPrimitive,
-		}
+		field := c.FieldForType(childType, palletName, callName, fieldName)
+
+		// field := &protobuf.BasicField{
+		// 	Name:      "value",
+		// 	Type:      typeName,
+		// 	Primitive: ttype.Type.Def.IsPrimitive,
+		// }
 
 		msg.Fields = append(msg.Fields, field)
 	}
@@ -447,7 +451,6 @@ func (c *TypeConverter) ExtractTypeNameFromTuple(tuple substrateTypes.Si1TypeDef
 	var name strings.Builder
 	name.WriteString("Tuple_")
 	if len(tuple) == 0 {
-		// return ""
 		name.WriteString("Null")
 	}
 
@@ -472,6 +475,7 @@ func (c *TypeConverter) FieldForTuple(ttype substrateTypes.PortableTypeV14, pall
 	if fieldName == "" {
 		panic("field name is required")
 	}
+
 	field := &protobuf.BasicField{
 		Name: fieldName,
 		Type: c.ExtractTypeNameFromTuple(ttype.Type.Def.Tuple, palletName, callName, fieldName),
