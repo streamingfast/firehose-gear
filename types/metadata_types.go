@@ -2,13 +2,13 @@ package types
 
 import (
 	"fmt"
-	"strings"
 
-	"github.com/gobeam/stringy"
+	substrateTypes "github.com/centrifuge/go-substrate-rpc-client/v4/types"
 )
 
 type IType interface {
-	ToProtoMessage(options ...string) string
+	ToProtoType(options ...string) string
+	ToGoType(options ...string) string
 	GetName() string
 }
 
@@ -16,178 +16,45 @@ type Types struct {
 	Types []IType
 }
 
-type BaseType struct {
-	Optional bool
-}
+func ConvertPrimitiveType(b substrateTypes.Si0TypeDefPrimitive) *Primitive {
+	p := &Primitive{}
 
-type Composite struct {
-	BaseType
-	CompositeFields []*CompositeField
-}
-
-func (c *Composite) GetName() string {
-	return "Composite"
-}
-
-func (c *Composite) ToProtoMessage(options ...string) string {
-	var sb strings.Builder
-	for _, f := range c.CompositeFields {
-		sb.WriteString(f.Type.ToProtoMessage())
-	}
-	return sb.String()
-}
-
-type CompositeField struct {
-	Name string
-	Type IType
-}
-
-func (f *CompositeField) ToProtoMessage(options ...string) string {
-	if f.Name == "" {
-		return f.Type.ToProtoMessage()
-	}
-
-	return fmt.Sprintf("%s %s", f.Type.ToProtoMessage(), f.Name)
-}
-
-func (f *CompositeField) GetName() string {
-	str := stringy.New(f.Name)
-	return str.PascalCase().Get()
-}
-
-type Variants struct {
-	BaseType
-	Variants []*Variant
-}
-
-func (v *Variants) GetName() string {
-	return "Variants"
-}
-
-func (v *Variants) ToProtoMessage(options ...string) string {
-	var sb strings.Builder
-
-	for _, variant := range v.Variants {
-		sb.WriteString(variant.ToProtoMessage())
+	switch b {
+	case substrateTypes.IsBool:
+		p.Si0TypeDefPrimitive = &Type{IsBool: true}
+	case substrateTypes.IsU8:
+		p.Si0TypeDefPrimitive = &Type{IsU8: true}
+	case substrateTypes.IsU16:
+		p.Si0TypeDefPrimitive = &Type{IsU16: true}
+	case substrateTypes.IsU32:
+		p.Si0TypeDefPrimitive = &Type{IsU32: true}
+	case substrateTypes.IsU64:
+		p.Si0TypeDefPrimitive = &Type{IsU64: true}
+	case substrateTypes.IsI8:
+		p.Si0TypeDefPrimitive = &Type{IsI8: true}
+	case substrateTypes.IsI16:
+		p.Si0TypeDefPrimitive = &Type{IsI16: true}
+	case substrateTypes.IsI32:
+		p.Si0TypeDefPrimitive = &Type{IsI32: true}
+	case substrateTypes.IsI64:
+		p.Si0TypeDefPrimitive = &Type{IsI64: true}
+	case substrateTypes.IsStr:
+		p.Si0TypeDefPrimitive = &Type{IsStr: true}
+	case substrateTypes.IsChar:
+		p.Si0TypeDefPrimitive = &Type{IsChar: true}
+	case substrateTypes.IsU128:
+		p.Si0TypeDefPrimitive = &Type{IsU128: true}
+	case substrateTypes.IsU256:
+		p.Si0TypeDefPrimitive = &Type{IsU256: true}
+	case substrateTypes.IsI128:
+		p.Si0TypeDefPrimitive = &Type{IsI128: true}
+	case substrateTypes.IsI256:
+		p.Si0TypeDefPrimitive = &Type{IsI256: true}
+	default:
+		panic(fmt.Sprintf("unsupported primitive type %v", b))
 	}
 
-	return sb.String()
-}
-
-type Variant struct {
-	Name          string
-	VariantFields []*VariantField
-	Index         uint64
-}
-
-func (v *Variant) GetName() string {
-	str := stringy.New(v.Name)
-	return fmt.Sprintf("Variant%s", str.PascalCase().Get())
-}
-
-func (v *Variant) ToProtoMessage(options ...string) string {
-	var sb strings.Builder
-
-	tabs := "\t"
-	str := stringy.New(v.Name)
-	sb.WriteString(fmt.Sprintf("%smessage %s {\n", tabs, str.PascalCase().Get()))
-	for i, field := range v.VariantFields {
-		sb.WriteString(fmt.Sprintf("\t\t%s = %d;\n", field.ToProtoMessage(), i))
-	}
-	sb.WriteString(fmt.Sprintf("%s}\n", tabs))
-	return sb.String()
-}
-
-type VariantField struct {
-	Name string
-	Type IType
-}
-
-func (f *VariantField) ToProtoMessage(options ...string) string {
-	return fmt.Sprintf("%s %s", f.Type.ToProtoMessage(), f.Name)
-}
-
-func (f *VariantField) GetName() string {
-	str := stringy.New(f.Name)
-	return fmt.Sprintf("VariantField%s", str.PascalCase().Get())
-}
-
-func (f *VariantField) ToProtobufType() *ProtobufType {
-	return &ProtobufType{
-		Name: f.Name,
-		Type: f.Type.ToProtoMessage(),
-	}
-}
-
-type Sequence struct {
-	Item IType
-}
-
-func (s *Sequence) GetName() string {
-	return fmt.Sprintf("Sequence%s", s.Item.GetName())
-}
-
-func (s *Sequence) ToProtoMessage(options ...string) string {
-	t, ok := s.Item.(*Primitive)
-	if ok {
-		if t.Si0TypeDefPrimitive.IsU8 {
-			return "bytes"
-		}
-	}
-
-	tuple, ok := s.Item.(*Tuple)
-	if ok {
-		return tuple.ToProtoMessage()
-	}
-
-	seq, ok := s.Item.(*Sequence)
-	if ok {
-		return fmt.Sprintf("repeated %s", seq.ToProtoMessage())
-	}
-
-	return fmt.Sprintf("repeated %s\n", s.Item.ToProtoMessage())
-}
-
-type Array struct {
-	Type IType
-}
-
-func (a *Array) GetName() string {
-	return fmt.Sprintf("Array%s", a.Type.GetName())
-}
-
-func (a *Array) ToProtoMessage(options ...string) string {
-	t, ok := a.Type.(*Primitive)
-	if ok {
-		if t.Si0TypeDefPrimitive.IsU8 {
-			return "bytes"
-		}
-	}
-
-	var sb strings.Builder
-	sb.WriteString(a.Type.ToProtoMessage())
-	return sb.String()
-}
-
-type Tuple struct {
-	Name  string
-	Items []IType
-}
-
-func (t *Tuple) GetName() string {
-	str := stringy.New(t.Name)
-	return fmt.Sprintf("Tuple%s", str.PascalCase().Get())
-}
-
-func (t *Tuple) ToProtoMessage(options ...string) string {
-	var sb strings.Builder
-	sb.WriteString(fmt.Sprintf("\n\t\tmessage Tuple_%s {\n", t.Name))
-	for i, item := range t.Items {
-		sb.WriteString(fmt.Sprintf("\t\t\t%s %s_%d", item.ToProtoMessage(), t.Name, i+1))
-		sb.WriteString(fmt.Sprintf(" = %d;\n", i+1))
-	}
-	sb.WriteString("\t\t}\n")
-	return sb.String()
+	return p
 }
 
 type Primitive struct {
@@ -195,15 +62,19 @@ type Primitive struct {
 }
 
 func (p *Primitive) GetName() string {
-	return p.Si0TypeDefPrimitive.ToProtoMessage()
+	return p.Si0TypeDefPrimitive.ToProtoType()
 }
 
 func (p *Primitive) GetProtoFieldName() string {
-	return p.Si0TypeDefPrimitive.ToProtoMessage()
+	return p.Si0TypeDefPrimitive.ToProtoType()
 }
 
-func (p *Primitive) ToProtoMessage(options ...string) string {
-	return p.Si0TypeDefPrimitive.ToProtoMessage()
+func (p *Primitive) ToProtoType(options ...string) string {
+	return p.Si0TypeDefPrimitive.ToProtoType()
+}
+
+func (p *Primitive) ToGoType(options ...string) string {
+	return p.Si0TypeDefPrimitive.ToGoType()
 }
 
 type Compact struct {
@@ -215,7 +86,7 @@ func (c *Compact) GetName() string {
 }
 
 func (c *Compact) ToProtoMessage(options ...string) string {
-	return c.Type.ToProtoMessage()
+	return c.Type.ToProtoType()
 }
 
 type BitSequence struct {
@@ -323,7 +194,10 @@ func (t *Type) GetProtoFieldName() string {
 	panic("unknown type")
 }
 
-func (t *Type) ToProtoMessage(options ...string) string {
+func (t *Type) ToGoType(options ...string) string {
+	return t.ToProtoType()
+}
+func (t *Type) ToProtoType(options ...string) string {
 	if t.IsBool {
 		return "bool"
 	}
@@ -347,6 +221,8 @@ func (t *Type) ToProtoMessage(options ...string) string {
 	if t.IsI64 {
 		return "int64"
 	}
+
+	panic("unknown type")
 
 	return ""
 }

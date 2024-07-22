@@ -2,6 +2,7 @@ package rpc
 
 import (
 	"fmt"
+	"math"
 	"os"
 	"strings"
 
@@ -175,8 +176,9 @@ func (c *TypeConverter) ProcessField(f substrateTypes.Si1Field, palletName strin
 func (c *TypeConverter) FieldForPrimitive(ttype substrateTypes.PortableTypeV14, fieldName string) *protobuf.BasicField {
 	return &protobuf.BasicField{
 		Name:      fieldName,
-		Type:      c.convertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName(),
+		Type:      ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName(),
 		Primitive: true,
+		LookupID:  ttype.ID.Int64(),
 	}
 }
 
@@ -189,6 +191,7 @@ func (c *TypeConverter) FieldForSequence(ttype substrateTypes.PortableTypeV14, p
 		Type:      typeName,
 		Name:      fieldName,
 		Primitive: lookupType.Type.Def.IsPrimitive,
+		LookupID:  lookupId,
 	}
 }
 
@@ -201,6 +204,7 @@ func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, pall
 		Name:      fieldName,
 		Type:      typeName,
 		Primitive: lookupType.Type.Def.IsPrimitive,
+		LookupID:  lookupId,
 	}
 }
 
@@ -208,8 +212,9 @@ func (c *TypeConverter) FieldForCompact(ttype substrateTypes.PortableTypeV14, pa
 	name := c.ExtractTypeName(ttype, palletName, callName, fieldName)
 
 	return &protobuf.BasicField{
-		Name: fieldName,
-		Type: name,
+		Name:     fieldName,
+		Type:     name,
+		LookupID: ttype.ID.Int64(),
 	}
 }
 
@@ -217,8 +222,9 @@ func (c *TypeConverter) FieldForComposite(ttype substrateTypes.PortableTypeV14, 
 	name := c.ExtractTypeName(ttype, palletName, callName, fieldName)
 
 	return &protobuf.BasicField{
-		Name: fieldName,
-		Type: name,
+		Name:     fieldName,
+		Type:     name,
+		LookupID: ttype.ID.Int64(),
 	}
 }
 
@@ -305,7 +311,7 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) string {
 	typeName := ""
 	if ttype.Type.Def.IsPrimitive {
-		typeName = c.convertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).ToProtoMessage()
+		typeName = c.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).ToProtoMessage()
 	}
 
 	if ttype.Type.Def.IsTuple {
@@ -377,13 +383,15 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 
 	if ttype.Type.Def.IsVariant {
 		field := &protobuf.OneOfField{
-			Name: typeName,
+			Name:     typeName,
+			LookupID: ttype.ID.Int64(),
 		}
 		for _, v := range ttype.Type.Def.Variant.Variants {
 			typeName := fmt.Sprintf("%s_%s", palletName, string(v.Name))
 			field.Types = append(field.Types, &protobuf.BasicField{
-				Name: fmt.Sprintf("%s_%s", palletName, string(v.Name)),
-				Type: typeName,
+				Name:     fmt.Sprintf("%s_%s", palletName, string(v.Name)),
+				Type:     typeName,
+				LookupID: math.MaxInt64,
 			})
 		}
 		msg.Fields = append(msg.Fields, field)
@@ -419,7 +427,8 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 
 func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ string, callName string, fieldName string) protobuf.Field {
 	of := &protobuf.OneOfField{
-		Name: fieldName,
+		Name:     fieldName,
+		LookupID: ttype.ID.Int64(),
 	}
 
 	pallets := ttype.Type.Def.Variant.Variants
@@ -436,8 +445,9 @@ func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ strin
 				n += stringy.New(string(palletCallName.Name)).PascalCase().Get()
 				n += "_Call"
 				of.Types = append(of.Types, &protobuf.BasicField{
-					Name: fmt.Sprintf("%s_%s", palletName, string(palletCallName.Name)),
-					Type: n,
+					Name:     fmt.Sprintf("%s_%s", palletName, string(palletCallName.Name)),
+					LookupID: math.MaxInt64,
+					Type:     n,
 				})
 			}
 		}
@@ -495,8 +505,9 @@ func (c *TypeConverter) FieldForTuple(ttype substrateTypes.PortableTypeV14, pall
 	}
 
 	field := &protobuf.BasicField{
-		Name: fieldName,
-		Type: c.ExtractTypeNameFromTuple(ttype.Type.Def.Tuple, palletName, callName, fieldName),
+		Name:     fieldName,
+		Type:     c.ExtractTypeNameFromTuple(ttype.Type.Def.Tuple, palletName, callName, fieldName),
+		LookupID: ttype.ID.Int64(),
 	}
 
 	return field
@@ -506,8 +517,9 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 	msgName := palletName + "_" + fieldName
 
 	f := &protobuf.BasicField{
-		Name: fieldName,
-		Type: msgName,
+		Name:     fieldName,
+		Type:     msgName,
+		LookupID: ttype.ID.Int64(),
 	}
 
 	if _, found := c.seenMessages[msgName]; found {
@@ -523,8 +535,9 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 	for _, v := range ttype.Type.Def.Variant.Variants {
 		typeName := fmt.Sprintf("%s_%s", palletName, string(v.Name))
 		oneOf.Types = append(oneOf.Types, &protobuf.BasicField{
-			Name: fmt.Sprintf("%s_%s", palletName, string(v.Name)),
-			Type: typeName,
+			Name:     fmt.Sprintf("%s_%s", palletName, string(v.Name)),
+			Type:     typeName,
+			LookupID: math.MaxInt64,
 		})
 
 		if _, ok := c.seenMessages[typeName]; !ok {
@@ -543,45 +556,4 @@ func (c *TypeConverter) ProcessOptionalType(ttype substrateTypes.PortableTypeV14
 	tttype := c.allMetadataTypes[someField.Type.Int64()]
 
 	return c.ExtractTypeName(tttype, palletName, callName, fieldName)
-}
-
-func (c *TypeConverter) convertPrimitiveType(b substrateTypes.Si0TypeDefPrimitive) *types.Primitive {
-	p := &types.Primitive{}
-
-	switch b {
-	case substrateTypes.IsBool:
-		p.Si0TypeDefPrimitive = &types.Type{IsBool: true}
-	case substrateTypes.IsU8:
-		p.Si0TypeDefPrimitive = &types.Type{IsU8: true}
-	case substrateTypes.IsU16:
-		p.Si0TypeDefPrimitive = &types.Type{IsU16: true}
-	case substrateTypes.IsU32:
-		p.Si0TypeDefPrimitive = &types.Type{IsU32: true}
-	case substrateTypes.IsU64:
-		p.Si0TypeDefPrimitive = &types.Type{IsU64: true}
-	case substrateTypes.IsI8:
-		p.Si0TypeDefPrimitive = &types.Type{IsI8: true}
-	case substrateTypes.IsI16:
-		p.Si0TypeDefPrimitive = &types.Type{IsI16: true}
-	case substrateTypes.IsI32:
-		p.Si0TypeDefPrimitive = &types.Type{IsI32: true}
-	case substrateTypes.IsI64:
-		p.Si0TypeDefPrimitive = &types.Type{IsI64: true}
-	case substrateTypes.IsStr:
-		p.Si0TypeDefPrimitive = &types.Type{IsStr: true}
-	case substrateTypes.IsChar:
-		p.Si0TypeDefPrimitive = &types.Type{IsChar: true}
-	case substrateTypes.IsU128:
-		p.Si0TypeDefPrimitive = &types.Type{IsU128: true}
-	case substrateTypes.IsU256:
-		p.Si0TypeDefPrimitive = &types.Type{IsU256: true}
-	case substrateTypes.IsI128:
-		p.Si0TypeDefPrimitive = &types.Type{IsI128: true}
-	case substrateTypes.IsI256:
-		p.Si0TypeDefPrimitive = &types.Type{IsI256: true}
-	default:
-		panic(fmt.Sprintf("unsupported primitive type %v", b))
-	}
-
-	return p
 }

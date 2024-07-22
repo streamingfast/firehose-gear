@@ -3,6 +3,9 @@ package protobuf
 import (
 	"fmt"
 	"strings"
+
+	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
+	types2 "github.com/streamingfast/firehose-gear/types"
 )
 
 type Field interface {
@@ -10,6 +13,8 @@ type Field interface {
 	SetOptional()
 	IsPrimitive() bool
 	ToProto(idx int) (string, int)
+	ToFuncName(meta *types.Metadata) string
+	ReturnType(meta *types.Metadata) string
 }
 
 type Proto struct {
@@ -28,10 +33,12 @@ type Message struct {
 	Fields []Field
 }
 
-func (m *Message) ToGo() string {
-	var sb strings.Builder
+func (m *Message) ToFuncName(meta *types.Metadata) string {
+	return "to_" + m.Name
+}
 
-	sb.WriteString(fmt.Sprintf("func"))
+func (m *Message) ReturnType(meta *types.Metadata) string {
+	return "*pbgear." + m.Name
 }
 
 func (m *Message) ToProto() string {
@@ -50,34 +57,28 @@ func (m *Message) ToProto() string {
 	return sb.String()
 }
 
-type RepeatedField struct {
-	Type      string
-	Name      string
-	Primitive bool
-}
-
-func (f *RepeatedField) SetOptional() {
-	panic("Repeated fields can not be set with an optional")
-}
-
-func (f *RepeatedField) GetType() string {
-	return f.Type
-}
-
-func (f *RepeatedField) ToProto(idx int) (string, int) {
-	str := fmt.Sprintf("repeated %s %s = %d;\n", f.Type, f.Name, idx)
-	return str, idx
-}
-
-func (f *RepeatedField) IsPrimitive() bool {
-	return f.Primitive
-}
-
 type BasicField struct {
 	Optional  bool
 	Type      string
 	Name      string
+	LookupID  int64
 	Primitive bool
+}
+
+func (f *BasicField) ToFuncName(meta *types.Metadata) string {
+	if f.Optional {
+		return "to_optional_" + f.Name
+	}
+	return "to_" + f.Name
+}
+
+func (f *BasicField) ReturnType(meta *types.Metadata) string {
+	if f.IsPrimitive() {
+		ttype := meta.AsMetadataV14.EfficientLookup[f.LookupID]
+		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
+		return primitive.ToGoType()
+	}
+	return "*pbgear." + f.Name
 }
 
 func (f *BasicField) GetType() string {
@@ -100,10 +101,57 @@ func (f *BasicField) IsPrimitive() bool {
 	return f.Primitive
 }
 
+type RepeatedField struct {
+	Type      string
+	Name      string
+	LookupID  int64
+	Primitive bool
+}
+
+func (f *RepeatedField) ToFuncName() string {
+	return "to_repeated" + f.Name
+}
+
+func (f *RepeatedField) ReturnType(meta *types.Metadata) string {
+	if f.IsPrimitive() {
+		ttype := meta.AsMetadataV14.EfficientLookup[f.LookupID]
+		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
+		return "[]" + primitive.ToGoType()
+	}
+	return "[]*pbgear." + f.Name
+
+}
+
+func (f *RepeatedField) SetOptional() {
+	panic("Repeated fields can not be set with an optional")
+}
+
+func (f *RepeatedField) GetType() string {
+	return f.Type
+}
+
+func (f *RepeatedField) ToProto(idx int) (string, int) {
+	str := fmt.Sprintf("repeated %s %s = %d;\n", f.Type, f.Name, idx)
+	return str, idx
+}
+
+func (f *RepeatedField) IsPrimitive() bool {
+	return f.Primitive
+}
+
 type OneOfField struct {
 	Name      string
 	Types     []*BasicField
+	LookupID  int64
 	Primitive bool
+}
+
+func (f *OneOfField) ToFuncName() string {
+	return "to_oneof_" + f.Name
+}
+
+func (f *OneOfField) ReturnType(meta *types.Metadata) string {
+	return "*pbgear." + f.Name
 }
 
 func (f *OneOfField) GetType() string {
