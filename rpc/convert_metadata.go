@@ -77,7 +77,7 @@ type TypeConverter struct {
 	allMetadataTypes []substrateTypes.PortableTypeV14
 }
 
-func (tc *TypeConverter) UpdateName(name string) {
+func (c *TypeConverter) UpdateName(name string) {
 	// tc.name = name
 }
 
@@ -87,9 +87,9 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	totalNumberOfCalls := 0
 
 	for _, pallet := range metadata.Pallets {
-		// if pallet.Name != "Multisig" {
-		// 	continue
-		// }
+		if pallet.Name != "Babe" {
+			continue
+		}
 
 		if pallet.HasCalls {
 			idx := pallet.Calls.Type.Int64()
@@ -98,10 +98,10 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 			calls := variants.Type.Def.Variant
 			totalNumberOfCalls += len(calls.Variants)
 			for _, variant := range calls.Variants {
-				// if variant.Name != "as_multi_threshold_1" {
-				// 	continue
-				// }
-				// fmt.Println("Processing call", variant.Name)
+				//if variant.Name != "as_multi_threshold_1" {
+				//	continue
+				//}
+				//fmt.Println("Processing call", variant.Name)
 
 				palletName := string(pallet.Name)
 				callName := string(variant.Name)
@@ -149,6 +149,7 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	}
 
 	var sb strings.Builder
+	sb.WriteString("syntax = \"proto3\";\n\n")
 	for _, out := range outputs {
 		sb.WriteString(out.ToProto())
 	}
@@ -289,42 +290,42 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 }
 
 func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) string {
-	name := ""
+	typeName := ""
 	if ttype.Type.Def.IsPrimitive {
-		name = c.convertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).ToProtoMessage()
+		typeName = c.convertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).ToProtoMessage()
 	}
 
 	if ttype.Type.Def.IsTuple {
-		name = c.ExtractTypeNameFromTuple(ttype.Type.Def.Tuple, palletName, callName, fieldName)
+		typeName = c.ExtractTypeNameFromTuple(ttype.Type.Def.Tuple, palletName, callName, fieldName)
 	}
 
 	if ttype.Type.Def.IsComposite {
-		name = c.ExtractTypeNameFromPath(ttype.Type.Path)
+		typeName = c.ExtractTypeNameFromPath(ttype.Type.Path)
 	}
 
 	if ttype.Type.Def.IsVariant {
-		name = c.ExtractTypeNameFromPath(ttype.Type.Path)
+		typeName = c.ExtractTypeNameFromPath(ttype.Type.Path)
 	}
 
 	if ttype.Type.Def.IsSequence || ttype.Type.Def.IsArray {
-		name = fmt.Sprintf("%s_%s_list", palletName, fieldName)
+		typeName = fmt.Sprintf("%s_%s_list", palletName, fieldName)
 	}
 
 	if ttype.Type.Def.IsCompact {
-		name = "Compact"
+		typeName = "Compact"
 
 		lookupId := ttype.Type.Def.Compact.Type.Int64()
 		lookupType := c.allMetadataTypes[lookupId]
 		typeName := c.ExtractTypeName(lookupType, palletName, callName, fieldName)
-		name = fmt.Sprintf("%s_%s", name, typeName)
+		typeName = fmt.Sprintf("%s_%s", typeName, typeName)
 	}
 
-	return name
+	return typeName
 }
 
-func (c *TypeConverter) MessageForType(name string, ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.Message {
+func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.Message {
 	msg := &protobuf.Message{
-		Name: name, // + "_GEN",
+		Name: typeName, // + "_GEN",
 	}
 
 	if ttype.Type.Def.IsTuple {
@@ -357,7 +358,7 @@ func (c *TypeConverter) MessageForType(name string, ttype substrateTypes.Portabl
 
 	if ttype.Type.Def.IsVariant {
 		field := &protobuf.OneOfField{
-			Name: name,
+			Name: typeName,
 		}
 		for _, v := range ttype.Type.Def.Variant.Variants {
 			typeName := fmt.Sprintf("%s_%s", palletName, string(v.Name))
@@ -402,7 +403,7 @@ func (c *TypeConverter) MessageForType(name string, ttype substrateTypes.Portabl
 	return msg
 }
 
-func (tc *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ string, callName string, fieldName string) protobuf.Field {
+func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ string, callName string, fieldName string) protobuf.Field {
 	of := &protobuf.OneOfField{
 		Name: fieldName,
 	}
@@ -411,9 +412,9 @@ func (tc *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ stri
 	for _, v := range pallets { // 1. System
 		palletName := v.Name
 		calls := v.Fields
-		for _, c := range calls { // 1. 66
-			lookupId := c.Type.Int64()
-			palletCalls := tc.allMetadataTypes[lookupId] // 1. System
+		for _, call := range calls { // 1. 66
+			lookupId := call.Type.Int64()
+			palletCalls := c.allMetadataTypes[lookupId] // 1. System
 			palletCallNames := palletCalls.Type.Def.Variant.Variants
 
 			for _, palletCallName := range palletCallNames { // remark
@@ -468,7 +469,11 @@ func (c *TypeConverter) ExtractTypeNameFromPath(path substrateTypes.Si1Path) str
 }
 
 func (c *TypeConverter) FieldForTuple(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.BasicField {
+	if fieldName == "" {
+		panic("field name is required")
+	}
 	field := &protobuf.BasicField{
+		Name: fieldName,
 		Type: c.ExtractTypeNameFromTuple(ttype.Type.Def.Tuple, palletName, callName, fieldName),
 	}
 
@@ -476,23 +481,40 @@ func (c *TypeConverter) FieldForTuple(ttype substrateTypes.PortableTypeV14, pall
 }
 
 func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
-	of := &protobuf.OneOfField{
+	msgName := palletName + "_" + fieldName
+
+	f := &protobuf.BasicField{
 		Name: fieldName,
+		Type: msgName,
+	}
+
+	if _, found := c.seenMessages[msgName]; found {
+		return f
+	}
+
+	oneOf := &protobuf.OneOfField{
+		Name: "value",
+	}
+	msg := &protobuf.Message{
+		Name:   msgName,
+		Fields: []protobuf.Field{oneOf},
 	}
 
 	for _, v := range ttype.Type.Def.Variant.Variants {
 		typeName := fmt.Sprintf("%s_%s", palletName, string(v.Name))
-		of.Types = append(of.Types, &protobuf.BasicField{
+		oneOf.Types = append(oneOf.Types, &protobuf.BasicField{
 			Name: string(v.Name),
 			Type: typeName,
 		})
 
 		if _, ok := c.seenMessages[typeName]; !ok {
-			c.MessageForVariantTypes(typeName, v, palletName, callName, fieldName)
+			c.MessageForVariantTypes(typeName, v, palletName, callName, string(v.Name))
 		}
 	}
 
-	return of
+	c.seenMessages[msgName] = msg
+
+	return f
 }
 
 func (c *TypeConverter) ProcessOptionalType(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) string {
@@ -630,69 +652,60 @@ func (c *TypeConverter) FetchNames() map[string]types.IType {
 	return allTypes
 }
 
-func (tc *TypeConverter) convertPortableTypeV14(ttype substrateTypes.PortableTypeV14, allMetadataTypes []substrateTypes.PortableTypeV14) types.IType {
+func (c *TypeConverter) convertPortableTypeV14(ttype substrateTypes.PortableTypeV14, allMetadataTypes []substrateTypes.PortableTypeV14) types.IType {
 	lookupId := ttype.ID.Int64()
-	if tc.seenTypes[lookupId] != nil {
-		return tc.seenTypes[lookupId]
+	if c.seenTypes[lookupId] != nil {
+		return c.seenTypes[lookupId]
 	}
 
 	if ttype.Type.Def.IsComposite {
-		c := ttype.Type.Def.Composite
-		return tc.convertCompositeType(c, allMetadataTypes)
+		return c.convertCompositeType(ttype.Type.Def.Composite, allMetadataTypes)
 	}
 
 	if ttype.Type.Def.IsVariant {
-		v := ttype.Type.Def.Variant
-		return tc.convertVariantType(v, allMetadataTypes)
+		return c.convertVariantType(ttype.Type.Def.Variant, allMetadataTypes)
 	}
 
 	if ttype.Type.Def.IsSequence {
-		s := ttype.Type.Def.Sequence
-		return tc.convertSequenceType(s, allMetadataTypes)
+		return c.convertSequenceType(ttype.Type.Def.Sequence, allMetadataTypes)
 	}
 
 	if ttype.Type.Def.IsArray {
-		a := ttype.Type.Def.Array
-		return tc.convertArrayType(a, allMetadataTypes)
+		return c.convertArrayType(ttype.Type.Def.Array, allMetadataTypes)
 	}
 
 	if ttype.Type.Def.IsTuple {
-		t := ttype.Type.Def.Tuple
-		return tc.convertTupleType(t, allMetadataTypes)
+		return c.convertTupleType(ttype.Type.Def.Tuple, allMetadataTypes)
 	}
 
 	if ttype.Type.Def.IsPrimitive {
-		p := ttype.Type.Def.Primitive
-		b := substrateTypes.Si0TypeDefPrimitive(p.Si0TypeDefPrimitive)
-		return tc.convertPrimitiveType(b)
+		b := ttype.Type.Def.Primitive.Si0TypeDefPrimitive
+		return c.convertPrimitiveType(b)
 	}
 
 	if ttype.Type.Def.IsCompact {
-		c := ttype.Type.Def.Compact
-		return tc.convertCompactType(c, allMetadataTypes)
+		return c.convertCompactType(ttype.Type.Def.Compact, allMetadataTypes)
 	}
 
 	if ttype.Type.Def.IsBitSequence {
-		b := ttype.Type.Def.BitSequence
-		return tc.convertBitSequenceType(b, allMetadataTypes)
+		return c.convertBitSequenceType(ttype.Type.Def.BitSequence, allMetadataTypes)
 	}
 
 	if ttype.Type.Def.IsHistoricMetaCompat {
-		h := ttype.Type.Def.HistoricMetaCompat
-		return tc.convertHistoricMetaCompat(h)
+		return c.convertHistoricMetaCompat(ttype.Type.Def.HistoricMetaCompat)
 	}
 
 	panic(fmt.Sprintf("unsupported type: %v", ttype.Type.Def))
 }
 
-func (tc *TypeConverter) convertCompositeType(c substrateTypes.Si1TypeDefComposite, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Composite {
+func (c *TypeConverter) convertCompositeType(composite substrateTypes.Si1TypeDefComposite, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Composite {
 	comp := &types.Composite{}
 	fields := make([]*types.CompositeField, 0)
 
-	for _, field := range c.Fields {
+	for _, field := range composite.Fields {
 		lookupId := field.Type.Int64()
 		portableType := allMetadataTypes[lookupId]
-		convertedType := tc.convertPortableTypeV14(portableType, allMetadataTypes)
+		convertedType := c.convertPortableTypeV14(portableType, allMetadataTypes)
 
 		fields = append(fields, &types.CompositeField{
 			Name: string(field.Name),
@@ -741,7 +754,7 @@ func (b *BaseType) SetChild(c types.IType) {
 }
 
 // NOTE: inside a variant we can find the definition of a Rust Result type, which would need to be handled a bit funkier...
-func (tc *TypeConverter) convertVariantType(v substrateTypes.Si1TypeDefVariant, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Variants {
+func (c *TypeConverter) convertVariantType(v substrateTypes.Si1TypeDefVariant, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Variants {
 	variant := &types.Variants{}
 	variants := make([]*types.Variant, 0)
 
@@ -758,8 +771,8 @@ func (tc *TypeConverter) convertVariantType(v substrateTypes.Si1TypeDefVariant, 
 				continue
 			}
 
-			tc.UpdateName(name)
-			convertedType := tc.convertPortableTypeV14(portableType, allMetadataTypes)
+			c.UpdateName(name)
+			convertedType := c.convertPortableTypeV14(portableType, allMetadataTypes)
 
 			fields = append(fields, &types.VariantField{
 				Name: name,
@@ -778,25 +791,25 @@ func (tc *TypeConverter) convertVariantType(v substrateTypes.Si1TypeDefVariant, 
 	return variant
 }
 
-func (tc *TypeConverter) convertSequenceType(s substrateTypes.Si1TypeDefSequence, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Sequence {
+func (c *TypeConverter) convertSequenceType(s substrateTypes.Si1TypeDefSequence, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Sequence {
 	seq := &types.Sequence{}
 	lookupId := s.Type.Int64()
 	portableType := allMetadataTypes[lookupId]
-	convertedType := tc.convertPortableTypeV14(portableType, allMetadataTypes)
+	convertedType := c.convertPortableTypeV14(portableType, allMetadataTypes)
 	seq.Item = convertedType
 	return seq
 }
 
-func (tc *TypeConverter) convertArrayType(a substrateTypes.Si1TypeDefArray, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Array {
+func (c *TypeConverter) convertArrayType(a substrateTypes.Si1TypeDefArray, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Array {
 	arr := &types.Array{}
 	lookupId := a.Type.Int64()
 	portableType := allMetadataTypes[lookupId]
-	convertedType := tc.convertPortableTypeV14(portableType, allMetadataTypes)
+	convertedType := c.convertPortableTypeV14(portableType, allMetadataTypes)
 	arr.Type = convertedType
 	return arr
 }
 
-func (tc *TypeConverter) convertTupleType(t substrateTypes.Si1TypeDefTuple, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Tuple {
+func (c *TypeConverter) convertTupleType(t substrateTypes.Si1TypeDefTuple, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Tuple {
 	tup := &types.Tuple{
 		// Name: tc.name,
 	}
@@ -805,7 +818,7 @@ func (tc *TypeConverter) convertTupleType(t substrateTypes.Si1TypeDefTuple, allM
 	for _, item := range t {
 		lookupId := item.Int64()
 		portableType := allMetadataTypes[lookupId]
-		convertedType := tc.convertPortableTypeV14(portableType, allMetadataTypes)
+		convertedType := c.convertPortableTypeV14(portableType, allMetadataTypes)
 		items = append(items, convertedType)
 	}
 
@@ -813,7 +826,7 @@ func (tc *TypeConverter) convertTupleType(t substrateTypes.Si1TypeDefTuple, allM
 	return tup
 }
 
-func (tc *TypeConverter) convertPrimitiveType(b substrateTypes.Si0TypeDefPrimitive) *types.Primitive {
+func (c *TypeConverter) convertPrimitiveType(b substrateTypes.Si0TypeDefPrimitive) *types.Primitive {
 	p := &types.Primitive{}
 
 	switch b {
@@ -854,24 +867,24 @@ func (tc *TypeConverter) convertPrimitiveType(b substrateTypes.Si0TypeDefPrimiti
 	return p
 }
 
-func (tc *TypeConverter) convertCompactType(c substrateTypes.Si1TypeDefCompact, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Compact {
+func (c *TypeConverter) convertCompactType(compact substrateTypes.Si1TypeDefCompact, allMetadataTypes []substrateTypes.PortableTypeV14) *types.Compact {
 	comp := &types.Compact{}
-	lookupId := c.Type.Int64()
+	lookupId := compact.Type.Int64()
 	portableType := allMetadataTypes[lookupId]
-	convertedType := tc.convertPortableTypeV14(portableType, allMetadataTypes)
+	convertedType := c.convertPortableTypeV14(portableType, allMetadataTypes)
 	comp.Type = convertedType
 	return comp
 }
 
-func (tc *TypeConverter) convertBitSequenceType(b substrateTypes.Si1TypeDefBitSequence, allMetadataTypes []substrateTypes.PortableTypeV14) *types.BitSequence {
+func (c *TypeConverter) convertBitSequenceType(b substrateTypes.Si1TypeDefBitSequence, allMetadataTypes []substrateTypes.PortableTypeV14) *types.BitSequence {
 	bitSeq := &types.BitSequence{}
 	bitOrderPortableType := allMetadataTypes[b.BitOrderType.Int64()]
 	bitStorePortableType := allMetadataTypes[b.BitStoreType.Int64()]
-	bitSeq.BitOrderType = tc.convertPortableTypeV14(bitOrderPortableType, allMetadataTypes)
-	bitSeq.BitStoreType = tc.convertPortableTypeV14(bitStorePortableType, allMetadataTypes)
+	bitSeq.BitOrderType = c.convertPortableTypeV14(bitOrderPortableType, allMetadataTypes)
+	bitSeq.BitStoreType = c.convertPortableTypeV14(bitStorePortableType, allMetadataTypes)
 	return bitSeq
 }
 
-func (tc *TypeConverter) convertHistoricMetaCompat(h substrateTypes.Type) types.HistoricMetaCompat {
+func (c *TypeConverter) convertHistoricMetaCompat(h substrateTypes.Type) types.HistoricMetaCompat {
 	return types.HistoricMetaCompat(string(h))
 }
