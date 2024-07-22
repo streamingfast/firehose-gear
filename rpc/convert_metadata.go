@@ -87,10 +87,9 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	totalNumberOfCalls := 0
 
 	for _, pallet := range metadata.Pallets {
-		if pallet.Name != "Babe" {
-			continue
-		}
-
+		//if pallet.Name != "GearVoucher" {
+		//	continue
+		//}
 		if pallet.HasCalls {
 			idx := pallet.Calls.Type.Int64()
 			variants := c.allMetadataTypes[idx]
@@ -98,10 +97,10 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 			calls := variants.Type.Def.Variant
 			totalNumberOfCalls += len(calls.Variants)
 			for _, variant := range calls.Variants {
-				//if variant.Name != "as_multi_threshold_1" {
+				//if variant.Name != "issue" {
 				//	continue
 				//}
-				//fmt.Println("Processing call", variant.Name)
+				fmt.Println("Processing call", variant.Name)
 
 				palletName := string(pallet.Name)
 				callName := string(variant.Name)
@@ -153,7 +152,7 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	for _, out := range outputs {
 		sb.WriteString(out.ToProto())
 	}
-	err := os.WriteFile("output.proto", []byte(sb.String()), 0644)
+	err := os.WriteFile("../proto/output.proto", []byte(sb.String()), 0644)
 	if err != nil {
 		return nil, fmt.Errorf("writing output.proto: %w", err)
 	}
@@ -229,11 +228,16 @@ func (c *TypeConverter) FieldForComposite(ttype substrateTypes.PortableTypeV14, 
 }
 
 func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
+	if ttype.ID.Int64() == 65 {
+		return c.FieldFor65(ttype, palletName, callName, fieldName)
+	}
+
+	var field protobuf.Field
 	if len(ttype.Type.Path) != 0 {
 		isOptional := ttype.Type.Path[len(ttype.Type.Path)-1]
 		if isOptional == "Option" {
 			optionType := c.ProcessOptionalType(ttype, palletName, callName, fieldName)
-			return &protobuf.BasicField{
+			field = &protobuf.BasicField{
 				Optional:  true,
 				Name:      fieldName,
 				Type:      optionType,
@@ -242,11 +246,6 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 		}
 	}
 
-	if ttype.ID.Int64() == 65 {
-		return c.FieldFor65(ttype, palletName, callName, fieldName)
-	}
-
-	var field protobuf.Field
 	if ttype.Type.Def.IsPrimitive {
 		return c.FieldForPrimitive(ttype, fieldName)
 	}
@@ -363,7 +362,7 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 		for _, v := range ttype.Type.Def.Variant.Variants {
 			typeName := fmt.Sprintf("%s_%s", palletName, string(v.Name))
 			field.Types = append(field.Types, &protobuf.BasicField{
-				Name: string(v.Name),
+				Name: fmt.Sprintf("%s_%s", palletName, string(v.Name)),
 				Type: typeName,
 			})
 		}
@@ -419,7 +418,7 @@ func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ strin
 
 			for _, palletCallName := range palletCallNames { // remark
 				of.Types = append(of.Types, &protobuf.BasicField{
-					Name: string(palletCallName.Name),
+					Name: fmt.Sprintf("%s_%s", palletName, string(palletCallName.Name)),
 					Type: fmt.Sprintf("%s_%s_Call", palletName, string(palletCallName.Name)),
 				})
 			}
@@ -434,10 +433,14 @@ func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTyp
 		Name: name,
 	}
 
-	for _, f := range variant.Fields {
+	for i, f := range variant.Fields {
 		idx := f.Type.Int64()
 		fieldType := c.allMetadataTypes[idx]
-		field := c.FieldForType(fieldType, palletName, callName, string(f.Name))
+		fn := string(f.Name)
+		if !f.HasName {
+			fn = fmt.Sprintf("value_%d", i)
+		}
+		field := c.FieldForType(fieldType, palletName, callName, fn)
 		msg.Fields = append(msg.Fields, field)
 	}
 
@@ -501,9 +504,10 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 	}
 
 	for _, v := range ttype.Type.Def.Variant.Variants {
+
 		typeName := fmt.Sprintf("%s_%s", palletName, string(v.Name))
 		oneOf.Types = append(oneOf.Types, &protobuf.BasicField{
-			Name: string(v.Name),
+			Name: fmt.Sprintf("%s_%s", palletName, string(v.Name)),
 			Type: typeName,
 		})
 
