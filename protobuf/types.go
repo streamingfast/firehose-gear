@@ -112,7 +112,7 @@ func (f *BasicField) GetType() string {
 }
 func (f *BasicField) FullTypeName() string {
 	if f.Primitive {
-		return f.Pallet + "_" + f.Type
+		return f.Type
 	}
 
 	return f.Pallet + "_" + utils.ToPascalCase(f.Type, utils.CapitalizeCharAfterNum)
