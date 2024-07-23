@@ -15,6 +15,7 @@ type Field interface {
 	IsPrimitive() bool
 	IsRepeated() bool
 	IsOneOf() bool
+	IsOptional() bool
 	FullTypeName() string
 	GetType() string
 	ToGoTypeName(meta *types.Metadata) string
@@ -75,6 +76,10 @@ type BasicField struct {
 	Name      string
 	LookupID  int64
 	Primitive bool
+}
+
+func (f *BasicField) IsOptional() bool {
+	return f.Optional
 }
 
 func (f *BasicField) IsRepeated() bool {
@@ -158,6 +163,10 @@ type RepeatedField struct {
 	Primitive bool
 }
 
+func (f *RepeatedField) IsOptional() bool {
+	return false
+}
+
 func (f *RepeatedField) IsRepeated() bool {
 	return true
 }
@@ -233,6 +242,10 @@ type OneOfField struct {
 	Types     []*BasicField
 	LookupID  int64
 	Primitive bool
+}
+
+func (f *OneOfField) IsOptional() bool {
+	return false
 }
 
 func (f *OneOfField) ToFieldName() string {

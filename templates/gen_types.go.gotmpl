@@ -25,28 +25,26 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
 
     {{- $seen := $generator.IsSeen $field.FullTypeName }}
     {{- if not $seen -}}
-        {{- $ignore:= $generator.Seen $field.FullTypeName }}
-        {{/* ---- IsOptional section for any kind of fields ----- */}}
-        {{- $isOptional := $generator.IsOptionalField $field }}
-            {{- if and $isOptional $field.IsPrimitive }}
-            func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) *{{ $field.ReturnType $meta }} {
-                var out *{{ $field.GetType }}
+        {{- $ignore := $generator.Seen $field.FullTypeName }}
+        {{- if and $field.IsOptional $field.IsPrimitive }}
+        func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) *{{ $field.ReturnType $meta }} {
+            var out *{{ $field.GetType }}
 
-                if v, ok := in.Value.({{ $field.GetType }}); ok {
-                    if v != {{ $generator.NoneOptionalFieldComparator $field }} {
-                        panic("expected none")
-                    }
-                } else {
-                    out = in.Value.(*{{ $field.GetType }})
+            if v, ok := in.Value.({{ $field.GetType }}); ok {
+                if v != {{ $generator.NoneOptionalFieldComparator $field }} {
+                    panic("expected none")
                 }
-                return out
+            } else {
+                out = in.Value.(*{{ $field.GetType }})
             }
-            {{- else if and $field.IsPrimitive $field.IsRepeated}}
-            {{- template "repeatedPrimitive" wrap $field}}
-            {{- else if $generator.IsOneOf $field }}
-            func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) {{ $field.ReturnType $meta }} {
-                return nil
-            }
+            return out
+        }
+        {{- else if and $field.IsPrimitive $field.IsRepeated}}
+        {{- template "repeatedPrimitive" wrap $field}}
+        {{- else if $field.IsOneOf }}
+        func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) {{ $field.ReturnType $meta }} {
+            return nil
+        }
         {{- end }} {{/* isOptional and isPrimitive */}}
     {{- end }} {{/* not seen */}}
 {{ end }}
