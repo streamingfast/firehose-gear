@@ -86,7 +86,7 @@ func (f *BasicField) IsOneOf() bool {
 }
 
 func (f *BasicField) ToFieldName() string {
-	return utils.ToPascalCase(f.Name, utils.CapitalizeCharAfterNum)
+	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
 }
 
 func (f *BasicField) ToGoTypeName(meta *types.Metadata) string {
@@ -167,7 +167,7 @@ func (f *RepeatedField) IsOneOf() bool {
 }
 
 func (f *RepeatedField) ToFieldName() string {
-	return utils.ToPascalCase(f.Name, utils.CapitalizeCharAfterNum)
+	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
 }
 
 func (f *RepeatedField) ToGoTypeName(meta *types.Metadata) string {
@@ -236,7 +236,7 @@ type OneOfField struct {
 }
 
 func (f *OneOfField) ToFieldName() string {
-	return utils.ToPascalCase(f.Name, utils.CapitalizeCharAfterNum)
+	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
 }
 
 func (f *OneOfField) IsOneOf() bool {
