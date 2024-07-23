@@ -24,7 +24,7 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
     {{- $generator := .Generator }}
 
     {{- $seen := $generator.IsSeen $field.FullTypeName }}
-    {{- if not $seen }}
+    {{- if not $seen -}}
         {{- $ignore:= $generator.Seen $field.FullTypeName }}
         {{/* ---- IsOptional section for any kind of fields ----- */}}
         {{- $isOptional := $generator.IsOptionalField $field }}
@@ -41,8 +41,8 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
                 }
                 return out
             }
-            {{- else if $field.IsPrimitive }}
-            {{/* DO NOTHING WHEN WE ARE A PRIMITIVE */}}
+            {{- else if and $field.IsPrimitive $field.IsRepeated}}
+            {{- template "repeatedPrimitive" wrap $field}}
             {{- else if $generator.IsOneOf $field }}
             func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) {{ $field.ReturnType $meta }} {
                 return nil
@@ -51,6 +51,19 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
     {{- end }} {{/* not seen */}}
 {{ end }}
 
+{{ define "repeatedPrimitive" }}
+{{- $field := .Value }}
+{{- $meta := .Generator.Metadata }}
+{{- $goType := $field.ToGoTypeName $meta }}
+
+func {{ $field.ToFuncName $meta}}(in []*registry.DecodedField) {{ $field.ReturnType $meta }} {
+	out := make([]{{ $goType }}, len(in))
+	for i := range in {
+		out = append(out, i.Value.({{ $goType }}))
+	}
+	return out
+}
+{{- end -}}
 
 {{ define "return" }}
     {{- $msg := .Value }}
@@ -58,9 +71,9 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
     return {{ $msg.OutputType $meta }}{
         {{- range $i, $field := $msg.Fields }}
         {{- if and $field.IsPrimitive (not $field.IsRepeated) }}
-        {{ $field.ToGoTypeName }} : {{ $field.OutputType $meta }}(fields[{{$i}}].Value),
+        {{ $field.ToFieldName }} : fields[{{$i}}].Value.({{ $field.OutputType $meta }}),
         {{- else }}
-        {{ $field.ToGoTypeName }}: {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.([]*registry.DecodedField))),
+        {{ $field.ToFieldName }}: {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.([]*registry.DecodedField)),
         {{- end }}
         {{- end }}
     }
