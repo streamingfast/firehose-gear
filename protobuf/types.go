@@ -36,7 +36,7 @@ type Message struct {
 }
 
 func (m *Message) FullTypeName() string {
-	return m.Pallet + "_" + utils.ToPascalCase(m.Name)
+	return m.Pallet + "_" + utils.ToPascalCase(m.Name, utils.CapitalizeCharAfterNum)
 }
 func (m *Message) ToFuncName(meta *types.Metadata) string {
 	return "to_" + m.FullTypeName()
@@ -75,7 +75,7 @@ type BasicField struct {
 }
 
 func (f *BasicField) ToGoTypeName() string {
-	return utils.ToPascalCase(f.Name)
+	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
 }
 
 func (f *BasicField) GetType() string {
@@ -86,7 +86,7 @@ func (f *BasicField) FullTypeName() string {
 		return f.Pallet + "_" + f.Type
 	}
 
-	return f.Pallet + "_" + utils.ToPascalCase(f.Type)
+	return f.Pallet + "_" + utils.ToPascalCase(f.Type, utils.CapitalizeCharAfterNum)
 }
 
 func (f *BasicField) ToFuncName(meta *types.Metadata) string {
@@ -139,7 +139,7 @@ type RepeatedField struct {
 }
 
 func (f *RepeatedField) ToGoTypeName() string {
-	return utils.ToPascalCase(f.Name)
+	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
 }
 
 func (f *RepeatedField) GetType() string {
@@ -150,7 +150,7 @@ func (r *RepeatedField) FullTypeName() string {
 	if r.Primitive {
 		return r.Type
 	}
-	return r.Pallet + "_" + utils.ToPascalCase(r.Type)
+	return r.Pallet + "_" + utils.ToPascalCase(r.Type, utils.CapitalizeCharAfterNum)
 }
 
 func (f *RepeatedField) ToFuncName(meta *types.Metadata) string {
@@ -198,14 +198,14 @@ type OneOfField struct {
 }
 
 func (f *OneOfField) ToGoTypeName() string {
-	return utils.ToPascalCase(f.Name)
+	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
 }
 
 func (f *OneOfField) GetType() string {
 	panic("not expected")
 }
 func (f *OneOfField) FullTypeName() string {
-	return f.Pallet + "_" + utils.ToPascalCase(f.Name)
+	return f.Pallet + "_" + utils.ToPascalCase(f.Name, utils.CapitalizeCharAfterNum)
 }
 
 func (f *OneOfField) ToFuncName(meta *types.Metadata) string {

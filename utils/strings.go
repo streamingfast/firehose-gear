@@ -16,15 +16,28 @@ func ToSnakeCase(str string) string {
 	return strings.ToLower(snake)
 }
 
-func ToPascalCase(str string) string {
-	input := stringy.New(str).PascalCase().Get()
-	// Compile the regex pattern to match a number followed by a lowercase letter
-	pattern := regexp.MustCompile(`(\d)([a-z])`)
+var pattern1 = regexp.MustCompile(`(\d)([a-z])`)
+var pattern2 = regexp.MustCompile(`([a-z])(\d)`)
 
-	// Use the ReplaceAllStringFunc method to apply a function to each match
-	result := pattern.ReplaceAllStringFunc(input, func(match string) string {
-		return string(match[0]) + strings.ToUpper(string(match[1]))
-	})
+func ToPascalCase(str string, modifier ...func(string) string) string {
+	result := stringy.New(str).PascalCase().Get()
+
+	for _, m := range modifier {
+		result = m(result)
+	}
 
 	return result
+}
+
+func CapitalizeCharAfterNum(input string) string {
+	// Use the ReplaceAllStringFunc method to apply a function to each match
+	return pattern1.ReplaceAllStringFunc(input, func(match string) string {
+		return string(match[0]) + strings.ToUpper(string(match[1]))
+	})
+}
+func UnderscoreBetweenLetterAndNum(input string) string {
+	// Use the ReplaceAllStringFunc method to apply a function to each match
+	return pattern2.ReplaceAllStringFunc(input, func(match string) string {
+		return string(match[0]) + "_" + string(match[1])
+	})
 }

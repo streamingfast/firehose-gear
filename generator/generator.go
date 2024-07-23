@@ -34,7 +34,11 @@ func (g *Generator) Generate() error {
 		return fmt.Errorf("failed to read file: %w", err)
 	}
 
-	templ, err := template.New("").Parse(string(b))
+	funcMap := template.FuncMap{
+		"wrap": g.Wrap,
+	}
+
+	templ, err := template.New("").Funcs(funcMap).Parse(string(b))
 	if err != nil {
 		return fmt.Errorf("failed to parse template: %w", err)
 	}
@@ -101,4 +105,11 @@ func (g *Generator) IsOneOf(field protobuf.Field) bool {
 		return true
 	}
 	return false
+}
+
+func (g *Generator) Wrap(v any) map[string]interface{} {
+	return map[string]interface{}{
+		"Value":     v,
+		"Generator": g,
+	}
 }

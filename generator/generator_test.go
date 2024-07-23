@@ -20,7 +20,7 @@ func Test_Generator(t *testing.T) {
 	messages := mc.FetchMessages()
 	metadata := mc.FetchMetadata()
 
-	gen := NewGenerator("/Users/eduardvoiculescu/git/streamingFast/firehose-gear/templates/gen_types.go.gotmpl", messages, metadata)
+	gen := NewGenerator("/Users/cbillett/devel/sf/firehose-gear/templates/gen_types.go.gotmpl", messages, metadata)
 	err = gen.Generate()
 	require.NoError(t, err)
 }
