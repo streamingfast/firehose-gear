@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"sort"
 	"testing"
 
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
@@ -20,7 +21,11 @@ func Test_Generator(t *testing.T) {
 	messages := mc.FetchMessages()
 	metadata := mc.FetchMetadata()
 
-	gen := NewGenerator("/Users/cbillett/devel/sf/firehose-gear/templates/gen_types.go.gotmpl", messages, metadata)
+	sort.Slice(messages, func(i, j int) bool {
+		return messages[i].FullTypeName() < messages[j].FullTypeName()
+	})
+
+	gen := NewGenerator("../templates/gen_types.go.gotmpl", messages, metadata)
 	err = gen.Generate()
 	require.NoError(t, err)
 }
