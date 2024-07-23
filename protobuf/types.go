@@ -4,17 +4,21 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/streamingfast/firehose-gear/utils"
+
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	types2 "github.com/streamingfast/firehose-gear/types"
 )
 
 type Field interface {
-	GetType() string
 	SetOptional()
 	IsPrimitive() bool
+	FullTypeName() string
+	GetType() string
 	ToProto(idx int) (string, int)
 	ToFuncName(meta *types.Metadata) string
 	ReturnType(meta *types.Metadata) string
+	OutputType(meta *types.Metadata) string
 }
 
 type Proto struct {
@@ -25,22 +29,29 @@ type Proto struct {
 }
 
 type Message struct {
+	Pallet string
 	Name   string
 	Fields []Field
 }
 
+func (m *Message) FullTypeName() string {
+	return m.Pallet + "_" + utils.ToPascalCase(m.Name)
+}
 func (m *Message) ToFuncName(meta *types.Metadata) string {
-	return "to_" + m.Name
+	return "to_" + m.FullTypeName()
 }
 
 func (m *Message) ReturnType(meta *types.Metadata) string {
-	return "*pbgear." + m.Name
+	return "*pbgear." + m.FullTypeName()
+}
+func (m *Message) OutputType(meta *types.Metadata) string {
+	return "&pbgear." + m.FullTypeName()
 }
 
 func (m *Message) ToProto() string {
 	var sb strings.Builder
 
-	sb.WriteString("message " + m.Name + " {\n")
+	sb.WriteString("message " + m.FullTypeName() + " {\n")
 	idx := 0
 	str := ""
 	for _, field := range m.Fields {
@@ -55,17 +66,29 @@ func (m *Message) ToProto() string {
 
 type BasicField struct {
 	Optional  bool
+	Pallet    string
 	Type      string
 	Name      string
 	LookupID  int64
 	Primitive bool
 }
 
+func (f *BasicField) GetType() string {
+	return f.Type
+}
+func (f *BasicField) FullTypeName() string {
+	if f.Primitive {
+		return f.Type
+	}
+
+	return f.Pallet + "_" + utils.ToPascalCase(f.Type)
+}
+
 func (f *BasicField) ToFuncName(meta *types.Metadata) string {
 	if f.Optional {
-		return "to_optional_" + f.Name
+		return "to_optional_" + f.FullTypeName()
 	}
-	return "to_" + f.Name
+	return "to_" + f.FullTypeName()
 }
 
 func (f *BasicField) ReturnType(meta *types.Metadata) string {
@@ -74,11 +97,16 @@ func (f *BasicField) ReturnType(meta *types.Metadata) string {
 		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
 		return primitive.ToGoType()
 	}
-	return "*pbgear." + f.Name
+	return "*pbgear." + f.FullTypeName()
 }
 
-func (f *BasicField) GetType() string {
-	return f.Type
+func (f *BasicField) OutputType(meta *types.Metadata) string {
+	if f.IsPrimitive() {
+		ttype := meta.AsMetadataV14.EfficientLookup[f.LookupID]
+		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
+		return primitive.ToGoType()
+	}
+	return "&pbgear." + f.FullTypeName()
 }
 
 func (f *BasicField) SetOptional() {
@@ -86,7 +114,7 @@ func (f *BasicField) SetOptional() {
 }
 
 func (f *BasicField) ToProto(idx int) (string, int) {
-	str := fmt.Sprintf("%s %s = %d;", f.Type, f.Name, idx)
+	str := fmt.Sprintf("%s %s = %d;", f.FullTypeName(), utils.ToSnakeCase(f.Name), idx)
 	if f.Optional {
 		str = "optional " + str
 	}
@@ -98,12 +126,23 @@ func (f *BasicField) IsPrimitive() bool {
 }
 
 type RepeatedField struct {
+	Pallet    string
 	Type      string
 	Name      string
 	LookupID  int64
 	Primitive bool
 }
 
+func (f *RepeatedField) GetType() string {
+	return f.Type
+}
+
+func (r *RepeatedField) FullTypeName() string {
+	if r.Primitive {
+		return r.Type
+	}
+	return r.Pallet + "_" + utils.ToPascalCase(r.Type)
+}
 func (f *RepeatedField) ToFuncName(meta *types.Metadata) string {
 	return "to_repeated" + f.Name
 }
@@ -114,7 +153,16 @@ func (f *RepeatedField) ReturnType(meta *types.Metadata) string {
 		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
 		return "[]" + primitive.ToGoType()
 	}
-	return "[]*pbgear." + f.Name
+	return "[]*pbgear." + f.FullTypeName()
+
+}
+func (f *RepeatedField) OutputType(meta *types.Metadata) string {
+	if f.IsPrimitive() {
+		ttype := meta.AsMetadataV14.EfficientLookup[f.LookupID]
+		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
+		return "[]" + primitive.ToGoType()
+	}
+	return "[]&pbgear." + f.FullTypeName()
 
 }
 
@@ -122,12 +170,8 @@ func (f *RepeatedField) SetOptional() {
 	panic("Repeated fields can not be set with an optional")
 }
 
-func (f *RepeatedField) GetType() string {
-	return f.Type
-}
-
 func (f *RepeatedField) ToProto(idx int) (string, int) {
-	str := fmt.Sprintf("repeated %s %s = %d;\n", f.Type, f.Name, idx)
+	str := fmt.Sprintf("repeated %s %s = %d;", f.FullTypeName(), utils.ToSnakeCase(f.Name), idx)
 	return str, idx
 }
 
@@ -136,22 +180,30 @@ func (f *RepeatedField) IsPrimitive() bool {
 }
 
 type OneOfField struct {
+	Pallet    string
 	Name      string
 	Types     []*BasicField
 	LookupID  int64
 	Primitive bool
 }
 
+func (f *OneOfField) GetType() string {
+	panic("not expected")
+}
+func (f *OneOfField) FullTypeName() string {
+	return f.Pallet + "_" + utils.ToPascalCase(f.Name)
+}
+
 func (f *OneOfField) ToFuncName(meta *types.Metadata) string {
-	return "to_oneof_" + f.Name
+	return "to_oneof_" + f.FullTypeName()
 }
 
 func (f *OneOfField) ReturnType(meta *types.Metadata) string {
-	return "*pbgear." + f.Name
+	return "*pbgear." + f.FullTypeName()
 }
 
-func (f *OneOfField) GetType() string {
-	panic("OneOfField does not have a type")
+func (f *OneOfField) OutputType(meta *types.Metadata) string {
+	return "&pbgear." + f.FullTypeName()
 }
 
 func (f *OneOfField) ToProto(idx int) (string, int) {
@@ -159,7 +211,7 @@ func (f *OneOfField) ToProto(idx int) (string, int) {
 
 	sb.WriteString("oneof " + f.Name + " {\n")
 	for _, field := range f.Types {
-		sb.WriteString(fmt.Sprintf("\t\t%s %s = %d;\n", field.Type, field.Name, idx))
+		sb.WriteString(fmt.Sprintf("\t\t%s %s = %d;\n", field.FullTypeName(), utils.ToSnakeCase(field.Name), idx))
 		idx++
 	}
 	sb.WriteString("\t}")

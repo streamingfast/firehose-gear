@@ -7,11 +7,9 @@ import (
 	"strings"
 
 	substrateTypes "github.com/centrifuge/go-substrate-rpc-client/v4/types"
-	"github.com/gobeam/stringy"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
 	"github.com/streamingfast/firehose-gear/protobuf"
 	"github.com/streamingfast/firehose-gear/types"
-	"github.com/streamingfast/firehose-gear/utils"
 	"github.com/streamingfast/logging"
 	"go.uber.org/zap"
 )
@@ -162,13 +160,13 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 		//	continue
 		//}
 		callName := string(variant.Name)
-		messageName := stringy.New(palletName).PascalCase().Get() + "_" + stringy.New(callName).PascalCase().Get() + "_Call"
 		message := &protobuf.Message{
-			Name: messageName,
+			Pallet: palletName,
+			Name:   callName + "_Call",
 		}
 
 		c.ProcessCallFields(variant, message, palletName, callName)
-		c.messages[message.Name] = message
+		c.messages[message.FullTypeName()] = message
 	}
 }
 
@@ -189,8 +187,9 @@ func (c *TypeConverter) ProcessField(f substrateTypes.Si1Field, palletName strin
 	return c.FieldForType(ttype, palletName, callName, fieldName)
 }
 
-func (c *TypeConverter) FieldForPrimitive(ttype substrateTypes.PortableTypeV14, fieldName string) *protobuf.BasicField {
+func (c *TypeConverter) FieldForPrimitive(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.BasicField {
 	return &protobuf.BasicField{
+		Pallet:    palletName,
 		Name:      fieldName,
 		Type:      types.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName(),
 		Primitive: true,
@@ -204,6 +203,7 @@ func (c *TypeConverter) FieldForSequence(ttype substrateTypes.PortableTypeV14, p
 	typeName := c.ExtractTypeName(lookupType, palletName, callName, fieldName)
 
 	return &protobuf.RepeatedField{
+		Pallet:    palletName,
 		Type:      typeName,
 		Name:      fieldName,
 		Primitive: lookupType.Type.Def.IsPrimitive,
@@ -217,6 +217,7 @@ func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, pall
 	typeName := c.ExtractTypeName(lookupType, palletName, callName, fieldName)
 
 	return &protobuf.RepeatedField{
+		Pallet:    palletName,
 		Name:      fieldName,
 		Type:      typeName,
 		Primitive: lookupType.Type.Def.IsPrimitive,
@@ -228,6 +229,7 @@ func (c *TypeConverter) FieldForCompact(ttype substrateTypes.PortableTypeV14, pa
 	name := c.ExtractTypeName(ttype, palletName, callName, fieldName)
 
 	return &protobuf.BasicField{
+		Pallet:   palletName,
 		Name:     fieldName,
 		Type:     name,
 		LookupID: ttype.ID.Int64(),
@@ -238,6 +240,7 @@ func (c *TypeConverter) FieldForComposite(ttype substrateTypes.PortableTypeV14, 
 	name := c.ExtractTypeName(ttype, palletName, callName, fieldName)
 
 	return &protobuf.BasicField{
+		Pallet:   palletName,
 		Name:     fieldName,
 		Type:     name,
 		LookupID: ttype.ID.Int64(),
@@ -263,7 +266,7 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 
 	switch {
 	case ttype.Type.Def.IsPrimitive:
-		field = c.FieldForPrimitive(ttype, fieldName)
+		field = c.FieldForPrimitive(ttype, palletName, callName, fieldName)
 		if optional {
 			field.SetOptional()
 		}
@@ -311,12 +314,12 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 	}
 
 	if !ttype.Type.Def.IsVariant {
-		if _, ok := c.messages[field.GetType()]; !ok {
+		if _, ok := c.messages[field.FullTypeName()]; !ok {
 			if field.IsPrimitive() {
-				c.messages[field.GetType()] = nil
+				c.messages[field.FullTypeName()] = nil
 			} else {
 				msg := c.MessageForType(field.GetType(), ttype, palletName, callName, fieldName)
-				c.messages[field.GetType()] = msg
+				c.messages[field.FullTypeName()] = msg
 			}
 		}
 	}
@@ -353,12 +356,13 @@ func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14, pa
 		typeName = fmt.Sprintf("Compact_%s", typeName)
 	}
 
-	return utils.ToPascalCase(typeName)
+	return typeName
 }
 
 func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.Message {
 	msg := &protobuf.Message{
-		Name: utils.ToPascalCase(typeName),
+		Pallet: palletName,
+		Name:   typeName,
 	}
 
 	if ttype.Type.Def.IsTuple {
@@ -399,14 +403,15 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 
 	if ttype.Type.Def.IsVariant {
 		field := &protobuf.OneOfField{
+			Pallet:   palletName,
 			Name:     typeName,
 			LookupID: ttype.ID.Int64(),
 		}
 		for _, v := range ttype.Type.Def.Variant.Variants {
-			typeName := fmt.Sprintf("%s_%s", palletName, string(v.Name))
 			field.Types = append(field.Types, &protobuf.BasicField{
+				Pallet:   palletName,
 				Name:     fmt.Sprintf("%s_%s", palletName, string(v.Name)),
-				Type:     typeName,
+				Type:     string(v.Name),
 				LookupID: math.MaxInt64,
 			})
 		}
@@ -441,8 +446,9 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 	return msg
 }
 
-func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ string, callName string, fieldName string) protobuf.Field {
+func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
 	of := &protobuf.OneOfField{
+		Pallet:   palletName,
 		Name:     fieldName,
 		LookupID: ttype.ID.Int64(),
 	}
@@ -457,13 +463,11 @@ func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ strin
 			palletCallNames := palletCalls.Type.Def.Variant.Variants
 
 			for _, palletCallName := range palletCallNames { // remark
-				n := string(palletName) + "_"
-				n += stringy.New(string(palletCallName.Name)).PascalCase().Get()
-				n += "_Call"
 				of.Types = append(of.Types, &protobuf.BasicField{
+					Pallet:   string(palletName),
 					Name:     fmt.Sprintf("%s_%s", palletName, string(palletCallName.Name)),
 					LookupID: math.MaxInt64,
-					Type:     n,
+					Type:     string(palletCallName.Name) + "_Call",
 				})
 			}
 		}
@@ -474,7 +478,8 @@ func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, _ strin
 
 func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTypes.Si1Variant, palletName string, callName string, fieldName string) {
 	msg := &protobuf.Message{
-		Name: utils.ToPascalCase(name),
+		Pallet: palletName,
+		Name:   name,
 	}
 
 	for i, f := range variant.Fields {
@@ -488,7 +493,7 @@ func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTyp
 		msg.Fields = append(msg.Fields, field)
 	}
 
-	c.messages[msg.Name] = msg
+	c.messages[msg.FullTypeName()] = msg
 }
 
 func (c *TypeConverter) ExtractTypeNameFromTuple(tuple substrateTypes.Si1TypeDefTuple, palletName string, callName string, fieldName string) string {
@@ -504,7 +509,7 @@ func (c *TypeConverter) ExtractTypeNameFromTuple(tuple substrateTypes.Si1TypeDef
 		name.WriteString(c.ExtractTypeName(ttype, palletName, callName, fieldName))
 	}
 
-	return utils.ToPascalCase(name.String())
+	return name.String()
 }
 
 func (c *TypeConverter) ExtractTypeNameFromPath(path substrateTypes.Si1Path) string {
@@ -521,6 +526,7 @@ func (c *TypeConverter) FieldForTuple(ttype substrateTypes.PortableTypeV14, pall
 	}
 
 	field := &protobuf.BasicField{
+		Pallet:   palletName,
 		Name:     fieldName,
 		Type:     c.ExtractTypeNameFromTuple(ttype.Type.Def.Tuple, palletName, callName, fieldName),
 		LookupID: ttype.ID.Int64(),
@@ -530,29 +536,34 @@ func (c *TypeConverter) FieldForTuple(ttype substrateTypes.PortableTypeV14, pall
 }
 
 func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
-	msgName := palletName + "_" + fieldName
 
 	f := &protobuf.BasicField{
+		Pallet:   palletName,
 		Name:     fieldName,
-		Type:     msgName,
+		Type:     fieldName,
 		LookupID: ttype.ID.Int64(),
 	}
 
-	if _, found := c.messages[msgName]; found {
-		return f
+	oneOf := &protobuf.OneOfField{
+		Name:   "value",
+		Pallet: palletName,
 	}
-
-	oneOf := &protobuf.OneOfField{Name: "value"}
 	msg := &protobuf.Message{
-		Name:   utils.ToPascalCase(msgName),
+		Pallet: palletName,
+		Name:   fieldName,
 		Fields: []protobuf.Field{oneOf},
 	}
 
+	if _, found := c.messages[msg.FullTypeName()]; found {
+		return f
+	}
+
 	for _, v := range ttype.Type.Def.Variant.Variants {
-		typeName := fmt.Sprintf("%s_%s", palletName, string(v.Name))
+		typeName := string(v.Name)
 		oneOf.Types = append(oneOf.Types, &protobuf.BasicField{
-			Name:     fmt.Sprintf("%s_%s", palletName, string(v.Name)),
-			Type:     typeName,
+			Pallet:   palletName,
+			Name:     string(v.Name),
+			Type:     string(v.Name),
 			LookupID: math.MaxInt64,
 		})
 
@@ -561,7 +572,7 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 		}
 	}
 
-	c.messages[msgName] = msg
+	c.messages[msg.FullTypeName()] = msg
 	return f
 }
 
