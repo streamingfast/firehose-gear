@@ -13,6 +13,8 @@ import (
 type Field interface {
 	SetOptional()
 	IsPrimitive() bool
+	IsRepeated() bool
+	IsOneOf() bool
 	FullTypeName() string
 	GetType() string
 	ToGoTypeName() string
@@ -72,6 +74,14 @@ type BasicField struct {
 	Name      string
 	LookupID  int64
 	Primitive bool
+}
+
+func (f *BasicField) IsRepeated() bool {
+	return false
+}
+
+func (f *BasicField) IsOneOf() bool {
+	return false
 }
 
 func (f *BasicField) ToGoTypeName() string {
@@ -138,6 +148,14 @@ type RepeatedField struct {
 	Primitive bool
 }
 
+func (f *RepeatedField) IsRepeated() bool {
+	return true
+}
+
+func (f *RepeatedField) IsOneOf() bool {
+	return false
+}
+
 func (f *RepeatedField) ToGoTypeName() string {
 	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
 }
@@ -195,6 +213,14 @@ type OneOfField struct {
 	Types     []*BasicField
 	LookupID  int64
 	Primitive bool
+}
+
+func (f *OneOfField) IsOneOf() bool {
+	return true
+}
+
+func (f *OneOfField) IsRepeated() bool {
+	return false
 }
 
 func (f *OneOfField) ToGoTypeName() string {
