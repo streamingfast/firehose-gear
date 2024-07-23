@@ -9,6 +9,7 @@ import (
 {{- $metadata := $generator.Metadata }}
 {{- $messages := $generator.Messages }}
 {{ range $msg := $messages }}
+{{- if eq $msg.Pallet "Balances" -}}
 func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
     {{- template "return" wrap (newWrapItem "msg" $msg) }}
 }
@@ -17,7 +18,7 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
         {{- template "field2func" wrap (newWrapItem "field" $field) -}}
     {{- end }} {{/* range fields */}}
 {{- end }} {{/* range messages */}}
-
+{{- end -}}
 {{ define "field2func" }}
     {{- $field := .Value }}
     {{- $meta := .Generator.Metadata }}
@@ -70,9 +71,9 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
         {{ template "oneOfSwitch" wrap (newWrapItem "field" $field "msgOutputType" ($msg.OutputType $meta)) }}
     {{- else }}
         {{- if and $field.IsPrimitive (not $field.IsRepeated) }}
-        out.{{ $field.ToFieldName }} = fields[{{$i}}].Value.({{ $field.OutputType $meta }}),
+        out.{{ $field.ToFieldName }} = fields[{{$i}}].Value.({{ $field.OutputType $meta }})
         {{- else }}
-        out.{{ $field.ToFieldName }} = {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.([]*registry.DecodedField)),
+        out.{{ $field.ToFieldName }} = {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.([]*registry.DecodedField))
         {{- end }}
         {{- end }}
     {{- end }}
@@ -88,7 +89,7 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
     {{- range $f := $field.Types }}
     case {{ $f.FullTypeName }}:
         out.{{ $field.ToFieldName }} = {{ $msgOutputType }}_{{ $f.Name}} {
-            {{ $f.Name }}: {{ $f.ToFuncName $meta }}(field),
+            {{ $f.Name }}: {{ $f.ToFuncName $meta }}(field)
         }
     {{- end}}
     default: 
