@@ -9,33 +9,50 @@ import (
 {{- $metadata := $generator.Metadata }}
 {{- $messages := $generator.Messages }}
 {{ range $msg := $messages }}
-func {{ $msg.ToFuncName $metadata }}(callFields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
-    return &pbgear.{{ $msg.Name }}{
-
+func {{ $msg.ToFuncName $metadata }}salut(fields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
+    return {{ $msg.OutputType $metadata }}{
+        {{- range $field := $msg.Fields }}
+            {{- if $field.IsPrimitive }}
+                {{ $field.ToGoTypeName }} : {{ $field.OutputType $metadata }}(field.Value),
+            {{- else }}
+                {{ $field.ToGoTypeName }}: {{ $field.ToFuncName $metadata }}(field.Value),
+            {{- end }}
+        {{- end}}
     }
 }
 
-{{- range $field := $msg.Fields}}
-{{/* ---- IsOptional section for any kind of fields ----- */}}
-{{- $isOptional := $generator.IsOptionalField $field }}
-{{- if and $isOptional $field.IsPrimitive }}
-func {{ $field.ToFuncName $metadata}}(field *registry.DecodedField) *{{ $field.ReturnType $metadata }} {
-    var out *{{ $field.GetType }}
-    
-    if v, ok := field.Value.({{ $field.GetType }}); ok {
-        if v != {{ $generator.NoneOptionalFieldComparator $field }} {
-            panic("expected none")
-        }
-    } else {
-        out = field.Value.(*{{ $field.GetType }})
-    }
-    return out
-}
-{{- else if $field.IsPrimitive }}
-func {{ $field.ToFuncName $metadata }}([FIND THE ARGUMENT HERE]) {{ $field.GetType }} {
-    return {{ $field.GetType }}([FIND THE TYPE HERE])
-}
-{{- else }}
-{{- end }} {{/* isOptional and isPrimitive */}}
-{{- end }} {{/* range fields */}}
+    {{- range $field := $msg.Fields }}
+        {{- $seen := $generator.IsSeen $field.FullTypeName }}
+        {{- if not $seen }}
+            {{- $ignore:= $generator.Seen $field.FullTypeName }}
+            {{/* ---- IsOptional section for any kind of fields ----- */}}
+            {{- $isOptional := $generator.IsOptionalField $field }}
+                {{- if and $isOptional $field.IsPrimitive }}
+                func {{ $field.ToFuncName $metadata}}(in *registry.DecodedField) *{{ $field.ReturnType $metadata }} {
+                    var out *{{ $field.GetType }}
+                    
+                    if v, ok := in.Value.({{ $field.GetType }}); ok {
+                        if v != {{ $generator.NoneOptionalFieldComparator $field }} {
+                            panic("expected none")
+                        }
+                    } else {
+                        out = in.Value.(*{{ $field.GetType }})
+                    }
+                    return out
+                }
+                {{- else if $field.IsPrimitive }}
+                {{/* DO NOTHING WHEN WE ARE A PRIMITIVE */}}
+                {{- else if $generator.IsOneOf $field }}
+                func {{ $field.ToFuncName $metadata}}(in *registry.DecodedField) {{ $field.ReturnType $metadata }} {
+                    return nil
+                }
+                {{- else}}
+                func {{ $field.ToFuncName $metadata}}(in *registry.DecodedField) {{ $field.ReturnType $metadata }} {
+                    return {{ $field.OutputType $metadata }}{
+                        // TODO fill all fields
+                    }
+                }
+            {{- end }} {{/* isOptional and isPrimitive */}}
+        {{- end }} {{/* not seen */}}
+    {{- end }} {{/* range fields */}}
 {{- end }} {{/* range messages */}}

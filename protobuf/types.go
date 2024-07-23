@@ -15,6 +15,7 @@ type Field interface {
 	IsPrimitive() bool
 	FullTypeName() string
 	GetType() string
+	ToGoTypeName() string
 	ToProto(idx int) (string, int)
 	ToFuncName(meta *types.Metadata) string
 	ReturnType(meta *types.Metadata) string
@@ -73,12 +74,16 @@ type BasicField struct {
 	Primitive bool
 }
 
+func (f *BasicField) ToGoTypeName() string {
+	return utils.ToPascalCase(f.Name)
+}
+
 func (f *BasicField) GetType() string {
 	return f.Type
 }
 func (f *BasicField) FullTypeName() string {
 	if f.Primitive {
-		return f.Type
+		return f.Pallet + "_" + f.Type
 	}
 
 	return f.Pallet + "_" + utils.ToPascalCase(f.Type)
@@ -133,6 +138,10 @@ type RepeatedField struct {
 	Primitive bool
 }
 
+func (f *RepeatedField) ToGoTypeName() string {
+	return utils.ToPascalCase(f.Name)
+}
+
 func (f *RepeatedField) GetType() string {
 	return f.Type
 }
@@ -143,8 +152,9 @@ func (r *RepeatedField) FullTypeName() string {
 	}
 	return r.Pallet + "_" + utils.ToPascalCase(r.Type)
 }
+
 func (f *RepeatedField) ToFuncName(meta *types.Metadata) string {
-	return "to_repeated" + f.Name
+	return "to_repeated_" + f.FullTypeName()
 }
 
 func (f *RepeatedField) ReturnType(meta *types.Metadata) string {
@@ -162,7 +172,7 @@ func (f *RepeatedField) OutputType(meta *types.Metadata) string {
 		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
 		return "[]" + primitive.ToGoType()
 	}
-	return "[]&pbgear." + f.FullTypeName()
+	return "[]*pbgear." + f.FullTypeName()
 
 }
 
@@ -185,6 +195,10 @@ type OneOfField struct {
 	Types     []*BasicField
 	LookupID  int64
 	Primitive bool
+}
+
+func (f *OneOfField) ToGoTypeName() string {
+	return utils.ToPascalCase(f.Name)
 }
 
 func (f *OneOfField) GetType() string {

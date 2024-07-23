@@ -5,4551 +5,5111 @@ import (
     pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1"
 )
 
-func to_PalletStakingValidatorPrefs(callFields []*registry.DecodedField) *pbgear.PalletStakingValidatorPrefs {
-    return &pbgear.PalletStakingValidatorPrefs{
-
-    }
-}
- 
-
-func to_blocked([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsRaw(callFields []*registry.DecodedField) *pbgear.NominationPoolsRaw {
-    return &pbgear.NominationPoolsRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsBlocked(callFields []*registry.DecodedField) *pbgear.NominationPoolsBlocked {
-    return &pbgear.NominationPoolsBlocked{
-
-    }
-} 
-func to_BabePrimaryAndSecondaryPlainSlots(callFields []*registry.DecodedField) *pbgear.BabePrimaryAndSecondaryPlainSlots {
-    return &pbgear.BabePrimaryAndSecondaryPlainSlots{
-
-    }
-} 
-func to_FellowshipReferenda_NudgeReferendum_Call(callFields []*registry.DecodedField) *pbgear.FellowshipReferenda_NudgeReferendum_Call {
-    return &pbgear.FellowshipReferenda_NudgeReferendum_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityValue1(callFields []*registry.DecodedField) *pbgear.IdentityValue1 {
-    return &pbgear.IdentityValue1{
-
-    }
-}
-  
-func to_Staking_Unbond_Call(callFields []*registry.DecodedField) *pbgear.Staking_Unbond_Call {
-    return &pbgear.Staking_Unbond_Call{
-
-    }
-}
-  
-func to_NominationPools_Create_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_Create_Call {
-    return &pbgear.NominationPools_Create_Call{
-
-    }
-}
- 
- 
- 
-  
-func to_NominationPools_SetConfigs_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_SetConfigs_Call {
-    return &pbgear.NominationPools_SetConfigs_Call{
-
-    }
-}
- 
- 
- 
- 
- 
-  
-func to_NominationPools_SetCommissionMax_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_SetCommissionMax_Call {
-    return &pbgear.NominationPools_SetCommissionMax_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_StakingRewards_ForceRefill_Call(callFields []*registry.DecodedField) *pbgear.StakingRewards_ForceRefill_Call {
-    return &pbgear.StakingRewards_ForceRefill_Call{
-
-    }
-}
- 
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_SpSessionMembershipProof(callFields []*registry.DecodedField) *pbgear.SpSessionMembershipProof {
-    return &pbgear.SpSessionMembershipProof{
-
-    }
-}
-
-func to_session([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
-
-func to_validator_count([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Treasury_ApproveProposal_Call(callFields []*registry.DecodedField) *pbgear.Treasury_ApproveProposal_Call {
-    return &pbgear.Treasury_ApproveProposal_Call{
-
-    }
-}
-  
-func to_IdentityRaw18(callFields []*registry.DecodedField) *pbgear.IdentityRaw18 {
-    return &pbgear.IdentityRaw18{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_GearVoucherCall(callFields []*registry.DecodedField) *pbgear.GearVoucherCall {
-    return &pbgear.GearVoucherCall{
-
-    }
-}
-  
-func to_ProxyRaw(callFields []*registry.DecodedField) *pbgear.ProxyRaw {
-    return &pbgear.ProxyRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_PalletMultisigTimepoint(callFields []*registry.DecodedField) *pbgear.PalletMultisigTimepoint {
-    return &pbgear.PalletMultisigTimepoint{
-
-    }
-}
-
-func to_height([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_System_KillStorage_Call(callFields []*registry.DecodedField) *pbgear.System_KillStorage_Call {
-    return &pbgear.System_KillStorage_Call{
-
-    }
-}
-  
-func to_VestingId(callFields []*registry.DecodedField) *pbgear.VestingId {
-    return &pbgear.VestingId{
-
-    }
-}
-  
-func to_StakingAccount(callFields []*registry.DecodedField) *pbgear.StakingAccount {
-    return &pbgear.StakingAccount{
-
-    }
-}
-  
-func to_TreasuryBeneficiary(callFields []*registry.DecodedField) *pbgear.TreasuryBeneficiary {
-    return &pbgear.TreasuryBeneficiary{
-
-    }
-}
-  
-func to_Preimage_UnrequestPreimage_Call(callFields []*registry.DecodedField) *pbgear.Preimage_UnrequestPreimage_Call {
-    return &pbgear.Preimage_UnrequestPreimage_Call{
-
-    }
-}
-  
-func to_IdentityRaw16(callFields []*registry.DecodedField) *pbgear.IdentityRaw16 {
-    return &pbgear.IdentityRaw16{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Bounties_ExtendBountyExpiry_Call(callFields []*registry.DecodedField) *pbgear.Bounties_ExtendBountyExpiry_Call {
-    return &pbgear.Bounties_ExtendBountyExpiry_Call{
-
-    }
-}
- 
-
-func to_repeatedremark([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsNewBouncer(callFields []*registry.DecodedField) *pbgear.NominationPoolsNewBouncer {
-    return &pbgear.NominationPoolsNewBouncer{
-
-    }
-}
-  
-func to_PalletNominationPoolsCommissionChangeRate(callFields []*registry.DecodedField) *pbgear.PalletNominationPoolsCommissionChangeRate {
-    return &pbgear.PalletNominationPoolsCommissionChangeRate{
-
-    }
-}
- 
-
-func to_min_delay([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_GearVoucherNone(callFields []*registry.DecodedField) *pbgear.GearVoucherNone {
-    return &pbgear.GearVoucherNone{
-
-    }
-} 
-func to_StakingNone(callFields []*registry.DecodedField) *pbgear.StakingNone {
-    return &pbgear.StakingNone{
-
-    }
-} 
-func to_Referenda_Submit_Call(callFields []*registry.DecodedField) *pbgear.Referenda_Submit_Call {
-    return &pbgear.Referenda_Submit_Call{
-
-    }
-}
- 
- 
-  
-func to_PalletIdentityTypesBitFlags(callFields []*registry.DecodedField) *pbgear.PalletIdentityTypesBitFlags {
-    return &pbgear.PalletIdentityTypesBitFlags{
-
-    }
-}
-
-func to_fields([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-}  
-func to_ProxySpawner(callFields []*registry.DecodedField) *pbgear.ProxySpawner {
-    return &pbgear.ProxySpawner{
-
-    }
-}
-  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_SpConsensusBabeAppPublic(callFields []*registry.DecodedField) *pbgear.SpConsensusBabeAppPublic {
-    return &pbgear.SpConsensusBabeAppPublic{
-
-    }
-}
-  
-func to_StakingPayee(callFields []*registry.DecodedField) *pbgear.StakingPayee {
-    return &pbgear.StakingPayee{
-
-    }
-}
-  
-func to_ConvictionVotingLocked4x(callFields []*registry.DecodedField) *pbgear.ConvictionVotingLocked4x {
-    return &pbgear.ConvictionVotingLocked4x{
-
-    }
-} 
-func to_ReferendaAfter(callFields []*registry.DecodedField) *pbgear.ReferendaAfter {
-    return &pbgear.ReferendaAfter{
-
-    }
-}
-
-func to_value_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Referenda_OneFewerDeciding_Call(callFields []*registry.DecodedField) *pbgear.Referenda_OneFewerDeciding_Call {
-    return &pbgear.Referenda_OneFewerDeciding_Call{
-
-    }
-}
-
-func to_track([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityAddress32(callFields []*registry.DecodedField) *pbgear.IdentityAddress32 {
-    return &pbgear.IdentityAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_System_RemarkWithEvent_Call(callFields []*registry.DecodedField) *pbgear.System_RemarkWithEvent_Call {
-    return &pbgear.System_RemarkWithEvent_Call{
-
-    }
-}
-
-func to_repeatedremark([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipCollectiveAddress32(callFields []*registry.DecodedField) *pbgear.FellowshipCollectiveAddress32 {
-    return &pbgear.FellowshipCollectiveAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Identity_SetFields_Call(callFields []*registry.DecodedField) *pbgear.Identity_SetFields_Call {
-    return &pbgear.Identity_SetFields_Call{
-
-    }
-}
- 
-  
-func to_Gear_SendMessage_Call(callFields []*registry.DecodedField) *pbgear.Gear_SendMessage_Call {
-    return &pbgear.Gear_SendMessage_Call{
-
-    }
-}
- 
-
-func to_repeatedpayload([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_gas_limit([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-} 
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_keep_alive([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_Gear_SetExecuteInherent_Call(callFields []*registry.DecodedField) *pbgear.Gear_SetExecuteInherent_Call {
-    return &pbgear.Gear_SetExecuteInherent_Call{
-
-    }
-}
-
-func to_value([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_StakingAddress32(callFields []*registry.DecodedField) *pbgear.StakingAddress32 {
-    return &pbgear.StakingAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingMinValidatorBond(callFields []*registry.DecodedField) *pbgear.StakingMinValidatorBond {
-    return &pbgear.StakingMinValidatorBond{
-
-    }
-}
-  
-func to_UtilityAsOrigin(callFields []*registry.DecodedField) *pbgear.UtilityAsOrigin {
-    return &pbgear.UtilityAsOrigin{
-
-    }
-}
-  
-func to_ProxyReal(callFields []*registry.DecodedField) *pbgear.ProxyReal {
-    return &pbgear.ProxyReal{
-
-    }
-}
-  
-func to_Bounties_ProposeBounty_Call(callFields []*registry.DecodedField) *pbgear.Bounties_ProposeBounty_Call {
-    return &pbgear.Bounties_ProposeBounty_Call{
-
-    }
-}
- 
-
-func to_repeateddescription([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ChildBountiesAddress20(callFields []*registry.DecodedField) *pbgear.ChildBountiesAddress20 {
-    return &pbgear.ChildBountiesAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BabeTrieNodesList(callFields []*registry.DecodedField) *pbgear.BabeTrieNodesList {
-    return &pbgear.BabeTrieNodesList{
-
-    }
-}
-
-func to_repeatedtrie_nodes([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BabeV1(callFields []*registry.DecodedField) *pbgear.BabeV1 {
-    return &pbgear.BabeV1{
-
-    }
-}
- 
-  
-func to_Scheduler_Schedule_Call(callFields []*registry.DecodedField) *pbgear.Scheduler_Schedule_Call {
-    return &pbgear.Scheduler_Schedule_Call{
-
-    }
-}
-
-func to_when([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
-
-func to_priority([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_NominationPoolsNominator(callFields []*registry.DecodedField) *pbgear.NominationPoolsNominator {
-    return &pbgear.NominationPoolsNominator{
-
-    }
-}
-  
-func to_GearVoucher_Decline_Call(callFields []*registry.DecodedField) *pbgear.GearVoucher_Decline_Call {
-    return &pbgear.GearVoucher_Decline_Call{
-
-    }
-}
-  
-func to_IdentityWeb(callFields []*registry.DecodedField) *pbgear.IdentityWeb {
-    return &pbgear.IdentityWeb{
-
-    }
-}
-  
-func to_Staking_ForceNoEras_Call(callFields []*registry.DecodedField) *pbgear.Staking_ForceNoEras_Call {
-    return &pbgear.Staking_ForceNoEras_Call{
-
-    }
-} 
-func to_Staking_SetMinCommission_Call(callFields []*registry.DecodedField) *pbgear.Staking_SetMinCommission_Call {
-    return &pbgear.Staking_SetMinCommission_Call{
-
-    }
-}
-  
-func to_ReferendaInline(callFields []*registry.DecodedField) *pbgear.ReferendaInline {
-    return &pbgear.ReferendaInline{
-
-    }
-}
-  
-func to_FellowshipCollective_AddMember_Call(callFields []*registry.DecodedField) *pbgear.FellowshipCollective_AddMember_Call {
-    return &pbgear.FellowshipCollective_AddMember_Call{
-
-    }
-}
-  
-func to_IdentityIndex(callFields []*registry.DecodedField) *pbgear.IdentityIndex {
-    return &pbgear.IdentityIndex{
-
-    }
-}
-  
-func to_IdentityRaw5(callFields []*registry.DecodedField) *pbgear.IdentityRaw5 {
-    return &pbgear.IdentityRaw5{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityFeePaid(callFields []*registry.DecodedField) *pbgear.IdentityFeePaid {
-    return &pbgear.IdentityFeePaid{
-
-    }
-}
-
-func to_value_0([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_IdentityLowQuality(callFields []*registry.DecodedField) *pbgear.IdentityLowQuality {
-    return &pbgear.IdentityLowQuality{
-
-    }
-} 
-func to_NominationPools_UpdateRoles_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_UpdateRoles_Call {
-    return &pbgear.NominationPools_UpdateRoles_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
- 
-  
-func to_Staking_IncreaseValidatorCount_Call(callFields []*registry.DecodedField) *pbgear.Staking_IncreaseValidatorCount_Call {
-    return &pbgear.Staking_IncreaseValidatorCount_Call{
-
-    }
-}
-  
-func to_SpArithmeticPerThingsPercent(callFields []*registry.DecodedField) *pbgear.SpArithmeticPerThingsPercent {
-    return &pbgear.SpArithmeticPerThingsPercent{
-
-    }
-}
-
-func to_factor([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaValue0(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaValue0 {
-    return &pbgear.FellowshipReferendaValue0{
-
-    }
-}
-  
-func to_IdentityRaw21(callFields []*registry.DecodedField) *pbgear.IdentityRaw21 {
-    return &pbgear.IdentityRaw21{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ChildBounties_AddChildBounty_Call(callFields []*registry.DecodedField) *pbgear.ChildBounties_AddChildBounty_Call {
-    return &pbgear.ChildBounties_AddChildBounty_Call{
-
-    }
-}
- 
- 
-
-func to_repeateddescription([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipCollective_DemoteMember_Call(callFields []*registry.DecodedField) *pbgear.FellowshipCollective_DemoteMember_Call {
-    return &pbgear.FellowshipCollective_DemoteMember_Call{
-
-    }
-}
-  
-func to_FellowshipReferenda_SetMetadata_Call(callFields []*registry.DecodedField) *pbgear.FellowshipReferenda_SetMetadata_Call {
-    return &pbgear.FellowshipReferenda_SetMetadata_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_Identity_RequestJudgement_Call(callFields []*registry.DecodedField) *pbgear.Identity_RequestJudgement_Call {
-    return &pbgear.Identity_RequestJudgement_Call{
-
-    }
-}
- 
-  
-func to_SpCoreEd25519Public(callFields []*registry.DecodedField) *pbgear.SpCoreEd25519Public {
-    return &pbgear.SpCoreEd25519Public{
-
-    }
-}
-
-func to_repeatedidentity([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw4(callFields []*registry.DecodedField) *pbgear.IdentityRaw4 {
-    return &pbgear.IdentityRaw4{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw13(callFields []*registry.DecodedField) *pbgear.IdentityRaw13 {
-    return &pbgear.IdentityRaw13{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Bounties_ClaimBounty_Call(callFields []*registry.DecodedField) *pbgear.Bounties_ClaimBounty_Call {
-    return &pbgear.Bounties_ClaimBounty_Call{
-
-    }
-}
-  
-func to_GearVoucherSome(callFields []*registry.DecodedField) *pbgear.GearVoucherSome {
-    return &pbgear.GearVoucherSome{
-
-    }
-}
-  
-func to_CompactTupleNull(callFields []*registry.DecodedField) *pbgear.CompactTupleNull {
-    return &pbgear.CompactTupleNull{
-
-    }
-}
-  
-func to_Staking_ScaleValidatorCount_Call(callFields []*registry.DecodedField) *pbgear.Staking_ScaleValidatorCount_Call {
-    return &pbgear.Staking_ScaleValidatorCount_Call{
-
-    }
-}
-  
-func to_StakingMinNominatorBond(callFields []*registry.DecodedField) *pbgear.StakingMinNominatorBond {
-    return &pbgear.StakingMinNominatorBond{
-
-    }
-}
-  
-func to_ReferendaSigned(callFields []*registry.DecodedField) *pbgear.ReferendaSigned {
-    return &pbgear.ReferendaSigned{
-
-    }
-}
-  
-func to_IdentityRaw19(callFields []*registry.DecodedField) *pbgear.IdentityRaw19 {
-    return &pbgear.IdentityRaw19{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ElectionProviderMultiPhase_SetEmergencyElectionResult_Call(callFields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SetEmergencyElectionResult_Call {
-    return &pbgear.ElectionProviderMultiPhase_SetEmergencyElectionResult_Call{
-
-    }
-}
-  
-func to_Scheduler_CancelNamed_Call(callFields []*registry.DecodedField) *pbgear.Scheduler_CancelNamed_Call {
-    return &pbgear.Scheduler_CancelNamed_Call{
-
-    }
-}
-
-func to_repeatedid([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Multisig_AsMulti_Call(callFields []*registry.DecodedField) *pbgear.Multisig_AsMulti_Call {
-    return &pbgear.Multisig_AsMulti_Call{
-
-    }
-}
-
-func to_threshold([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
- 
- 
-  
-func to_ElectionProviderMultiPhase_Submit_Call(callFields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_Submit_Call {
-    return &pbgear.ElectionProviderMultiPhase_Submit_Call{
-
-    }
-}
-  
-func to_Bounties_ApproveBounty_Call(callFields []*registry.DecodedField) *pbgear.Bounties_ApproveBounty_Call {
-    return &pbgear.Bounties_ApproveBounty_Call{
-
-    }
-}
-  
-func to_ChildBountiesBeneficiary(callFields []*registry.DecodedField) *pbgear.ChildBountiesBeneficiary {
-    return &pbgear.ChildBountiesBeneficiary{
-
-    }
-}
-  
-func to_NominationPoolsId(callFields []*registry.DecodedField) *pbgear.NominationPoolsId {
-    return &pbgear.NominationPoolsId{
-
-    }
-}
-  
-func to_SpRuntimeGenericHeaderHeader(callFields []*registry.DecodedField) *pbgear.SpRuntimeGenericHeaderHeader {
-    return &pbgear.SpRuntimeGenericHeaderHeader{
-
-    }
-}
- 
- 
- 
- 
-  
-func to_CompactSpArithmeticPerThingsPerbill(callFields []*registry.DecodedField) *pbgear.CompactSpArithmeticPerThingsPerbill {
-    return &pbgear.CompactSpArithmeticPerThingsPerbill{
-
-    }
-}
-  
-func to_Referenda_NudgeReferendum_Call(callFields []*registry.DecodedField) *pbgear.Referenda_NudgeReferendum_Call {
-    return &pbgear.Referenda_NudgeReferendum_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BountiesRaw(callFields []*registry.DecodedField) *pbgear.BountiesRaw {
-    return &pbgear.BountiesRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BabePrimaryAndSecondaryVRFSlots(callFields []*registry.DecodedField) *pbgear.BabePrimaryAndSecondaryVRFSlots {
-    return &pbgear.BabePrimaryAndSecondaryVRFSlots{
-
-    }
-} 
-func to_BalancesIndex(callFields []*registry.DecodedField) *pbgear.BalancesIndex {
-    return &pbgear.BalancesIndex{
-
-    }
-}
-  
-func to_Proxy_RemoveProxy_Call(callFields []*registry.DecodedField) *pbgear.Proxy_RemoveProxy_Call {
-    return &pbgear.Proxy_RemoveProxy_Call{
-
-    }
-}
- 
- 
-
-func to_delay([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_SpCoreSr25519Public(callFields []*registry.DecodedField) *pbgear.SpCoreSr25519Public {
-    return &pbgear.SpCoreSr25519Public{
-
-    }
-}
-
-func to_repeatedoffender([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw20(callFields []*registry.DecodedField) *pbgear.IdentityRaw20 {
-    return &pbgear.IdentityRaw20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaRoot(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaRoot {
-    return &pbgear.FellowshipReferendaRoot{
-
-    }
-} 
-func to_Whitelist_DispatchWhitelistedCall_Call(callFields []*registry.DecodedField) *pbgear.Whitelist_DispatchWhitelistedCall_Call {
-    return &pbgear.Whitelist_DispatchWhitelistedCall_Call{
-
-    }
-}
- 
-
-func to_call_encoded_len([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_BalancesDest(callFields []*registry.DecodedField) *pbgear.BalancesDest {
-    return &pbgear.BalancesDest{
-
-    }
-}
-  
-func to_BalancesSource(callFields []*registry.DecodedField) *pbgear.BalancesSource {
-    return &pbgear.BalancesSource{
-
-    }
-}
-  
-func to_Vesting_Vest_Call(callFields []*registry.DecodedField) *pbgear.Vesting_Vest_Call {
-    return &pbgear.Vesting_Vest_Call{
-
-    }
-} 
-func to_Staking_ForceUnstake_Call(callFields []*registry.DecodedField) *pbgear.Staking_ForceUnstake_Call {
-    return &pbgear.Staking_ForceUnstake_Call{
-
-    }
-}
- 
-
-func to_num_slashing_spans([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingRemove(callFields []*registry.DecodedField) *pbgear.StakingRemove {
-    return &pbgear.StakingRemove{
-
-    }
-} 
-func to_ReferendaRoot(callFields []*registry.DecodedField) *pbgear.ReferendaRoot {
-    return &pbgear.ReferendaRoot{
-
-    }
-} 
-func to_NominationPools_SetClaimPermission_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_SetClaimPermission_Call {
-    return &pbgear.NominationPools_SetClaimPermission_Call{
-
-    }
-}
-  
-func to_IdentityRaw6(callFields []*registry.DecodedField) *pbgear.IdentityRaw6 {
-    return &pbgear.IdentityRaw6{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Identity_AddSub_Call(callFields []*registry.DecodedField) *pbgear.Identity_AddSub_Call {
-    return &pbgear.Identity_AddSub_Call{
-
-    }
-}
- 
-  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_NominationPools_SetMetadata_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_SetMetadata_Call {
-    return &pbgear.NominationPools_SetMetadata_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_repeatedmetadata([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsMaxMembersPerPool(callFields []*registry.DecodedField) *pbgear.NominationPoolsMaxMembersPerPool {
-    return &pbgear.NominationPoolsMaxMembersPerPool{
-
-    }
-}
-  
-func to_NominationPoolsPermissionlessCompound(callFields []*registry.DecodedField) *pbgear.NominationPoolsPermissionlessCompound {
-    return &pbgear.NominationPoolsPermissionlessCompound{
-
-    }
-} 
-func to_SpArithmeticPerThingsPerbill(callFields []*registry.DecodedField) *pbgear.SpArithmeticPerThingsPerbill {
-    return &pbgear.SpArithmeticPerThingsPerbill{
-
-    }
-}
-
-func to_value([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ConvictionVotingLocked6x(callFields []*registry.DecodedField) *pbgear.ConvictionVotingLocked6x {
-    return &pbgear.ConvictionVotingLocked6x{
-
-    }
-} 
-func to_ConvictionVoting_Delegate_Call(callFields []*registry.DecodedField) *pbgear.ConvictionVoting_Delegate_Call {
-    return &pbgear.ConvictionVoting_Delegate_Call{
-
-    }
-}
-
-func to_class([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
- 
-
-func to_balance([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_ProxyIdentityJudgement(callFields []*registry.DecodedField) *pbgear.ProxyIdentityJudgement {
-    return &pbgear.ProxyIdentityJudgement{
-
-    }
-} 
-func to_BountiesBeneficiary(callFields []*registry.DecodedField) *pbgear.BountiesBeneficiary {
-    return &pbgear.BountiesBeneficiary{
-
-    }
-}
-  
-func to_BalancesAddress32(callFields []*registry.DecodedField) *pbgear.BalancesAddress32 {
-    return &pbgear.BalancesAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ConvictionVotingRaw(callFields []*registry.DecodedField) *pbgear.ConvictionVotingRaw {
-    return &pbgear.ConvictionVotingRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ElectionProviderMultiPhase_SetMinimumUntrustedScore_Call(callFields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SetMinimumUntrustedScore_Call {
-    return &pbgear.ElectionProviderMultiPhase_SetMinimumUntrustedScore_Call{
-
-    }
-}
-  
-func to_FellowshipReferenda_OneFewerDeciding_Call(callFields []*registry.DecodedField) *pbgear.FellowshipReferenda_OneFewerDeciding_Call {
-    return &pbgear.FellowshipReferenda_OneFewerDeciding_Call{
-
-    }
-}
-
-func to_track([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw14(callFields []*registry.DecodedField) *pbgear.IdentityRaw14 {
-    return &pbgear.IdentityRaw14{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Identity_CancelRequest_Call(callFields []*registry.DecodedField) *pbgear.Identity_CancelRequest_Call {
-    return &pbgear.Identity_CancelRequest_Call{
-
-    }
-}
-
-func to_reg_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsOpen(callFields []*registry.DecodedField) *pbgear.NominationPoolsOpen {
-    return &pbgear.NominationPoolsOpen{
-
-    }
-} 
-func to_FinalityGrandpaPrevote(callFields []*registry.DecodedField) *pbgear.FinalityGrandpaPrevote {
-    return &pbgear.FinalityGrandpaPrevote{
-
-    }
-}
- 
-
-func to_target_number([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingAddress20(callFields []*registry.DecodedField) *pbgear.StakingAddress20 {
-    return &pbgear.StakingAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_VaraRuntimeSessionKeys(callFields []*registry.DecodedField) *pbgear.VaraRuntimeSessionKeys {
-    return &pbgear.VaraRuntimeSessionKeys{
-
-    }
-}
- 
- 
- 
-  
-func to_TreasuryId(callFields []*registry.DecodedField) *pbgear.TreasuryId {
-    return &pbgear.TreasuryId{
-
-    }
-}
-  
-func to_IdentityRaw25(callFields []*registry.DecodedField) *pbgear.IdentityRaw25 {
-    return &pbgear.IdentityRaw25{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Identity_QuitSub_Call(callFields []*registry.DecodedField) *pbgear.Identity_QuitSub_Call {
-    return &pbgear.Identity_QuitSub_Call{
-
-    }
-} 
-func to_Grandpa_ReportEquivocation_Call(callFields []*registry.DecodedField) *pbgear.Grandpa_ReportEquivocation_Call {
-    return &pbgear.Grandpa_ReportEquivocation_Call{
-
-    }
-}
- 
-  
-func to_FellowshipCollectiveIndex(callFields []*registry.DecodedField) *pbgear.FellowshipCollectiveIndex {
-    return &pbgear.FellowshipCollectiveIndex{
-
-    }
-}
-  
-func to_FellowshipReferendaAt(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaAt {
-    return &pbgear.FellowshipReferendaAt{
-
-    }
-}
-
-func to_value_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BountiesId(callFields []*registry.DecodedField) *pbgear.BountiesId {
-    return &pbgear.BountiesId{
-
-    }
-}
-  
-func to_BagsListRaw(callFields []*registry.DecodedField) *pbgear.BagsListRaw {
-    return &pbgear.BagsListRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingTargets(callFields []*registry.DecodedField) *pbgear.StakingTargets {
-    return &pbgear.StakingTargets{
-
-    }
-}
-  
-func to_Staking_Kick_Call(callFields []*registry.DecodedField) *pbgear.Staking_Kick_Call {
-    return &pbgear.Staking_Kick_Call{
-
-    }
-}
-  
-func to_TreasuryRaw(callFields []*registry.DecodedField) *pbgear.TreasuryRaw {
-    return &pbgear.TreasuryRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaEnactmentMoment(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaEnactmentMoment {
-    return &pbgear.FellowshipReferendaEnactmentMoment{
-
-    }
-}
-  
-func to_IdentityRaw22(callFields []*registry.DecodedField) *pbgear.IdentityRaw22 {
-    return &pbgear.IdentityRaw22{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BagsList_Rebag_Call(callFields []*registry.DecodedField) *pbgear.BagsList_Rebag_Call {
-    return &pbgear.BagsList_Rebag_Call{
-
-    }
-}
-  
-func to_Treasury_CheckStatus_Call(callFields []*registry.DecodedField) *pbgear.Treasury_CheckStatus_Call {
-    return &pbgear.Treasury_CheckStatus_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipCollectiveId(callFields []*registry.DecodedField) *pbgear.FellowshipCollectiveId {
-    return &pbgear.FellowshipCollectiveId{
-
-    }
-}
-  
-func to_FellowshipReferendaProposalOrigin(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaProposalOrigin {
-    return &pbgear.FellowshipReferendaProposalOrigin{
-
-    }
-}
-  
-func to_IdentityRaw24(callFields []*registry.DecodedField) *pbgear.IdentityRaw24 {
-    return &pbgear.IdentityRaw24{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw32(callFields []*registry.DecodedField) *pbgear.IdentityRaw32 {
-    return &pbgear.IdentityRaw32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Staking_SetValidatorCount_Call(callFields []*registry.DecodedField) *pbgear.Staking_SetValidatorCount_Call {
-    return &pbgear.Staking_SetValidatorCount_Call{
-
-    }
-}
-  
-func to_ReferendaProposalOrigin(callFields []*registry.DecodedField) *pbgear.ReferendaProposalOrigin {
-    return &pbgear.ReferendaProposalOrigin{
-
-    }
-}
-  
-func to_NominationPoolsMinJoinBond(callFields []*registry.DecodedField) *pbgear.NominationPoolsMinJoinBond {
-    return &pbgear.NominationPoolsMinJoinBond{
-
-    }
-}
-  
-func to_GearVoucher_Issue_Call(callFields []*registry.DecodedField) *pbgear.GearVoucher_Issue_Call {
-    return &pbgear.GearVoucher_Issue_Call{
-
-    }
-}
- 
-
-func to_balance([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
- 
-
-func to_code_uploading([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-} 
-
-func to_duration([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaVoid(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaVoid {
-    return &pbgear.FellowshipReferendaVoid{
-
-    }
-}
-  
-func to_IdentityJudgement(callFields []*registry.DecodedField) *pbgear.IdentityJudgement {
-    return &pbgear.IdentityJudgement{
-
-    }
-}
-  
-func to_BountiesIndex(callFields []*registry.DecodedField) *pbgear.BountiesIndex {
-    return &pbgear.BountiesIndex{
-
-    }
-}
-  
-func to_StakingRewards_Refill_Call(callFields []*registry.DecodedField) *pbgear.StakingRewards_Refill_Call {
-    return &pbgear.StakingRewards_Refill_Call{
-
-    }
-}
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_BagsListHeavier(callFields []*registry.DecodedField) *pbgear.BagsListHeavier {
-    return &pbgear.BagsListHeavier{
-
-    }
-}
-  
-func to_Staking_SetInvulnerables_Call(callFields []*registry.DecodedField) *pbgear.Staking_SetInvulnerables_Call {
-    return &pbgear.Staking_SetInvulnerables_Call{
-
-    }
-}
-  
-func to_IdentitySub(callFields []*registry.DecodedField) *pbgear.IdentitySub {
-    return &pbgear.IdentitySub{
-
-    }
-}
-  
-func to_Proxy_Proxy_Call(callFields []*registry.DecodedField) *pbgear.Proxy_Proxy_Call {
-    return &pbgear.Proxy_Proxy_Call{
-
-    }
-}
- 
- 
-  
-func to_NominationPools_SetState_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_SetState_Call {
-    return &pbgear.NominationPools_SetState_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_VestingRaw(callFields []*registry.DecodedField) *pbgear.VestingRaw {
-    return &pbgear.VestingRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Staking_WithdrawUnbonded_Call(callFields []*registry.DecodedField) *pbgear.Staking_WithdrawUnbonded_Call {
-    return &pbgear.Staking_WithdrawUnbonded_Call{
-
-    }
-}
-
-func to_num_slashing_spans([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaAfter(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaAfter {
-    return &pbgear.FellowshipReferendaAfter{
-
-    }
-}
-
-func to_value_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferenda_Cancel_Call(callFields []*registry.DecodedField) *pbgear.FellowshipReferenda_Cancel_Call {
-    return &pbgear.FellowshipReferenda_Cancel_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32 {
-    return &pbgear.TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32{
-
-    }
-}
- 
- 
-  
-func to_Gear_UploadProgram_Call(callFields []*registry.DecodedField) *pbgear.Gear_UploadProgram_Call {
-    return &pbgear.Gear_UploadProgram_Call{
-
-    }
-}
-
-func to_repeatedcode([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_repeatedsalt([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_repeatedinit_payload([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_gas_limit([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-} 
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_keep_alive([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_TupleCompactUint32CompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32CompactUint32 {
-    return &pbgear.TupleCompactUint32CompactUint32{
-
-    }
-}
- 
-  
-func to_Scheduler_ScheduleNamed_Call(callFields []*registry.DecodedField) *pbgear.Scheduler_ScheduleNamed_Call {
-    return &pbgear.Scheduler_ScheduleNamed_Call{
-
-    }
-}
-
-func to_repeatedid([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_when([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
-
-func to_priority([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_SpConsensusSlotsSlot(callFields []*registry.DecodedField) *pbgear.SpConsensusSlotsSlot {
-    return &pbgear.SpConsensusSlotsSlot{
-
-    }
-}
-
-func to_slot([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-}  
-func to_Proxy_KillPure_Call(callFields []*registry.DecodedField) *pbgear.Proxy_KillPure_Call {
-    return &pbgear.Proxy_KillPure_Call{
-
-    }
-}
- 
- 
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
-  
-func to_TupleUint32uint32(callFields []*registry.DecodedField) *pbgear.TupleUint32uint32 {
-    return &pbgear.TupleUint32uint32{
-
-    }
-}
-
-func to_value_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_value_1([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityLegal(callFields []*registry.DecodedField) *pbgear.IdentityLegal {
-    return &pbgear.IdentityLegal{
-
-    }
-}
-  
-func to_ChildBounties_CloseChildBounty_Call(callFields []*registry.DecodedField) *pbgear.ChildBounties_CloseChildBounty_Call {
-    return &pbgear.ChildBounties_CloseChildBounty_Call{
-
-    }
-}
- 
-  
-func to_GearVoucherUploadCode(callFields []*registry.DecodedField) *pbgear.GearVoucherUploadCode {
-    return &pbgear.GearVoucherUploadCode{
-
-    }
-}
-
-func to_repeatedcode([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsState(callFields []*registry.DecodedField) *pbgear.NominationPoolsState {
-    return &pbgear.NominationPoolsState{
-
-    }
-}
-  
-func to_Staking_PayoutStakers_Call(callFields []*registry.DecodedField) *pbgear.Staking_PayoutStakers_Call {
-    return &pbgear.Staking_PayoutStakers_Call{
-
-    }
-}
- 
-
-func to_era([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ConvictionVotingNone(callFields []*registry.DecodedField) *pbgear.ConvictionVotingNone {
-    return &pbgear.ConvictionVotingNone{
-
-    }
-} 
-func to_ConvictionVoting_Undelegate_Call(callFields []*registry.DecodedField) *pbgear.ConvictionVoting_Undelegate_Call {
-    return &pbgear.ConvictionVoting_Undelegate_Call{
-
-    }
-}
-
-func to_class([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Preimage_NotePreimage_Call(callFields []*registry.DecodedField) *pbgear.Preimage_NotePreimage_Call {
-    return &pbgear.Preimage_NotePreimage_Call{
-
-    }
-}
-
-func to_repeatedbytes([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw17(callFields []*registry.DecodedField) *pbgear.IdentityRaw17 {
-    return &pbgear.IdentityRaw17{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Bounties_AwardBounty_Call(callFields []*registry.DecodedField) *pbgear.Bounties_AwardBounty_Call {
-    return &pbgear.Bounties_AwardBounty_Call{
-
-    }
-}
- 
-  
-func to_BabeLogs(callFields []*registry.DecodedField) *pbgear.BabeLogs {
-    return &pbgear.BabeLogs{
-
-    }
-}
-  
-func to_ConvictionVotingVote(callFields []*registry.DecodedField) *pbgear.ConvictionVotingVote {
-    return &pbgear.ConvictionVotingVote{
-
-    }
-}
-  
-func to_FellowshipReferenda_RefundDecisionDeposit_Call(callFields []*registry.DecodedField) *pbgear.FellowshipReferenda_RefundDecisionDeposit_Call {
-    return &pbgear.FellowshipReferenda_RefundDecisionDeposit_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferenda_Kill_Call(callFields []*registry.DecodedField) *pbgear.FellowshipReferenda_Kill_Call {
-    return &pbgear.FellowshipReferenda_Kill_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Proxy_RemoveProxies_Call(callFields []*registry.DecodedField) *pbgear.Proxy_RemoveProxies_Call {
-    return &pbgear.Proxy_RemoveProxies_Call{
-
-    }
-} 
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_StakingChillThreshold(callFields []*registry.DecodedField) *pbgear.StakingChillThreshold {
-    return &pbgear.StakingChillThreshold{
-
-    }
-}
-  
-func to_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize(callFields []*registry.DecodedField) *pbgear.PalletElectionProviderMultiPhaseSolutionOrSnapshotSize {
-    return &pbgear.PalletElectionProviderMultiPhaseSolutionOrSnapshotSize{
-
-    }
-}
- 
-  
-func to_Gear_Run_Call(callFields []*registry.DecodedField) *pbgear.Gear_Run_Call {
-    return &pbgear.Gear_Run_Call{
-
-    }
-}
-
-func to_optional_max_gas(field *registry.DecodedField) *uint64 {
-    var out *uint64
-    
-    if v, ok := field.Value.(uint64); ok {
-        if v != 0 {
-            panic("expected none")
-        }
-    } else {
-        out = field.Value.(*uint64)
-    }
-    return out
-}  
-func to_GearVoucherDeclineVoucher(callFields []*registry.DecodedField) *pbgear.GearVoucherDeclineVoucher {
-    return &pbgear.GearVoucherDeclineVoucher{
-
-    }
-} 
-func to_ProxyAddress20(callFields []*registry.DecodedField) *pbgear.ProxyAddress20 {
-    return &pbgear.ProxyAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsExtra(callFields []*registry.DecodedField) *pbgear.NominationPoolsExtra {
-    return &pbgear.NominationPoolsExtra{
-
-    }
-}
-  
-func to_SpConsensusGrandpaAppSignature(callFields []*registry.DecodedField) *pbgear.SpConsensusGrandpaAppSignature {
-    return &pbgear.SpConsensusGrandpaAppSignature{
-
-    }
-}
-  
-func to_UtilityRoot(callFields []*registry.DecodedField) *pbgear.UtilityRoot {
-    return &pbgear.UtilityRoot{
-
-    }
-} 
-func to_ConvictionVotingIndex(callFields []*registry.DecodedField) *pbgear.ConvictionVotingIndex {
-    return &pbgear.ConvictionVotingIndex{
-
-    }
-}
-  
-func to_ConvictionVotingAddress20(callFields []*registry.DecodedField) *pbgear.ConvictionVotingAddress20 {
-    return &pbgear.ConvictionVotingAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw7(callFields []*registry.DecodedField) *pbgear.IdentityRaw7 {
-    return &pbgear.IdentityRaw7{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityTwitter(callFields []*registry.DecodedField) *pbgear.IdentityTwitter {
-    return &pbgear.IdentityTwitter{
-
-    }
-}
-  
-func to_NominationPools_BondExtra_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_BondExtra_Call {
-    return &pbgear.NominationPools_BondExtra_Call{
-
-    }
-}
-  
-func to_IdentityUnknown(callFields []*registry.DecodedField) *pbgear.IdentityUnknown {
-    return &pbgear.IdentityUnknown{
-
-    }
-} 
-func to_ProxyAny(callFields []*registry.DecodedField) *pbgear.ProxyAny {
-    return &pbgear.ProxyAny{
-
-    }
-} 
-func to_NominationPoolsNewNominator(callFields []*registry.DecodedField) *pbgear.NominationPoolsNewNominator {
-    return &pbgear.NominationPoolsNewNominator{
-
-    }
-}
-  
-func to_PalletGearVoucherInternalVoucherId(callFields []*registry.DecodedField) *pbgear.PalletGearVoucherInternalVoucherId {
-    return &pbgear.PalletGearVoucherInternalVoucherId{
-
-    }
-}
-
-func to_repeatedvoucher_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Utility_AsDerivative_Call(callFields []*registry.DecodedField) *pbgear.Utility_AsDerivative_Call {
-    return &pbgear.Utility_AsDerivative_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_IdentityRaw9(callFields []*registry.DecodedField) *pbgear.IdentityRaw9 {
-    return &pbgear.IdentityRaw9{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BagsListIndex(callFields []*registry.DecodedField) *pbgear.BagsListIndex {
-    return &pbgear.BagsListIndex{
-
-    }
-}
-  
-func to_Referenda_RefundDecisionDeposit_Call(callFields []*registry.DecodedField) *pbgear.Referenda_RefundDecisionDeposit_Call {
-    return &pbgear.Referenda_RefundDecisionDeposit_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_SpNposElectionsElectionScore(callFields []*registry.DecodedField) *pbgear.SpNposElectionsElectionScore {
-    return &pbgear.SpNposElectionsElectionScore{
-
-    }
-}
-
-func to_minimal_stake([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_sum_stake([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_sum_stake_squared([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_Bounties_ProposeCurator_Call(callFields []*registry.DecodedField) *pbgear.Bounties_ProposeCurator_Call {
-    return &pbgear.Bounties_ProposeCurator_Call{
-
-    }
-}
- 
- 
-  
-func to_BagsListLighter(callFields []*registry.DecodedField) *pbgear.BagsListLighter {
-    return &pbgear.BagsListLighter{
-
-    }
-}
-  
-func to_Staking_ForceApplyMinCommission_Call(callFields []*registry.DecodedField) *pbgear.Staking_ForceApplyMinCommission_Call {
-    return &pbgear.Staking_ForceApplyMinCommission_Call{
-
-    }
-}
-  
-func to_UtilitySystem(callFields []*registry.DecodedField) *pbgear.UtilitySystem {
-    return &pbgear.UtilitySystem{
-
-    }
-}
-  
-func to_Referenda_Cancel_Call(callFields []*registry.DecodedField) *pbgear.Referenda_Cancel_Call {
-    return &pbgear.Referenda_Cancel_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ElectionProviderMultiPhase_GovernanceFallback_Call(callFields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_GovernanceFallback_Call {
-    return &pbgear.ElectionProviderMultiPhase_GovernanceFallback_Call{
-
-    }
-}
-
-func to_optional_maybe_max_voters(field *registry.DecodedField) *uint32 {
-    var out *uint32
-    
-    if v, ok := field.Value.(uint32); ok {
-        if v != 0 {
-            panic("expected none")
-        }
-    } else {
-        out = field.Value.(*uint32)
-    }
-    return out
-} 
-
-func to_optional_maybe_max_targets(field *registry.DecodedField) *uint32 {
-    var out *uint32
-    
-    if v, ok := field.Value.(uint32); ok {
-        if v != 0 {
-            panic("expected none")
-        }
-    } else {
-        out = field.Value.(*uint32)
-    }
-    return out
-}  
-func to_SpConsensusGrandpaEquivocationProof(callFields []*registry.DecodedField) *pbgear.SpConsensusGrandpaEquivocationProof {
-    return &pbgear.SpConsensusGrandpaEquivocationProof{
-
-    }
-}
-
-func to_set_id([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-} 
-  
-func to_Staking_CancelDeferredSlash_Call(callFields []*registry.DecodedField) *pbgear.Staking_CancelDeferredSlash_Call {
-    return &pbgear.Staking_CancelDeferredSlash_Call{
-
-    }
-}
-
-func to_era([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_repeatedslash_indices([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Treasury_RejectProposal_Call(callFields []*registry.DecodedField) *pbgear.Treasury_RejectProposal_Call {
-    return &pbgear.Treasury_RejectProposal_Call{
-
-    }
-}
-  
-func to_ConvictionVotingId(callFields []*registry.DecodedField) *pbgear.ConvictionVotingId {
-    return &pbgear.ConvictionVotingId{
-
-    }
-}
-  
-func to_IdentityReasonable(callFields []*registry.DecodedField) *pbgear.IdentityReasonable {
-    return &pbgear.IdentityReasonable{
-
-    }
-} 
-func to_NominationPools_Nominate_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_Nominate_Call {
-    return &pbgear.NominationPools_Nominate_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_Babe_PlanConfigChange_Call(callFields []*registry.DecodedField) *pbgear.Babe_PlanConfigChange_Call {
-    return &pbgear.Babe_PlanConfigChange_Call{
-
-    }
-}
-  
-func to_PalletImOnlineHeartbeat(callFields []*registry.DecodedField) *pbgear.PalletImOnlineHeartbeat {
-    return &pbgear.PalletImOnlineHeartbeat{
-
-    }
-}
-
-func to_block_number([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_session_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_authority_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_validators_len([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ConvictionVotingSplit(callFields []*registry.DecodedField) *pbgear.ConvictionVotingSplit {
-    return &pbgear.ConvictionVotingSplit{
-
-    }
-}
-
-func to_aye([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_nay([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw2(callFields []*registry.DecodedField) *pbgear.IdentityRaw2 {
-    return &pbgear.IdentityRaw2{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsRewards(callFields []*registry.DecodedField) *pbgear.NominationPoolsRewards {
-    return &pbgear.NominationPoolsRewards{
-
-    }
-} 
-func to_SpRuntimeGenericDigestDigestItem(callFields []*registry.DecodedField) *pbgear.SpRuntimeGenericDigestDigestItem {
-    return &pbgear.SpRuntimeGenericDigestDigestItem{
-
-    }
-}
-  
-func to_Whitelist_WhitelistCall_Call(callFields []*registry.DecodedField) *pbgear.Whitelist_WhitelistCall_Call {
-    return &pbgear.Whitelist_WhitelistCall_Call{
-
-    }
-}
-  
-func to_IdentityRaw15(callFields []*registry.DecodedField) *pbgear.IdentityRaw15 {
-    return &pbgear.IdentityRaw15{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityTarget(callFields []*registry.DecodedField) *pbgear.IdentityTarget {
-    return &pbgear.IdentityTarget{
-
-    }
-}
-  
-func to_Balances_ForceTransfer_Call(callFields []*registry.DecodedField) *pbgear.Balances_ForceTransfer_Call {
-    return &pbgear.Balances_ForceTransfer_Call{
-
-    }
-}
- 
- 
-  
-func to_NominationPools_SetCommissionChangeRate_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_SetCommissionChangeRate_Call {
-    return &pbgear.NominationPools_SetCommissionChangeRate_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_Session_PurgeKeys_Call(callFields []*registry.DecodedField) *pbgear.Session_PurgeKeys_Call {
-    return &pbgear.Session_PurgeKeys_Call{
-
-    }
-} 
-func to_ConvictionVoting_Vote_Call(callFields []*registry.DecodedField) *pbgear.ConvictionVoting_Vote_Call {
-    return &pbgear.ConvictionVoting_Vote_Call{
-
-    }
-}
- 
-  
-func to_FellowshipReferenda_RefundSubmissionDeposit_Call(callFields []*registry.DecodedField) *pbgear.FellowshipReferenda_RefundSubmissionDeposit_Call {
-    return &pbgear.FellowshipReferenda_RefundSubmissionDeposit_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_NominationPoolsDestroying(callFields []*registry.DecodedField) *pbgear.NominationPoolsDestroying {
-    return &pbgear.NominationPoolsDestroying{
-
-    }
-} 
-func to_StakingRewardsIndex(callFields []*registry.DecodedField) *pbgear.StakingRewardsIndex {
-    return &pbgear.StakingRewardsIndex{
-
-    }
-}
-  
-func to_Babe_ReportEquivocationUnsigned_Call(callFields []*registry.DecodedField) *pbgear.Babe_ReportEquivocationUnsigned_Call {
-    return &pbgear.Babe_ReportEquivocationUnsigned_Call{
-
-    }
-}
- 
-  
-func to_ConvictionVotingStandard(callFields []*registry.DecodedField) *pbgear.ConvictionVotingStandard {
-    return &pbgear.ConvictionVotingStandard{
-
-    }
-}
- 
-
-func to_balance([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_Scheduler_ScheduleNamedAfter_Call(callFields []*registry.DecodedField) *pbgear.Scheduler_ScheduleNamedAfter_Call {
-    return &pbgear.Scheduler_ScheduleNamedAfter_Call{
-
-    }
-}
-
-func to_repeatedid([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_after([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
-
-func to_priority([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_Identity_RenameSub_Call(callFields []*registry.DecodedField) *pbgear.Identity_RenameSub_Call {
-    return &pbgear.Identity_RenameSub_Call{
-
-    }
-}
- 
-  
-func to_ProxyAddress32(callFields []*registry.DecodedField) *pbgear.ProxyAddress32 {
-    return &pbgear.ProxyAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_VaraRuntimeNposSolution16(callFields []*registry.DecodedField) *pbgear.VaraRuntimeNposSolution16 {
-    return &pbgear.VaraRuntimeNposSolution16{
-
-    }
-}
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-  
-func to_BagsListDislocated(callFields []*registry.DecodedField) *pbgear.BagsListDislocated {
-    return &pbgear.BagsListDislocated{
-
-    }
-}
-  
-func to_Utility_BatchAll_Call(callFields []*registry.DecodedField) *pbgear.Utility_BatchAll_Call {
-    return &pbgear.Utility_BatchAll_Call{
-
-    }
-}
-  
-func to_SpWeightsWeightV2Weight(callFields []*registry.DecodedField) *pbgear.SpWeightsWeightV2Weight {
-    return &pbgear.SpWeightsWeightV2Weight{
-
-    }
-}
- 
-  
-func to_ConvictionVoting_RemoveOtherVote_Call(callFields []*registry.DecodedField) *pbgear.ConvictionVoting_RemoveOtherVote_Call {
-    return &pbgear.ConvictionVoting_RemoveOtherVote_Call{
-
-    }
-}
- 
-
-func to_class([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ChildBountiesAddress32(callFields []*registry.DecodedField) *pbgear.ChildBountiesAddress32 {
-    return &pbgear.ChildBountiesAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_GearVoucherSendReply(callFields []*registry.DecodedField) *pbgear.GearVoucherSendReply {
-    return &pbgear.GearVoucherSendReply{
-
-    }
-}
- 
-
-func to_repeatedpayload([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_gas_limit([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-} 
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_keep_alive([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_System_SetHeapPages_Call(callFields []*registry.DecodedField) *pbgear.System_SetHeapPages_Call {
-    return &pbgear.System_SetHeapPages_Call{
-
-    }
-}
-
-func to_pages([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-}  
-func to_PrimitiveTypesH256(callFields []*registry.DecodedField) *pbgear.PrimitiveTypesH256 {
-    return &pbgear.PrimitiveTypesH256{
-
-    }
-}
-
-func to_repeatedparent_hash([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_SpCoreEd25519Signature(callFields []*registry.DecodedField) *pbgear.SpCoreEd25519Signature {
-    return &pbgear.SpCoreEd25519Signature{
-
-    }
-}
-
-func to_repeatedvalue_1([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_PalletImOnlineSr25519AppSr25519Public(callFields []*registry.DecodedField) *pbgear.PalletImOnlineSr25519AppSr25519Public {
-    return &pbgear.PalletImOnlineSr25519AppSr25519Public{
-
-    }
-}
-  
-func to_IdentityRaw8(callFields []*registry.DecodedField) *pbgear.IdentityRaw8 {
-    return &pbgear.IdentityRaw8{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityKnownGood(callFields []*registry.DecodedField) *pbgear.IdentityKnownGood {
-    return &pbgear.IdentityKnownGood{
-
-    }
-} 
-func to_Referenda_PlaceDecisionDeposit_Call(callFields []*registry.DecodedField) *pbgear.Referenda_PlaceDecisionDeposit_Call {
-    return &pbgear.Referenda_PlaceDecisionDeposit_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipCollective_PromoteMember_Call(callFields []*registry.DecodedField) *pbgear.FellowshipCollective_PromoteMember_Call {
-    return &pbgear.FellowshipCollective_PromoteMember_Call{
-
-    }
-}
-  
-func to_ChildBounties_UnassignCurator_Call(callFields []*registry.DecodedField) *pbgear.ChildBounties_UnassignCurator_Call {
-    return &pbgear.ChildBounties_UnassignCurator_Call{
-
-    }
-}
- 
-  
-func to_Gear_CreateProgram_Call(callFields []*registry.DecodedField) *pbgear.Gear_CreateProgram_Call {
-    return &pbgear.Gear_CreateProgram_Call{
-
-    }
-}
- 
-
-func to_repeatedsalt([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_repeatedinit_payload([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_gas_limit([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-} 
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_keep_alive([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_Grandpa_NoteStalled_Call(callFields []*registry.DecodedField) *pbgear.Grandpa_NoteStalled_Call {
-    return &pbgear.Grandpa_NoteStalled_Call{
-
-    }
-}
-
-func to_delay([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_best_finalized_block_number([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_UtilityOrigins(callFields []*registry.DecodedField) *pbgear.UtilityOrigins {
-    return &pbgear.UtilityOrigins{
-
-    }
-}
-  
-func to_FellowshipCollectiveWho(callFields []*registry.DecodedField) *pbgear.FellowshipCollectiveWho {
-    return &pbgear.FellowshipCollectiveWho{
-
-    }
-}
-  
-func to_SpNposElectionsSupport(callFields []*registry.DecodedField) *pbgear.SpNposElectionsSupport {
-    return &pbgear.SpNposElectionsSupport{
-
-    }
-}
-
-func to_total([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-  
-func to_StakingMaxValidatorCount(callFields []*registry.DecodedField) *pbgear.StakingMaxValidatorCount {
-    return &pbgear.StakingMaxValidatorCount{
-
-    }
-}
-  
-func to_ConvictionVotingSplitAbstain(callFields []*registry.DecodedField) *pbgear.ConvictionVotingSplitAbstain {
-    return &pbgear.ConvictionVotingSplitAbstain{
-
-    }
-}
-
-func to_aye([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_nay([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_abstain([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaLookup(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaLookup {
-    return &pbgear.FellowshipReferendaLookup{
-
-    }
-}
- 
-
-func to_len([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Identity_AddRegistrar_Call(callFields []*registry.DecodedField) *pbgear.Identity_AddRegistrar_Call {
-    return &pbgear.Identity_AddRegistrar_Call{
-
-    }
-}
-  
-func to_Identity_SetSubs_Call(callFields []*registry.DecodedField) *pbgear.Identity_SetSubs_Call {
-    return &pbgear.Identity_SetSubs_Call{
-
-    }
-}
-  
-func to_NominationPools_PoolWithdrawUnbonded_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_PoolWithdrawUnbonded_Call {
-    return &pbgear.NominationPools_PoolWithdrawUnbonded_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_num_slashing_spans([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Staking_BondExtra_Call(callFields []*registry.DecodedField) *pbgear.Staking_BondExtra_Call {
-    return &pbgear.Staking_BondExtra_Call{
-
-    }
-}
-  
-func to_IdentityOutOfDate(callFields []*registry.DecodedField) *pbgear.IdentityOutOfDate {
-    return &pbgear.IdentityOutOfDate{
-
-    }
-} 
-func to_Identity_RemoveSub_Call(callFields []*registry.DecodedField) *pbgear.Identity_RemoveSub_Call {
-    return &pbgear.Identity_RemoveSub_Call{
-
-    }
-}
-  
-func to_Bounties_UnassignCurator_Call(callFields []*registry.DecodedField) *pbgear.Bounties_UnassignCurator_Call {
-    return &pbgear.Bounties_UnassignCurator_Call{
-
-    }
-}
-  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_BalancesWho(callFields []*registry.DecodedField) *pbgear.BalancesWho {
-    return &pbgear.BalancesWho{
-
-    }
-}
-  
-func to_Staking_SetStakingConfigs_Call(callFields []*registry.DecodedField) *pbgear.Staking_SetStakingConfigs_Call {
-    return &pbgear.Staking_SetStakingConfigs_Call{
-
-    }
-}
- 
- 
- 
- 
- 
-  
-func to_IdentityRaw0(callFields []*registry.DecodedField) *pbgear.IdentityRaw0 {
-    return &pbgear.IdentityRaw0{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPools_CreateWithPoolId_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_CreateWithPoolId_Call {
-    return &pbgear.NominationPools_CreateWithPoolId_Call{
-
-    }
-}
- 
- 
- 
- 
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsPermissionlessWithdraw(callFields []*registry.DecodedField) *pbgear.NominationPoolsPermissionlessWithdraw {
-    return &pbgear.NominationPoolsPermissionlessWithdraw{
-
-    }
-} 
-func to_TupleSpCoreCryptoAccountId32SpNposElectionsSupport(callFields []*registry.DecodedField) *pbgear.TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
-    return &pbgear.TupleSpCoreCryptoAccountId32SpNposElectionsSupport{
-
-    }
-}
- 
-  
-func to_NominationPools_ClaimCommission_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_ClaimCommission_Call {
-    return &pbgear.NominationPools_ClaimCommission_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BabeOther(callFields []*registry.DecodedField) *pbgear.BabeOther {
-    return &pbgear.BabeOther{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BagsListAddress20(callFields []*registry.DecodedField) *pbgear.BagsListAddress20 {
-    return &pbgear.BagsListAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw29(callFields []*registry.DecodedField) *pbgear.IdentityRaw29 {
-    return &pbgear.IdentityRaw29{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Bounties_CloseBounty_Call(callFields []*registry.DecodedField) *pbgear.Bounties_CloseBounty_Call {
-    return &pbgear.Bounties_CloseBounty_Call{
-
-    }
-}
-  
-func to_NominationPools_WithdrawUnbonded_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_WithdrawUnbonded_Call {
-    return &pbgear.NominationPools_WithdrawUnbonded_Call{
-
-    }
-}
- 
-
-func to_num_slashing_spans([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BalancesAddress20(callFields []*registry.DecodedField) *pbgear.BalancesAddress20 {
-    return &pbgear.BalancesAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ReferendaValue0(callFields []*registry.DecodedField) *pbgear.ReferendaValue0 {
-    return &pbgear.ReferendaValue0{
-
-    }
-}
-  
-func to_IdentityErroneous(callFields []*registry.DecodedField) *pbgear.IdentityErroneous {
-    return &pbgear.IdentityErroneous{
-
-    }
-} 
-func to_ChildBountiesIndex(callFields []*registry.DecodedField) *pbgear.ChildBountiesIndex {
-    return &pbgear.ChildBountiesIndex{
-
-    }
-}
-  
-func to_GearVoucherSendMessage(callFields []*registry.DecodedField) *pbgear.GearVoucherSendMessage {
-    return &pbgear.GearVoucherSendMessage{
-
-    }
-}
- 
-
-func to_repeatedpayload([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_gas_limit([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-} 
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_keep_alive([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_IdentitySha256(callFields []*registry.DecodedField) *pbgear.IdentitySha256 {
-    return &pbgear.IdentitySha256{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_TupleSpArithmeticPerThingsPerbillSpCoreCryptoAccountId32(callFields []*registry.DecodedField) *pbgear.TupleSpArithmeticPerThingsPerbillSpCoreCryptoAccountId32 {
-    return &pbgear.TupleSpArithmeticPerThingsPerbillSpCoreCryptoAccountId32{
-
-    }
-}
- 
-  
-func to_Treasury_SpendLocal_Call(callFields []*registry.DecodedField) *pbgear.Treasury_SpendLocal_Call {
-    return &pbgear.Treasury_SpendLocal_Call{
-
-    }
-}
- 
-  
-func to_NominationPools_ClaimPayoutOther_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_ClaimPayoutOther_Call {
-    return &pbgear.NominationPools_ClaimPayoutOther_Call{
-
-    }
-}
-  
-func to_Staking_Validate_Call(callFields []*registry.DecodedField) *pbgear.Staking_Validate_Call {
-    return &pbgear.Staking_Validate_Call{
-
-    }
-}
-  
-func to_ReferendaNone(callFields []*registry.DecodedField) *pbgear.ReferendaNone {
-    return &pbgear.ReferendaNone{
-
-    }
-} 
-func to_FellowshipCollective_RemoveMember_Call(callFields []*registry.DecodedField) *pbgear.FellowshipCollective_RemoveMember_Call {
-    return &pbgear.FellowshipCollective_RemoveMember_Call{
-
-    }
-}
- 
-
-func to_min_rank([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_StakingStaked(callFields []*registry.DecodedField) *pbgear.StakingStaked {
-    return &pbgear.StakingStaked{
-
-    }
-} 
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_NominationPools_SetCommission_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_SetCommission_Call {
-    return &pbgear.NominationPools_SetCommission_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_NominationPools_AdjustPoolDeposit_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_AdjustPoolDeposit_Call {
-    return &pbgear.NominationPools_AdjustPoolDeposit_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingRewardsAddress20(callFields []*registry.DecodedField) *pbgear.StakingRewardsAddress20 {
-    return &pbgear.StakingRewardsAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Balances_TransferAllowDeath_Call(callFields []*registry.DecodedField) *pbgear.Balances_TransferAllowDeath_Call {
-    return &pbgear.Balances_TransferAllowDeath_Call{
-
-    }
-}
- 
-  
-func to_Session_SetKeys_Call(callFields []*registry.DecodedField) *pbgear.Session_SetKeys_Call {
-    return &pbgear.Session_SetKeys_Call{
-
-    }
-}
- 
-
-func to_repeatedproof([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ConvictionVotingTo(callFields []*registry.DecodedField) *pbgear.ConvictionVotingTo {
-    return &pbgear.ConvictionVotingTo{
-
-    }
-}
-  
-func to_Referenda_Kill_Call(callFields []*registry.DecodedField) *pbgear.Referenda_Kill_Call {
-    return &pbgear.Referenda_Kill_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_Bounties_AcceptCurator_Call(callFields []*registry.DecodedField) *pbgear.Bounties_AcceptCurator_Call {
-    return &pbgear.Bounties_AcceptCurator_Call{
-
-    }
-}
-  
-func to_System_SetStorage_Call(callFields []*registry.DecodedField) *pbgear.System_SetStorage_Call {
-    return &pbgear.System_SetStorage_Call{
-
-    }
-}
-  
-func to_Vesting_ForceVestedTransfer_Call(callFields []*registry.DecodedField) *pbgear.Vesting_ForceVestedTransfer_Call {
-    return &pbgear.Vesting_ForceVestedTransfer_Call{
-
-    }
-}
- 
- 
-  
-func to_StakingId(callFields []*registry.DecodedField) *pbgear.StakingId {
-    return &pbgear.StakingId{
-
-    }
-}
-  
-func to_Utility_WithWeight_Call(callFields []*registry.DecodedField) *pbgear.Utility_WithWeight_Call {
-    return &pbgear.Utility_WithWeight_Call{
-
-    }
-}
- 
-  
-func to_Preimage_RequestPreimage_Call(callFields []*registry.DecodedField) *pbgear.Preimage_RequestPreimage_Call {
-    return &pbgear.Preimage_RequestPreimage_Call{
-
-    }
-}
-  
-func to_IdentityRaw30(callFields []*registry.DecodedField) *pbgear.IdentityRaw30 {
-    return &pbgear.IdentityRaw30{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingRewardsId(callFields []*registry.DecodedField) *pbgear.StakingRewardsId {
-    return &pbgear.StakingRewardsId{
-
-    }
-}
-  
-func to_TreasuryAddress20(callFields []*registry.DecodedField) *pbgear.TreasuryAddress20 {
-    return &pbgear.TreasuryAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsPermission(callFields []*registry.DecodedField) *pbgear.NominationPoolsPermission {
-    return &pbgear.NominationPoolsPermission{
-
-    }
-}
-  
-func to_Gear_SendReply_Call(callFields []*registry.DecodedField) *pbgear.Gear_SendReply_Call {
-    return &pbgear.Gear_SendReply_Call{
-
-    }
-}
- 
-
-func to_repeatedpayload([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_gas_limit([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-} 
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_keep_alive([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw1(callFields []*registry.DecodedField) *pbgear.IdentityRaw1 {
-    return &pbgear.IdentityRaw1{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_NominationPoolsAddress32(callFields []*registry.DecodedField) *pbgear.NominationPoolsAddress32 {
-    return &pbgear.NominationPoolsAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_GearVoucher_Update_Call(callFields []*registry.DecodedField) *pbgear.GearVoucher_Update_Call {
-    return &pbgear.GearVoucher_Update_Call{
-
-    }
-}
- 
- 
- 
-
-func to_optional_balance_top_up(field *registry.DecodedField) *string {
-    var out *string
-    
-    if v, ok := field.Value.(string); ok {
-        if v != "" {
-            panic("expected none")
-        }
-    } else {
-        out = field.Value.(*string)
-    }
-    return out
-} 
- 
-
-func to_optional_code_uploading(field *registry.DecodedField) *bool {
-    var out *bool
-    
-    if v, ok := field.Value.(bool); ok {
-        if v != false {
-            panic("expected none")
-        }
-    } else {
-        out = field.Value.(*bool)
-    }
-    return out
-} 
-
-func to_optional_prolong_duration(field *registry.DecodedField) *uint32 {
-    var out *uint32
-    
-    if v, ok := field.Value.(uint32); ok {
-        if v != 0 {
-            panic("expected none")
-        }
-    } else {
-        out = field.Value.(*uint32)
-    }
-    return out
-}  
-func to_Vesting_VestedTransfer_Call(callFields []*registry.DecodedField) *pbgear.Vesting_VestedTransfer_Call {
-    return &pbgear.Vesting_VestedTransfer_Call{
-
-    }
-}
- 
-  
-func to_ProxyGovernance(callFields []*registry.DecodedField) *pbgear.ProxyGovernance {
-    return &pbgear.ProxyGovernance{
-
-    }
-} 
-func to_Staking_Rebond_Call(callFields []*registry.DecodedField) *pbgear.Staking_Rebond_Call {
-    return &pbgear.Staking_Rebond_Call{
-
-    }
-}
-  
-func to_Treasury_ProposeSpend_Call(callFields []*registry.DecodedField) *pbgear.Treasury_ProposeSpend_Call {
-    return &pbgear.Treasury_ProposeSpend_Call{
-
-    }
-}
- 
-  
-func to_VestingTarget(callFields []*registry.DecodedField) *pbgear.VestingTarget {
-    return &pbgear.VestingTarget{
-
-    }
-}
-  
-func to_Identity_ClearIdentity_Call(callFields []*registry.DecodedField) *pbgear.Identity_ClearIdentity_Call {
-    return &pbgear.Identity_ClearIdentity_Call{
-
-    }
-} 
-func to_NominationPoolsBouncer(callFields []*registry.DecodedField) *pbgear.NominationPoolsBouncer {
-    return &pbgear.NominationPoolsBouncer{
-
-    }
-}
-  
-func to_GrandpaEquivocation(callFields []*registry.DecodedField) *pbgear.GrandpaEquivocation {
-    return &pbgear.GrandpaEquivocation{
-
-    }
-}
-  
-func to_PalletImOnlineSr25519AppSr25519Signature(callFields []*registry.DecodedField) *pbgear.PalletImOnlineSr25519AppSr25519Signature {
-    return &pbgear.PalletImOnlineSr25519AppSr25519Signature{
-
-    }
-}
-  
-func to_IdentityAccount(callFields []*registry.DecodedField) *pbgear.IdentityAccount {
-    return &pbgear.IdentityAccount{
-
-    }
-}
-  
-func to_IdentityRaw12(callFields []*registry.DecodedField) *pbgear.IdentityRaw12 {
-    return &pbgear.IdentityRaw12{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_CompactSpArithmeticPerThingsPerU16(callFields []*registry.DecodedField) *pbgear.CompactSpArithmeticPerThingsPerU16 {
-    return &pbgear.CompactSpArithmeticPerThingsPerU16{
-
-    }
-}
-  
-func to_ChildBountiesRaw(callFields []*registry.DecodedField) *pbgear.ChildBountiesRaw {
-    return &pbgear.ChildBountiesRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BountiesAddress32(callFields []*registry.DecodedField) *pbgear.BountiesAddress32 {
-    return &pbgear.BountiesAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityEmail(callFields []*registry.DecodedField) *pbgear.IdentityEmail {
-    return &pbgear.IdentityEmail{
-
-    }
-}
-  
-func to_SpArithmeticPerThingsPerU16(callFields []*registry.DecodedField) *pbgear.SpArithmeticPerThingsPerU16 {
-    return &pbgear.SpArithmeticPerThingsPerU16{
-
-    }
-}
-
-func to_value([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_SpConsensusSlotsEquivocationProof(callFields []*registry.DecodedField) *pbgear.SpConsensusSlotsEquivocationProof {
-    return &pbgear.SpConsensusSlotsEquivocationProof{
-
-    }
-}
- 
- 
- 
-  
-func to_TupleNull(callFields []*registry.DecodedField) *pbgear.TupleNull {
-    return &pbgear.TupleNull{
-
-    }
-} 
-func to_VestingIndex(callFields []*registry.DecodedField) *pbgear.VestingIndex {
-    return &pbgear.VestingIndex{
-
-    }
-}
-  
-func to_FellowshipCollectiveRaw(callFields []*registry.DecodedField) *pbgear.FellowshipCollectiveRaw {
-    return &pbgear.FellowshipCollectiveRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Scheduler_Cancel_Call(callFields []*registry.DecodedField) *pbgear.Scheduler_Cancel_Call {
-    return &pbgear.Scheduler_Cancel_Call{
-
-    }
-}
-
-func to_when([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw11(callFields []*registry.DecodedField) *pbgear.IdentityRaw11 {
-    return &pbgear.IdentityRaw11{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingRewardsTo(callFields []*registry.DecodedField) *pbgear.StakingRewardsTo {
-    return &pbgear.StakingRewardsTo{
-
-    }
-}
-  
-func to_GearVoucher_Revoke_Call(callFields []*registry.DecodedField) *pbgear.GearVoucher_Revoke_Call {
-    return &pbgear.GearVoucher_Revoke_Call{
-
-    }
-}
- 
-  
-func to_ConvictionVotingTarget(callFields []*registry.DecodedField) *pbgear.ConvictionVotingTarget {
-    return &pbgear.ConvictionVotingTarget{
-
-    }
-}
-  
-func to_ConvictionVoting_RemoveVote_Call(callFields []*registry.DecodedField) *pbgear.ConvictionVoting_RemoveVote_Call {
-    return &pbgear.ConvictionVoting_RemoveVote_Call{
-
-    }
-}
-
-func to_optional_class(field *registry.DecodedField) *uint32 {
-    var out *uint32
-    
-    if v, ok := field.Value.(uint32); ok {
-        if v != 0 {
-            panic("expected none")
-        }
-    } else {
-        out = field.Value.(*uint32)
-    }
-    return out
-} 
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaNone(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaNone {
-    return &pbgear.FellowshipReferendaNone{
-
-    }
-} 
-func to_Identity_SetAccountId_Call(callFields []*registry.DecodedField) *pbgear.Identity_SetAccountId_Call {
-    return &pbgear.Identity_SetAccountId_Call{
-
-    }
-}
- 
-  
-func to_PalletElectionProviderMultiPhaseRawSolution(callFields []*registry.DecodedField) *pbgear.PalletElectionProviderMultiPhaseRawSolution {
-    return &pbgear.PalletElectionProviderMultiPhaseRawSolution{
-
-    }
-}
- 
- 
-
-func to_round([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ChildBounties_ClaimChildBounty_Call(callFields []*registry.DecodedField) *pbgear.ChildBounties_ClaimChildBounty_Call {
-    return &pbgear.ChildBounties_ClaimChildBounty_Call{
-
-    }
-}
- 
-  
-func to_Balances_TransferKeepAlive_Call(callFields []*registry.DecodedField) *pbgear.Balances_TransferKeepAlive_Call {
-    return &pbgear.Balances_TransferKeepAlive_Call{
-
-    }
-}
- 
-  
-func to_Vesting_VestOther_Call(callFields []*registry.DecodedField) *pbgear.Vesting_VestOther_Call {
-    return &pbgear.Vesting_VestOther_Call{
-
-    }
-}
-  
-func to_Utility_DispatchAs_Call(callFields []*registry.DecodedField) *pbgear.Utility_DispatchAs_Call {
-    return &pbgear.Utility_DispatchAs_Call{
-
-    }
-}
- 
-  
-func to_FellowshipReferendaProposal(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaProposal {
-    return &pbgear.FellowshipReferendaProposal{
-
-    }
-}
-  
-func to_Preimage_UnnotePreimage_Call(callFields []*registry.DecodedField) *pbgear.Preimage_UnnotePreimage_Call {
-    return &pbgear.Preimage_UnnotePreimage_Call{
-
-    }
-}
-  
-func to_Proxy_ProxyAnnounced_Call(callFields []*registry.DecodedField) *pbgear.Proxy_ProxyAnnounced_Call {
-    return &pbgear.Proxy_ProxyAnnounced_Call{
-
-    }
-}
- 
- 
- 
-  
-func to_SpCoreCryptoAccountId32(callFields []*registry.DecodedField) *pbgear.SpCoreCryptoAccountId32 {
-    return &pbgear.SpCoreCryptoAccountId32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Multisig_ApproveAsMulti_Call(callFields []*registry.DecodedField) *pbgear.Multisig_ApproveAsMulti_Call {
-    return &pbgear.Multisig_ApproveAsMulti_Call{
-
-    }
-}
-
-func to_threshold([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
- 
-
-func to_repeatedcall_hash([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_PalletConvictionVotingVoteVote(callFields []*registry.DecodedField) *pbgear.PalletConvictionVotingVoteVote {
-    return &pbgear.PalletConvictionVotingVoteVote{
-
-    }
-}
-
-func to_vote([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityRaw3(callFields []*registry.DecodedField) *pbgear.IdentityRaw3 {
-    return &pbgear.IdentityRaw3{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsGlobalMaxCommission(callFields []*registry.DecodedField) *pbgear.NominationPoolsGlobalMaxCommission {
-    return &pbgear.NominationPoolsGlobalMaxCommission{
-
-    }
-}
-  
-func to_Utility_ForceBatch_Call(callFields []*registry.DecodedField) *pbgear.Utility_ForceBatch_Call {
-    return &pbgear.Utility_ForceBatch_Call{
-
-    }
-}
-  
-func to_ConvictionVotingAddress32(callFields []*registry.DecodedField) *pbgear.ConvictionVotingAddress32 {
-    return &pbgear.ConvictionVotingAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaOrigins(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaOrigins {
-    return &pbgear.FellowshipReferendaOrigins{
-
-    }
-}
-  
-func to_StakingRewards_AlignSupply_Call(callFields []*registry.DecodedField) *pbgear.StakingRewards_AlignSupply_Call {
-    return &pbgear.StakingRewards_AlignSupply_Call{
-
-    }
-}
-
-func to_target([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_Balances_ForceUnreserve_Call(callFields []*registry.DecodedField) *pbgear.Balances_ForceUnreserve_Call {
-    return &pbgear.Balances_ForceUnreserve_Call{
-
-    }
-}
- 
-
-func to_amount([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaInline(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaInline {
-    return &pbgear.FellowshipReferendaInline{
-
-    }
-}
-  
-func to_IdentityRaw(callFields []*registry.DecodedField) *pbgear.IdentityRaw {
-    return &pbgear.IdentityRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_GearVoucher_Call_Call(callFields []*registry.DecodedField) *pbgear.GearVoucher_Call_Call {
-    return &pbgear.GearVoucher_Call_Call{
-
-    }
-}
- 
-  
-func to_System_Remark_Call(callFields []*registry.DecodedField) *pbgear.System_Remark_Call {
-    return &pbgear.System_Remark_Call{
-
-    }
-}
-
-func to_repeatedremark([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BabePrimarySlots(callFields []*registry.DecodedField) *pbgear.BabePrimarySlots {
-    return &pbgear.BabePrimarySlots{
-
-    }
-} 
-func to_FellowshipCollectiveAddress20(callFields []*registry.DecodedField) *pbgear.FellowshipCollectiveAddress20 {
-    return &pbgear.FellowshipCollectiveAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferenda_Submit_Call(callFields []*registry.DecodedField) *pbgear.FellowshipReferenda_Submit_Call {
-    return &pbgear.FellowshipReferenda_Submit_Call{
-
-    }
-}
- 
- 
-  
-func to_Vesting_MergeSchedules_Call(callFields []*registry.DecodedField) *pbgear.Vesting_MergeSchedules_Call {
-    return &pbgear.Vesting_MergeSchedules_Call{
-
-    }
-}
-
-func to_schedule1_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_schedule2_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Staking_ChillOther_Call(callFields []*registry.DecodedField) *pbgear.Staking_ChillOther_Call {
-    return &pbgear.Staking_ChillOther_Call{
-
-    }
-}
-  
-func to_NominationPoolsSet(callFields []*registry.DecodedField) *pbgear.NominationPoolsSet {
-    return &pbgear.NominationPoolsSet{
-
-    }
-}
-  
-func to_ReferendaVoid(callFields []*registry.DecodedField) *pbgear.ReferendaVoid {
-    return &pbgear.ReferendaVoid{
-
-    }
-}
-  
-func to_FellowshipReferenda_PlaceDecisionDeposit_Call(callFields []*registry.DecodedField) *pbgear.FellowshipReferenda_PlaceDecisionDeposit_Call {
-    return &pbgear.FellowshipReferenda_PlaceDecisionDeposit_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BabeSeal(callFields []*registry.DecodedField) *pbgear.BabeSeal {
-    return &pbgear.BabeSeal{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_repeatedvalue_1([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Babe_ReportEquivocation_Call(callFields []*registry.DecodedField) *pbgear.Babe_ReportEquivocation_Call {
-    return &pbgear.Babe_ReportEquivocation_Call{
-
-    }
-}
- 
-  
-func to_VestingAddress20(callFields []*registry.DecodedField) *pbgear.VestingAddress20 {
-    return &pbgear.VestingAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BagsList_PutInFrontOfOther_Call(callFields []*registry.DecodedField) *pbgear.BagsList_PutInFrontOfOther_Call {
-    return &pbgear.BagsList_PutInFrontOfOther_Call{
-
-    }
-}
- 
-  
-func to_Staking_ForceNewEra_Call(callFields []*registry.DecodedField) *pbgear.Staking_ForceNewEra_Call {
-    return &pbgear.Staking_ForceNewEra_Call{
-
-    }
-} 
-func to_ConvictionVotingConviction(callFields []*registry.DecodedField) *pbgear.ConvictionVotingConviction {
-    return &pbgear.ConvictionVotingConviction{
-
-    }
-}
-  
-func to_NominationPoolsNoop(callFields []*registry.DecodedField) *pbgear.NominationPoolsNoop {
-    return &pbgear.NominationPoolsNoop{
-
-    }
-} 
-func to_BalancesId(callFields []*registry.DecodedField) *pbgear.BalancesId {
-    return &pbgear.BalancesId{
-
-    }
-}
-  
-func to_IdentityRaw28(callFields []*registry.DecodedField) *pbgear.IdentityRaw28 {
-    return &pbgear.IdentityRaw28{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityNew(callFields []*registry.DecodedField) *pbgear.IdentityNew {
-    return &pbgear.IdentityNew{
-
-    }
-}
-  
-func to_IdentityAddress20(callFields []*registry.DecodedField) *pbgear.IdentityAddress20 {
-    return &pbgear.IdentityAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Timestamp_Set_Call(callFields []*registry.DecodedField) *pbgear.Timestamp_Set_Call {
-    return &pbgear.Timestamp_Set_Call{
-
-    }
-}
-  
-func to_Staking_Chill_Call(callFields []*registry.DecodedField) *pbgear.Staking_Chill_Call {
-    return &pbgear.Staking_Chill_Call{
-
-    }
-} 
-func to_IdentityRaw23(callFields []*registry.DecodedField) *pbgear.IdentityRaw23 {
-    return &pbgear.IdentityRaw23{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityKeccak256(callFields []*registry.DecodedField) *pbgear.IdentityKeccak256 {
-    return &pbgear.IdentityKeccak256{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_System_KillPrefix_Call(callFields []*registry.DecodedField) *pbgear.System_KillPrefix_Call {
-    return &pbgear.System_KillPrefix_Call{
-
-    }
-}
-
-func to_repeatedprefix([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_subkeys([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BabeRuntimeEnvironmentUpdated(callFields []*registry.DecodedField) *pbgear.BabeRuntimeEnvironmentUpdated {
-    return &pbgear.BabeRuntimeEnvironmentUpdated{
-
-    }
-} 
-func to_Treasury_Spend_Call(callFields []*registry.DecodedField) *pbgear.Treasury_Spend_Call {
-    return &pbgear.Treasury_Spend_Call{
-
-    }
-}
- 
- 
- 
-
-func to_optional_valid_from(field *registry.DecodedField) *uint32 {
-    var out *uint32
-    
-    if v, ok := field.Value.(uint32); ok {
-        if v != 0 {
-            panic("expected none")
-        }
-    } else {
-        out = field.Value.(*uint32)
-    }
-    return out
-}  
-func to_IdentityImage(callFields []*registry.DecodedField) *pbgear.IdentityImage {
-    return &pbgear.IdentityImage{
-
-    }
-}
-  
-func to_GprimitivesCodeId(callFields []*registry.DecodedField) *pbgear.GprimitivesCodeId {
-    return &pbgear.GprimitivesCodeId{
-
-    }
-}
-
-func to_repeatedcode_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_TupleUint64uint64(callFields []*registry.DecodedField) *pbgear.TupleUint64uint64 {
-    return &pbgear.TupleUint64uint64{
-
-    }
-}
-
-func to_value_0([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-} 
-
-func to_value_1([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-}  
-func to_GrandpaPrecommit(callFields []*registry.DecodedField) *pbgear.GrandpaPrecommit {
-    return &pbgear.GrandpaPrecommit{
-
-    }
-}
-  
-func to_Balances_TransferAll_Call(callFields []*registry.DecodedField) *pbgear.Balances_TransferAll_Call {
-    return &pbgear.Balances_TransferAll_Call{
-
-    }
-}
- 
-
-func to_keep_alive([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_TreasuryIndex(callFields []*registry.DecodedField) *pbgear.TreasuryIndex {
-    return &pbgear.TreasuryIndex{
-
-    }
-}
-  
-func to_IdentityId(callFields []*registry.DecodedField) *pbgear.IdentityId {
-    return &pbgear.IdentityId{
-
-    }
-}
-  
-func to_TreasuryAddress32(callFields []*registry.DecodedField) *pbgear.TreasuryAddress32 {
-    return &pbgear.TreasuryAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipCollective_Vote_Call(callFields []*registry.DecodedField) *pbgear.FellowshipCollective_Vote_Call {
-    return &pbgear.FellowshipCollective_Vote_Call{
-
-    }
-}
-
-func to_poll([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_aye([FIND THE ARGUMENT HERE]) bool {
-    return bool([FIND THE TYPE HERE])
-}  
-func to_Identity_ProvideJudgement_Call(callFields []*registry.DecodedField) *pbgear.Identity_ProvideJudgement_Call {
-    return &pbgear.Identity_ProvideJudgement_Call{
-
-    }
-}
- 
- 
- 
-  
-func to_StakingRewardsFrom(callFields []*registry.DecodedField) *pbgear.StakingRewardsFrom {
-    return &pbgear.StakingRewardsFrom{
-
-    }
-}
-  
-func to_BabePreRuntime(callFields []*registry.DecodedField) *pbgear.BabePreRuntime {
-    return &pbgear.BabePreRuntime{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_repeatedvalue_1([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BabeAllowedSlots(callFields []*registry.DecodedField) *pbgear.BabeAllowedSlots {
-    return &pbgear.BabeAllowedSlots{
-
-    }
-}
-  
-func to_FellowshipCollective_CleanupPoll_Call(callFields []*registry.DecodedField) *pbgear.FellowshipCollective_CleanupPoll_Call {
-    return &pbgear.FellowshipCollective_CleanupPoll_Call{
-
-    }
-}
-
-func to_poll_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_max([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_FellowshipReferendaLegacy(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaLegacy {
-    return &pbgear.FellowshipReferendaLegacy{
-
-    }
-}
-  
-func to_Referenda_SetMetadata_Call(callFields []*registry.DecodedField) *pbgear.Referenda_SetMetadata_Call {
-    return &pbgear.Referenda_SetMetadata_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_BalancesRaw(callFields []*registry.DecodedField) *pbgear.BalancesRaw {
-    return &pbgear.BalancesRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Balances_UpgradeAccounts_Call(callFields []*registry.DecodedField) *pbgear.Balances_UpgradeAccounts_Call {
-    return &pbgear.Balances_UpgradeAccounts_Call{
-
-    }
-}
-  
-func to_ElectionProviderMultiPhase_SubmitUnsigned_Call(callFields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SubmitUnsigned_Call {
-    return &pbgear.ElectionProviderMultiPhase_SubmitUnsigned_Call{
-
-    }
-}
- 
-  
-func to_Staking_Bond_Call(callFields []*registry.DecodedField) *pbgear.Staking_Bond_Call {
-    return &pbgear.Staking_Bond_Call{
-
-    }
-}
- 
-  
-func to_ConvictionVotingLocked3x(callFields []*registry.DecodedField) *pbgear.ConvictionVotingLocked3x {
-    return &pbgear.ConvictionVotingLocked3x{
-
-    }
-} 
-func to_Identity_SetIdentity_Call(callFields []*registry.DecodedField) *pbgear.Identity_SetIdentity_Call {
-    return &pbgear.Identity_SetIdentity_Call{
-
-    }
-}
-  
-func to_Staking_SetPayee_Call(callFields []*registry.DecodedField) *pbgear.Staking_SetPayee_Call {
-    return &pbgear.Staking_SetPayee_Call{
-
-    }
-}
-  
-func to_StakingNoop(callFields []*registry.DecodedField) *pbgear.StakingNoop {
-    return &pbgear.StakingNoop{
-
-    }
-} 
-func to_Treasury_VoidSpend_Call(callFields []*registry.DecodedField) *pbgear.Treasury_VoidSpend_Call {
-    return &pbgear.Treasury_VoidSpend_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_UtilityNone(callFields []*registry.DecodedField) *pbgear.UtilityNone {
-    return &pbgear.UtilityNone{
-
-    }
-} 
-func to_Whitelist_RemoveWhitelistedCall_Call(callFields []*registry.DecodedField) *pbgear.Whitelist_RemoveWhitelistedCall_Call {
-    return &pbgear.Whitelist_RemoveWhitelistedCall_Call{
-
-    }
-}
-  
-func to_Proxy_CreatePure_Call(callFields []*registry.DecodedField) *pbgear.Proxy_CreatePure_Call {
-    return &pbgear.Proxy_CreatePure_Call{
-
-    }
-}
- 
-
-func to_delay([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_TupleSystemItemsListSystemItemsList(callFields []*registry.DecodedField) *pbgear.TupleSystemItemsListSystemItemsList {
-    return &pbgear.TupleSystemItemsListSystemItemsList{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_repeatedvalue_1([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ReferendaLookup(callFields []*registry.DecodedField) *pbgear.ReferendaLookup {
-    return &pbgear.ReferendaLookup{
-
-    }
-}
- 
-
-func to_len([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsMaxMembers(callFields []*registry.DecodedField) *pbgear.NominationPoolsMaxMembers {
-    return &pbgear.NominationPoolsMaxMembers{
-
-    }
-}
-  
-func to_IdentityNone(callFields []*registry.DecodedField) *pbgear.IdentityNone {
-    return &pbgear.IdentityNone{
-
-    }
-} 
-func to_IdentityRaw26(callFields []*registry.DecodedField) *pbgear.IdentityRaw26 {
-    return &pbgear.IdentityRaw26{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsAddress20(callFields []*registry.DecodedField) *pbgear.NominationPoolsAddress20 {
-    return &pbgear.NominationPoolsAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsRemove(callFields []*registry.DecodedField) *pbgear.NominationPoolsRemove {
-    return &pbgear.NominationPoolsRemove{
-
-    }
-} 
-func to_BagsListAddress32(callFields []*registry.DecodedField) *pbgear.BagsListAddress32 {
-    return &pbgear.BagsListAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingController(callFields []*registry.DecodedField) *pbgear.StakingController {
-    return &pbgear.StakingController{
-
-    }
-} 
-func to_StakingRaw(callFields []*registry.DecodedField) *pbgear.StakingRaw {
-    return &pbgear.StakingRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ReferendaAt(callFields []*registry.DecodedField) *pbgear.ReferendaAt {
-    return &pbgear.ReferendaAt{
-
-    }
-}
-
-func to_value_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Referenda_RefundSubmissionDeposit_Call(callFields []*registry.DecodedField) *pbgear.Referenda_RefundSubmissionDeposit_Call {
-    return &pbgear.Referenda_RefundSubmissionDeposit_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsMemberAccount(callFields []*registry.DecodedField) *pbgear.NominationPoolsMemberAccount {
-    return &pbgear.NominationPoolsMemberAccount{
-
-    }
-}
-  
-func to_BountiesCurator(callFields []*registry.DecodedField) *pbgear.BountiesCurator {
-    return &pbgear.BountiesCurator{
-
-    }
-}
-  
-func to_ChildBountiesCurator(callFields []*registry.DecodedField) *pbgear.ChildBountiesCurator {
-    return &pbgear.ChildBountiesCurator{
-
-    }
-}
-  
-func to_BabeConsensus(callFields []*registry.DecodedField) *pbgear.BabeConsensus {
-    return &pbgear.BabeConsensus{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-
-func to_repeatedvalue_1([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_VestingAddress32(callFields []*registry.DecodedField) *pbgear.VestingAddress32 {
-    return &pbgear.VestingAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_VaraRuntimeRuntimeCall(callFields []*registry.DecodedField) *pbgear.VaraRuntimeRuntimeCall {
-    return &pbgear.VaraRuntimeRuntimeCall{
-
-    }
-}
-  
-func to_IdentityRiot(callFields []*registry.DecodedField) *pbgear.IdentityRiot {
-    return &pbgear.IdentityRiot{
-
-    }
-}
-  
-func to_ProxyForceProxyType(callFields []*registry.DecodedField) *pbgear.ProxyForceProxyType {
-    return &pbgear.ProxyForceProxyType{
-
-    }
-}
-  
-func to_ProxyDelegate(callFields []*registry.DecodedField) *pbgear.ProxyDelegate {
-    return &pbgear.ProxyDelegate{
-
-    }
-}
-  
-func to_ProxyProxyType(callFields []*registry.DecodedField) *pbgear.ProxyProxyType {
-    return &pbgear.ProxyProxyType{
-
-    }
-}
-  
-func to_SpCoreSr25519Signature(callFields []*registry.DecodedField) *pbgear.SpCoreSr25519Signature {
-    return &pbgear.SpCoreSr25519Signature{
-
-    }
-}
-
-func to_repeatedsignature([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_UtilityVoid(callFields []*registry.DecodedField) *pbgear.UtilityVoid {
-    return &pbgear.UtilityVoid{
-
-    }
-}
-  
-func to_Multisig_AsMultiThreshold1_Call(callFields []*registry.DecodedField) *pbgear.Multisig_AsMultiThreshold1_Call {
-    return &pbgear.Multisig_AsMultiThreshold1_Call{
-
-    }
-}
- 
-  
-func to_NominationPools_Chill_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_Chill_Call {
-    return &pbgear.NominationPools_Chill_Call{
-
-    }
-}
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsPermissionlessAll(callFields []*registry.DecodedField) *pbgear.NominationPoolsPermissionlessAll {
-    return &pbgear.NominationPoolsPermissionlessAll{
-
-    }
-} 
-func to_System_SetCode_Call(callFields []*registry.DecodedField) *pbgear.System_SetCode_Call {
-    return &pbgear.System_SetCode_Call{
-
-    }
-}
-
-func to_repeatedcode([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_SpRuntimeGenericDigestDigest(callFields []*registry.DecodedField) *pbgear.SpRuntimeGenericDigestDigest {
-    return &pbgear.SpRuntimeGenericDigestDigest{
-
-    }
-}
-  
-func to_NominationPoolsMaxPools(callFields []*registry.DecodedField) *pbgear.NominationPoolsMaxPools {
-    return &pbgear.NominationPoolsMaxPools{
-
-    }
-}
-  
-func to_GearVoucher_CallDeprecated_Call(callFields []*registry.DecodedField) *pbgear.GearVoucher_CallDeprecated_Call {
-    return &pbgear.GearVoucher_CallDeprecated_Call{
-
-    }
-}
-  
-func to_SpConsensusGrandpaAppPublic(callFields []*registry.DecodedField) *pbgear.SpConsensusGrandpaAppPublic {
-    return &pbgear.SpConsensusGrandpaAppPublic{
-
-    }
-}
-  
-func to_SpRuntimeMultiaddressMultiAddress(callFields []*registry.DecodedField) *pbgear.SpRuntimeMultiaddressMultiAddress {
-    return &pbgear.SpRuntimeMultiaddressMultiAddress{
-
-    }
-}
-  
-func to_ConvictionVotingLocked5x(callFields []*registry.DecodedField) *pbgear.ConvictionVotingLocked5x {
-    return &pbgear.ConvictionVotingLocked5x{
-
-    }
-} 
-func to_FellowshipReferendaSigned(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaSigned {
-    return &pbgear.FellowshipReferendaSigned{
-
-    }
-}
-  
-func to_IdentityRaw10(callFields []*registry.DecodedField) *pbgear.IdentityRaw10 {
-    return &pbgear.IdentityRaw10{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingRewards_Withdraw_Call(callFields []*registry.DecodedField) *pbgear.StakingRewards_Withdraw_Call {
-    return &pbgear.StakingRewards_Withdraw_Call{
-
-    }
-}
- 
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_ProxyStaking(callFields []*registry.DecodedField) *pbgear.ProxyStaking {
-    return &pbgear.ProxyStaking{
-
-    }
-} 
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_BountiesAddress20(callFields []*registry.DecodedField) *pbgear.BountiesAddress20 {
-    return &pbgear.BountiesAddress20{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ChildBountiesId(callFields []*registry.DecodedField) *pbgear.ChildBountiesId {
-    return &pbgear.ChildBountiesId{
-
-    }
-}
-  
-func to_NominationPoolsPermissioned(callFields []*registry.DecodedField) *pbgear.NominationPoolsPermissioned {
-    return &pbgear.NominationPoolsPermissioned{
-
-    }
-} 
-func to_StakingIndex(callFields []*registry.DecodedField) *pbgear.StakingIndex {
-    return &pbgear.StakingIndex{
-
-    }
-}
-  
-func to_ReferendaSystem(callFields []*registry.DecodedField) *pbgear.ReferendaSystem {
-    return &pbgear.ReferendaSystem{
-
-    }
-}
-  
-func to_Scheduler_ScheduleAfter_Call(callFields []*registry.DecodedField) *pbgear.Scheduler_ScheduleAfter_Call {
-    return &pbgear.Scheduler_ScheduleAfter_Call{
-
-    }
-}
-
-func to_after([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
-
-func to_priority([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_NominationPools_BondExtraOther_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_BondExtraOther_Call {
-    return &pbgear.NominationPools_BondExtraOther_Call{
-
-    }
-}
- 
-  
-func to_Staking_Nominate_Call(callFields []*registry.DecodedField) *pbgear.Staking_Nominate_Call {
-    return &pbgear.Staking_Nominate_Call{
-
-    }
-}
-  
-func to_NominationPools_Join_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_Join_Call {
-    return &pbgear.NominationPools_Join_Call{
-
-    }
-}
- 
-
-func to_pool_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_PalletVestingVestingInfoVestingInfo(callFields []*registry.DecodedField) *pbgear.PalletVestingVestingInfoVestingInfo {
-    return &pbgear.PalletVestingVestingInfoVestingInfo{
-
-    }
-}
-
-func to_locked([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_per_block([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-} 
-
-func to_starting_block([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BagsListId(callFields []*registry.DecodedField) *pbgear.BagsListId {
-    return &pbgear.BagsListId{
-
-    }
-}
-  
-func to_StakingStash(callFields []*registry.DecodedField) *pbgear.StakingStash {
-    return &pbgear.StakingStash{
-
-    }
-} 
-func to_Staking_ForceNewEraAlways_Call(callFields []*registry.DecodedField) *pbgear.Staking_ForceNewEraAlways_Call {
-    return &pbgear.Staking_ForceNewEraAlways_Call{
-
-    }
-} 
-func to_Staking_ReapStash_Call(callFields []*registry.DecodedField) *pbgear.Staking_ReapStash_Call {
-    return &pbgear.Staking_ReapStash_Call{
-
-    }
-}
- 
-
-func to_num_slashing_spans([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_IdentityDisplay(callFields []*registry.DecodedField) *pbgear.IdentityDisplay {
-    return &pbgear.IdentityDisplay{
-
-    }
-}
-  
-func to_ProxyNonTransfer(callFields []*registry.DecodedField) *pbgear.ProxyNonTransfer {
-    return &pbgear.ProxyNonTransfer{
-
-    }
-} 
-func to_IdentityData(callFields []*registry.DecodedField) *pbgear.IdentityData {
-    return &pbgear.IdentityData{
-
-    }
-}
-  
-func to_ProxyIndex(callFields []*registry.DecodedField) *pbgear.ProxyIndex {
-    return &pbgear.ProxyIndex{
-
-    }
-}
-  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_GprimitivesActorId(callFields []*registry.DecodedField) *pbgear.GprimitivesActorId {
-    return &pbgear.GprimitivesActorId{
-
-    }
-}
-
-func to_repeateddestination([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingRewardsRaw(callFields []*registry.DecodedField) *pbgear.StakingRewardsRaw {
-    return &pbgear.StakingRewardsRaw{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Preimage_EnsureUpdated_Call(callFields []*registry.DecodedField) *pbgear.Preimage_EnsureUpdated_Call {
-    return &pbgear.Preimage_EnsureUpdated_Call{
-
-    }
-}
-  
-func to_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32 {
-    return &pbgear.TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32{
-
-    }
-}
- 
- 
-  
-func to_System_SetCodeWithoutChecks_Call(callFields []*registry.DecodedField) *pbgear.System_SetCodeWithoutChecks_Call {
-    return &pbgear.System_SetCodeWithoutChecks_Call{
-
-    }
-}
-
-func to_repeatedcode([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Grandpa_ReportEquivocationUnsigned_Call(callFields []*registry.DecodedField) *pbgear.Grandpa_ReportEquivocationUnsigned_Call {
-    return &pbgear.Grandpa_ReportEquivocationUnsigned_Call{
-
-    }
-}
- 
-  
-func to_FellowshipReferendaSystem(callFields []*registry.DecodedField) *pbgear.FellowshipReferendaSystem {
-    return &pbgear.FellowshipReferendaSystem{
-
-    }
-}
-  
-func to_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(callFields []*registry.DecodedField) *pbgear.TupleCompactUint32CompactSpArithmeticPerThingsPerU16 {
-    return &pbgear.TupleCompactUint32CompactSpArithmeticPerThingsPerU16{
-
-    }
-}
- 
-  
-func to_ChildBounties_AwardChildBounty_Call(callFields []*registry.DecodedField) *pbgear.ChildBounties_AwardChildBounty_Call {
-    return &pbgear.ChildBounties_AwardChildBounty_Call{
-
-    }
-}
- 
- 
-  
-func to_NominationPoolsMinCreateBond(callFields []*registry.DecodedField) *pbgear.NominationPoolsMinCreateBond {
-    return &pbgear.NominationPoolsMinCreateBond{
-
-    }
-}
-  
-func to_CompactString(callFields []*registry.DecodedField) *pbgear.CompactString {
-    return &pbgear.CompactString{
-
-    }
-}
-
-func to_value([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(callFields []*registry.DecodedField) *pbgear.TupleSpCoreCryptoAccountId32PalletIdentityTypesData {
-    return &pbgear.TupleSpCoreCryptoAccountId32PalletIdentityTypesData{
-
-    }
-}
- 
-  
-func to_ChildBounties_ProposeCurator_Call(callFields []*registry.DecodedField) *pbgear.ChildBounties_ProposeCurator_Call {
-    return &pbgear.ChildBounties_ProposeCurator_Call{
-
-    }
-}
- 
- 
- 
-  
-func to_NominationPoolsNewRoot(callFields []*registry.DecodedField) *pbgear.NominationPoolsNewRoot {
-    return &pbgear.NominationPoolsNewRoot{
-
-    }
-}
-  
-func to_VestingSource(callFields []*registry.DecodedField) *pbgear.VestingSource {
-    return &pbgear.VestingSource{
-
-    }
-}
-  
-func to_ConvictionVotingLocked2x(callFields []*registry.DecodedField) *pbgear.ConvictionVotingLocked2x {
-    return &pbgear.ConvictionVotingLocked2x{
-
-    }
-} 
-func to_Whitelist_DispatchWhitelistedCallWithPreimage_Call(callFields []*registry.DecodedField) *pbgear.Whitelist_DispatchWhitelistedCallWithPreimage_Call {
-    return &pbgear.Whitelist_DispatchWhitelistedCallWithPreimage_Call{
-
-    }
-}
-  
-func to_ProxyId(callFields []*registry.DecodedField) *pbgear.ProxyId {
-    return &pbgear.ProxyId{
-
-    }
-}
-  
-func to_ProxyCancelProxy(callFields []*registry.DecodedField) *pbgear.ProxyCancelProxy {
-    return &pbgear.ProxyCancelProxy{
-
-    }
-} 
-func to_BabeConfig(callFields []*registry.DecodedField) *pbgear.BabeConfig {
-    return &pbgear.BabeConfig{
-
-    }
-}
-  
-func to_Utility_Batch_Call(callFields []*registry.DecodedField) *pbgear.Utility_Batch_Call {
-    return &pbgear.Utility_Batch_Call{
-
-    }
-}
-  
-func to_IdentityRaw27(callFields []*registry.DecodedField) *pbgear.IdentityRaw27 {
-    return &pbgear.IdentityRaw27{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Multisig_CancelAsMulti_Call(callFields []*registry.DecodedField) *pbgear.Multisig_CancelAsMulti_Call {
-    return &pbgear.Multisig_CancelAsMulti_Call{
-
-    }
-}
-
-func to_threshold([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
- 
-
-func to_repeatedcall_hash([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsIndex(callFields []*registry.DecodedField) *pbgear.NominationPoolsIndex {
-    return &pbgear.NominationPoolsIndex{
-
-    }
-}
-  
-func to_StakingMinCommission(callFields []*registry.DecodedField) *pbgear.StakingMinCommission {
-    return &pbgear.StakingMinCommission{
-
-    }
-}
-  
-func to_ConvictionVoting_Unlock_Call(callFields []*registry.DecodedField) *pbgear.ConvictionVoting_Unlock_Call {
-    return &pbgear.ConvictionVoting_Unlock_Call{
-
-    }
-}
-
-func to_class([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
-  
-func to_IdentityBlakeTwo256(callFields []*registry.DecodedField) *pbgear.IdentityBlakeTwo256 {
-    return &pbgear.IdentityBlakeTwo256{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Identity_SetFee_Call(callFields []*registry.DecodedField) *pbgear.Identity_SetFee_Call {
-    return &pbgear.Identity_SetFee_Call{
-
-    }
-}
- 
-  
-func to_Proxy_RejectAnnouncement_Call(callFields []*registry.DecodedField) *pbgear.Proxy_RejectAnnouncement_Call {
-    return &pbgear.Proxy_RejectAnnouncement_Call{
-
-    }
-}
- 
-  
-func to_NominationPools_ClaimPayout_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_ClaimPayout_Call {
-    return &pbgear.NominationPools_ClaimPayout_Call{
-
-    }
-} 
-func to_Proxy_Announce_Call(callFields []*registry.DecodedField) *pbgear.Proxy_Announce_Call {
-    return &pbgear.Proxy_Announce_Call{
-
-    }
-}
- 
-  
-func to_Proxy_RemoveAnnouncement_Call(callFields []*registry.DecodedField) *pbgear.Proxy_RemoveAnnouncement_Call {
-    return &pbgear.Proxy_RemoveAnnouncement_Call{
-
-    }
-}
- 
-  
-func to_StakingMaxNominatorCount(callFields []*registry.DecodedField) *pbgear.StakingMaxNominatorCount {
-    return &pbgear.StakingMaxNominatorCount{
-
-    }
-}
-  
-func to_ChildBounties_AcceptCurator_Call(callFields []*registry.DecodedField) *pbgear.ChildBounties_AcceptCurator_Call {
-    return &pbgear.ChildBounties_AcceptCurator_Call{
-
-    }
-}
- 
-  
-func to_NominationPools_Unbond_Call(callFields []*registry.DecodedField) *pbgear.NominationPools_Unbond_Call {
-    return &pbgear.NominationPools_Unbond_Call{
-
-    }
-}
- 
-  
-func to_BTreeSet(callFields []*registry.DecodedField) *pbgear.BTreeSet {
-    return &pbgear.BTreeSet{
-
-    }
-}
-  
-func to_GrandpaPrevote(callFields []*registry.DecodedField) *pbgear.GrandpaPrevote {
-    return &pbgear.GrandpaPrevote{
-
-    }
-}
-  
-func to_Treasury_Payout_Call(callFields []*registry.DecodedField) *pbgear.Treasury_Payout_Call {
-    return &pbgear.Treasury_Payout_Call{
-
-    }
-}
-
-func to_index([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_UtilityValue0(callFields []*registry.DecodedField) *pbgear.UtilityValue0 {
-    return &pbgear.UtilityValue0{
-
-    }
-}
-  
-func to_IdentityRaw31(callFields []*registry.DecodedField) *pbgear.IdentityRaw31 {
-    return &pbgear.IdentityRaw31{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Proxy_AddProxy_Call(callFields []*registry.DecodedField) *pbgear.Proxy_AddProxy_Call {
-    return &pbgear.Proxy_AddProxy_Call{
-
-    }
-}
- 
- 
-
-func to_delay([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_GprimitivesMessageId(callFields []*registry.DecodedField) *pbgear.GprimitivesMessageId {
-    return &pbgear.GprimitivesMessageId{
-
-    }
-}
-
-func to_repeatedreply_to_id([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BoundedCollectionsBoundedVecBoundedVec(callFields []*registry.DecodedField) *pbgear.BoundedCollectionsBoundedVecBoundedVec {
-    return &pbgear.BoundedCollectionsBoundedVecBoundedVec{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_ReferendaEnactmentMoment(callFields []*registry.DecodedField) *pbgear.ReferendaEnactmentMoment {
-    return &pbgear.ReferendaEnactmentMoment{
-
-    }
-}
-  
-func to_Identity_KillIdentity_Call(callFields []*registry.DecodedField) *pbgear.Identity_KillIdentity_Call {
-    return &pbgear.Identity_KillIdentity_Call{
-
-    }
-}
-  
-func to_TupleFinalityGrandpaPrevoteSpConsensusGrandpaAppSignature(callFields []*registry.DecodedField) *pbgear.TupleFinalityGrandpaPrevoteSpConsensusGrandpaAppSignature {
-    return &pbgear.TupleFinalityGrandpaPrevoteSpConsensusGrandpaAppSignature{
-
-    }
-}
- 
-  
-func to_ImOnline_Heartbeat_Call(callFields []*registry.DecodedField) *pbgear.ImOnline_Heartbeat_Call {
-    return &pbgear.ImOnline_Heartbeat_Call{
-
-    }
-}
- 
-  
-func to_TupleSpCoreCryptoAccountId32string(callFields []*registry.DecodedField) *pbgear.TupleSpCoreCryptoAccountId32string {
-    return &pbgear.TupleSpCoreCryptoAccountId32string{
-
-    }
-}
- 
-
-func to_value_1([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_CompactUint32(callFields []*registry.DecodedField) *pbgear.CompactUint32 {
-    return &pbgear.CompactUint32{
-
-    }
-}
-
-func to_value([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Staking_SetController_Call(callFields []*registry.DecodedField) *pbgear.Staking_SetController_Call {
-    return &pbgear.Staking_SetController_Call{
-
-    }
-} 
-func to_ReferendaLegacy(callFields []*registry.DecodedField) *pbgear.ReferendaLegacy {
-    return &pbgear.ReferendaLegacy{
-
-    }
-}
-  
-func to_SystemKeysList(callFields []*registry.DecodedField) *pbgear.SystemKeysList {
-    return &pbgear.SystemKeysList{
-
-    }
-}
-
-func to_repeatedkeys([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_BagsList_PutInFrontOf_Call(callFields []*registry.DecodedField) *pbgear.BagsList_PutInFrontOf_Call {
-    return &pbgear.BagsList_PutInFrontOf_Call{
-
-    }
-}
-  
-func to_Treasury_RemoveApproval_Call(callFields []*registry.DecodedField) *pbgear.Treasury_RemoveApproval_Call {
-    return &pbgear.Treasury_RemoveApproval_Call{
-
-    }
-}
-  
-func to_PalletIdentitySimpleIdentityInfo(callFields []*registry.DecodedField) *pbgear.PalletIdentitySimpleIdentityInfo {
-    return &pbgear.PalletIdentitySimpleIdentityInfo{
-
-    }
-}
- 
- 
- 
- 
- 
- 
-
-func to_repeatedpgp_fingerprint([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-} 
- 
-  
-func to_NominationPoolsRoot(callFields []*registry.DecodedField) *pbgear.NominationPoolsRoot {
-    return &pbgear.NominationPoolsRoot{
-
-    }
-}
-  
-func to_SpAuthorityDiscoveryAppPublic(callFields []*registry.DecodedField) *pbgear.SpAuthorityDiscoveryAppPublic {
-    return &pbgear.SpAuthorityDiscoveryAppPublic{
-
-    }
-}
-  
-func to_ReferendaProposal(callFields []*registry.DecodedField) *pbgear.ReferendaProposal {
-    return &pbgear.ReferendaProposal{
-
-    }
-}
-  
-func to_NominationPoolsFreeBalance(callFields []*registry.DecodedField) *pbgear.NominationPoolsFreeBalance {
-    return &pbgear.NominationPoolsFreeBalance{
-
-    }
-}
-
-func to_value_0([FIND THE ARGUMENT HERE]) string {
-    return string([FIND THE TYPE HERE])
-}  
-func to_Gear_ClaimValue_Call(callFields []*registry.DecodedField) *pbgear.Gear_ClaimValue_Call {
-    return &pbgear.Gear_ClaimValue_Call{
-
-    }
-}
-  
-func to_GearVoucherAppendPrograms(callFields []*registry.DecodedField) *pbgear.GearVoucherAppendPrograms {
-    return &pbgear.GearVoucherAppendPrograms{
-
-    }
-}
-  
-func to_ReferendaOrigins(callFields []*registry.DecodedField) *pbgear.ReferendaOrigins {
-    return &pbgear.ReferendaOrigins{
-
-    }
-}
-  
-func to_IdentityShaThree256(callFields []*registry.DecodedField) *pbgear.IdentityShaThree256 {
-    return &pbgear.IdentityShaThree256{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_Gear_UploadCode_Call(callFields []*registry.DecodedField) *pbgear.Gear_UploadCode_Call {
-    return &pbgear.Gear_UploadCode_Call{
-
-    }
-}
-
-func to_repeatedcode([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_StakingRewardsAddress32(callFields []*registry.DecodedField) *pbgear.StakingRewardsAddress32 {
-    return &pbgear.StakingRewardsAddress32{
-
-    }
-}
-
-func to_repeatedvalue_0([FIND THE ARGUMENT HERE]) uint32 {
-    return uint32([FIND THE TYPE HERE])
-}  
-func to_NominationPoolsMember(callFields []*registry.DecodedField) *pbgear.NominationPoolsMember {
-    return &pbgear.NominationPoolsMember{
-
-    }
-}
-  
-func to_CompactUint64(callFields []*registry.DecodedField) *pbgear.CompactUint64 {
-    return &pbgear.CompactUint64{
-
-    }
-}
-
-func to_value([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-}  
-func to_FinalityGrandpaEquivocation(callFields []*registry.DecodedField) *pbgear.FinalityGrandpaEquivocation {
-    return &pbgear.FinalityGrandpaEquivocation{
-
-    }
-}
-
-func to_round_number([FIND THE ARGUMENT HERE]) uint64 {
-    return uint64([FIND THE TYPE HERE])
-} 
- 
- 
-  
-func to_Balances_ForceSetBalance_Call(callFields []*registry.DecodedField) *pbgear.Balances_ForceSetBalance_Call {
-    return &pbgear.Balances_ForceSetBalance_Call{
-
-    }
-}
- 
-  
-func to_StakingSet(callFields []*registry.DecodedField) *pbgear.StakingSet {
-    return &pbgear.StakingSet{
-
-    }
-}
-  
-func to_UtilitySigned(callFields []*registry.DecodedField) *pbgear.UtilitySigned {
-    return &pbgear.UtilitySigned{
-
-    }
-}
-  
-func to_ConvictionVotingLocked1x(callFields []*registry.DecodedField) *pbgear.ConvictionVotingLocked1x {
-    return &pbgear.ConvictionVotingLocked1x{
-
-    }
-}  
+func to_Preimage_PrimitiveTypesH256salut(fields []*registry.DecodedField) *pbgear.Preimage_PrimitiveTypesH256 {
+    return &pbgear.Preimage_PrimitiveTypesH256{
+                Hash : []uint32(field.Value),
+    }
+}
+            
+                   
+func to_Multisig_CompactUint64salut(fields []*registry.DecodedField) *pbgear.Multisig_CompactUint64 {
+    return &pbgear.Multisig_CompactUint64{
+                Value : uint64(field.Value),
+    }
+}
+            
+                   
+func to_NominationPools_MaxMemberssalut(fields []*registry.DecodedField) *pbgear.NominationPools_MaxMembers {
+    return &pbgear.NominationPools_MaxMembers{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}
+            
+                func to_oneof_NominationPools_Value(in *registry.DecodedField) *pbgear.NominationPools_Value {
+                    return nil
+                }   
+func to_GearVoucher_UploadCodesalut(fields []*registry.DecodedField) *pbgear.GearVoucher_UploadCode {
+    return &pbgear.GearVoucher_UploadCode{
+                Code : []uint32(field.Value),
+    }
+}  
+func to_ConvictionVoting_Votesalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Vote {
+    return &pbgear.ConvictionVoting_Vote{
+                Value: to_oneof_ConvictionVoting_Value(field.Value),
+    }
+}
+            
+                func to_oneof_ConvictionVoting_Value(in *registry.DecodedField) *pbgear.ConvictionVoting_Value {
+                    return nil
+                }   
+func to_FellowshipReferenda_RefundSubmissionDepositCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_RefundSubmissionDepositCall {
+    return &pbgear.FellowshipReferenda_RefundSubmissionDepositCall{
+                Index : uint32(field.Value),
+    }
+}
+            
+                   
+func to_Identity_Displaysalut(fields []*registry.DecodedField) *pbgear.Identity_Display {
+    return &pbgear.Identity_Display{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Identity_Value(in *registry.DecodedField) *pbgear.Identity_Value {
+                    return nil
+                }   
+func to_Scheduler_ScheduleAfterCallsalut(fields []*registry.DecodedField) *pbgear.Scheduler_ScheduleAfterCall {
+    return &pbgear.Scheduler_ScheduleAfterCall{
+                After : uint32(field.Value),
+                MaybePeriodic: to_optional_Scheduler_TupleUint32Uint32(field.Value),
+                Priority : uint32(field.Value),
+                Call: to_oneof_Scheduler_Call(field.Value),
+    }
+}
+            
+                  
+            
+                func to_optional_Scheduler_TupleUint32Uint32(in *registry.DecodedField) *pbgear.Scheduler_TupleUint32Uint32 {
+                    return &pbgear.Scheduler_TupleUint32Uint32{
+                        // TODO fill all fields
+                    }
+                }   
+            
+                func to_oneof_Scheduler_Call(in *registry.DecodedField) *pbgear.Scheduler_Call {
+                    return nil
+                }   
+func to_Identity_Address32salut(fields []*registry.DecodedField) *pbgear.Identity_Address32 {
+    return &pbgear.Identity_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Proxy_ProxyAnnouncedCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_ProxyAnnouncedCall {
+    return &pbgear.Proxy_ProxyAnnouncedCall{
+                Delegate: to_Proxy_Delegate(field.Value),
+                Real: to_Proxy_Real(field.Value),
+                ForceProxyType: to_optional_Proxy_ForceProxyType(field.Value),
+                Call: to_oneof_Proxy_Call(field.Value),
+    }
+}
+            
+                func to_Proxy_Delegate(in *registry.DecodedField) *pbgear.Proxy_Delegate {
+                    return &pbgear.Proxy_Delegate{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Proxy_Real(in *registry.DecodedField) *pbgear.Proxy_Real {
+                    return &pbgear.Proxy_Real{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_optional_Proxy_ForceProxyType(in *registry.DecodedField) *pbgear.Proxy_ForceProxyType {
+                    return &pbgear.Proxy_ForceProxyType{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_oneof_Proxy_Call(in *registry.DecodedField) *pbgear.Proxy_Call {
+                    return nil
+                }   
+func to_GearVoucher_GprimitivesActorIdsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_GprimitivesActorId {
+    return &pbgear.GearVoucher_GprimitivesActorId{
+                Programs: to_GearVoucher_GprimitivesActorId(field.Value),
+    }
+}
+            
+                func to_GearVoucher_GprimitivesActorId(in *registry.DecodedField) *pbgear.GearVoucher_GprimitivesActorId {
+                    return &pbgear.GearVoucher_GprimitivesActorId{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Vesting_Address32salut(fields []*registry.DecodedField) *pbgear.Vesting_Address32 {
+    return &pbgear.Vesting_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Referenda_CancelCallsalut(fields []*registry.DecodedField) *pbgear.Referenda_CancelCall {
+    return &pbgear.Referenda_CancelCall{
+                Index : uint32(field.Value),
+    }
+}
+            
+                   
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}
+            
+                func to_ElectionProviderMultiPhase_CompactUint32(in *registry.DecodedField) *pbgear.ElectionProviderMultiPhase_CompactUint32 {
+                    return &pbgear.ElectionProviderMultiPhase_CompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16{
+                        // TODO fill all fields
+                    }
+                }    
+func to_NominationPools_Address20salut(fields []*registry.DecodedField) *pbgear.NominationPools_Address20 {
+    return &pbgear.NominationPools_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Session_SpConsensusGrandpaAppPublicsalut(fields []*registry.DecodedField) *pbgear.Session_SpConsensusGrandpaAppPublic {
+    return &pbgear.Session_SpConsensusGrandpaAppPublic{
+                Grandpa: to_Session_SpCoreEd25519Public(field.Value),
+    }
+}
+            
+                func to_Session_SpCoreEd25519Public(in *registry.DecodedField) *pbgear.Session_SpCoreEd25519Public {
+                    return &pbgear.Session_SpCoreEd25519Public{
+                        // TODO fill all fields
+                    }
+                }   
+func to_FellowshipCollective_DemoteMemberCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_DemoteMemberCall {
+    return &pbgear.FellowshipCollective_DemoteMemberCall{
+                Who: to_FellowshipCollective_Who(field.Value),
+    }
+}
+            
+                func to_FellowshipCollective_Who(in *registry.DecodedField) *pbgear.FellowshipCollective_Who {
+                    return &pbgear.FellowshipCollective_Who{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Indexsalut(fields []*registry.DecodedField) *pbgear.Identity_Index {
+    return &pbgear.Identity_Index{
+                Value0: to_Identity_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_Identity_CompactTupleNull(in *registry.DecodedField) *pbgear.Identity_CompactTupleNull {
+                    return &pbgear.Identity_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Proxy_RemoveProxyCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_RemoveProxyCall {
+    return &pbgear.Proxy_RemoveProxyCall{
+                Delegate: to_Proxy_Delegate(field.Value),
+                ProxyType: to_Proxy_ProxyType(field.Value),
+                Delay : uint32(field.Value),
+    }
+} 
+            
+                func to_Proxy_ProxyType(in *registry.DecodedField) *pbgear.Proxy_ProxyType {
+                    return &pbgear.Proxy_ProxyType{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                   
+func to_GearVoucher_BTreeSetsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_BTreeSet {
+    return &pbgear.GearVoucher_BTreeSet{
+                Programs: to_repeated_GearVoucher_GprimitivesActorId(field.Value),
+    }
+}  
+func to_BagsList_RebagCallsalut(fields []*registry.DecodedField) *pbgear.BagsList_RebagCall {
+    return &pbgear.BagsList_RebagCall{
+                Dislocated: to_BagsList_Dislocated(field.Value),
+    }
+}
+            
+                func to_BagsList_Dislocated(in *registry.DecodedField) *pbgear.BagsList_Dislocated {
+                    return &pbgear.BagsList_Dislocated{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Referenda_ProposalOriginsalut(fields []*registry.DecodedField) *pbgear.Referenda_ProposalOrigin {
+    return &pbgear.Referenda_ProposalOrigin{
+                Value: to_oneof_Referenda_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Referenda_Value(in *registry.DecodedField) *pbgear.Referenda_Value {
+                    return nil
+                }   
+func to_ChildBounties_ClaimChildBountyCallsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_ClaimChildBountyCall {
+    return &pbgear.ChildBounties_ClaimChildBountyCall{
+                ParentBountyId: to_ChildBounties_CompactUint32(field.Value),
+                ChildBountyId: to_ChildBounties_CompactUint32(field.Value),
+    }
+}
+            
+                func to_ChildBounties_CompactUint32(in *registry.DecodedField) *pbgear.ChildBounties_CompactUint32 {
+                    return &pbgear.ChildBounties_CompactUint32{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Grandpa_SpConsensusGrandpaAppSignaturesalut(fields []*registry.DecodedField) *pbgear.Grandpa_SpConsensusGrandpaAppSignature {
+    return &pbgear.Grandpa_SpConsensusGrandpaAppSignature{
+                Value1: to_Grandpa_SpCoreEd25519Signature(field.Value),
+    }
+}
+            
+                func to_Grandpa_SpCoreEd25519Signature(in *registry.DecodedField) *pbgear.Grandpa_SpCoreEd25519Signature {
+                    return &pbgear.Grandpa_SpCoreEd25519Signature{
+                        // TODO fill all fields
+                    }
+                }   
+func to_FellowshipReferenda_Originssalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Origins {
+    return &pbgear.FellowshipReferenda_Origins{
+                Value0: to_FellowshipReferenda_Value0(field.Value),
+    }
+}
+            
+                func to_FellowshipReferenda_Value0(in *registry.DecodedField) *pbgear.FellowshipReferenda_Value0 {
+                    return &pbgear.FellowshipReferenda_Value0{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_Targetssalut(fields []*registry.DecodedField) *pbgear.Staking_Targets {
+    return &pbgear.Staking_Targets{
+                Value: to_oneof_Staking_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Staking_Value(in *registry.DecodedField) *pbgear.Staking_Value {
+                    return nil
+                }   
+func to_Session_PurgeKeysCallsalut(fields []*registry.DecodedField) *pbgear.Session_PurgeKeysCall {
+    return &pbgear.Session_PurgeKeysCall{
+    }
+} 
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_NominationPools_Indexsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Index {
+    return &pbgear.NominationPools_Index{
+                Value0: to_NominationPools_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_NominationPools_CompactTupleNull(in *registry.DecodedField) *pbgear.NominationPools_CompactTupleNull {
+                    return &pbgear.NominationPools_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Babe_BabeTrieNodesListsalut(fields []*registry.DecodedField) *pbgear.Babe_BabeTrieNodesList {
+    return &pbgear.Babe_BabeTrieNodesList{
+                TrieNodes : []uint32(field.Value),
+    }
+}  
+func to_Grandpa_NoteStalledCallsalut(fields []*registry.DecodedField) *pbgear.Grandpa_NoteStalledCall {
+    return &pbgear.Grandpa_NoteStalledCall{
+                Delay : uint32(field.Value),
+                BestFinalizedBlockNumber : uint32(field.Value),
+    }
+}
+            
+                    
+func to_Referenda_Proposalsalut(fields []*registry.DecodedField) *pbgear.Referenda_Proposal {
+    return &pbgear.Referenda_Proposal{
+                Value: to_oneof_Referenda_Value(field.Value),
+    }
+}  
+func to_Identity_Raw6salut(fields []*registry.DecodedField) *pbgear.Identity_Raw6 {
+    return &pbgear.Identity_Raw6{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_CreateCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_CreateCall {
+    return &pbgear.NominationPools_CreateCall{
+                Amount: to_NominationPools_CompactString(field.Value),
+                Root: to_NominationPools_Root(field.Value),
+                Nominator: to_NominationPools_Nominator(field.Value),
+                Bouncer: to_NominationPools_Bouncer(field.Value),
+    }
+}
+            
+                func to_NominationPools_CompactString(in *registry.DecodedField) *pbgear.NominationPools_CompactString {
+                    return &pbgear.NominationPools_CompactString{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_Root(in *registry.DecodedField) *pbgear.NominationPools_Root {
+                    return &pbgear.NominationPools_Root{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_Nominator(in *registry.DecodedField) *pbgear.NominationPools_Nominator {
+                    return &pbgear.NominationPools_Nominator{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_Bouncer(in *registry.DecodedField) *pbgear.NominationPools_Bouncer {
+                    return &pbgear.NominationPools_Bouncer{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_ChillCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_ChillCall {
+    return &pbgear.NominationPools_ChillCall{
+                PoolId : uint32(field.Value),
+    }
+}
+            
+                   
+func to_BagsList_Rawsalut(fields []*registry.DecodedField) *pbgear.BagsList_Raw {
+    return &pbgear.BagsList_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Utility_Value0salut(fields []*registry.DecodedField) *pbgear.Utility_Value0 {
+    return &pbgear.Utility_Value0{
+                Value: to_oneof_Utility_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Utility_Value(in *registry.DecodedField) *pbgear.Utility_Value {
+                    return nil
+                }   
+func to_FellowshipCollective_Rawsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Raw {
+    return &pbgear.FellowshipCollective_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Bounties_Address20salut(fields []*registry.DecodedField) *pbgear.Bounties_Address20 {
+    return &pbgear.Bounties_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Bounties_AwardBountyCallsalut(fields []*registry.DecodedField) *pbgear.Bounties_AwardBountyCall {
+    return &pbgear.Bounties_AwardBountyCall{
+                BountyId: to_Bounties_CompactUint32(field.Value),
+                Beneficiary: to_Bounties_Beneficiary(field.Value),
+    }
+}
+            
+                func to_Bounties_CompactUint32(in *registry.DecodedField) *pbgear.Bounties_CompactUint32 {
+                    return &pbgear.Bounties_CompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Bounties_Beneficiary(in *registry.DecodedField) *pbgear.Bounties_Beneficiary {
+                    return &pbgear.Bounties_Beneficiary{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_Indexsalut(fields []*registry.DecodedField) *pbgear.Staking_Index {
+    return &pbgear.Staking_Index{
+                Value0: to_Staking_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_Staking_CompactTupleNull(in *registry.DecodedField) *pbgear.Staking_CompactTupleNull {
+                    return &pbgear.Staking_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_FellowshipCollective_TupleNullsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_TupleNull {
+    return &pbgear.FellowshipCollective_TupleNull{
+    }
+} 
+func to_Staking_NominateCallsalut(fields []*registry.DecodedField) *pbgear.Staking_NominateCall {
+    return &pbgear.Staking_NominateCall{
+                Targets: to_repeated_Staking_SpRuntimeMultiaddressMultiAddress(field.Value),
+    }
+}
+            
+                func to_repeated_Staking_SpRuntimeMultiaddressMultiAddress(in *registry.DecodedField) []*pbgear.Staking_SpRuntimeMultiaddressMultiAddress {
+                    return []*pbgear.Staking_SpRuntimeMultiaddressMultiAddress{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Utility_AsDerivativeCallsalut(fields []*registry.DecodedField) *pbgear.Utility_AsDerivativeCall {
+    return &pbgear.Utility_AsDerivativeCall{
+                Index : uint32(field.Value),
+                Call: to_oneof_Utility_Call(field.Value),
+    }
+}
+            
+                  
+            
+                func to_oneof_Utility_Call(in *registry.DecodedField) *pbgear.Utility_Call {
+                    return nil
+                }   
+func to_ConvictionVoting_Address32salut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Address32 {
+    return &pbgear.ConvictionVoting_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw23salut(fields []*registry.DecodedField) *pbgear.Identity_Raw23 {
+    return &pbgear.Identity_Raw23{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_CompactUint32salut(fields []*registry.DecodedField) *pbgear.Identity_CompactUint32 {
+    return &pbgear.Identity_CompactUint32{
+                Value : uint32(field.Value),
+    }
+}
+            
+                   
+func to_Babe_PreRuntimesalut(fields []*registry.DecodedField) *pbgear.Babe_PreRuntime {
+    return &pbgear.Babe_PreRuntime{
+                Value0 : []uint32(field.Value),
+                Value1 : []uint32(field.Value),
+    }
+}   
+func to_Staking_ValidateCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ValidateCall {
+    return &pbgear.Staking_ValidateCall{
+                Prefs: to_Staking_PalletStakingValidatorPrefs(field.Value),
+    }
+}
+            
+                func to_Staking_PalletStakingValidatorPrefs(in *registry.DecodedField) *pbgear.Staking_PalletStakingValidatorPrefs {
+                    return &pbgear.Staking_PalletStakingValidatorPrefs{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Utility_Rootsalut(fields []*registry.DecodedField) *pbgear.Utility_Root {
+    return &pbgear.Utility_Root{
+    }
+} 
+func to_Identity_PalletIdentityTypesBitFlagssalut(fields []*registry.DecodedField) *pbgear.Identity_PalletIdentityTypesBitFlags {
+    return &pbgear.Identity_PalletIdentityTypesBitFlags{
+                Fields : uint64(field.Value),
+    }
+}
+            
+                   
+func to_Bounties_Idsalut(fields []*registry.DecodedField) *pbgear.Bounties_Id {
+    return &pbgear.Bounties_Id{
+                Value0: to_Bounties_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_Bounties_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.Bounties_SpCoreCryptoAccountId32 {
+                    return &pbgear.Bounties_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Grandpa_SpCoreEd25519Publicsalut(fields []*registry.DecodedField) *pbgear.Grandpa_SpCoreEd25519Public {
+    return &pbgear.Grandpa_SpCoreEd25519Public{
+                Identity : []uint32(field.Value),
+    }
+}  
+func to_Staking_SetPayeeCallsalut(fields []*registry.DecodedField) *pbgear.Staking_SetPayeeCall {
+    return &pbgear.Staking_SetPayeeCall{
+                Payee: to_Staking_Payee(field.Value),
+    }
+}
+            
+                func to_Staking_Payee(in *registry.DecodedField) *pbgear.Staking_Payee {
+                    return &pbgear.Staking_Payee{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_SetAccountIdCallsalut(fields []*registry.DecodedField) *pbgear.Identity_SetAccountIdCall {
+    return &pbgear.Identity_SetAccountIdCall{
+                Index: to_Identity_CompactUint32(field.Value),
+                New: to_Identity_New(field.Value),
+    }
+}
+            
+                func to_Identity_CompactUint32(in *registry.DecodedField) *pbgear.Identity_CompactUint32 {
+                    return &pbgear.Identity_CompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_New(in *registry.DecodedField) *pbgear.Identity_New {
+                    return &pbgear.Identity_New{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ChildBounties_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.ChildBounties_SpCoreCryptoAccountId32 {
+    return &pbgear.ChildBounties_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_GearVoucher_IssueCallsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_IssueCall {
+    return &pbgear.GearVoucher_IssueCall{
+                Spender: to_GearVoucher_SpCoreCryptoAccountId32(field.Value),
+                Balance : string(field.Value),
+                Programs: to_optional_GearVoucher_BTreeSet(field.Value),
+                CodeUploading : bool(field.Value),
+                Duration : uint32(field.Value),
+    }
+}
+            
+                func to_GearVoucher_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.GearVoucher_SpCoreCryptoAccountId32 {
+                    return &pbgear.GearVoucher_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                  
+            
+                func to_optional_GearVoucher_BTreeSet(in *registry.DecodedField) *pbgear.GearVoucher_BTreeSet {
+                    return &pbgear.GearVoucher_BTreeSet{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                  
+            
+                   
+func to_Grandpa_SpCoreEd25519Signaturesalut(fields []*registry.DecodedField) *pbgear.Grandpa_SpCoreEd25519Signature {
+    return &pbgear.Grandpa_SpCoreEd25519Signature{
+                Value1 : []uint32(field.Value),
+    }
+}  
+func to_Session_VaraRuntimeSessionKeyssalut(fields []*registry.DecodedField) *pbgear.Session_VaraRuntimeSessionKeys {
+    return &pbgear.Session_VaraRuntimeSessionKeys{
+                Babe: to_Session_SpConsensusBabeAppPublic(field.Value),
+                Grandpa: to_Session_SpConsensusGrandpaAppPublic(field.Value),
+                ImOnline: to_Session_PalletImOnlineSr25519AppSr25519Public(field.Value),
+                AuthorityDiscovery: to_Session_SpAuthorityDiscoveryAppPublic(field.Value),
+    }
+}
+            
+                func to_Session_SpConsensusBabeAppPublic(in *registry.DecodedField) *pbgear.Session_SpConsensusBabeAppPublic {
+                    return &pbgear.Session_SpConsensusBabeAppPublic{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Session_SpConsensusGrandpaAppPublic(in *registry.DecodedField) *pbgear.Session_SpConsensusGrandpaAppPublic {
+                    return &pbgear.Session_SpConsensusGrandpaAppPublic{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Session_PalletImOnlineSr25519AppSr25519Public(in *registry.DecodedField) *pbgear.Session_PalletImOnlineSr25519AppSr25519Public {
+                    return &pbgear.Session_PalletImOnlineSr25519AppSr25519Public{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Session_SpAuthorityDiscoveryAppPublic(in *registry.DecodedField) *pbgear.Session_SpAuthorityDiscoveryAppPublic {
+                    return &pbgear.Session_SpAuthorityDiscoveryAppPublic{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ElectionProviderMultiPhase_SpNposElectionsElectionScoresalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SpNposElectionsElectionScore {
+    return &pbgear.ElectionProviderMultiPhase_SpNposElectionsElectionScore{
+                MinimalStake : string(field.Value),
+                SumStake : string(field.Value),
+                SumStakeSquared : string(field.Value),
+    }
+}
+            
+                     
+func to_FellowshipReferenda_Proposalsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Proposal {
+    return &pbgear.FellowshipReferenda_Proposal{
+                Value: to_oneof_FellowshipReferenda_Value(field.Value),
+    }
+}
+            
+                func to_oneof_FellowshipReferenda_Value(in *registry.DecodedField) *pbgear.FellowshipReferenda_Value {
+                    return nil
+                }   
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_Whitelist_WhitelistCallCallsalut(fields []*registry.DecodedField) *pbgear.Whitelist_WhitelistCallCall {
+    return &pbgear.Whitelist_WhitelistCallCall{
+                CallHash: to_Whitelist_PrimitiveTypesH256(field.Value),
+    }
+}
+            
+                func to_Whitelist_PrimitiveTypesH256(in *registry.DecodedField) *pbgear.Whitelist_PrimitiveTypesH256 {
+                    return &pbgear.Whitelist_PrimitiveTypesH256{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Scheduler_ScheduleNamedCallsalut(fields []*registry.DecodedField) *pbgear.Scheduler_ScheduleNamedCall {
+    return &pbgear.Scheduler_ScheduleNamedCall{
+                Id : []uint32(field.Value),
+                When : uint32(field.Value),
+                MaybePeriodic: to_optional_Scheduler_TupleUint32Uint32(field.Value),
+                Priority : uint32(field.Value),
+                Call: to_oneof_Scheduler_Call(field.Value),
+    }
+}      
+func to_Identity_CompactStringsalut(fields []*registry.DecodedField) *pbgear.Identity_CompactString {
+    return &pbgear.Identity_CompactString{
+                Value : string(field.Value),
+    }
+}
+            
+                   
+func to_Proxy_Anysalut(fields []*registry.DecodedField) *pbgear.Proxy_Any {
+    return &pbgear.Proxy_Any{
+    }
+} 
+func to_Proxy_Governancesalut(fields []*registry.DecodedField) *pbgear.Proxy_Governance {
+    return &pbgear.Proxy_Governance{
+    }
+} 
+func to_Balances_ForceTransferCallsalut(fields []*registry.DecodedField) *pbgear.Balances_ForceTransferCall {
+    return &pbgear.Balances_ForceTransferCall{
+                Source: to_Balances_Source(field.Value),
+                Dest: to_Balances_Dest(field.Value),
+                Value: to_Balances_CompactString(field.Value),
+    }
+}
+            
+                func to_Balances_Source(in *registry.DecodedField) *pbgear.Balances_Source {
+                    return &pbgear.Balances_Source{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Balances_Dest(in *registry.DecodedField) *pbgear.Balances_Dest {
+                    return &pbgear.Balances_Dest{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Balances_CompactString(in *registry.DecodedField) *pbgear.Balances_CompactString {
+                    return &pbgear.Balances_CompactString{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_Nonesalut(fields []*registry.DecodedField) *pbgear.Staking_None {
+    return &pbgear.Staking_None{
+    }
+} 
+func to_Utility_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Utility_SpCoreCryptoAccountId32 {
+    return &pbgear.Utility_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_CreateWithPoolIdCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_CreateWithPoolIdCall {
+    return &pbgear.NominationPools_CreateWithPoolIdCall{
+                Amount: to_NominationPools_CompactString(field.Value),
+                Root: to_NominationPools_Root(field.Value),
+                Nominator: to_NominationPools_Nominator(field.Value),
+                Bouncer: to_NominationPools_Bouncer(field.Value),
+                PoolId : uint32(field.Value),
+    }
+}      
+func to_StakingRewards_Fromsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_From {
+    return &pbgear.StakingRewards_From{
+                Value: to_oneof_StakingRewards_Value(field.Value),
+    }
+}
+            
+                func to_oneof_StakingRewards_Value(in *registry.DecodedField) *pbgear.StakingRewards_Value {
+                    return nil
+                }   
+func to_Timestamp_CompactUint64salut(fields []*registry.DecodedField) *pbgear.Timestamp_CompactUint64 {
+    return &pbgear.Timestamp_CompactUint64{
+                Value : uint64(field.Value),
+    }
+}
+            
+                   
+func to_Grandpa_SpSessionMembershipProofsalut(fields []*registry.DecodedField) *pbgear.Grandpa_SpSessionMembershipProof {
+    return &pbgear.Grandpa_SpSessionMembershipProof{
+                Session : uint32(field.Value),
+                TrieNodes: to_repeated_Grandpa_GrandpaTrieNodesList(field.Value),
+                ValidatorCount : uint32(field.Value),
+    }
+} 
+            
+                func to_repeated_Grandpa_GrandpaTrieNodesList(in *registry.DecodedField) []*pbgear.Grandpa_GrandpaTrieNodesList {
+                    return []*pbgear.Grandpa_GrandpaTrieNodesList{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Referenda_RefundDecisionDepositCallsalut(fields []*registry.DecodedField) *pbgear.Referenda_RefundDecisionDepositCall {
+    return &pbgear.Referenda_RefundDecisionDepositCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_Identity_Address20salut(fields []*registry.DecodedField) *pbgear.Identity_Address20 {
+    return &pbgear.Identity_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Gear_SetExecuteInherentCallsalut(fields []*registry.DecodedField) *pbgear.Gear_SetExecuteInherentCall {
+    return &pbgear.Gear_SetExecuteInherentCall{
+                Value : bool(field.Value),
+    }
+}
+            
+                   
+func to_Vesting_PalletVestingVestingInfoVestingInfosalut(fields []*registry.DecodedField) *pbgear.Vesting_PalletVestingVestingInfoVestingInfo {
+    return &pbgear.Vesting_PalletVestingVestingInfoVestingInfo{
+                Locked : string(field.Value),
+                PerBlock : string(field.Value),
+                StartingBlock : uint32(field.Value),
+    }
+}
+            
+                   
+            
+                   
+func to_Treasury_Indexsalut(fields []*registry.DecodedField) *pbgear.Treasury_Index {
+    return &pbgear.Treasury_Index{
+                Value0: to_Treasury_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_Treasury_CompactTupleNull(in *registry.DecodedField) *pbgear.Treasury_CompactTupleNull {
+                    return &pbgear.Treasury_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Raw2salut(fields []*registry.DecodedField) *pbgear.Identity_Raw2 {
+    return &pbgear.Identity_Raw2{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw5salut(fields []*registry.DecodedField) *pbgear.Identity_Raw5 {
+    return &pbgear.Identity_Raw5{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_MaxPoolssalut(fields []*registry.DecodedField) *pbgear.NominationPools_MaxPools {
+    return &pbgear.NominationPools_MaxPools{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_NominationPools_BondExtraOtherCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_BondExtraOtherCall {
+    return &pbgear.NominationPools_BondExtraOtherCall{
+                Member: to_NominationPools_Member(field.Value),
+                Extra: to_NominationPools_Extra(field.Value),
+    }
+}
+            
+                func to_NominationPools_Member(in *registry.DecodedField) *pbgear.NominationPools_Member {
+                    return &pbgear.NominationPools_Member{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_Extra(in *registry.DecodedField) *pbgear.NominationPools_Extra {
+                    return &pbgear.NominationPools_Extra{
+                        // TODO fill all fields
+                    }
+                }   
+func to_StakingRewards_Tosalut(fields []*registry.DecodedField) *pbgear.StakingRewards_To {
+    return &pbgear.StakingRewards_To{
+                Value: to_oneof_StakingRewards_Value(field.Value),
+    }
+}  
+func to_GearVoucher_CallCallsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_CallCall {
+    return &pbgear.GearVoucher_CallCall{
+                VoucherId: to_GearVoucher_PalletGearVoucherInternalVoucherId(field.Value),
+                Call: to_GearVoucher_Call(field.Value),
+    }
+}
+            
+                func to_GearVoucher_PalletGearVoucherInternalVoucherId(in *registry.DecodedField) *pbgear.GearVoucher_PalletGearVoucherInternalVoucherId {
+                    return &pbgear.GearVoucher_PalletGearVoucherInternalVoucherId{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_GearVoucher_Call(in *registry.DecodedField) *pbgear.GearVoucher_Call {
+                    return &pbgear.GearVoucher_Call{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_SetMinCommissionCallsalut(fields []*registry.DecodedField) *pbgear.Staking_SetMinCommissionCall {
+    return &pbgear.Staking_SetMinCommissionCall{
+                New: to_Staking_SpArithmeticPerThingsPerbill(field.Value),
+    }
+}
+            
+                func to_Staking_SpArithmeticPerThingsPerbill(in *registry.DecodedField) *pbgear.Staking_SpArithmeticPerThingsPerbill {
+                    return &pbgear.Staking_SpArithmeticPerThingsPerbill{
+                        // TODO fill all fields
+                    }
+                }   
+func to_FellowshipCollective_PromoteMemberCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_PromoteMemberCall {
+    return &pbgear.FellowshipCollective_PromoteMemberCall{
+                Who: to_FellowshipCollective_Who(field.Value),
+    }
+}  
+func to_GearVoucher_DeclineCallsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_DeclineCall {
+    return &pbgear.GearVoucher_DeclineCall{
+                VoucherId: to_GearVoucher_PalletGearVoucherInternalVoucherId(field.Value),
+    }
+}  
+func to_Identity_Datasalut(fields []*registry.DecodedField) *pbgear.Identity_Data {
+    return &pbgear.Identity_Data{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Proxy_AnnounceCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_AnnounceCall {
+    return &pbgear.Proxy_AnnounceCall{
+                Real: to_Proxy_Real(field.Value),
+                CallHash: to_Proxy_PrimitiveTypesH256(field.Value),
+    }
+} 
+            
+                func to_Proxy_PrimitiveTypesH256(in *registry.DecodedField) *pbgear.Proxy_PrimitiveTypesH256 {
+                    return &pbgear.Proxy_PrimitiveTypesH256{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_GlobalMaxCommissionsalut(fields []*registry.DecodedField) *pbgear.NominationPools_GlobalMaxCommission {
+    return &pbgear.NominationPools_GlobalMaxCommission{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_Staking_Address20salut(fields []*registry.DecodedField) *pbgear.Staking_Address20 {
+    return &pbgear.Staking_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ConvictionVoting_Locked6Xsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Locked6X {
+    return &pbgear.ConvictionVoting_Locked6X{
+    }
+} 
+func to_Utility_Voidsalut(fields []*registry.DecodedField) *pbgear.Utility_Void {
+    return &pbgear.Utility_Void{
+                Value0: to_Utility_Value0(field.Value),
+    }
+}
+            
+                func to_Utility_Value0(in *registry.DecodedField) *pbgear.Utility_Value0 {
+                    return &pbgear.Utility_Value0{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ConvictionVoting_Convictionsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Conviction {
+    return &pbgear.ConvictionVoting_Conviction{
+                Value: to_oneof_ConvictionVoting_Value(field.Value),
+    }
+}  
+func to_Identity_Raw0salut(fields []*registry.DecodedField) *pbgear.Identity_Raw0 {
+    return &pbgear.Identity_Raw0{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesDatasalut(fields []*registry.DecodedField) *pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData {
+    return &pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData{
+                Value0: to_Identity_SpCoreCryptoAccountId32(field.Value),
+                Value1: to_Identity_Value1(field.Value),
+    }
+}
+            
+                func to_Identity_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.Identity_SpCoreCryptoAccountId32 {
+                    return &pbgear.Identity_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_Value1(in *registry.DecodedField) *pbgear.Identity_Value1 {
+                    return &pbgear.Identity_Value1{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Judgementsalut(fields []*registry.DecodedField) *pbgear.Identity_Judgement {
+    return &pbgear.Identity_Judgement{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Bounties_CompactStringsalut(fields []*registry.DecodedField) *pbgear.Bounties_CompactString {
+    return &pbgear.Bounties_CompactString{
+                Value : string(field.Value),
+    }
+}
+            
+                   
+func to_Grandpa_PrimitiveTypesH256salut(fields []*registry.DecodedField) *pbgear.Grandpa_PrimitiveTypesH256 {
+    return &pbgear.Grandpa_PrimitiveTypesH256{
+                TargetHash : []uint32(field.Value),
+    }
+}  
+func to_Staking_Controllersalut(fields []*registry.DecodedField) *pbgear.Staking_Controller {
+    return &pbgear.Staking_Controller{
+    }
+} 
+func to_GearVoucher_GprimitivesMessageIdsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_GprimitivesMessageId {
+    return &pbgear.GearVoucher_GprimitivesMessageId{
+                ReplyToId : []uint32(field.Value),
+    }
+}  
+func to_Staking_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.Staking_CompactTupleNull {
+    return &pbgear.Staking_CompactTupleNull{
+                Value: to_Staking_TupleNull(field.Value),
+    }
+}
+            
+                func to_Staking_TupleNull(in *registry.DecodedField) *pbgear.Staking_TupleNull {
+                    return &pbgear.Staking_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Referenda_Originssalut(fields []*registry.DecodedField) *pbgear.Referenda_Origins {
+    return &pbgear.Referenda_Origins{
+                Value0: to_Referenda_Value0(field.Value),
+    }
+}
+            
+                func to_Referenda_Value0(in *registry.DecodedField) *pbgear.Referenda_Value0 {
+                    return &pbgear.Referenda_Value0{
+                        // TODO fill all fields
+                    }
+                }   
+func to_FellowshipReferenda_Rootsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Root {
+    return &pbgear.FellowshipReferenda_Root{
+    }
+} 
+func to_ChildBounties_Rawsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_Raw {
+    return &pbgear.ChildBounties_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Balances_ForceSetBalanceCallsalut(fields []*registry.DecodedField) *pbgear.Balances_ForceSetBalanceCall {
+    return &pbgear.Balances_ForceSetBalanceCall{
+                Who: to_Balances_Who(field.Value),
+                NewFree: to_Balances_CompactString(field.Value),
+    }
+}
+            
+                func to_Balances_Who(in *registry.DecodedField) *pbgear.Balances_Who {
+                    return &pbgear.Balances_Who{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Treasury_VoidSpendCallsalut(fields []*registry.DecodedField) *pbgear.Treasury_VoidSpendCall {
+    return &pbgear.Treasury_VoidSpendCall{
+                Index : uint32(field.Value),
+    }
+}
+            
+                   
+func to_FellowshipReferenda_KillCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_KillCall {
+    return &pbgear.FellowshipReferenda_KillCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_NominationPools_NominateCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_NominateCall {
+    return &pbgear.NominationPools_NominateCall{
+                PoolId : uint32(field.Value),
+                Validators: to_repeated_NominationPools_SpCoreCryptoAccountId32(field.Value),
+    }
+} 
+            
+                func to_repeated_NominationPools_SpCoreCryptoAccountId32(in *registry.DecodedField) []*pbgear.NominationPools_SpCoreCryptoAccountId32 {
+                    return []*pbgear.NominationPools_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Gear_GprimitivesActorIdsalut(fields []*registry.DecodedField) *pbgear.Gear_GprimitivesActorId {
+    return &pbgear.Gear_GprimitivesActorId{
+                Destination : []uint32(field.Value),
+    }
+}  
+func to_System_TupleSystemItemsListSystemItemsListsalut(fields []*registry.DecodedField) *pbgear.System_TupleSystemItemsListSystemItemsList {
+    return &pbgear.System_TupleSystemItemsListSystemItemsList{
+                Value0 : []uint32(field.Value),
+                Value1 : []uint32(field.Value),
+    }
+}   
+func to_ConvictionVoting_Address20salut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Address20 {
+    return &pbgear.ConvictionVoting_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_JoinCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_JoinCall {
+    return &pbgear.NominationPools_JoinCall{
+                Amount: to_NominationPools_CompactString(field.Value),
+                PoolId : uint32(field.Value),
+    }
+}   
+func to_Staking_SetControllerCallsalut(fields []*registry.DecodedField) *pbgear.Staking_SetControllerCall {
+    return &pbgear.Staking_SetControllerCall{
+    }
+} 
+func to_Referenda_EnactmentMomentsalut(fields []*registry.DecodedField) *pbgear.Referenda_EnactmentMoment {
+    return &pbgear.Referenda_EnactmentMoment{
+                Value: to_oneof_Referenda_Value(field.Value),
+    }
+}  
+func to_Identity_ProvideJudgementCallsalut(fields []*registry.DecodedField) *pbgear.Identity_ProvideJudgementCall {
+    return &pbgear.Identity_ProvideJudgementCall{
+                RegIndex: to_Identity_CompactUint32(field.Value),
+                Target: to_Identity_Target(field.Value),
+                Judgement: to_Identity_Judgement(field.Value),
+                Identity: to_Identity_PrimitiveTypesH256(field.Value),
+    }
+} 
+            
+                func to_Identity_Target(in *registry.DecodedField) *pbgear.Identity_Target {
+                    return &pbgear.Identity_Target{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_Judgement(in *registry.DecodedField) *pbgear.Identity_Judgement {
+                    return &pbgear.Identity_Judgement{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_PrimitiveTypesH256(in *registry.DecodedField) *pbgear.Identity_PrimitiveTypesH256 {
+                    return &pbgear.Identity_PrimitiveTypesH256{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Treasury_Beneficiarysalut(fields []*registry.DecodedField) *pbgear.Treasury_Beneficiary {
+    return &pbgear.Treasury_Beneficiary{
+                Value: to_oneof_Treasury_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Treasury_Value(in *registry.DecodedField) *pbgear.Treasury_Value {
+                    return nil
+                }   
+func to_Identity_Raw29salut(fields []*registry.DecodedField) *pbgear.Identity_Raw29 {
+    return &pbgear.Identity_Raw29{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Referenda_Systemsalut(fields []*registry.DecodedField) *pbgear.Referenda_System {
+    return &pbgear.Referenda_System{
+                Value0: to_Referenda_Value0(field.Value),
+    }
+}  
+func to_FellowshipReferenda_Signedsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Signed {
+    return &pbgear.FellowshipReferenda_Signed{
+                Value0: to_FellowshipReferenda_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_FellowshipReferenda_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.FellowshipReferenda_SpCoreCryptoAccountId32 {
+                    return &pbgear.FellowshipReferenda_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Proxy_RemoveAnnouncementCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_RemoveAnnouncementCall {
+    return &pbgear.Proxy_RemoveAnnouncementCall{
+                Real: to_Proxy_Real(field.Value),
+                CallHash: to_Proxy_PrimitiveTypesH256(field.Value),
+    }
+}   
+func to_NominationPools_MinCreateBondsalut(fields []*registry.DecodedField) *pbgear.NominationPools_MinCreateBond {
+    return &pbgear.NominationPools_MinCreateBond{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_Vesting_ForceVestedTransferCallsalut(fields []*registry.DecodedField) *pbgear.Vesting_ForceVestedTransferCall {
+    return &pbgear.Vesting_ForceVestedTransferCall{
+                Source: to_Vesting_Source(field.Value),
+                Target: to_Vesting_Target(field.Value),
+                Schedule: to_Vesting_PalletVestingVestingInfoVestingInfo(field.Value),
+    }
+}
+            
+                func to_Vesting_Source(in *registry.DecodedField) *pbgear.Vesting_Source {
+                    return &pbgear.Vesting_Source{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Vesting_Target(in *registry.DecodedField) *pbgear.Vesting_Target {
+                    return &pbgear.Vesting_Target{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Vesting_PalletVestingVestingInfoVestingInfo(in *registry.DecodedField) *pbgear.Vesting_PalletVestingVestingInfoVestingInfo {
+                    return &pbgear.Vesting_PalletVestingVestingInfoVestingInfo{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Session_SpCoreEd25519Publicsalut(fields []*registry.DecodedField) *pbgear.Session_SpCoreEd25519Public {
+    return &pbgear.Session_SpCoreEd25519Public{
+                Grandpa : []uint32(field.Value),
+    }
+}  
+func to_Multisig_ApproveAsMultiCallsalut(fields []*registry.DecodedField) *pbgear.Multisig_ApproveAsMultiCall {
+    return &pbgear.Multisig_ApproveAsMultiCall{
+                Threshold : uint32(field.Value),
+                OtherSignatories: to_repeated_Multisig_SpCoreCryptoAccountId32(field.Value),
+                MaybeTimepoint: to_optional_Multisig_PalletMultisigTimepoint(field.Value),
+                CallHash : []uint32(field.Value),
+                MaxWeight: to_Multisig_SpWeightsWeightV2Weight(field.Value),
+    }
+}
+            
+                  
+            
+                func to_repeated_Multisig_SpCoreCryptoAccountId32(in *registry.DecodedField) []*pbgear.Multisig_SpCoreCryptoAccountId32 {
+                    return []*pbgear.Multisig_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_optional_Multisig_PalletMultisigTimepoint(in *registry.DecodedField) *pbgear.Multisig_PalletMultisigTimepoint {
+                    return &pbgear.Multisig_PalletMultisigTimepoint{
+                        // TODO fill all fields
+                    }
+                }   
+            
+                func to_Multisig_SpWeightsWeightV2Weight(in *registry.DecodedField) *pbgear.Multisig_SpWeightsWeightV2Weight {
+                    return &pbgear.Multisig_SpWeightsWeightV2Weight{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Referenda_Value0salut(fields []*registry.DecodedField) *pbgear.Referenda_Value0 {
+    return &pbgear.Referenda_Value0{
+                Value: to_oneof_Referenda_Value(field.Value),
+    }
+}  
+func to_Multisig_AsMultiCallsalut(fields []*registry.DecodedField) *pbgear.Multisig_AsMultiCall {
+    return &pbgear.Multisig_AsMultiCall{
+                Threshold : uint32(field.Value),
+                OtherSignatories: to_repeated_Multisig_SpCoreCryptoAccountId32(field.Value),
+                MaybeTimepoint: to_optional_Multisig_PalletMultisigTimepoint(field.Value),
+                Call: to_oneof_Multisig_Call(field.Value),
+                MaxWeight: to_Multisig_SpWeightsWeightV2Weight(field.Value),
+    }
+}   
+            
+                func to_oneof_Multisig_Call(in *registry.DecodedField) *pbgear.Multisig_Call {
+                    return nil
+                }    
+func to_NominationPools_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.NominationPools_SpCoreCryptoAccountId32 {
+    return &pbgear.NominationPools_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_GearVoucher_AppendProgramssalut(fields []*registry.DecodedField) *pbgear.GearVoucher_AppendPrograms {
+    return &pbgear.GearVoucher_AppendPrograms{
+                Value: to_oneof_GearVoucher_Value(field.Value),
+    }
+}
+            
+                func to_oneof_GearVoucher_Value(in *registry.DecodedField) *pbgear.GearVoucher_Value {
+                    return nil
+                }   
+func to_ConvictionVoting_Idsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Id {
+    return &pbgear.ConvictionVoting_Id{
+                Value0: to_ConvictionVoting_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_ConvictionVoting_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.ConvictionVoting_SpCoreCryptoAccountId32 {
+                    return &pbgear.ConvictionVoting_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ChildBounties_Address20salut(fields []*registry.DecodedField) *pbgear.ChildBounties_Address20 {
+    return &pbgear.ChildBounties_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_OutOfDatesalut(fields []*registry.DecodedField) *pbgear.Identity_OutOfDate {
+    return &pbgear.Identity_OutOfDate{
+    }
+} 
+func to_ElectionProviderMultiPhase_CompactSpArithmeticPerThingsPerU16salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_CompactSpArithmeticPerThingsPerU16 {
+    return &pbgear.ElectionProviderMultiPhase_CompactSpArithmeticPerThingsPerU16{
+                Value: to_ElectionProviderMultiPhase_SpArithmeticPerThingsPerU16(field.Value),
+    }
+}
+            
+                func to_ElectionProviderMultiPhase_SpArithmeticPerThingsPerU16(in *registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SpArithmeticPerThingsPerU16 {
+                    return &pbgear.ElectionProviderMultiPhase_SpArithmeticPerThingsPerU16{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Vesting_VestedTransferCallsalut(fields []*registry.DecodedField) *pbgear.Vesting_VestedTransferCall {
+    return &pbgear.Vesting_VestedTransferCall{
+                Target: to_Vesting_Target(field.Value),
+                Schedule: to_Vesting_PalletVestingVestingInfoVestingInfo(field.Value),
+    }
+}   
+func to_Referenda_NudgeReferendumCallsalut(fields []*registry.DecodedField) *pbgear.Referenda_NudgeReferendumCall {
+    return &pbgear.Referenda_NudgeReferendumCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_Identity_Raw27salut(fields []*registry.DecodedField) *pbgear.Identity_Raw27 {
+    return &pbgear.Identity_Raw27{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_GearVoucher_RevokeCallsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_RevokeCall {
+    return &pbgear.GearVoucher_RevokeCall{
+                Spender: to_GearVoucher_SpCoreCryptoAccountId32(field.Value),
+                VoucherId: to_GearVoucher_PalletGearVoucherInternalVoucherId(field.Value),
+    }
+}   
+func to_Staking_Payeesalut(fields []*registry.DecodedField) *pbgear.Staking_Payee {
+    return &pbgear.Staking_Payee{
+                Value: to_oneof_Staking_Value(field.Value),
+    }
+}  
+func to_ConvictionVoting_VoteCallsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_VoteCall {
+    return &pbgear.ConvictionVoting_VoteCall{
+                PollIndex: to_ConvictionVoting_CompactUint32(field.Value),
+                Vote: to_ConvictionVoting_Vote(field.Value),
+    }
+}
+            
+                func to_ConvictionVoting_CompactUint32(in *registry.DecodedField) *pbgear.ConvictionVoting_CompactUint32 {
+                    return &pbgear.ConvictionVoting_CompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_ConvictionVoting_Vote(in *registry.DecodedField) *pbgear.ConvictionVoting_Vote {
+                    return &pbgear.ConvictionVoting_Vote{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Timestamp_SetCallsalut(fields []*registry.DecodedField) *pbgear.Timestamp_SetCall {
+    return &pbgear.Timestamp_SetCall{
+                Now: to_Timestamp_CompactUint64(field.Value),
+    }
+}
+            
+                func to_Timestamp_CompactUint64(in *registry.DecodedField) *pbgear.Timestamp_CompactUint64 {
+                    return &pbgear.Timestamp_CompactUint64{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Proxy_TupleNullsalut(fields []*registry.DecodedField) *pbgear.Proxy_TupleNull {
+    return &pbgear.Proxy_TupleNull{
+    }
+} 
+func to_Referenda_RefundSubmissionDepositCallsalut(fields []*registry.DecodedField) *pbgear.Referenda_RefundSubmissionDepositCall {
+    return &pbgear.Referenda_RefundSubmissionDepositCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_Babe_PrimaryAndSecondaryPlainSlotssalut(fields []*registry.DecodedField) *pbgear.Babe_PrimaryAndSecondaryPlainSlots {
+    return &pbgear.Babe_PrimaryAndSecondaryPlainSlots{
+    }
+} 
+func to_Treasury_RemoveApprovalCallsalut(fields []*registry.DecodedField) *pbgear.Treasury_RemoveApprovalCall {
+    return &pbgear.Treasury_RemoveApprovalCall{
+                ProposalId: to_Treasury_CompactUint32(field.Value),
+    }
+}
+            
+                func to_Treasury_CompactUint32(in *registry.DecodedField) *pbgear.Treasury_CompactUint32 {
+                    return &pbgear.Treasury_CompactUint32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_GearVoucher_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.GearVoucher_SpCoreCryptoAccountId32 {
+    return &pbgear.GearVoucher_SpCoreCryptoAccountId32{
+                Spender : []uint32(field.Value),
+    }
+}  
+func to_ConvictionVoting_TupleNullsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_TupleNull {
+    return &pbgear.ConvictionVoting_TupleNull{
+    }
+} 
+func to_Gear_ClaimValueCallsalut(fields []*registry.DecodedField) *pbgear.Gear_ClaimValueCall {
+    return &pbgear.Gear_ClaimValueCall{
+                MessageId: to_Gear_GprimitivesMessageId(field.Value),
+    }
+}
+            
+                func to_Gear_GprimitivesMessageId(in *registry.DecodedField) *pbgear.Gear_GprimitivesMessageId {
+                    return &pbgear.Gear_GprimitivesMessageId{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Nonesalut(fields []*registry.DecodedField) *pbgear.Identity_None {
+    return &pbgear.Identity_None{
+    }
+} 
+func to_Identity_AddSubCallsalut(fields []*registry.DecodedField) *pbgear.Identity_AddSubCall {
+    return &pbgear.Identity_AddSubCall{
+                Sub: to_Identity_Sub(field.Value),
+                Data: to_Identity_Data(field.Value),
+    }
+}
+            
+                func to_Identity_Sub(in *registry.DecodedField) *pbgear.Identity_Sub {
+                    return &pbgear.Identity_Sub{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_Data(in *registry.DecodedField) *pbgear.Identity_Data {
+                    return &pbgear.Identity_Data{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_NominationPools_ClaimPayoutOtherCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_ClaimPayoutOtherCall {
+    return &pbgear.NominationPools_ClaimPayoutOtherCall{
+                Other: to_NominationPools_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Staking_ForceNewEraAlwaysCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ForceNewEraAlwaysCall {
+    return &pbgear.Staking_ForceNewEraAlwaysCall{
+    }
+} 
+func to_Identity_Rawsalut(fields []*registry.DecodedField) *pbgear.Identity_Raw {
+    return &pbgear.Identity_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw7salut(fields []*registry.DecodedField) *pbgear.Identity_Raw7 {
+    return &pbgear.Identity_Raw7{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_PermissionlessCompoundsalut(fields []*registry.DecodedField) *pbgear.NominationPools_PermissionlessCompound {
+    return &pbgear.NominationPools_PermissionlessCompound{
+    }
+} 
+func to_Babe_Sealsalut(fields []*registry.DecodedField) *pbgear.Babe_Seal {
+    return &pbgear.Babe_Seal{
+                Value0 : []uint32(field.Value),
+                Value1 : []uint32(field.Value),
+    }
+}   
+func to_ConvictionVoting_Locked2Xsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Locked2X {
+    return &pbgear.ConvictionVoting_Locked2X{
+    }
+} 
+func to_Staking_MinNominatorBondsalut(fields []*registry.DecodedField) *pbgear.Staking_MinNominatorBond {
+    return &pbgear.Staking_MinNominatorBond{
+                Value: to_oneof_Staking_Value(field.Value),
+    }
+}  
+func to_Identity_Websalut(fields []*registry.DecodedField) *pbgear.Identity_Web {
+    return &pbgear.Identity_Web{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Grandpa_SpConsensusGrandpaEquivocationProofsalut(fields []*registry.DecodedField) *pbgear.Grandpa_SpConsensusGrandpaEquivocationProof {
+    return &pbgear.Grandpa_SpConsensusGrandpaEquivocationProof{
+                SetId : uint64(field.Value),
+                Equivocation: to_Grandpa_Equivocation(field.Value),
+    }
+}
+            
+                  
+            
+                func to_Grandpa_Equivocation(in *registry.DecodedField) *pbgear.Grandpa_Equivocation {
+                    return &pbgear.Grandpa_Equivocation{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Scheduler_ScheduleNamedAfterCallsalut(fields []*registry.DecodedField) *pbgear.Scheduler_ScheduleNamedAfterCall {
+    return &pbgear.Scheduler_ScheduleNamedAfterCall{
+                Id : []uint32(field.Value),
+                After : uint32(field.Value),
+                MaybePeriodic: to_optional_Scheduler_TupleUint32Uint32(field.Value),
+                Priority : uint32(field.Value),
+                Call: to_oneof_Scheduler_Call(field.Value),
+    }
+}      
+func to_FellowshipCollective_Whosalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Who {
+    return &pbgear.FellowshipCollective_Who{
+                Value: to_oneof_FellowshipCollective_Value(field.Value),
+    }
+}
+            
+                func to_oneof_FellowshipCollective_Value(in *registry.DecodedField) *pbgear.FellowshipCollective_Value {
+                    return nil
+                }   
+func to_Whitelist_DispatchWhitelistedCallWithPreimageCallsalut(fields []*registry.DecodedField) *pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall {
+    return &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall{
+                Call: to_oneof_Whitelist_Call(field.Value),
+    }
+}
+            
+                func to_oneof_Whitelist_Call(in *registry.DecodedField) *pbgear.Whitelist_Call {
+                    return nil
+                }   
+func to_NominationPools_MinJoinBondsalut(fields []*registry.DecodedField) *pbgear.NominationPools_MinJoinBond {
+    return &pbgear.NominationPools_MinJoinBond{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_Gear_SendMessageCallsalut(fields []*registry.DecodedField) *pbgear.Gear_SendMessageCall {
+    return &pbgear.Gear_SendMessageCall{
+                Destination: to_Gear_GprimitivesActorId(field.Value),
+                Payload : []uint32(field.Value),
+                GasLimit : uint64(field.Value),
+                Value : string(field.Value),
+                KeepAlive : bool(field.Value),
+    }
+}
+            
+                func to_Gear_GprimitivesActorId(in *registry.DecodedField) *pbgear.Gear_GprimitivesActorId {
+                    return &pbgear.Gear_GprimitivesActorId{
+                        // TODO fill all fields
+                    }
+                }   
+            
+                  
+            
+                    
+func to_Utility_BatchAllCallsalut(fields []*registry.DecodedField) *pbgear.Utility_BatchAllCall {
+    return &pbgear.Utility_BatchAllCall{
+                Calls: to_repeated_Utility_VaraRuntimeRuntimeCall(field.Value),
+    }
+}
+            
+                func to_repeated_Utility_VaraRuntimeRuntimeCall(in *registry.DecodedField) []*pbgear.Utility_VaraRuntimeRuntimeCall {
+                    return []*pbgear.Utility_VaraRuntimeRuntimeCall{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Referenda_KillCallsalut(fields []*registry.DecodedField) *pbgear.Referenda_KillCall {
+    return &pbgear.Referenda_KillCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_BagsList_Indexsalut(fields []*registry.DecodedField) *pbgear.BagsList_Index {
+    return &pbgear.BagsList_Index{
+                Value0: to_BagsList_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_BagsList_CompactTupleNull(in *registry.DecodedField) *pbgear.BagsList_CompactTupleNull {
+                    return &pbgear.BagsList_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_ClearIdentityCallsalut(fields []*registry.DecodedField) *pbgear.Identity_ClearIdentityCall {
+    return &pbgear.Identity_ClearIdentityCall{
+    }
+} 
+func to_ElectionProviderMultiPhase_SubmitCallsalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SubmitCall {
+    return &pbgear.ElectionProviderMultiPhase_SubmitCall{
+                RawSolution: to_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(field.Value),
+    }
+}
+            
+                func to_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(in *registry.DecodedField) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution {
+                    return &pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Balances_Address20salut(fields []*registry.DecodedField) *pbgear.Balances_Address20 {
+    return &pbgear.Balances_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Proxy_Stakingsalut(fields []*registry.DecodedField) *pbgear.Proxy_Staking {
+    return &pbgear.Proxy_Staking{
+    }
+} 
+func to_Staking_PayoutStakersCallsalut(fields []*registry.DecodedField) *pbgear.Staking_PayoutStakersCall {
+    return &pbgear.Staking_PayoutStakersCall{
+                ValidatorStash: to_Staking_SpCoreCryptoAccountId32(field.Value),
+                Era : uint32(field.Value),
+    }
+}
+            
+                func to_Staking_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.Staking_SpCoreCryptoAccountId32 {
+                    return &pbgear.Staking_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                   
+func to_Identity_Raw30salut(fields []*registry.DecodedField) *pbgear.Identity_Raw30 {
+    return &pbgear.Identity_Raw30{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_SetIdentityCallsalut(fields []*registry.DecodedField) *pbgear.Identity_SetIdentityCall {
+    return &pbgear.Identity_SetIdentityCall{
+                Info: to_Identity_PalletIdentitySimpleIdentityInfo(field.Value),
+    }
+}
+            
+                func to_Identity_PalletIdentitySimpleIdentityInfo(in *registry.DecodedField) *pbgear.Identity_PalletIdentitySimpleIdentityInfo {
+                    return &pbgear.Identity_PalletIdentitySimpleIdentityInfo{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_Permissionedsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Permissioned {
+    return &pbgear.NominationPools_Permissioned{
+    }
+} 
+func to_Gear_RunCallsalut(fields []*registry.DecodedField) *pbgear.Gear_RunCall {
+    return &pbgear.Gear_RunCall{
+                MaxGas : uint64(field.Value),
+    }
+}  
+func to_System_SystemKeysListsalut(fields []*registry.DecodedField) *pbgear.System_SystemKeysList {
+    return &pbgear.System_SystemKeysList{
+                Keys : []uint32(field.Value),
+    }
+}  
+func to_Vesting_Rawsalut(fields []*registry.DecodedField) *pbgear.Vesting_Raw {
+    return &pbgear.Vesting_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Treasury_ProposeSpendCallsalut(fields []*registry.DecodedField) *pbgear.Treasury_ProposeSpendCall {
+    return &pbgear.Treasury_ProposeSpendCall{
+                Value: to_Treasury_CompactString(field.Value),
+                Beneficiary: to_Treasury_Beneficiary(field.Value),
+    }
+}
+            
+                func to_Treasury_CompactString(in *registry.DecodedField) *pbgear.Treasury_CompactString {
+                    return &pbgear.Treasury_CompactString{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Treasury_Beneficiary(in *registry.DecodedField) *pbgear.Treasury_Beneficiary {
+                    return &pbgear.Treasury_Beneficiary{
+                        // TODO fill all fields
+                    }
+                }   
+func to_FellowshipReferenda_Aftersalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_After {
+    return &pbgear.FellowshipReferenda_After{
+                Value0 : uint32(field.Value),
+    }
+}  
+func to_NominationPools_TupleNullsalut(fields []*registry.DecodedField) *pbgear.NominationPools_TupleNull {
+    return &pbgear.NominationPools_TupleNull{
+    }
+} 
+func to_NominationPools_SetCommissionChangeRateCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_SetCommissionChangeRateCall {
+    return &pbgear.NominationPools_SetCommissionChangeRateCall{
+                PoolId : uint32(field.Value),
+                ChangeRate: to_NominationPools_PalletNominationPoolsCommissionChangeRate(field.Value),
+    }
+} 
+            
+                func to_NominationPools_PalletNominationPoolsCommissionChangeRate(in *registry.DecodedField) *pbgear.NominationPools_PalletNominationPoolsCommissionChangeRate {
+                    return &pbgear.NominationPools_PalletNominationPoolsCommissionChangeRate{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_Stakedsalut(fields []*registry.DecodedField) *pbgear.Staking_Staked {
+    return &pbgear.Staking_Staked{
+    }
+} 
+func to_Staking_PalletStakingValidatorPrefssalut(fields []*registry.DecodedField) *pbgear.Staking_PalletStakingValidatorPrefs {
+    return &pbgear.Staking_PalletStakingValidatorPrefs{
+                Commission: to_Staking_CompactSpArithmeticPerThingsPerbill(field.Value),
+                Blocked : bool(field.Value),
+    }
+}
+            
+                func to_Staking_CompactSpArithmeticPerThingsPerbill(in *registry.DecodedField) *pbgear.Staking_CompactSpArithmeticPerThingsPerbill {
+                    return &pbgear.Staking_CompactSpArithmeticPerThingsPerbill{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                   
+func to_FellowshipReferenda_PlaceDecisionDepositCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_PlaceDecisionDepositCall {
+    return &pbgear.FellowshipReferenda_PlaceDecisionDepositCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_Identity_Raw22salut(fields []*registry.DecodedField) *pbgear.Identity_Raw22 {
+    return &pbgear.Identity_Raw22{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Bounties_AcceptCuratorCallsalut(fields []*registry.DecodedField) *pbgear.Bounties_AcceptCuratorCall {
+    return &pbgear.Bounties_AcceptCuratorCall{
+                BountyId: to_Bounties_CompactUint32(field.Value),
+    }
+}  
+func to_NominationPools_Rawsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Raw {
+    return &pbgear.NominationPools_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_Noopsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Noop {
+    return &pbgear.NominationPools_Noop{
+    }
+} 
+func to_Treasury_SpendLocalCallsalut(fields []*registry.DecodedField) *pbgear.Treasury_SpendLocalCall {
+    return &pbgear.Treasury_SpendLocalCall{
+                Amount: to_Treasury_CompactString(field.Value),
+                Beneficiary: to_Treasury_Beneficiary(field.Value),
+    }
+}   
+func to_Treasury_PayoutCallsalut(fields []*registry.DecodedField) *pbgear.Treasury_PayoutCall {
+    return &pbgear.Treasury_PayoutCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_Proxy_PrimitiveTypesH256salut(fields []*registry.DecodedField) *pbgear.Proxy_PrimitiveTypesH256 {
+    return &pbgear.Proxy_PrimitiveTypesH256{
+                CallHash : []uint32(field.Value),
+    }
+}  
+func to_ChildBounties_AwardChildBountyCallsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_AwardChildBountyCall {
+    return &pbgear.ChildBounties_AwardChildBountyCall{
+                ParentBountyId: to_ChildBounties_CompactUint32(field.Value),
+                ChildBountyId: to_ChildBounties_CompactUint32(field.Value),
+                Beneficiary: to_ChildBounties_Beneficiary(field.Value),
+    }
+}  
+            
+                func to_ChildBounties_Beneficiary(in *registry.DecodedField) *pbgear.ChildBounties_Beneficiary {
+                    return &pbgear.ChildBounties_Beneficiary{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Referenda_PrimitiveTypesH256salut(fields []*registry.DecodedField) *pbgear.Referenda_PrimitiveTypesH256 {
+    return &pbgear.Referenda_PrimitiveTypesH256{
+                Hash : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw1salut(fields []*registry.DecodedField) *pbgear.Identity_Raw1 {
+    return &pbgear.Identity_Raw1{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Proxy_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Proxy_SpCoreCryptoAccountId32 {
+    return &pbgear.Proxy_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_WithdrawUnbondedCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_WithdrawUnbondedCall {
+    return &pbgear.NominationPools_WithdrawUnbondedCall{
+                MemberAccount: to_NominationPools_MemberAccount(field.Value),
+                NumSlashingSpans : uint32(field.Value),
+    }
+}
+            
+                func to_NominationPools_MemberAccount(in *registry.DecodedField) *pbgear.NominationPools_MemberAccount {
+                    return &pbgear.NominationPools_MemberAccount{
+                        // TODO fill all fields
+                    }
+                }    
+func to_ConvictionVoting_Indexsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Index {
+    return &pbgear.ConvictionVoting_Index{
+                Value0: to_ConvictionVoting_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_ConvictionVoting_CompactTupleNull(in *registry.DecodedField) *pbgear.ConvictionVoting_CompactTupleNull {
+                    return &pbgear.ConvictionVoting_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Referenda_SetMetadataCallsalut(fields []*registry.DecodedField) *pbgear.Referenda_SetMetadataCall {
+    return &pbgear.Referenda_SetMetadataCall{
+                Index : uint32(field.Value),
+                MaybeHash: to_optional_Referenda_PrimitiveTypesH256(field.Value),
+    }
+} 
+            
+                func to_optional_Referenda_PrimitiveTypesH256(in *registry.DecodedField) *pbgear.Referenda_PrimitiveTypesH256 {
+                    return &pbgear.Referenda_PrimitiveTypesH256{
+                        // TODO fill all fields
+                    }
+                }   
+func to_FellowshipCollective_AddMemberCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_AddMemberCall {
+    return &pbgear.FellowshipCollective_AddMemberCall{
+                Who: to_FellowshipCollective_Who(field.Value),
+    }
+}  
+func to_Identity_ShaThree256salut(fields []*registry.DecodedField) *pbgear.Identity_ShaThree256 {
+    return &pbgear.Identity_ShaThree256{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Vesting_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Vesting_SpCoreCryptoAccountId32 {
+    return &pbgear.Vesting_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Utility_VaraRuntimeRuntimeCallsalut(fields []*registry.DecodedField) *pbgear.Utility_VaraRuntimeRuntimeCall {
+    return &pbgear.Utility_VaraRuntimeRuntimeCall{
+                Calls: to_oneof_Utility_Calls(field.Value),
+    }
+}
+            
+                func to_oneof_Utility_Calls(in *registry.DecodedField) *pbgear.Utility_Calls {
+                    return nil
+                }   
+func to_FellowshipReferenda_Nonesalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_None {
+    return &pbgear.FellowshipReferenda_None{
+    }
+} 
+func to_Identity_Raw19salut(fields []*registry.DecodedField) *pbgear.Identity_Raw19 {
+    return &pbgear.Identity_Raw19{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_BoundedCollectionsBoundedVecBoundedVecsalut(fields []*registry.DecodedField) *pbgear.Identity_BoundedCollectionsBoundedVecBoundedVec {
+    return &pbgear.Identity_BoundedCollectionsBoundedVecBoundedVec{
+                Additional: to_repeated_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData(field.Value),
+    }
+}
+            
+                func to_repeated_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData(in *registry.DecodedField) []*pbgear.Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData {
+                    return []*pbgear.Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_KillIdentityCallsalut(fields []*registry.DecodedField) *pbgear.Identity_KillIdentityCall {
+    return &pbgear.Identity_KillIdentityCall{
+                Target: to_Identity_Target(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_ChildBounties_CompactUint32salut(fields []*registry.DecodedField) *pbgear.ChildBounties_CompactUint32 {
+    return &pbgear.ChildBounties_CompactUint32{
+                Value : uint32(field.Value),
+    }
+}
+            
+                   
+func to_Utility_Signedsalut(fields []*registry.DecodedField) *pbgear.Utility_Signed {
+    return &pbgear.Utility_Signed{
+                Value0: to_Utility_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_Utility_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.Utility_SpCoreCryptoAccountId32 {
+                    return &pbgear.Utility_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ConvictionVoting_Locked3Xsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Locked3X {
+    return &pbgear.ConvictionVoting_Locked3X{
+    }
+} 
+func to_NominationPools_PalletNominationPoolsCommissionChangeRatesalut(fields []*registry.DecodedField) *pbgear.NominationPools_PalletNominationPoolsCommissionChangeRate {
+    return &pbgear.NominationPools_PalletNominationPoolsCommissionChangeRate{
+                MaxIncrease: to_NominationPools_SpArithmeticPerThingsPerbill(field.Value),
+                MinDelay : uint32(field.Value),
+    }
+}
+            
+                func to_NominationPools_SpArithmeticPerThingsPerbill(in *registry.DecodedField) *pbgear.NominationPools_SpArithmeticPerThingsPerbill {
+                    return &pbgear.NominationPools_SpArithmeticPerThingsPerbill{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Whitelist_SpWeightsWeightV2Weightsalut(fields []*registry.DecodedField) *pbgear.Whitelist_SpWeightsWeightV2Weight {
+    return &pbgear.Whitelist_SpWeightsWeightV2Weight{
+                RefTime: to_Whitelist_CompactUint64(field.Value),
+                ProofSize: to_Whitelist_CompactUint64(field.Value),
+    }
+}
+            
+                func to_Whitelist_CompactUint64(in *registry.DecodedField) *pbgear.Whitelist_CompactUint64 {
+                    return &pbgear.Whitelist_CompactUint64{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Proxy_RemoveProxiesCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_RemoveProxiesCall {
+    return &pbgear.Proxy_RemoveProxiesCall{
+    }
+} 
+func to_NominationPools_Bouncersalut(fields []*registry.DecodedField) *pbgear.NominationPools_Bouncer {
+    return &pbgear.NominationPools_Bouncer{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_NominationPools_NewNominatorsalut(fields []*registry.DecodedField) *pbgear.NominationPools_NewNominator {
+    return &pbgear.NominationPools_NewNominator{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_Staking_ReapStashCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ReapStashCall {
+    return &pbgear.Staking_ReapStashCall{
+                Stash: to_Staking_SpCoreCryptoAccountId32(field.Value),
+                NumSlashingSpans : uint32(field.Value),
+    }
+}   
+func to_FellowshipReferenda_Systemsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_System {
+    return &pbgear.FellowshipReferenda_System{
+                Value0: to_FellowshipReferenda_Value0(field.Value),
+    }
+}  
+func to_Utility_CompactUint64salut(fields []*registry.DecodedField) *pbgear.Utility_CompactUint64 {
+    return &pbgear.Utility_CompactUint64{
+                Value : uint64(field.Value),
+    }
+}
+            
+                   
+func to_FellowshipReferenda_SubmitCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_SubmitCall {
+    return &pbgear.FellowshipReferenda_SubmitCall{
+                ProposalOrigin: to_FellowshipReferenda_ProposalOrigin(field.Value),
+                Proposal: to_FellowshipReferenda_Proposal(field.Value),
+                EnactmentMoment: to_FellowshipReferenda_EnactmentMoment(field.Value),
+    }
+}
+            
+                func to_FellowshipReferenda_ProposalOrigin(in *registry.DecodedField) *pbgear.FellowshipReferenda_ProposalOrigin {
+                    return &pbgear.FellowshipReferenda_ProposalOrigin{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_FellowshipReferenda_Proposal(in *registry.DecodedField) *pbgear.FellowshipReferenda_Proposal {
+                    return &pbgear.FellowshipReferenda_Proposal{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_FellowshipReferenda_EnactmentMoment(in *registry.DecodedField) *pbgear.FellowshipReferenda_EnactmentMoment {
+                    return &pbgear.FellowshipReferenda_EnactmentMoment{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Raw3salut(fields []*registry.DecodedField) *pbgear.Identity_Raw3 {
+    return &pbgear.Identity_Raw3{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw25salut(fields []*registry.DecodedField) *pbgear.Identity_Raw25 {
+    return &pbgear.Identity_Raw25{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Proxy_Realsalut(fields []*registry.DecodedField) *pbgear.Proxy_Real {
+    return &pbgear.Proxy_Real{
+                Value: to_oneof_Proxy_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Proxy_Value(in *registry.DecodedField) *pbgear.Proxy_Value {
+                    return nil
+                }   
+func to_Vesting_MergeSchedulesCallsalut(fields []*registry.DecodedField) *pbgear.Vesting_MergeSchedulesCall {
+    return &pbgear.Vesting_MergeSchedulesCall{
+                Schedule1Index : uint32(field.Value),
+                Schedule2Index : uint32(field.Value),
+    }
+}   
+func to_Treasury_ApproveProposalCallsalut(fields []*registry.DecodedField) *pbgear.Treasury_ApproveProposalCall {
+    return &pbgear.Treasury_ApproveProposalCall{
+                ProposalId: to_Treasury_CompactUint32(field.Value),
+    }
+}  
+func to_Identity_AddRegistrarCallsalut(fields []*registry.DecodedField) *pbgear.Identity_AddRegistrarCall {
+    return &pbgear.Identity_AddRegistrarCall{
+                Account: to_Identity_Account(field.Value),
+    }
+}
+            
+                func to_Identity_Account(in *registry.DecodedField) *pbgear.Identity_Account {
+                    return &pbgear.Identity_Account{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ChildBounties_Indexsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_Index {
+    return &pbgear.ChildBounties_Index{
+                Value0: to_ChildBounties_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_ChildBounties_CompactTupleNull(in *registry.DecodedField) *pbgear.ChildBounties_CompactTupleNull {
+                    return &pbgear.ChildBounties_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_Removesalut(fields []*registry.DecodedField) *pbgear.NominationPools_Remove {
+    return &pbgear.NominationPools_Remove{
+    }
+} 
+func to_FellowshipCollective_RemoveMemberCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_RemoveMemberCall {
+    return &pbgear.FellowshipCollective_RemoveMemberCall{
+                Who: to_FellowshipCollective_Who(field.Value),
+                MinRank : uint32(field.Value),
+    }
+} 
+            
+                   
+func to_FellowshipReferenda_NudgeReferendumCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_NudgeReferendumCall {
+    return &pbgear.FellowshipReferenda_NudgeReferendumCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_NominationPools_Permissionsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Permission {
+    return &pbgear.NominationPools_Permission{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_Babe_SpRuntimeGenericDigestDigestsalut(fields []*registry.DecodedField) *pbgear.Babe_SpRuntimeGenericDigestDigest {
+    return &pbgear.Babe_SpRuntimeGenericDigestDigest{
+                Logs: to_repeated_Babe_SpRuntimeGenericDigestDigestItem(field.Value),
+    }
+}
+            
+                func to_repeated_Babe_SpRuntimeGenericDigestDigestItem(in *registry.DecodedField) []*pbgear.Babe_SpRuntimeGenericDigestDigestItem {
+                    return []*pbgear.Babe_SpRuntimeGenericDigestDigestItem{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Preimage_UnrequestPreimageCallsalut(fields []*registry.DecodedField) *pbgear.Preimage_UnrequestPreimageCall {
+    return &pbgear.Preimage_UnrequestPreimageCall{
+                Hash: to_Preimage_PrimitiveTypesH256(field.Value),
+    }
+}
+            
+                func to_Preimage_PrimitiveTypesH256(in *registry.DecodedField) *pbgear.Preimage_PrimitiveTypesH256 {
+                    return &pbgear.Preimage_PrimitiveTypesH256{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Raw11salut(fields []*registry.DecodedField) *pbgear.Identity_Raw11 {
+    return &pbgear.Identity_Raw11{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw32salut(fields []*registry.DecodedField) *pbgear.Identity_Raw32 {
+    return &pbgear.Identity_Raw32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Multisig_AsMultiThreshold1Callsalut(fields []*registry.DecodedField) *pbgear.Multisig_AsMultiThreshold1Call {
+    return &pbgear.Multisig_AsMultiThreshold1Call{
+                OtherSignatories: to_repeated_Multisig_SpCoreCryptoAccountId32(field.Value),
+                Call: to_oneof_Multisig_Call(field.Value),
+    }
+}   
+func to_NominationPools_ClaimCommissionCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_ClaimCommissionCall {
+    return &pbgear.NominationPools_ClaimCommissionCall{
+                PoolId : uint32(field.Value),
+    }
+}  
+func to_Babe_SpSessionMembershipProofsalut(fields []*registry.DecodedField) *pbgear.Babe_SpSessionMembershipProof {
+    return &pbgear.Babe_SpSessionMembershipProof{
+                Session : uint32(field.Value),
+                TrieNodes: to_repeated_Babe_BabeTrieNodesList(field.Value),
+                ValidatorCount : uint32(field.Value),
+    }
+}
+            
+                  
+            
+                func to_repeated_Babe_BabeTrieNodesList(in *registry.DecodedField) []*pbgear.Babe_BabeTrieNodesList {
+                    return []*pbgear.Babe_BabeTrieNodesList{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Staking_SpArithmeticPerThingsPerbillsalut(fields []*registry.DecodedField) *pbgear.Staking_SpArithmeticPerThingsPerbill {
+    return &pbgear.Staking_SpArithmeticPerThingsPerbill{
+                Value : uint32(field.Value),
+    }
+}  
+func to_ChildBounties_CloseChildBountyCallsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_CloseChildBountyCall {
+    return &pbgear.ChildBounties_CloseChildBountyCall{
+                ParentBountyId: to_ChildBounties_CompactUint32(field.Value),
+                ChildBountyId: to_ChildBounties_CompactUint32(field.Value),
+    }
+}   
+func to_NominationPools_Statesalut(fields []*registry.DecodedField) *pbgear.NominationPools_State {
+    return &pbgear.NominationPools_State{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_ConvictionVoting_RemoveVoteCallsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_RemoveVoteCall {
+    return &pbgear.ConvictionVoting_RemoveVoteCall{
+                Class : uint32(field.Value),
+                Index : uint32(field.Value),
+    }
+}
+            
+                func to_optional_ConvictionVoting_uint32(in *registry.DecodedField) *uint32 {
+                    var out *uint32
+                    
+                    if v, ok := in.Value.(uint32); ok {
+                        if v != 0 {
+                            panic("expected none")
+                        }
+                    } else {
+                        out = in.Value.(*uint32)
+                    }
+                    return out
+                }    
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_Session_SpConsensusBabeAppPublicsalut(fields []*registry.DecodedField) *pbgear.Session_SpConsensusBabeAppPublic {
+    return &pbgear.Session_SpConsensusBabeAppPublic{
+                Babe: to_Session_SpCoreSr25519Public(field.Value),
+    }
+}
+            
+                func to_Session_SpCoreSr25519Public(in *registry.DecodedField) *pbgear.Session_SpCoreSr25519Public {
+                    return &pbgear.Session_SpCoreSr25519Public{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Utility_Originssalut(fields []*registry.DecodedField) *pbgear.Utility_Origins {
+    return &pbgear.Utility_Origins{
+                Value0: to_Utility_Value0(field.Value),
+    }
+}  
+func to_FellowshipCollective_Idsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Id {
+    return &pbgear.FellowshipCollective_Id{
+                Value0: to_FellowshipCollective_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_FellowshipCollective_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.FellowshipCollective_SpCoreCryptoAccountId32 {
+                    return &pbgear.FellowshipCollective_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Bounties_Address32salut(fields []*registry.DecodedField) *pbgear.Bounties_Address32 {
+    return &pbgear.Bounties_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_Extrasalut(fields []*registry.DecodedField) *pbgear.NominationPools_Extra {
+    return &pbgear.NominationPools_Extra{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_NominationPools_Setsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Set {
+    return &pbgear.NominationPools_Set{
+                Value0: to_NominationPools_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Babe_RuntimeEnvironmentUpdatedsalut(fields []*registry.DecodedField) *pbgear.Babe_RuntimeEnvironmentUpdated {
+    return &pbgear.Babe_RuntimeEnvironmentUpdated{
+    }
+} 
+func to_Grandpa_Equivocationsalut(fields []*registry.DecodedField) *pbgear.Grandpa_Equivocation {
+    return &pbgear.Grandpa_Equivocation{
+                Value: to_oneof_Grandpa_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Grandpa_Value(in *registry.DecodedField) *pbgear.Grandpa_Value {
+                    return nil
+                }   
+func to_FellowshipReferenda_BoundedCollectionsBoundedVecBoundedVecsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_BoundedCollectionsBoundedVecBoundedVec {
+    return &pbgear.FellowshipReferenda_BoundedCollectionsBoundedVecBoundedVec{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Proxy_NonTransfersalut(fields []*registry.DecodedField) *pbgear.Proxy_NonTransfer {
+    return &pbgear.Proxy_NonTransfer{
+    }
+} 
+func to_ChildBounties_TupleNullsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_TupleNull {
+    return &pbgear.ChildBounties_TupleNull{
+    }
+} 
+func to_NominationPools_SetCommissionCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_SetCommissionCall {
+    return &pbgear.NominationPools_SetCommissionCall{
+                PoolId : uint32(field.Value),
+                NewCommission: to_optional_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32(field.Value),
+    }
+} 
+            
+                func to_optional_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 {
+                    return &pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Babe_Configsalut(fields []*registry.DecodedField) *pbgear.Babe_Config {
+    return &pbgear.Babe_Config{
+                Value: to_oneof_Babe_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Babe_Value(in *registry.DecodedField) *pbgear.Babe_Value {
+                    return nil
+                }   
+func to_Staking_WithdrawUnbondedCallsalut(fields []*registry.DecodedField) *pbgear.Staking_WithdrawUnbondedCall {
+    return &pbgear.Staking_WithdrawUnbondedCall{
+                NumSlashingSpans : uint32(field.Value),
+    }
+}  
+func to_Identity_BlakeTwo256salut(fields []*registry.DecodedField) *pbgear.Identity_BlakeTwo256 {
+    return &pbgear.Identity_BlakeTwo256{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Twittersalut(fields []*registry.DecodedField) *pbgear.Identity_Twitter {
+    return &pbgear.Identity_Twitter{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Identity_Erroneoussalut(fields []*registry.DecodedField) *pbgear.Identity_Erroneous {
+    return &pbgear.Identity_Erroneous{
+    }
+} 
+func to_Identity_PrimitiveTypesH256salut(fields []*registry.DecodedField) *pbgear.Identity_PrimitiveTypesH256 {
+    return &pbgear.Identity_PrimitiveTypesH256{
+                Identity : []uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32Stringsalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String {
+    return &pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String{
+                Value0: to_ElectionProviderMultiPhase_SpCoreCryptoAccountId32(field.Value),
+                Value1 : string(field.Value),
+    }
+}
+            
+                func to_ElectionProviderMultiPhase_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SpCoreCryptoAccountId32 {
+                    return &pbgear.ElectionProviderMultiPhase_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Bounties_ProposeBountyCallsalut(fields []*registry.DecodedField) *pbgear.Bounties_ProposeBountyCall {
+    return &pbgear.Bounties_ProposeBountyCall{
+                Value: to_Bounties_CompactString(field.Value),
+                Description : []uint32(field.Value),
+    }
+}
+            
+                func to_Bounties_CompactString(in *registry.DecodedField) *pbgear.Bounties_CompactString {
+                    return &pbgear.Bounties_CompactString{
+                        // TODO fill all fields
+                    }
+                }    
+func to_System_RemarkCallsalut(fields []*registry.DecodedField) *pbgear.System_RemarkCall {
+    return &pbgear.System_RemarkCall{
+                Remark : []uint32(field.Value),
+    }
+}  
+func to_Grandpa_ReportEquivocationCallsalut(fields []*registry.DecodedField) *pbgear.Grandpa_ReportEquivocationCall {
+    return &pbgear.Grandpa_ReportEquivocationCall{
+                EquivocationProof: to_Grandpa_SpConsensusGrandpaEquivocationProof(field.Value),
+                KeyOwnerProof: to_Grandpa_SpSessionMembershipProof(field.Value),
+    }
+}
+            
+                func to_Grandpa_SpConsensusGrandpaEquivocationProof(in *registry.DecodedField) *pbgear.Grandpa_SpConsensusGrandpaEquivocationProof {
+                    return &pbgear.Grandpa_SpConsensusGrandpaEquivocationProof{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Grandpa_SpSessionMembershipProof(in *registry.DecodedField) *pbgear.Grandpa_SpSessionMembershipProof {
+                    return &pbgear.Grandpa_SpSessionMembershipProof{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Raw31salut(fields []*registry.DecodedField) *pbgear.Identity_Raw31 {
+    return &pbgear.Identity_Raw31{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_NominationPools_SetClaimPermissionCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_SetClaimPermissionCall {
+    return &pbgear.NominationPools_SetClaimPermissionCall{
+                Permission: to_NominationPools_Permission(field.Value),
+    }
+}
+            
+                func to_NominationPools_Permission(in *registry.DecodedField) *pbgear.NominationPools_Permission {
+                    return &pbgear.NominationPools_Permission{
+                        // TODO fill all fields
+                    }
+                }   
+func to_BagsList_PutInFrontOfCallsalut(fields []*registry.DecodedField) *pbgear.BagsList_PutInFrontOfCall {
+    return &pbgear.BagsList_PutInFrontOfCall{
+                Lighter: to_BagsList_Lighter(field.Value),
+    }
+}
+            
+                func to_BagsList_Lighter(in *registry.DecodedField) *pbgear.BagsList_Lighter {
+                    return &pbgear.BagsList_Lighter{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_ChillThresholdsalut(fields []*registry.DecodedField) *pbgear.Staking_ChillThreshold {
+    return &pbgear.Staking_ChillThreshold{
+                Value: to_oneof_Staking_Value(field.Value),
+    }
+}  
+func to_ConvictionVoting_Targetsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Target {
+    return &pbgear.ConvictionVoting_Target{
+                Value: to_oneof_ConvictionVoting_Value(field.Value),
+    }
+}  
+func to_Referenda_Voidsalut(fields []*registry.DecodedField) *pbgear.Referenda_Void {
+    return &pbgear.Referenda_Void{
+                Value0: to_Referenda_Value0(field.Value),
+    }
+}  
+func to_Referenda_Atsalut(fields []*registry.DecodedField) *pbgear.Referenda_At {
+    return &pbgear.Referenda_At{
+                Value0 : uint32(field.Value),
+    }
+}  
+func to_Proxy_RejectAnnouncementCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_RejectAnnouncementCall {
+    return &pbgear.Proxy_RejectAnnouncementCall{
+                Delegate: to_Proxy_Delegate(field.Value),
+                CallHash: to_Proxy_PrimitiveTypesH256(field.Value),
+    }
+}   
+func to_Bounties_Curatorsalut(fields []*registry.DecodedField) *pbgear.Bounties_Curator {
+    return &pbgear.Bounties_Curator{
+                Value: to_oneof_Bounties_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Bounties_Value(in *registry.DecodedField) *pbgear.Bounties_Value {
+                    return nil
+                }   
+func to_Gear_UploadCodeCallsalut(fields []*registry.DecodedField) *pbgear.Gear_UploadCodeCall {
+    return &pbgear.Gear_UploadCodeCall{
+                Code : []uint32(field.Value),
+    }
+}  
+func to_Treasury_Address32salut(fields []*registry.DecodedField) *pbgear.Treasury_Address32 {
+    return &pbgear.Treasury_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Utility_BatchCallsalut(fields []*registry.DecodedField) *pbgear.Utility_BatchCall {
+    return &pbgear.Utility_BatchCall{
+                Calls: to_repeated_Utility_VaraRuntimeRuntimeCall(field.Value),
+    }
+}  
+func to_StakingRewards_TupleNullsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_TupleNull {
+    return &pbgear.StakingRewards_TupleNull{
+    }
+} 
+func to_Staking_IncreaseValidatorCountCallsalut(fields []*registry.DecodedField) *pbgear.Staking_IncreaseValidatorCountCall {
+    return &pbgear.Staking_IncreaseValidatorCountCall{
+                Additional: to_Staking_CompactUint32(field.Value),
+    }
+}
+            
+                func to_Staking_CompactUint32(in *registry.DecodedField) *pbgear.Staking_CompactUint32 {
+                    return &pbgear.Staking_CompactUint32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_FellowshipCollective_VoteCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_VoteCall {
+    return &pbgear.FellowshipCollective_VoteCall{
+                Poll : uint32(field.Value),
+                Aye : bool(field.Value),
+    }
+} 
+            
+                   
+func to_NominationPools_UnbondCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_UnbondCall {
+    return &pbgear.NominationPools_UnbondCall{
+                MemberAccount: to_NominationPools_MemberAccount(field.Value),
+                UnbondingPoints: to_NominationPools_CompactString(field.Value),
+    }
+}   
+func to_StakingRewards_WithdrawCallsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_WithdrawCall {
+    return &pbgear.StakingRewards_WithdrawCall{
+                To: to_StakingRewards_To(field.Value),
+                Value : string(field.Value),
+    }
+}
+            
+                func to_StakingRewards_To(in *registry.DecodedField) *pbgear.StakingRewards_To {
+                    return &pbgear.StakingRewards_To{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                   
+func to_Babe_PlanConfigChangeCallsalut(fields []*registry.DecodedField) *pbgear.Babe_PlanConfigChangeCall {
+    return &pbgear.Babe_PlanConfigChangeCall{
+                Config: to_Babe_Config(field.Value),
+    }
+}
+            
+                func to_Babe_Config(in *registry.DecodedField) *pbgear.Babe_Config {
+                    return &pbgear.Babe_Config{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Vesting_Indexsalut(fields []*registry.DecodedField) *pbgear.Vesting_Index {
+    return &pbgear.Vesting_Index{
+                Value0: to_Vesting_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_Vesting_CompactTupleNull(in *registry.DecodedField) *pbgear.Vesting_CompactTupleNull {
+                    return &pbgear.Vesting_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Session_SpAuthorityDiscoveryAppPublicsalut(fields []*registry.DecodedField) *pbgear.Session_SpAuthorityDiscoveryAppPublic {
+    return &pbgear.Session_SpAuthorityDiscoveryAppPublic{
+                AuthorityDiscovery: to_Session_SpCoreSr25519Public(field.Value),
+    }
+}  
+func to_Utility_Nonesalut(fields []*registry.DecodedField) *pbgear.Utility_None {
+    return &pbgear.Utility_None{
+    }
+} 
+func to_Identity_LowQualitysalut(fields []*registry.DecodedField) *pbgear.Identity_LowQuality {
+    return &pbgear.Identity_LowQuality{
+    }
+} 
+func to_Babe_ReportEquivocationCallsalut(fields []*registry.DecodedField) *pbgear.Babe_ReportEquivocationCall {
+    return &pbgear.Babe_ReportEquivocationCall{
+                EquivocationProof: to_Babe_SpConsensusSlotsEquivocationProof(field.Value),
+                KeyOwnerProof: to_Babe_SpSessionMembershipProof(field.Value),
+    }
+}
+            
+                func to_Babe_SpConsensusSlotsEquivocationProof(in *registry.DecodedField) *pbgear.Babe_SpConsensusSlotsEquivocationProof {
+                    return &pbgear.Babe_SpConsensusSlotsEquivocationProof{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Babe_SpSessionMembershipProof(in *registry.DecodedField) *pbgear.Babe_SpSessionMembershipProof {
+                    return &pbgear.Babe_SpSessionMembershipProof{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Balances_Sourcesalut(fields []*registry.DecodedField) *pbgear.Balances_Source {
+    return &pbgear.Balances_Source{
+                Value: to_oneof_Balances_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Balances_Value(in *registry.DecodedField) *pbgear.Balances_Value {
+                    return nil
+                }   
+func to_FellowshipReferenda_ProposalOriginsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_ProposalOrigin {
+    return &pbgear.FellowshipReferenda_ProposalOrigin{
+                Value: to_oneof_FellowshipReferenda_Value(field.Value),
+    }
+}  
+func to_Identity_Idsalut(fields []*registry.DecodedField) *pbgear.Identity_Id {
+    return &pbgear.Identity_Id{
+                Value0: to_Identity_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Multisig_CancelAsMultiCallsalut(fields []*registry.DecodedField) *pbgear.Multisig_CancelAsMultiCall {
+    return &pbgear.Multisig_CancelAsMultiCall{
+                Threshold : uint32(field.Value),
+                OtherSignatories: to_repeated_Multisig_SpCoreCryptoAccountId32(field.Value),
+                Timepoint: to_Multisig_PalletMultisigTimepoint(field.Value),
+                CallHash : []uint32(field.Value),
+    }
+}     
+func to_Gear_GprimitivesCodeIdsalut(fields []*registry.DecodedField) *pbgear.Gear_GprimitivesCodeId {
+    return &pbgear.Gear_GprimitivesCodeId{
+                CodeId : []uint32(field.Value),
+    }
+}  
+func to_GearVoucher_UpdateCallsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_UpdateCall {
+    return &pbgear.GearVoucher_UpdateCall{
+                Spender: to_GearVoucher_SpCoreCryptoAccountId32(field.Value),
+                VoucherId: to_GearVoucher_PalletGearVoucherInternalVoucherId(field.Value),
+                MoveOwnership: to_optional_GearVoucher_SpCoreCryptoAccountId32(field.Value),
+                BalanceTopUp : string(field.Value),
+                AppendPrograms: to_optional_GearVoucher_AppendPrograms(field.Value),
+                CodeUploading : bool(field.Value),
+                ProlongDuration : uint32(field.Value),
+    }
+}    
+            
+                func to_optional_GearVoucher_AppendPrograms(in *registry.DecodedField) *pbgear.GearVoucher_AppendPrograms {
+                    return &pbgear.GearVoucher_AppendPrograms{
+                        // TODO fill all fields
+                    }
+                }     
+func to_BagsList_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.BagsList_CompactTupleNull {
+    return &pbgear.BagsList_CompactTupleNull{
+                Value: to_BagsList_TupleNull(field.Value),
+    }
+}
+            
+                func to_BagsList_TupleNull(in *registry.DecodedField) *pbgear.BagsList_TupleNull {
+                    return &pbgear.BagsList_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Treasury_CheckStatusCallsalut(fields []*registry.DecodedField) *pbgear.Treasury_CheckStatusCall {
+    return &pbgear.Treasury_CheckStatusCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_Whitelist_PrimitiveTypesH256salut(fields []*registry.DecodedField) *pbgear.Whitelist_PrimitiveTypesH256 {
+    return &pbgear.Whitelist_PrimitiveTypesH256{
+                CallHash : []uint32(field.Value),
+    }
+}  
+func to_Whitelist_DispatchWhitelistedCallCallsalut(fields []*registry.DecodedField) *pbgear.Whitelist_DispatchWhitelistedCallCall {
+    return &pbgear.Whitelist_DispatchWhitelistedCallCall{
+                CallHash: to_Whitelist_PrimitiveTypesH256(field.Value),
+                CallEncodedLen : uint32(field.Value),
+                CallWeightWitness: to_Whitelist_SpWeightsWeightV2Weight(field.Value),
+    }
+} 
+            
+                  
+            
+                func to_Whitelist_SpWeightsWeightV2Weight(in *registry.DecodedField) *pbgear.Whitelist_SpWeightsWeightV2Weight {
+                    return &pbgear.Whitelist_SpWeightsWeightV2Weight{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCallsalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall {
+    return &pbgear.ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall{
+                MaybeNextScore: to_optional_ElectionProviderMultiPhase_SpNposElectionsElectionScore(field.Value),
+    }
+}
+            
+                func to_optional_ElectionProviderMultiPhase_SpNposElectionsElectionScore(in *registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SpNposElectionsElectionScore {
+                    return &pbgear.ElectionProviderMultiPhase_SpNposElectionsElectionScore{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_SetStateCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_SetStateCall {
+    return &pbgear.NominationPools_SetStateCall{
+                PoolId : uint32(field.Value),
+                State: to_NominationPools_State(field.Value),
+    }
+} 
+            
+                func to_NominationPools_State(in *registry.DecodedField) *pbgear.NominationPools_State {
+                    return &pbgear.NominationPools_State{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Babe_SpRuntimeGenericDigestDigestItemsalut(fields []*registry.DecodedField) *pbgear.Babe_SpRuntimeGenericDigestDigestItem {
+    return &pbgear.Babe_SpRuntimeGenericDigestDigestItem{
+                Logs: to_Babe_Logs(field.Value),
+    }
+}
+            
+                func to_Babe_Logs(in *registry.DecodedField) *pbgear.Babe_Logs {
+                    return &pbgear.Babe_Logs{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Babe_ReportEquivocationUnsignedCallsalut(fields []*registry.DecodedField) *pbgear.Babe_ReportEquivocationUnsignedCall {
+    return &pbgear.Babe_ReportEquivocationUnsignedCall{
+                EquivocationProof: to_Babe_SpConsensusSlotsEquivocationProof(field.Value),
+                KeyOwnerProof: to_Babe_SpSessionMembershipProof(field.Value),
+    }
+}   
+func to_Babe_V1salut(fields []*registry.DecodedField) *pbgear.Babe_V1 {
+    return &pbgear.Babe_V1{
+                C: to_Babe_TupleUint64Uint64(field.Value),
+                AllowedSlots: to_Babe_AllowedSlots(field.Value),
+    }
+}
+            
+                func to_Babe_TupleUint64Uint64(in *registry.DecodedField) *pbgear.Babe_TupleUint64Uint64 {
+                    return &pbgear.Babe_TupleUint64Uint64{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Babe_AllowedSlots(in *registry.DecodedField) *pbgear.Babe_AllowedSlots {
+                    return &pbgear.Babe_AllowedSlots{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_RemoveSubCallsalut(fields []*registry.DecodedField) *pbgear.Identity_RemoveSubCall {
+    return &pbgear.Identity_RemoveSubCall{
+                Sub: to_Identity_Sub(field.Value),
+    }
+}  
+func to_FellowshipCollective_Address20salut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Address20 {
+    return &pbgear.FellowshipCollective_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_SetSubsCallsalut(fields []*registry.DecodedField) *pbgear.Identity_SetSubsCall {
+    return &pbgear.Identity_SetSubsCall{
+                Subs: to_repeated_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(field.Value),
+    }
+}
+            
+                func to_repeated_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(in *registry.DecodedField) []*pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData {
+                    return []*pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Proxy_IdentityJudgementsalut(fields []*registry.DecodedField) *pbgear.Proxy_IdentityJudgement {
+    return &pbgear.Proxy_IdentityJudgement{
+    }
+} 
+func to_Balances_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.Balances_CompactTupleNull {
+    return &pbgear.Balances_CompactTupleNull{
+                Value: to_Balances_TupleNull(field.Value),
+    }
+}
+            
+                func to_Balances_TupleNull(in *registry.DecodedField) *pbgear.Balances_TupleNull {
+                    return &pbgear.Balances_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Balances_UpgradeAccountsCallsalut(fields []*registry.DecodedField) *pbgear.Balances_UpgradeAccountsCall {
+    return &pbgear.Balances_UpgradeAccountsCall{
+                Who: to_repeated_Balances_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_repeated_Balances_SpCoreCryptoAccountId32(in *registry.DecodedField) []*pbgear.Balances_SpCoreCryptoAccountId32 {
+                    return []*pbgear.Balances_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Vesting_TupleNullsalut(fields []*registry.DecodedField) *pbgear.Vesting_TupleNull {
+    return &pbgear.Vesting_TupleNull{
+    }
+} 
+func to_Identity_Raw15salut(fields []*registry.DecodedField) *pbgear.Identity_Raw15 {
+    return &pbgear.Identity_Raw15{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Balances_ForceUnreserveCallsalut(fields []*registry.DecodedField) *pbgear.Balances_ForceUnreserveCall {
+    return &pbgear.Balances_ForceUnreserveCall{
+                Who: to_Balances_Who(field.Value),
+                Amount : string(field.Value),
+    }
+} 
+            
+                   
+func to_Vesting_Address20salut(fields []*registry.DecodedField) *pbgear.Vesting_Address20 {
+    return &pbgear.Vesting_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Session_SpCoreSr25519Publicsalut(fields []*registry.DecodedField) *pbgear.Session_SpCoreSr25519Public {
+    return &pbgear.Session_SpCoreSr25519Public{
+                Babe : []uint32(field.Value),
+    }
+}  
+func to_Identity_RenameSubCallsalut(fields []*registry.DecodedField) *pbgear.Identity_RenameSubCall {
+    return &pbgear.Identity_RenameSubCall{
+                Sub: to_Identity_Sub(field.Value),
+                Data: to_Identity_Data(field.Value),
+    }
+}   
+func to_Multisig_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Multisig_SpCoreCryptoAccountId32 {
+    return &pbgear.Multisig_SpCoreCryptoAccountId32{
+                OtherSignatories: to_Multisig_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Balances_TupleNullsalut(fields []*registry.DecodedField) *pbgear.Balances_TupleNull {
+    return &pbgear.Balances_TupleNull{
+    }
+} 
+func to_Staking_Noopsalut(fields []*registry.DecodedField) *pbgear.Staking_Noop {
+    return &pbgear.Staking_Noop{
+    }
+} 
+func to_Proxy_ProxyCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_ProxyCall {
+    return &pbgear.Proxy_ProxyCall{
+                Real: to_Proxy_Real(field.Value),
+                ForceProxyType: to_optional_Proxy_ForceProxyType(field.Value),
+                Call: to_oneof_Proxy_Call(field.Value),
+    }
+}    
+func to_Bounties_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Bounties_SpCoreCryptoAccountId32 {
+    return &pbgear.Bounties_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ConvictionVoting_Splitsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Split {
+    return &pbgear.ConvictionVoting_Split{
+                Aye : string(field.Value),
+                Nay : string(field.Value),
+    }
+}
+            
+                    
+func to_FellowshipReferenda_Lookupsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Lookup {
+    return &pbgear.FellowshipReferenda_Lookup{
+                Hash: to_FellowshipReferenda_PrimitiveTypesH256(field.Value),
+                Len : uint32(field.Value),
+    }
+}
+            
+                func to_FellowshipReferenda_PrimitiveTypesH256(in *registry.DecodedField) *pbgear.FellowshipReferenda_PrimitiveTypesH256 {
+                    return &pbgear.FellowshipReferenda_PrimitiveTypesH256{
+                        // TODO fill all fields
+                    }
+                }    
+func to_BagsList_Idsalut(fields []*registry.DecodedField) *pbgear.BagsList_Id {
+    return &pbgear.BagsList_Id{
+                Value0: to_BagsList_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_BagsList_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.BagsList_SpCoreCryptoAccountId32 {
+                    return &pbgear.BagsList_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ConvictionVoting_Locked5Xsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Locked5X {
+    return &pbgear.ConvictionVoting_Locked5X{
+    }
+} 
+func to_FellowshipReferenda_Atsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_At {
+    return &pbgear.FellowshipReferenda_At{
+                Value0 : uint32(field.Value),
+    }
+}  
+func to_Identity_Newsalut(fields []*registry.DecodedField) *pbgear.Identity_New {
+    return &pbgear.Identity_New{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_NominationPools_Idsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Id {
+    return &pbgear.NominationPools_Id{
+                Value0: to_NominationPools_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Babe_Othersalut(fields []*registry.DecodedField) *pbgear.Babe_Other {
+    return &pbgear.Babe_Other{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Babe_SpRuntimeGenericHeaderHeadersalut(fields []*registry.DecodedField) *pbgear.Babe_SpRuntimeGenericHeaderHeader {
+    return &pbgear.Babe_SpRuntimeGenericHeaderHeader{
+                ParentHash: to_Babe_PrimitiveTypesH256(field.Value),
+                Number: to_Babe_CompactUint32(field.Value),
+                StateRoot: to_Babe_PrimitiveTypesH256(field.Value),
+                ExtrinsicsRoot: to_Babe_PrimitiveTypesH256(field.Value),
+                Digest: to_Babe_SpRuntimeGenericDigestDigest(field.Value),
+    }
+}
+            
+                func to_Babe_PrimitiveTypesH256(in *registry.DecodedField) *pbgear.Babe_PrimitiveTypesH256 {
+                    return &pbgear.Babe_PrimitiveTypesH256{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Babe_CompactUint32(in *registry.DecodedField) *pbgear.Babe_CompactUint32 {
+                    return &pbgear.Babe_CompactUint32{
+                        // TODO fill all fields
+                    }
+                }    
+            
+                func to_Babe_SpRuntimeGenericDigestDigest(in *registry.DecodedField) *pbgear.Babe_SpRuntimeGenericDigestDigest {
+                    return &pbgear.Babe_SpRuntimeGenericDigestDigest{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_CancelDeferredSlashCallsalut(fields []*registry.DecodedField) *pbgear.Staking_CancelDeferredSlashCall {
+    return &pbgear.Staking_CancelDeferredSlashCall{
+                Era : uint32(field.Value),
+                SlashIndices : []uint32(field.Value),
+    }
+}   
+func to_Staking_ForceApplyMinCommissionCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ForceApplyMinCommissionCall {
+    return &pbgear.Staking_ForceApplyMinCommissionCall{
+                ValidatorStash: to_Staking_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Treasury_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Treasury_SpCoreCryptoAccountId32 {
+    return &pbgear.Treasury_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Referenda_Signedsalut(fields []*registry.DecodedField) *pbgear.Referenda_Signed {
+    return &pbgear.Referenda_Signed{
+                Value0: to_Referenda_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_Referenda_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.Referenda_SpCoreCryptoAccountId32 {
+                    return &pbgear.Referenda_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Whitelist_CompactUint64salut(fields []*registry.DecodedField) *pbgear.Whitelist_CompactUint64 {
+    return &pbgear.Whitelist_CompactUint64{
+                Value : uint64(field.Value),
+    }
+}
+            
+                   
+func to_Identity_KnownGoodsalut(fields []*registry.DecodedField) *pbgear.Identity_KnownGood {
+    return &pbgear.Identity_KnownGood{
+    }
+} 
+func to_Balances_Destsalut(fields []*registry.DecodedField) *pbgear.Balances_Dest {
+    return &pbgear.Balances_Dest{
+                Value: to_oneof_Balances_Value(field.Value),
+    }
+}  
+func to_Staking_Stashsalut(fields []*registry.DecodedField) *pbgear.Staking_Stash {
+    return &pbgear.Staking_Stash{
+    }
+} 
+func to_Proxy_Indexsalut(fields []*registry.DecodedField) *pbgear.Proxy_Index {
+    return &pbgear.Proxy_Index{
+                Value0: to_Proxy_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_Proxy_CompactTupleNull(in *registry.DecodedField) *pbgear.Proxy_CompactTupleNull {
+                    return &pbgear.Proxy_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_UpdateRolesCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_UpdateRolesCall {
+    return &pbgear.NominationPools_UpdateRolesCall{
+                PoolId : uint32(field.Value),
+                NewRoot: to_NominationPools_NewRoot(field.Value),
+                NewNominator: to_NominationPools_NewNominator(field.Value),
+                NewBouncer: to_NominationPools_NewBouncer(field.Value),
+    }
+} 
+            
+                func to_NominationPools_NewRoot(in *registry.DecodedField) *pbgear.NominationPools_NewRoot {
+                    return &pbgear.NominationPools_NewRoot{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_NewNominator(in *registry.DecodedField) *pbgear.NominationPools_NewNominator {
+                    return &pbgear.NominationPools_NewNominator{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_NewBouncer(in *registry.DecodedField) *pbgear.NominationPools_NewBouncer {
+                    return &pbgear.NominationPools_NewBouncer{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Proxy_CreatePureCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_CreatePureCall {
+    return &pbgear.Proxy_CreatePureCall{
+                ProxyType: to_Proxy_ProxyType(field.Value),
+                Delay : uint32(field.Value),
+                Index : uint32(field.Value),
+    }
+}    
+func to_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_ElectionProviderMultiPhase_CompactSpArithmeticPerThingsPerU16(field.Value),
+    }
+} 
+            
+                func to_ElectionProviderMultiPhase_CompactSpArithmeticPerThingsPerU16(in *registry.DecodedField) *pbgear.ElectionProviderMultiPhase_CompactSpArithmeticPerThingsPerU16 {
+                    return &pbgear.ElectionProviderMultiPhase_CompactSpArithmeticPerThingsPerU16{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ChildBounties_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_CompactTupleNull {
+    return &pbgear.ChildBounties_CompactTupleNull{
+                Value: to_ChildBounties_TupleNull(field.Value),
+    }
+}
+            
+                func to_ChildBounties_TupleNull(in *registry.DecodedField) *pbgear.ChildBounties_TupleNull {
+                    return &pbgear.ChildBounties_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_GearVoucher_Callsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_Call {
+    return &pbgear.GearVoucher_Call{
+                Value: to_oneof_GearVoucher_Value(field.Value),
+    }
+}  
+func to_Babe_SpConsensusBabeAppPublicsalut(fields []*registry.DecodedField) *pbgear.Babe_SpConsensusBabeAppPublic {
+    return &pbgear.Babe_SpConsensusBabeAppPublic{
+                Offender: to_Babe_SpCoreSr25519Public(field.Value),
+    }
+}
+            
+                func to_Babe_SpCoreSr25519Public(in *registry.DecodedField) *pbgear.Babe_SpCoreSr25519Public {
+                    return &pbgear.Babe_SpCoreSr25519Public{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ConvictionVoting_Rawsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Raw {
+    return &pbgear.ConvictionVoting_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_ElectionProviderMultiPhase_VaraRuntimeNposSolution16salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_VaraRuntimeNposSolution16 {
+    return &pbgear.ElectionProviderMultiPhase_VaraRuntimeNposSolution16{
+                Votes1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactUint32(field.Value),
+                Votes2: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32(field.Value),
+                Votes3: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32(field.Value),
+                Votes4: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32(field.Value),
+                Votes5: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32(field.Value),
+                Votes6: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32(field.Value),
+                Votes7: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32(field.Value),
+                Votes8: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32(field.Value),
+                Votes9: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32(field.Value),
+                Votes10: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32(field.Value),
+                Votes11: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32(field.Value),
+                Votes12: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32(field.Value),
+                Votes13: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32(field.Value),
+                Votes14: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32(field.Value),
+                Votes15: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32(field.Value),
+                Votes16: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32(field.Value),
+    }
+}
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32 {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.NominationPools_CompactTupleNull {
+    return &pbgear.NominationPools_CompactTupleNull{
+                Value: to_NominationPools_TupleNull(field.Value),
+    }
+}
+            
+                func to_NominationPools_TupleNull(in *registry.DecodedField) *pbgear.NominationPools_TupleNull {
+                    return &pbgear.NominationPools_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Vesting_Sourcesalut(fields []*registry.DecodedField) *pbgear.Vesting_Source {
+    return &pbgear.Vesting_Source{
+                Value: to_oneof_Vesting_Value(field.Value),
+    }
+}
+            
+                func to_oneof_Vesting_Value(in *registry.DecodedField) *pbgear.Vesting_Value {
+                    return nil
+                }   
+func to_Referenda_PlaceDecisionDepositCallsalut(fields []*registry.DecodedField) *pbgear.Referenda_PlaceDecisionDepositCall {
+    return &pbgear.Referenda_PlaceDecisionDepositCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_GearVoucher_DeclineVouchersalut(fields []*registry.DecodedField) *pbgear.GearVoucher_DeclineVoucher {
+    return &pbgear.GearVoucher_DeclineVoucher{
+    }
+} 
+func to_NominationPools_ClaimPayoutCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_ClaimPayoutCall {
+    return &pbgear.NominationPools_ClaimPayoutCall{
+    }
+} 
+func to_NominationPools_NewBouncersalut(fields []*registry.DecodedField) *pbgear.NominationPools_NewBouncer {
+    return &pbgear.NominationPools_NewBouncer{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_Treasury_Rawsalut(fields []*registry.DecodedField) *pbgear.Treasury_Raw {
+    return &pbgear.Treasury_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ConvictionVoting_DelegateCallsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_DelegateCall {
+    return &pbgear.ConvictionVoting_DelegateCall{
+                Class : uint32(field.Value),
+                To: to_ConvictionVoting_To(field.Value),
+                Conviction: to_ConvictionVoting_Conviction(field.Value),
+                Balance : string(field.Value),
+    }
+} 
+            
+                func to_ConvictionVoting_To(in *registry.DecodedField) *pbgear.ConvictionVoting_To {
+                    return &pbgear.ConvictionVoting_To{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_ConvictionVoting_Conviction(in *registry.DecodedField) *pbgear.ConvictionVoting_Conviction {
+                    return &pbgear.ConvictionVoting_Conviction{
+                        // TODO fill all fields
+                    }
+                }    
+func to_FellowshipReferenda_Value0salut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Value0 {
+    return &pbgear.FellowshipReferenda_Value0{
+                Value: to_oneof_FellowshipReferenda_Value(field.Value),
+    }
+}  
+func to_FellowshipReferenda_PrimitiveTypesH256salut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_PrimitiveTypesH256 {
+    return &pbgear.FellowshipReferenda_PrimitiveTypesH256{
+                Hash : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw21salut(fields []*registry.DecodedField) *pbgear.Identity_Raw21 {
+    return &pbgear.Identity_Raw21{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ChildBounties_Beneficiarysalut(fields []*registry.DecodedField) *pbgear.ChildBounties_Beneficiary {
+    return &pbgear.ChildBounties_Beneficiary{
+                Value: to_oneof_ChildBounties_Value(field.Value),
+    }
+}
+            
+                func to_oneof_ChildBounties_Value(in *registry.DecodedField) *pbgear.ChildBounties_Value {
+                    return nil
+                }   
+func to_Grandpa_GrandpaTrieNodesListsalut(fields []*registry.DecodedField) *pbgear.Grandpa_GrandpaTrieNodesList {
+    return &pbgear.Grandpa_GrandpaTrieNodesList{
+                TrieNodes : []uint32(field.Value),
+    }
+}  
+func to_Vesting_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.Vesting_CompactTupleNull {
+    return &pbgear.Vesting_CompactTupleNull{
+                Value: to_Vesting_TupleNull(field.Value),
+    }
+}
+            
+                func to_Vesting_TupleNull(in *registry.DecodedField) *pbgear.Vesting_TupleNull {
+                    return &pbgear.Vesting_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_StakingRewards_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.StakingRewards_SpCoreCryptoAccountId32 {
+    return &pbgear.StakingRewards_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_GearVoucher_SendReplysalut(fields []*registry.DecodedField) *pbgear.GearVoucher_SendReply {
+    return &pbgear.GearVoucher_SendReply{
+                ReplyToId: to_GearVoucher_GprimitivesMessageId(field.Value),
+                Payload : []uint32(field.Value),
+                GasLimit : uint64(field.Value),
+                Value : string(field.Value),
+                KeepAlive : bool(field.Value),
+    }
+}
+            
+                func to_GearVoucher_GprimitivesMessageId(in *registry.DecodedField) *pbgear.GearVoucher_GprimitivesMessageId {
+                    return &pbgear.GearVoucher_GprimitivesMessageId{
+                        // TODO fill all fields
+                    }
+                }   
+            
+                     
+func to_Staking_TupleNullsalut(fields []*registry.DecodedField) *pbgear.Staking_TupleNull {
+    return &pbgear.Staking_TupleNull{
+    }
+} 
+func to_Identity_Raw12salut(fields []*registry.DecodedField) *pbgear.Identity_Raw12 {
+    return &pbgear.Identity_Raw12{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Proxy_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.Proxy_CompactTupleNull {
+    return &pbgear.Proxy_CompactTupleNull{
+                Value: to_Proxy_TupleNull(field.Value),
+    }
+}
+            
+                func to_Proxy_TupleNull(in *registry.DecodedField) *pbgear.Proxy_TupleNull {
+                    return &pbgear.Proxy_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_SpArithmeticPerThingsPerbillsalut(fields []*registry.DecodedField) *pbgear.NominationPools_SpArithmeticPerThingsPerbill {
+    return &pbgear.NominationPools_SpArithmeticPerThingsPerbill{
+                Value0 : uint32(field.Value),
+    }
+}  
+func to_Grandpa_SpConsensusGrandpaAppPublicsalut(fields []*registry.DecodedField) *pbgear.Grandpa_SpConsensusGrandpaAppPublic {
+    return &pbgear.Grandpa_SpConsensusGrandpaAppPublic{
+                Identity: to_Grandpa_SpCoreEd25519Public(field.Value),
+    }
+}
+            
+                func to_Grandpa_SpCoreEd25519Public(in *registry.DecodedField) *pbgear.Grandpa_SpCoreEd25519Public {
+                    return &pbgear.Grandpa_SpCoreEd25519Public{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_UnbondCallsalut(fields []*registry.DecodedField) *pbgear.Staking_UnbondCall {
+    return &pbgear.Staking_UnbondCall{
+                Value: to_Staking_CompactString(field.Value),
+    }
+}
+            
+                func to_Staking_CompactString(in *registry.DecodedField) *pbgear.Staking_CompactString {
+                    return &pbgear.Staking_CompactString{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_SpRuntimeMultiaddressMultiAddresssalut(fields []*registry.DecodedField) *pbgear.Staking_SpRuntimeMultiaddressMultiAddress {
+    return &pbgear.Staking_SpRuntimeMultiaddressMultiAddress{
+                Targets: to_Staking_Targets(field.Value),
+    }
+}
+            
+                func to_Staking_Targets(in *registry.DecodedField) *pbgear.Staking_Targets {
+                    return &pbgear.Staking_Targets{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Subsalut(fields []*registry.DecodedField) *pbgear.Identity_Sub {
+    return &pbgear.Identity_Sub{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Identity_Raw13salut(fields []*registry.DecodedField) *pbgear.Identity_Raw13 {
+    return &pbgear.Identity_Raw13{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw16salut(fields []*registry.DecodedField) *pbgear.Identity_Raw16 {
+    return &pbgear.Identity_Raw16{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw20salut(fields []*registry.DecodedField) *pbgear.Identity_Raw20 {
+    return &pbgear.Identity_Raw20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_SubmitUnsignedCallsalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SubmitUnsignedCall {
+    return &pbgear.ElectionProviderMultiPhase_SubmitUnsignedCall{
+                RawSolution: to_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(field.Value),
+                Witness: to_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize(field.Value),
+    }
+} 
+            
+                func to_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize(in *registry.DecodedField) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize {
+                    return &pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_NewRootsalut(fields []*registry.DecodedField) *pbgear.NominationPools_NewRoot {
+    return &pbgear.NominationPools_NewRoot{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_StakingRewards_RefillCallsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_RefillCall {
+    return &pbgear.StakingRewards_RefillCall{
+                Value : string(field.Value),
+    }
+}  
+func to_Treasury_Idsalut(fields []*registry.DecodedField) *pbgear.Treasury_Id {
+    return &pbgear.Treasury_Id{
+                Value0: to_Treasury_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_Treasury_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.Treasury_SpCoreCryptoAccountId32 {
+                    return &pbgear.Treasury_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Referenda_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Referenda_SpCoreCryptoAccountId32 {
+    return &pbgear.Referenda_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SpCoreCryptoAccountId32 {
+    return &pbgear.ElectionProviderMultiPhase_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_BagsList_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.BagsList_SpCoreCryptoAccountId32 {
+    return &pbgear.BagsList_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw28salut(fields []*registry.DecodedField) *pbgear.Identity_Raw28 {
+    return &pbgear.Identity_Raw28{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ConvictionVoting_UnlockCallsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_UnlockCall {
+    return &pbgear.ConvictionVoting_UnlockCall{
+                Class : uint32(field.Value),
+                Target: to_ConvictionVoting_Target(field.Value),
+    }
+} 
+            
+                func to_ConvictionVoting_Target(in *registry.DecodedField) *pbgear.ConvictionVoting_Target {
+                    return &pbgear.ConvictionVoting_Target{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Bounties_Rawsalut(fields []*registry.DecodedField) *pbgear.Bounties_Raw {
+    return &pbgear.Bounties_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ChildBounties_Idsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_Id {
+    return &pbgear.ChildBounties_Id{
+                Value0: to_ChildBounties_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_ChildBounties_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.ChildBounties_SpCoreCryptoAccountId32 {
+                    return &pbgear.ChildBounties_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_PermissionlessAllsalut(fields []*registry.DecodedField) *pbgear.NominationPools_PermissionlessAll {
+    return &pbgear.NominationPools_PermissionlessAll{
+    }
+} 
+func to_Staking_BondCallsalut(fields []*registry.DecodedField) *pbgear.Staking_BondCall {
+    return &pbgear.Staking_BondCall{
+                Value: to_Staking_CompactString(field.Value),
+                Payee: to_Staking_Payee(field.Value),
+    }
+}   
+func to_Staking_ChillCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ChillCall {
+    return &pbgear.Staking_ChillCall{
+    }
+} 
+func to_Identity_Raw8salut(fields []*registry.DecodedField) *pbgear.Identity_Raw8 {
+    return &pbgear.Identity_Raw8{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw17salut(fields []*registry.DecodedField) *pbgear.Identity_Raw17 {
+    return &pbgear.Identity_Raw17{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Bounties_ClaimBountyCallsalut(fields []*registry.DecodedField) *pbgear.Bounties_ClaimBountyCall {
+    return &pbgear.Bounties_ClaimBountyCall{
+                BountyId: to_Bounties_CompactUint32(field.Value),
+    }
+}  
+func to_ChildBounties_ProposeCuratorCallsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_ProposeCuratorCall {
+    return &pbgear.ChildBounties_ProposeCuratorCall{
+                ParentBountyId: to_ChildBounties_CompactUint32(field.Value),
+                ChildBountyId: to_ChildBounties_CompactUint32(field.Value),
+                Curator: to_ChildBounties_Curator(field.Value),
+                Fee: to_ChildBounties_CompactString(field.Value),
+    }
+}  
+            
+                func to_ChildBounties_Curator(in *registry.DecodedField) *pbgear.ChildBounties_Curator {
+                    return &pbgear.ChildBounties_Curator{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_ChildBounties_CompactString(in *registry.DecodedField) *pbgear.ChildBounties_CompactString {
+                    return &pbgear.ChildBounties_CompactString{
+                        // TODO fill all fields
+                    }
+                }   
+func to_GearVoucher_Somesalut(fields []*registry.DecodedField) *pbgear.GearVoucher_Some {
+    return &pbgear.GearVoucher_Some{
+                Value0: to_GearVoucher_BTreeSet(field.Value),
+    }
+}  
+func to_Balances_TransferKeepAliveCallsalut(fields []*registry.DecodedField) *pbgear.Balances_TransferKeepAliveCall {
+    return &pbgear.Balances_TransferKeepAliveCall{
+                Dest: to_Balances_Dest(field.Value),
+                Value: to_Balances_CompactString(field.Value),
+    }
+}   
+func to_Staking_ForceUnstakeCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ForceUnstakeCall {
+    return &pbgear.Staking_ForceUnstakeCall{
+                Stash: to_Staking_SpCoreCryptoAccountId32(field.Value),
+                NumSlashingSpans : uint32(field.Value),
+    }
+}   
+func to_FellowshipCollective_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_CompactTupleNull {
+    return &pbgear.FellowshipCollective_CompactTupleNull{
+                Value: to_FellowshipCollective_TupleNull(field.Value),
+    }
+}
+            
+                func to_FellowshipCollective_TupleNull(in *registry.DecodedField) *pbgear.FellowshipCollective_TupleNull {
+                    return &pbgear.FellowshipCollective_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Proxy_CancelProxysalut(fields []*registry.DecodedField) *pbgear.Proxy_CancelProxy {
+    return &pbgear.Proxy_CancelProxy{
+    }
+} 
+func to_Bounties_UnassignCuratorCallsalut(fields []*registry.DecodedField) *pbgear.Bounties_UnassignCuratorCall {
+    return &pbgear.Bounties_UnassignCuratorCall{
+                BountyId: to_Bounties_CompactUint32(field.Value),
+    }
+}  
+func to_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 {
+    return &pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32{
+                Value0: to_NominationPools_SpArithmeticPerThingsPerbill(field.Value),
+                Value1: to_NominationPools_SpCoreCryptoAccountId32(field.Value),
+    }
+}   
+func to_Balances_Idsalut(fields []*registry.DecodedField) *pbgear.Balances_Id {
+    return &pbgear.Balances_Id{
+                Value0: to_Balances_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Staking_ForceNewEraCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ForceNewEraCall {
+    return &pbgear.Staking_ForceNewEraCall{
+    }
+} 
+func to_ChildBounties_AddChildBountyCallsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_AddChildBountyCall {
+    return &pbgear.ChildBounties_AddChildBountyCall{
+                ParentBountyId: to_ChildBounties_CompactUint32(field.Value),
+                Value: to_ChildBounties_CompactString(field.Value),
+                Description : []uint32(field.Value),
+    }
+}    
+func to_Referenda_OneFewerDecidingCallsalut(fields []*registry.DecodedField) *pbgear.Referenda_OneFewerDecidingCall {
+    return &pbgear.Referenda_OneFewerDecidingCall{
+                Track : uint32(field.Value),
+    }
+}  
+func to_Whitelist_RemoveWhitelistedCallCallsalut(fields []*registry.DecodedField) *pbgear.Whitelist_RemoveWhitelistedCallCall {
+    return &pbgear.Whitelist_RemoveWhitelistedCallCall{
+                CallHash: to_Whitelist_PrimitiveTypesH256(field.Value),
+    }
+}  
+func to_Vesting_VestOtherCallsalut(fields []*registry.DecodedField) *pbgear.Vesting_VestOtherCall {
+    return &pbgear.Vesting_VestOtherCall{
+                Target: to_Vesting_Target(field.Value),
+    }
+}  
+func to_ImOnline_HeartbeatCallsalut(fields []*registry.DecodedField) *pbgear.ImOnline_HeartbeatCall {
+    return &pbgear.ImOnline_HeartbeatCall{
+                Heartbeat: to_ImOnline_PalletImOnlineHeartbeat(field.Value),
+                Signature: to_ImOnline_PalletImOnlineSr25519AppSr25519Signature(field.Value),
+    }
+}
+            
+                func to_ImOnline_PalletImOnlineHeartbeat(in *registry.DecodedField) *pbgear.ImOnline_PalletImOnlineHeartbeat {
+                    return &pbgear.ImOnline_PalletImOnlineHeartbeat{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_ImOnline_PalletImOnlineSr25519AppSr25519Signature(in *registry.DecodedField) *pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Signature {
+                    return &pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Signature{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_BondExtraCallsalut(fields []*registry.DecodedField) *pbgear.Staking_BondExtraCall {
+    return &pbgear.Staking_BondExtraCall{
+                MaxAdditional: to_Staking_CompactString(field.Value),
+    }
+}  
+func to_ConvictionVoting_Nonesalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_None {
+    return &pbgear.ConvictionVoting_None{
+    }
+} 
+func to_Referenda_Lookupsalut(fields []*registry.DecodedField) *pbgear.Referenda_Lookup {
+    return &pbgear.Referenda_Lookup{
+                Hash: to_Referenda_PrimitiveTypesH256(field.Value),
+                Len : uint32(field.Value),
+    }
+}   
+func to_Identity_SetFeeCallsalut(fields []*registry.DecodedField) *pbgear.Identity_SetFeeCall {
+    return &pbgear.Identity_SetFeeCall{
+                Index: to_Identity_CompactUint32(field.Value),
+                Fee: to_Identity_CompactString(field.Value),
+    }
+} 
+            
+                func to_Identity_CompactString(in *registry.DecodedField) *pbgear.Identity_CompactString {
+                    return &pbgear.Identity_CompactString{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_SetMetadataCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_SetMetadataCall {
+    return &pbgear.NominationPools_SetMetadataCall{
+                PoolId : uint32(field.Value),
+                Metadata : []uint32(field.Value),
+    }
+}   
+func to_StakingRewards_Idsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_Id {
+    return &pbgear.StakingRewards_Id{
+                Value0: to_StakingRewards_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_StakingRewards_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.StakingRewards_SpCoreCryptoAccountId32 {
+                    return &pbgear.StakingRewards_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignaturesalut(fields []*registry.DecodedField) *pbgear.Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature {
+    return &pbgear.Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature{
+                Value0: to_Grandpa_FinalityGrandpaPrevote(field.Value),
+                Value1: to_Grandpa_SpConsensusGrandpaAppSignature(field.Value),
+    }
+}
+            
+                func to_Grandpa_FinalityGrandpaPrevote(in *registry.DecodedField) *pbgear.Grandpa_FinalityGrandpaPrevote {
+                    return &pbgear.Grandpa_FinalityGrandpaPrevote{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Grandpa_SpConsensusGrandpaAppSignature(in *registry.DecodedField) *pbgear.Grandpa_SpConsensusGrandpaAppSignature {
+                    return &pbgear.Grandpa_SpConsensusGrandpaAppSignature{
+                        // TODO fill all fields
+                    }
+                }   
+func to_BagsList_Address32salut(fields []*registry.DecodedField) *pbgear.BagsList_Address32 {
+    return &pbgear.BagsList_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_TupleNullsalut(fields []*registry.DecodedField) *pbgear.Identity_TupleNull {
+    return &pbgear.Identity_TupleNull{
+    }
+} 
+func to_Identity_Raw18salut(fields []*registry.DecodedField) *pbgear.Identity_Raw18 {
+    return &pbgear.Identity_Raw18{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Proxy_ForceProxyTypesalut(fields []*registry.DecodedField) *pbgear.Proxy_ForceProxyType {
+    return &pbgear.Proxy_ForceProxyType{
+                Value: to_oneof_Proxy_Value(field.Value),
+    }
+}  
+func to_NominationPools_FreeBalancesalut(fields []*registry.DecodedField) *pbgear.NominationPools_FreeBalance {
+    return &pbgear.NominationPools_FreeBalance{
+                Value0 : string(field.Value),
+    }
+}
+            
+                   
+func to_Babe_Consensussalut(fields []*registry.DecodedField) *pbgear.Babe_Consensus {
+    return &pbgear.Babe_Consensus{
+                Value0 : []uint32(field.Value),
+                Value1 : []uint32(field.Value),
+    }
+}   
+func to_Grandpa_FinalityGrandpaPrevotesalut(fields []*registry.DecodedField) *pbgear.Grandpa_FinalityGrandpaPrevote {
+    return &pbgear.Grandpa_FinalityGrandpaPrevote{
+                TargetHash: to_Grandpa_PrimitiveTypesH256(field.Value),
+                TargetNumber : uint32(field.Value),
+    }
+}
+            
+                func to_Grandpa_PrimitiveTypesH256(in *registry.DecodedField) *pbgear.Grandpa_PrimitiveTypesH256 {
+                    return &pbgear.Grandpa_PrimitiveTypesH256{
+                        // TODO fill all fields
+                    }
+                }    
+func to_FellowshipReferenda_SetMetadataCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_SetMetadataCall {
+    return &pbgear.FellowshipReferenda_SetMetadataCall{
+                Index : uint32(field.Value),
+                MaybeHash: to_optional_FellowshipReferenda_PrimitiveTypesH256(field.Value),
+    }
+}   
+func to_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSizesalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize {
+    return &pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize{
+                Voters: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Targets: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}   
+func to_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesDatasalut(fields []*registry.DecodedField) *pbgear.Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData {
+    return &pbgear.Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData{
+                Value0: to_Identity_Value0(field.Value),
+                Value1: to_Identity_Value1(field.Value),
+    }
+}
+            
+                func to_Identity_Value0(in *registry.DecodedField) *pbgear.Identity_Value0 {
+                    return &pbgear.Identity_Value0{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Identity_FeePaidsalut(fields []*registry.DecodedField) *pbgear.Identity_FeePaid {
+    return &pbgear.Identity_FeePaid{
+                Value0 : string(field.Value),
+    }
+}  
+func to_Proxy_Address32salut(fields []*registry.DecodedField) *pbgear.Proxy_Address32 {
+    return &pbgear.Proxy_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_Blockedsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Blocked {
+    return &pbgear.NominationPools_Blocked{
+    }
+} 
+func to_Babe_SpCoreSr25519Publicsalut(fields []*registry.DecodedField) *pbgear.Babe_SpCoreSr25519Public {
+    return &pbgear.Babe_SpCoreSr25519Public{
+                Offender : []uint32(field.Value),
+    }
+}  
+func to_Referenda_Legacysalut(fields []*registry.DecodedField) *pbgear.Referenda_Legacy {
+    return &pbgear.Referenda_Legacy{
+                Hash: to_Referenda_PrimitiveTypesH256(field.Value),
+    }
+}  
+func to_Preimage_UnnotePreimageCallsalut(fields []*registry.DecodedField) *pbgear.Preimage_UnnotePreimageCall {
+    return &pbgear.Preimage_UnnotePreimageCall{
+                Hash: to_Preimage_PrimitiveTypesH256(field.Value),
+    }
+}  
+func to_Identity_Imagesalut(fields []*registry.DecodedField) *pbgear.Identity_Image {
+    return &pbgear.Identity_Image{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Staking_Idsalut(fields []*registry.DecodedField) *pbgear.Staking_Id {
+    return &pbgear.Staking_Id{
+                Value0: to_Staking_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Session_PalletImOnlineSr25519AppSr25519Publicsalut(fields []*registry.DecodedField) *pbgear.Session_PalletImOnlineSr25519AppSr25519Public {
+    return &pbgear.Session_PalletImOnlineSr25519AppSr25519Public{
+                ImOnline: to_Session_SpCoreSr25519Public(field.Value),
+    }
+}  
+func to_ConvictionVoting_Tosalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_To {
+    return &pbgear.ConvictionVoting_To{
+                Value: to_oneof_ConvictionVoting_Value(field.Value),
+    }
+}  
+func to_Bounties_Beneficiarysalut(fields []*registry.DecodedField) *pbgear.Bounties_Beneficiary {
+    return &pbgear.Bounties_Beneficiary{
+                Value: to_oneof_Bounties_Value(field.Value),
+    }
+}  
+func to_System_KillStorageCallsalut(fields []*registry.DecodedField) *pbgear.System_KillStorageCall {
+    return &pbgear.System_KillStorageCall{
+                Keys: to_repeated_System_SystemKeysList(field.Value),
+    }
+}
+            
+                func to_repeated_System_SystemKeysList(in *registry.DecodedField) []*pbgear.System_SystemKeysList {
+                    return []*pbgear.System_SystemKeysList{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_CompactUint32salut(fields []*registry.DecodedField) *pbgear.Staking_CompactUint32 {
+    return &pbgear.Staking_CompactUint32{
+                Value : uint32(field.Value),
+    }
+}  
+func to_Identity_Raw4salut(fields []*registry.DecodedField) *pbgear.Identity_Raw4 {
+    return &pbgear.Identity_Raw4{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ChildBounties_UnassignCuratorCallsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_UnassignCuratorCall {
+    return &pbgear.ChildBounties_UnassignCuratorCall{
+                ParentBountyId: to_ChildBounties_CompactUint32(field.Value),
+                ChildBountyId: to_ChildBounties_CompactUint32(field.Value),
+    }
+}   
+func to_Staking_RebondCallsalut(fields []*registry.DecodedField) *pbgear.Staking_RebondCall {
+    return &pbgear.Staking_RebondCall{
+                Value: to_Staking_CompactString(field.Value),
+    }
+}  
+func to_Gear_UploadProgramCallsalut(fields []*registry.DecodedField) *pbgear.Gear_UploadProgramCall {
+    return &pbgear.Gear_UploadProgramCall{
+                Code : []uint32(field.Value),
+                Salt : []uint32(field.Value),
+                InitPayload : []uint32(field.Value),
+                GasLimit : uint64(field.Value),
+                Value : string(field.Value),
+                KeepAlive : bool(field.Value),
+    }
+}       
+func to_Staking_CompactSpArithmeticPerThingsPerbillsalut(fields []*registry.DecodedField) *pbgear.Staking_CompactSpArithmeticPerThingsPerbill {
+    return &pbgear.Staking_CompactSpArithmeticPerThingsPerbill{
+                Value: to_Staking_SpArithmeticPerThingsPerbill(field.Value),
+    }
+}  
+func to_Bounties_CompactUint32salut(fields []*registry.DecodedField) *pbgear.Bounties_CompactUint32 {
+    return &pbgear.Bounties_CompactUint32{
+                Value : uint32(field.Value),
+    }
+}
+            
+                   
+func to_FellowshipCollective_Address32salut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Address32 {
+    return &pbgear.FellowshipCollective_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Scheduler_CancelCallsalut(fields []*registry.DecodedField) *pbgear.Scheduler_CancelCall {
+    return &pbgear.Scheduler_CancelCall{
+                When : uint32(field.Value),
+                Index : uint32(field.Value),
+    }
+}   
+func to_NominationPools_Membersalut(fields []*registry.DecodedField) *pbgear.NominationPools_Member {
+    return &pbgear.NominationPools_Member{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_System_SetStorageCallsalut(fields []*registry.DecodedField) *pbgear.System_SetStorageCall {
+    return &pbgear.System_SetStorageCall{
+                Items: to_repeated_System_TupleSystemItemsListSystemItemsList(field.Value),
+    }
+}
+            
+                func to_repeated_System_TupleSystemItemsListSystemItemsList(in *registry.DecodedField) []*pbgear.System_TupleSystemItemsListSystemItemsList {
+                    return []*pbgear.System_TupleSystemItemsListSystemItemsList{
+                        // TODO fill all fields
+                    }
+                }   
+func to_BagsList_Dislocatedsalut(fields []*registry.DecodedField) *pbgear.BagsList_Dislocated {
+    return &pbgear.BagsList_Dislocated{
+                Value: to_oneof_BagsList_Value(field.Value),
+    }
+}
+            
+                func to_oneof_BagsList_Value(in *registry.DecodedField) *pbgear.BagsList_Value {
+                    return nil
+                }   
+func to_Identity_Emailsalut(fields []*registry.DecodedField) *pbgear.Identity_Email {
+    return &pbgear.Identity_Email{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Proxy_KillPureCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_KillPureCall {
+    return &pbgear.Proxy_KillPureCall{
+                Spawner: to_Proxy_Spawner(field.Value),
+                ProxyType: to_Proxy_ProxyType(field.Value),
+                Index : uint32(field.Value),
+                Height: to_Proxy_CompactUint32(field.Value),
+                ExtIndex: to_Proxy_CompactUint32(field.Value),
+    }
+}
+            
+                func to_Proxy_Spawner(in *registry.DecodedField) *pbgear.Proxy_Spawner {
+                    return &pbgear.Proxy_Spawner{
+                        // TODO fill all fields
+                    }
+                }    
+            
+                func to_Proxy_CompactUint32(in *registry.DecodedField) *pbgear.Proxy_CompactUint32 {
+                    return &pbgear.Proxy_CompactUint32{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Multisig_SpWeightsWeightV2Weightsalut(fields []*registry.DecodedField) *pbgear.Multisig_SpWeightsWeightV2Weight {
+    return &pbgear.Multisig_SpWeightsWeightV2Weight{
+                RefTime: to_Multisig_CompactUint64(field.Value),
+                ProofSize: to_Multisig_CompactUint64(field.Value),
+    }
+}
+            
+                func to_Multisig_CompactUint64(in *registry.DecodedField) *pbgear.Multisig_CompactUint64 {
+                    return &pbgear.Multisig_CompactUint64{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Bounties_CloseBountyCallsalut(fields []*registry.DecodedField) *pbgear.Bounties_CloseBountyCall {
+    return &pbgear.Bounties_CloseBountyCall{
+                BountyId: to_Bounties_CompactUint32(field.Value),
+    }
+}  
+func to_NominationPools_Address32salut(fields []*registry.DecodedField) *pbgear.NominationPools_Address32 {
+    return &pbgear.NominationPools_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_FellowshipReferenda_Legacysalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Legacy {
+    return &pbgear.FellowshipReferenda_Legacy{
+                Hash: to_FellowshipReferenda_PrimitiveTypesH256(field.Value),
+    }
+}  
+func to_Identity_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.Identity_CompactTupleNull {
+    return &pbgear.Identity_CompactTupleNull{
+                Value: to_Identity_TupleNull(field.Value),
+    }
+}
+            
+                func to_Identity_TupleNull(in *registry.DecodedField) *pbgear.Identity_TupleNull {
+                    return &pbgear.Identity_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ElectionProviderMultiPhase_SpNposElectionsSupportsalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SpNposElectionsSupport {
+    return &pbgear.ElectionProviderMultiPhase_SpNposElectionsSupport{
+                Total : string(field.Value),
+                Voters: to_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String(field.Value),
+    }
+} 
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String{
+                        // TODO fill all fields
+                    }
+                }   
+func to_StakingRewards_Address20salut(fields []*registry.DecodedField) *pbgear.StakingRewards_Address20 {
+    return &pbgear.StakingRewards_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_FellowshipCollective_CleanupPollCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_CleanupPollCall {
+    return &pbgear.FellowshipCollective_CleanupPollCall{
+                PollIndex : uint32(field.Value),
+                Max : uint32(field.Value),
+    }
+}   
+func to_FellowshipReferenda_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_SpCoreCryptoAccountId32 {
+    return &pbgear.FellowshipReferenda_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Proxy_AddProxyCallsalut(fields []*registry.DecodedField) *pbgear.Proxy_AddProxyCall {
+    return &pbgear.Proxy_AddProxyCall{
+                Delegate: to_Proxy_Delegate(field.Value),
+                ProxyType: to_Proxy_ProxyType(field.Value),
+                Delay : uint32(field.Value),
+    }
+}    
+func to_GearVoucher_PalletGearVoucherInternalVoucherIdsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_PalletGearVoucherInternalVoucherId {
+    return &pbgear.GearVoucher_PalletGearVoucherInternalVoucherId{
+                VoucherId : []uint32(field.Value),
+    }
+}  
+func to_ConvictionVoting_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_CompactTupleNull {
+    return &pbgear.ConvictionVoting_CompactTupleNull{
+                Value: to_ConvictionVoting_TupleNull(field.Value),
+    }
+}
+            
+                func to_ConvictionVoting_TupleNull(in *registry.DecodedField) *pbgear.ConvictionVoting_TupleNull {
+                    return &pbgear.ConvictionVoting_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_FellowshipReferenda_CancelCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_CancelCall {
+    return &pbgear.FellowshipReferenda_CancelCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_NominationPools_Nominatorsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Nominator {
+    return &pbgear.NominationPools_Nominator{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_NominationPools_SetConfigsCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_SetConfigsCall {
+    return &pbgear.NominationPools_SetConfigsCall{
+                MinJoinBond: to_NominationPools_MinJoinBond(field.Value),
+                MinCreateBond: to_NominationPools_MinCreateBond(field.Value),
+                MaxPools: to_NominationPools_MaxPools(field.Value),
+                MaxMembers: to_NominationPools_MaxMembers(field.Value),
+                MaxMembersPerPool: to_NominationPools_MaxMembersPerPool(field.Value),
+                GlobalMaxCommission: to_NominationPools_GlobalMaxCommission(field.Value),
+    }
+}
+            
+                func to_NominationPools_MinJoinBond(in *registry.DecodedField) *pbgear.NominationPools_MinJoinBond {
+                    return &pbgear.NominationPools_MinJoinBond{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_MinCreateBond(in *registry.DecodedField) *pbgear.NominationPools_MinCreateBond {
+                    return &pbgear.NominationPools_MinCreateBond{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_MaxPools(in *registry.DecodedField) *pbgear.NominationPools_MaxPools {
+                    return &pbgear.NominationPools_MaxPools{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_MaxMembers(in *registry.DecodedField) *pbgear.NominationPools_MaxMembers {
+                    return &pbgear.NominationPools_MaxMembers{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_MaxMembersPerPool(in *registry.DecodedField) *pbgear.NominationPools_MaxMembersPerPool {
+                    return &pbgear.NominationPools_MaxMembersPerPool{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_NominationPools_GlobalMaxCommission(in *registry.DecodedField) *pbgear.NominationPools_GlobalMaxCommission {
+                    return &pbgear.NominationPools_GlobalMaxCommission{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Gear_SendReplyCallsalut(fields []*registry.DecodedField) *pbgear.Gear_SendReplyCall {
+    return &pbgear.Gear_SendReplyCall{
+                ReplyToId: to_Gear_GprimitivesMessageId(field.Value),
+                Payload : []uint32(field.Value),
+                GasLimit : uint64(field.Value),
+                Value : string(field.Value),
+                KeepAlive : bool(field.Value),
+    }
+}      
+func to_StakingRewards_ForceRefillCallsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_ForceRefillCall {
+    return &pbgear.StakingRewards_ForceRefillCall{
+                From: to_StakingRewards_From(field.Value),
+                Value : string(field.Value),
+    }
+}
+            
+                func to_StakingRewards_From(in *registry.DecodedField) *pbgear.StakingRewards_From {
+                    return &pbgear.StakingRewards_From{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Balances_TransferAllCallsalut(fields []*registry.DecodedField) *pbgear.Balances_TransferAllCall {
+    return &pbgear.Balances_TransferAllCall{
+                Dest: to_Balances_Dest(field.Value),
+                KeepAlive : bool(field.Value),
+    }
+} 
+            
+                   
+func to_Treasury_Address20salut(fields []*registry.DecodedField) *pbgear.Treasury_Address20 {
+    return &pbgear.Treasury_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_PoolWithdrawUnbondedCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_PoolWithdrawUnbondedCall {
+    return &pbgear.NominationPools_PoolWithdrawUnbondedCall{
+                PoolId : uint32(field.Value),
+                NumSlashingSpans : uint32(field.Value),
+    }
+}   
+func to_Gear_GprimitivesMessageIdsalut(fields []*registry.DecodedField) *pbgear.Gear_GprimitivesMessageId {
+    return &pbgear.Gear_GprimitivesMessageId{
+                ReplyToId : []uint32(field.Value),
+    }
+}  
+func to_Referenda_Inlinesalut(fields []*registry.DecodedField) *pbgear.Referenda_Inline {
+    return &pbgear.Referenda_Inline{
+                Value0: to_Referenda_BoundedCollectionsBoundedVecBoundedVec(field.Value),
+    }
+}
+            
+                func to_Referenda_BoundedCollectionsBoundedVecBoundedVec(in *registry.DecodedField) *pbgear.Referenda_BoundedCollectionsBoundedVecBoundedVec {
+                    return &pbgear.Referenda_BoundedCollectionsBoundedVecBoundedVec{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Bounties_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.Bounties_CompactTupleNull {
+    return &pbgear.Bounties_CompactTupleNull{
+                Value: to_Bounties_TupleNull(field.Value),
+    }
+}
+            
+                func to_Bounties_TupleNull(in *registry.DecodedField) *pbgear.Bounties_TupleNull {
+                    return &pbgear.Bounties_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_BagsList_TupleNullsalut(fields []*registry.DecodedField) *pbgear.BagsList_TupleNull {
+    return &pbgear.BagsList_TupleNull{
+    }
+} 
+func to_BagsList_PutInFrontOfOtherCallsalut(fields []*registry.DecodedField) *pbgear.BagsList_PutInFrontOfOtherCall {
+    return &pbgear.BagsList_PutInFrontOfOtherCall{
+                Heavier: to_BagsList_Heavier(field.Value),
+                Lighter: to_BagsList_Lighter(field.Value),
+    }
+}
+            
+                func to_BagsList_Heavier(in *registry.DecodedField) *pbgear.BagsList_Heavier {
+                    return &pbgear.BagsList_Heavier{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Staking_SetValidatorCountCallsalut(fields []*registry.DecodedField) *pbgear.Staking_SetValidatorCountCall {
+    return &pbgear.Staking_SetValidatorCountCall{
+                New: to_Staking_CompactUint32(field.Value),
+    }
+}  
+func to_Staking_MinValidatorBondsalut(fields []*registry.DecodedField) *pbgear.Staking_MinValidatorBond {
+    return &pbgear.Staking_MinValidatorBond{
+                Value: to_oneof_Staking_Value(field.Value),
+    }
+}  
+func to_Staking_MaxValidatorCountsalut(fields []*registry.DecodedField) *pbgear.Staking_MaxValidatorCount {
+    return &pbgear.Staking_MaxValidatorCount{
+                Value: to_oneof_Staking_Value(field.Value),
+    }
+}  
+func to_Identity_Value1salut(fields []*registry.DecodedField) *pbgear.Identity_Value1 {
+    return &pbgear.Identity_Value1{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Babe_TupleUint64Uint64salut(fields []*registry.DecodedField) *pbgear.Babe_TupleUint64Uint64 {
+    return &pbgear.Babe_TupleUint64Uint64{
+                Value0 : uint64(field.Value),
+                Value1 : uint64(field.Value),
+    }
+}
+            
+                    
+func to_Balances_Rawsalut(fields []*registry.DecodedField) *pbgear.Balances_Raw {
+    return &pbgear.Balances_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_SetFieldsCallsalut(fields []*registry.DecodedField) *pbgear.Identity_SetFieldsCall {
+    return &pbgear.Identity_SetFieldsCall{
+                Index: to_Identity_CompactUint32(field.Value),
+                Fields: to_Identity_PalletIdentityTypesBitFlags(field.Value),
+    }
+} 
+            
+                func to_Identity_PalletIdentityTypesBitFlags(in *registry.DecodedField) *pbgear.Identity_PalletIdentityTypesBitFlags {
+                    return &pbgear.Identity_PalletIdentityTypesBitFlags{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ChildBounties_AcceptCuratorCallsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_AcceptCuratorCall {
+    return &pbgear.ChildBounties_AcceptCuratorCall{
+                ParentBountyId: to_ChildBounties_CompactUint32(field.Value),
+                ChildBountyId: to_ChildBounties_CompactUint32(field.Value),
+    }
+}   
+func to_Staking_Accountsalut(fields []*registry.DecodedField) *pbgear.Staking_Account {
+    return &pbgear.Staking_Account{
+                Value0: to_Staking_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Utility_AsOriginsalut(fields []*registry.DecodedField) *pbgear.Utility_AsOrigin {
+    return &pbgear.Utility_AsOrigin{
+                Value: to_oneof_Utility_Value(field.Value),
+    }
+}  
+func to_ConvictionVoting_PalletConvictionVotingVoteVotesalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_PalletConvictionVotingVoteVote {
+    return &pbgear.ConvictionVoting_PalletConvictionVotingVoteVote{
+                Vote : uint32(field.Value),
+    }
+}  
+func to_Bounties_ExtendBountyExpiryCallsalut(fields []*registry.DecodedField) *pbgear.Bounties_ExtendBountyExpiryCall {
+    return &pbgear.Bounties_ExtendBountyExpiryCall{
+                BountyId: to_Bounties_CompactUint32(field.Value),
+                Remark : []uint32(field.Value),
+    }
+}   
+func to_Babe_SpConsensusSlotsSlotsalut(fields []*registry.DecodedField) *pbgear.Babe_SpConsensusSlotsSlot {
+    return &pbgear.Babe_SpConsensusSlotsSlot{
+                Slot : uint64(field.Value),
+    }
+}  
+func to_Balances_Whosalut(fields []*registry.DecodedField) *pbgear.Balances_Who {
+    return &pbgear.Balances_Who{
+                Value: to_oneof_Balances_Value(field.Value),
+    }
+}  
+func to_Identity_Reasonablesalut(fields []*registry.DecodedField) *pbgear.Identity_Reasonable {
+    return &pbgear.Identity_Reasonable{
+    }
+} 
+func to_Gear_CreateProgramCallsalut(fields []*registry.DecodedField) *pbgear.Gear_CreateProgramCall {
+    return &pbgear.Gear_CreateProgramCall{
+                CodeId: to_Gear_GprimitivesCodeId(field.Value),
+                Salt : []uint32(field.Value),
+                InitPayload : []uint32(field.Value),
+                GasLimit : uint64(field.Value),
+                Value : string(field.Value),
+                KeepAlive : bool(field.Value),
+    }
+}
+            
+                func to_Gear_GprimitivesCodeId(in *registry.DecodedField) *pbgear.Gear_GprimitivesCodeId {
+                    return &pbgear.Gear_GprimitivesCodeId{
+                        // TODO fill all fields
+                    }
+                }        
+func to_BagsList_Address20salut(fields []*registry.DecodedField) *pbgear.BagsList_Address20 {
+    return &pbgear.BagsList_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ImOnline_SpCoreSr25519Signaturesalut(fields []*registry.DecodedField) *pbgear.ImOnline_SpCoreSr25519Signature {
+    return &pbgear.ImOnline_SpCoreSr25519Signature{
+                Signature : []uint32(field.Value),
+    }
+}  
+func to_Bounties_Indexsalut(fields []*registry.DecodedField) *pbgear.Bounties_Index {
+    return &pbgear.Bounties_Index{
+                Value0: to_Bounties_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_Bounties_CompactTupleNull(in *registry.DecodedField) *pbgear.Bounties_CompactTupleNull {
+                    return &pbgear.Bounties_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_AdjustPoolDepositCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_AdjustPoolDepositCall {
+    return &pbgear.NominationPools_AdjustPoolDepositCall{
+                PoolId : uint32(field.Value),
+    }
+}  
+func to_StakingRewards_Address32salut(fields []*registry.DecodedField) *pbgear.StakingRewards_Address32 {
+    return &pbgear.StakingRewards_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_FellowshipReferenda_EnactmentMomentsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_EnactmentMoment {
+    return &pbgear.FellowshipReferenda_EnactmentMoment{
+                Value: to_oneof_FellowshipReferenda_Value(field.Value),
+    }
+}  
+func to_Proxy_CompactUint32salut(fields []*registry.DecodedField) *pbgear.Proxy_CompactUint32 {
+    return &pbgear.Proxy_CompactUint32{
+                Value : uint32(field.Value),
+    }
+}  
+func to_Balances_CompactStringsalut(fields []*registry.DecodedField) *pbgear.Balances_CompactString {
+    return &pbgear.Balances_CompactString{
+                Value : string(field.Value),
+    }
+}  
+func to_Staking_Setsalut(fields []*registry.DecodedField) *pbgear.Staking_Set {
+    return &pbgear.Staking_Set{
+                Value0: to_Staking_SpArithmeticPerThingsPerbill(field.Value),
+    }
+}  
+func to_Babe_CompactUint32salut(fields []*registry.DecodedField) *pbgear.Babe_CompactUint32 {
+    return &pbgear.Babe_CompactUint32{
+                Value : uint32(field.Value),
+    }
+}  
+func to_Balances_Indexsalut(fields []*registry.DecodedField) *pbgear.Balances_Index {
+    return &pbgear.Balances_Index{
+                Value0: to_Balances_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_Balances_CompactTupleNull(in *registry.DecodedField) *pbgear.Balances_CompactTupleNull {
+                    return &pbgear.Balances_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ChildBounties_CompactStringsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_CompactString {
+    return &pbgear.ChildBounties_CompactString{
+                Value : string(field.Value),
+    }
+}
+            
+                   
+func to_GearVoucher_SendMessagesalut(fields []*registry.DecodedField) *pbgear.GearVoucher_SendMessage {
+    return &pbgear.GearVoucher_SendMessage{
+                Destination: to_GearVoucher_GprimitivesActorId(field.Value),
+                Payload : []uint32(field.Value),
+                GasLimit : uint64(field.Value),
+                Value : string(field.Value),
+                KeepAlive : bool(field.Value),
+    }
+}      
+func to_Staking_Removesalut(fields []*registry.DecodedField) *pbgear.Staking_Remove {
+    return &pbgear.Staking_Remove{
+    }
+} 
+func to_Identity_Keccak256salut(fields []*registry.DecodedField) *pbgear.Identity_Keccak256 {
+    return &pbgear.Identity_Keccak256{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Treasury_RejectProposalCallsalut(fields []*registry.DecodedField) *pbgear.Treasury_RejectProposalCall {
+    return &pbgear.Treasury_RejectProposalCall{
+                ProposalId: to_Treasury_CompactUint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_StakingRewards_Rawsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_Raw {
+    return &pbgear.StakingRewards_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Grandpa_FinalityGrandpaEquivocationsalut(fields []*registry.DecodedField) *pbgear.Grandpa_FinalityGrandpaEquivocation {
+    return &pbgear.Grandpa_FinalityGrandpaEquivocation{
+                RoundNumber : uint64(field.Value),
+                Identity: to_Grandpa_SpConsensusGrandpaAppPublic(field.Value),
+                First: to_Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(field.Value),
+                Second: to_Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(field.Value),
+    }
+} 
+            
+                func to_Grandpa_SpConsensusGrandpaAppPublic(in *registry.DecodedField) *pbgear.Grandpa_SpConsensusGrandpaAppPublic {
+                    return &pbgear.Grandpa_SpConsensusGrandpaAppPublic{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(in *registry.DecodedField) *pbgear.Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature {
+                    return &pbgear.Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Vesting_Targetsalut(fields []*registry.DecodedField) *pbgear.Vesting_Target {
+    return &pbgear.Vesting_Target{
+                Value: to_oneof_Vesting_Value(field.Value),
+    }
+}  
+func to_ConvictionVoting_CompactUint32salut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_CompactUint32 {
+    return &pbgear.ConvictionVoting_CompactUint32{
+                Value : uint32(field.Value),
+    }
+}  
+func to_FellowshipCollective_Indexsalut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Index {
+    return &pbgear.FellowshipCollective_Index{
+                Value0: to_FellowshipCollective_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_FellowshipCollective_CompactTupleNull(in *registry.DecodedField) *pbgear.FellowshipCollective_CompactTupleNull {
+                    return &pbgear.FellowshipCollective_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Preimage_NotePreimageCallsalut(fields []*registry.DecodedField) *pbgear.Preimage_NotePreimageCall {
+    return &pbgear.Preimage_NotePreimageCall{
+                Bytes : []uint32(field.Value),
+    }
+}  
+func to_Multisig_PalletMultisigTimepointsalut(fields []*registry.DecodedField) *pbgear.Multisig_PalletMultisigTimepoint {
+    return &pbgear.Multisig_PalletMultisigTimepoint{
+                Height : uint32(field.Value),
+                Index : uint32(field.Value),
+    }
+}   
+func to_ElectionProviderMultiPhase_SpArithmeticPerThingsPerU16salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SpArithmeticPerThingsPerU16 {
+    return &pbgear.ElectionProviderMultiPhase_SpArithmeticPerThingsPerU16{
+                Value : uint32(field.Value),
+    }
+}
+            
+                   
+func to_NominationPools_Rewardssalut(fields []*registry.DecodedField) *pbgear.NominationPools_Rewards {
+    return &pbgear.NominationPools_Rewards{
+    }
+} 
+func to_Staking_MaxNominatorCountsalut(fields []*registry.DecodedField) *pbgear.Staking_MaxNominatorCount {
+    return &pbgear.Staking_MaxNominatorCount{
+                Value: to_oneof_Staking_Value(field.Value),
+    }
+}  
+func to_Treasury_CompactStringsalut(fields []*registry.DecodedField) *pbgear.Treasury_CompactString {
+    return &pbgear.Treasury_CompactString{
+                Value : string(field.Value),
+    }
+}
+            
+                   
+func to_Staking_ChillOtherCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ChillOtherCall {
+    return &pbgear.Staking_ChillOtherCall{
+                Controller: to_Staking_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Utility_Systemsalut(fields []*registry.DecodedField) *pbgear.Utility_System {
+    return &pbgear.Utility_System{
+                Value0: to_Utility_Value0(field.Value),
+    }
+}  
+func to_ConvictionVoting_Locked1Xsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Locked1X {
+    return &pbgear.ConvictionVoting_Locked1X{
+    }
+} 
+func to_Identity_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Identity_SpCoreCryptoAccountId32 {
+    return &pbgear.Identity_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_GovernanceFallbackCallsalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_GovernanceFallbackCall {
+    return &pbgear.ElectionProviderMultiPhase_GovernanceFallbackCall{
+                MaybeMaxVoters : uint32(field.Value),
+                MaybeMaxTargets : uint32(field.Value),
+    }
+}   
+func to_ChildBounties_Address32salut(fields []*registry.DecodedField) *pbgear.ChildBounties_Address32 {
+    return &pbgear.ChildBounties_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Vesting_VestCallsalut(fields []*registry.DecodedField) *pbgear.Vesting_VestCall {
+    return &pbgear.Vesting_VestCall{
+    }
+} 
+func to_Staking_KickCallsalut(fields []*registry.DecodedField) *pbgear.Staking_KickCall {
+    return &pbgear.Staking_KickCall{
+                Who: to_repeated_Staking_SpRuntimeMultiaddressMultiAddress(field.Value),
+    }
+}  
+func to_Treasury_CompactUint32salut(fields []*registry.DecodedField) *pbgear.Treasury_CompactUint32 {
+    return &pbgear.Treasury_CompactUint32{
+                Value : uint32(field.Value),
+    }
+}  
+func to_Treasury_SpendCallsalut(fields []*registry.DecodedField) *pbgear.Treasury_SpendCall {
+    return &pbgear.Treasury_SpendCall{
+                AssetKind: to_Treasury_TupleNull(field.Value),
+                Amount: to_Treasury_CompactString(field.Value),
+                Beneficiary: to_Treasury_SpCoreCryptoAccountId32(field.Value),
+                ValidFrom : uint32(field.Value),
+    }
+}
+            
+                func to_Treasury_TupleNull(in *registry.DecodedField) *pbgear.Treasury_TupleNull {
+                    return &pbgear.Treasury_TupleNull{
+                        // TODO fill all fields
+                    }
+                }      
+func to_Proxy_Spawnersalut(fields []*registry.DecodedField) *pbgear.Proxy_Spawner {
+    return &pbgear.Proxy_Spawner{
+                Value: to_oneof_Proxy_Value(field.Value),
+    }
+}  
+func to_Staking_SetInvulnerablesCallsalut(fields []*registry.DecodedField) *pbgear.Staking_SetInvulnerablesCall {
+    return &pbgear.Staking_SetInvulnerablesCall{
+                Invulnerables: to_repeated_Staking_SpCoreCryptoAccountId32(field.Value),
+    }
+}  
+func to_Treasury_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.Treasury_CompactTupleNull {
+    return &pbgear.Treasury_CompactTupleNull{
+                Value: to_Treasury_TupleNull(field.Value),
+    }
+}  
+func to_NominationPools_BondExtraCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_BondExtraCall {
+    return &pbgear.NominationPools_BondExtraCall{
+                Extra: to_NominationPools_Extra(field.Value),
+    }
+}  
+func to_NominationPools_MemberAccountsalut(fields []*registry.DecodedField) *pbgear.NominationPools_MemberAccount {
+    return &pbgear.NominationPools_MemberAccount{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_NominationPools_SetCommissionMaxCallsalut(fields []*registry.DecodedField) *pbgear.NominationPools_SetCommissionMaxCall {
+    return &pbgear.NominationPools_SetCommissionMaxCall{
+                PoolId : uint32(field.Value),
+                MaxCommission: to_NominationPools_SpArithmeticPerThingsPerbill(field.Value),
+    }
+}   
+func to_Identity_CancelRequestCallsalut(fields []*registry.DecodedField) *pbgear.Identity_CancelRequestCall {
+    return &pbgear.Identity_CancelRequestCall{
+                RegIndex : uint32(field.Value),
+    }
+}  
+func to_Bounties_ApproveBountyCallsalut(fields []*registry.DecodedField) *pbgear.Bounties_ApproveBountyCall {
+    return &pbgear.Bounties_ApproveBountyCall{
+                BountyId: to_Bounties_CompactUint32(field.Value),
+    }
+}  
+func to_FellowshipReferenda_RefundDecisionDepositCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_RefundDecisionDepositCall {
+    return &pbgear.FellowshipReferenda_RefundDecisionDepositCall{
+                Index : uint32(field.Value),
+    }
+}  
+func to_FellowshipReferenda_OneFewerDecidingCallsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_OneFewerDecidingCall {
+    return &pbgear.FellowshipReferenda_OneFewerDecidingCall{
+                Track : uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolutionsalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution {
+    return &pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution{
+                Solution: to_ElectionProviderMultiPhase_VaraRuntimeNposSolution16(field.Value),
+                Score: to_ElectionProviderMultiPhase_SpNposElectionsElectionScore(field.Value),
+                Round : uint32(field.Value),
+    }
+}
+            
+                func to_ElectionProviderMultiPhase_VaraRuntimeNposSolution16(in *registry.DecodedField) *pbgear.ElectionProviderMultiPhase_VaraRuntimeNposSolution16 {
+                    return &pbgear.ElectionProviderMultiPhase_VaraRuntimeNposSolution16{
+                        // TODO fill all fields
+                    }
+                }     
+func to_System_SetCodeWithoutChecksCallsalut(fields []*registry.DecodedField) *pbgear.System_SetCodeWithoutChecksCall {
+    return &pbgear.System_SetCodeWithoutChecksCall{
+                Code : []uint32(field.Value),
+    }
+}  
+func to_FellowshipCollective_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.FellowshipCollective_SpCoreCryptoAccountId32 {
+    return &pbgear.FellowshipCollective_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ConvictionVoting_SplitAbstainsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_SplitAbstain {
+    return &pbgear.ConvictionVoting_SplitAbstain{
+                Aye : string(field.Value),
+                Nay : string(field.Value),
+                Abstain : string(field.Value),
+    }
+}    
+func to_Identity_Accountsalut(fields []*registry.DecodedField) *pbgear.Identity_Account {
+    return &pbgear.Identity_Account{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Identity_Raw14salut(fields []*registry.DecodedField) *pbgear.Identity_Raw14 {
+    return &pbgear.Identity_Raw14{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Raw24salut(fields []*registry.DecodedField) *pbgear.Identity_Raw24 {
+    return &pbgear.Identity_Raw24{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Value0salut(fields []*registry.DecodedField) *pbgear.Identity_Value0 {
+    return &pbgear.Identity_Value0{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Identity_QuitSubCallsalut(fields []*registry.DecodedField) *pbgear.Identity_QuitSubCall {
+    return &pbgear.Identity_QuitSubCall{
+    }
+} 
+func to_Babe_SpConsensusSlotsEquivocationProofsalut(fields []*registry.DecodedField) *pbgear.Babe_SpConsensusSlotsEquivocationProof {
+    return &pbgear.Babe_SpConsensusSlotsEquivocationProof{
+                Offender: to_Babe_SpConsensusBabeAppPublic(field.Value),
+                Slot: to_Babe_SpConsensusSlotsSlot(field.Value),
+                FirstHeader: to_Babe_SpRuntimeGenericHeaderHeader(field.Value),
+                SecondHeader: to_Babe_SpRuntimeGenericHeaderHeader(field.Value),
+    }
+}
+            
+                func to_Babe_SpConsensusBabeAppPublic(in *registry.DecodedField) *pbgear.Babe_SpConsensusBabeAppPublic {
+                    return &pbgear.Babe_SpConsensusBabeAppPublic{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Babe_SpConsensusSlotsSlot(in *registry.DecodedField) *pbgear.Babe_SpConsensusSlotsSlot {
+                    return &pbgear.Babe_SpConsensusSlotsSlot{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Babe_SpRuntimeGenericHeaderHeader(in *registry.DecodedField) *pbgear.Babe_SpRuntimeGenericHeaderHeader {
+                    return &pbgear.Babe_SpRuntimeGenericHeaderHeader{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Utility_DispatchAsCallsalut(fields []*registry.DecodedField) *pbgear.Utility_DispatchAsCall {
+    return &pbgear.Utility_DispatchAsCall{
+                AsOrigin: to_Utility_AsOrigin(field.Value),
+                Call: to_oneof_Utility_Call(field.Value),
+    }
+}
+            
+                func to_Utility_AsOrigin(in *registry.DecodedField) *pbgear.Utility_AsOrigin {
+                    return &pbgear.Utility_AsOrigin{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Proxy_ProxyTypesalut(fields []*registry.DecodedField) *pbgear.Proxy_ProxyType {
+    return &pbgear.Proxy_ProxyType{
+                Value: to_oneof_Proxy_Value(field.Value),
+    }
+}  
+func to_GearVoucher_CallDeprecatedCallsalut(fields []*registry.DecodedField) *pbgear.GearVoucher_CallDeprecatedCall {
+    return &pbgear.GearVoucher_CallDeprecatedCall{
+                Call: to_GearVoucher_Call(field.Value),
+    }
+}  
+func to_Scheduler_ScheduleCallsalut(fields []*registry.DecodedField) *pbgear.Scheduler_ScheduleCall {
+    return &pbgear.Scheduler_ScheduleCall{
+                When : uint32(field.Value),
+                MaybePeriodic: to_optional_Scheduler_TupleUint32Uint32(field.Value),
+                Priority : uint32(field.Value),
+                Call: to_oneof_Scheduler_Call(field.Value),
+    }
+}     
+func to_System_RemarkWithEventCallsalut(fields []*registry.DecodedField) *pbgear.System_RemarkWithEventCall {
+    return &pbgear.System_RemarkWithEventCall{
+                Remark : []uint32(field.Value),
+    }
+}  
+func to_Utility_SpWeightsWeightV2Weightsalut(fields []*registry.DecodedField) *pbgear.Utility_SpWeightsWeightV2Weight {
+    return &pbgear.Utility_SpWeightsWeightV2Weight{
+                RefTime: to_Utility_CompactUint64(field.Value),
+                ProofSize: to_Utility_CompactUint64(field.Value),
+    }
+}
+            
+                func to_Utility_CompactUint64(in *registry.DecodedField) *pbgear.Utility_CompactUint64 {
+                    return &pbgear.Utility_CompactUint64{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Referenda_Rootsalut(fields []*registry.DecodedField) *pbgear.Referenda_Root {
+    return &pbgear.Referenda_Root{
+    }
+} 
+func to_Babe_Logssalut(fields []*registry.DecodedField) *pbgear.Babe_Logs {
+    return &pbgear.Babe_Logs{
+                Value: to_oneof_Babe_Value(field.Value),
+    }
+}  
+func to_Staking_ForceNoErasCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ForceNoErasCall {
+    return &pbgear.Staking_ForceNoErasCall{
+    }
+} 
+func to_Vesting_Idsalut(fields []*registry.DecodedField) *pbgear.Vesting_Id {
+    return &pbgear.Vesting_Id{
+                Value0: to_Vesting_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_Vesting_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.Vesting_SpCoreCryptoAccountId32 {
+                    return &pbgear.Vesting_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Raw10salut(fields []*registry.DecodedField) *pbgear.Identity_Raw10 {
+    return &pbgear.Identity_Raw10{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Targetsalut(fields []*registry.DecodedField) *pbgear.Identity_Target {
+    return &pbgear.Identity_Target{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Babe_PrimitiveTypesH256salut(fields []*registry.DecodedField) *pbgear.Babe_PrimitiveTypesH256 {
+    return &pbgear.Babe_PrimitiveTypesH256{
+                ParentHash : []uint32(field.Value),
+    }
+}  
+func to_Babe_PrimarySlotssalut(fields []*registry.DecodedField) *pbgear.Babe_PrimarySlots {
+    return &pbgear.Babe_PrimarySlots{
+    }
+} 
+func to_ImOnline_PalletImOnlineSr25519AppSr25519Signaturesalut(fields []*registry.DecodedField) *pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Signature {
+    return &pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Signature{
+                Signature: to_ImOnline_SpCoreSr25519Signature(field.Value),
+    }
+}
+            
+                func to_ImOnline_SpCoreSr25519Signature(in *registry.DecodedField) *pbgear.ImOnline_SpCoreSr25519Signature {
+                    return &pbgear.ImOnline_SpCoreSr25519Signature{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Treasury_TupleNullsalut(fields []*registry.DecodedField) *pbgear.Treasury_TupleNull {
+    return &pbgear.Treasury_TupleNull{
+    }
+} 
+func to_Utility_WithWeightCallsalut(fields []*registry.DecodedField) *pbgear.Utility_WithWeightCall {
+    return &pbgear.Utility_WithWeightCall{
+                Call: to_oneof_Utility_Call(field.Value),
+                Weight: to_Utility_SpWeightsWeightV2Weight(field.Value),
+    }
+} 
+            
+                func to_Utility_SpWeightsWeightV2Weight(in *registry.DecodedField) *pbgear.Utility_SpWeightsWeightV2Weight {
+                    return &pbgear.Utility_SpWeightsWeightV2Weight{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Referenda_Nonesalut(fields []*registry.DecodedField) *pbgear.Referenda_None {
+    return &pbgear.Referenda_None{
+    }
+} 
+func to_FellowshipReferenda_Voidsalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Void {
+    return &pbgear.FellowshipReferenda_Void{
+                Value0: to_FellowshipReferenda_Value0(field.Value),
+    }
+}  
+func to_Grandpa_Precommitsalut(fields []*registry.DecodedField) *pbgear.Grandpa_Precommit {
+    return &pbgear.Grandpa_Precommit{
+                Value0: to_Grandpa_FinalityGrandpaEquivocation(field.Value),
+    }
+}
+            
+                func to_Grandpa_FinalityGrandpaEquivocation(in *registry.DecodedField) *pbgear.Grandpa_FinalityGrandpaEquivocation {
+                    return &pbgear.Grandpa_FinalityGrandpaEquivocation{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Balances_TransferAllowDeathCallsalut(fields []*registry.DecodedField) *pbgear.Balances_TransferAllowDeathCall {
+    return &pbgear.Balances_TransferAllowDeathCall{
+                Dest: to_Balances_Dest(field.Value),
+                Value: to_Balances_CompactString(field.Value),
+    }
+}   
+func to_ConvictionVoting_Locked4Xsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Locked4X {
+    return &pbgear.ConvictionVoting_Locked4X{
+    }
+} 
+func to_Referenda_BoundedCollectionsBoundedVecBoundedVecsalut(fields []*registry.DecodedField) *pbgear.Referenda_BoundedCollectionsBoundedVecBoundedVec {
+    return &pbgear.Referenda_BoundedCollectionsBoundedVecBoundedVec{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Scheduler_CancelNamedCallsalut(fields []*registry.DecodedField) *pbgear.Scheduler_CancelNamedCall {
+    return &pbgear.Scheduler_CancelNamedCall{
+                Id : []uint32(field.Value),
+    }
+}  
+func to_Preimage_RequestPreimageCallsalut(fields []*registry.DecodedField) *pbgear.Preimage_RequestPreimageCall {
+    return &pbgear.Preimage_RequestPreimageCall{
+                Hash: to_Preimage_PrimitiveTypesH256(field.Value),
+    }
+}  
+func to_Preimage_EnsureUpdatedCallsalut(fields []*registry.DecodedField) *pbgear.Preimage_EnsureUpdatedCall {
+    return &pbgear.Preimage_EnsureUpdatedCall{
+                Hashes: to_repeated_Preimage_PrimitiveTypesH256(field.Value),
+    }
+}  
+func to_Identity_Legalsalut(fields []*registry.DecodedField) *pbgear.Identity_Legal {
+    return &pbgear.Identity_Legal{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Balances_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Balances_SpCoreCryptoAccountId32 {
+    return &pbgear.Balances_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Utility_ForceBatchCallsalut(fields []*registry.DecodedField) *pbgear.Utility_ForceBatchCall {
+    return &pbgear.Utility_ForceBatchCall{
+                Calls: to_repeated_Utility_VaraRuntimeRuntimeCall(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_ChildBounties_Curatorsalut(fields []*registry.DecodedField) *pbgear.ChildBounties_Curator {
+    return &pbgear.ChildBounties_Curator{
+                Value: to_oneof_ChildBounties_Value(field.Value),
+    }
+}  
+func to_Proxy_Rawsalut(fields []*registry.DecodedField) *pbgear.Proxy_Raw {
+    return &pbgear.Proxy_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_TupleCompactUint32CompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}   
+func to_Session_SetKeysCallsalut(fields []*registry.DecodedField) *pbgear.Session_SetKeysCall {
+    return &pbgear.Session_SetKeysCall{
+                Keys: to_Session_VaraRuntimeSessionKeys(field.Value),
+                Proof : []uint32(field.Value),
+    }
+}
+            
+                func to_Session_VaraRuntimeSessionKeys(in *registry.DecodedField) *pbgear.Session_VaraRuntimeSessionKeys {
+                    return &pbgear.Session_VaraRuntimeSessionKeys{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Identity_RequestJudgementCallsalut(fields []*registry.DecodedField) *pbgear.Identity_RequestJudgementCall {
+    return &pbgear.Identity_RequestJudgementCall{
+                RegIndex: to_Identity_CompactUint32(field.Value),
+                MaxFee: to_Identity_CompactString(field.Value),
+    }
+}   
+func to_ImOnline_PalletImOnlineHeartbeatsalut(fields []*registry.DecodedField) *pbgear.ImOnline_PalletImOnlineHeartbeat {
+    return &pbgear.ImOnline_PalletImOnlineHeartbeat{
+                BlockNumber : uint32(field.Value),
+                SessionIndex : uint32(field.Value),
+                AuthorityIndex : uint32(field.Value),
+                ValidatorsLen : uint32(field.Value),
+    }
+}
+            
+                      
+func to_Bounties_ProposeCuratorCallsalut(fields []*registry.DecodedField) *pbgear.Bounties_ProposeCuratorCall {
+    return &pbgear.Bounties_ProposeCuratorCall{
+                BountyId: to_Bounties_CompactUint32(field.Value),
+                Curator: to_Bounties_Curator(field.Value),
+                Fee: to_Bounties_CompactString(field.Value),
+    }
+} 
+            
+                func to_Bounties_Curator(in *registry.DecodedField) *pbgear.Bounties_Curator {
+                    return &pbgear.Bounties_Curator{
+                        // TODO fill all fields
+                    }
+                }    
+func to_StakingRewards_CompactTupleNullsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_CompactTupleNull {
+    return &pbgear.StakingRewards_CompactTupleNull{
+                Value: to_StakingRewards_TupleNull(field.Value),
+    }
+}
+            
+                func to_StakingRewards_TupleNull(in *registry.DecodedField) *pbgear.StakingRewards_TupleNull {
+                    return &pbgear.StakingRewards_TupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Babe_PrimaryAndSecondaryVRFSlotssalut(fields []*registry.DecodedField) *pbgear.Babe_PrimaryAndSecondaryVRFSlots {
+    return &pbgear.Babe_PrimaryAndSecondaryVRFSlots{
+    }
+} 
+func to_Grandpa_Prevotesalut(fields []*registry.DecodedField) *pbgear.Grandpa_Prevote {
+    return &pbgear.Grandpa_Prevote{
+                Value0: to_Grandpa_FinalityGrandpaEquivocation(field.Value),
+    }
+}  
+func to_Proxy_Idsalut(fields []*registry.DecodedField) *pbgear.Proxy_Id {
+    return &pbgear.Proxy_Id{
+                Value0: to_Proxy_SpCoreCryptoAccountId32(field.Value),
+    }
+}
+            
+                func to_Proxy_SpCoreCryptoAccountId32(in *registry.DecodedField) *pbgear.Proxy_SpCoreCryptoAccountId32 {
+                    return &pbgear.Proxy_SpCoreCryptoAccountId32{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_MaxMembersPerPoolsalut(fields []*registry.DecodedField) *pbgear.NominationPools_MaxMembersPerPool {
+    return &pbgear.NominationPools_MaxMembersPerPool{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_Referenda_SubmitCallsalut(fields []*registry.DecodedField) *pbgear.Referenda_SubmitCall {
+    return &pbgear.Referenda_SubmitCall{
+                ProposalOrigin: to_Referenda_ProposalOrigin(field.Value),
+                Proposal: to_Referenda_Proposal(field.Value),
+                EnactmentMoment: to_Referenda_EnactmentMoment(field.Value),
+    }
+}
+            
+                func to_Referenda_ProposalOrigin(in *registry.DecodedField) *pbgear.Referenda_ProposalOrigin {
+                    return &pbgear.Referenda_ProposalOrigin{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Referenda_Proposal(in *registry.DecodedField) *pbgear.Referenda_Proposal {
+                    return &pbgear.Referenda_Proposal{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Referenda_EnactmentMoment(in *registry.DecodedField) *pbgear.Referenda_EnactmentMoment {
+                    return &pbgear.Referenda_EnactmentMoment{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Scheduler_TupleUint32Uint32salut(fields []*registry.DecodedField) *pbgear.Scheduler_TupleUint32Uint32 {
+    return &pbgear.Scheduler_TupleUint32Uint32{
+                Value0 : uint32(field.Value),
+                Value1 : uint32(field.Value),
+    }
+}   
+func to_Staking_Rawsalut(fields []*registry.DecodedField) *pbgear.Staking_Raw {
+    return &pbgear.Staking_Raw{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Staking_MinCommissionsalut(fields []*registry.DecodedField) *pbgear.Staking_MinCommission {
+    return &pbgear.Staking_MinCommission{
+                Value: to_oneof_Staking_Value(field.Value),
+    }
+}  
+func to_Referenda_Aftersalut(fields []*registry.DecodedField) *pbgear.Referenda_After {
+    return &pbgear.Referenda_After{
+                Value0 : uint32(field.Value),
+    }
+}  
+func to_Identity_PalletIdentitySimpleIdentityInfosalut(fields []*registry.DecodedField) *pbgear.Identity_PalletIdentitySimpleIdentityInfo {
+    return &pbgear.Identity_PalletIdentitySimpleIdentityInfo{
+                Additional: to_Identity_BoundedCollectionsBoundedVecBoundedVec(field.Value),
+                Display: to_Identity_Display(field.Value),
+                Legal: to_Identity_Legal(field.Value),
+                Web: to_Identity_Web(field.Value),
+                Riot: to_Identity_Riot(field.Value),
+                Email: to_Identity_Email(field.Value),
+                PgpFingerprint : []uint32(field.Value),
+                Image: to_Identity_Image(field.Value),
+                Twitter: to_Identity_Twitter(field.Value),
+    }
+}
+            
+                func to_Identity_BoundedCollectionsBoundedVecBoundedVec(in *registry.DecodedField) *pbgear.Identity_BoundedCollectionsBoundedVecBoundedVec {
+                    return &pbgear.Identity_BoundedCollectionsBoundedVecBoundedVec{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_Display(in *registry.DecodedField) *pbgear.Identity_Display {
+                    return &pbgear.Identity_Display{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_Legal(in *registry.DecodedField) *pbgear.Identity_Legal {
+                    return &pbgear.Identity_Legal{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_Web(in *registry.DecodedField) *pbgear.Identity_Web {
+                    return &pbgear.Identity_Web{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_Riot(in *registry.DecodedField) *pbgear.Identity_Riot {
+                    return &pbgear.Identity_Riot{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_Email(in *registry.DecodedField) *pbgear.Identity_Email {
+                    return &pbgear.Identity_Email{
+                        // TODO fill all fields
+                    }
+                }   
+            
+                func to_Identity_Image(in *registry.DecodedField) *pbgear.Identity_Image {
+                    return &pbgear.Identity_Image{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Identity_Twitter(in *registry.DecodedField) *pbgear.Identity_Twitter {
+                    return &pbgear.Identity_Twitter{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_System_SetCodeCallsalut(fields []*registry.DecodedField) *pbgear.System_SetCodeCall {
+    return &pbgear.System_SetCodeCall{
+                Code : []uint32(field.Value),
+    }
+}  
+func to_Balances_Address32salut(fields []*registry.DecodedField) *pbgear.Balances_Address32 {
+    return &pbgear.Balances_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_StakingRewards_Indexsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_Index {
+    return &pbgear.StakingRewards_Index{
+                Value0: to_StakingRewards_CompactTupleNull(field.Value),
+    }
+}
+            
+                func to_StakingRewards_CompactTupleNull(in *registry.DecodedField) *pbgear.StakingRewards_CompactTupleNull {
+                    return &pbgear.StakingRewards_CompactTupleNull{
+                        // TODO fill all fields
+                    }
+                }   
+func to_StakingRewards_AlignSupplyCallsalut(fields []*registry.DecodedField) *pbgear.StakingRewards_AlignSupplyCall {
+    return &pbgear.StakingRewards_AlignSupplyCall{
+                Target : string(field.Value),
+    }
+}  
+func to_NominationPools_Rootsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Root {
+    return &pbgear.NominationPools_Root{
+                Value: to_oneof_NominationPools_Value(field.Value),
+    }
+}  
+func to_NominationPools_Destroyingsalut(fields []*registry.DecodedField) *pbgear.NominationPools_Destroying {
+    return &pbgear.NominationPools_Destroying{
+    }
+} 
+func to_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupportsalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
+    return &pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport{
+                Value0: to_ElectionProviderMultiPhase_SpCoreCryptoAccountId32(field.Value),
+                Value1: to_ElectionProviderMultiPhase_SpNposElectionsSupport(field.Value),
+    }
+} 
+            
+                func to_ElectionProviderMultiPhase_SpNposElectionsSupport(in *registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SpNposElectionsSupport {
+                    return &pbgear.ElectionProviderMultiPhase_SpNposElectionsSupport{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Babe_AllowedSlotssalut(fields []*registry.DecodedField) *pbgear.Babe_AllowedSlots {
+    return &pbgear.Babe_AllowedSlots{
+                Value: to_oneof_Babe_Value(field.Value),
+    }
+}  
+func to_Proxy_Delegatesalut(fields []*registry.DecodedField) *pbgear.Proxy_Delegate {
+    return &pbgear.Proxy_Delegate{
+                Value: to_oneof_Proxy_Value(field.Value),
+    }
+}  
+func to_Proxy_Address20salut(fields []*registry.DecodedField) *pbgear.Proxy_Address20 {
+    return &pbgear.Proxy_Address20{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_CompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_CompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_CompactUint32{
+                Value : uint32(field.Value),
+    }
+}  
+func to_NominationPools_CompactStringsalut(fields []*registry.DecodedField) *pbgear.NominationPools_CompactString {
+    return &pbgear.NominationPools_CompactString{
+                Value : string(field.Value),
+    }
+}  
+func to_BagsList_Lightersalut(fields []*registry.DecodedField) *pbgear.BagsList_Lighter {
+    return &pbgear.BagsList_Lighter{
+                Value: to_oneof_BagsList_Value(field.Value),
+    }
+}  
+func to_ConvictionVoting_Standardsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Standard {
+    return &pbgear.ConvictionVoting_Standard{
+                Vote: to_ConvictionVoting_PalletConvictionVotingVoteVote(field.Value),
+                Balance : string(field.Value),
+    }
+}
+            
+                func to_ConvictionVoting_PalletConvictionVotingVoteVote(in *registry.DecodedField) *pbgear.ConvictionVoting_PalletConvictionVotingVoteVote {
+                    return &pbgear.ConvictionVoting_PalletConvictionVotingVoteVote{
+                        // TODO fill all fields
+                    }
+                }    
+func to_Staking_Address32salut(fields []*registry.DecodedField) *pbgear.Staking_Address32 {
+    return &pbgear.Staking_Address32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_FellowshipReferenda_Inlinesalut(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Inline {
+    return &pbgear.FellowshipReferenda_Inline{
+                Value0: to_FellowshipReferenda_BoundedCollectionsBoundedVecBoundedVec(field.Value),
+    }
+}
+            
+                func to_FellowshipReferenda_BoundedCollectionsBoundedVecBoundedVec(in *registry.DecodedField) *pbgear.FellowshipReferenda_BoundedCollectionsBoundedVecBoundedVec {
+                    return &pbgear.FellowshipReferenda_BoundedCollectionsBoundedVecBoundedVec{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Identity_Raw26salut(fields []*registry.DecodedField) *pbgear.Identity_Raw26 {
+    return &pbgear.Identity_Raw26{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Identity_Riotsalut(fields []*registry.DecodedField) *pbgear.Identity_Riot {
+    return &pbgear.Identity_Riot{
+                Value: to_oneof_Identity_Value(field.Value),
+    }
+}  
+func to_Identity_Unknownsalut(fields []*registry.DecodedField) *pbgear.Identity_Unknown {
+    return &pbgear.Identity_Unknown{
+    }
+} 
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_System_KillPrefixCallsalut(fields []*registry.DecodedField) *pbgear.System_KillPrefixCall {
+    return &pbgear.System_KillPrefixCall{
+                Prefix : []uint32(field.Value),
+                Subkeys : uint32(field.Value),
+    }
+} 
+            
+                   
+func to_Grandpa_ReportEquivocationUnsignedCallsalut(fields []*registry.DecodedField) *pbgear.Grandpa_ReportEquivocationUnsignedCall {
+    return &pbgear.Grandpa_ReportEquivocationUnsignedCall{
+                EquivocationProof: to_Grandpa_SpConsensusGrandpaEquivocationProof(field.Value),
+                KeyOwnerProof: to_Grandpa_SpSessionMembershipProof(field.Value),
+    }
+}   
+func to_ElectionProviderMultiPhase_SetEmergencyElectionResultCallsalut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SetEmergencyElectionResultCall {
+    return &pbgear.ElectionProviderMultiPhase_SetEmergencyElectionResultCall{
+                Supports: to_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport(field.Value),
+    }
+}
+            
+                func to_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport(in *registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
+                    return []*pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport{
+                        // TODO fill all fields
+                    }
+                }   
+func to_NominationPools_Opensalut(fields []*registry.DecodedField) *pbgear.NominationPools_Open {
+    return &pbgear.NominationPools_Open{
+    }
+} 
+func to_GearVoucher_Nonesalut(fields []*registry.DecodedField) *pbgear.GearVoucher_None {
+    return &pbgear.GearVoucher_None{
+    }
+} 
+func to_System_SetHeapPagesCallsalut(fields []*registry.DecodedField) *pbgear.System_SetHeapPagesCall {
+    return &pbgear.System_SetHeapPagesCall{
+                Pages : uint64(field.Value),
+    }
+}
+            
+                   
+func to_BagsList_Heaviersalut(fields []*registry.DecodedField) *pbgear.BagsList_Heavier {
+    return &pbgear.BagsList_Heavier{
+                Value: to_oneof_BagsList_Value(field.Value),
+    }
+}  
+func to_ConvictionVoting_UndelegateCallsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_UndelegateCall {
+    return &pbgear.ConvictionVoting_UndelegateCall{
+                Class : uint32(field.Value),
+    }
+}  
+func to_Identity_Raw9salut(fields []*registry.DecodedField) *pbgear.Identity_Raw9 {
+    return &pbgear.Identity_Raw9{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32salut(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32 {
+    return &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32{
+                Value0: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+                Value1: to_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(field.Value),
+                Value2: to_ElectionProviderMultiPhase_CompactUint32(field.Value),
+    }
+}    
+func to_Bounties_TupleNullsalut(fields []*registry.DecodedField) *pbgear.Bounties_TupleNull {
+    return &pbgear.Bounties_TupleNull{
+    }
+} 
+func to_Staking_CompactStringsalut(fields []*registry.DecodedField) *pbgear.Staking_CompactString {
+    return &pbgear.Staking_CompactString{
+                Value : string(field.Value),
+    }
+}
+            
+                   
+func to_Staking_ScaleValidatorCountCallsalut(fields []*registry.DecodedField) *pbgear.Staking_ScaleValidatorCountCall {
+    return &pbgear.Staking_ScaleValidatorCountCall{
+                Factor: to_Staking_SpArithmeticPerThingsPercent(field.Value),
+    }
+}
+            
+                func to_Staking_SpArithmeticPerThingsPercent(in *registry.DecodedField) *pbgear.Staking_SpArithmeticPerThingsPercent {
+                    return &pbgear.Staking_SpArithmeticPerThingsPercent{
+                        // TODO fill all fields
+                    }
+                }   
+func to_Staking_SetStakingConfigsCallsalut(fields []*registry.DecodedField) *pbgear.Staking_SetStakingConfigsCall {
+    return &pbgear.Staking_SetStakingConfigsCall{
+                MinNominatorBond: to_Staking_MinNominatorBond(field.Value),
+                MinValidatorBond: to_Staking_MinValidatorBond(field.Value),
+                MaxNominatorCount: to_Staking_MaxNominatorCount(field.Value),
+                MaxValidatorCount: to_Staking_MaxValidatorCount(field.Value),
+                ChillThreshold: to_Staking_ChillThreshold(field.Value),
+                MinCommission: to_Staking_MinCommission(field.Value),
+    }
+}
+            
+                func to_Staking_MinNominatorBond(in *registry.DecodedField) *pbgear.Staking_MinNominatorBond {
+                    return &pbgear.Staking_MinNominatorBond{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Staking_MinValidatorBond(in *registry.DecodedField) *pbgear.Staking_MinValidatorBond {
+                    return &pbgear.Staking_MinValidatorBond{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Staking_MaxNominatorCount(in *registry.DecodedField) *pbgear.Staking_MaxNominatorCount {
+                    return &pbgear.Staking_MaxNominatorCount{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Staking_MaxValidatorCount(in *registry.DecodedField) *pbgear.Staking_MaxValidatorCount {
+                    return &pbgear.Staking_MaxValidatorCount{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Staking_ChillThreshold(in *registry.DecodedField) *pbgear.Staking_ChillThreshold {
+                    return &pbgear.Staking_ChillThreshold{
+                        // TODO fill all fields
+                    }
+                }  
+            
+                func to_Staking_MinCommission(in *registry.DecodedField) *pbgear.Staking_MinCommission {
+                    return &pbgear.Staking_MinCommission{
+                        // TODO fill all fields
+                    }
+                }   
+func to_ConvictionVoting_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_SpCoreCryptoAccountId32 {
+    return &pbgear.ConvictionVoting_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_ConvictionVoting_RemoveOtherVoteCallsalut(fields []*registry.DecodedField) *pbgear.ConvictionVoting_RemoveOtherVoteCall {
+    return &pbgear.ConvictionVoting_RemoveOtherVoteCall{
+                Target: to_ConvictionVoting_Target(field.Value),
+                Class : uint32(field.Value),
+                Index : uint32(field.Value),
+    }
+}    
+func to_Identity_Sha256salut(fields []*registry.DecodedField) *pbgear.Identity_Sha256 {
+    return &pbgear.Identity_Sha256{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_NominationPools_PermissionlessWithdrawsalut(fields []*registry.DecodedField) *pbgear.NominationPools_PermissionlessWithdraw {
+    return &pbgear.NominationPools_PermissionlessWithdraw{
+    }
+} 
+func to_Staking_SpCoreCryptoAccountId32salut(fields []*registry.DecodedField) *pbgear.Staking_SpCoreCryptoAccountId32 {
+    return &pbgear.Staking_SpCoreCryptoAccountId32{
+                Value0 : []uint32(field.Value),
+    }
+}  
+func to_Staking_SpArithmeticPerThingsPercentsalut(fields []*registry.DecodedField) *pbgear.Staking_SpArithmeticPerThingsPercent {
+    return &pbgear.Staking_SpArithmeticPerThingsPercent{
+                Factor : uint32(field.Value),
+    }
+}   

@@ -15,6 +15,8 @@ type Generator struct {
 
 	Messages []*protobuf.Message
 	Metadata *types.Metadata
+
+	seenFields map[string]bool
 }
 
 func NewGenerator(templatePath string, messages []*protobuf.Message, metadata *types.Metadata) *Generator {
@@ -22,6 +24,7 @@ func NewGenerator(templatePath string, messages []*protobuf.Message, metadata *t
 		templatePath: templatePath,
 		Messages:     messages,
 		Metadata:     metadata,
+		seenFields:   make(map[string]bool),
 	}
 }
 
@@ -48,6 +51,15 @@ func (g *Generator) Generate() error {
 	}
 
 	return nil
+}
+
+func (g *Generator) IsSeen(k string) bool {
+	return g.seenFields[k]
+}
+
+func (g *Generator) Seen(k string) bool {
+	g.seenFields[k] = true
+	return true
 }
 
 func (g *Generator) IsRepeatableField(field protobuf.Field) bool {
@@ -82,4 +94,11 @@ func (g *Generator) isStringPrimitive(field protobuf.Field) bool {
 
 func (g *Generator) isBoolPrimitive(field protobuf.Field) bool {
 	return field.IsPrimitive() && field.GetType() == "bool"
+}
+
+func (g *Generator) IsOneOf(field protobuf.Field) bool {
+	if _, ok := field.(*protobuf.OneOfField); ok {
+		return true
+	}
+	return false
 }

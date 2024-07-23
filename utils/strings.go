@@ -17,5 +17,14 @@ func ToSnakeCase(str string) string {
 }
 
 func ToPascalCase(str string) string {
-	return stringy.New(str).PascalCase().Get()
+	input := stringy.New(str).PascalCase().Get()
+	// Compile the regex pattern to match a number followed by a lowercase letter
+	pattern := regexp.MustCompile(`(\d)([a-z])`)
+
+	// Use the ReplaceAllStringFunc method to apply a function to each match
+	result := pattern.ReplaceAllStringFunc(input, func(match string) string {
+		return string(match[0]) + strings.ToUpper(string(match[1]))
+	})
+
+	return result
 }
