@@ -5,12 +5,37 @@ import (
     pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1"
 )
 
-{{- $metadata := .Metadata }}
-{{- $messages := .Messages }}
+{{- $generator := . }}
+{{- $metadata := $generator.Metadata }}
+{{- $messages := $generator.Messages }}
 {{ range $msg := $messages }}
 func {{ $msg.ToFuncName $metadata }}(callFields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
-    return &pbgear.{{ $msg.Name }}{{"{"}}
+    return &pbgear.{{ $msg.Name }}{
 
-    {{"}"}}
+    }
 }
-{{ end }}
+
+{{- range $field := $msg.Fields}}
+{{/* ---- IsOptional section for any kind of fields ----- */}}
+{{- $isOptional := $generator.IsOptionalField $field }}
+{{- if and $isOptional $field.IsPrimitive }}
+func {{ $field.ToFuncName $metadata}}(field *registry.DecodedField) *{{ $field.ReturnType $metadata }} {
+    var out *{{ $field.GetType }}
+    
+    if v, ok := field.Value.({{ $field.GetType }}); ok {
+        if v != {{ $generator.NoneOptionalFieldComparator $field }} {
+            panic("expected none")
+        }
+    } else {
+        out = field.Value.(*{{ $field.GetType }})
+    }
+    return out
+}
+{{- else if $field.IsPrimitive }}
+func {{ $field.ToFuncName $metadata }}([FIND THE ARGUMENT HERE]) {{ $field.GetType }} {
+    return {{ $field.GetType }}([FIND THE TYPE HERE])
+}
+{{- else }}
+{{- end }} {{/* isOptional and isPrimitive */}}
+{{- end }} {{/* range fields */}}
+{{- end }} {{/* range messages */}}

@@ -49,3 +49,37 @@ func (g *Generator) Generate() error {
 
 	return nil
 }
+
+func (g *Generator) IsRepeatableField(field protobuf.Field) bool {
+	if _, ok := field.(*protobuf.RepeatedField); ok {
+		return true
+	}
+	return false
+}
+
+func (g *Generator) IsOptionalField(field protobuf.Field) bool {
+	if f, ok := field.(*protobuf.BasicField); ok {
+		return f.Optional
+	}
+	return false
+}
+
+func (g *Generator) NoneOptionalFieldComparator(field protobuf.Field) string {
+	if g.isStringPrimitive(field) {
+		return "\"\""
+	}
+
+	if g.isBoolPrimitive(field) {
+		return "false"
+	}
+
+	return "0"
+}
+
+func (g *Generator) isStringPrimitive(field protobuf.Field) bool {
+	return field.IsPrimitive() && field.GetType() == "string"
+}
+
+func (g *Generator) isBoolPrimitive(field protobuf.Field) bool {
+	return field.IsPrimitive() && field.GetType() == "bool"
+}
