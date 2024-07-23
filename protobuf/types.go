@@ -78,6 +78,10 @@ type BasicField struct {
 	Primitive bool
 }
 
+func (f *BasicField) OneOfWrapperOutputName() string {
+	return fmt.Sprintf("&pbgear.%s_%s", f.Pallet, f.FullTypeName())
+}
+
 func (f *BasicField) IsOptional() bool {
 	return f.Optional
 }
@@ -242,6 +246,10 @@ type OneOfField struct {
 	Types     []*BasicField
 	LookupID  int64
 	Primitive bool
+}
+
+func (f *OneOfField) Toto() string {
+	return "foobar"
 }
 
 func (f *OneOfField) IsOptional() bool {

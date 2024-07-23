@@ -35,7 +35,8 @@ func (g *Generator) Generate() error {
 	}
 
 	funcMap := template.FuncMap{
-		"wrap": g.Wrap,
+		"wrap":        g.Wrap,
+		"newWrapItem": NewWrapItems,
 	}
 
 	templ, err := template.New("").Funcs(funcMap).Parse(string(b))
@@ -107,9 +108,29 @@ func (g *Generator) IsOneOf(field protobuf.Field) bool {
 	return false
 }
 
-func (g *Generator) Wrap(v any) map[string]interface{} {
-	return map[string]interface{}{
-		"Value":     v,
-		"Generator": g,
+type WrapItem struct {
+	Key   any
+	Value any
+}
+
+func NewWrapItems(a ...any) []WrapItem {
+	items := make([]WrapItem, len(a))
+	for i := 0; i < len(a); i += 2 {
+		items[i] = WrapItem{
+			Key:   a[i],
+			Value: a[i+1],
+		}
+
 	}
+
+	return items
+}
+
+func (g *Generator) Wrap(items []WrapItem) map[any]any {
+	out := make(map[any]any)
+	for _, item := range items {
+		out[item.Key] = item.Value
+	}
+	out["generator"] = g
+	return out
 }

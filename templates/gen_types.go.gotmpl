@@ -10,11 +10,11 @@ import (
 {{- $messages := $generator.Messages }}
 {{ range $msg := $messages }}
 func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
-    {{- template "return" wrap $msg }}
+    {{- template "return" wrap (newWrapItem "msg" $msg) }}
 }
 
     {{- range $field := $msg.Fields }}
-        {{- template "field2func" wrap $field  -}}
+        {{- template "field2func" wrap (newWrapItem "field" $field) -}}
     {{- end }} {{/* range fields */}}
 {{- end }} {{/* range messages */}}
 
@@ -40,11 +40,9 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
             return out
         }
         {{- else if and $field.IsPrimitive $field.IsRepeated}}
-        {{- template "repeatedPrimitive" wrap $field}}
+        {{- template "repeatedPrimitive" wrap (newWrapItem "field" $field) }}
         {{- else if $field.IsOneOf }}
-        func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) {{ $field.ReturnType $meta }} {
-            return nil
-        }
+        {{- template "oneOfFunc" wrap (newWrapItem "field" $field) }}
         {{- end }} {{/* isOptional and isPrimitive */}}
     {{- end }} {{/* not seen */}}
 {{ end }}
@@ -64,15 +62,46 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
 {{- end -}}
 
 {{ define "return" }}
-    {{- $msg := .Value }}
-    {{- $meta := .Generator.Metadata }}
-    return {{ $msg.OutputType $meta }}{
-        {{- range $i, $field := $msg.Fields }}
+    {{- $msg := .msg }}
+    {{- $meta := .generator.Metadata }}
+    out := {{ $msg.OutputType $meta }}{}
+    {{- range $i, $field := $msg.Fields }}
+    {{- if $field.IsOneOf }}
+        {{ template "oneOfSwitch" wrap (newWrapItem "field" $field "msgOutputType" ($msg.OutputType $meta)) }}
+    {{- else }}
         {{- if and $field.IsPrimitive (not $field.IsRepeated) }}
-        {{ $field.ToFieldName }} : fields[{{$i}}].Value.({{ $field.OutputType $meta }}),
+        out.{{ $field.ToFieldName }} = fields[{{$i}}].Value.({{ $field.OutputType $meta }}),
         {{- else }}
-        {{ $field.ToFieldName }}: {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.([]*registry.DecodedField)),
+        out.{{ $field.ToFieldName }} = {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.([]*registry.DecodedField)),
         {{- end }}
         {{- end }}
+    {{- end }}
+    return out
+{{- end -}}
+
+{{ define "oneOfSwitch" }}
+{{- $field := .field }}
+{{- $meta := .generator.Metadata }}
+{{- $msgOutputType := .msgOutputType }}
+{{- $goType := $field.ToGoTypeName $meta }}
+    switch {{ $field.FullTypeName }} {
+    {{- range $f := $field.Types }}
+    case {{ $f.FullTypeName }}:
+        out.{{ $field.ToFieldName }} = {{ $msgOutputType }}_{{ $f.Name}} {
+            {{ $f.Name }}: {{ $f.ToFuncName $meta }}(field),
+        }
+    {{- end}}
+    default: 
+        panic("unsupported type")
     }
+{{- end -}}
+
+{{ define "oneOfFunc" }}
+{{- $field := .field }}
+{{- $meta := .generator.Metadata }}
+{{- $goType := $field.ToGoTypeName $meta }}
+
+func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.ReturnType $meta }} {
+	return nil
+}
 {{- end -}}
