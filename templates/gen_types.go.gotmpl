@@ -56,10 +56,10 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
 {{- $meta := .Generator.Metadata }}
 {{- $goType := $field.ToGoTypeName $meta }}
 
-func {{ $field.ToFuncName $meta}}(in []*registry.DecodedField) {{ $field.ReturnType $meta }} {
-	out := make([]{{ $goType }}, len(in))
-	for i := range in {
-		out = append(out, i.Value.({{ $goType }}))
+func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.ReturnType $meta }} {
+	out := make([]{{ $goType }}, len(fields))
+	for _, f := range fields {
+		out = append(out, f.Value.({{ $goType }}))
 	}
 	return out
 }
