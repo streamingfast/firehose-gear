@@ -57,7 +57,7 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
     {{- $meta := .Generator.Metadata }}
     return {{ $msg.OutputType $meta }}{
         {{- range $i, $field := $msg.Fields }}
-        {{- if and $field.IsPrimitive (not $field.IsRepeatableField) }}
+        {{- if and $field.IsPrimitive (not $field.IsRepeated) }}
         {{ $field.ToGoTypeName }} : {{ $field.OutputType $meta }}(fields[{{$i}}].Value),
         {{- else }}
         {{ $field.ToGoTypeName }}: {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.([]*registry.DecodedField))),
