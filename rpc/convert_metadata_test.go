@@ -13,6 +13,6 @@ func Test_ConvertMetadata(t *testing.T) {
 	gearClients.Add(gearClient)
 
 	mc := NewMetadataConverter(gearClients, nil, nil)
-	_, err := mc.Convert("")
+	err := mc.Convert("")
 	require.NoError(t, err)
 }

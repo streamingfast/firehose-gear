@@ -43,12 +43,11 @@ func convertMetadataE(logger *zap.Logger, tracer logging.Tracer) firecore.Comman
 		gearClients.Add(gearClient)
 
 		metadataConverter := rpc.NewMetadataConverter(gearClients, logger, tracer)
-		metadata, err := metadataConverter.Convert(blockHash)
+		err := metadataConverter.Convert(blockHash)
 		if err != nil {
 			return fmt.Errorf("converting metadata: %w", err)
 		}
 
-		_ = metadata
 		return nil
 	}
 }

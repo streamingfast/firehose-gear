@@ -15,7 +15,7 @@ func Test_Generator(t *testing.T) {
 	gearClients.Add(gearClient)
 
 	mc := rpc.NewMetadataConverter(gearClients, nil, nil)
-	_, err := mc.Convert("")
+	err := mc.Convert("")
 	require.NoError(t, err)
 
 	messages := mc.FetchMessages()

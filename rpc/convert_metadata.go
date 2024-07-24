@@ -45,15 +45,15 @@ func (mc *MetadataConverter) FetchMetadata() *substrateTypes.Metadata {
 	return mc.metaData
 }
 
-func (mc *MetadataConverter) Convert(blockHash string) (map[string]types.IType, error) {
+func (mc *MetadataConverter) Convert(blockHash string) error {
 	metadata, err := mc.fetchStateMetadata(blockHash)
 	if err != nil {
-		return nil, fmt.Errorf("fetching state metadata: %w", err)
+		return fmt.Errorf("fetching state metadata: %w", err)
 	}
 
 	mc.metaData = metadata
 	if metadata.Version != 14 {
-		return nil, nil
+		return nil
 	}
 
 	switch metadata.Version {
@@ -68,7 +68,7 @@ func (mc *MetadataConverter) Convert(blockHash string) (map[string]types.IType, 
 		fmt.Println("Unsupported metadata version", metadata.Version)
 	}
 
-	return nil, nil
+	return nil
 }
 
 func (mc *MetadataConverter) fetchStateMetadata(blockHash string) (*substrateTypes.Metadata, error) {
@@ -92,14 +92,14 @@ type TypeConverter struct {
 	IdToField        map[int64]protobuf.Field
 }
 
-func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14) (map[string]types.IType, error) {
+func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14) error {
 	allMetadataTypes := metadata.Lookup.Types
 	c.allMetadataTypes = allMetadataTypes
 
 	for _, pallet := range metadata.Pallets {
-		if pallet.Name != "Balances" {
-			continue
-		}
+		// if pallet.Name != "Scheduler" {
+		// 	continue
+		// }
 		if pallet.HasCalls {
 			callIdx := pallet.Calls.Type.Int64()
 			palletName := string(pallet.Name)
@@ -147,10 +147,10 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	}
 	err := os.WriteFile("../proto/sf/gear/metadata/type/v1/output.proto", []byte(sb.String()), 0644)
 	if err != nil {
-		return nil, fmt.Errorf("writing output.proto: %w", err)
+		return fmt.Errorf("writing output.proto: %w", err)
 	}
 
-	return nil, nil
+	return nil
 }
 
 func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
@@ -158,10 +158,9 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 
 	calls := variants.Type.Def.Variant
 	for _, variant := range calls.Variants {
-		//if variant.Name != "set_identity" { //lowercase
-		if variant.Name != "transfer_keep_alive" { //lowercase
-			continue
-		}
+		// if variant.Name != "schedule_after" { //lowercase
+		// 	continue
+		// }
 		callName := string(variant.Name)
 		message := &protobuf.Message{
 			Pallet: palletName,
@@ -200,10 +199,20 @@ func (c *TypeConverter) FieldForPrimitive(ttype substrateTypes.PortableTypeV14, 
 	}
 }
 
-func (c *TypeConverter) FieldForSequence(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.RepeatedField {
+func (c *TypeConverter) FieldForSequence(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
 	lookupId := ttype.Type.Def.Sequence.Type.Int64()
 	lookupType := c.allMetadataTypes[lookupId]
 	typeName := c.ExtractTypeName(lookupType, palletName, callName, fieldName)
+
+	if typeName == "uint8" || typeName == "int8" {
+		return &protobuf.BasicField{
+			Pallet:    palletName,
+			Type:      "bytes",
+			Name:      fieldName,
+			Primitive: lookupType.Type.Def.IsPrimitive,
+			LookupID:  lookupId,
+		}
+	}
 
 	return &protobuf.RepeatedField{
 		Pallet:    palletName,
@@ -214,10 +223,20 @@ func (c *TypeConverter) FieldForSequence(ttype substrateTypes.PortableTypeV14, p
 	}
 }
 
-func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.RepeatedField {
+func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
 	lookupId := ttype.Type.Def.Array.Type.Int64()
 	lookupType := c.allMetadataTypes[lookupId]
 	typeName := c.ExtractTypeName(lookupType, palletName, callName, fieldName)
+
+	if typeName == "uint8" || typeName == "int8" {
+		return &protobuf.BasicField{
+			Pallet:    palletName,
+			Type:      "bytes",
+			Name:      fieldName,
+			Primitive: lookupType.Type.Def.IsPrimitive,
+			LookupID:  lookupId,
+		}
+	}
 
 	return &protobuf.RepeatedField{
 		Pallet:    palletName,
@@ -333,7 +352,7 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) string {
 	typeName := ""
 	if ttype.Type.Def.IsPrimitive {
-		return types.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).ToProtoType()
+		return types.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).ToGoType()
 	}
 
 	if ttype.Type.Def.IsTuple {

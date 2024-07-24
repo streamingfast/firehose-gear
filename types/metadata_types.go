@@ -6,16 +6,6 @@ import (
 	substrateTypes "github.com/centrifuge/go-substrate-rpc-client/v4/types"
 )
 
-type IType interface {
-	ToProtoType(options ...string) string
-	ToGoType(options ...string) string
-	GetName() string
-}
-
-type Types struct {
-	Types []IType
-}
-
 func ConvertPrimitiveType(b substrateTypes.Si0TypeDefPrimitive) *Primitive {
 	p := &Primitive{}
 
@@ -61,55 +51,12 @@ type Primitive struct {
 	Si0TypeDefPrimitive *Type
 }
 
-func (p *Primitive) GetName() string {
-	return p.Si0TypeDefPrimitive.ToProtoType()
-}
-
 func (p *Primitive) GetProtoFieldName() string {
-	return p.Si0TypeDefPrimitive.ToProtoType()
-}
-
-func (p *Primitive) ToProtoType(options ...string) string {
-	return p.Si0TypeDefPrimitive.ToProtoType()
+	return p.Si0TypeDefPrimitive.ToGoType()
 }
 
 func (p *Primitive) ToGoType(options ...string) string {
 	return p.Si0TypeDefPrimitive.ToGoType()
-}
-
-type Compact struct {
-	Type IType
-}
-
-func (c *Compact) GetName() string {
-	return fmt.Sprintf("Compact%s", c.Type.GetName())
-}
-
-func (c *Compact) ToProtoMessage(options ...string) string {
-	return c.Type.ToProtoType()
-}
-
-type BitSequence struct {
-	BitStoreType IType
-	BitOrderType IType
-}
-
-func (b *BitSequence) GetName() string {
-	return "BitSequence"
-}
-
-func (b *BitSequence) ToProtoMessage(options ...string) string {
-	panic("not implemented")
-}
-
-type HistoricMetaCompat string
-
-func (h HistoricMetaCompat) GetName() string {
-	return "HistoricMetaCompat"
-}
-
-func (h HistoricMetaCompat) ToProtoMessage(options ...string) string {
-	panic("not implemented")
 }
 
 type Type struct {
@@ -130,73 +77,20 @@ type Type struct {
 	IsI256 bool
 }
 
-func (t *Type) GetProtoFieldName() string {
-	if t.IsBool {
-		return "Bool"
-	}
-
-	if t.IsChar {
-		return "Char"
-	}
-
-	if t.IsStr {
-		return "String"
-	}
-
-	if t.IsU128 {
-		return "Uint128"
-	}
-
-	if t.IsU256 {
-		return "Uint256"
-	}
-
-	if t.IsI128 {
-		return "Int128"
-	}
-
-	if t.IsI256 {
-		return "Int256"
-	}
-
-	if t.IsU8 {
-		return "Uint8"
-	}
-
-	if t.IsU16 {
-		return "Uint16"
-	}
-
-	if t.IsU32 {
-		return "Uint32"
-	}
-
-	if t.IsU64 {
-		return "Uint64"
-	}
-
-	if t.IsI8 {
-		return "Int8"
-	}
-
-	if t.IsI16 {
-		return "Int16"
-	}
-
-	if t.IsI32 {
-		return "Int32"
-	}
-
-	if t.IsI64 {
-		return "Int64"
-	}
-
-	panic("unknown type")
-}
-
 func (t *Type) ToGoType(options ...string) string {
-	return t.ToProtoType()
+	str := t.ToProtoType()
+
+	if str == "uint8" {
+		str = "uint32"
+	}
+
+	if str == "int8" {
+		str = "int32"
+	}
+
+	return str
 }
+
 func (t *Type) ToProtoType(options ...string) string {
 	if t.IsBool {
 		return "bool"
@@ -206,7 +100,15 @@ func (t *Type) ToProtoType(options ...string) string {
 		return "string"
 	}
 
-	if t.IsU8 || t.IsU16 || t.IsU32 {
+	if t.IsU8 {
+		return "uint8"
+	}
+
+	if t.IsI8 {
+		return "int8"
+	}
+
+	if t.IsU16 || t.IsU32 {
 		return "uint32"
 	}
 
@@ -214,7 +116,7 @@ func (t *Type) ToProtoType(options ...string) string {
 		return "uint64"
 	}
 
-	if t.IsI8 || t.IsI16 || t.IsI32 {
+	if t.IsI16 || t.IsI32 {
 		return "int32"
 	}
 
@@ -223,6 +125,4 @@ func (t *Type) ToProtoType(options ...string) string {
 	}
 
 	panic("unknown type")
-
-	return ""
 }
