@@ -97,9 +97,9 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	c.allMetadataTypes = allMetadataTypes
 
 	for _, pallet := range metadata.Pallets {
-		// if pallet.Name != "Identity" {
-		// 	continue
-		// }
+		//if pallet.Name != "Staking" {
+		//	continue
+		//}
 		if pallet.HasCalls {
 			callIdx := pallet.Calls.Type.Int64()
 			palletName := string(pallet.Name)
@@ -162,9 +162,9 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 
 	calls := variants.Type.Def.Variant
 	for _, variant := range calls.Variants {
-		// if variant.Name != "add_registrar" { //lowercase
-		// 	continue
-		// }
+		//if variant.Name != "chill_other" { //lowercase
+		//	continue
+		//}
 		callName := string(variant.Name)
 		message := &protobuf.Message{
 			Pallet: palletName,
@@ -276,7 +276,7 @@ func (c *TypeConverter) FieldForComposite(ttype substrateTypes.PortableTypeV14, 
 	name := c.ExtractTypeName(ttype, palletName, callName, fieldName)
 
 	return &protobuf.BasicField{
-		Pallet:   palletName,
+		Pallet:   palletNameFromPath(ttype.Type.Path, palletName),
 		Name:     fieldName,
 		Type:     name,
 		LookupID: ttype.ID.Int64(),
@@ -285,6 +285,7 @@ func (c *TypeConverter) FieldForComposite(ttype substrateTypes.PortableTypeV14, 
 
 func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
 	if ttype.ID.Int64() == 65 {
+
 		return c.FieldFor65(ttype, palletName, callName, fieldName)
 	}
 
@@ -396,9 +397,9 @@ func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14, pa
 }
 
 func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.Message {
+
 	msg := &protobuf.Message{
-		//Pallet: palletNameFromPath(ttype.Type.Path),
-		Pallet: palletName,
+		Pallet: palletNameFromPath(ttype.Type.Path, palletName),
 		Name:   typeName,
 	}
 
@@ -422,7 +423,7 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 
 			fName := string(field.Name)
 			if !field.HasName {
-				fName = fieldName
+				fName = "value"
 			}
 
 			f := c.FieldForType(lookupType, palletName, callName, fName)

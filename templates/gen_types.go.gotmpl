@@ -28,16 +28,13 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
     {{- $generator := .generator }}
     {{- $seen := $generator.IsSeen $field.FullTypeName }}
     {{- if not $seen }}
-        // not seen "{{ $field.Name}}" optional: {{$field.IsOptional}} repeated: {{$field.IsRepeated}}
         {{- if $field.IsPrimitive }}
             {{- /* ============================= */}}
             {{- /* PRIMITIVE                     */}}
             {{- /* ============================= */}}
             {{- if $field.IsOptional }}
-                // optional primitive: {{ $field.Name}}
             {{- end}}
             {{- if $field.IsRepeated }}
-                // optional primitive: {{ $field.Name}}
                 {{- template "repeatedPrimitiveField" wrap (newWrapItem "field" $field) }}
             {{- end}}
         {{- end }}
@@ -46,11 +43,9 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
             {{- /* NOT PRIMITIVE                 */}}
             {{- /* ============================= */}}
             {{- if $field.IsOptional }}
-                // optional field: {{ $field.Name}}
                 {{- template "optionalField" wrap (newWrapItem "field" $field) }}
             {{- end}}
             {{- if $field.IsRepeated }}
-                // optional primitive: {{ $field.Name}}
                 {{- template "repeatedField" wrap (newWrapItem "field" $field) }}
             {{- end}}
 

@@ -44,7 +44,7 @@ func (m *Message) FullTypeName() string {
 	if m.Pallet == "" {
 		return suffix
 	}
-	return m.Pallet + "_" + suffix
+	return utils.ToPascalCase(m.Pallet) + "_" + suffix
 }
 func (m *Message) ToFuncName(meta *types.Metadata) string {
 	name := "To_" + m.FullTypeName()
@@ -138,7 +138,7 @@ func (f *BasicField) FullTypeName() string {
 		return suffix
 	}
 
-	return f.Pallet + "_" + suffix
+	return utils.ToPascalCase(f.Pallet) + "_" + suffix
 }
 
 func (f *BasicField) ToFuncName(meta *types.Metadata) string {
@@ -230,7 +230,7 @@ func (f *RepeatedField) FullTypeName() string {
 	if f.Pallet == "" {
 		return suffix
 	}
-	return f.Pallet + "_" + suffix
+	return utils.ToPascalCase(f.Pallet) + "_" + suffix
 }
 func (f *RepeatedField) ToChildFuncName(meta *types.Metadata) string {
 	name := "To_" + f.FullTypeName()
@@ -317,7 +317,7 @@ func (f *OneOfField) FullTypeName() string {
 	if f.Pallet == "" {
 		return suffix
 	}
-	return f.Pallet + "_" + suffix
+	return utils.ToPascalCase(f.Pallet) + "_" + suffix
 }
 
 func (f *OneOfField) ToFuncName(meta *types.Metadata) string {
