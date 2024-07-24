@@ -54,7 +54,6 @@ func fetchRunE(logger *zap.Logger, tracer logging.Tracer) firecore.CommandExecut
 		latestBlockRetryInterval := sflags.MustGetDuration(cmd, "latest-block-retry-interval")
 
 		gearClients := firecoreRPC.NewClients[*rpc.Client]()
-
 		for _, rpcEndpoint := range rpcEndpoints {
 			gearClient := rpc.NewClient(rpcEndpoint)
 			gearClients.Add(gearClient)
