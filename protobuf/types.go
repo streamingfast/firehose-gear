@@ -95,6 +95,11 @@ func (f *BasicField) OneOfWrapperOutputName() string {
 	return fmt.Sprintf("&pbgear.%s_%s", f.Pallet, f.FullTypeName())
 }
 
+func (f *BasicField) ToChildFuncName(meta *types.Metadata) string {
+	name := "To_" + f.FullTypeName()
+	return name
+}
+
 func (f *BasicField) IsOptional() bool {
 	return f.Optional
 }

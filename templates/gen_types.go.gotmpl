@@ -47,6 +47,7 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
             {{- /* ============================= */}}
             {{- if $field.IsOptional }}
                 // optional field: {{ $field.Name}}
+                {{- template "optionalField" wrap (newWrapItem "field" $field) }}
             {{- end}}
             {{- if $field.IsRepeated }}
                 // optional primitive: {{ $field.Name}}
@@ -85,6 +86,11 @@ func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) *{{ $field.ReturnTy
 {{- end }}
 
 {{- /* ============================= */}}
+{{- /* TODO ONE OF FIELD SELECTION   */}}
+{{- /* ============================= */}}
+
+
+{{- /* ============================= */}}
 {{- /* REPEATED FIELD                */}}
 {{- /* ============================= */}}
 {{ define "repeatedField" }}
@@ -99,7 +105,19 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
     return out
 }
 {{- end }}
+{{- /* ============================= */}}
+{{- /* OPTIONAL FIELD                */}}
+{{- /* ============================= */}}
+{{ define "optionalField" }}
+    {{- $field := .field }}
+    {{- $meta := .generator.Metadata }}
+    {{- $goType := $field.ToGoTypeName $meta }}
+func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.ReturnType $meta }} {
+    var out = {{$field.ToChildFuncName $meta}}(fields)
+    return out
+}
 
+{{- end }}}
 {{- /* ============================= */}}
 {{- /* REPEATED PRIMITIVE            */}}
 {{- /* ============================= */}}
