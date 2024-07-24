@@ -11,7 +11,6 @@ import (
 	cclient "github.com/centrifuge/go-substrate-rpc-client/v4/client"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/parser"
-	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/chain/generic"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	pbbstream "github.com/streamingfast/bstream/pb/sf/bstream/v1"
@@ -468,18 +467,6 @@ func convertMortalEra(era types.MortalEra) *pbgear.MortalEra {
 	}
 }
 
-func convertNone(nonce types.UCompact) string {
-	b := big.Int(nonce)
-	return b.String()
-}
-
-func convertPaymentFields(paymentFields generic.DefaultPaymentFields) *pbgear.PaymentFields {
-	b := big.Int(paymentFields.Tip)
-	return &pbgear.PaymentFields{
-		Tip: b.String(),
-	}
-}
-
 func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 	pbgearEvent := make([]*pbgear.Event, 0, len(events))
 	for _, evt := range events {
@@ -509,12 +496,6 @@ func convertEventFields(fields registry.DecodedFields) ([][]byte, error) {
 			return nil, fmt.Errorf("failed to encode field: %w", err)
 		}
 		out = append(out, buffer.Bytes())
-		// fmt.Printf("event %d field: %s type: %s\n", i, hex.EncodeToString(buffer.Bytes()), field.Name)
-		// b, err := json.MarshalIndent(field, "", "  ")
-		// if err != nil {
-		// 	return nil, fmt.Errorf("failed to marshal field: %w", err)
-		// }
-		// fmt.Println(string(b))
 	}
 	return out, nil
 }
