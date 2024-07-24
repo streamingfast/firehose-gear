@@ -95,7 +95,7 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	c.allMetadataTypes = allMetadataTypes
 
 	for _, pallet := range metadata.Pallets {
-		// if pallet.Name != "Scheduler" {
+		// if pallet.Name != "Identity" {
 		// 	continue
 		// }
 		if pallet.HasCalls {
@@ -156,7 +156,7 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 
 	calls := variants.Type.Def.Variant
 	for _, variant := range calls.Variants {
-		// if variant.Name != "schedule_after" { //lowercase
+		// if variant.Name != "add_registrar" { //lowercase
 		// 	continue
 		// }
 		callName := string(variant.Name)
@@ -188,10 +188,20 @@ func (c *TypeConverter) ProcessField(f substrateTypes.Si1Field, palletName strin
 }
 
 func (c *TypeConverter) FieldForPrimitive(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.BasicField {
+	typeName := types.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName()
+
+	if typeName == "uint8" {
+		typeName = "uint32"
+	}
+
+	if typeName == "int8" {
+		typeName = "int32"
+	}
+
 	return &protobuf.BasicField{
 		Pallet:    palletName,
 		Name:      fieldName,
-		Type:      types.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName(),
+		Type:      typeName,
 		Primitive: true,
 		LookupID:  ttype.ID.Int64(),
 	}

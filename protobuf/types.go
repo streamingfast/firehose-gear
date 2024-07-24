@@ -47,7 +47,7 @@ func (m *Message) FullTypeName() string {
 	return m.Pallet + "_" + suffix
 }
 func (m *Message) ToFuncName(meta *types.Metadata) string {
-	return "to_" + m.FullTypeName()
+	return "To_" + m.FullTypeName()
 }
 
 func (m *Message) ReturnType(meta *types.Metadata) string {
@@ -137,9 +137,9 @@ func (f *BasicField) FullTypeName() string {
 
 func (f *BasicField) ToFuncName(meta *types.Metadata) string {
 	if f.Optional {
-		return "to_optional_" + f.FullTypeName()
+		return "To_optional_" + f.FullTypeName()
 	}
-	return "to_" + f.FullTypeName()
+	return "To_" + f.FullTypeName()
 }
 
 func (f *BasicField) ReturnType(meta *types.Metadata) string {
@@ -227,7 +227,7 @@ func (f *RepeatedField) FullTypeName() string {
 }
 
 func (f *RepeatedField) ToFuncName(meta *types.Metadata) string {
-	return "to_repeated_" + f.FullTypeName()
+	return "To_repeated_" + f.FullTypeName()
 }
 
 func (f *RepeatedField) ReturnType(meta *types.Metadata) string {
@@ -306,7 +306,7 @@ func (f *OneOfField) FullTypeName() string {
 }
 
 func (f *OneOfField) ToFuncName(meta *types.Metadata) string {
-	return "to_oneof_" + f.FullTypeName()
+	return "To_oneof_" + f.FullTypeName()
 }
 
 func (f *OneOfField) ReturnType(meta *types.Metadata) string {

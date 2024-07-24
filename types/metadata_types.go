@@ -78,17 +78,7 @@ type Type struct {
 }
 
 func (t *Type) ToGoType(options ...string) string {
-	str := t.ToProtoType()
-
-	if str == "uint8" {
-		str = "uint32"
-	}
-
-	if str == "int8" {
-		str = "int32"
-	}
-
-	return str
+	return t.ToProtoType()
 }
 
 func (t *Type) ToProtoType(options ...string) string {
