@@ -3,14 +3,35 @@ package gen_types
 import (
     "github.com/centrifuge/go-substrate-rpc-client/v4/registry"
     pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1"
+    "reflect"
 )
 
 {{- $generator := . }}
 {{- $metadata := $generator.Metadata }}
 {{- $messages := $generator.Messages }}
+{{- $idToField := $generator.IdToField }}
+
+type regEntry struct{
+    fn func(fields []*registry.DecodedField) any
+    returnType reflect.Type
+}
+
+var reg map[int64]*regEntry
+
+func init() {
+	reg = make(map[int64]*regEntry)
+    {{- range $k, $f:= $idToField}}
+        reg[{{$k}}] = &regEntry{
+            fn: {{$f.ToFuncName $metadata}},
+            {{/* returnType: "{{$f.ToGoTypeName $metadata}}", */}}
+        }
+    {{- end}}
+}
+
+
 {{ range $msg := $messages }}
-{{- if eq $msg.Pallet "Balances" -}}
-func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
+
+func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) any {
     {{- template "return" wrap (newWrapItem "msg" $msg) }}
 }
 
@@ -18,11 +39,11 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
         {{- template "field2func" wrap (newWrapItem "field" $field) -}}
     {{- end }} {{/* range fields */}}
 {{- end }} {{/* range messages */}}
-{{- end -}}
+
 {{ define "field2func" }}
-    {{- $field := .Value }}
-    {{- $meta := .Generator.Metadata }}
-    {{- $generator := .Generator }}
+    {{- $field := .field }}
+    {{- $meta := .generator.Metadata }}
+    {{- $generator := .generator }}
 
     {{- $seen := $generator.IsSeen $field.FullTypeName }}
     {{- if not $seen -}}
@@ -49,8 +70,8 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
 {{ end }}
 
 {{ define "repeatedPrimitive" }}
-{{- $field := .Value }}
-{{- $meta := .Generator.Metadata }}
+{{- $field := .field }}
+{{- $meta := .generator.Metadata }}
 {{- $goType := $field.ToGoTypeName $meta }}
 
 func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.ReturnType $meta }} {
@@ -83,18 +104,20 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
 {{ define "oneOfSwitch" }}
 {{- $field := .field }}
 {{- $meta := .generator.Metadata }}
+{{- $generator := .generator }}
 {{- $msgOutputType := .msgOutputType }}
+{{- $idToField := .generator.IdToField }}
 {{- $goType := $field.ToGoTypeName $meta }}
-    switch {{ $field.FullTypeName }} {
-    {{- range $f := $field.Types }}
-    case {{ $f.FullTypeName }}:
-        out.{{ $field.ToFieldName }} = {{ $msgOutputType }}_{{ $f.Name}} {
-            {{ $f.Name }}: {{ $f.ToFuncName $meta }}(field)
-        }
-    {{- end}}
-    default: 
-        panic("unsupported type")
+{{$variantChildIds := $generator.VariantChildIds $field.LookupID}}
+    //===========
+    switch {
+    {{- range $i, $ids := $variantChildIds }}
+    {{ $t := index $field.Types $i}}
+    case matchFields(fields, {{$ids}}):
+    out.Value = {{ $t.ToFuncName $meta}}(fields) //Passthrough fields...
+    {{- end }}
     }
+    //============
 {{- end -}}
 
 {{ define "oneOfFunc" }}
@@ -102,7 +125,26 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
 {{- $meta := .generator.Metadata }}
 {{- $goType := $field.ToGoTypeName $meta }}
 
-func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.ReturnType $meta }} {
-	return nil
+func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) any {
+    ===========
+    {{- range $t := $field.Types }}
+    {{- $t.Name}}
+    {{- end }}
+    ==========
+    var out *{{ $field.OutputType $meta }}
+    out.Value = {{ $field.ToFuncName $meta}}(fields) //Passthrough fields...
+	return out
 }
 {{- end -}}
+
+func matchFields(fields []*registry.DecodedField, ids []int64) bool {
+	if len(fields) != len(ids) {
+		return false
+	}
+	for i, f := range fields {
+		if ids[i] != f.LookupIndex{
+			return false
+		}
+	}
+	return true
+}

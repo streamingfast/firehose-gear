@@ -40,7 +40,11 @@ type Message struct {
 }
 
 func (m *Message) FullTypeName() string {
-	return m.Pallet + "_" + utils.ToPascalCase(m.Name, utils.CapitalizeCharAfterNum)
+	suffix := utils.ToPascalCase(m.Name, utils.CapitalizeCharAfterNum)
+	if m.Pallet == "" {
+		return suffix
+	}
+	return m.Pallet + "_" + suffix
 }
 func (m *Message) ToFuncName(meta *types.Metadata) string {
 	return "to_" + m.FullTypeName()
@@ -51,6 +55,14 @@ func (m *Message) ReturnType(meta *types.Metadata) string {
 }
 func (m *Message) OutputType(meta *types.Metadata) string {
 	return "&pbgear." + m.FullTypeName()
+}
+
+func (m *Message) ProtoMessageName() string {
+	suffix := m.Name
+	if m.Pallet == "" {
+		return suffix
+	}
+	return m.Pallet + "_" + suffix
 }
 
 func (m *Message) ToProto() string {
@@ -71,11 +83,11 @@ func (m *Message) ToProto() string {
 
 type BasicField struct {
 	Optional  bool
+	Primitive bool
 	Pallet    string
 	Type      string
 	Name      string
 	LookupID  int64
-	Primitive bool
 }
 
 func (f *BasicField) OneOfWrapperOutputName() string {
@@ -104,7 +116,7 @@ func (f *BasicField) ToGoTypeName(meta *types.Metadata) string {
 		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
 		return primitive.ToGoType()
 	}
-	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
+	return "pbgear." + f.FullTypeName()
 }
 
 func (f *BasicField) GetType() string {
@@ -115,7 +127,12 @@ func (f *BasicField) FullTypeName() string {
 		return f.Type
 	}
 
-	return f.Pallet + "_" + utils.ToPascalCase(f.Type, utils.CapitalizeCharAfterNum)
+	suffix := utils.ToPascalCase(f.Type, utils.CapitalizeCharAfterNum)
+	if f.Pallet == "" {
+		return suffix
+	}
+
+	return f.Pallet + "_" + suffix
 }
 
 func (f *BasicField) ToFuncName(meta *types.Metadata) string {
@@ -190,18 +207,23 @@ func (f *RepeatedField) ToGoTypeName(meta *types.Metadata) string {
 		return primitive.ToGoType()
 	}
 
-	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
+	return "pbgear." + f.FullTypeName()
 }
 
 func (f *RepeatedField) GetType() string {
 	return f.Type
 }
 
-func (r *RepeatedField) FullTypeName() string {
-	if r.Primitive {
-		return r.Type
+func (f *RepeatedField) FullTypeName() string {
+	if f.Primitive {
+		return f.Type
 	}
-	return r.Pallet + "_" + utils.ToPascalCase(r.Type, utils.CapitalizeCharAfterNum)
+
+	suffix := utils.ToPascalCase(f.Type, utils.CapitalizeCharAfterNum)
+	if f.Pallet == "" {
+		return suffix
+	}
+	return f.Pallet + "_" + suffix
 }
 
 func (f *RepeatedField) ToFuncName(meta *types.Metadata) string {
@@ -269,14 +291,18 @@ func (f *OneOfField) IsRepeated() bool {
 }
 
 func (f *OneOfField) ToGoTypeName(meta *types.Metadata) string {
-	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
+	return "pbgear." + f.FullTypeName()
 }
 
 func (f *OneOfField) GetType() string {
-	panic("not expected")
+	panic("OneOfField has not type")
 }
 func (f *OneOfField) FullTypeName() string {
-	return f.Pallet + "_" + utils.ToPascalCase(f.Name, utils.CapitalizeCharAfterNum)
+	suffix := utils.ToPascalCase(f.Name, utils.CapitalizeCharAfterNum)
+	if f.Pallet == "" {
+		return suffix
+	}
+	return f.Pallet + "_" + suffix
 }
 
 func (f *OneOfField) ToFuncName(meta *types.Metadata) string {

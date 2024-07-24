@@ -25,7 +25,7 @@ func Test_Generator(t *testing.T) {
 		return messages[i].FullTypeName() < messages[j].FullTypeName()
 	})
 
-	gen := NewGenerator("../templates/gen_types.go.gotmpl", messages, metadata)
+	gen := NewGenerator("../templates/gen_types.go.gotmpl", messages, metadata, mc.TypeConverter.IdToField)
 	err = gen.Generate()
 	require.NoError(t, err)
 }

@@ -17,14 +17,16 @@ type Generator struct {
 	Metadata *types.Metadata
 
 	seenFields map[string]bool
+	IdToField  map[int64]protobuf.Field
 }
 
-func NewGenerator(templatePath string, messages []*protobuf.Message, metadata *types.Metadata) *Generator {
+func NewGenerator(templatePath string, messages []*protobuf.Message, metadata *types.Metadata, IdToField map[int64]protobuf.Field) *Generator {
 	return &Generator{
 		templatePath: templatePath,
 		Messages:     messages,
 		Metadata:     metadata,
 		seenFields:   make(map[string]bool),
+		IdToField:    IdToField,
 	}
 }
 
@@ -124,6 +126,27 @@ func NewWrapItems(a ...any) []WrapItem {
 	}
 
 	return items
+}
+func (g *Generator) VariantChildIds(id int64) []string {
+	var out []string
+	ttype := g.Metadata.AsMetadataV14.EfficientLookup[id]
+	variant := ttype.Def.Variant
+	for _, v := range variant.Variants {
+		var o []int64 //child of 94
+		for _, f := range v.Fields {
+			o = append(o, f.Type.Int64())
+		}
+		s := "[]int64{"
+		for _, v := range o {
+			s += fmt.Sprintf("%v, ", v)
+		}
+		s = s[:len(s)-2]
+		s += "}"
+
+		out = append(out, s)
+	}
+
+	return out
 }
 
 func (g *Generator) Wrap(items []WrapItem) map[any]any {
