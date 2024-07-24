@@ -11,7 +11,7 @@ import (
 
 {{ range $msg := $messages }}
 
-func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) any {
+func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
     {{- template "return" wrap (newWrapItem "msg" $msg) }}
 }
 
@@ -39,12 +39,13 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) any {
             } else {
                 out = in.Value.(*{{ $field.GetType }})
             }
+
             return out
         }
         {{- else if and $field.IsPrimitive $field.IsRepeated}}
         {{- template "repeatedPrimitive" wrap (newWrapItem "field" $field) }}
-        {{- else if $field.IsOneOf }}
-        {{- template "oneOfFunc" wrap (newWrapItem "field" $field) }}
+{{/*        {{- else if $field.IsOneOf }}*/}}
+{{/*        {{- template "oneOfFunc" wrap (newWrapItem "field" $field) }}*/}}
         {{- end }} {{/* isOptional and isPrimitive */}}
     {{- end }} {{/* not seen */}}
 {{ end }}
@@ -67,9 +68,10 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
     {{- $msg := .msg }}
     {{- $meta := .generator.Metadata }}
     out := {{ $msg.OutputType $meta }}{}
+
     {{- range $i, $field := $msg.Fields }}
     {{- if $field.IsOneOf }}
-        {{ template "oneOfSwitch" wrap (newWrapItem "field" $field "msgOutputType" ($msg.OutputType $meta)) }}
+        {{ template "oneOfSwitch" wrap (newWrapItem "field" $field "msgOutputType" ($msg.OutputType $meta) "parentFullTypeName" $msg.FullTypeName)}}
     {{- else }}
         {{- if and $field.IsPrimitive (not $field.IsRepeated) }}
         out.{{ $field.ToFieldName }} = fields[{{$i}}].Value.({{ $field.OutputType $meta }})
@@ -86,34 +88,33 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
 {{- $meta := .generator.Metadata }}
 {{- $generator := .generator }}
 {{- $msgOutputType := .msgOutputType }}
+{{- $parentFullTypeName := .parentFullTypeName }}
+
 {{- $idToField := .generator.IdToField }}
 {{- $goType := $field.ToGoTypeName $meta }}
-{{$variantChildIds := $generator.VariantChildIds $field.LookupID}}
-    //===========
-    switch {
+{{- $variantChildIds := $generator.VariantChildIds $field.LookupID}}
+switch {
     {{- range $i, $ids := $variantChildIds }}
-    {{ $t := index $field.Types $i}}
+    {{- $t := index $field.Types $i}}
     case matchFields(fields, {{$ids}}):
-    out.Value = {{ $t.ToFuncName $meta}}(fields) //Passthrough fields...
+        out.Value = &pbgear.{{$parentFullTypeName}}_{{$t.Name}}{
+            {{$t.Name}}: {{ $t.ToFuncName $meta}}(fields), //Passthrough fields...
+        }
     {{- end }}
     }
-    //============
 {{- end -}}
 
-{{ define "oneOfFunc" }}
-{{- $field := .field }}
-{{- $meta := .generator.Metadata }}
-{{- $goType := $field.ToGoTypeName $meta }}
+{{/*{{ define "oneOfFunc" }}*/}}
+{{/*{{- $field := .field }}*/}}
+{{/*{{- $meta := .generator.Metadata }}*/}}
+{{/*{{- $goType := $field.ToGoTypeName $meta }}*/}}
 
-func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) any {
-    {{- range $t := $field.Types }}
-    {{- $t.Name}}
-    {{- end }}
-    var out *{{ $field.OutputType $meta }}
-    out.Value = {{ $field.ToFuncName $meta}}(fields) //Passthrough fields...
-	return out
-}
-{{- end -}}
+{{/*func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.ReturnType $meta }} {*/}}
+{{/*    var out {{ $field.OutputType $meta }}*/}}
+{{/*    out.Value = {{ $field.ToFuncName $meta}}(fields) //Passthrough fields...*/}}
+{{/*	return out*/}}
+{{/*}*/}}
+{{/*{{- end -}}*/}}
 
 func matchFields(fields []*registry.DecodedField, ids []int64) bool {
 	if len(fields) != len(ids) {
