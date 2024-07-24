@@ -10,47 +10,101 @@ import (
 {{- $messages := $generator.Messages }}
 
 {{ range $msg := $messages }}
+{{/*{{- if or (eq $msg.Pallet "Balances") (eq $msg.Pallet "")}}*/}}
 
 func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
     {{- template "return" wrap (newWrapItem "msg" $msg) }}
 }
 
     {{- range $field := $msg.Fields }}
-        {{- template "field2func" wrap (newWrapItem "field" $field) -}}
-    {{- end }} {{/* range fields */}}
-{{- end }} {{/* range messages */}}
+        {{- template "fieldFunc" wrap (newWrapItem "field" $field) -}}
+    {{- end }} {{- /* range fields */}}
+{{- end }} {{- /* range messages */}}
+{{/*{{- end }}*/}}
 
-{{ define "field2func" }}
+{{ define "fieldFunc" }}
     {{- $field := .field }}
     {{- $meta := .generator.Metadata }}
     {{- $generator := .generator }}
-
     {{- $seen := $generator.IsSeen $field.FullTypeName }}
-    {{- if not $seen -}}
+    {{- if not $seen }}
+        // not seen "{{ $field.Name}}" optional: {{$field.IsOptional}} repeated: {{$field.IsRepeated}}
+        {{- if $field.IsPrimitive }}
+            {{- /* ============================= */}}
+            {{- /* PRIMITIVE                     */}}
+            {{- /* ============================= */}}
+            {{- if $field.IsOptional }}
+                // optional primitive: {{ $field.Name}}
+            {{- end}}
+            {{- if $field.IsRepeated }}
+                // optional primitive: {{ $field.Name}}
+                {{- template "repeatedPrimitiveField" wrap (newWrapItem "field" $field) }}
+            {{- end}}
+        {{- end }}
+        {{- if not $field.IsPrimitive }}
+            {{- /* ============================= */}}
+            {{- /* NOT PRIMITIVE                 */}}
+            {{- /* ============================= */}}
+            {{- if $field.IsOptional }}
+                // optional field: {{ $field.Name}}
+            {{- end}}
+            {{- if $field.IsRepeated }}
+                // optional primitive: {{ $field.Name}}
+                {{- template "repeatedField" wrap (newWrapItem "field" $field) }}
+            {{- end}}
+
+        {{- end }}
+        {{- /* ============================= */}}
+        {{- /* SET SEEN                      */}}
+        {{- /* ============================= */}}
         {{- $ignore := $generator.Seen $field.FullTypeName }}
-        {{- if and $field.IsOptional $field.IsPrimitive }}
-        func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) *{{ $field.ReturnType $meta }} {
-            var out *{{ $field.GetType }}
+    {{- end }} {{- /* not seen */}}
+{{- end }}
 
-            if v, ok := in.Value.({{ $field.GetType }}); ok {
-                if v != {{ $generator.NoneOptionalFieldComparator $field }} {
-                    panic("expected none")
-                }
-            } else {
-                out = in.Value.(*{{ $field.GetType }})
-            }
+{{- /* ============================= */}}
+{{- /* OPTIONAL PRIMITIVE            */}}
+{{- /* ============================= */}}
 
-            return out
+{{- define "optionalPrimitive" }}
+{{- $field := .field }}
+{{- $generator := .generator }}
+{{- $meta := .generator.Metadata }}
+?????????????????????????
+func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) *{{ $field.ReturnType $meta }} {
+    var out *{{ $field.GetType }}
+
+    if v, ok := in.Value.({{ $field.GetType }}); ok {
+        if v != {{ $generator.NoneOptionalFieldComparator $field }} {
+            panic("expected none")
         }
-        {{- else if and $field.IsPrimitive $field.IsRepeated}}
-        {{- template "repeatedPrimitive" wrap (newWrapItem "field" $field) }}
-{{/*        {{- else if $field.IsOneOf }}*/}}
-{{/*        {{- template "oneOfFunc" wrap (newWrapItem "field" $field) }}*/}}
-        {{- end }} {{/* isOptional and isPrimitive */}}
-    {{- end }} {{/* not seen */}}
-{{ end }}
+    } else {
+        out = in.Value.(*{{ $field.GetType }})
+    }
+    return out
+}
 
-{{ define "repeatedPrimitive" }}
+{{- end }}
+
+{{- /* ============================= */}}
+{{- /* REPEATED FIELD                */}}
+{{- /* ============================= */}}
+{{ define "repeatedField" }}
+{{- $field := .field }}
+{{- $meta := .generator.Metadata }}
+{{- $goType := $field.ToGoTypeName $meta }}
+func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.ReturnType $meta }} {
+    out := make([]*{{ $goType }}, len(fields))
+    for _, f := range fields {
+        out = append(out, {{$field.ToChildFuncName $meta}}(f.Value.([]*registry.DecodedField)))
+    }
+    return out
+}
+{{- end }}
+
+{{- /* ============================= */}}
+{{- /* REPEATED PRIMITIVE            */}}
+{{- /* ============================= */}}
+{{ define "repeatedPrimitiveField" }}
 {{- $field := .field }}
 {{- $meta := .generator.Metadata }}
 {{- $goType := $field.ToGoTypeName $meta }}
@@ -64,6 +118,9 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
 }
 {{- end -}}
 
+{{- /* ============================= */}}
+{{- /* RETURN                        */}}
+{{- /* ============================= */}}
 {{ define "return" }}
     {{- $msg := .msg }}
     {{- $meta := .generator.Metadata }}
@@ -73,7 +130,7 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
     {{- if $field.IsOneOf }}
         {{ template "oneOfSwitch" wrap (newWrapItem "field" $field "msgOutputType" ($msg.OutputType $meta) "parentFullTypeName" $msg.FullTypeName)}}
     {{- else }}
-        {{- if and $field.IsPrimitive (not $field.IsRepeated) }}
+        {{- if and (and $field.IsPrimitive (not $field.IsRepeated)) (eq $field.Name "bytes") }}
         out.{{ $field.ToFieldName }} = fields[{{$i}}].Value.({{ $field.OutputType $meta }})
         {{- else }}
         out.{{ $field.ToFieldName }} = {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.([]*registry.DecodedField))
@@ -83,6 +140,9 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
     return out
 {{- end -}}
 
+{{- /* ============================= */}}
+{{- /* ONE OF SWITCH                 */}}
+{{- /* ============================= */}}
 {{ define "oneOfSwitch" }}
 {{- $field := .field }}
 {{- $meta := .generator.Metadata }}
@@ -93,7 +153,7 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
 {{- $idToField := .generator.IdToField }}
 {{- $goType := $field.ToGoTypeName $meta }}
 {{- $variantChildIds := $generator.VariantChildIds $field.LookupID}}
-switch {
+    switch {
     {{- range $i, $ids := $variantChildIds }}
     {{- $t := index $field.Types $i}}
     case matchFields(fields, {{$ids}}):
@@ -104,17 +164,6 @@ switch {
     }
 {{- end -}}
 
-{{/*{{ define "oneOfFunc" }}*/}}
-{{/*{{- $field := .field }}*/}}
-{{/*{{- $meta := .generator.Metadata }}*/}}
-{{/*{{- $goType := $field.ToGoTypeName $meta }}*/}}
-
-{{/*func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.ReturnType $meta }} {*/}}
-{{/*    var out {{ $field.OutputType $meta }}*/}}
-{{/*    out.Value = {{ $field.ToFuncName $meta}}(fields) //Passthrough fields...*/}}
-{{/*	return out*/}}
-{{/*}*/}}
-{{/*{{- end -}}*/}}
 
 func matchFields(fields []*registry.DecodedField, ids []int64) bool {
 	if len(fields) != len(ids) {
@@ -126,4 +175,47 @@ func matchFields(fields []*registry.DecodedField, ids []int64) bool {
 		}
 	}
 	return true
+}
+
+func To_bytes(fields []*registry.DecodedField) []byte {
+    var out []byte
+
+    data := fields[0].Value.([]interface{})
+    for _, f := range data {
+        u := uint8(f.(types.U8))
+        out = append(out, byte(u))
+    }
+    return out
+}
+
+func To_string(fields []*registry.DecodedField) string {
+    return string(To_bytes(fields))
+}
+
+func To_uint32(fields []*registry.DecodedField) uint32 {
+    return fields[0].Value.(uint32)
+}
+
+func To_uint64(fields []*registry.DecodedField) uint64 {
+    return fields[0].Value.(uint64)
+}
+
+func To_bool(fields []*registry.DecodedField) bool {
+    return fields[0].Value.(bool)
+}
+
+func To_optional_string(fields []*registry.DecodedField) *string {
+    return string(To_bytes(fields))
+}
+
+func To_optional_uint32(fields []*registry.DecodedField) *uint32 {
+    return fields[0].Value.(*uint32)
+}
+
+func To_optional_uint64(fields []*registry.DecodedField) *uint64 {
+    return fields[0].Value.(*uint64)
+}
+
+func To_optional_bool(fields []*registry.DecodedField) *bool {
+    return fields[0].Value.(*bool)
 }

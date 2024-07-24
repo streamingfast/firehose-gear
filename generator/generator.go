@@ -131,6 +131,9 @@ func (g *Generator) VariantChildIds(id int64) []string {
 	ttype := g.Metadata.AsMetadataV14.EfficientLookup[id]
 	variant := ttype.Def.Variant
 	for _, v := range variant.Variants {
+		if len(v.Fields) == 0 {
+			return []string{"[]int64{}"}
+		}
 		var o []int64 //child of 94
 		for _, f := range v.Fields {
 			o = append(o, f.Type.Int64())

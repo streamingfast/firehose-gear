@@ -141,7 +141,11 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	sb.WriteString("package sf.gear.metadata.type.v1;\n")
 	sb.WriteString("option go_package = \"github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1;pbgear\";\n\n")
 	for _, out := range outputs {
-		sb.WriteString(out.ToProto())
+		if out.Name == "Tuple_Compact_uint32Compact_sp_arithmetic_per_things_PerU16" {
+			fmt.Println("WTF")
+		}
+		s := out.ToProto()
+		sb.WriteString(s)
 	}
 	err := os.WriteFile("../proto/sf/gear/metadata/type/v1/output.proto", []byte(sb.String()), 0644)
 	if err != nil {
@@ -214,7 +218,7 @@ func (c *TypeConverter) FieldForSequence(ttype substrateTypes.PortableTypeV14, p
 
 	if typeName == "uint8" || typeName == "int8" {
 		return &protobuf.BasicField{
-			Pallet:    palletName,
+			Pallet:    palletNameFromPath(ttype.Type.Path, palletName),
 			Type:      "bytes",
 			Name:      fieldName,
 			Primitive: lookupType.Type.Def.IsPrimitive,
@@ -223,7 +227,7 @@ func (c *TypeConverter) FieldForSequence(ttype substrateTypes.PortableTypeV14, p
 	}
 
 	return &protobuf.RepeatedField{
-		Pallet:    palletName,
+		Pallet:    palletNameFromPath(ttype.Type.Path, palletName),
 		Type:      typeName,
 		Name:      fieldName,
 		Primitive: lookupType.Type.Def.IsPrimitive,
@@ -238,7 +242,7 @@ func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, pall
 
 	if typeName == "uint8" || typeName == "int8" {
 		return &protobuf.BasicField{
-			Pallet:    palletName,
+			Pallet:    palletNameFromPath(ttype.Type.Path, palletName),
 			Type:      "bytes",
 			Name:      fieldName,
 			Primitive: lookupType.Type.Def.IsPrimitive,
@@ -247,7 +251,7 @@ func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, pall
 	}
 
 	return &protobuf.RepeatedField{
-		Pallet:    palletName,
+		Pallet:    palletNameFromPath(ttype.Type.Path, palletName),
 		Name:      fieldName,
 		Type:      typeName,
 		Primitive: lookupType.Type.Def.IsPrimitive,
@@ -521,7 +525,7 @@ func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTyp
 			fn = fmt.Sprintf("value_%d", i)
 		}
 
-		field := c.FieldForType(fieldType, palletNameFromPath(fieldType.Type.Path), callName, fn)
+		field := c.FieldForType(fieldType, palletNameFromPath(fieldType.Type.Path, palletName), callName, fn)
 		msg.Fields = append(msg.Fields, field)
 	}
 
@@ -611,9 +615,9 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 	return f
 }
 
-func palletNameFromPath(path substrateTypes.Si1Path) string {
+func palletNameFromPath(path substrateTypes.Si1Path, defaultt string) string {
 	if len(path) == 0 {
-		return ""
+		return defaultt
 	}
 	pallet := string(path[0])
 	if strings.HasPrefix(pallet, "pallet_") {
