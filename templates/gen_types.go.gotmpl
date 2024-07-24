@@ -10,7 +10,7 @@ import (
 {{- $messages := $generator.Messages }}
 
 {{ range $msg := $messages }}
-{{/*{{- if or (eq $msg.Pallet "Balances") (eq $msg.Pallet "")}}*/}}
+{{/*{{- if or (eq $msg.Pallet "Multisig") (eq $msg.Pallet "")}}*/}}
 
 func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.ReturnType $metadata }} {
     {{- template "return" wrap (newWrapItem "msg" $msg) }}
@@ -69,7 +69,6 @@ func {{ $msg.ToFuncName $metadata }}(fields []*registry.DecodedField) {{ $msg.Re
 {{- $field := .field }}
 {{- $generator := .generator }}
 {{- $meta := .generator.Metadata }}
-?????????????????????????
 func {{ $field.ToFuncName $meta}}(in *registry.DecodedField) *{{ $field.ReturnType $meta }} {
     var out *{{ $field.GetType }}
 
@@ -157,8 +156,8 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
     {{- range $i, $ids := $variantChildIds }}
     {{- $t := index $field.Types $i}}
     case matchFields(fields, {{$ids}}):
-        out.Value = &pbgear.{{$parentFullTypeName}}_{{$t.Name}}{
-            {{$t.Name}}: {{ $t.ToFuncName $meta}}(fields), //Passthrough fields...
+        out.{{$field.ToFieldName}} = &pbgear.{{$parentFullTypeName}}_{{$t.ToFieldName}}{
+            {{$t.ToFieldName}}: {{ $t.ToFuncName $meta}}(fields), //Passthrough fields...
         }
     {{- end }}
     }

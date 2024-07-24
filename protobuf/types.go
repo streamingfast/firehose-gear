@@ -108,7 +108,7 @@ func (f *BasicField) IsOneOf() bool {
 }
 
 func (f *BasicField) ToFieldName() string {
-	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
+	return utils.ToPascalCase(f.Name)
 }
 
 func (f *BasicField) ToGoTypeName(meta *types.Metadata) string {
@@ -199,7 +199,7 @@ func (f *RepeatedField) IsOneOf() bool {
 }
 
 func (f *RepeatedField) ToFieldName() string {
-	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
+	return utils.ToPascalCase(f.Name)
 }
 
 func (f *RepeatedField) ToGoTypeName(meta *types.Metadata) string {
@@ -289,7 +289,7 @@ func (f *OneOfField) IsOptional() bool {
 }
 
 func (f *OneOfField) ToFieldName() string {
-	return utils.ToPascalCase(f.Name, utils.UnderscoreBetweenLetterAndNum)
+	return utils.ToPascalCase(f.Name)
 }
 
 func (f *OneOfField) IsOneOf() bool {

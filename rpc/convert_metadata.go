@@ -6,6 +6,8 @@ import (
 	"os"
 	"strings"
 
+	"github.com/streamingfast/firehose-gear/utils"
+
 	substrateTypes "github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
 	"github.com/streamingfast/firehose-gear/protobuf"
@@ -406,7 +408,7 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 			for i, idx := range ttype.Type.Def.Tuple {
 				lookupId := idx.Int64()
 				t := c.allMetadataTypes[lookupId]
-				f := c.FieldForType(t, palletName, callName, fmt.Sprintf("value_%d", i))
+				f := c.FieldForType(t, palletName, callName, fmt.Sprintf("value%d", i))
 				msg.Fields = append(msg.Fields, f)
 			}
 		}
@@ -498,9 +500,13 @@ func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, palletN
 			palletCallNames := palletCalls.Type.Def.Variant.Variants
 
 			for _, palletCallName := range palletCallNames { // remark
+				//lookupId := call.Type.Int64()
+				//ttype := c.allMetadataTypes[lookupId] // 1. System
+				//pallet := palletNameFromPath(ttype.Type.Path, string(palletName))
+				//pallet = utils.ToPascalCase(pallet)
 				of.Types = append(of.Types, &protobuf.BasicField{
 					Pallet:   string(palletName),
-					Name:     fmt.Sprintf("%s_%s", palletName, string(palletCallName.Name)),
+					Name:     utils.ToSnakeCase(string(palletName) + "_" + string(palletCallName.Name)),
 					LookupID: math.MaxInt64,
 					Type:     string(palletCallName.Name) + "_Call",
 				})
@@ -522,7 +528,7 @@ func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTyp
 		fieldType := c.allMetadataTypes[idx]
 		fn := string(f.Name)
 		if !f.HasName {
-			fn = fmt.Sprintf("value_%d", i)
+			fn = fmt.Sprintf("value%d", i)
 		}
 
 		field := c.FieldForType(fieldType, palletNameFromPath(fieldType.Type.Path, palletName), callName, fn)

@@ -2,7 +2,6 @@ package gen_types
 
 import (
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
-	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1"
 )
 
@@ -22,12 +21,12 @@ func To_AllowedSlots(fields []*registry.DecodedField) *pbgear.AllowedSlots {
 
 func To_BTreeSet(fields []*registry.DecodedField) *pbgear.BTreeSet {
 	out := &pbgear.BTreeSet{}
-	out.Value_0 = To_repeated_GprimitivesActorId(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_repeated_GprimitivesActorId(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: true
-// optional primitive: value_0
+// not seen "value0" optional: false repeated: true
+// optional primitive: value0
 func To_repeated_GprimitivesActorId(fields []*registry.DecodedField) []*pbgear.GprimitivesActorId {
 	out := make([]*pbgear.GprimitivesActorId, len(fields))
 	for _, f := range fields {
@@ -68,8 +67,8 @@ func To_Babe_Config(fields []*registry.DecodedField) *pbgear.Babe_Config {
 
 func To_Babe_Consensus(fields []*registry.DecodedField) *pbgear.Babe_Consensus {
 	out := &pbgear.Babe_Consensus{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_bytes(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_bytes(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -87,7 +86,7 @@ func To_Babe_Logs(fields []*registry.DecodedField) *pbgear.Babe_Logs {
 
 func To_Babe_Other(fields []*registry.DecodedField) *pbgear.Babe_Other {
 	out := &pbgear.Babe_Other{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -101,8 +100,8 @@ func To_Babe_PlanConfigChangeCall(fields []*registry.DecodedField) *pbgear.Babe_
 
 func To_Babe_PreRuntime(fields []*registry.DecodedField) *pbgear.Babe_PreRuntime {
 	out := &pbgear.Babe_PreRuntime{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_bytes(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_bytes(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -136,8 +135,8 @@ func To_Babe_RuntimeEnvironmentUpdated(fields []*registry.DecodedField) *pbgear.
 
 func To_Babe_Seal(fields []*registry.DecodedField) *pbgear.Babe_Seal {
 	out := &pbgear.Babe_Seal{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_bytes(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_bytes(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -234,8 +233,8 @@ func To_repeated_Babe_BabeTrieNodesList(fields []*registry.DecodedField) []*pbge
 
 func To_Babe_TupleUint64Uint64(fields []*registry.DecodedField) *pbgear.Babe_TupleUint64Uint64 {
 	out := &pbgear.Babe_TupleUint64Uint64{}
-	out.Value_0 = To_uint64(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_uint64(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_uint64(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_uint64(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -251,13 +250,13 @@ func To_Babe_V1(fields []*registry.DecodedField) *pbgear.Babe_V1 {
 
 func To_BagsList_Address20(fields []*registry.DecodedField) *pbgear.BagsList_Address20 {
 	out := &pbgear.BagsList_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_BagsList_Address32(fields []*registry.DecodedField) *pbgear.BagsList_Address32 {
 	out := &pbgear.BagsList_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -329,19 +328,19 @@ func To_BagsList_Heavier(fields []*registry.DecodedField) *pbgear.BagsList_Heavi
 
 func To_BagsList_Id(fields []*registry.DecodedField) *pbgear.BagsList_Id {
 	out := &pbgear.BagsList_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_BagsList_Index(fields []*registry.DecodedField) *pbgear.BagsList_Index {
 	out := &pbgear.BagsList_Index{}
-	out.Value_0 = To_BagsList_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_BagsList_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_BagsList_Lighter(fields []*registry.DecodedField) *pbgear.BagsList_Lighter {
 	out := &pbgear.BagsList_Lighter{}
@@ -390,7 +389,7 @@ func To_BagsList_PutInFrontOfOtherCall(fields []*registry.DecodedField) *pbgear.
 
 func To_BagsList_Raw(fields []*registry.DecodedField) *pbgear.BagsList_Raw {
 	out := &pbgear.BagsList_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -409,13 +408,13 @@ func To_BagsList_TupleNull(fields []*registry.DecodedField) *pbgear.BagsList_Tup
 
 func To_Balances_Address20(fields []*registry.DecodedField) *pbgear.Balances_Address20 {
 	out := &pbgear.Balances_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Balances_Address32(fields []*registry.DecodedField) *pbgear.Balances_Address32 {
 	out := &pbgear.Balances_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -495,21 +494,21 @@ func To_Balances_ForceUnreserveCall(fields []*registry.DecodedField) *pbgear.Bal
 
 func To_Balances_Id(fields []*registry.DecodedField) *pbgear.Balances_Id {
 	out := &pbgear.Balances_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Balances_Index(fields []*registry.DecodedField) *pbgear.Balances_Index {
 	out := &pbgear.Balances_Index{}
-	out.Value_0 = To_Balances_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Balances_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_Balances_Raw(fields []*registry.DecodedField) *pbgear.Balances_Raw {
 	out := &pbgear.Balances_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -613,7 +612,7 @@ func To_Balances_Who(fields []*registry.DecodedField) *pbgear.Balances_Who {
 
 func To_BoundedCollectionsBoundedVecBoundedVec(fields []*registry.DecodedField) *pbgear.BoundedCollectionsBoundedVecBoundedVec {
 	out := &pbgear.BoundedCollectionsBoundedVecBoundedVec{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -627,13 +626,13 @@ func To_Bounties_AcceptCuratorCall(fields []*registry.DecodedField) *pbgear.Boun
 
 func To_Bounties_Address20(fields []*registry.DecodedField) *pbgear.Bounties_Address20 {
 	out := &pbgear.Bounties_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Bounties_Address32(fields []*registry.DecodedField) *pbgear.Bounties_Address32 {
 	out := &pbgear.Bounties_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -751,17 +750,17 @@ func To_Bounties_ExtendBountyExpiryCall(fields []*registry.DecodedField) *pbgear
 
 func To_Bounties_Id(fields []*registry.DecodedField) *pbgear.Bounties_Id {
 	out := &pbgear.Bounties_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Bounties_Index(fields []*registry.DecodedField) *pbgear.Bounties_Index {
 	out := &pbgear.Bounties_Index{}
-	out.Value_0 = To_Bounties_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Bounties_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_Bounties_ProposeBountyCall(fields []*registry.DecodedField) *pbgear.Bounties_ProposeBountyCall {
 	out := &pbgear.Bounties_ProposeBountyCall{}
@@ -784,7 +783,7 @@ func To_Bounties_ProposeCuratorCall(fields []*registry.DecodedField) *pbgear.Bou
 
 func To_Bounties_Raw(fields []*registry.DecodedField) *pbgear.Bounties_Raw {
 	out := &pbgear.Bounties_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -820,13 +819,13 @@ func To_ChildBounties_AddChildBountyCall(fields []*registry.DecodedField) *pbgea
 
 func To_ChildBounties_Address20(fields []*registry.DecodedField) *pbgear.ChildBounties_Address20 {
 	out := &pbgear.ChildBounties_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ChildBounties_Address32(fields []*registry.DecodedField) *pbgear.ChildBounties_Address32 {
 	out := &pbgear.ChildBounties_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -934,17 +933,17 @@ func To_ChildBounties_Curator(fields []*registry.DecodedField) *pbgear.ChildBoun
 
 func To_ChildBounties_Id(fields []*registry.DecodedField) *pbgear.ChildBounties_Id {
 	out := &pbgear.ChildBounties_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ChildBounties_Index(fields []*registry.DecodedField) *pbgear.ChildBounties_Index {
 	out := &pbgear.ChildBounties_Index{}
-	out.Value_0 = To_ChildBounties_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_ChildBounties_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_ChildBounties_ProposeCuratorCall(fields []*registry.DecodedField) *pbgear.ChildBounties_ProposeCuratorCall {
 	out := &pbgear.ChildBounties_ProposeCuratorCall{}
@@ -959,7 +958,7 @@ func To_ChildBounties_ProposeCuratorCall(fields []*registry.DecodedField) *pbgea
 
 func To_ChildBounties_Raw(fields []*registry.DecodedField) *pbgear.ChildBounties_Raw {
 	out := &pbgear.ChildBounties_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -977,13 +976,13 @@ func To_ChildBounties_UnassignCuratorCall(fields []*registry.DecodedField) *pbge
 
 func To_ConvictionVoting_Address20(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Address20 {
 	out := &pbgear.ConvictionVoting_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ConvictionVoting_Address32(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Address32 {
 	out := &pbgear.ConvictionVoting_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -1029,17 +1028,17 @@ func To_ConvictionVoting_DelegateCall(fields []*registry.DecodedField) *pbgear.C
 
 func To_ConvictionVoting_Id(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Id {
 	out := &pbgear.ConvictionVoting_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ConvictionVoting_Index(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Index {
 	out := &pbgear.ConvictionVoting_Index{}
-	out.Value_0 = To_ConvictionVoting_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_ConvictionVoting_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_ConvictionVoting_Locked1X(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Locked1X {
 	out := &pbgear.ConvictionVoting_Locked1X{}
@@ -1078,7 +1077,7 @@ func To_ConvictionVoting_None(fields []*registry.DecodedField) *pbgear.Convictio
 
 func To_ConvictionVoting_Raw(fields []*registry.DecodedField) *pbgear.ConvictionVoting_Raw {
 	out := &pbgear.ConvictionVoting_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -1298,7 +1297,7 @@ func To_ElectionProviderMultiPhase_SpArithmeticPerThingsPerU16(fields []*registr
 
 func To_ElectionProviderMultiPhase_SpCoreCryptoAccountId32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_SpCoreCryptoAccountId32 {
 	out := &pbgear.ElectionProviderMultiPhase_SpCoreCryptoAccountId32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -1346,30 +1345,30 @@ func To_ElectionProviderMultiPhase_SubmitUnsignedCall(fields []*registry.Decoded
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_ElectionProviderMultiPhase_CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_ElectionProviderMultiPhase_CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_1" optional: false repeated: false
+// not seen "value1" optional: false repeated: false
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32CompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_ElectionProviderMultiPhase_CompactUint32(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_ElectionProviderMultiPhase_CompactUint32(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_1" optional: false repeated: true
-// optional primitive: value_1
+// not seen "value1" optional: false repeated: true
+// optional primitive: value1
 func To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields []*registry.DecodedField) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16 {
 	out := make([]*pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16, len(fields))
 	for _, f := range fields {
@@ -1380,151 +1379,151 @@ func To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeti
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32 {
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32{}
-	out.Value_0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
-	out.Value_2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.([]*registry.DecodedField))
+	out.Value2 = To_ElectionProviderMultiPhase_CompactUint32(fields[2].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
 	out := &pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport{}
-	out.Value_0 = To_ElectionProviderMultiPhase_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_ElectionProviderMultiPhase_SpNposElectionsSupport(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_ElectionProviderMultiPhase_SpNposElectionsSupport(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
-// not seen "value_1" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
+// not seen "value1" optional: false repeated: false
 
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String {
 	out := &pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String{}
-	out.Value_0 = To_ElectionProviderMultiPhase_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_string(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_ElectionProviderMultiPhase_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_string(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_VaraRuntimeNposSolution16(fields []*registry.DecodedField) *pbgear.ElectionProviderMultiPhase_VaraRuntimeNposSolution16 {
 	out := &pbgear.ElectionProviderMultiPhase_VaraRuntimeNposSolution16{}
-	out.Votes_1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactUint32(fields[0].Value.([]*registry.DecodedField))
-	out.Votes_2 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32(fields[1].Value.([]*registry.DecodedField))
-	out.Votes_3 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32(fields[2].Value.([]*registry.DecodedField))
-	out.Votes_4 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32(fields[3].Value.([]*registry.DecodedField))
-	out.Votes_5 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32(fields[4].Value.([]*registry.DecodedField))
-	out.Votes_6 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32(fields[5].Value.([]*registry.DecodedField))
-	out.Votes_7 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32(fields[6].Value.([]*registry.DecodedField))
-	out.Votes_8 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32(fields[7].Value.([]*registry.DecodedField))
-	out.Votes_9 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32(fields[8].Value.([]*registry.DecodedField))
-	out.Votes_10 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32(fields[9].Value.([]*registry.DecodedField))
-	out.Votes_11 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32(fields[10].Value.([]*registry.DecodedField))
-	out.Votes_12 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32(fields[11].Value.([]*registry.DecodedField))
-	out.Votes_13 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32(fields[12].Value.([]*registry.DecodedField))
-	out.Votes_14 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32(fields[13].Value.([]*registry.DecodedField))
-	out.Votes_15 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32(fields[14].Value.([]*registry.DecodedField))
-	out.Votes_16 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32(fields[15].Value.([]*registry.DecodedField))
+	out.Votes1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactUint32(fields[0].Value.([]*registry.DecodedField))
+	out.Votes2 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32(fields[1].Value.([]*registry.DecodedField))
+	out.Votes3 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32(fields[2].Value.([]*registry.DecodedField))
+	out.Votes4 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32(fields[3].Value.([]*registry.DecodedField))
+	out.Votes5 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32(fields[4].Value.([]*registry.DecodedField))
+	out.Votes6 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32(fields[5].Value.([]*registry.DecodedField))
+	out.Votes7 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32(fields[6].Value.([]*registry.DecodedField))
+	out.Votes8 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32(fields[7].Value.([]*registry.DecodedField))
+	out.Votes9 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32(fields[8].Value.([]*registry.DecodedField))
+	out.Votes10 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32(fields[9].Value.([]*registry.DecodedField))
+	out.Votes11 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32(fields[10].Value.([]*registry.DecodedField))
+	out.Votes12 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32(fields[11].Value.([]*registry.DecodedField))
+	out.Votes13 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32(fields[12].Value.([]*registry.DecodedField))
+	out.Votes14 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32(fields[13].Value.([]*registry.DecodedField))
+	out.Votes15 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32(fields[14].Value.([]*registry.DecodedField))
+	out.Votes16 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32(fields[15].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -1698,13 +1697,13 @@ func To_FellowshipCollective_AddMemberCall(fields []*registry.DecodedField) *pbg
 
 func To_FellowshipCollective_Address20(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Address20 {
 	out := &pbgear.FellowshipCollective_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_FellowshipCollective_Address32(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Address32 {
 	out := &pbgear.FellowshipCollective_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -1731,17 +1730,17 @@ func To_FellowshipCollective_DemoteMemberCall(fields []*registry.DecodedField) *
 
 func To_FellowshipCollective_Id(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Id {
 	out := &pbgear.FellowshipCollective_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_FellowshipCollective_Index(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Index {
 	out := &pbgear.FellowshipCollective_Index{}
-	out.Value_0 = To_FellowshipCollective_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_FellowshipCollective_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_FellowshipCollective_PromoteMemberCall(fields []*registry.DecodedField) *pbgear.FellowshipCollective_PromoteMemberCall {
 	out := &pbgear.FellowshipCollective_PromoteMemberCall{}
@@ -1751,7 +1750,7 @@ func To_FellowshipCollective_PromoteMemberCall(fields []*registry.DecodedField) 
 
 func To_FellowshipCollective_Raw(fields []*registry.DecodedField) *pbgear.FellowshipCollective_Raw {
 	out := &pbgear.FellowshipCollective_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -1806,13 +1805,13 @@ func To_FellowshipCollective_Who(fields []*registry.DecodedField) *pbgear.Fellow
 
 func To_FellowshipReferenda_After(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_After {
 	out := &pbgear.FellowshipReferenda_After{}
-	out.Value_0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_FellowshipReferenda_At(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_At {
 	out := &pbgear.FellowshipReferenda_At{}
-	out.Value_0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -1842,11 +1841,11 @@ func To_FellowshipReferenda_EnactmentMoment(fields []*registry.DecodedField) *pb
 
 func To_FellowshipReferenda_Inline(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Inline {
 	out := &pbgear.FellowshipReferenda_Inline{}
-	out.Value_0 = To_BoundedCollectionsBoundedVecBoundedVec(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_BoundedCollectionsBoundedVecBoundedVec(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_FellowshipReferenda_KillCall(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_KillCall {
 	out := &pbgear.FellowshipReferenda_KillCall{}
@@ -1883,11 +1882,11 @@ func To_FellowshipReferenda_OneFewerDecidingCall(fields []*registry.DecodedField
 
 func To_FellowshipReferenda_Origins(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Origins {
 	out := &pbgear.FellowshipReferenda_Origins{}
-	out.Value_0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_FellowshipReferenda_PlaceDecisionDepositCall(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_PlaceDecisionDepositCall {
 	out := &pbgear.FellowshipReferenda_PlaceDecisionDepositCall{}
@@ -1926,8 +1925,8 @@ func To_FellowshipReferenda_ProposalOrigin(fields []*registry.DecodedField) *pbg
 
 	switch {
 	case matchFields(fields, []int64{121}):
-		out.Value = &pbgear.FellowshipReferenda_ProposalOrigin_system{
-			system: To_FellowshipReferenda_System(fields), //Passthrough fields...
+		out.Value = &pbgear.FellowshipReferenda_ProposalOrigin_System{
+			System: To_FellowshipReferenda_System(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{122}):
 		out.Value = &pbgear.FellowshipReferenda_ProposalOrigin_Origins{
@@ -1977,13 +1976,13 @@ func To_FellowshipReferenda_SubmitCall(fields []*registry.DecodedField) *pbgear.
 
 func To_FellowshipReferenda_System(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_System {
 	out := &pbgear.FellowshipReferenda_System{}
-	out.Value_0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_FellowshipReferenda_Void(fields []*registry.DecodedField) *pbgear.FellowshipReferenda_Void {
 	out := &pbgear.FellowshipReferenda_Void{}
-	out.Value_0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -2137,11 +2136,11 @@ func To_GearVoucher_SendReply(fields []*registry.DecodedField) *pbgear.GearVouch
 
 func To_GearVoucher_Some(fields []*registry.DecodedField) *pbgear.GearVoucher_Some {
 	out := &pbgear.GearVoucher_Some{}
-	out.Value_0 = To_BTreeSet(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_BTreeSet(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_GearVoucher_SpCoreCryptoAccountId32(fields []*registry.DecodedField) *pbgear.GearVoucher_SpCoreCryptoAccountId32 {
 	out := &pbgear.GearVoucher_SpCoreCryptoAccountId32{}
@@ -2305,15 +2304,15 @@ func To_Grandpa_NoteStalledCall(fields []*registry.DecodedField) *pbgear.Grandpa
 
 func To_Grandpa_Precommit(fields []*registry.DecodedField) *pbgear.Grandpa_Precommit {
 	out := &pbgear.Grandpa_Precommit{}
-	out.Value_0 = To_FinalityGrandpaEquivocation(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_FinalityGrandpaEquivocation(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_Grandpa_Prevote(fields []*registry.DecodedField) *pbgear.Grandpa_Prevote {
 	out := &pbgear.Grandpa_Prevote{}
-	out.Value_0 = To_FinalityGrandpaEquivocation(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_FinalityGrandpaEquivocation(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -2411,19 +2410,19 @@ func To_Identity_AddSubCall(fields []*registry.DecodedField) *pbgear.Identity_Ad
 
 func To_Identity_Address20(fields []*registry.DecodedField) *pbgear.Identity_Address20 {
 	out := &pbgear.Identity_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Address32(fields []*registry.DecodedField) *pbgear.Identity_Address32 {
 	out := &pbgear.Identity_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_BlakeTwo256(fields []*registry.DecodedField) *pbgear.Identity_BlakeTwo256 {
 	out := &pbgear.Identity_BlakeTwo256{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -2517,13 +2516,13 @@ func To_Identity_Erroneous(fields []*registry.DecodedField) *pbgear.Identity_Err
 
 func To_Identity_FeePaid(fields []*registry.DecodedField) *pbgear.Identity_FeePaid {
 	out := &pbgear.Identity_FeePaid{}
-	out.Value_0 = To_string(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_string(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Id(fields []*registry.DecodedField) *pbgear.Identity_Id {
 	out := &pbgear.Identity_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -2541,11 +2540,11 @@ func To_Identity_Image(fields []*registry.DecodedField) *pbgear.Identity_Image {
 
 func To_Identity_Index(fields []*registry.DecodedField) *pbgear.Identity_Index {
 	out := &pbgear.Identity_Index{}
-	out.Value_0 = To_Identity_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Identity_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_Identity_Judgement(fields []*registry.DecodedField) *pbgear.Identity_Judgement {
 	out := &pbgear.Identity_Judgement{}
@@ -2561,7 +2560,7 @@ func To_Identity_Judgement(fields []*registry.DecodedField) *pbgear.Identity_Jud
 
 func To_Identity_Keccak256(fields []*registry.DecodedField) *pbgear.Identity_Keccak256 {
 	out := &pbgear.Identity_Keccak256{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -2688,205 +2687,205 @@ func To_Identity_QuitSubCall(fields []*registry.DecodedField) *pbgear.Identity_Q
 
 func To_Identity_Raw(fields []*registry.DecodedField) *pbgear.Identity_Raw {
 	out := &pbgear.Identity_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw0(fields []*registry.DecodedField) *pbgear.Identity_Raw0 {
 	out := &pbgear.Identity_Raw0{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw1(fields []*registry.DecodedField) *pbgear.Identity_Raw1 {
 	out := &pbgear.Identity_Raw1{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw10(fields []*registry.DecodedField) *pbgear.Identity_Raw10 {
 	out := &pbgear.Identity_Raw10{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw11(fields []*registry.DecodedField) *pbgear.Identity_Raw11 {
 	out := &pbgear.Identity_Raw11{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw12(fields []*registry.DecodedField) *pbgear.Identity_Raw12 {
 	out := &pbgear.Identity_Raw12{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw13(fields []*registry.DecodedField) *pbgear.Identity_Raw13 {
 	out := &pbgear.Identity_Raw13{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw14(fields []*registry.DecodedField) *pbgear.Identity_Raw14 {
 	out := &pbgear.Identity_Raw14{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw15(fields []*registry.DecodedField) *pbgear.Identity_Raw15 {
 	out := &pbgear.Identity_Raw15{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw16(fields []*registry.DecodedField) *pbgear.Identity_Raw16 {
 	out := &pbgear.Identity_Raw16{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw17(fields []*registry.DecodedField) *pbgear.Identity_Raw17 {
 	out := &pbgear.Identity_Raw17{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw18(fields []*registry.DecodedField) *pbgear.Identity_Raw18 {
 	out := &pbgear.Identity_Raw18{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw19(fields []*registry.DecodedField) *pbgear.Identity_Raw19 {
 	out := &pbgear.Identity_Raw19{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw2(fields []*registry.DecodedField) *pbgear.Identity_Raw2 {
 	out := &pbgear.Identity_Raw2{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw20(fields []*registry.DecodedField) *pbgear.Identity_Raw20 {
 	out := &pbgear.Identity_Raw20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw21(fields []*registry.DecodedField) *pbgear.Identity_Raw21 {
 	out := &pbgear.Identity_Raw21{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw22(fields []*registry.DecodedField) *pbgear.Identity_Raw22 {
 	out := &pbgear.Identity_Raw22{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw23(fields []*registry.DecodedField) *pbgear.Identity_Raw23 {
 	out := &pbgear.Identity_Raw23{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw24(fields []*registry.DecodedField) *pbgear.Identity_Raw24 {
 	out := &pbgear.Identity_Raw24{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw25(fields []*registry.DecodedField) *pbgear.Identity_Raw25 {
 	out := &pbgear.Identity_Raw25{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw26(fields []*registry.DecodedField) *pbgear.Identity_Raw26 {
 	out := &pbgear.Identity_Raw26{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw27(fields []*registry.DecodedField) *pbgear.Identity_Raw27 {
 	out := &pbgear.Identity_Raw27{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw28(fields []*registry.DecodedField) *pbgear.Identity_Raw28 {
 	out := &pbgear.Identity_Raw28{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw29(fields []*registry.DecodedField) *pbgear.Identity_Raw29 {
 	out := &pbgear.Identity_Raw29{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw3(fields []*registry.DecodedField) *pbgear.Identity_Raw3 {
 	out := &pbgear.Identity_Raw3{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw30(fields []*registry.DecodedField) *pbgear.Identity_Raw30 {
 	out := &pbgear.Identity_Raw30{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw31(fields []*registry.DecodedField) *pbgear.Identity_Raw31 {
 	out := &pbgear.Identity_Raw31{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw32(fields []*registry.DecodedField) *pbgear.Identity_Raw32 {
 	out := &pbgear.Identity_Raw32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw4(fields []*registry.DecodedField) *pbgear.Identity_Raw4 {
 	out := &pbgear.Identity_Raw4{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw5(fields []*registry.DecodedField) *pbgear.Identity_Raw5 {
 	out := &pbgear.Identity_Raw5{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw6(fields []*registry.DecodedField) *pbgear.Identity_Raw6 {
 	out := &pbgear.Identity_Raw6{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw7(fields []*registry.DecodedField) *pbgear.Identity_Raw7 {
 	out := &pbgear.Identity_Raw7{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw8(fields []*registry.DecodedField) *pbgear.Identity_Raw8 {
 	out := &pbgear.Identity_Raw8{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_Raw9(fields []*registry.DecodedField) *pbgear.Identity_Raw9 {
 	out := &pbgear.Identity_Raw9{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -2980,19 +2979,19 @@ func To_repeated_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(fi
 
 func To_Identity_Sha256(fields []*registry.DecodedField) *pbgear.Identity_Sha256 {
 	out := &pbgear.Identity_Sha256{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_ShaThree256(fields []*registry.DecodedField) *pbgear.Identity_ShaThree256 {
 	out := &pbgear.Identity_ShaThree256{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Identity_SpCoreCryptoAccountId32(fields []*registry.DecodedField) *pbgear.Identity_SpCoreCryptoAccountId32 {
 	out := &pbgear.Identity_SpCoreCryptoAccountId32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -3059,22 +3058,22 @@ func To_Identity_TupleNull(fields []*registry.DecodedField) *pbgear.Identity_Tup
 
 func To_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData(fields []*registry.DecodedField) *pbgear.Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData {
 	out := &pbgear.Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData{}
-	out.Value_0 = To_Identity_Value0(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_Identity_Value1(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_Identity_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_Identity_Value1(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
-// not seen "value_1" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
+// not seen "value1" optional: false repeated: false
 
 func To_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(fields []*registry.DecodedField) *pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData {
 	out := &pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData{}
-	out.Value_0 = To_Identity_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_Identity_Value1(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_Identity_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_Identity_Value1(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_Identity_Twitter(fields []*registry.DecodedField) *pbgear.Identity_Twitter {
 	out := &pbgear.Identity_Twitter{}
@@ -3194,120 +3193,120 @@ func To_Multisig_AsMultiCall(fields []*registry.DecodedField) *pbgear.Multisig_A
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Multisig_AsMultiCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Multisig_AsMultiCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Multisig_AsMultiCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Multisig_AsMultiCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Multisig_AsMultiCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Multisig_AsMultiCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Multisig_AsMultiCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Multisig_AsMultiCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Multisig_AsMultiCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Multisig_AsMultiCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Multisig_AsMultiCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	out.MaxWeight = To_Multisig_SpWeightsWeightV2Weight(fields[4].Value.([]*registry.DecodedField))
@@ -3322,120 +3321,120 @@ func To_Multisig_AsMultiThreshold1Call(fields []*registry.DecodedField) *pbgear.
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Multisig_AsMultiThreshold1Call_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Multisig_AsMultiThreshold1Call_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -3480,13 +3479,13 @@ func To_Multisig_SpWeightsWeightV2Weight(fields []*registry.DecodedField) *pbgea
 
 func To_NominationPools_Address20(fields []*registry.DecodedField) *pbgear.NominationPools_Address20 {
 	out := &pbgear.NominationPools_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_NominationPools_Address32(fields []*registry.DecodedField) *pbgear.NominationPools_Address32 {
 	out := &pbgear.NominationPools_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -3630,7 +3629,7 @@ func To_NominationPools_Extra(fields []*registry.DecodedField) *pbgear.Nominatio
 
 func To_NominationPools_FreeBalance(fields []*registry.DecodedField) *pbgear.NominationPools_FreeBalance {
 	out := &pbgear.NominationPools_FreeBalance{}
-	out.Value_0 = To_string(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_string(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -3648,17 +3647,17 @@ func To_NominationPools_GlobalMaxCommission(fields []*registry.DecodedField) *pb
 
 func To_NominationPools_Id(fields []*registry.DecodedField) *pbgear.NominationPools_Id {
 	out := &pbgear.NominationPools_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_NominationPools_Index(fields []*registry.DecodedField) *pbgear.NominationPools_Index {
 	out := &pbgear.NominationPools_Index{}
-	out.Value_0 = To_NominationPools_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_NominationPools_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_NominationPools_JoinCall(fields []*registry.DecodedField) *pbgear.NominationPools_JoinCall {
 	out := &pbgear.NominationPools_JoinCall{}
@@ -3914,7 +3913,7 @@ func To_NominationPools_PoolWithdrawUnbondedCall(fields []*registry.DecodedField
 
 func To_NominationPools_Raw(fields []*registry.DecodedField) *pbgear.NominationPools_Raw {
 	out := &pbgear.NominationPools_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -3958,7 +3957,7 @@ func To_NominationPools_Root(fields []*registry.DecodedField) *pbgear.Nomination
 
 func To_NominationPools_Set(fields []*registry.DecodedField) *pbgear.NominationPools_Set {
 	out := &pbgear.NominationPools_Set{}
-	out.Value_0 = To_string(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_string(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4032,7 +4031,7 @@ func To_NominationPools_SetStateCall(fields []*registry.DecodedField) *pbgear.No
 
 func To_NominationPools_SpArithmeticPerThingsPerbill(fields []*registry.DecodedField) *pbgear.NominationPools_SpArithmeticPerThingsPerbill {
 	out := &pbgear.NominationPools_SpArithmeticPerThingsPerbill{}
-	out.Value_0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4061,8 +4060,8 @@ func To_NominationPools_TupleNull(fields []*registry.DecodedField) *pbgear.Nomin
 
 func To_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32(fields []*registry.DecodedField) *pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 {
 	out := &pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32{}
-	out.Value_0 = To_NominationPools_SpArithmeticPerThingsPerbill(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_NominationPools_SpCoreCryptoAccountId32(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_NominationPools_SpArithmeticPerThingsPerbill(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_NominationPools_SpCoreCryptoAccountId32(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4180,13 +4179,13 @@ func To_Proxy_AddProxyCall(fields []*registry.DecodedField) *pbgear.Proxy_AddPro
 
 func To_Proxy_Address20(fields []*registry.DecodedField) *pbgear.Proxy_Address20 {
 	out := &pbgear.Proxy_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Proxy_Address32(fields []*registry.DecodedField) *pbgear.Proxy_Address32 {
 	out := &pbgear.Proxy_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4281,7 +4280,7 @@ func To_Proxy_Governance(fields []*registry.DecodedField) *pbgear.Proxy_Governan
 
 func To_Proxy_Id(fields []*registry.DecodedField) *pbgear.Proxy_Id {
 	out := &pbgear.Proxy_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4292,11 +4291,11 @@ func To_Proxy_IdentityJudgement(fields []*registry.DecodedField) *pbgear.Proxy_I
 
 func To_Proxy_Index(fields []*registry.DecodedField) *pbgear.Proxy_Index {
 	out := &pbgear.Proxy_Index{}
-	out.Value_0 = To_Proxy_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Proxy_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_Proxy_KillPureCall(fields []*registry.DecodedField) *pbgear.Proxy_KillPureCall {
 	out := &pbgear.Proxy_KillPureCall{}
@@ -4330,120 +4329,120 @@ func To_Proxy_ProxyAnnouncedCall(fields []*registry.DecodedField) *pbgear.Proxy_
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Proxy_ProxyAnnouncedCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyAnnouncedCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -4460,120 +4459,120 @@ func To_Proxy_ProxyCall(fields []*registry.DecodedField) *pbgear.Proxy_ProxyCall
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Proxy_ProxyCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Proxy_ProxyCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Proxy_ProxyCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Proxy_ProxyCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Proxy_ProxyCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Proxy_ProxyCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Proxy_ProxyCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Proxy_ProxyCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Proxy_ProxyCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Proxy_ProxyCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Proxy_ProxyCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Proxy_ProxyCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Proxy_ProxyCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Proxy_ProxyCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Proxy_ProxyCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Proxy_ProxyCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Proxy_ProxyCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Proxy_ProxyCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Proxy_ProxyCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Proxy_ProxyCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Proxy_ProxyCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Proxy_ProxyCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Proxy_ProxyCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Proxy_ProxyCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Proxy_ProxyCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Proxy_ProxyCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Proxy_ProxyCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Proxy_ProxyCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Proxy_ProxyCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Proxy_ProxyCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -4593,7 +4592,7 @@ func To_Proxy_ProxyType(fields []*registry.DecodedField) *pbgear.Proxy_ProxyType
 
 func To_Proxy_Raw(fields []*registry.DecodedField) *pbgear.Proxy_Raw {
 	out := &pbgear.Proxy_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4692,13 +4691,13 @@ func To_Proxy_TupleNull(fields []*registry.DecodedField) *pbgear.Proxy_TupleNull
 
 func To_Referenda_After(fields []*registry.DecodedField) *pbgear.Referenda_After {
 	out := &pbgear.Referenda_After{}
-	out.Value_0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Referenda_At(fields []*registry.DecodedField) *pbgear.Referenda_At {
 	out := &pbgear.Referenda_At{}
-	out.Value_0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4728,7 +4727,7 @@ func To_Referenda_EnactmentMoment(fields []*registry.DecodedField) *pbgear.Refer
 
 func To_Referenda_Inline(fields []*registry.DecodedField) *pbgear.Referenda_Inline {
 	out := &pbgear.Referenda_Inline{}
-	out.Value_0 = To_BoundedCollectionsBoundedVecBoundedVec(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_BoundedCollectionsBoundedVecBoundedVec(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4765,7 +4764,7 @@ func To_Referenda_OneFewerDecidingCall(fields []*registry.DecodedField) *pbgear.
 
 func To_Referenda_Origins(fields []*registry.DecodedField) *pbgear.Referenda_Origins {
 	out := &pbgear.Referenda_Origins{}
-	out.Value_0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4806,8 +4805,8 @@ func To_Referenda_ProposalOrigin(fields []*registry.DecodedField) *pbgear.Refere
 
 	switch {
 	case matchFields(fields, []int64{121}):
-		out.Value = &pbgear.Referenda_ProposalOrigin_system{
-			system: To_Referenda_System(fields), //Passthrough fields...
+		out.Value = &pbgear.Referenda_ProposalOrigin_System{
+			System: To_Referenda_System(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{122}):
 		out.Value = &pbgear.Referenda_ProposalOrigin_Origins{
@@ -4857,13 +4856,13 @@ func To_Referenda_SubmitCall(fields []*registry.DecodedField) *pbgear.Referenda_
 
 func To_Referenda_System(fields []*registry.DecodedField) *pbgear.Referenda_System {
 	out := &pbgear.Referenda_System{}
-	out.Value_0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Referenda_Void(fields []*registry.DecodedField) *pbgear.Referenda_Void {
 	out := &pbgear.Referenda_Void{}
-	out.Value_0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -4893,120 +4892,120 @@ func To_Scheduler_ScheduleAfterCall(fields []*registry.DecodedField) *pbgear.Sch
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Scheduler_ScheduleAfterCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleAfterCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -5024,120 +5023,120 @@ func To_Scheduler_ScheduleCall(fields []*registry.DecodedField) *pbgear.Schedule
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Scheduler_ScheduleCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -5152,120 +5151,120 @@ func To_Scheduler_ScheduleNamedAfterCall(fields []*registry.DecodedField) *pbgea
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedAfterCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedAfterCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -5280,120 +5279,120 @@ func To_Scheduler_ScheduleNamedCall(fields []*registry.DecodedField) *pbgear.Sch
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Scheduler_ScheduleNamedCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Scheduler_ScheduleNamedCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -5401,8 +5400,8 @@ func To_Scheduler_ScheduleNamedCall(fields []*registry.DecodedField) *pbgear.Sch
 
 func To_Scheduler_TupleUint32Uint32(fields []*registry.DecodedField) *pbgear.Scheduler_TupleUint32Uint32 {
 	out := &pbgear.Scheduler_TupleUint32Uint32{}
-	out.Value_0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_uint32(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_uint32(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -5476,19 +5475,19 @@ func To_Session_VaraRuntimeSessionKeys(fields []*registry.DecodedField) *pbgear.
 
 func To_Signed(fields []*registry.DecodedField) *pbgear.Signed {
 	out := &pbgear.Signed{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_SpArithmeticPerThingsPerbill(fields []*registry.DecodedField) *pbgear.SpArithmeticPerThingsPerbill {
 	out := &pbgear.SpArithmeticPerThingsPerbill{}
-	out.Value_0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_SpArithmeticPerThingsPercent(fields []*registry.DecodedField) *pbgear.SpArithmeticPerThingsPercent {
 	out := &pbgear.SpArithmeticPerThingsPercent{}
-	out.Value_0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_uint32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -5502,15 +5501,15 @@ func To_SpConsensusGrandpaAppPublic(fields []*registry.DecodedField) *pbgear.SpC
 
 func To_SpConsensusGrandpaAppSignature(fields []*registry.DecodedField) *pbgear.SpConsensusGrandpaAppSignature {
 	out := &pbgear.SpConsensusGrandpaAppSignature{}
-	out.Value_1 = To_SpCoreEd25519Signature(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_SpCoreEd25519Signature(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_1" optional: false repeated: false
+// not seen "value1" optional: false repeated: false
 
 func To_SpCoreCryptoAccountId32(fields []*registry.DecodedField) *pbgear.SpCoreCryptoAccountId32 {
 	out := &pbgear.SpCoreCryptoAccountId32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -5522,19 +5521,19 @@ func To_SpCoreEd25519Public(fields []*registry.DecodedField) *pbgear.SpCoreEd255
 
 func To_SpCoreEd25519Signature(fields []*registry.DecodedField) *pbgear.SpCoreEd25519Signature {
 	out := &pbgear.SpCoreEd25519Signature{}
-	out.Value_1 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_StakingRewards_Address20(fields []*registry.DecodedField) *pbgear.StakingRewards_Address20 {
 	out := &pbgear.StakingRewards_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_StakingRewards_Address32(fields []*registry.DecodedField) *pbgear.StakingRewards_Address32 {
 	out := &pbgear.StakingRewards_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -5593,21 +5592,21 @@ func To_StakingRewards_From(fields []*registry.DecodedField) *pbgear.StakingRewa
 
 func To_StakingRewards_Id(fields []*registry.DecodedField) *pbgear.StakingRewards_Id {
 	out := &pbgear.StakingRewards_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_StakingRewards_Index(fields []*registry.DecodedField) *pbgear.StakingRewards_Index {
 	out := &pbgear.StakingRewards_Index{}
-	out.Value_0 = To_StakingRewards_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_StakingRewards_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_StakingRewards_Raw(fields []*registry.DecodedField) *pbgear.StakingRewards_Raw {
 	out := &pbgear.StakingRewards_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -5661,19 +5660,19 @@ func To_StakingRewards_WithdrawCall(fields []*registry.DecodedField) *pbgear.Sta
 
 func To_Staking_Account(fields []*registry.DecodedField) *pbgear.Staking_Account {
 	out := &pbgear.Staking_Account{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Staking_Address20(fields []*registry.DecodedField) *pbgear.Staking_Address20 {
 	out := &pbgear.Staking_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Staking_Address32(fields []*registry.DecodedField) *pbgear.Staking_Address32 {
 	out := &pbgear.Staking_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -5790,7 +5789,7 @@ func To_Staking_ForceUnstakeCall(fields []*registry.DecodedField) *pbgear.Stakin
 
 func To_Staking_Id(fields []*registry.DecodedField) *pbgear.Staking_Id {
 	out := &pbgear.Staking_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -5804,11 +5803,11 @@ func To_Staking_IncreaseValidatorCountCall(fields []*registry.DecodedField) *pbg
 
 func To_Staking_Index(fields []*registry.DecodedField) *pbgear.Staking_Index {
 	out := &pbgear.Staking_Index{}
-	out.Value_0 = To_Staking_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Staking_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_Staking_KickCall(fields []*registry.DecodedField) *pbgear.Staking_KickCall {
 	out := &pbgear.Staking_KickCall{}
@@ -5932,7 +5931,7 @@ func To_Staking_PayoutStakersCall(fields []*registry.DecodedField) *pbgear.Staki
 
 func To_Staking_Raw(fields []*registry.DecodedField) *pbgear.Staking_Raw {
 	out := &pbgear.Staking_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -5964,7 +5963,7 @@ func To_Staking_ScaleValidatorCountCall(fields []*registry.DecodedField) *pbgear
 
 func To_Staking_Set(fields []*registry.DecodedField) *pbgear.Staking_Set {
 	out := &pbgear.Staking_Set{}
-	out.Value_0 = To_string(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_string(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -6181,8 +6180,8 @@ func To_System_SystemKeysList(fields []*registry.DecodedField) *pbgear.System_Sy
 
 func To_System_TupleSystemItemsListSystemItemsList(fields []*registry.DecodedField) *pbgear.System_TupleSystemItemsListSystemItemsList {
 	out := &pbgear.System_TupleSystemItemsListSystemItemsList{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_bytes(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_bytes(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -6202,13 +6201,13 @@ func To_Timestamp_SetCall(fields []*registry.DecodedField) *pbgear.Timestamp_Set
 
 func To_Treasury_Address20(fields []*registry.DecodedField) *pbgear.Treasury_Address20 {
 	out := &pbgear.Treasury_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Treasury_Address32(fields []*registry.DecodedField) *pbgear.Treasury_Address32 {
 	out := &pbgear.Treasury_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -6278,17 +6277,17 @@ func To_Treasury_CompactUint32(fields []*registry.DecodedField) *pbgear.Treasury
 
 func To_Treasury_Id(fields []*registry.DecodedField) *pbgear.Treasury_Id {
 	out := &pbgear.Treasury_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Treasury_Index(fields []*registry.DecodedField) *pbgear.Treasury_Index {
 	out := &pbgear.Treasury_Index{}
-	out.Value_0 = To_Treasury_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Treasury_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_Treasury_PayoutCall(fields []*registry.DecodedField) *pbgear.Treasury_PayoutCall {
 	out := &pbgear.Treasury_PayoutCall{}
@@ -6308,7 +6307,7 @@ func To_Treasury_ProposeSpendCall(fields []*registry.DecodedField) *pbgear.Treas
 
 func To_Treasury_Raw(fields []*registry.DecodedField) *pbgear.Treasury_Raw {
 	out := &pbgear.Treasury_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -6361,13 +6360,13 @@ func To_Treasury_VoidSpendCall(fields []*registry.DecodedField) *pbgear.Treasury
 
 func To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(fields []*registry.DecodedField) *pbgear.TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature {
 	out := &pbgear.TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature{}
-	out.Value_0 = To_FinalityGrandpaPrevote(fields[0].Value.([]*registry.DecodedField))
-	out.Value_1 = To_SpConsensusGrandpaAppSignature(fields[1].Value.([]*registry.DecodedField))
+	out.Value0 = To_FinalityGrandpaPrevote(fields[0].Value.([]*registry.DecodedField))
+	out.Value1 = To_SpConsensusGrandpaAppSignature(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
-// not seen "value_1" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
+// not seen "value1" optional: false repeated: false
 
 func To_Utility_AsDerivativeCall(fields []*registry.DecodedField) *pbgear.Utility_AsDerivativeCall {
 	out := &pbgear.Utility_AsDerivativeCall{}
@@ -6375,120 +6374,120 @@ func To_Utility_AsDerivativeCall(fields []*registry.DecodedField) *pbgear.Utilit
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Utility_AsDerivativeCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_AsDerivativeCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -6501,8 +6500,8 @@ func To_Utility_AsOrigin(fields []*registry.DecodedField) *pbgear.Utility_AsOrig
 
 	switch {
 	case matchFields(fields, []int64{121}):
-		out.Value = &pbgear.Utility_AsOrigin_system{
-			system: To_Utility_System(fields), //Passthrough fields...
+		out.Value = &pbgear.Utility_AsOrigin_System{
+			System: To_Utility_System(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{122}):
 		out.Value = &pbgear.Utility_AsOrigin_Origins{
@@ -6552,120 +6551,120 @@ func To_Utility_DispatchAsCall(fields []*registry.DecodedField) *pbgear.Utility_
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Utility_DispatchAsCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Utility_DispatchAsCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Utility_DispatchAsCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Utility_DispatchAsCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Utility_DispatchAsCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Utility_DispatchAsCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Utility_DispatchAsCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Utility_DispatchAsCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Utility_DispatchAsCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Utility_DispatchAsCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Utility_DispatchAsCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_DispatchAsCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -6681,7 +6680,7 @@ func To_Utility_ForceBatchCall(fields []*registry.DecodedField) *pbgear.Utility_
 
 func To_Utility_Origins(fields []*registry.DecodedField) *pbgear.Utility_Origins {
 	out := &pbgear.Utility_Origins{}
-	out.Value_0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -6696,7 +6695,7 @@ func To_Utility_SpWeightsWeightV2Weight(fields []*registry.DecodedField) *pbgear
 
 func To_Utility_System(fields []*registry.DecodedField) *pbgear.Utility_System {
 	out := &pbgear.Utility_System{}
-	out.Value_0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -6705,120 +6704,120 @@ func To_Utility_VaraRuntimeRuntimeCall(fields []*registry.DecodedField) *pbgear.
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Utility_VaraRuntimeRuntimeCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Calls = &pbgear.Utility_VaraRuntimeRuntimeCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
@@ -6828,7 +6827,7 @@ func To_Utility_VaraRuntimeRuntimeCall(fields []*registry.DecodedField) *pbgear.
 
 func To_Utility_Void(fields []*registry.DecodedField) *pbgear.Utility_Void {
 	out := &pbgear.Utility_Void{}
-	out.Value_0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Value0(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -6837,120 +6836,120 @@ func To_Utility_WithWeightCall(fields []*registry.DecodedField) *pbgear.Utility_
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Utility_WithWeightCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Utility_WithWeightCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Utility_WithWeightCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Utility_WithWeightCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Utility_WithWeightCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Utility_WithWeightCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Utility_WithWeightCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Utility_WithWeightCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Utility_WithWeightCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Utility_WithWeightCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Utility_WithWeightCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Utility_WithWeightCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Utility_WithWeightCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Utility_WithWeightCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Utility_WithWeightCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Utility_WithWeightCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Utility_WithWeightCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Utility_WithWeightCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Utility_WithWeightCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Utility_WithWeightCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Utility_WithWeightCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Utility_WithWeightCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Utility_WithWeightCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Utility_WithWeightCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Utility_WithWeightCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Utility_WithWeightCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Utility_WithWeightCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Utility_WithWeightCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Utility_WithWeightCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Utility_WithWeightCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	out.Weight = To_Utility_SpWeightsWeightV2Weight(fields[1].Value.([]*registry.DecodedField))
@@ -6973,13 +6972,13 @@ func To_Value0(fields []*registry.DecodedField) *pbgear.Value0 {
 
 func To_Vesting_Address20(fields []*registry.DecodedField) *pbgear.Vesting_Address20 {
 	out := &pbgear.Vesting_Address20{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Vesting_Address32(fields []*registry.DecodedField) *pbgear.Vesting_Address32 {
 	out := &pbgear.Vesting_Address32{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -7005,22 +7004,22 @@ func To_Vesting_ForceVestedTransferCall(fields []*registry.DecodedField) *pbgear
 
 func To_Vesting_Id(fields []*registry.DecodedField) *pbgear.Vesting_Id {
 	out := &pbgear.Vesting_Id{}
-	out.Value_0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
 func To_Vesting_Index(fields []*registry.DecodedField) *pbgear.Vesting_Index {
 	out := &pbgear.Vesting_Index{}
-	out.Value_0 = To_Vesting_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_Vesting_CompactTupleNull(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
-// not seen "value_0" optional: false repeated: false
+// not seen "value0" optional: false repeated: false
 
 func To_Vesting_MergeSchedulesCall(fields []*registry.DecodedField) *pbgear.Vesting_MergeSchedulesCall {
 	out := &pbgear.Vesting_MergeSchedulesCall{}
-	out.Schedule_1Index = To_uint32(fields[0].Value.([]*registry.DecodedField))
-	out.Schedule_2Index = To_uint32(fields[1].Value.([]*registry.DecodedField))
+	out.Schedule1Index = To_uint32(fields[0].Value.([]*registry.DecodedField))
+	out.Schedule2Index = To_uint32(fields[1].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -7034,7 +7033,7 @@ func To_Vesting_PalletVestingVestingInfoVestingInfo(fields []*registry.DecodedFi
 
 func To_Vesting_Raw(fields []*registry.DecodedField) *pbgear.Vesting_Raw {
 	out := &pbgear.Vesting_Raw{}
-	out.Value_0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
+	out.Value0 = To_bytes(fields[0].Value.([]*registry.DecodedField))
 	return out
 }
 
@@ -7141,120 +7140,120 @@ func To_Whitelist_DispatchWhitelistedCallWithPreimageCall(fields []*registry.Dec
 
 	switch {
 	case matchFields(fields, []int64{66}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_System_remark{
-			System_remark: To_System_RemarkCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_SystemRemark{
+			SystemRemark: To_System_RemarkCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{70}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_System_set_heap_pages{
-			System_set_heap_pages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_SystemSetHeapPages{
+			SystemSetHeapPages: To_System_SetHeapPagesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{71}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_System_set_code{
-			System_set_code: To_System_SetCodeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_SystemSetCode{
+			SystemSetCode: To_System_SetCodeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{81}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_System_set_code_without_checks{
-			System_set_code_without_checks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_SystemSetCodeWithoutChecks{
+			SystemSetCodeWithoutChecks: To_System_SetCodeWithoutChecksCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{93}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_System_set_storage{
-			System_set_storage: To_System_SetStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_SystemSetStorage{
+			SystemSetStorage: To_System_SetStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{98}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_System_kill_storage{
-			System_kill_storage: To_System_KillStorageCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_SystemKillStorage{
+			SystemKillStorage: To_System_KillStorageCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{100}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_System_kill_prefix{
-			System_kill_prefix: To_System_KillPrefixCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_SystemKillPrefix{
+			SystemKillPrefix: To_System_KillPrefixCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{101}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_System_remark_with_event{
-			System_remark_with_event: To_System_RemarkWithEventCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_SystemRemarkWithEvent{
+			SystemRemarkWithEvent: To_System_RemarkWithEventCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{105}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Timestamp_set{
-			Timestamp_set: To_Timestamp_SetCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_TimestampSet{
+			TimestampSet: To_Timestamp_SetCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{113}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Babe_report_equivocation{
-			Babe_report_equivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BabeReportEquivocation{
+			BabeReportEquivocation: To_Babe_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{116}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Babe_report_equivocation_unsigned{
-			Babe_report_equivocation_unsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BabeReportEquivocationUnsigned{
+			BabeReportEquivocationUnsigned: To_Babe_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{118}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Babe_plan_config_change{
-			Babe_plan_config_change: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BabePlanConfigChange{
+			BabePlanConfigChange: To_Babe_PlanConfigChangeCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{124}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Grandpa_report_equivocation{
-			Grandpa_report_equivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_GrandpaReportEquivocation{
+			GrandpaReportEquivocation: To_Grandpa_ReportEquivocationCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{129}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Grandpa_report_equivocation_unsigned{
-			Grandpa_report_equivocation_unsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_GrandpaReportEquivocationUnsigned{
+			GrandpaReportEquivocationUnsigned: To_Grandpa_ReportEquivocationUnsignedCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{132}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Grandpa_note_stalled{
-			Grandpa_note_stalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_GrandpaNoteStalled{
+			GrandpaNoteStalled: To_Grandpa_NoteStalledCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{133}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Balances_transfer_allow_death{
-			Balances_transfer_allow_death: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BalancesTransferAllowDeath{
+			BalancesTransferAllowDeath: To_Balances_TransferAllowDeathCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{134}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Balances_force_transfer{
-			Balances_force_transfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BalancesForceTransfer{
+			BalancesForceTransfer: To_Balances_ForceTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{135}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Balances_transfer_keep_alive{
-			Balances_transfer_keep_alive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BalancesTransferKeepAlive{
+			BalancesTransferKeepAlive: To_Balances_TransferKeepAliveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{138}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Balances_transfer_all{
-			Balances_transfer_all: To_Balances_TransferAllCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BalancesTransferAll{
+			BalancesTransferAll: To_Balances_TransferAllCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{140}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Balances_force_unreserve{
-			Balances_force_unreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BalancesForceUnreserve{
+			BalancesForceUnreserve: To_Balances_ForceUnreserveCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{182}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Balances_upgrade_accounts{
-			Balances_upgrade_accounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BalancesUpgradeAccounts{
+			BalancesUpgradeAccounts: To_Balances_UpgradeAccountsCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{185}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Balances_force_set_balance{
-			Balances_force_set_balance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BalancesForceSetBalance{
+			BalancesForceSetBalance: To_Balances_ForceSetBalanceCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{188}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Vesting_vest{
-			Vesting_vest: To_Vesting_VestCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_VestingVest{
+			VestingVest: To_Vesting_VestCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{249}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Vesting_vest_other{
-			Vesting_vest_other: To_Vesting_VestOtherCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_VestingVestOther{
+			VestingVestOther: To_Vesting_VestOtherCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{250}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Vesting_vested_transfer{
-			Vesting_vested_transfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_VestingVestedTransfer{
+			VestingVestedTransfer: To_Vesting_VestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{251}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Vesting_force_vested_transfer{
-			Vesting_force_vested_transfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_VestingForceVestedTransfer{
+			VestingForceVestedTransfer: To_Vesting_ForceVestedTransferCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{262}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_Vesting_merge_schedules{
-			Vesting_merge_schedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_VestingMergeSchedules{
+			VestingMergeSchedules: To_Vesting_MergeSchedulesCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{267}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BagsList_rebag{
-			BagsList_rebag: To_BagsList_RebagCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BagsListRebag{
+			BagsListRebag: To_BagsList_RebagCall(fields), //Passthrough fields...
 		}
 	case matchFields(fields, []int64{268}):
-		out.Value = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BagsList_put_in_front_of{
-			BagsList_put_in_front_of: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
+		out.Call = &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall_BagsListPutInFrontOf{
+			BagsListPutInFrontOf: To_BagsList_PutInFrontOfCall(fields), //Passthrough fields...
 		}
 	}
 	return out
