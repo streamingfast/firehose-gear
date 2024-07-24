@@ -2,15 +2,30 @@ syntax = "proto3";
 package sf.gear.metadata.type.v1;
 option go_package = "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1;pbgear";
 
+message Balances_Raw {
+	repeated uint32 value_0 = 1;
+}
+message Balances_Address20 {
+	repeated uint32 value_0 = 1;
+}
+message Balances_CompactString {
+	string value = 1;
+}
+message CompactTupleNull {
+	TupleNull value = 1;
+}
+message SpCoreCryptoAccountId32 {
+	repeated uint32 value_0 = 1;
+}
+message Balances_Id {
+	SpCoreCryptoAccountId32 value_0 = 1;
+}
 message TupleNull {
 }
 message Balances_Index {
 	CompactTupleNull value_0 = 1;
 }
-message Balances_Raw {
-	repeated uint32 value_0 = 1;
-}
-message Balances_Address20 {
+message Balances_Address32 {
 	repeated uint32 value_0 = 1;
 }
 message Balances_Dest {
@@ -22,22 +37,7 @@ message Balances_Dest {
 		Balances_Address20 address20 = 5;
 	}
 }
-message Balances_CompactString {
-	string value = 1;
-}
-message SpCoreCryptoAccountId32 {
-	repeated uint32 value_0 = 1;
-}
-message Balances_Address32 {
-	repeated uint32 value_0 = 1;
-}
 message Balances_TransferKeepAliveCall {
 	Balances_Dest dest = 1;
 	Balances_CompactString value = 2;
-}
-message Balances_Id {
-	SpCoreCryptoAccountId32 value_0 = 1;
-}
-message CompactTupleNull {
-	TupleNull value = 1;
 }

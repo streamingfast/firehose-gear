@@ -20,13 +20,12 @@ type Generator struct {
 	IdToField  map[int64]protobuf.Field
 }
 
-func NewGenerator(templatePath string, messages []*protobuf.Message, metadata *types.Metadata, IdToField map[int64]protobuf.Field) *Generator {
+func NewGenerator(templatePath string, messages []*protobuf.Message, metadata *types.Metadata) *Generator {
 	return &Generator{
 		templatePath: templatePath,
 		Messages:     messages,
 		Metadata:     metadata,
 		seenFields:   make(map[string]bool),
-		IdToField:    IdToField,
 	}
 }
 

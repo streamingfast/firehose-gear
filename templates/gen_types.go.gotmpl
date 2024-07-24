@@ -3,31 +3,11 @@ package gen_types
 import (
     "github.com/centrifuge/go-substrate-rpc-client/v4/registry"
     pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1"
-    "reflect"
 )
 
 {{- $generator := . }}
 {{- $metadata := $generator.Metadata }}
 {{- $messages := $generator.Messages }}
-{{- $idToField := $generator.IdToField }}
-
-type regEntry struct{
-    fn func(fields []*registry.DecodedField) any
-    returnType reflect.Type
-}
-
-var reg map[int64]*regEntry
-
-func init() {
-	reg = make(map[int64]*regEntry)
-    {{- range $k, $f:= $idToField}}
-        reg[{{$k}}] = &regEntry{
-            fn: {{$f.ToFuncName $metadata}},
-            {{/* returnType: "{{$f.ToGoTypeName $metadata}}", */}}
-        }
-    {{- end}}
-}
-
 
 {{ range $msg := $messages }}
 
@@ -126,11 +106,9 @@ func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) {{ $field.Ret
 {{- $goType := $field.ToGoTypeName $meta }}
 
 func {{ $field.ToFuncName $meta}}(fields []*registry.DecodedField) any {
-    ===========
     {{- range $t := $field.Types }}
     {{- $t.Name}}
     {{- end }}
-    ==========
     var out *{{ $field.OutputType $meta }}
     out.Value = {{ $field.ToFuncName $meta}}(fields) //Passthrough fields...
 	return out

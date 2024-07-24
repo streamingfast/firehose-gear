@@ -60,7 +60,6 @@ func (mc *MetadataConverter) Convert(blockHash string) (map[string]types.IType, 
 	case 14:
 		mc.TypeConverter = &TypeConverter{
 			messages:         make(map[string]*protobuf.Message),
-			IdToField:        map[int64]protobuf.Field{},
 			allMetadataTypes: []substrateTypes.PortableTypeV14{},
 		}
 		return mc.TypeConverter.convertTypesFromv14(metadata.AsMetadataV14)
@@ -89,7 +88,6 @@ func (mc *MetadataConverter) fetchStateMetadata(blockHash string) (*substrateTyp
 type TypeConverter struct {
 	messages         map[string]*protobuf.Message
 	allMetadataTypes []substrateTypes.PortableTypeV14
-	IdToField        map[int64]protobuf.Field
 }
 
 func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14) (map[string]types.IType, error) {
@@ -496,7 +494,6 @@ func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTyp
 
 		field := c.FieldForType(fieldType, palletNameFromPath(fieldType.Type.Path), callName, fn)
 		msg.Fields = append(msg.Fields, field)
-		c.IdToField[idx] = field
 	}
 
 	return msg
