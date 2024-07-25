@@ -167,8 +167,9 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 		//}
 		callName := string(variant.Name)
 		message := &protobuf.Message{
-			Pallet: palletName,
-			Name:   callName + "_Call",
+			Pallet:   palletName,
+			Name:     callName + "_Call",
+			LookupID: math.MaxInt64,
 		}
 
 		c.ProcessCallFields(variant, message, palletName, callName)
@@ -193,7 +194,7 @@ func (c *TypeConverter) ProcessField(f substrateTypes.Si1Field, palletName strin
 	return c.FieldForType(ttype, palletName, callName, fieldName)
 }
 
-func (c *TypeConverter) FieldForPrimitive(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.BasicField {
+func (c *TypeConverter) FieldForPrimitive(ttype substrateTypes.PortableTypeV14, fieldName string) *protobuf.BasicField {
 	typeName := types.ConvertPrimitiveType(ttype.Type.Def.Primitive.Si0TypeDefPrimitive).GetProtoFieldName()
 
 	if typeName == "uint8" {
@@ -205,7 +206,7 @@ func (c *TypeConverter) FieldForPrimitive(ttype substrateTypes.PortableTypeV14, 
 	}
 
 	return &protobuf.BasicField{
-		Pallet:    palletName,
+		Pallet:    "",
 		Name:      fieldName,
 		Type:      typeName,
 		Primitive: true,
@@ -218,23 +219,28 @@ func (c *TypeConverter) FieldForSequence(ttype substrateTypes.PortableTypeV14, p
 	lookupType := c.allMetadataTypes[lookupId]
 	typeName := c.ExtractTypeName(lookupType, palletName, callName, fieldName)
 
+	if strings.Contains(strings.ToLower(typeName), strings.ToLower("Digest_Item")) {
+		fmt.Println("")
+	}
+
 	if typeName == "uint8" || typeName == "int8" {
 		return &protobuf.BasicField{
-			Pallet:    palletNameFromPath(ttype.Type.Path, palletName),
+			Pallet:    palletNameFromPath(lookupType.Type.Path, palletName, lookupType.Type.Def.IsPrimitive),
 			Type:      "bytes",
 			Name:      fieldName,
 			Primitive: lookupType.Type.Def.IsPrimitive,
 			LookupID:  lookupId,
 		}
 	}
-
-	return &protobuf.RepeatedField{
-		Pallet:    palletNameFromPath(ttype.Type.Path, palletName),
+	f := &protobuf.RepeatedField{
+		Pallet:    palletNameFromPath(lookupType.Type.Path, palletName, lookupType.Type.Def.IsPrimitive),
 		Type:      typeName,
 		Name:      fieldName,
 		Primitive: lookupType.Type.Def.IsPrimitive,
 		LookupID:  lookupId,
 	}
+
+	return f
 }
 
 func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
@@ -244,7 +250,7 @@ func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, pall
 
 	if typeName == "uint8" || typeName == "int8" {
 		return &protobuf.BasicField{
-			Pallet:    palletNameFromPath(ttype.Type.Path, palletName),
+			Pallet:    palletNameFromPath(ttype.Type.Path, palletName, lookupType.Type.Def.IsPrimitive),
 			Type:      "bytes",
 			Name:      fieldName,
 			Primitive: lookupType.Type.Def.IsPrimitive,
@@ -253,7 +259,7 @@ func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, pall
 	}
 
 	return &protobuf.RepeatedField{
-		Pallet:    palletNameFromPath(ttype.Type.Path, palletName),
+		Pallet:    palletNameFromPath(ttype.Type.Path, palletName, lookupType.Type.Def.IsPrimitive),
 		Name:      fieldName,
 		Type:      typeName,
 		Primitive: lookupType.Type.Def.IsPrimitive,
@@ -261,11 +267,12 @@ func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, pall
 	}
 }
 
-func (c *TypeConverter) FieldForCompact(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.BasicField {
+func (c *TypeConverter) FieldForCompact(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string, primitive bool) *protobuf.BasicField {
 	name := c.ExtractTypeName(ttype, palletName, callName, fieldName)
+	childType := c.allMetadataTypes[ttype.Type.Def.Compact.Type.Int64()]
 
 	return &protobuf.BasicField{
-		Pallet:   palletName,
+		Pallet:   palletNameFromPath(childType.Type.Path, palletName, primitive),
 		Name:     fieldName,
 		Type:     name,
 		LookupID: ttype.ID.Int64(),
@@ -276,7 +283,7 @@ func (c *TypeConverter) FieldForComposite(ttype substrateTypes.PortableTypeV14, 
 	name := c.ExtractTypeName(ttype, palletName, callName, fieldName)
 
 	return &protobuf.BasicField{
-		Pallet:   palletNameFromPath(ttype.Type.Path, palletName),
+		Pallet:   palletNameFromPath(ttype.Type.Path, palletName, false),
 		Name:     fieldName,
 		Type:     name,
 		LookupID: ttype.ID.Int64(),
@@ -303,7 +310,7 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 
 	switch {
 	case ttype.Type.Def.IsPrimitive:
-		field = c.FieldForPrimitive(ttype, palletName, callName, fieldName)
+		field = c.FieldForPrimitive(ttype, fieldName)
 		if optional {
 			field.SetOptional()
 		}
@@ -338,7 +345,9 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 		}
 
 	case ttype.Type.Def.IsCompact:
-		field = c.FieldForCompact(ttype, palletName, callName, fieldName)
+		idx := ttype.Type.Def.Compact.Type.Int64()
+		childType := c.allMetadataTypes[idx]
+		field = c.FieldForCompact(ttype, palletName, callName, fieldName, childType.Type.Def.IsPrimitive)
 		if optional {
 			field.SetOptional()
 		}
@@ -351,14 +360,7 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 	}
 
 	if !ttype.Type.Def.IsVariant {
-		if _, ok := c.messages[field.FullTypeName()]; !ok {
-			if field.IsPrimitive() {
-				c.messages[field.FullTypeName()] = nil
-			} else {
-				msg := c.MessageForType(field.GetType(), ttype, palletName, callName, fieldName)
-				c.messages[field.FullTypeName()] = msg
-			}
-		}
+		c.MessageForType(field.GetType(), ttype, palletName, callName, fieldName)
 	}
 
 	return field
@@ -396,11 +398,10 @@ func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14, pa
 	return typeName
 }
 
-func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) *protobuf.Message {
-
+func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) {
 	msg := &protobuf.Message{
-		Pallet: palletNameFromPath(ttype.Type.Path, palletName),
-		Name:   typeName,
+		Name:     typeName,
+		LookupID: ttype.ID.Int64(),
 	}
 
 	if ttype.Type.Def.IsTuple {
@@ -413,6 +414,7 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 				msg.Fields = append(msg.Fields, f)
 			}
 		}
+		msg.Pallet = palletNameFromPath(ttype.Type.Path, palletName, false)
 	}
 
 	if ttype.Type.Def.IsComposite {
@@ -437,6 +439,7 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 				msg.Fields = append(msg.Fields, field)
 			}
 		}
+		msg.Pallet = palletNameFromPath(ttype.Type.Path, palletName, false)
 	}
 
 	if ttype.Type.Def.IsVariant {
@@ -453,6 +456,8 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 				LookupID: math.MaxInt64,
 			})
 		}
+		msg.Pallet = palletNameFromPath(ttype.Type.Path, palletName, false)
+
 		msg.Fields = append(msg.Fields, field)
 	}
 
@@ -461,6 +466,8 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 		childType := c.allMetadataTypes[lookupId]
 
 		f := c.FieldForType(childType, palletName, callName, fieldName)
+
+		msg.Pallet = palletNameFromPath(childType.Type.Path, palletName, childType.Type.Def.IsPrimitive)
 		msg.Fields = append(msg.Fields, f)
 	}
 
@@ -469,19 +476,27 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 		childType := c.allMetadataTypes[lookupId]
 
 		f := c.FieldForType(childType, palletName, callName, fieldName)
+
+		msg.Pallet = palletNameFromPath(childType.Type.Path, palletName, childType.Type.Def.IsPrimitive)
 		msg.Fields = append(msg.Fields, f)
 	}
 
 	if ttype.Type.Def.IsCompact {
 		lookupId := ttype.Type.Def.Compact.Type.Int64()
 		childType := c.allMetadataTypes[lookupId]
+		field := c.FieldForType(childType, msg.Pallet, callName, "value")
 
-		field := c.FieldForType(childType, palletName, callName, "value")
-
+		msg.Pallet = palletNameFromPath(childType.Type.Path, palletName, childType.Type.Def.IsPrimitive)
 		msg.Fields = append(msg.Fields, field)
 	}
 
-	return msg
+	if _, found := c.messages[msg.FullTypeName()]; !found {
+		//if !ttype.Type.Def.IsPrimitive {
+		c.messages[msg.FullTypeName()] = msg
+		//}
+	}
+
+	return
 }
 
 func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
@@ -520,8 +535,9 @@ func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, palletN
 
 func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTypes.Si1Variant, palletName string, callName string, fieldName string) *protobuf.Message {
 	msg := &protobuf.Message{
-		Pallet: palletName,
-		Name:   name,
+		Pallet:   palletName,
+		Name:     name,
+		LookupID: math.MaxInt64,
 	}
 
 	for i, f := range variant.Fields {
@@ -532,7 +548,7 @@ func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTyp
 			fn = fmt.Sprintf("value%d", i)
 		}
 
-		field := c.FieldForType(fieldType, palletNameFromPath(fieldType.Type.Path, palletName), callName, fn)
+		field := c.FieldForType(fieldType, palletNameFromPath(fieldType.Type.Path, palletName, false), callName, fn)
 		msg.Fields = append(msg.Fields, field)
 	}
 
@@ -594,9 +610,10 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 	}
 
 	msg := &protobuf.Message{
-		Pallet: palletName,
-		Name:   fieldName,
-		Fields: []protobuf.Field{oneOf},
+		Pallet:   palletName,
+		Name:     fieldName,
+		Fields:   []protobuf.Field{oneOf},
+		LookupID: ttype.ID.Int64(),
 	}
 
 	if _, found := c.messages[msg.FullTypeName()]; found {
@@ -622,7 +639,10 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 	return f
 }
 
-func palletNameFromPath(path substrateTypes.Si1Path, defaultt string) string {
+func palletNameFromPath(path substrateTypes.Si1Path, defaultt string, primitive bool) string {
+	if primitive {
+		return ""
+	}
 	if len(path) == 0 {
 		return defaultt
 	}

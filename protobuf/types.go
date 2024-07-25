@@ -10,6 +10,9 @@ import (
 	types2 "github.com/streamingfast/firehose-gear/types"
 )
 
+type Lookupable interface {
+	GetLookupId() int64
+}
 type Field interface {
 	SetOptional()
 	IsPrimitive() bool
@@ -18,6 +21,7 @@ type Field interface {
 	IsOptional() bool
 	FullTypeName() string
 	GetType() string
+	GetLookupId() int64
 	ToGoTypeName(meta *types.Metadata) string
 	ToProto(idx int) (string, int)
 	ToFuncName(meta *types.Metadata) string
@@ -34,9 +38,14 @@ type Proto struct {
 }
 
 type Message struct {
-	Pallet string
-	Name   string
-	Fields []Field
+	Pallet   string
+	Name     string
+	Fields   []Field
+	LookupID int64
+}
+
+func (m *Message) GetLookupId() int64 {
+	return m.LookupID
 }
 
 func (m *Message) FullTypeName() string {
@@ -89,6 +98,10 @@ type BasicField struct {
 	Type      string
 	Name      string
 	LookupID  int64
+}
+
+func (f *BasicField) GetLookupId() int64 {
+	return f.LookupID
 }
 
 func (f *BasicField) OneOfWrapperOutputName() string {
@@ -191,6 +204,10 @@ type RepeatedField struct {
 	Primitive bool
 }
 
+func (f *RepeatedField) GetLookupId() int64 {
+	return f.LookupID
+}
+
 func (f *RepeatedField) IsOptional() bool {
 	return false
 }
@@ -283,6 +300,10 @@ type OneOfField struct {
 	Types     []*BasicField
 	LookupID  int64
 	Primitive bool
+}
+
+func (f *OneOfField) GetLookupId() int64 {
+	return f.LookupID
 }
 
 func (f *OneOfField) Toto() string {

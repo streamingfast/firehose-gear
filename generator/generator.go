@@ -3,6 +3,7 @@ package generator
 import (
 	"bytes"
 	"fmt"
+	"math"
 	"os"
 	"text/template"
 
@@ -159,3 +160,48 @@ func (g *Generator) Wrap(items []WrapItem) map[any]any {
 	out["generator"] = g
 	return out
 }
+
+func (g *Generator) TypeForField(field protobuf.Lookupable) string {
+	idx := field.GetLookupId()
+	if idx == math.MaxInt64 {
+		return "registry.DecodedFields"
+	}
+	ttype := g.Metadata.AsMetadataV14.EfficientLookup[idx]
+
+	switch {
+	case ttype.Def.IsCompact:
+		return "types.UCompact"
+		//case ttype.Def.IsSequence:
+		//	return "*types.Si1TypeDefSequence"
+		//case ttype.Def.IsArray:
+		//	return "*types.Si1TypeDefArray"
+		//case ttype.Def.IsTuple:
+		//return "*types.Si1TypeDefTuple"
+		//case ttype.Def.IsVariant:
+		//	types.Si1Variant{}
+		//	return "*types.Si1TypeDefTuple"
+		//case ttype.Def.IsCompact:
+
+		//case ttype.Def.IsComposite:
+	}
+	return "registry.DecodedFields"
+}
+
+func (g *Generator) CompactChildType(field protobuf.Field) types.Si1TypeDef {
+	idx := field.GetLookupId()
+	ttype := g.Metadata.AsMetadataV14.EfficientLookup[idx]
+	return ttype.Def
+}
+
+//func (g *Generator) CompactToValue(field protobuf.Field) string {
+//	idx := field.GetLookupId()
+//	ttype := g.Metadata.AsMetadataV14.EfficientLookup[idx]
+//	childType := g.Metadata.AsMetadataV14.EfficientLookup[]
+//
+//	switch {
+//	case childType.Def.:
+//
+//	}
+//
+//	return
+//}
