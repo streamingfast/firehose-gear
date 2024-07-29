@@ -12,7 +12,7 @@ message Block {
   repeated Event events = 5;
   repeated DigestItem digest_items = 6;
   bytes justification = 7;
-  bytes storage_events = 8;
+  bytes raw_events = 8;
 }
 
 message Header {
@@ -119,7 +119,6 @@ message CallIndex {
 
 message Event {
   string name = 1;
-  repeated bytes fields = 2;
   // [2]byte
   bytes id = 3;
   Phase phase = 4;

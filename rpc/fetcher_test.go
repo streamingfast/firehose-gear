@@ -9,6 +9,7 @@ import (
 
 	gsrpc "github.com/centrifuge/go-substrate-rpc-client/v4"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
+	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/parser"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
@@ -86,10 +87,8 @@ func Test_DecodeBlockEvents(t *testing.T) {
 	eventRegistry, err := factory.CreateEventRegistry(metadata)
 	require.NoError(t, err)
 
-	for _, event := range pbGearBlock.Events {
-		decodedFields := decodeEventExtrinsics(t, eventRegistry, event)
-		_ = decodedFields
-	}
+	decodedFields := decodeEvents(t, eventRegistry, pbGearBlock.RawEvents)
+	_ = decodedFields
 }
 
 func convertCallIndex(ci *pbgear.CallIndex) types.CallIndex {
@@ -113,28 +112,46 @@ func decodeCallExtrinsics(t *testing.T, callRegistry registry.CallRegistry, extr
 	return callFields
 }
 
-func decodeEventExtrinsics(t *testing.T, eventRegistry registry.EventRegistry, event *pbgear.Event) registry.DecodedFields {
-	decodedFields := make(registry.DecodedFields, 0)
+func decodeEvents(t *testing.T, eventRegistry registry.EventRegistry, storageEvents []byte) []*parser.Event {
+	decoder := scale.NewDecoder(bytes.NewReader(storageEvents))
 
-	for _, field := range event.Fields {
-		decodedField := &registry.DecodedField{}
-		// var decodedFieldInterface interface{}
+	eventsCount, err := decoder.DecodeUintCompact()
+	require.NoError(t, err)
 
-		decoder := scale.NewDecoder(bytes.NewReader(field))
+	var events []*parser.Event
 
-		// var eventID types.EventID
+	for i := uint64(0); i < eventsCount.Uint64(); i++ {
+		var phase types.Phase
 
-		// err := decoder.Decode(&eventID)
-		// require.NoError(t, err)
-
-		// eventDecoder, ok := eventRegistry[eventID]
-		// require.True(t, ok)
-
-		err := decoder.Decode(decodedField)
+		err := decoder.Decode(&phase)
 		require.NoError(t, err)
 
-		decodedFields = append(decodedFields, decodedField)
+		var eventID types.EventID
+
+		err = decoder.Decode(&eventID)
+		require.NoError(t, err)
+
+		eventDecoder, ok := eventRegistry[eventID]
+		require.True(t, ok)
+
+		eventFields, err := eventDecoder.Decode(decoder)
+		require.NoError(t, err)
+
+		var topics []types.Hash
+
+		err = decoder.Decode(&topics)
+		require.NoError(t, err)
+
+		event := &parser.Event{
+			Name:    eventDecoder.Name,
+			Fields:  eventFields,
+			EventID: eventID,
+			Phase:   &phase,
+			Topics:  topics,
+		}
+
+		events = append(events, event)
 	}
 
-	return decodedFields
+	return events
 }

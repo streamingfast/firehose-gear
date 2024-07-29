@@ -64,11 +64,12 @@ func main() {
 		log.Fatalf("Failed to get extrinsics: %v", err)
 	}
 
-	// metadata, err := api.RPC.State.GetMetadata(blockHash)
-	//if err != nil {
-	//	log.Fatalf("Failed to get metadata: %v", err)
-	//}
-	//
+	metadata, err := api.RPC.State.GetMetadata(blockHash)
+	if err != nil {
+		log.Fatalf("Failed to get metadata: %v", err)
+	}
+	_ = metadata
+
 	for _, extrinsic := range extrinsics {
 		parts := strings.Split(extrinsic.Name, ".")
 		pallet := parts[0]

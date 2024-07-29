@@ -6,13 +6,14 @@ import (
 	"encoding/hex"
 	"fmt"
 	"math/big"
+	"strings"
 	"time"
 
 	cclient "github.com/centrifuge/go-substrate-rpc-client/v4/client"
-	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/parser"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
+	"github.com/centrifuge/go-substrate-rpc-client/v4/types/codec"
 	pbbstream "github.com/streamingfast/bstream/pb/sf/bstream/v1"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
 	pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/type/v1"
@@ -26,8 +27,8 @@ type FetchedBlockData struct {
 	blockHash           types.Hash
 	block               *types.SignedBlock
 	events              []*parser.Event
-	metadata            []byte
-	storageEvents       []byte
+	rawMetadata         []byte
+	rawEvents           []byte
 }
 
 type LastBlockInfo struct {
@@ -44,6 +45,7 @@ type Fetcher struct {
 	logger                   *zap.Logger
 
 	latestBlockNum uint64
+	metadata       *types.Metadata
 
 	lastBlockInfo *LastBlockInfo
 }
@@ -132,28 +134,20 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 			block:               block,
 		}
 
-		if requestedBlockNum > 0 {
-			var metadata *types.Metadata
-			storageEvents, err := client.eventsProvider.GetStorageEvents(fetchedBlockData.metadata, blockHash)
-			if err != nil {
-				return nil, fmt.Errorf("failed to get storage events: %w", err)
-			}
-
-			events, err := client.eventsRetriever.GetEvents(blockHash)
-			if err != nil {
-				return nil, fmt.Errorf("failed to get events: %w", err)
-			}
-
-			fetchedBlockData.events = events
-			fetchedBlockData.storageEvents = []byte{storageEvents}
-		}
-
 		runtimeVersion, err := client.state.GetRuntimeVersion(blockHash)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get runtime version at block hash %s: %w", blockHash.Hex(), err)
 		}
 
 		requestedBlockSpecVersion := uint32(runtimeVersion.SpecVersion)
+
+		if f.metadata == nil { // bootstraping
+			_, err := f.setMetadata(blockHash, client, requestedBlockSpecVersion, requestedBlockNum)
+			if err != nil {
+				return nil, fmt.Errorf("failed to update metadata: %w", err)
+			}
+		}
+
 		parentSpecVersion := uint32(0)
 
 		shouldFetchParentVersion := true
@@ -182,12 +176,20 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 		}
 
 		if shouldUpdateMetadata(requestedBlockSpecVersion, parentSpecVersion, isForward(f.lastBlockInfo.blockNum, requestedBlockNum)) {
-			err := cclient.CallWithBlockHash(client.client.Client, &fetchedBlockData.metadata, "state_getMetadata", &blockHash)
+			b, err := f.setMetadata(blockHash, client, requestedBlockSpecVersion, requestedBlockNum)
 			if err != nil {
-				return nil, fmt.Errorf("failed to get metadata: %w", err)
+				return nil, fmt.Errorf("failed to update metadata: %w", err)
+			}
+			fetchedBlockData.rawMetadata = b
+		}
+
+		if requestedBlockNum > 0 {
+			storageEvents, err := client.eventsProvider.GetStorageEvents(f.metadata, blockHash)
+			if err != nil {
+				return nil, fmt.Errorf("failed to get storage events: %w", err)
 			}
 
-			f.logger.Info("metadata fetched", zap.Uint32("spec_version", requestedBlockSpecVersion), zap.Uint64("block_num", requestedBlockNum))
+			fetchedBlockData.rawEvents = []byte(*storageEvents)
 		}
 
 		f.lastBlockInfo = &LastBlockInfo{
@@ -198,6 +200,29 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 
 		return fetchedBlockData, nil
 	})
+}
+
+func (f *Fetcher) setMetadata(blockHash types.Hash, client *Client, requestedBlockSpecVersion uint32, requestedBlockNum uint64) ([]byte, error) {
+	var metadataHex string
+	err := cclient.CallWithBlockHash(client.client.Client, &metadataHex, "state_getMetadata", &blockHash)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get metadata: %w", err)
+	}
+
+	metadata := types.NewMetadataV14()
+	err = codec.DecodeFromHex(metadataHex, metadata)
+	if err != nil {
+		return nil, fmt.Errorf("failed to decode metadata: %w", err)
+	}
+
+	f.logger.Info("metadata fetched", zap.Uint32("spec_version", requestedBlockSpecVersion), zap.Uint64("block_num", requestedBlockNum))
+	f.metadata = metadata
+
+	b, err := hex.DecodeString(strings.TrimPrefix(metadataHex, "0x"))
+	if err != nil {
+		return nil, fmt.Errorf("failed to decode metadata: %w", err)
+	}
+	return b, nil
 }
 
 func (f *Fetcher) fetchParentSpecVersion(client *Client, parentBlockHash types.Hash) (uint32, error) {
@@ -244,11 +269,12 @@ func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block,
 	block := &pbgear.Block{
 		Number:        uint64(b.Block.Header.Number),
 		Hash:          blockHash[:],
-		Header:        convertHeader(data, specVersion, data.metadata),
+		Header:        convertHeader(data, specVersion, data.rawMetadata),
 		Extrinsics:    convertExtrinsics(b.Block.Extrinsics),
 		Events:        convertedEvents,
 		DigestItems:   convertLogs(b.Block.Header.Digest),
 		Justification: b.Justification,
+		RawEvents:     data.rawEvents,
 	}
 
 	timestamp := big.NewInt(0)
@@ -479,14 +505,14 @@ func convertMortalEra(era types.MortalEra) *pbgear.MortalEra {
 func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 	pbgearEvent := make([]*pbgear.Event, 0, len(events))
 	for _, evt := range events {
-		fields, err := convertEventFields(evt.Fields)
-		if err != nil {
-			return nil, err
-		}
+		// encodedEvent, err := convertEvent(evt)
+		// if err != nil {
+		// 	return nil, err
+		// }
 
 		pbgearEvent = append(pbgearEvent, &pbgear.Event{
-			Name:   evt.Name,
-			Fields: fields,
+			Name: evt.Name,
+			// EncodedEvent: encodedEvent,
 			Id:     evt.EventID[:],
 			Phase:  convertPhase(evt.Phase),
 			Topics: convertTopics(evt.Topics),
@@ -495,18 +521,15 @@ func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 	return pbgearEvent, nil
 }
 
-func convertEventFields(fields registry.DecodedFields) ([][]byte, error) {
-	out := make([][]byte, 0)
-	for _, field := range fields {
-		buffer := bytes.NewBuffer(nil)
-		fieldEncoder := scale.NewEncoder(buffer)
-		err := fieldEncoder.Encode(field)
-		if err != nil {
-			return nil, fmt.Errorf("failed to encode field: %w", err)
-		}
-		out = append(out, buffer.Bytes())
+func convertEvent(evt *parser.Event) ([]byte, error) {
+	buffer := bytes.NewBuffer(nil)
+	encoder := scale.NewEncoder(buffer)
+	err := encoder.Encode(evt)
+	if err != nil {
+		return nil, fmt.Errorf("failed to encode field: %w", err)
 	}
-	return out, nil
+
+	return buffer.Bytes(), nil
 }
 
 func convertPhase(phase *types.Phase) *pbgear.Phase {
