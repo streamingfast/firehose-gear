@@ -9,10 +9,11 @@ import (
 
 func Test_ConvertMetadata(t *testing.T) {
 	gearClients := firecoreRPC.NewClients[*Client]()
-	gearClient := NewClient("https://vara-mainnet.public.blastapi.io")
+	gearClient, err := NewClient("https://vara-mainnet.public.blastapi.io")
+	require.NoError(t, err)
 	gearClients.Add(gearClient)
 
 	mc := NewMetadataConverter(gearClients, nil, nil)
-	err := mc.Convert("")
+	err = mc.Convert("")
 	require.NoError(t, err)
 }

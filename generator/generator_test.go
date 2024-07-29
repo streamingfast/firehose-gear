@@ -11,11 +11,12 @@ import (
 
 func Test_Generator(t *testing.T) {
 	gearClients := firecoreRPC.NewClients[*rpc.Client]()
-	gearClient := rpc.NewClient("https://vara-mainnet.public.blastapi.io")
+	gearClient, err := rpc.NewClient("https://vara-mainnet.public.blastapi.io")
+	require.NoError(t, err)
 	gearClients.Add(gearClient)
 
 	mc := rpc.NewMetadataConverter(gearClients, nil, nil)
-	err := mc.Convert("")
+	err = mc.Convert("")
 	require.NoError(t, err)
 
 	messages := mc.FetchMessages()

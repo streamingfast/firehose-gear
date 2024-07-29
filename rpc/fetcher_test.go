@@ -29,7 +29,8 @@ func Test_DecodeBlockExtrinsics(t *testing.T) {
 	fetchInterval := time.Second
 	logger := zap.NewNop()
 
-	gearClient := NewClient(rpcEndpoint)
+	gearClient, err := NewClient(rpcEndpoint)
+	require.NoError(t, err)
 	gearClients.Add(gearClient)
 
 	rpcFetcher := NewFetcher(gearClients, fetchInterval, latestBlockRetryInterval, logger)
@@ -66,7 +67,8 @@ func Test_DecodeBlockEvents(t *testing.T) {
 	fetchInterval := time.Second
 	logger := zap.NewNop()
 
-	gearClient := NewClient(rpcEndpoint)
+	gearClient, err := NewClient(rpcEndpoint)
+	require.NoError(t, err)
 	gearClients.Add(gearClient)
 
 	rpcFetcher := NewFetcher(gearClients, fetchInterval, latestBlockRetryInterval, logger)

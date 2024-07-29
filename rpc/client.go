@@ -1,7 +1,7 @@
 package rpc
 
 import (
-	"log"
+	"fmt"
 
 	gsrpc "github.com/centrifuge/go-substrate-rpc-client/v4"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
@@ -21,10 +21,10 @@ type Client struct {
 	state               rpcState.State
 }
 
-func NewClient(rpcEndpoint string) *Client {
+func NewClient(rpcEndpoint string) (*Client, error) {
 	client, err := gsrpc.NewSubstrateAPI(rpcEndpoint)
 	if err != nil {
-		log.Fatal("Error creating API instance")
+		return nil, fmt.Errorf("error creating API instance: %w", err)
 	}
 	chain := generic.NewDefaultChain(client.Client)
 	factory := registry.NewFactory()
@@ -39,14 +39,13 @@ func NewClient(rpcEndpoint string) *Client {
 		exec.NewRetryableExecutor[[]*parser.DefaultExtrinsic](),
 	)
 	if err != nil {
-		log.Fatalf("Error creating extrinsic retriever: %v", err)
+		return nil, fmt.Errorf("error creating extrinsic retriever: %w", err)
 	}
 
 	eventProvider := state.NewEventProvider(client.RPC.State)
-
 	eventRetriever, err := retriever.NewDefaultEventRetriever(eventProvider, client.RPC.State)
 	if err != nil {
-		log.Fatalf("Error creating event retriever: %v", err)
+		return nil, fmt.Errorf("error creating event retriever: %w", err)
 	}
 
 	return &Client{
@@ -55,5 +54,5 @@ func NewClient(rpcEndpoint string) *Client {
 		eventsProvider:      eventProvider,
 		eventsRetriever:     eventRetriever,
 		state:               client.RPC.State,
-	}
+	}, nil
 }

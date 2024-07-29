@@ -55,7 +55,10 @@ func fetchRunE(logger *zap.Logger, tracer logging.Tracer) firecore.CommandExecut
 
 		gearClients := firecoreRPC.NewClients[*rpc.Client]()
 		for _, rpcEndpoint := range rpcEndpoints {
-			gearClient := rpc.NewClient(rpcEndpoint)
+			gearClient, err := rpc.NewClient(rpcEndpoint)
+			if err != nil {
+				return fmt.Errorf("error creating gear client: %w", err)
+			}
 			gearClients.Add(gearClient)
 		}
 
