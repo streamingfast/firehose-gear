@@ -27,6 +27,7 @@ type FetchedBlockData struct {
 	block               *types.SignedBlock
 	events              []*parser.Event
 	metadata            []byte
+	storageEvents       []byte
 }
 
 type LastBlockInfo struct {
@@ -132,11 +133,19 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 		}
 
 		if requestedBlockNum > 0 {
+			var metadata *types.Metadata
+			storageEvents, err := client.eventsProvider.GetStorageEvents(fetchedBlockData.metadata, blockHash)
+			if err != nil {
+				return nil, fmt.Errorf("failed to get storage events: %w", err)
+			}
+
 			events, err := client.eventsRetriever.GetEvents(blockHash)
 			if err != nil {
 				return nil, fmt.Errorf("failed to get events: %w", err)
 			}
+
 			fetchedBlockData.events = events
+			fetchedBlockData.storageEvents = []byte{storageEvents}
 		}
 
 		runtimeVersion, err := client.state.GetRuntimeVersion(blockHash)

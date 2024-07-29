@@ -12,6 +12,7 @@ message Block {
   repeated Event events = 5;
   repeated DigestItem digest_items = 6;
   bytes justification = 7;
+  bytes storage_events = 8;
 }
 
 message Header {
