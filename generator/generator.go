@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"strings"
 	"text/template"
 
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
@@ -39,6 +40,7 @@ func (g *Generator) Generate() error {
 	funcMap := template.FuncMap{
 		"wrap":        g.Wrap,
 		"newWrapItem": NewWrapItems,
+		"hasSuffix":   strings.HasSuffix,
 	}
 
 	templ, err := template.New("").Funcs(funcMap).Parse(string(b))
@@ -170,7 +172,41 @@ func (g *Generator) TypeForField(field protobuf.Lookupable) string {
 
 	switch {
 	case ttype.Def.IsCompact:
-		return "types.UCompact"
+		//return "types.UCompact"
+	case ttype.Def.IsPrimitive:
+		switch ttype.Def.Primitive.Si0TypeDefPrimitive {
+		case types.IsU8:
+			return "types.U8"
+		case types.IsU16:
+			return "types.U16"
+		case types.IsU32:
+			return "types.U32"
+		case types.IsU64:
+			return "types.U64"
+		case types.IsU128:
+			return "types.U128"
+		case types.IsU256:
+			return "types.U256"
+		case types.IsI8:
+			return "types.I8"
+		case types.IsI16:
+			return "types.I16"
+		case types.IsI32:
+			return "types.I32"
+		case types.IsI64:
+			return "types.I64"
+		case types.IsI128:
+			return "types.I128"
+		case types.IsI256:
+			return "types.I256"
+		case types.IsChar:
+			panic("Not implemented")
+		case types.IsStr:
+			return "types.Text"
+		case types.IsBool:
+			return "types.Bool"
+		}
+
 		//case ttype.Def.IsSequence:
 		//	return "*types.Si1TypeDefSequence"
 		//case ttype.Def.IsArray:
@@ -180,8 +216,6 @@ func (g *Generator) TypeForField(field protobuf.Lookupable) string {
 		//case ttype.Def.IsVariant:
 		//	types.Si1Variant{}
 		//	return "*types.Si1TypeDefTuple"
-		//case ttype.Def.IsCompact:
-
 		//case ttype.Def.IsComposite:
 	}
 	return "registry.DecodedFields"

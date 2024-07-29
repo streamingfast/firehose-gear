@@ -8,6 +8,7 @@ import (
 
 func To_AllowedSlots(in registry.DecodedFields) *pbgear.AllowedSlots {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.AllowedSlots{}
@@ -23,11 +24,11 @@ func To_AllowedSlots(in registry.DecodedFields) *pbgear.AllowedSlots {
 
 func To_BTreeSet(in registry.DecodedFields) *pbgear.BTreeSet {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BTreeSet{}
-	out.Value = To_repeated_GprimitivesActorId(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_repeated_GprimitivesActorId(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 func To_repeated_GprimitivesActorId(f registry.DecodedFields) []*pbgear.GprimitivesActorId {
@@ -43,6 +44,7 @@ func To_repeated_GprimitivesActorId(f registry.DecodedFields) []*pbgear.Gprimiti
 
 func To_Babe_BabeTrieNodesList(in registry.DecodedFields) *pbgear.Babe_BabeTrieNodesList {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_BabeTrieNodesList{}
@@ -52,6 +54,7 @@ func To_Babe_BabeTrieNodesList(in registry.DecodedFields) *pbgear.Babe_BabeTrieN
 
 func To_Babe_Config(in registry.DecodedFields) *pbgear.Babe_Config {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_Config{}
@@ -67,6 +70,7 @@ func To_Babe_Config(in registry.DecodedFields) *pbgear.Babe_Config {
 
 func To_Babe_Consensus(in registry.DecodedFields) *pbgear.Babe_Consensus {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_Consensus{}
@@ -77,6 +81,7 @@ func To_Babe_Consensus(in registry.DecodedFields) *pbgear.Babe_Consensus {
 
 func To_Babe_Logs(in registry.DecodedFields) *pbgear.Babe_Logs {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_Logs{}
@@ -92,6 +97,7 @@ func To_Babe_Logs(in registry.DecodedFields) *pbgear.Babe_Logs {
 
 func To_Babe_Other(in registry.DecodedFields) *pbgear.Babe_Other {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_Other{}
@@ -101,16 +107,17 @@ func To_Babe_Other(in registry.DecodedFields) *pbgear.Babe_Other {
 
 func To_Babe_PlanConfigChangeCall(in registry.DecodedFields) *pbgear.Babe_PlanConfigChangeCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_PlanConfigChangeCall{}
 	out.Config = To_Babe_Config(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Babe_PreRuntime(in registry.DecodedFields) *pbgear.Babe_PreRuntime {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_PreRuntime{}
@@ -121,30 +128,29 @@ func To_Babe_PreRuntime(in registry.DecodedFields) *pbgear.Babe_PreRuntime {
 
 func To_Babe_ReportEquivocationCall(in registry.DecodedFields) *pbgear.Babe_ReportEquivocationCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_ReportEquivocationCall{}
 	out.EquivocationProof = To_SpConsensusSlotsEquivocationProof(fields[0].Value.(registry.DecodedFields))
-
 	out.KeyOwnerProof = To_SpSessionMembershipProof(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Babe_ReportEquivocationUnsignedCall(in registry.DecodedFields) *pbgear.Babe_ReportEquivocationUnsignedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_ReportEquivocationUnsignedCall{}
 	out.EquivocationProof = To_SpConsensusSlotsEquivocationProof(fields[0].Value.(registry.DecodedFields))
-
 	out.KeyOwnerProof = To_SpSessionMembershipProof(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Babe_RuntimeEnvironmentUpdated(in registry.DecodedFields) *pbgear.Babe_RuntimeEnvironmentUpdated {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_RuntimeEnvironmentUpdated{}
@@ -153,6 +159,7 @@ func To_Babe_RuntimeEnvironmentUpdated(in registry.DecodedFields) *pbgear.Babe_R
 
 func To_Babe_Seal(in registry.DecodedFields) *pbgear.Babe_Seal {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_Seal{}
@@ -163,30 +170,29 @@ func To_Babe_Seal(in registry.DecodedFields) *pbgear.Babe_Seal {
 
 func To_Babe_TupleUint64Uint64(in registry.DecodedFields) *pbgear.Babe_TupleUint64Uint64 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_TupleUint64Uint64{}
-	out.Value0 = To_uint64(fields[0].Value.(registry.DecodedFields))
-
-	out.Value1 = To_uint64(fields[1].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint64(fields[0].Value.(types.U64))
+	out.Value1 = To_uint64(fields[1].Value.(types.U64))
 	return out
 }
 
 func To_Babe_V1(in registry.DecodedFields) *pbgear.Babe_V1 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Babe_V1{}
 	out.C = To_Babe_TupleUint64Uint64(fields[0].Value.(registry.DecodedFields))
-
 	out.AllowedSlots = To_AllowedSlots(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_BagsList_Address20(in registry.DecodedFields) *pbgear.BagsList_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_Address20{}
@@ -196,6 +202,7 @@ func To_BagsList_Address20(in registry.DecodedFields) *pbgear.BagsList_Address20
 
 func To_BagsList_Address32(in registry.DecodedFields) *pbgear.BagsList_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_Address32{}
@@ -203,7 +210,7 @@ func To_BagsList_Address32(in registry.DecodedFields) *pbgear.BagsList_Address32
 	return out
 }
 
-func To_BagsList_CompactTupleNull(in types.UCompact) *pbgear.BagsList_CompactTupleNull {
+func To_BagsList_CompactTupleNull(in registry.DecodedFields) *pbgear.BagsList_CompactTupleNull {
 
 	out := &pbgear.BagsList_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -212,6 +219,7 @@ func To_BagsList_CompactTupleNull(in types.UCompact) *pbgear.BagsList_CompactTup
 
 func To_BagsList_Dislocated(in registry.DecodedFields) *pbgear.BagsList_Dislocated {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_Dislocated{}
@@ -243,6 +251,7 @@ func To_BagsList_Dislocated(in registry.DecodedFields) *pbgear.BagsList_Dislocat
 
 func To_BagsList_Heavier(in registry.DecodedFields) *pbgear.BagsList_Heavier {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_Heavier{}
@@ -274,26 +283,27 @@ func To_BagsList_Heavier(in registry.DecodedFields) *pbgear.BagsList_Heavier {
 
 func To_BagsList_Id(in registry.DecodedFields) *pbgear.BagsList_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_BagsList_Index(in registry.DecodedFields) *pbgear.BagsList_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_Index{}
-	out.Value0 = To_BagsList_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_BagsList_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_BagsList_Lighter(in registry.DecodedFields) *pbgear.BagsList_Lighter {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_Lighter{}
@@ -325,28 +335,28 @@ func To_BagsList_Lighter(in registry.DecodedFields) *pbgear.BagsList_Lighter {
 
 func To_BagsList_PutInFrontOfCall(in registry.DecodedFields) *pbgear.BagsList_PutInFrontOfCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_PutInFrontOfCall{}
 	out.Lighter = To_BagsList_Lighter(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_BagsList_PutInFrontOfOtherCall(in registry.DecodedFields) *pbgear.BagsList_PutInFrontOfOtherCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_PutInFrontOfOtherCall{}
 	out.Heavier = To_BagsList_Heavier(fields[0].Value.(registry.DecodedFields))
-
 	out.Lighter = To_BagsList_Lighter(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_BagsList_Raw(in registry.DecodedFields) *pbgear.BagsList_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_Raw{}
@@ -356,16 +366,17 @@ func To_BagsList_Raw(in registry.DecodedFields) *pbgear.BagsList_Raw {
 
 func To_BagsList_RebagCall(in registry.DecodedFields) *pbgear.BagsList_RebagCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BagsList_RebagCall{}
 	out.Dislocated = To_BagsList_Dislocated(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Balances_Address20(in registry.DecodedFields) *pbgear.Balances_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_Address20{}
@@ -375,6 +386,7 @@ func To_Balances_Address20(in registry.DecodedFields) *pbgear.Balances_Address20
 
 func To_Balances_Address32(in registry.DecodedFields) *pbgear.Balances_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_Address32{}
@@ -382,7 +394,7 @@ func To_Balances_Address32(in registry.DecodedFields) *pbgear.Balances_Address32
 	return out
 }
 
-func To_Balances_CompactTupleNull(in types.UCompact) *pbgear.Balances_CompactTupleNull {
+func To_Balances_CompactTupleNull(in registry.DecodedFields) *pbgear.Balances_CompactTupleNull {
 
 	out := &pbgear.Balances_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -391,6 +403,7 @@ func To_Balances_CompactTupleNull(in types.UCompact) *pbgear.Balances_CompactTup
 
 func To_Balances_Dest(in registry.DecodedFields) *pbgear.Balances_Dest {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_Dest{}
@@ -422,64 +435,61 @@ func To_Balances_Dest(in registry.DecodedFields) *pbgear.Balances_Dest {
 
 func To_Balances_ForceSetBalanceCall(in registry.DecodedFields) *pbgear.Balances_ForceSetBalanceCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_ForceSetBalanceCall{}
 	out.Who = To_Balances_Who(fields[0].Value.(registry.DecodedFields))
-
-	out.NewFree = To_CompactString(fields[1].Value.(types.UCompact))
-
+	out.NewFree = To_CompactString(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Balances_ForceTransferCall(in registry.DecodedFields) *pbgear.Balances_ForceTransferCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_ForceTransferCall{}
 	out.Source = To_Balances_Source(fields[0].Value.(registry.DecodedFields))
-
 	out.Dest = To_Balances_Dest(fields[1].Value.(registry.DecodedFields))
-
-	out.Value = To_CompactString(fields[2].Value.(types.UCompact))
-
+	out.Value = To_CompactString(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Balances_ForceUnreserveCall(in registry.DecodedFields) *pbgear.Balances_ForceUnreserveCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_ForceUnreserveCall{}
 	out.Who = To_Balances_Who(fields[0].Value.(registry.DecodedFields))
-
-	out.Amount = To_string(fields[1].Value.(registry.DecodedFields))
-
+	out.Amount = To_string(fields[1].Value.(types.U128))
 	return out
 }
 
 func To_Balances_Id(in registry.DecodedFields) *pbgear.Balances_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Balances_Index(in registry.DecodedFields) *pbgear.Balances_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_Index{}
-	out.Value0 = To_Balances_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_Balances_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Balances_Raw(in registry.DecodedFields) *pbgear.Balances_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_Raw{}
@@ -489,6 +499,7 @@ func To_Balances_Raw(in registry.DecodedFields) *pbgear.Balances_Raw {
 
 func To_Balances_Source(in registry.DecodedFields) *pbgear.Balances_Source {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_Source{}
@@ -520,47 +531,44 @@ func To_Balances_Source(in registry.DecodedFields) *pbgear.Balances_Source {
 
 func To_Balances_TransferAllCall(in registry.DecodedFields) *pbgear.Balances_TransferAllCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_TransferAllCall{}
 	out.Dest = To_Balances_Dest(fields[0].Value.(registry.DecodedFields))
-
-	out.KeepAlive = To_bool(fields[1].Value.(registry.DecodedFields))
-
+	out.KeepAlive = To_bool(fields[1].Value.(types.Bool))
 	return out
 }
 
 func To_Balances_TransferAllowDeathCall(in registry.DecodedFields) *pbgear.Balances_TransferAllowDeathCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_TransferAllowDeathCall{}
 	out.Dest = To_Balances_Dest(fields[0].Value.(registry.DecodedFields))
-
-	out.Value = To_CompactString(fields[1].Value.(types.UCompact))
-
+	out.Value = To_CompactString(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Balances_TransferKeepAliveCall(in registry.DecodedFields) *pbgear.Balances_TransferKeepAliveCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_TransferKeepAliveCall{}
 	out.Dest = To_Balances_Dest(fields[0].Value.(registry.DecodedFields))
-
-	out.Value = To_CompactString(fields[1].Value.(types.UCompact))
-
+	out.Value = To_CompactString(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Balances_UpgradeAccountsCall(in registry.DecodedFields) *pbgear.Balances_UpgradeAccountsCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_UpgradeAccountsCall{}
 	out.Who = To_repeated_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_SpCoreCryptoAccountId32(f registry.DecodedFields) []*pbgear.SpCoreCryptoAccountId32 {
@@ -576,6 +584,7 @@ func To_repeated_SpCoreCryptoAccountId32(f registry.DecodedFields) []*pbgear.SpC
 
 func To_Balances_Who(in registry.DecodedFields) *pbgear.Balances_Who {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Balances_Who{}
@@ -607,25 +616,27 @@ func To_Balances_Who(in registry.DecodedFields) *pbgear.Balances_Who {
 
 func To_BoundedCollectionsBoundedVecBoundedVec(in registry.DecodedFields) *pbgear.BoundedCollectionsBoundedVecBoundedVec {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.BoundedCollectionsBoundedVecBoundedVec{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_Bounties_AcceptCuratorCall(in registry.DecodedFields) *pbgear.Bounties_AcceptCuratorCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_AcceptCuratorCall{}
-	out.BountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.BountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Bounties_Address20(in registry.DecodedFields) *pbgear.Bounties_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_Address20{}
@@ -635,6 +646,7 @@ func To_Bounties_Address20(in registry.DecodedFields) *pbgear.Bounties_Address20
 
 func To_Bounties_Address32(in registry.DecodedFields) *pbgear.Bounties_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_Address32{}
@@ -644,28 +656,28 @@ func To_Bounties_Address32(in registry.DecodedFields) *pbgear.Bounties_Address32
 
 func To_Bounties_ApproveBountyCall(in registry.DecodedFields) *pbgear.Bounties_ApproveBountyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_ApproveBountyCall{}
-	out.BountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.BountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Bounties_AwardBountyCall(in registry.DecodedFields) *pbgear.Bounties_AwardBountyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_AwardBountyCall{}
-	out.BountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.BountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Beneficiary = To_Bounties_Beneficiary(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Bounties_Beneficiary(in registry.DecodedFields) *pbgear.Bounties_Beneficiary {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_Beneficiary{}
@@ -697,25 +709,25 @@ func To_Bounties_Beneficiary(in registry.DecodedFields) *pbgear.Bounties_Benefic
 
 func To_Bounties_ClaimBountyCall(in registry.DecodedFields) *pbgear.Bounties_ClaimBountyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_ClaimBountyCall{}
-	out.BountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.BountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Bounties_CloseBountyCall(in registry.DecodedFields) *pbgear.Bounties_CloseBountyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_CloseBountyCall{}
-	out.BountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.BountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
-func To_Bounties_CompactTupleNull(in types.UCompact) *pbgear.Bounties_CompactTupleNull {
+func To_Bounties_CompactTupleNull(in registry.DecodedFields) *pbgear.Bounties_CompactTupleNull {
 
 	out := &pbgear.Bounties_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -724,6 +736,7 @@ func To_Bounties_CompactTupleNull(in types.UCompact) *pbgear.Bounties_CompactTup
 
 func To_Bounties_Curator(in registry.DecodedFields) *pbgear.Bounties_Curator {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_Curator{}
@@ -755,62 +768,61 @@ func To_Bounties_Curator(in registry.DecodedFields) *pbgear.Bounties_Curator {
 
 func To_Bounties_ExtendBountyExpiryCall(in registry.DecodedFields) *pbgear.Bounties_ExtendBountyExpiryCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_ExtendBountyExpiryCall{}
-	out.BountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.BountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Remark = To_bytes(fields[1].Value.([]interface{}))
 	return out
 }
 
 func To_Bounties_Id(in registry.DecodedFields) *pbgear.Bounties_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Bounties_Index(in registry.DecodedFields) *pbgear.Bounties_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_Index{}
-	out.Value0 = To_Bounties_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_Bounties_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Bounties_ProposeBountyCall(in registry.DecodedFields) *pbgear.Bounties_ProposeBountyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_ProposeBountyCall{}
-	out.Value = To_CompactString(fields[0].Value.(types.UCompact))
-
+	out.Value = To_CompactString(fields[0].Value.(registry.DecodedFields))
 	out.Description = To_bytes(fields[1].Value.([]interface{}))
 	return out
 }
 
 func To_Bounties_ProposeCuratorCall(in registry.DecodedFields) *pbgear.Bounties_ProposeCuratorCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_ProposeCuratorCall{}
-	out.BountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.BountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Curator = To_Bounties_Curator(fields[1].Value.(registry.DecodedFields))
-
-	out.Fee = To_CompactString(fields[2].Value.(types.UCompact))
-
+	out.Fee = To_CompactString(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Bounties_Raw(in registry.DecodedFields) *pbgear.Bounties_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_Raw{}
@@ -820,51 +832,50 @@ func To_Bounties_Raw(in registry.DecodedFields) *pbgear.Bounties_Raw {
 
 func To_Bounties_UnassignCuratorCall(in registry.DecodedFields) *pbgear.Bounties_UnassignCuratorCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bounties_UnassignCuratorCall{}
-	out.BountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.BountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Bytes(in registry.DecodedFields) *pbgear.Bytes {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Bytes{}
-	out.Remark = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Remark = To_uint32(fields[0].Value.(types.U8))
 	return out
 }
 
 func To_ChildBounties_AcceptCuratorCall(in registry.DecodedFields) *pbgear.ChildBounties_AcceptCuratorCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_AcceptCuratorCall{}
-	out.ParentBountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.ChildBountyId = To_CompactUint32(fields[1].Value.(types.UCompact))
-
+	out.ParentBountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.ChildBountyId = To_CompactUint32(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ChildBounties_AddChildBountyCall(in registry.DecodedFields) *pbgear.ChildBounties_AddChildBountyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_AddChildBountyCall{}
-	out.ParentBountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.Value = To_CompactString(fields[1].Value.(types.UCompact))
-
+	out.ParentBountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.Value = To_CompactString(fields[1].Value.(registry.DecodedFields))
 	out.Description = To_bytes(fields[2].Value.([]interface{}))
 	return out
 }
 
 func To_ChildBounties_Address20(in registry.DecodedFields) *pbgear.ChildBounties_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_Address20{}
@@ -874,6 +885,7 @@ func To_ChildBounties_Address20(in registry.DecodedFields) *pbgear.ChildBounties
 
 func To_ChildBounties_Address32(in registry.DecodedFields) *pbgear.ChildBounties_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_Address32{}
@@ -883,20 +895,19 @@ func To_ChildBounties_Address32(in registry.DecodedFields) *pbgear.ChildBounties
 
 func To_ChildBounties_AwardChildBountyCall(in registry.DecodedFields) *pbgear.ChildBounties_AwardChildBountyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_AwardChildBountyCall{}
-	out.ParentBountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.ChildBountyId = To_CompactUint32(fields[1].Value.(types.UCompact))
-
+	out.ParentBountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.ChildBountyId = To_CompactUint32(fields[1].Value.(registry.DecodedFields))
 	out.Beneficiary = To_ChildBounties_Beneficiary(fields[2].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_ChildBounties_Beneficiary(in registry.DecodedFields) *pbgear.ChildBounties_Beneficiary {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_Beneficiary{}
@@ -928,29 +939,27 @@ func To_ChildBounties_Beneficiary(in registry.DecodedFields) *pbgear.ChildBounti
 
 func To_ChildBounties_ClaimChildBountyCall(in registry.DecodedFields) *pbgear.ChildBounties_ClaimChildBountyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_ClaimChildBountyCall{}
-	out.ParentBountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.ChildBountyId = To_CompactUint32(fields[1].Value.(types.UCompact))
-
+	out.ParentBountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.ChildBountyId = To_CompactUint32(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ChildBounties_CloseChildBountyCall(in registry.DecodedFields) *pbgear.ChildBounties_CloseChildBountyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_CloseChildBountyCall{}
-	out.ParentBountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.ChildBountyId = To_CompactUint32(fields[1].Value.(types.UCompact))
-
+	out.ParentBountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.ChildBountyId = To_CompactUint32(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
-func To_ChildBounties_CompactTupleNull(in types.UCompact) *pbgear.ChildBounties_CompactTupleNull {
+func To_ChildBounties_CompactTupleNull(in registry.DecodedFields) *pbgear.ChildBounties_CompactTupleNull {
 
 	out := &pbgear.ChildBounties_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -959,6 +968,7 @@ func To_ChildBounties_CompactTupleNull(in types.UCompact) *pbgear.ChildBounties_
 
 func To_ChildBounties_Curator(in registry.DecodedFields) *pbgear.ChildBounties_Curator {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_Curator{}
@@ -990,42 +1000,40 @@ func To_ChildBounties_Curator(in registry.DecodedFields) *pbgear.ChildBounties_C
 
 func To_ChildBounties_Id(in registry.DecodedFields) *pbgear.ChildBounties_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_ChildBounties_Index(in registry.DecodedFields) *pbgear.ChildBounties_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_Index{}
-	out.Value0 = To_ChildBounties_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_ChildBounties_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ChildBounties_ProposeCuratorCall(in registry.DecodedFields) *pbgear.ChildBounties_ProposeCuratorCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_ProposeCuratorCall{}
-	out.ParentBountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.ChildBountyId = To_CompactUint32(fields[1].Value.(types.UCompact))
-
+	out.ParentBountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.ChildBountyId = To_CompactUint32(fields[1].Value.(registry.DecodedFields))
 	out.Curator = To_ChildBounties_Curator(fields[2].Value.(registry.DecodedFields))
-
-	out.Fee = To_CompactString(fields[3].Value.(types.UCompact))
-
+	out.Fee = To_CompactString(fields[3].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ChildBounties_Raw(in registry.DecodedFields) *pbgear.ChildBounties_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_Raw{}
@@ -1035,50 +1043,68 @@ func To_ChildBounties_Raw(in registry.DecodedFields) *pbgear.ChildBounties_Raw {
 
 func To_ChildBounties_UnassignCuratorCall(in registry.DecodedFields) *pbgear.ChildBounties_UnassignCuratorCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ChildBounties_UnassignCuratorCall{}
-	out.ParentBountyId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.ChildBountyId = To_CompactUint32(fields[1].Value.(types.UCompact))
-
+	out.ParentBountyId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.ChildBountyId = To_CompactUint32(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
-func To_CompactSpArithmeticPerThingsPerU16(in types.UCompact) *pbgear.CompactSpArithmeticPerThingsPerU16 {
+func To_CompactSpArithmeticPerThingsPerU16(in registry.DecodedFields) *pbgear.CompactSpArithmeticPerThingsPerU16 {
 
+	// funcBody
+	fields := []*registry.DecodedField(in)
+	_ = fields
 	out := &pbgear.CompactSpArithmeticPerThingsPerU16{}
-	out.Value = To_SpArithmeticPerThingsPerU16(in)
+	out.Value = To_SpArithmeticPerThingsPerU16(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
-func To_CompactSpArithmeticPerThingsPerbill(in types.UCompact) *pbgear.CompactSpArithmeticPerThingsPerbill {
+func To_CompactSpArithmeticPerThingsPerbill(in registry.DecodedFields) *pbgear.CompactSpArithmeticPerThingsPerbill {
 
+	// funcBody
+	fields := []*registry.DecodedField(in)
+	_ = fields
 	out := &pbgear.CompactSpArithmeticPerThingsPerbill{}
-	out.Value = To_SpArithmeticPerThingsPerbill(in)
+	out.Value = To_SpArithmeticPerThingsPerbill(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
-func To_CompactString(in types.UCompact) *pbgear.CompactString {
+func To_CompactString(in registry.DecodedFields) *pbgear.CompactString {
 
-	//&pbgear.CompactString
-	return nil
+	// funcBody
+	fields := []*registry.DecodedField(in)
+	_ = fields
+	out := &pbgear.CompactString{}
+	out.Value = To_string(fields[0].Value.(types.U128))
+	return out
 }
 
-func To_CompactUint32(in types.UCompact) *pbgear.CompactUint32 {
+func To_CompactUint32(in registry.DecodedFields) *pbgear.CompactUint32 {
 
-	//&pbgear.CompactUint32
-	return nil
+	// funcBody
+	fields := []*registry.DecodedField(in)
+	_ = fields
+	out := &pbgear.CompactUint32{}
+	out.Value = To_uint32(fields[0].Value.(types.U32))
+	return out
 }
 
-func To_CompactUint64(in types.UCompact) *pbgear.CompactUint64 {
+func To_CompactUint64(in registry.DecodedFields) *pbgear.CompactUint64 {
 
-	//&pbgear.CompactUint64
-	return nil
+	// funcBody
+	fields := []*registry.DecodedField(in)
+	_ = fields
+	out := &pbgear.CompactUint64{}
+	out.Value = To_uint64(fields[0].Value.(types.U64))
+	return out
 }
 
 func To_ConvictionVoting_Address20(in registry.DecodedFields) *pbgear.ConvictionVoting_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Address20{}
@@ -1088,6 +1114,7 @@ func To_ConvictionVoting_Address20(in registry.DecodedFields) *pbgear.Conviction
 
 func To_ConvictionVoting_Address32(in registry.DecodedFields) *pbgear.ConvictionVoting_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Address32{}
@@ -1095,7 +1122,7 @@ func To_ConvictionVoting_Address32(in registry.DecodedFields) *pbgear.Conviction
 	return out
 }
 
-func To_ConvictionVoting_CompactTupleNull(in types.UCompact) *pbgear.ConvictionVoting_CompactTupleNull {
+func To_ConvictionVoting_CompactTupleNull(in registry.DecodedFields) *pbgear.ConvictionVoting_CompactTupleNull {
 
 	out := &pbgear.ConvictionVoting_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -1104,6 +1131,7 @@ func To_ConvictionVoting_CompactTupleNull(in types.UCompact) *pbgear.ConvictionV
 
 func To_ConvictionVoting_Conviction(in registry.DecodedFields) *pbgear.ConvictionVoting_Conviction {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Conviction{}
@@ -1119,42 +1147,40 @@ func To_ConvictionVoting_Conviction(in registry.DecodedFields) *pbgear.Convictio
 
 func To_ConvictionVoting_DelegateCall(in registry.DecodedFields) *pbgear.ConvictionVoting_DelegateCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_DelegateCall{}
-	out.Class = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Class = To_uint32(fields[0].Value.(types.U16))
 	out.To = To_ConvictionVoting_To(fields[1].Value.(registry.DecodedFields))
-
 	out.Conviction = To_ConvictionVoting_Conviction(fields[2].Value.(registry.DecodedFields))
-
-	out.Balance = To_string(fields[3].Value.(registry.DecodedFields))
-
+	out.Balance = To_string(fields[3].Value.(types.U128))
 	return out
 }
 
 func To_ConvictionVoting_Id(in registry.DecodedFields) *pbgear.ConvictionVoting_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_ConvictionVoting_Index(in registry.DecodedFields) *pbgear.ConvictionVoting_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Index{}
-	out.Value0 = To_ConvictionVoting_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_ConvictionVoting_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ConvictionVoting_Locked1X(in registry.DecodedFields) *pbgear.ConvictionVoting_Locked1X {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Locked1X{}
@@ -1163,6 +1189,7 @@ func To_ConvictionVoting_Locked1X(in registry.DecodedFields) *pbgear.ConvictionV
 
 func To_ConvictionVoting_Locked2X(in registry.DecodedFields) *pbgear.ConvictionVoting_Locked2X {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Locked2X{}
@@ -1171,6 +1198,7 @@ func To_ConvictionVoting_Locked2X(in registry.DecodedFields) *pbgear.ConvictionV
 
 func To_ConvictionVoting_Locked3X(in registry.DecodedFields) *pbgear.ConvictionVoting_Locked3X {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Locked3X{}
@@ -1179,6 +1207,7 @@ func To_ConvictionVoting_Locked3X(in registry.DecodedFields) *pbgear.ConvictionV
 
 func To_ConvictionVoting_Locked4X(in registry.DecodedFields) *pbgear.ConvictionVoting_Locked4X {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Locked4X{}
@@ -1187,6 +1216,7 @@ func To_ConvictionVoting_Locked4X(in registry.DecodedFields) *pbgear.ConvictionV
 
 func To_ConvictionVoting_Locked5X(in registry.DecodedFields) *pbgear.ConvictionVoting_Locked5X {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Locked5X{}
@@ -1195,6 +1225,7 @@ func To_ConvictionVoting_Locked5X(in registry.DecodedFields) *pbgear.ConvictionV
 
 func To_ConvictionVoting_Locked6X(in registry.DecodedFields) *pbgear.ConvictionVoting_Locked6X {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Locked6X{}
@@ -1203,6 +1234,7 @@ func To_ConvictionVoting_Locked6X(in registry.DecodedFields) *pbgear.ConvictionV
 
 func To_ConvictionVoting_None(in registry.DecodedFields) *pbgear.ConvictionVoting_None {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_None{}
@@ -1211,16 +1243,17 @@ func To_ConvictionVoting_None(in registry.DecodedFields) *pbgear.ConvictionVotin
 
 func To_ConvictionVoting_PalletConvictionVotingVoteVote(in registry.DecodedFields) *pbgear.ConvictionVoting_PalletConvictionVotingVoteVote {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_PalletConvictionVotingVoteVote{}
-	out.Value = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint32(fields[0].Value.(types.U8))
 	return out
 }
 
 func To_ConvictionVoting_Raw(in registry.DecodedFields) *pbgear.ConvictionVoting_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Raw{}
@@ -1230,70 +1263,64 @@ func To_ConvictionVoting_Raw(in registry.DecodedFields) *pbgear.ConvictionVoting
 
 func To_ConvictionVoting_RemoveOtherVoteCall(in registry.DecodedFields) *pbgear.ConvictionVoting_RemoveOtherVoteCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_RemoveOtherVoteCall{}
 	out.Target = To_ConvictionVoting_Target(fields[0].Value.(registry.DecodedFields))
-
-	out.Class = To_uint32(fields[1].Value.(registry.DecodedFields))
-
-	out.Index = To_uint32(fields[2].Value.(registry.DecodedFields))
-
+	out.Class = To_uint32(fields[1].Value.(types.U16))
+	out.Index = To_uint32(fields[2].Value.(types.U32))
 	return out
 }
 
 func To_ConvictionVoting_RemoveVoteCall(in registry.DecodedFields) *pbgear.ConvictionVoting_RemoveVoteCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_RemoveVoteCall{}
-	out.Class = To_optional_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.Index = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Class = To_optional_uint32(fields[0].Value.(types.U16))
+	out.Index = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_ConvictionVoting_Split(in registry.DecodedFields) *pbgear.ConvictionVoting_Split {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Split{}
-	out.Aye = To_string(fields[0].Value.(registry.DecodedFields))
-
-	out.Nay = To_string(fields[1].Value.(registry.DecodedFields))
-
+	out.Aye = To_string(fields[0].Value.(types.U128))
+	out.Nay = To_string(fields[1].Value.(types.U128))
 	return out
 }
 
 func To_ConvictionVoting_SplitAbstain(in registry.DecodedFields) *pbgear.ConvictionVoting_SplitAbstain {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_SplitAbstain{}
-	out.Aye = To_string(fields[0].Value.(registry.DecodedFields))
-
-	out.Nay = To_string(fields[1].Value.(registry.DecodedFields))
-
-	out.Abstain = To_string(fields[2].Value.(registry.DecodedFields))
-
+	out.Aye = To_string(fields[0].Value.(types.U128))
+	out.Nay = To_string(fields[1].Value.(types.U128))
+	out.Abstain = To_string(fields[2].Value.(types.U128))
 	return out
 }
 
 func To_ConvictionVoting_Standard(in registry.DecodedFields) *pbgear.ConvictionVoting_Standard {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Standard{}
 	out.Vote = To_ConvictionVoting_PalletConvictionVotingVoteVote(fields[0].Value.(registry.DecodedFields))
-
-	out.Balance = To_string(fields[1].Value.(registry.DecodedFields))
-
+	out.Balance = To_string(fields[1].Value.(types.U128))
 	return out
 }
 
 func To_ConvictionVoting_Target(in registry.DecodedFields) *pbgear.ConvictionVoting_Target {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Target{}
@@ -1325,6 +1352,7 @@ func To_ConvictionVoting_Target(in registry.DecodedFields) *pbgear.ConvictionVot
 
 func To_ConvictionVoting_To(in registry.DecodedFields) *pbgear.ConvictionVoting_To {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_To{}
@@ -1356,28 +1384,28 @@ func To_ConvictionVoting_To(in registry.DecodedFields) *pbgear.ConvictionVoting_
 
 func To_ConvictionVoting_UndelegateCall(in registry.DecodedFields) *pbgear.ConvictionVoting_UndelegateCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_UndelegateCall{}
-	out.Class = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Class = To_uint32(fields[0].Value.(types.U16))
 	return out
 }
 
 func To_ConvictionVoting_UnlockCall(in registry.DecodedFields) *pbgear.ConvictionVoting_UnlockCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_UnlockCall{}
-	out.Class = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Class = To_uint32(fields[0].Value.(types.U16))
 	out.Target = To_ConvictionVoting_Target(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_ConvictionVoting_Vote(in registry.DecodedFields) *pbgear.ConvictionVoting_Vote {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_Vote{}
@@ -1401,61 +1429,56 @@ func To_ConvictionVoting_Vote(in registry.DecodedFields) *pbgear.ConvictionVotin
 
 func To_ConvictionVoting_VoteCall(in registry.DecodedFields) *pbgear.ConvictionVoting_VoteCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ConvictionVoting_VoteCall{}
-	out.PollIndex = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.PollIndex = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Vote = To_ConvictionVoting_Vote(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_ElectionProviderMultiPhase_GovernanceFallbackCall(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_GovernanceFallbackCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_GovernanceFallbackCall{}
-	out.MaybeMaxVoters = To_optional_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.MaybeMaxTargets = To_optional_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.MaybeMaxVoters = To_optional_uint32(fields[0].Value.(types.U32))
+	out.MaybeMaxTargets = To_optional_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution{}
 	out.Solution = To_VaraRuntimeNposSolution16(fields[0].Value.(registry.DecodedFields))
-
 	out.Score = To_SpNposElectionsElectionScore(fields[1].Value.(registry.DecodedFields))
-
-	out.Round = To_uint32(fields[2].Value.(registry.DecodedFields))
-
+	out.Round = To_uint32(fields[2].Value.(types.U32))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize{}
-	out.Voters = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.Targets = To_CompactUint32(fields[1].Value.(types.UCompact))
-
+	out.Voters = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.Targets = To_CompactUint32(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_SetEmergencyElectionResultCall(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_SetEmergencyElectionResultCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_SetEmergencyElectionResultCall{}
 	out.Supports = To_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport(f registry.DecodedFields) []*pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
@@ -1471,11 +1494,11 @@ func To_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposEl
 
 func To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall{}
 	out.MaybeNextScore = To_optional_SpNposElectionsElectionScore(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_optional_SpNposElectionsElectionScore(f registry.DecodedFields) *pbgear.SpNposElectionsElectionScore {
@@ -1488,61 +1511,56 @@ func To_optional_SpNposElectionsElectionScore(f registry.DecodedFields) *pbgear.
 
 func To_ElectionProviderMultiPhase_SubmitCall(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_SubmitCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_SubmitCall{}
 	out.RawSolution = To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_ElectionProviderMultiPhase_SubmitUnsignedCall(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_SubmitUnsignedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_SubmitUnsignedCall{}
 	out.RawSolution = To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(fields[0].Value.(registry.DecodedFields))
-
 	out.Witness = To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.Value1 = To_CompactSpArithmeticPerThingsPerU16(fields[1].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.Value1 = To_CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32CompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.Value1 = To_CompactUint32(fields[1].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.Value1 = To_CompactUint32(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 func To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(f registry.DecodedFields) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16 {
@@ -1558,236 +1576,207 @@ func To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeti
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32{}
-	out.Value0 = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Value1 = To_ElectionProviderMultiPhase_TupleCompactUint32CompactSpArithmeticPerThingsPerU16(fields[1].Value.(registry.DecodedFields))
-
-	out.Value2 = To_CompactUint32(fields[2].Value.(types.UCompact))
-
+	out.Value2 = To_CompactUint32(fields[2].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	out.Value1 = To_SpNposElectionsSupport(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String(in registry.DecodedFields) *pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
-	out.Value1 = To_string(fields[1].Value.(registry.DecodedFields))
-
+	out.Value1 = To_string(fields[1].Value.(types.U128))
 	return out
 }
 
 func To_FellowshipCollective_AddMemberCall(in registry.DecodedFields) *pbgear.FellowshipCollective_AddMemberCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_AddMemberCall{}
 	out.Who = To_FellowshipCollective_Who(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FellowshipCollective_Address20(in registry.DecodedFields) *pbgear.FellowshipCollective_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_Address20{}
@@ -1797,6 +1786,7 @@ func To_FellowshipCollective_Address20(in registry.DecodedFields) *pbgear.Fellow
 
 func To_FellowshipCollective_Address32(in registry.DecodedFields) *pbgear.FellowshipCollective_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_Address32{}
@@ -1806,17 +1796,16 @@ func To_FellowshipCollective_Address32(in registry.DecodedFields) *pbgear.Fellow
 
 func To_FellowshipCollective_CleanupPollCall(in registry.DecodedFields) *pbgear.FellowshipCollective_CleanupPollCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_CleanupPollCall{}
-	out.PollIndex = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.Max = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.PollIndex = To_uint32(fields[0].Value.(types.U32))
+	out.Max = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
-func To_FellowshipCollective_CompactTupleNull(in types.UCompact) *pbgear.FellowshipCollective_CompactTupleNull {
+func To_FellowshipCollective_CompactTupleNull(in registry.DecodedFields) *pbgear.FellowshipCollective_CompactTupleNull {
 
 	out := &pbgear.FellowshipCollective_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -1825,46 +1814,47 @@ func To_FellowshipCollective_CompactTupleNull(in types.UCompact) *pbgear.Fellows
 
 func To_FellowshipCollective_DemoteMemberCall(in registry.DecodedFields) *pbgear.FellowshipCollective_DemoteMemberCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_DemoteMemberCall{}
 	out.Who = To_FellowshipCollective_Who(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FellowshipCollective_Id(in registry.DecodedFields) *pbgear.FellowshipCollective_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FellowshipCollective_Index(in registry.DecodedFields) *pbgear.FellowshipCollective_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_Index{}
-	out.Value0 = To_FellowshipCollective_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_FellowshipCollective_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_FellowshipCollective_PromoteMemberCall(in registry.DecodedFields) *pbgear.FellowshipCollective_PromoteMemberCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_PromoteMemberCall{}
 	out.Who = To_FellowshipCollective_Who(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FellowshipCollective_Raw(in registry.DecodedFields) *pbgear.FellowshipCollective_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_Raw{}
@@ -1874,30 +1864,29 @@ func To_FellowshipCollective_Raw(in registry.DecodedFields) *pbgear.FellowshipCo
 
 func To_FellowshipCollective_RemoveMemberCall(in registry.DecodedFields) *pbgear.FellowshipCollective_RemoveMemberCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_RemoveMemberCall{}
 	out.Who = To_FellowshipCollective_Who(fields[0].Value.(registry.DecodedFields))
-
-	out.MinRank = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.MinRank = To_uint32(fields[1].Value.(types.U16))
 	return out
 }
 
 func To_FellowshipCollective_VoteCall(in registry.DecodedFields) *pbgear.FellowshipCollective_VoteCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_VoteCall{}
-	out.Poll = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.Aye = To_bool(fields[1].Value.(registry.DecodedFields))
-
+	out.Poll = To_uint32(fields[0].Value.(types.U32))
+	out.Aye = To_bool(fields[1].Value.(types.Bool))
 	return out
 }
 
 func To_FellowshipCollective_Who(in registry.DecodedFields) *pbgear.FellowshipCollective_Who {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipCollective_Who{}
@@ -1929,36 +1918,37 @@ func To_FellowshipCollective_Who(in registry.DecodedFields) *pbgear.FellowshipCo
 
 func To_FellowshipReferenda_After(in registry.DecodedFields) *pbgear.FellowshipReferenda_After {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_After{}
-	out.Value0 = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_FellowshipReferenda_At(in registry.DecodedFields) *pbgear.FellowshipReferenda_At {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_At{}
-	out.Value0 = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_FellowshipReferenda_CancelCall(in registry.DecodedFields) *pbgear.FellowshipReferenda_CancelCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_CancelCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_FellowshipReferenda_EnactmentMoment(in registry.DecodedFields) *pbgear.FellowshipReferenda_EnactmentMoment {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_EnactmentMoment{}
@@ -1978,88 +1968,88 @@ func To_FellowshipReferenda_EnactmentMoment(in registry.DecodedFields) *pbgear.F
 
 func To_FellowshipReferenda_Inline(in registry.DecodedFields) *pbgear.FellowshipReferenda_Inline {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_Inline{}
 	out.Value0 = To_BoundedCollectionsBoundedVecBoundedVec(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FellowshipReferenda_KillCall(in registry.DecodedFields) *pbgear.FellowshipReferenda_KillCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_KillCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_FellowshipReferenda_Legacy(in registry.DecodedFields) *pbgear.FellowshipReferenda_Legacy {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_Legacy{}
 	out.Hash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FellowshipReferenda_Lookup(in registry.DecodedFields) *pbgear.FellowshipReferenda_Lookup {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_Lookup{}
 	out.Hash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
-	out.Len = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Len = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_FellowshipReferenda_NudgeReferendumCall(in registry.DecodedFields) *pbgear.FellowshipReferenda_NudgeReferendumCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_NudgeReferendumCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_FellowshipReferenda_OneFewerDecidingCall(in registry.DecodedFields) *pbgear.FellowshipReferenda_OneFewerDecidingCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_OneFewerDecidingCall{}
-	out.Track = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Track = To_uint32(fields[0].Value.(types.U16))
 	return out
 }
 
 func To_FellowshipReferenda_Origins(in registry.DecodedFields) *pbgear.FellowshipReferenda_Origins {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_Origins{}
 	out.Value0 = To_Value0(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FellowshipReferenda_PlaceDecisionDepositCall(in registry.DecodedFields) *pbgear.FellowshipReferenda_PlaceDecisionDepositCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_PlaceDecisionDepositCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_FellowshipReferenda_Proposal(in registry.DecodedFields) *pbgear.FellowshipReferenda_Proposal {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_Proposal{}
@@ -2083,6 +2073,7 @@ func To_FellowshipReferenda_Proposal(in registry.DecodedFields) *pbgear.Fellowsh
 
 func To_FellowshipReferenda_ProposalOrigin(in registry.DecodedFields) *pbgear.FellowshipReferenda_ProposalOrigin {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_ProposalOrigin{}
@@ -2106,33 +2097,32 @@ func To_FellowshipReferenda_ProposalOrigin(in registry.DecodedFields) *pbgear.Fe
 
 func To_FellowshipReferenda_RefundDecisionDepositCall(in registry.DecodedFields) *pbgear.FellowshipReferenda_RefundDecisionDepositCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_RefundDecisionDepositCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_FellowshipReferenda_RefundSubmissionDepositCall(in registry.DecodedFields) *pbgear.FellowshipReferenda_RefundSubmissionDepositCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_RefundSubmissionDepositCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_FellowshipReferenda_SetMetadataCall(in registry.DecodedFields) *pbgear.FellowshipReferenda_SetMetadataCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_SetMetadataCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	out.MaybeHash = To_optional_PrimitiveTypesH256(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_optional_PrimitiveTypesH256(f registry.DecodedFields) *pbgear.PrimitiveTypesH256 {
@@ -2145,80 +2135,74 @@ func To_optional_PrimitiveTypesH256(f registry.DecodedFields) *pbgear.PrimitiveT
 
 func To_FellowshipReferenda_SubmitCall(in registry.DecodedFields) *pbgear.FellowshipReferenda_SubmitCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_SubmitCall{}
 	out.ProposalOrigin = To_FellowshipReferenda_ProposalOrigin(fields[0].Value.(registry.DecodedFields))
-
 	out.Proposal = To_FellowshipReferenda_Proposal(fields[1].Value.(registry.DecodedFields))
-
 	out.EnactmentMoment = To_FellowshipReferenda_EnactmentMoment(fields[2].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FellowshipReferenda_System(in registry.DecodedFields) *pbgear.FellowshipReferenda_System {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_System{}
 	out.Value0 = To_Value0(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FellowshipReferenda_Void(in registry.DecodedFields) *pbgear.FellowshipReferenda_Void {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FellowshipReferenda_Void{}
 	out.Value0 = To_Value0(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FinalityGrandpaEquivocation(in registry.DecodedFields) *pbgear.FinalityGrandpaEquivocation {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FinalityGrandpaEquivocation{}
-	out.RoundNumber = To_uint64(fields[0].Value.(registry.DecodedFields))
-
+	out.RoundNumber = To_uint64(fields[0].Value.(types.U64))
 	out.Identity = To_SpConsensusGrandpaAppPublic(fields[1].Value.(registry.DecodedFields))
-
 	out.First = To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(fields[2].Value.(registry.DecodedFields))
-
 	out.Second = To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(fields[3].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_FinalityGrandpaPrecommit(in registry.DecodedFields) *pbgear.FinalityGrandpaPrecommit {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FinalityGrandpaPrecommit{}
 	out.TargetHash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
-	out.TargetNumber = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.TargetNumber = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_FinalityGrandpaPrevote(in registry.DecodedFields) *pbgear.FinalityGrandpaPrevote {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.FinalityGrandpaPrevote{}
 	out.TargetHash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
-	out.TargetNumber = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.TargetNumber = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_GearVoucher_AppendPrograms(in registry.DecodedFields) *pbgear.GearVoucher_AppendPrograms {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_AppendPrograms{}
@@ -2234,6 +2218,7 @@ func To_GearVoucher_AppendPrograms(in registry.DecodedFields) *pbgear.GearVouche
 
 func To_GearVoucher_Call(in registry.DecodedFields) *pbgear.GearVoucher_Call {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_Call{}
@@ -2249,38 +2234,38 @@ func To_GearVoucher_Call(in registry.DecodedFields) *pbgear.GearVoucher_Call {
 
 func To_GearVoucher_CallCall(in registry.DecodedFields) *pbgear.GearVoucher_CallCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_CallCall{}
 	out.VoucherId = To_GearVoucher_PalletGearVoucherInternalVoucherId(fields[0].Value.(registry.DecodedFields))
-
 	out.Call = To_GearVoucher_Call(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_GearVoucher_CallDeprecatedCall(in registry.DecodedFields) *pbgear.GearVoucher_CallDeprecatedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_CallDeprecatedCall{}
 	out.Call = To_GearVoucher_Call(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_GearVoucher_DeclineCall(in registry.DecodedFields) *pbgear.GearVoucher_DeclineCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_DeclineCall{}
 	out.VoucherId = To_GearVoucher_PalletGearVoucherInternalVoucherId(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_GearVoucher_DeclineVoucher(in registry.DecodedFields) *pbgear.GearVoucher_DeclineVoucher {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_DeclineVoucher{}
@@ -2289,19 +2274,15 @@ func To_GearVoucher_DeclineVoucher(in registry.DecodedFields) *pbgear.GearVouche
 
 func To_GearVoucher_IssueCall(in registry.DecodedFields) *pbgear.GearVoucher_IssueCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_IssueCall{}
 	out.Spender = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
-	out.Balance = To_string(fields[1].Value.(registry.DecodedFields))
-
+	out.Balance = To_string(fields[1].Value.(types.U128))
 	out.Programs = To_optional_BTreeSet(fields[2].Value.(registry.DecodedFields))
-
-	out.CodeUploading = To_bool(fields[3].Value.(registry.DecodedFields))
-
-	out.Duration = To_uint32(fields[4].Value.(registry.DecodedFields))
-
+	out.CodeUploading = To_bool(fields[3].Value.(types.Bool))
+	out.Duration = To_uint32(fields[4].Value.(types.U32))
 	return out
 }
 func To_optional_BTreeSet(f registry.DecodedFields) *pbgear.BTreeSet {
@@ -2314,6 +2295,7 @@ func To_optional_BTreeSet(f registry.DecodedFields) *pbgear.BTreeSet {
 
 func To_GearVoucher_None(in registry.DecodedFields) *pbgear.GearVoucher_None {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_None{}
@@ -2322,88 +2304,76 @@ func To_GearVoucher_None(in registry.DecodedFields) *pbgear.GearVoucher_None {
 
 func To_GearVoucher_PalletGearVoucherInternalVoucherId(in registry.DecodedFields) *pbgear.GearVoucher_PalletGearVoucherInternalVoucherId {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_PalletGearVoucherInternalVoucherId{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_GearVoucher_RevokeCall(in registry.DecodedFields) *pbgear.GearVoucher_RevokeCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_RevokeCall{}
 	out.Spender = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	out.VoucherId = To_GearVoucher_PalletGearVoucherInternalVoucherId(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_GearVoucher_SendMessage(in registry.DecodedFields) *pbgear.GearVoucher_SendMessage {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_SendMessage{}
 	out.Destination = To_GprimitivesActorId(fields[0].Value.(registry.DecodedFields))
-
 	out.Payload = To_bytes(fields[1].Value.([]interface{}))
-	out.GasLimit = To_uint64(fields[2].Value.(registry.DecodedFields))
-
-	out.Value = To_string(fields[3].Value.(registry.DecodedFields))
-
-	out.KeepAlive = To_bool(fields[4].Value.(registry.DecodedFields))
-
+	out.GasLimit = To_uint64(fields[2].Value.(types.U64))
+	out.Value = To_string(fields[3].Value.(types.U128))
+	out.KeepAlive = To_bool(fields[4].Value.(types.Bool))
 	return out
 }
 
 func To_GearVoucher_SendReply(in registry.DecodedFields) *pbgear.GearVoucher_SendReply {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_SendReply{}
 	out.ReplyToId = To_GprimitivesMessageId(fields[0].Value.(registry.DecodedFields))
-
 	out.Payload = To_bytes(fields[1].Value.([]interface{}))
-	out.GasLimit = To_uint64(fields[2].Value.(registry.DecodedFields))
-
-	out.Value = To_string(fields[3].Value.(registry.DecodedFields))
-
-	out.KeepAlive = To_bool(fields[4].Value.(registry.DecodedFields))
-
+	out.GasLimit = To_uint64(fields[2].Value.(types.U64))
+	out.Value = To_string(fields[3].Value.(types.U128))
+	out.KeepAlive = To_bool(fields[4].Value.(types.Bool))
 	return out
 }
 
 func To_GearVoucher_Some(in registry.DecodedFields) *pbgear.GearVoucher_Some {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_Some{}
 	out.Value0 = To_BTreeSet(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_GearVoucher_UpdateCall(in registry.DecodedFields) *pbgear.GearVoucher_UpdateCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_UpdateCall{}
 	out.Spender = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	out.VoucherId = To_GearVoucher_PalletGearVoucherInternalVoucherId(fields[1].Value.(registry.DecodedFields))
-
 	out.MoveOwnership = To_optional_SpCoreCryptoAccountId32(fields[2].Value.(registry.DecodedFields))
-
-	out.BalanceTopUp = To_optional_string(fields[3].Value.(registry.DecodedFields))
-
+	out.BalanceTopUp = To_optional_string(fields[3].Value.(types.U128))
 	out.AppendPrograms = To_optional_GearVoucher_AppendPrograms(fields[4].Value.(registry.DecodedFields))
-
-	out.CodeUploading = To_optional_bool(fields[5].Value.(registry.DecodedFields))
-
-	out.ProlongDuration = To_optional_uint32(fields[6].Value.(registry.DecodedFields))
-
+	out.CodeUploading = To_optional_bool(fields[5].Value.(types.Bool))
+	out.ProlongDuration = To_optional_uint32(fields[6].Value.(types.U32))
 	return out
 }
 func To_optional_SpCoreCryptoAccountId32(f registry.DecodedFields) *pbgear.SpCoreCryptoAccountId32 {
@@ -2423,6 +2393,7 @@ func To_optional_GearVoucher_AppendPrograms(f registry.DecodedFields) *pbgear.Ge
 
 func To_GearVoucher_UploadCode(in registry.DecodedFields) *pbgear.GearVoucher_UploadCode {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GearVoucher_UploadCode{}
@@ -2432,88 +2403,80 @@ func To_GearVoucher_UploadCode(in registry.DecodedFields) *pbgear.GearVoucher_Up
 
 func To_Gear_ClaimValueCall(in registry.DecodedFields) *pbgear.Gear_ClaimValueCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Gear_ClaimValueCall{}
 	out.MessageId = To_GprimitivesMessageId(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Gear_CreateProgramCall(in registry.DecodedFields) *pbgear.Gear_CreateProgramCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Gear_CreateProgramCall{}
 	out.CodeId = To_GprimitivesCodeId(fields[0].Value.(registry.DecodedFields))
-
 	out.Salt = To_bytes(fields[1].Value.([]interface{}))
 	out.InitPayload = To_bytes(fields[2].Value.([]interface{}))
-	out.GasLimit = To_uint64(fields[3].Value.(registry.DecodedFields))
-
-	out.Value = To_string(fields[4].Value.(registry.DecodedFields))
-
-	out.KeepAlive = To_bool(fields[5].Value.(registry.DecodedFields))
-
+	out.GasLimit = To_uint64(fields[3].Value.(types.U64))
+	out.Value = To_string(fields[4].Value.(types.U128))
+	out.KeepAlive = To_bool(fields[5].Value.(types.Bool))
 	return out
 }
 
 func To_Gear_RunCall(in registry.DecodedFields) *pbgear.Gear_RunCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Gear_RunCall{}
-	out.MaxGas = To_optional_uint64(fields[0].Value.(registry.DecodedFields))
-
+	out.MaxGas = To_optional_uint64(fields[0].Value.(types.U64))
 	return out
 }
 
 func To_Gear_SendMessageCall(in registry.DecodedFields) *pbgear.Gear_SendMessageCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Gear_SendMessageCall{}
 	out.Destination = To_GprimitivesActorId(fields[0].Value.(registry.DecodedFields))
-
 	out.Payload = To_bytes(fields[1].Value.([]interface{}))
-	out.GasLimit = To_uint64(fields[2].Value.(registry.DecodedFields))
-
-	out.Value = To_string(fields[3].Value.(registry.DecodedFields))
-
-	out.KeepAlive = To_bool(fields[4].Value.(registry.DecodedFields))
-
+	out.GasLimit = To_uint64(fields[2].Value.(types.U64))
+	out.Value = To_string(fields[3].Value.(types.U128))
+	out.KeepAlive = To_bool(fields[4].Value.(types.Bool))
 	return out
 }
 
 func To_Gear_SendReplyCall(in registry.DecodedFields) *pbgear.Gear_SendReplyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Gear_SendReplyCall{}
 	out.ReplyToId = To_GprimitivesMessageId(fields[0].Value.(registry.DecodedFields))
-
 	out.Payload = To_bytes(fields[1].Value.([]interface{}))
-	out.GasLimit = To_uint64(fields[2].Value.(registry.DecodedFields))
-
-	out.Value = To_string(fields[3].Value.(registry.DecodedFields))
-
-	out.KeepAlive = To_bool(fields[4].Value.(registry.DecodedFields))
-
+	out.GasLimit = To_uint64(fields[2].Value.(types.U64))
+	out.Value = To_string(fields[3].Value.(types.U128))
+	out.KeepAlive = To_bool(fields[4].Value.(types.Bool))
 	return out
 }
 
 func To_Gear_SetExecuteInherentCall(in registry.DecodedFields) *pbgear.Gear_SetExecuteInherentCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Gear_SetExecuteInherentCall{}
-	out.Value = To_bool(fields[0].Value.(registry.DecodedFields))
-
+	out.Value = To_bool(fields[0].Value.(types.Bool))
 	return out
 }
 
 func To_Gear_UploadCodeCall(in registry.DecodedFields) *pbgear.Gear_UploadCodeCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Gear_UploadCodeCall{}
@@ -2523,50 +2486,52 @@ func To_Gear_UploadCodeCall(in registry.DecodedFields) *pbgear.Gear_UploadCodeCa
 
 func To_Gear_UploadProgramCall(in registry.DecodedFields) *pbgear.Gear_UploadProgramCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Gear_UploadProgramCall{}
 	out.Code = To_bytes(fields[0].Value.([]interface{}))
 	out.Salt = To_bytes(fields[1].Value.([]interface{}))
 	out.InitPayload = To_bytes(fields[2].Value.([]interface{}))
-	out.GasLimit = To_uint64(fields[3].Value.(registry.DecodedFields))
-
-	out.Value = To_string(fields[4].Value.(registry.DecodedFields))
-
-	out.KeepAlive = To_bool(fields[5].Value.(registry.DecodedFields))
-
+	out.GasLimit = To_uint64(fields[3].Value.(types.U64))
+	out.Value = To_string(fields[4].Value.(types.U128))
+	out.KeepAlive = To_bool(fields[5].Value.(types.Bool))
 	return out
 }
 
 func To_GprimitivesActorId(in registry.DecodedFields) *pbgear.GprimitivesActorId {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GprimitivesActorId{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_GprimitivesCodeId(in registry.DecodedFields) *pbgear.GprimitivesCodeId {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GprimitivesCodeId{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_GprimitivesMessageId(in registry.DecodedFields) *pbgear.GprimitivesMessageId {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.GprimitivesMessageId{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_Grandpa_Equivocation(in registry.DecodedFields) *pbgear.Grandpa_Equivocation {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Grandpa_Equivocation{}
@@ -2586,6 +2551,7 @@ func To_Grandpa_Equivocation(in registry.DecodedFields) *pbgear.Grandpa_Equivoca
 
 func To_Grandpa_GrandpaTrieNodesList(in registry.DecodedFields) *pbgear.Grandpa_GrandpaTrieNodesList {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Grandpa_GrandpaTrieNodesList{}
@@ -2595,62 +2561,60 @@ func To_Grandpa_GrandpaTrieNodesList(in registry.DecodedFields) *pbgear.Grandpa_
 
 func To_Grandpa_NoteStalledCall(in registry.DecodedFields) *pbgear.Grandpa_NoteStalledCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Grandpa_NoteStalledCall{}
-	out.Delay = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.BestFinalizedBlockNumber = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Delay = To_uint32(fields[0].Value.(types.U32))
+	out.BestFinalizedBlockNumber = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_Grandpa_Precommit(in registry.DecodedFields) *pbgear.Grandpa_Precommit {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Grandpa_Precommit{}
 	out.Value0 = To_FinalityGrandpaEquivocation(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Grandpa_Prevote(in registry.DecodedFields) *pbgear.Grandpa_Prevote {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Grandpa_Prevote{}
 	out.Value0 = To_FinalityGrandpaEquivocation(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Grandpa_ReportEquivocationCall(in registry.DecodedFields) *pbgear.Grandpa_ReportEquivocationCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Grandpa_ReportEquivocationCall{}
 	out.EquivocationProof = To_SpConsensusGrandpaEquivocationProof(fields[0].Value.(registry.DecodedFields))
-
 	out.KeyOwnerProof = To_SpSessionMembershipProof(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Grandpa_ReportEquivocationUnsignedCall(in registry.DecodedFields) *pbgear.Grandpa_ReportEquivocationUnsignedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Grandpa_ReportEquivocationUnsignedCall{}
 	out.EquivocationProof = To_SpConsensusGrandpaEquivocationProof(fields[0].Value.(registry.DecodedFields))
-
 	out.KeyOwnerProof = To_SpSessionMembershipProof(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_Account(in registry.DecodedFields) *pbgear.Identity_Account {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Account{}
@@ -2682,28 +2646,28 @@ func To_Identity_Account(in registry.DecodedFields) *pbgear.Identity_Account {
 
 func To_Identity_AddRegistrarCall(in registry.DecodedFields) *pbgear.Identity_AddRegistrarCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_AddRegistrarCall{}
 	out.Account = To_Identity_Account(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_AddSubCall(in registry.DecodedFields) *pbgear.Identity_AddSubCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_AddSubCall{}
 	out.Sub = To_Identity_Sub(fields[0].Value.(registry.DecodedFields))
-
 	out.Data = To_Identity_Data(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_Address20(in registry.DecodedFields) *pbgear.Identity_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Address20{}
@@ -2713,6 +2677,7 @@ func To_Identity_Address20(in registry.DecodedFields) *pbgear.Identity_Address20
 
 func To_Identity_Address32(in registry.DecodedFields) *pbgear.Identity_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Address32{}
@@ -2722,6 +2687,7 @@ func To_Identity_Address32(in registry.DecodedFields) *pbgear.Identity_Address32
 
 func To_Identity_BlakeTwo256(in registry.DecodedFields) *pbgear.Identity_BlakeTwo256 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_BlakeTwo256{}
@@ -2731,23 +2697,24 @@ func To_Identity_BlakeTwo256(in registry.DecodedFields) *pbgear.Identity_BlakeTw
 
 func To_Identity_CancelRequestCall(in registry.DecodedFields) *pbgear.Identity_CancelRequestCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_CancelRequestCall{}
-	out.RegIndex = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.RegIndex = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Identity_ClearIdentityCall(in registry.DecodedFields) *pbgear.Identity_ClearIdentityCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_ClearIdentityCall{}
 	return out
 }
 
-func To_Identity_CompactTupleNull(in types.UCompact) *pbgear.Identity_CompactTupleNull {
+func To_Identity_CompactTupleNull(in registry.DecodedFields) *pbgear.Identity_CompactTupleNull {
 
 	out := &pbgear.Identity_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -2756,6 +2723,7 @@ func To_Identity_CompactTupleNull(in types.UCompact) *pbgear.Identity_CompactTup
 
 func To_Identity_Data(in registry.DecodedFields) *pbgear.Identity_Data {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Data{}
@@ -2771,6 +2739,7 @@ func To_Identity_Data(in registry.DecodedFields) *pbgear.Identity_Data {
 
 func To_Identity_Display(in registry.DecodedFields) *pbgear.Identity_Display {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Display{}
@@ -2786,6 +2755,7 @@ func To_Identity_Display(in registry.DecodedFields) *pbgear.Identity_Display {
 
 func To_Identity_Email(in registry.DecodedFields) *pbgear.Identity_Email {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Email{}
@@ -2801,6 +2771,7 @@ func To_Identity_Email(in registry.DecodedFields) *pbgear.Identity_Email {
 
 func To_Identity_Erroneous(in registry.DecodedFields) *pbgear.Identity_Erroneous {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Erroneous{}
@@ -2809,26 +2780,27 @@ func To_Identity_Erroneous(in registry.DecodedFields) *pbgear.Identity_Erroneous
 
 func To_Identity_FeePaid(in registry.DecodedFields) *pbgear.Identity_FeePaid {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_FeePaid{}
-	out.Value0 = To_string(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_string(fields[0].Value.(types.U128))
 	return out
 }
 
 func To_Identity_Id(in registry.DecodedFields) *pbgear.Identity_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_Image(in registry.DecodedFields) *pbgear.Identity_Image {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Image{}
@@ -2844,16 +2816,17 @@ func To_Identity_Image(in registry.DecodedFields) *pbgear.Identity_Image {
 
 func To_Identity_Index(in registry.DecodedFields) *pbgear.Identity_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Index{}
-	out.Value0 = To_Identity_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_Identity_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Identity_Judgement(in registry.DecodedFields) *pbgear.Identity_Judgement {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Judgement{}
@@ -2869,6 +2842,7 @@ func To_Identity_Judgement(in registry.DecodedFields) *pbgear.Identity_Judgement
 
 func To_Identity_Keccak256(in registry.DecodedFields) *pbgear.Identity_Keccak256 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Keccak256{}
@@ -2878,16 +2852,17 @@ func To_Identity_Keccak256(in registry.DecodedFields) *pbgear.Identity_Keccak256
 
 func To_Identity_KillIdentityCall(in registry.DecodedFields) *pbgear.Identity_KillIdentityCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_KillIdentityCall{}
 	out.Target = To_Identity_Target(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_KnownGood(in registry.DecodedFields) *pbgear.Identity_KnownGood {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_KnownGood{}
@@ -2896,6 +2871,7 @@ func To_Identity_KnownGood(in registry.DecodedFields) *pbgear.Identity_KnownGood
 
 func To_Identity_Legal(in registry.DecodedFields) *pbgear.Identity_Legal {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Legal{}
@@ -2911,6 +2887,7 @@ func To_Identity_Legal(in registry.DecodedFields) *pbgear.Identity_Legal {
 
 func To_Identity_LowQuality(in registry.DecodedFields) *pbgear.Identity_LowQuality {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_LowQuality{}
@@ -2919,6 +2896,7 @@ func To_Identity_LowQuality(in registry.DecodedFields) *pbgear.Identity_LowQuali
 
 func To_Identity_New(in registry.DecodedFields) *pbgear.Identity_New {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_New{}
@@ -2950,6 +2928,7 @@ func To_Identity_New(in registry.DecodedFields) *pbgear.Identity_New {
 
 func To_Identity_None(in registry.DecodedFields) *pbgear.Identity_None {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_None{}
@@ -2958,6 +2937,7 @@ func To_Identity_None(in registry.DecodedFields) *pbgear.Identity_None {
 
 func To_Identity_OutOfDate(in registry.DecodedFields) *pbgear.Identity_OutOfDate {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_OutOfDate{}
@@ -2966,57 +2946,48 @@ func To_Identity_OutOfDate(in registry.DecodedFields) *pbgear.Identity_OutOfDate
 
 func To_Identity_PalletIdentitySimpleIdentityInfo(in registry.DecodedFields) *pbgear.Identity_PalletIdentitySimpleIdentityInfo {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_PalletIdentitySimpleIdentityInfo{}
 	out.Additional = To_BoundedCollectionsBoundedVecBoundedVec(fields[0].Value.(registry.DecodedFields))
-
 	out.Display = To_Identity_Display(fields[1].Value.(registry.DecodedFields))
-
 	out.Legal = To_Identity_Legal(fields[2].Value.(registry.DecodedFields))
-
 	out.Web = To_Identity_Web(fields[3].Value.(registry.DecodedFields))
-
 	out.Riot = To_Identity_Riot(fields[4].Value.(registry.DecodedFields))
-
 	out.Email = To_Identity_Email(fields[5].Value.(registry.DecodedFields))
-
 	out.PgpFingerprint = To_bytes(fields[6].Value.([]interface{}))
 	out.Image = To_Identity_Image(fields[7].Value.(registry.DecodedFields))
-
 	out.Twitter = To_Identity_Twitter(fields[8].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_PalletIdentityTypesBitFlags(in registry.DecodedFields) *pbgear.Identity_PalletIdentityTypesBitFlags {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_PalletIdentityTypesBitFlags{}
-	out.Value = To_uint64(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint64(fields[0].Value.(types.U64))
 	return out
 }
 
 func To_Identity_ProvideJudgementCall(in registry.DecodedFields) *pbgear.Identity_ProvideJudgementCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_ProvideJudgementCall{}
-	out.RegIndex = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.RegIndex = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Target = To_Identity_Target(fields[1].Value.(registry.DecodedFields))
-
 	out.Judgement = To_Identity_Judgement(fields[2].Value.(registry.DecodedFields))
-
 	out.Identity = To_PrimitiveTypesH256(fields[3].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_QuitSubCall(in registry.DecodedFields) *pbgear.Identity_QuitSubCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_QuitSubCall{}
@@ -3025,6 +2996,7 @@ func To_Identity_QuitSubCall(in registry.DecodedFields) *pbgear.Identity_QuitSub
 
 func To_Identity_Raw(in registry.DecodedFields) *pbgear.Identity_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw{}
@@ -3034,6 +3006,7 @@ func To_Identity_Raw(in registry.DecodedFields) *pbgear.Identity_Raw {
 
 func To_Identity_Raw0(in registry.DecodedFields) *pbgear.Identity_Raw0 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw0{}
@@ -3043,6 +3016,7 @@ func To_Identity_Raw0(in registry.DecodedFields) *pbgear.Identity_Raw0 {
 
 func To_Identity_Raw1(in registry.DecodedFields) *pbgear.Identity_Raw1 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw1{}
@@ -3052,6 +3026,7 @@ func To_Identity_Raw1(in registry.DecodedFields) *pbgear.Identity_Raw1 {
 
 func To_Identity_Raw10(in registry.DecodedFields) *pbgear.Identity_Raw10 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw10{}
@@ -3061,6 +3036,7 @@ func To_Identity_Raw10(in registry.DecodedFields) *pbgear.Identity_Raw10 {
 
 func To_Identity_Raw11(in registry.DecodedFields) *pbgear.Identity_Raw11 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw11{}
@@ -3070,6 +3046,7 @@ func To_Identity_Raw11(in registry.DecodedFields) *pbgear.Identity_Raw11 {
 
 func To_Identity_Raw12(in registry.DecodedFields) *pbgear.Identity_Raw12 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw12{}
@@ -3079,6 +3056,7 @@ func To_Identity_Raw12(in registry.DecodedFields) *pbgear.Identity_Raw12 {
 
 func To_Identity_Raw13(in registry.DecodedFields) *pbgear.Identity_Raw13 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw13{}
@@ -3088,6 +3066,7 @@ func To_Identity_Raw13(in registry.DecodedFields) *pbgear.Identity_Raw13 {
 
 func To_Identity_Raw14(in registry.DecodedFields) *pbgear.Identity_Raw14 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw14{}
@@ -3097,6 +3076,7 @@ func To_Identity_Raw14(in registry.DecodedFields) *pbgear.Identity_Raw14 {
 
 func To_Identity_Raw15(in registry.DecodedFields) *pbgear.Identity_Raw15 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw15{}
@@ -3106,6 +3086,7 @@ func To_Identity_Raw15(in registry.DecodedFields) *pbgear.Identity_Raw15 {
 
 func To_Identity_Raw16(in registry.DecodedFields) *pbgear.Identity_Raw16 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw16{}
@@ -3115,6 +3096,7 @@ func To_Identity_Raw16(in registry.DecodedFields) *pbgear.Identity_Raw16 {
 
 func To_Identity_Raw17(in registry.DecodedFields) *pbgear.Identity_Raw17 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw17{}
@@ -3124,6 +3106,7 @@ func To_Identity_Raw17(in registry.DecodedFields) *pbgear.Identity_Raw17 {
 
 func To_Identity_Raw18(in registry.DecodedFields) *pbgear.Identity_Raw18 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw18{}
@@ -3133,6 +3116,7 @@ func To_Identity_Raw18(in registry.DecodedFields) *pbgear.Identity_Raw18 {
 
 func To_Identity_Raw19(in registry.DecodedFields) *pbgear.Identity_Raw19 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw19{}
@@ -3142,6 +3126,7 @@ func To_Identity_Raw19(in registry.DecodedFields) *pbgear.Identity_Raw19 {
 
 func To_Identity_Raw2(in registry.DecodedFields) *pbgear.Identity_Raw2 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw2{}
@@ -3151,6 +3136,7 @@ func To_Identity_Raw2(in registry.DecodedFields) *pbgear.Identity_Raw2 {
 
 func To_Identity_Raw20(in registry.DecodedFields) *pbgear.Identity_Raw20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw20{}
@@ -3160,6 +3146,7 @@ func To_Identity_Raw20(in registry.DecodedFields) *pbgear.Identity_Raw20 {
 
 func To_Identity_Raw21(in registry.DecodedFields) *pbgear.Identity_Raw21 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw21{}
@@ -3169,6 +3156,7 @@ func To_Identity_Raw21(in registry.DecodedFields) *pbgear.Identity_Raw21 {
 
 func To_Identity_Raw22(in registry.DecodedFields) *pbgear.Identity_Raw22 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw22{}
@@ -3178,6 +3166,7 @@ func To_Identity_Raw22(in registry.DecodedFields) *pbgear.Identity_Raw22 {
 
 func To_Identity_Raw23(in registry.DecodedFields) *pbgear.Identity_Raw23 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw23{}
@@ -3187,6 +3176,7 @@ func To_Identity_Raw23(in registry.DecodedFields) *pbgear.Identity_Raw23 {
 
 func To_Identity_Raw24(in registry.DecodedFields) *pbgear.Identity_Raw24 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw24{}
@@ -3196,6 +3186,7 @@ func To_Identity_Raw24(in registry.DecodedFields) *pbgear.Identity_Raw24 {
 
 func To_Identity_Raw25(in registry.DecodedFields) *pbgear.Identity_Raw25 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw25{}
@@ -3205,6 +3196,7 @@ func To_Identity_Raw25(in registry.DecodedFields) *pbgear.Identity_Raw25 {
 
 func To_Identity_Raw26(in registry.DecodedFields) *pbgear.Identity_Raw26 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw26{}
@@ -3214,6 +3206,7 @@ func To_Identity_Raw26(in registry.DecodedFields) *pbgear.Identity_Raw26 {
 
 func To_Identity_Raw27(in registry.DecodedFields) *pbgear.Identity_Raw27 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw27{}
@@ -3223,6 +3216,7 @@ func To_Identity_Raw27(in registry.DecodedFields) *pbgear.Identity_Raw27 {
 
 func To_Identity_Raw28(in registry.DecodedFields) *pbgear.Identity_Raw28 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw28{}
@@ -3232,6 +3226,7 @@ func To_Identity_Raw28(in registry.DecodedFields) *pbgear.Identity_Raw28 {
 
 func To_Identity_Raw29(in registry.DecodedFields) *pbgear.Identity_Raw29 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw29{}
@@ -3241,6 +3236,7 @@ func To_Identity_Raw29(in registry.DecodedFields) *pbgear.Identity_Raw29 {
 
 func To_Identity_Raw3(in registry.DecodedFields) *pbgear.Identity_Raw3 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw3{}
@@ -3250,6 +3246,7 @@ func To_Identity_Raw3(in registry.DecodedFields) *pbgear.Identity_Raw3 {
 
 func To_Identity_Raw30(in registry.DecodedFields) *pbgear.Identity_Raw30 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw30{}
@@ -3259,6 +3256,7 @@ func To_Identity_Raw30(in registry.DecodedFields) *pbgear.Identity_Raw30 {
 
 func To_Identity_Raw31(in registry.DecodedFields) *pbgear.Identity_Raw31 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw31{}
@@ -3268,6 +3266,7 @@ func To_Identity_Raw31(in registry.DecodedFields) *pbgear.Identity_Raw31 {
 
 func To_Identity_Raw32(in registry.DecodedFields) *pbgear.Identity_Raw32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw32{}
@@ -3277,6 +3276,7 @@ func To_Identity_Raw32(in registry.DecodedFields) *pbgear.Identity_Raw32 {
 
 func To_Identity_Raw4(in registry.DecodedFields) *pbgear.Identity_Raw4 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw4{}
@@ -3286,6 +3286,7 @@ func To_Identity_Raw4(in registry.DecodedFields) *pbgear.Identity_Raw4 {
 
 func To_Identity_Raw5(in registry.DecodedFields) *pbgear.Identity_Raw5 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw5{}
@@ -3295,6 +3296,7 @@ func To_Identity_Raw5(in registry.DecodedFields) *pbgear.Identity_Raw5 {
 
 func To_Identity_Raw6(in registry.DecodedFields) *pbgear.Identity_Raw6 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw6{}
@@ -3304,6 +3306,7 @@ func To_Identity_Raw6(in registry.DecodedFields) *pbgear.Identity_Raw6 {
 
 func To_Identity_Raw7(in registry.DecodedFields) *pbgear.Identity_Raw7 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw7{}
@@ -3313,6 +3316,7 @@ func To_Identity_Raw7(in registry.DecodedFields) *pbgear.Identity_Raw7 {
 
 func To_Identity_Raw8(in registry.DecodedFields) *pbgear.Identity_Raw8 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw8{}
@@ -3322,6 +3326,7 @@ func To_Identity_Raw8(in registry.DecodedFields) *pbgear.Identity_Raw8 {
 
 func To_Identity_Raw9(in registry.DecodedFields) *pbgear.Identity_Raw9 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Raw9{}
@@ -3331,6 +3336,7 @@ func To_Identity_Raw9(in registry.DecodedFields) *pbgear.Identity_Raw9 {
 
 func To_Identity_Reasonable(in registry.DecodedFields) *pbgear.Identity_Reasonable {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Reasonable{}
@@ -3339,40 +3345,39 @@ func To_Identity_Reasonable(in registry.DecodedFields) *pbgear.Identity_Reasonab
 
 func To_Identity_RemoveSubCall(in registry.DecodedFields) *pbgear.Identity_RemoveSubCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_RemoveSubCall{}
 	out.Sub = To_Identity_Sub(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_RenameSubCall(in registry.DecodedFields) *pbgear.Identity_RenameSubCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_RenameSubCall{}
 	out.Sub = To_Identity_Sub(fields[0].Value.(registry.DecodedFields))
-
 	out.Data = To_Identity_Data(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_RequestJudgementCall(in registry.DecodedFields) *pbgear.Identity_RequestJudgementCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_RequestJudgementCall{}
-	out.RegIndex = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.MaxFee = To_CompactString(fields[1].Value.(types.UCompact))
-
+	out.RegIndex = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.MaxFee = To_CompactString(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Identity_Riot(in registry.DecodedFields) *pbgear.Identity_Riot {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Riot{}
@@ -3388,57 +3393,54 @@ func To_Identity_Riot(in registry.DecodedFields) *pbgear.Identity_Riot {
 
 func To_Identity_SetAccountIdCall(in registry.DecodedFields) *pbgear.Identity_SetAccountIdCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_SetAccountIdCall{}
-	out.Index = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Index = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.New = To_Identity_New(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_SetFeeCall(in registry.DecodedFields) *pbgear.Identity_SetFeeCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_SetFeeCall{}
-	out.Index = To_CompactUint32(fields[0].Value.(types.UCompact))
-
-	out.Fee = To_CompactString(fields[1].Value.(types.UCompact))
-
+	out.Index = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
+	out.Fee = To_CompactString(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Identity_SetFieldsCall(in registry.DecodedFields) *pbgear.Identity_SetFieldsCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_SetFieldsCall{}
-	out.Index = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Index = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	out.Fields = To_Identity_PalletIdentityTypesBitFlags(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_SetIdentityCall(in registry.DecodedFields) *pbgear.Identity_SetIdentityCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_SetIdentityCall{}
 	out.Info = To_Identity_PalletIdentitySimpleIdentityInfo(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_SetSubsCall(in registry.DecodedFields) *pbgear.Identity_SetSubsCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_SetSubsCall{}
 	out.Subs = To_repeated_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(f registry.DecodedFields) []*pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData {
@@ -3454,6 +3456,7 @@ func To_repeated_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(f 
 
 func To_Identity_Sha256(in registry.DecodedFields) *pbgear.Identity_Sha256 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Sha256{}
@@ -3463,6 +3466,7 @@ func To_Identity_Sha256(in registry.DecodedFields) *pbgear.Identity_Sha256 {
 
 func To_Identity_ShaThree256(in registry.DecodedFields) *pbgear.Identity_ShaThree256 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_ShaThree256{}
@@ -3472,6 +3476,7 @@ func To_Identity_ShaThree256(in registry.DecodedFields) *pbgear.Identity_ShaThre
 
 func To_Identity_Sub(in registry.DecodedFields) *pbgear.Identity_Sub {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Sub{}
@@ -3503,6 +3508,7 @@ func To_Identity_Sub(in registry.DecodedFields) *pbgear.Identity_Sub {
 
 func To_Identity_Target(in registry.DecodedFields) *pbgear.Identity_Target {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Target{}
@@ -3534,30 +3540,29 @@ func To_Identity_Target(in registry.DecodedFields) *pbgear.Identity_Target {
 
 func To_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData(in registry.DecodedFields) *pbgear.Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData{}
 	out.Value0 = To_Identity_Value0(fields[0].Value.(registry.DecodedFields))
-
 	out.Value1 = To_Identity_Value1(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(in registry.DecodedFields) *pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	out.Value1 = To_Identity_Value1(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Identity_Twitter(in registry.DecodedFields) *pbgear.Identity_Twitter {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Twitter{}
@@ -3573,6 +3578,7 @@ func To_Identity_Twitter(in registry.DecodedFields) *pbgear.Identity_Twitter {
 
 func To_Identity_Unknown(in registry.DecodedFields) *pbgear.Identity_Unknown {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Unknown{}
@@ -3581,6 +3587,7 @@ func To_Identity_Unknown(in registry.DecodedFields) *pbgear.Identity_Unknown {
 
 func To_Identity_Value0(in registry.DecodedFields) *pbgear.Identity_Value0 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Value0{}
@@ -3596,6 +3603,7 @@ func To_Identity_Value0(in registry.DecodedFields) *pbgear.Identity_Value0 {
 
 func To_Identity_Value1(in registry.DecodedFields) *pbgear.Identity_Value1 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Value1{}
@@ -3611,6 +3619,7 @@ func To_Identity_Value1(in registry.DecodedFields) *pbgear.Identity_Value1 {
 
 func To_Identity_Web(in registry.DecodedFields) *pbgear.Identity_Web {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Identity_Web{}
@@ -3626,66 +3635,59 @@ func To_Identity_Web(in registry.DecodedFields) *pbgear.Identity_Web {
 
 func To_ImOnline_HeartbeatCall(in registry.DecodedFields) *pbgear.ImOnline_HeartbeatCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ImOnline_HeartbeatCall{}
 	out.Heartbeat = To_ImOnline_PalletImOnlineHeartbeat(fields[0].Value.(registry.DecodedFields))
-
 	out.Signature = To_ImOnline_PalletImOnlineSr25519AppSr25519Signature(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_ImOnline_PalletImOnlineHeartbeat(in registry.DecodedFields) *pbgear.ImOnline_PalletImOnlineHeartbeat {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ImOnline_PalletImOnlineHeartbeat{}
-	out.BlockNumber = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.SessionIndex = To_uint32(fields[1].Value.(registry.DecodedFields))
-
-	out.AuthorityIndex = To_uint32(fields[2].Value.(registry.DecodedFields))
-
-	out.ValidatorsLen = To_uint32(fields[3].Value.(registry.DecodedFields))
-
+	out.BlockNumber = To_uint32(fields[0].Value.(types.U32))
+	out.SessionIndex = To_uint32(fields[1].Value.(types.U32))
+	out.AuthorityIndex = To_uint32(fields[2].Value.(types.U32))
+	out.ValidatorsLen = To_uint32(fields[3].Value.(types.U32))
 	return out
 }
 
 func To_ImOnline_PalletImOnlineSr25519AppSr25519Public(in registry.DecodedFields) *pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Public {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Public{}
-	out.Value = To_SpCoreSr25519Public(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_SpCoreSr25519Public(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_ImOnline_PalletImOnlineSr25519AppSr25519Signature(in registry.DecodedFields) *pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Signature {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Signature{}
-	out.Value = To_SpCoreSr25519Signature(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_SpCoreSr25519Signature(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Multisig_ApproveAsMultiCall(in registry.DecodedFields) *pbgear.Multisig_ApproveAsMultiCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Multisig_ApproveAsMultiCall{}
-	out.Threshold = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Threshold = To_uint32(fields[0].Value.(types.U16))
 	out.OtherSignatories = To_repeated_SpCoreCryptoAccountId32(fields[1].Value.(registry.DecodedFields))
-
 	out.MaybeTimepoint = To_optional_Multisig_PalletMultisigTimepoint(fields[2].Value.(registry.DecodedFields))
-
 	out.CallHash = To_bytes(fields[3].Value.([]interface{}))
 	out.MaxWeight = To_SpWeightsWeightV2Weight(fields[4].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_optional_Multisig_PalletMultisigTimepoint(f registry.DecodedFields) *pbgear.Multisig_PalletMultisigTimepoint {
@@ -3698,13 +3700,12 @@ func To_optional_Multisig_PalletMultisigTimepoint(f registry.DecodedFields) *pbg
 
 func To_Multisig_AsMultiCall(in registry.DecodedFields) *pbgear.Multisig_AsMultiCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Multisig_AsMultiCall{}
-	out.Threshold = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Threshold = To_uint32(fields[0].Value.(types.U16))
 	out.OtherSignatories = To_repeated_SpCoreCryptoAccountId32(fields[1].Value.(registry.DecodedFields))
-
 	out.MaybeTimepoint = To_optional_Multisig_PalletMultisigTimepoint(fields[2].Value.(registry.DecodedFields))
 
 	switch {
@@ -3826,12 +3827,12 @@ func To_Multisig_AsMultiCall(in registry.DecodedFields) *pbgear.Multisig_AsMulti
 		}
 	}
 	out.MaxWeight = To_SpWeightsWeightV2Weight(fields[4].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Multisig_AsMultiThreshold1Call(in registry.DecodedFields) *pbgear.Multisig_AsMultiThreshold1Call {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Multisig_AsMultiThreshold1Call{}
@@ -3960,33 +3961,31 @@ func To_Multisig_AsMultiThreshold1Call(in registry.DecodedFields) *pbgear.Multis
 
 func To_Multisig_CancelAsMultiCall(in registry.DecodedFields) *pbgear.Multisig_CancelAsMultiCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Multisig_CancelAsMultiCall{}
-	out.Threshold = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Threshold = To_uint32(fields[0].Value.(types.U16))
 	out.OtherSignatories = To_repeated_SpCoreCryptoAccountId32(fields[1].Value.(registry.DecodedFields))
-
 	out.Timepoint = To_Multisig_PalletMultisigTimepoint(fields[2].Value.(registry.DecodedFields))
-
 	out.CallHash = To_bytes(fields[3].Value.([]interface{}))
 	return out
 }
 
 func To_Multisig_PalletMultisigTimepoint(in registry.DecodedFields) *pbgear.Multisig_PalletMultisigTimepoint {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Multisig_PalletMultisigTimepoint{}
-	out.Height = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.Index = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Height = To_uint32(fields[0].Value.(types.U32))
+	out.Index = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_NominationPools_Address20(in registry.DecodedFields) *pbgear.NominationPools_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Address20{}
@@ -3996,6 +3995,7 @@ func To_NominationPools_Address20(in registry.DecodedFields) *pbgear.NominationP
 
 func To_NominationPools_Address32(in registry.DecodedFields) *pbgear.NominationPools_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Address32{}
@@ -4005,16 +4005,17 @@ func To_NominationPools_Address32(in registry.DecodedFields) *pbgear.NominationP
 
 func To_NominationPools_AdjustPoolDepositCall(in registry.DecodedFields) *pbgear.NominationPools_AdjustPoolDepositCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_AdjustPoolDepositCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_NominationPools_Blocked(in registry.DecodedFields) *pbgear.NominationPools_Blocked {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Blocked{}
@@ -4023,28 +4024,28 @@ func To_NominationPools_Blocked(in registry.DecodedFields) *pbgear.NominationPoo
 
 func To_NominationPools_BondExtraCall(in registry.DecodedFields) *pbgear.NominationPools_BondExtraCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_BondExtraCall{}
 	out.Extra = To_NominationPools_Extra(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_BondExtraOtherCall(in registry.DecodedFields) *pbgear.NominationPools_BondExtraOtherCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_BondExtraOtherCall{}
 	out.Member = To_NominationPools_Member(fields[0].Value.(registry.DecodedFields))
-
 	out.Extra = To_NominationPools_Extra(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_Bouncer(in registry.DecodedFields) *pbgear.NominationPools_Bouncer {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Bouncer{}
@@ -4076,26 +4077,27 @@ func To_NominationPools_Bouncer(in registry.DecodedFields) *pbgear.NominationPoo
 
 func To_NominationPools_ChillCall(in registry.DecodedFields) *pbgear.NominationPools_ChillCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_ChillCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_NominationPools_ClaimCommissionCall(in registry.DecodedFields) *pbgear.NominationPools_ClaimCommissionCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_ClaimCommissionCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_NominationPools_ClaimPayoutCall(in registry.DecodedFields) *pbgear.NominationPools_ClaimPayoutCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_ClaimPayoutCall{}
@@ -4104,15 +4106,15 @@ func To_NominationPools_ClaimPayoutCall(in registry.DecodedFields) *pbgear.Nomin
 
 func To_NominationPools_ClaimPayoutOtherCall(in registry.DecodedFields) *pbgear.NominationPools_ClaimPayoutOtherCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_ClaimPayoutOtherCall{}
 	out.Other = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
-func To_NominationPools_CompactTupleNull(in types.UCompact) *pbgear.NominationPools_CompactTupleNull {
+func To_NominationPools_CompactTupleNull(in registry.DecodedFields) *pbgear.NominationPools_CompactTupleNull {
 
 	out := &pbgear.NominationPools_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -4121,40 +4123,34 @@ func To_NominationPools_CompactTupleNull(in types.UCompact) *pbgear.NominationPo
 
 func To_NominationPools_CreateCall(in registry.DecodedFields) *pbgear.NominationPools_CreateCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_CreateCall{}
-	out.Amount = To_CompactString(fields[0].Value.(types.UCompact))
-
+	out.Amount = To_CompactString(fields[0].Value.(registry.DecodedFields))
 	out.Root = To_NominationPools_Root(fields[1].Value.(registry.DecodedFields))
-
 	out.Nominator = To_NominationPools_Nominator(fields[2].Value.(registry.DecodedFields))
-
 	out.Bouncer = To_NominationPools_Bouncer(fields[3].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_CreateWithPoolIdCall(in registry.DecodedFields) *pbgear.NominationPools_CreateWithPoolIdCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_CreateWithPoolIdCall{}
-	out.Amount = To_CompactString(fields[0].Value.(types.UCompact))
-
+	out.Amount = To_CompactString(fields[0].Value.(registry.DecodedFields))
 	out.Root = To_NominationPools_Root(fields[1].Value.(registry.DecodedFields))
-
 	out.Nominator = To_NominationPools_Nominator(fields[2].Value.(registry.DecodedFields))
-
 	out.Bouncer = To_NominationPools_Bouncer(fields[3].Value.(registry.DecodedFields))
-
-	out.PoolId = To_uint32(fields[4].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[4].Value.(types.U32))
 	return out
 }
 
 func To_NominationPools_Destroying(in registry.DecodedFields) *pbgear.NominationPools_Destroying {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Destroying{}
@@ -4163,6 +4159,7 @@ func To_NominationPools_Destroying(in registry.DecodedFields) *pbgear.Nomination
 
 func To_NominationPools_Extra(in registry.DecodedFields) *pbgear.NominationPools_Extra {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Extra{}
@@ -4178,16 +4175,17 @@ func To_NominationPools_Extra(in registry.DecodedFields) *pbgear.NominationPools
 
 func To_NominationPools_FreeBalance(in registry.DecodedFields) *pbgear.NominationPools_FreeBalance {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_FreeBalance{}
-	out.Value0 = To_string(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_string(fields[0].Value.(types.U128))
 	return out
 }
 
 func To_NominationPools_GlobalMaxCommission(in registry.DecodedFields) *pbgear.NominationPools_GlobalMaxCommission {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_GlobalMaxCommission{}
@@ -4203,38 +4201,38 @@ func To_NominationPools_GlobalMaxCommission(in registry.DecodedFields) *pbgear.N
 
 func To_NominationPools_Id(in registry.DecodedFields) *pbgear.NominationPools_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_Index(in registry.DecodedFields) *pbgear.NominationPools_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Index{}
-	out.Value0 = To_NominationPools_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_NominationPools_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_NominationPools_JoinCall(in registry.DecodedFields) *pbgear.NominationPools_JoinCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_JoinCall{}
-	out.Amount = To_CompactString(fields[0].Value.(types.UCompact))
-
-	out.PoolId = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Amount = To_CompactString(fields[0].Value.(registry.DecodedFields))
+	out.PoolId = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_NominationPools_MaxMembers(in registry.DecodedFields) *pbgear.NominationPools_MaxMembers {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_MaxMembers{}
@@ -4250,6 +4248,7 @@ func To_NominationPools_MaxMembers(in registry.DecodedFields) *pbgear.Nomination
 
 func To_NominationPools_MaxMembersPerPool(in registry.DecodedFields) *pbgear.NominationPools_MaxMembersPerPool {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_MaxMembersPerPool{}
@@ -4265,6 +4264,7 @@ func To_NominationPools_MaxMembersPerPool(in registry.DecodedFields) *pbgear.Nom
 
 func To_NominationPools_MaxPools(in registry.DecodedFields) *pbgear.NominationPools_MaxPools {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_MaxPools{}
@@ -4280,6 +4280,7 @@ func To_NominationPools_MaxPools(in registry.DecodedFields) *pbgear.NominationPo
 
 func To_NominationPools_Member(in registry.DecodedFields) *pbgear.NominationPools_Member {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Member{}
@@ -4311,6 +4312,7 @@ func To_NominationPools_Member(in registry.DecodedFields) *pbgear.NominationPool
 
 func To_NominationPools_MemberAccount(in registry.DecodedFields) *pbgear.NominationPools_MemberAccount {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_MemberAccount{}
@@ -4342,6 +4344,7 @@ func To_NominationPools_MemberAccount(in registry.DecodedFields) *pbgear.Nominat
 
 func To_NominationPools_MinCreateBond(in registry.DecodedFields) *pbgear.NominationPools_MinCreateBond {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_MinCreateBond{}
@@ -4357,6 +4360,7 @@ func To_NominationPools_MinCreateBond(in registry.DecodedFields) *pbgear.Nominat
 
 func To_NominationPools_MinJoinBond(in registry.DecodedFields) *pbgear.NominationPools_MinJoinBond {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_MinJoinBond{}
@@ -4372,6 +4376,7 @@ func To_NominationPools_MinJoinBond(in registry.DecodedFields) *pbgear.Nominatio
 
 func To_NominationPools_NewBouncer(in registry.DecodedFields) *pbgear.NominationPools_NewBouncer {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_NewBouncer{}
@@ -4387,6 +4392,7 @@ func To_NominationPools_NewBouncer(in registry.DecodedFields) *pbgear.Nomination
 
 func To_NominationPools_NewNominator(in registry.DecodedFields) *pbgear.NominationPools_NewNominator {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_NewNominator{}
@@ -4402,6 +4408,7 @@ func To_NominationPools_NewNominator(in registry.DecodedFields) *pbgear.Nominati
 
 func To_NominationPools_NewRoot(in registry.DecodedFields) *pbgear.NominationPools_NewRoot {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_NewRoot{}
@@ -4417,18 +4424,18 @@ func To_NominationPools_NewRoot(in registry.DecodedFields) *pbgear.NominationPoo
 
 func To_NominationPools_NominateCall(in registry.DecodedFields) *pbgear.NominationPools_NominateCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_NominateCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	out.Validators = To_repeated_SpCoreCryptoAccountId32(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_Nominator(in registry.DecodedFields) *pbgear.NominationPools_Nominator {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Nominator{}
@@ -4460,6 +4467,7 @@ func To_NominationPools_Nominator(in registry.DecodedFields) *pbgear.NominationP
 
 func To_NominationPools_Noop(in registry.DecodedFields) *pbgear.NominationPools_Noop {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Noop{}
@@ -4468,6 +4476,7 @@ func To_NominationPools_Noop(in registry.DecodedFields) *pbgear.NominationPools_
 
 func To_NominationPools_Open(in registry.DecodedFields) *pbgear.NominationPools_Open {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Open{}
@@ -4476,18 +4485,18 @@ func To_NominationPools_Open(in registry.DecodedFields) *pbgear.NominationPools_
 
 func To_NominationPools_PalletNominationPoolsCommissionChangeRate(in registry.DecodedFields) *pbgear.NominationPools_PalletNominationPoolsCommissionChangeRate {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_PalletNominationPoolsCommissionChangeRate{}
 	out.MaxIncrease = To_SpArithmeticPerThingsPerbill(fields[0].Value.(registry.DecodedFields))
-
-	out.MinDelay = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.MinDelay = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_NominationPools_Permission(in registry.DecodedFields) *pbgear.NominationPools_Permission {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Permission{}
@@ -4503,6 +4512,7 @@ func To_NominationPools_Permission(in registry.DecodedFields) *pbgear.Nomination
 
 func To_NominationPools_Permissioned(in registry.DecodedFields) *pbgear.NominationPools_Permissioned {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Permissioned{}
@@ -4511,6 +4521,7 @@ func To_NominationPools_Permissioned(in registry.DecodedFields) *pbgear.Nominati
 
 func To_NominationPools_PermissionlessAll(in registry.DecodedFields) *pbgear.NominationPools_PermissionlessAll {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_PermissionlessAll{}
@@ -4519,6 +4530,7 @@ func To_NominationPools_PermissionlessAll(in registry.DecodedFields) *pbgear.Nom
 
 func To_NominationPools_PermissionlessCompound(in registry.DecodedFields) *pbgear.NominationPools_PermissionlessCompound {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_PermissionlessCompound{}
@@ -4527,6 +4539,7 @@ func To_NominationPools_PermissionlessCompound(in registry.DecodedFields) *pbgea
 
 func To_NominationPools_PermissionlessWithdraw(in registry.DecodedFields) *pbgear.NominationPools_PermissionlessWithdraw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_PermissionlessWithdraw{}
@@ -4535,18 +4548,18 @@ func To_NominationPools_PermissionlessWithdraw(in registry.DecodedFields) *pbgea
 
 func To_NominationPools_PoolWithdrawUnbondedCall(in registry.DecodedFields) *pbgear.NominationPools_PoolWithdrawUnbondedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_PoolWithdrawUnbondedCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.NumSlashingSpans = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
+	out.NumSlashingSpans = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_NominationPools_Raw(in registry.DecodedFields) *pbgear.NominationPools_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Raw{}
@@ -4556,6 +4569,7 @@ func To_NominationPools_Raw(in registry.DecodedFields) *pbgear.NominationPools_R
 
 func To_NominationPools_Remove(in registry.DecodedFields) *pbgear.NominationPools_Remove {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Remove{}
@@ -4564,6 +4578,7 @@ func To_NominationPools_Remove(in registry.DecodedFields) *pbgear.NominationPool
 
 func To_NominationPools_Rewards(in registry.DecodedFields) *pbgear.NominationPools_Rewards {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Rewards{}
@@ -4572,6 +4587,7 @@ func To_NominationPools_Rewards(in registry.DecodedFields) *pbgear.NominationPoo
 
 func To_NominationPools_Root(in registry.DecodedFields) *pbgear.NominationPools_Root {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Root{}
@@ -4603,33 +4619,32 @@ func To_NominationPools_Root(in registry.DecodedFields) *pbgear.NominationPools_
 
 func To_NominationPools_Set(in registry.DecodedFields) *pbgear.NominationPools_Set {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_Set{}
-	out.Value0 = To_string(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_string(fields[0].Value.(types.U128))
 	return out
 }
 
 func To_NominationPools_SetClaimPermissionCall(in registry.DecodedFields) *pbgear.NominationPools_SetClaimPermissionCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_SetClaimPermissionCall{}
 	out.Permission = To_NominationPools_Permission(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_SetCommissionCall(in registry.DecodedFields) *pbgear.NominationPools_SetCommissionCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_SetCommissionCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	out.NewCommission = To_optional_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_optional_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32(f registry.DecodedFields) *pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 {
@@ -4642,73 +4657,66 @@ func To_optional_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAc
 
 func To_NominationPools_SetCommissionChangeRateCall(in registry.DecodedFields) *pbgear.NominationPools_SetCommissionChangeRateCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_SetCommissionChangeRateCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	out.ChangeRate = To_NominationPools_PalletNominationPoolsCommissionChangeRate(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_SetCommissionMaxCall(in registry.DecodedFields) *pbgear.NominationPools_SetCommissionMaxCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_SetCommissionMaxCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	out.MaxCommission = To_SpArithmeticPerThingsPerbill(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_SetConfigsCall(in registry.DecodedFields) *pbgear.NominationPools_SetConfigsCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_SetConfigsCall{}
 	out.MinJoinBond = To_NominationPools_MinJoinBond(fields[0].Value.(registry.DecodedFields))
-
 	out.MinCreateBond = To_NominationPools_MinCreateBond(fields[1].Value.(registry.DecodedFields))
-
 	out.MaxPools = To_NominationPools_MaxPools(fields[2].Value.(registry.DecodedFields))
-
 	out.MaxMembers = To_NominationPools_MaxMembers(fields[3].Value.(registry.DecodedFields))
-
 	out.MaxMembersPerPool = To_NominationPools_MaxMembersPerPool(fields[4].Value.(registry.DecodedFields))
-
 	out.GlobalMaxCommission = To_NominationPools_GlobalMaxCommission(fields[5].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_SetMetadataCall(in registry.DecodedFields) *pbgear.NominationPools_SetMetadataCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_SetMetadataCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	out.Metadata = To_bytes(fields[1].Value.([]interface{}))
 	return out
 }
 
 func To_NominationPools_SetStateCall(in registry.DecodedFields) *pbgear.NominationPools_SetStateCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_SetStateCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	out.State = To_NominationPools_State(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_State(in registry.DecodedFields) *pbgear.NominationPools_State {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_State{}
@@ -4724,58 +4732,53 @@ func To_NominationPools_State(in registry.DecodedFields) *pbgear.NominationPools
 
 func To_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32(in registry.DecodedFields) *pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32{}
 	out.Value0 = To_SpArithmeticPerThingsPerbill(fields[0].Value.(registry.DecodedFields))
-
 	out.Value1 = To_SpCoreCryptoAccountId32(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_UnbondCall(in registry.DecodedFields) *pbgear.NominationPools_UnbondCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_UnbondCall{}
 	out.MemberAccount = To_NominationPools_MemberAccount(fields[0].Value.(registry.DecodedFields))
-
-	out.UnbondingPoints = To_CompactString(fields[1].Value.(types.UCompact))
-
+	out.UnbondingPoints = To_CompactString(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_NominationPools_UpdateRolesCall(in registry.DecodedFields) *pbgear.NominationPools_UpdateRolesCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_UpdateRolesCall{}
-	out.PoolId = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.PoolId = To_uint32(fields[0].Value.(types.U32))
 	out.NewRoot = To_NominationPools_NewRoot(fields[1].Value.(registry.DecodedFields))
-
 	out.NewNominator = To_NominationPools_NewNominator(fields[2].Value.(registry.DecodedFields))
-
 	out.NewBouncer = To_NominationPools_NewBouncer(fields[3].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_NominationPools_WithdrawUnbondedCall(in registry.DecodedFields) *pbgear.NominationPools_WithdrawUnbondedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.NominationPools_WithdrawUnbondedCall{}
 	out.MemberAccount = To_NominationPools_MemberAccount(fields[0].Value.(registry.DecodedFields))
-
-	out.NumSlashingSpans = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.NumSlashingSpans = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_None(in registry.DecodedFields) *pbgear.None {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.None{}
@@ -4784,11 +4787,11 @@ func To_None(in registry.DecodedFields) *pbgear.None {
 
 func To_Preimage_EnsureUpdatedCall(in registry.DecodedFields) *pbgear.Preimage_EnsureUpdatedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Preimage_EnsureUpdatedCall{}
 	out.Hashes = To_repeated_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_PrimitiveTypesH256(f registry.DecodedFields) []*pbgear.PrimitiveTypesH256 {
@@ -4804,6 +4807,7 @@ func To_repeated_PrimitiveTypesH256(f registry.DecodedFields) []*pbgear.Primitiv
 
 func To_Preimage_NotePreimageCall(in registry.DecodedFields) *pbgear.Preimage_NotePreimageCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Preimage_NotePreimageCall{}
@@ -4813,36 +4817,37 @@ func To_Preimage_NotePreimageCall(in registry.DecodedFields) *pbgear.Preimage_No
 
 func To_Preimage_RequestPreimageCall(in registry.DecodedFields) *pbgear.Preimage_RequestPreimageCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Preimage_RequestPreimageCall{}
 	out.Hash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Preimage_UnnotePreimageCall(in registry.DecodedFields) *pbgear.Preimage_UnnotePreimageCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Preimage_UnnotePreimageCall{}
 	out.Hash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Preimage_UnrequestPreimageCall(in registry.DecodedFields) *pbgear.Preimage_UnrequestPreimageCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Preimage_UnrequestPreimageCall{}
 	out.Hash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_PrimaryAndSecondaryPlainSlots(in registry.DecodedFields) *pbgear.PrimaryAndSecondaryPlainSlots {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.PrimaryAndSecondaryPlainSlots{}
@@ -4851,6 +4856,7 @@ func To_PrimaryAndSecondaryPlainSlots(in registry.DecodedFields) *pbgear.Primary
 
 func To_PrimaryAndSecondaryVRFSlots(in registry.DecodedFields) *pbgear.PrimaryAndSecondaryVRFSlots {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.PrimaryAndSecondaryVRFSlots{}
@@ -4859,6 +4865,7 @@ func To_PrimaryAndSecondaryVRFSlots(in registry.DecodedFields) *pbgear.PrimaryAn
 
 func To_PrimarySlots(in registry.DecodedFields) *pbgear.PrimarySlots {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.PrimarySlots{}
@@ -4867,29 +4874,29 @@ func To_PrimarySlots(in registry.DecodedFields) *pbgear.PrimarySlots {
 
 func To_PrimitiveTypesH256(in registry.DecodedFields) *pbgear.PrimitiveTypesH256 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.PrimitiveTypesH256{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_Proxy_AddProxyCall(in registry.DecodedFields) *pbgear.Proxy_AddProxyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_AddProxyCall{}
 	out.Delegate = To_Proxy_Delegate(fields[0].Value.(registry.DecodedFields))
-
 	out.ProxyType = To_Proxy_ProxyType(fields[1].Value.(registry.DecodedFields))
-
-	out.Delay = To_uint32(fields[2].Value.(registry.DecodedFields))
-
+	out.Delay = To_uint32(fields[2].Value.(types.U32))
 	return out
 }
 
 func To_Proxy_Address20(in registry.DecodedFields) *pbgear.Proxy_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Address20{}
@@ -4899,6 +4906,7 @@ func To_Proxy_Address20(in registry.DecodedFields) *pbgear.Proxy_Address20 {
 
 func To_Proxy_Address32(in registry.DecodedFields) *pbgear.Proxy_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Address32{}
@@ -4908,18 +4916,18 @@ func To_Proxy_Address32(in registry.DecodedFields) *pbgear.Proxy_Address32 {
 
 func To_Proxy_AnnounceCall(in registry.DecodedFields) *pbgear.Proxy_AnnounceCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_AnnounceCall{}
 	out.Real = To_Proxy_Real(fields[0].Value.(registry.DecodedFields))
-
 	out.CallHash = To_PrimitiveTypesH256(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Proxy_Any(in registry.DecodedFields) *pbgear.Proxy_Any {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Any{}
@@ -4928,13 +4936,14 @@ func To_Proxy_Any(in registry.DecodedFields) *pbgear.Proxy_Any {
 
 func To_Proxy_CancelProxy(in registry.DecodedFields) *pbgear.Proxy_CancelProxy {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_CancelProxy{}
 	return out
 }
 
-func To_Proxy_CompactTupleNull(in types.UCompact) *pbgear.Proxy_CompactTupleNull {
+func To_Proxy_CompactTupleNull(in registry.DecodedFields) *pbgear.Proxy_CompactTupleNull {
 
 	out := &pbgear.Proxy_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -4943,20 +4952,19 @@ func To_Proxy_CompactTupleNull(in types.UCompact) *pbgear.Proxy_CompactTupleNull
 
 func To_Proxy_CreatePureCall(in registry.DecodedFields) *pbgear.Proxy_CreatePureCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_CreatePureCall{}
 	out.ProxyType = To_Proxy_ProxyType(fields[0].Value.(registry.DecodedFields))
-
-	out.Delay = To_uint32(fields[1].Value.(registry.DecodedFields))
-
-	out.Index = To_uint32(fields[2].Value.(registry.DecodedFields))
-
+	out.Delay = To_uint32(fields[1].Value.(types.U32))
+	out.Index = To_uint32(fields[2].Value.(types.U16))
 	return out
 }
 
 func To_Proxy_Delegate(in registry.DecodedFields) *pbgear.Proxy_Delegate {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Delegate{}
@@ -4988,6 +4996,7 @@ func To_Proxy_Delegate(in registry.DecodedFields) *pbgear.Proxy_Delegate {
 
 func To_Proxy_ForceProxyType(in registry.DecodedFields) *pbgear.Proxy_ForceProxyType {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_ForceProxyType{}
@@ -5003,6 +5012,7 @@ func To_Proxy_ForceProxyType(in registry.DecodedFields) *pbgear.Proxy_ForceProxy
 
 func To_Proxy_Governance(in registry.DecodedFields) *pbgear.Proxy_Governance {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Governance{}
@@ -5011,16 +5021,17 @@ func To_Proxy_Governance(in registry.DecodedFields) *pbgear.Proxy_Governance {
 
 func To_Proxy_Id(in registry.DecodedFields) *pbgear.Proxy_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Proxy_IdentityJudgement(in registry.DecodedFields) *pbgear.Proxy_IdentityJudgement {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_IdentityJudgement{}
@@ -5029,34 +5040,31 @@ func To_Proxy_IdentityJudgement(in registry.DecodedFields) *pbgear.Proxy_Identit
 
 func To_Proxy_Index(in registry.DecodedFields) *pbgear.Proxy_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Index{}
-	out.Value0 = To_Proxy_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_Proxy_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Proxy_KillPureCall(in registry.DecodedFields) *pbgear.Proxy_KillPureCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_KillPureCall{}
 	out.Spawner = To_Proxy_Spawner(fields[0].Value.(registry.DecodedFields))
-
 	out.ProxyType = To_Proxy_ProxyType(fields[1].Value.(registry.DecodedFields))
-
-	out.Index = To_uint32(fields[2].Value.(registry.DecodedFields))
-
-	out.Height = To_CompactUint32(fields[3].Value.(types.UCompact))
-
-	out.ExtIndex = To_CompactUint32(fields[4].Value.(types.UCompact))
-
+	out.Index = To_uint32(fields[2].Value.(types.U16))
+	out.Height = To_CompactUint32(fields[3].Value.(registry.DecodedFields))
+	out.ExtIndex = To_CompactUint32(fields[4].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Proxy_NonTransfer(in registry.DecodedFields) *pbgear.Proxy_NonTransfer {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_NonTransfer{}
@@ -5065,13 +5073,12 @@ func To_Proxy_NonTransfer(in registry.DecodedFields) *pbgear.Proxy_NonTransfer {
 
 func To_Proxy_ProxyAnnouncedCall(in registry.DecodedFields) *pbgear.Proxy_ProxyAnnouncedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_ProxyAnnouncedCall{}
 	out.Delegate = To_Proxy_Delegate(fields[0].Value.(registry.DecodedFields))
-
 	out.Real = To_Proxy_Real(fields[1].Value.(registry.DecodedFields))
-
 	out.ForceProxyType = To_optional_Proxy_ForceProxyType(fields[2].Value.(registry.DecodedFields))
 
 	switch {
@@ -5204,11 +5211,11 @@ func To_optional_Proxy_ForceProxyType(f registry.DecodedFields) *pbgear.Proxy_Fo
 
 func To_Proxy_ProxyCall(in registry.DecodedFields) *pbgear.Proxy_ProxyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_ProxyCall{}
 	out.Real = To_Proxy_Real(fields[0].Value.(registry.DecodedFields))
-
 	out.ForceProxyType = To_optional_Proxy_ForceProxyType(fields[1].Value.(registry.DecodedFields))
 
 	switch {
@@ -5334,6 +5341,7 @@ func To_Proxy_ProxyCall(in registry.DecodedFields) *pbgear.Proxy_ProxyCall {
 
 func To_Proxy_ProxyType(in registry.DecodedFields) *pbgear.Proxy_ProxyType {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_ProxyType{}
@@ -5349,6 +5357,7 @@ func To_Proxy_ProxyType(in registry.DecodedFields) *pbgear.Proxy_ProxyType {
 
 func To_Proxy_Raw(in registry.DecodedFields) *pbgear.Proxy_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Raw{}
@@ -5358,6 +5367,7 @@ func To_Proxy_Raw(in registry.DecodedFields) *pbgear.Proxy_Raw {
 
 func To_Proxy_Real(in registry.DecodedFields) *pbgear.Proxy_Real {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Real{}
@@ -5389,30 +5399,29 @@ func To_Proxy_Real(in registry.DecodedFields) *pbgear.Proxy_Real {
 
 func To_Proxy_RejectAnnouncementCall(in registry.DecodedFields) *pbgear.Proxy_RejectAnnouncementCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_RejectAnnouncementCall{}
 	out.Delegate = To_Proxy_Delegate(fields[0].Value.(registry.DecodedFields))
-
 	out.CallHash = To_PrimitiveTypesH256(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Proxy_RemoveAnnouncementCall(in registry.DecodedFields) *pbgear.Proxy_RemoveAnnouncementCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_RemoveAnnouncementCall{}
 	out.Real = To_Proxy_Real(fields[0].Value.(registry.DecodedFields))
-
 	out.CallHash = To_PrimitiveTypesH256(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Proxy_RemoveProxiesCall(in registry.DecodedFields) *pbgear.Proxy_RemoveProxiesCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_RemoveProxiesCall{}
@@ -5421,20 +5430,19 @@ func To_Proxy_RemoveProxiesCall(in registry.DecodedFields) *pbgear.Proxy_RemoveP
 
 func To_Proxy_RemoveProxyCall(in registry.DecodedFields) *pbgear.Proxy_RemoveProxyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_RemoveProxyCall{}
 	out.Delegate = To_Proxy_Delegate(fields[0].Value.(registry.DecodedFields))
-
 	out.ProxyType = To_Proxy_ProxyType(fields[1].Value.(registry.DecodedFields))
-
-	out.Delay = To_uint32(fields[2].Value.(registry.DecodedFields))
-
+	out.Delay = To_uint32(fields[2].Value.(types.U32))
 	return out
 }
 
 func To_Proxy_Spawner(in registry.DecodedFields) *pbgear.Proxy_Spawner {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Spawner{}
@@ -5466,6 +5474,7 @@ func To_Proxy_Spawner(in registry.DecodedFields) *pbgear.Proxy_Spawner {
 
 func To_Proxy_Staking(in registry.DecodedFields) *pbgear.Proxy_Staking {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Proxy_Staking{}
@@ -5474,36 +5483,37 @@ func To_Proxy_Staking(in registry.DecodedFields) *pbgear.Proxy_Staking {
 
 func To_Referenda_After(in registry.DecodedFields) *pbgear.Referenda_After {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_After{}
-	out.Value0 = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Referenda_At(in registry.DecodedFields) *pbgear.Referenda_At {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_At{}
-	out.Value0 = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Referenda_CancelCall(in registry.DecodedFields) *pbgear.Referenda_CancelCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_CancelCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Referenda_EnactmentMoment(in registry.DecodedFields) *pbgear.Referenda_EnactmentMoment {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_EnactmentMoment{}
@@ -5523,88 +5533,88 @@ func To_Referenda_EnactmentMoment(in registry.DecodedFields) *pbgear.Referenda_E
 
 func To_Referenda_Inline(in registry.DecodedFields) *pbgear.Referenda_Inline {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_Inline{}
 	out.Value0 = To_BoundedCollectionsBoundedVecBoundedVec(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Referenda_KillCall(in registry.DecodedFields) *pbgear.Referenda_KillCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_KillCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Referenda_Legacy(in registry.DecodedFields) *pbgear.Referenda_Legacy {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_Legacy{}
 	out.Hash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Referenda_Lookup(in registry.DecodedFields) *pbgear.Referenda_Lookup {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_Lookup{}
 	out.Hash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
-	out.Len = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Len = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_Referenda_NudgeReferendumCall(in registry.DecodedFields) *pbgear.Referenda_NudgeReferendumCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_NudgeReferendumCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Referenda_OneFewerDecidingCall(in registry.DecodedFields) *pbgear.Referenda_OneFewerDecidingCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_OneFewerDecidingCall{}
-	out.Track = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Track = To_uint32(fields[0].Value.(types.U16))
 	return out
 }
 
 func To_Referenda_Origins(in registry.DecodedFields) *pbgear.Referenda_Origins {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_Origins{}
 	out.Value0 = To_Value0(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Referenda_PlaceDecisionDepositCall(in registry.DecodedFields) *pbgear.Referenda_PlaceDecisionDepositCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_PlaceDecisionDepositCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Referenda_Proposal(in registry.DecodedFields) *pbgear.Referenda_Proposal {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_Proposal{}
@@ -5628,6 +5638,7 @@ func To_Referenda_Proposal(in registry.DecodedFields) *pbgear.Referenda_Proposal
 
 func To_Referenda_ProposalOrigin(in registry.DecodedFields) *pbgear.Referenda_ProposalOrigin {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_ProposalOrigin{}
@@ -5651,72 +5662,70 @@ func To_Referenda_ProposalOrigin(in registry.DecodedFields) *pbgear.Referenda_Pr
 
 func To_Referenda_RefundDecisionDepositCall(in registry.DecodedFields) *pbgear.Referenda_RefundDecisionDepositCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_RefundDecisionDepositCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Referenda_RefundSubmissionDepositCall(in registry.DecodedFields) *pbgear.Referenda_RefundSubmissionDepositCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_RefundSubmissionDepositCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Referenda_SetMetadataCall(in registry.DecodedFields) *pbgear.Referenda_SetMetadataCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_SetMetadataCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	out.MaybeHash = To_optional_PrimitiveTypesH256(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Referenda_SubmitCall(in registry.DecodedFields) *pbgear.Referenda_SubmitCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_SubmitCall{}
 	out.ProposalOrigin = To_Referenda_ProposalOrigin(fields[0].Value.(registry.DecodedFields))
-
 	out.Proposal = To_Referenda_Proposal(fields[1].Value.(registry.DecodedFields))
-
 	out.EnactmentMoment = To_Referenda_EnactmentMoment(fields[2].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Referenda_System(in registry.DecodedFields) *pbgear.Referenda_System {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_System{}
 	out.Value0 = To_Value0(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Referenda_Void(in registry.DecodedFields) *pbgear.Referenda_Void {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Referenda_Void{}
 	out.Value0 = To_Value0(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Root(in registry.DecodedFields) *pbgear.Root {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Root{}
@@ -5725,18 +5734,18 @@ func To_Root(in registry.DecodedFields) *pbgear.Root {
 
 func To_Scheduler_CancelCall(in registry.DecodedFields) *pbgear.Scheduler_CancelCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Scheduler_CancelCall{}
-	out.When = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.Index = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.When = To_uint32(fields[0].Value.(types.U32))
+	out.Index = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_Scheduler_CancelNamedCall(in registry.DecodedFields) *pbgear.Scheduler_CancelNamedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Scheduler_CancelNamedCall{}
@@ -5746,14 +5755,13 @@ func To_Scheduler_CancelNamedCall(in registry.DecodedFields) *pbgear.Scheduler_C
 
 func To_Scheduler_ScheduleAfterCall(in registry.DecodedFields) *pbgear.Scheduler_ScheduleAfterCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Scheduler_ScheduleAfterCall{}
-	out.After = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.After = To_uint32(fields[0].Value.(types.U32))
 	out.MaybePeriodic = To_optional_Scheduler_TupleUint32Uint32(fields[1].Value.(registry.DecodedFields))
-
-	out.Priority = To_uint32(fields[2].Value.(registry.DecodedFields))
+	out.Priority = To_uint32(fields[2].Value.(types.U8))
 
 	switch {
 	case matchFields(fields, []int64{66}):
@@ -5885,14 +5893,13 @@ func To_optional_Scheduler_TupleUint32Uint32(f registry.DecodedFields) *pbgear.S
 
 func To_Scheduler_ScheduleCall(in registry.DecodedFields) *pbgear.Scheduler_ScheduleCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Scheduler_ScheduleCall{}
-	out.When = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.When = To_uint32(fields[0].Value.(types.U32))
 	out.MaybePeriodic = To_optional_Scheduler_TupleUint32Uint32(fields[1].Value.(registry.DecodedFields))
-
-	out.Priority = To_uint32(fields[2].Value.(registry.DecodedFields))
+	out.Priority = To_uint32(fields[2].Value.(types.U8))
 
 	switch {
 	case matchFields(fields, []int64{66}):
@@ -6017,15 +6024,14 @@ func To_Scheduler_ScheduleCall(in registry.DecodedFields) *pbgear.Scheduler_Sche
 
 func To_Scheduler_ScheduleNamedAfterCall(in registry.DecodedFields) *pbgear.Scheduler_ScheduleNamedAfterCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Scheduler_ScheduleNamedAfterCall{}
 	out.Id = To_bytes(fields[0].Value.([]interface{}))
-	out.After = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.After = To_uint32(fields[1].Value.(types.U32))
 	out.MaybePeriodic = To_optional_Scheduler_TupleUint32Uint32(fields[2].Value.(registry.DecodedFields))
-
-	out.Priority = To_uint32(fields[3].Value.(registry.DecodedFields))
+	out.Priority = To_uint32(fields[3].Value.(types.U8))
 
 	switch {
 	case matchFields(fields, []int64{66}):
@@ -6150,15 +6156,14 @@ func To_Scheduler_ScheduleNamedAfterCall(in registry.DecodedFields) *pbgear.Sche
 
 func To_Scheduler_ScheduleNamedCall(in registry.DecodedFields) *pbgear.Scheduler_ScheduleNamedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Scheduler_ScheduleNamedCall{}
 	out.Id = To_bytes(fields[0].Value.([]interface{}))
-	out.When = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.When = To_uint32(fields[1].Value.(types.U32))
 	out.MaybePeriodic = To_optional_Scheduler_TupleUint32Uint32(fields[2].Value.(registry.DecodedFields))
-
-	out.Priority = To_uint32(fields[3].Value.(registry.DecodedFields))
+	out.Priority = To_uint32(fields[3].Value.(types.U8))
 
 	switch {
 	case matchFields(fields, []int64{66}):
@@ -6283,18 +6288,18 @@ func To_Scheduler_ScheduleNamedCall(in registry.DecodedFields) *pbgear.Scheduler
 
 func To_Scheduler_TupleUint32Uint32(in registry.DecodedFields) *pbgear.Scheduler_TupleUint32Uint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Scheduler_TupleUint32Uint32{}
-	out.Value0 = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.Value1 = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint32(fields[0].Value.(types.U32))
+	out.Value1 = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_Session_PurgeKeysCall(in registry.DecodedFields) *pbgear.Session_PurgeKeysCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Session_PurgeKeysCall{}
@@ -6303,201 +6308,199 @@ func To_Session_PurgeKeysCall(in registry.DecodedFields) *pbgear.Session_PurgeKe
 
 func To_Session_SetKeysCall(in registry.DecodedFields) *pbgear.Session_SetKeysCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Session_SetKeysCall{}
 	out.Keys = To_VaraRuntimeSessionKeys(fields[0].Value.(registry.DecodedFields))
-
 	out.Proof = To_bytes(fields[1].Value.([]interface{}))
 	return out
 }
 
 func To_Signed(in registry.DecodedFields) *pbgear.Signed {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Signed{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_SpArithmeticPerThingsPerU16(in registry.DecodedFields) *pbgear.SpArithmeticPerThingsPerU16 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpArithmeticPerThingsPerU16{}
-	out.Value = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint32(fields[0].Value.(types.U16))
 	return out
 }
 
 func To_SpArithmeticPerThingsPerbill(in registry.DecodedFields) *pbgear.SpArithmeticPerThingsPerbill {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpArithmeticPerThingsPerbill{}
-	out.Value = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_SpArithmeticPerThingsPercent(in registry.DecodedFields) *pbgear.SpArithmeticPerThingsPercent {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpArithmeticPerThingsPercent{}
-	out.Value = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint32(fields[0].Value.(types.U8))
 	return out
 }
 
 func To_SpAuthorityDiscoveryAppPublic(in registry.DecodedFields) *pbgear.SpAuthorityDiscoveryAppPublic {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpAuthorityDiscoveryAppPublic{}
-	out.Value = To_SpCoreSr25519Public(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_SpCoreSr25519Public(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_SpConsensusBabeAppPublic(in registry.DecodedFields) *pbgear.SpConsensusBabeAppPublic {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpConsensusBabeAppPublic{}
-	out.Value = To_SpCoreSr25519Public(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_SpCoreSr25519Public(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_SpConsensusGrandpaAppPublic(in registry.DecodedFields) *pbgear.SpConsensusGrandpaAppPublic {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpConsensusGrandpaAppPublic{}
-	out.Value = To_SpCoreEd25519Public(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_SpCoreEd25519Public(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_SpConsensusGrandpaAppSignature(in registry.DecodedFields) *pbgear.SpConsensusGrandpaAppSignature {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpConsensusGrandpaAppSignature{}
-	out.Value = To_SpCoreEd25519Signature(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_SpCoreEd25519Signature(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_SpConsensusGrandpaEquivocationProof(in registry.DecodedFields) *pbgear.SpConsensusGrandpaEquivocationProof {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpConsensusGrandpaEquivocationProof{}
-	out.SetId = To_uint64(fields[0].Value.(registry.DecodedFields))
-
+	out.SetId = To_uint64(fields[0].Value.(types.U64))
 	out.Equivocation = To_Grandpa_Equivocation(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_SpConsensusSlotsEquivocationProof(in registry.DecodedFields) *pbgear.SpConsensusSlotsEquivocationProof {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpConsensusSlotsEquivocationProof{}
 	out.Offender = To_SpConsensusBabeAppPublic(fields[0].Value.(registry.DecodedFields))
-
 	out.Slot = To_SpConsensusSlotsSlot(fields[1].Value.(registry.DecodedFields))
-
 	out.FirstHeader = To_SpRuntimeGenericHeaderHeader(fields[2].Value.(registry.DecodedFields))
-
 	out.SecondHeader = To_SpRuntimeGenericHeaderHeader(fields[3].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_SpConsensusSlotsSlot(in registry.DecodedFields) *pbgear.SpConsensusSlotsSlot {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpConsensusSlotsSlot{}
-	out.Value = To_uint64(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_uint64(fields[0].Value.(types.U64))
 	return out
 }
 
 func To_SpCoreCryptoAccountId32(in registry.DecodedFields) *pbgear.SpCoreCryptoAccountId32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpCoreCryptoAccountId32{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_SpCoreEd25519Public(in registry.DecodedFields) *pbgear.SpCoreEd25519Public {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpCoreEd25519Public{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_SpCoreEd25519Signature(in registry.DecodedFields) *pbgear.SpCoreEd25519Signature {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpCoreEd25519Signature{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_SpCoreSr25519Public(in registry.DecodedFields) *pbgear.SpCoreSr25519Public {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpCoreSr25519Public{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_SpCoreSr25519Signature(in registry.DecodedFields) *pbgear.SpCoreSr25519Signature {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpCoreSr25519Signature{}
-	out.Value = To_bytes(fields[0].Value.([]interface{}))
+	out.Value0 = To_bytes(fields[0].Value.([]interface{}))
 	return out
 }
 
 func To_SpNposElectionsElectionScore(in registry.DecodedFields) *pbgear.SpNposElectionsElectionScore {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpNposElectionsElectionScore{}
-	out.MinimalStake = To_string(fields[0].Value.(registry.DecodedFields))
-
-	out.SumStake = To_string(fields[1].Value.(registry.DecodedFields))
-
-	out.SumStakeSquared = To_string(fields[2].Value.(registry.DecodedFields))
-
+	out.MinimalStake = To_string(fields[0].Value.(types.U128))
+	out.SumStake = To_string(fields[1].Value.(types.U128))
+	out.SumStakeSquared = To_string(fields[2].Value.(types.U128))
 	return out
 }
 
 func To_SpNposElectionsSupport(in registry.DecodedFields) *pbgear.SpNposElectionsSupport {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpNposElectionsSupport{}
-	out.Total = To_string(fields[0].Value.(registry.DecodedFields))
-
+	out.Total = To_string(fields[0].Value.(types.U128))
 	out.Voters = To_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String(f registry.DecodedFields) []*pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String {
@@ -6513,11 +6516,11 @@ func To_repeated_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String(f
 
 func To_SpRuntimeGenericDigestDigest(in registry.DecodedFields) *pbgear.SpRuntimeGenericDigestDigest {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpRuntimeGenericDigestDigest{}
 	out.Logs = To_repeated_SpRuntimeGenericDigestDigestItem(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_SpRuntimeGenericDigestDigestItem(f registry.DecodedFields) []*pbgear.SpRuntimeGenericDigestDigestItem {
@@ -6533,53 +6536,47 @@ func To_repeated_SpRuntimeGenericDigestDigestItem(f registry.DecodedFields) []*p
 
 func To_SpRuntimeGenericDigestDigestItem(in registry.DecodedFields) *pbgear.SpRuntimeGenericDigestDigestItem {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpRuntimeGenericDigestDigestItem{}
 	out.Logs = To_Babe_Logs(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_SpRuntimeGenericHeaderHeader(in registry.DecodedFields) *pbgear.SpRuntimeGenericHeaderHeader {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpRuntimeGenericHeaderHeader{}
 	out.ParentHash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
-	out.Number = To_CompactUint32(fields[1].Value.(types.UCompact))
-
+	out.Number = To_CompactUint32(fields[1].Value.(registry.DecodedFields))
 	out.StateRoot = To_PrimitiveTypesH256(fields[2].Value.(registry.DecodedFields))
-
 	out.ExtrinsicsRoot = To_PrimitiveTypesH256(fields[3].Value.(registry.DecodedFields))
-
 	out.Digest = To_SpRuntimeGenericDigestDigest(fields[4].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_SpRuntimeMultiaddressMultiAddress(in registry.DecodedFields) *pbgear.SpRuntimeMultiaddressMultiAddress {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpRuntimeMultiaddressMultiAddress{}
 	out.Targets = To_Staking_Targets(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_SpSessionMembershipProof(in registry.DecodedFields) *pbgear.SpSessionMembershipProof {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpSessionMembershipProof{}
-	out.Session = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Session = To_uint32(fields[0].Value.(types.U32))
 	out.TrieNodes = To_repeated_Babe_BabeTrieNodesList(fields[1].Value.(registry.DecodedFields))
-
-	out.ValidatorCount = To_uint32(fields[2].Value.(registry.DecodedFields))
-
+	out.ValidatorCount = To_uint32(fields[2].Value.(types.U32))
 	return out
 }
 func To_repeated_Babe_BabeTrieNodesList(f registry.DecodedFields) []*pbgear.Babe_BabeTrieNodesList {
@@ -6595,18 +6592,18 @@ func To_repeated_Babe_BabeTrieNodesList(f registry.DecodedFields) []*pbgear.Babe
 
 func To_SpWeightsWeightV2Weight(in registry.DecodedFields) *pbgear.SpWeightsWeightV2Weight {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.SpWeightsWeightV2Weight{}
-	out.RefTime = To_CompactUint64(fields[0].Value.(types.UCompact))
-
-	out.ProofSize = To_CompactUint64(fields[1].Value.(types.UCompact))
-
+	out.RefTime = To_CompactUint64(fields[0].Value.(registry.DecodedFields))
+	out.ProofSize = To_CompactUint64(fields[1].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_StakingRewards_Address20(in registry.DecodedFields) *pbgear.StakingRewards_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_Address20{}
@@ -6616,6 +6613,7 @@ func To_StakingRewards_Address20(in registry.DecodedFields) *pbgear.StakingRewar
 
 func To_StakingRewards_Address32(in registry.DecodedFields) *pbgear.StakingRewards_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_Address32{}
@@ -6625,15 +6623,15 @@ func To_StakingRewards_Address32(in registry.DecodedFields) *pbgear.StakingRewar
 
 func To_StakingRewards_AlignSupplyCall(in registry.DecodedFields) *pbgear.StakingRewards_AlignSupplyCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_AlignSupplyCall{}
-	out.Target = To_string(fields[0].Value.(registry.DecodedFields))
-
+	out.Target = To_string(fields[0].Value.(types.U128))
 	return out
 }
 
-func To_StakingRewards_CompactTupleNull(in types.UCompact) *pbgear.StakingRewards_CompactTupleNull {
+func To_StakingRewards_CompactTupleNull(in registry.DecodedFields) *pbgear.StakingRewards_CompactTupleNull {
 
 	out := &pbgear.StakingRewards_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -6642,18 +6640,18 @@ func To_StakingRewards_CompactTupleNull(in types.UCompact) *pbgear.StakingReward
 
 func To_StakingRewards_ForceRefillCall(in registry.DecodedFields) *pbgear.StakingRewards_ForceRefillCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_ForceRefillCall{}
 	out.From = To_StakingRewards_From(fields[0].Value.(registry.DecodedFields))
-
-	out.Value = To_string(fields[1].Value.(registry.DecodedFields))
-
+	out.Value = To_string(fields[1].Value.(types.U128))
 	return out
 }
 
 func To_StakingRewards_From(in registry.DecodedFields) *pbgear.StakingRewards_From {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_From{}
@@ -6685,26 +6683,27 @@ func To_StakingRewards_From(in registry.DecodedFields) *pbgear.StakingRewards_Fr
 
 func To_StakingRewards_Id(in registry.DecodedFields) *pbgear.StakingRewards_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_StakingRewards_Index(in registry.DecodedFields) *pbgear.StakingRewards_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_Index{}
-	out.Value0 = To_StakingRewards_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_StakingRewards_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_StakingRewards_Raw(in registry.DecodedFields) *pbgear.StakingRewards_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_Raw{}
@@ -6714,16 +6713,17 @@ func To_StakingRewards_Raw(in registry.DecodedFields) *pbgear.StakingRewards_Raw
 
 func To_StakingRewards_RefillCall(in registry.DecodedFields) *pbgear.StakingRewards_RefillCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_RefillCall{}
-	out.Value = To_string(fields[0].Value.(registry.DecodedFields))
-
+	out.Value = To_string(fields[0].Value.(types.U128))
 	return out
 }
 
 func To_StakingRewards_To(in registry.DecodedFields) *pbgear.StakingRewards_To {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_To{}
@@ -6755,28 +6755,28 @@ func To_StakingRewards_To(in registry.DecodedFields) *pbgear.StakingRewards_To {
 
 func To_StakingRewards_WithdrawCall(in registry.DecodedFields) *pbgear.StakingRewards_WithdrawCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.StakingRewards_WithdrawCall{}
 	out.To = To_StakingRewards_To(fields[0].Value.(registry.DecodedFields))
-
-	out.Value = To_string(fields[1].Value.(registry.DecodedFields))
-
+	out.Value = To_string(fields[1].Value.(types.U128))
 	return out
 }
 
 func To_Staking_Account(in registry.DecodedFields) *pbgear.Staking_Account {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Account{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_Address20(in registry.DecodedFields) *pbgear.Staking_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Address20{}
@@ -6786,6 +6786,7 @@ func To_Staking_Address20(in registry.DecodedFields) *pbgear.Staking_Address20 {
 
 func To_Staking_Address32(in registry.DecodedFields) *pbgear.Staking_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Address32{}
@@ -6795,40 +6796,39 @@ func To_Staking_Address32(in registry.DecodedFields) *pbgear.Staking_Address32 {
 
 func To_Staking_BondCall(in registry.DecodedFields) *pbgear.Staking_BondCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_BondCall{}
-	out.Value = To_CompactString(fields[0].Value.(types.UCompact))
-
+	out.Value = To_CompactString(fields[0].Value.(registry.DecodedFields))
 	out.Payee = To_Staking_Payee(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_BondExtraCall(in registry.DecodedFields) *pbgear.Staking_BondExtraCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_BondExtraCall{}
-	out.MaxAdditional = To_CompactString(fields[0].Value.(types.UCompact))
-
+	out.MaxAdditional = To_CompactString(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Staking_CancelDeferredSlashCall(in registry.DecodedFields) *pbgear.Staking_CancelDeferredSlashCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_CancelDeferredSlashCall{}
-	out.Era = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.SlashIndices = To_repeated_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Era = To_uint32(fields[0].Value.(types.U32))
+	out.SlashIndices = To_repeated_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_Staking_ChillCall(in registry.DecodedFields) *pbgear.Staking_ChillCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ChillCall{}
@@ -6837,16 +6837,17 @@ func To_Staking_ChillCall(in registry.DecodedFields) *pbgear.Staking_ChillCall {
 
 func To_Staking_ChillOtherCall(in registry.DecodedFields) *pbgear.Staking_ChillOtherCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ChillOtherCall{}
 	out.Controller = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_ChillThreshold(in registry.DecodedFields) *pbgear.Staking_ChillThreshold {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ChillThreshold{}
@@ -6860,7 +6861,7 @@ func To_Staking_ChillThreshold(in registry.DecodedFields) *pbgear.Staking_ChillT
 	return out
 }
 
-func To_Staking_CompactTupleNull(in types.UCompact) *pbgear.Staking_CompactTupleNull {
+func To_Staking_CompactTupleNull(in registry.DecodedFields) *pbgear.Staking_CompactTupleNull {
 
 	out := &pbgear.Staking_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -6869,6 +6870,7 @@ func To_Staking_CompactTupleNull(in types.UCompact) *pbgear.Staking_CompactTuple
 
 func To_Staking_Controller(in registry.DecodedFields) *pbgear.Staking_Controller {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Controller{}
@@ -6877,16 +6879,17 @@ func To_Staking_Controller(in registry.DecodedFields) *pbgear.Staking_Controller
 
 func To_Staking_ForceApplyMinCommissionCall(in registry.DecodedFields) *pbgear.Staking_ForceApplyMinCommissionCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ForceApplyMinCommissionCall{}
 	out.ValidatorStash = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_ForceNewEraAlwaysCall(in registry.DecodedFields) *pbgear.Staking_ForceNewEraAlwaysCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ForceNewEraAlwaysCall{}
@@ -6895,6 +6898,7 @@ func To_Staking_ForceNewEraAlwaysCall(in registry.DecodedFields) *pbgear.Staking
 
 func To_Staking_ForceNewEraCall(in registry.DecodedFields) *pbgear.Staking_ForceNewEraCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ForceNewEraCall{}
@@ -6903,6 +6907,7 @@ func To_Staking_ForceNewEraCall(in registry.DecodedFields) *pbgear.Staking_Force
 
 func To_Staking_ForceNoErasCall(in registry.DecodedFields) *pbgear.Staking_ForceNoErasCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ForceNoErasCall{}
@@ -6911,53 +6916,52 @@ func To_Staking_ForceNoErasCall(in registry.DecodedFields) *pbgear.Staking_Force
 
 func To_Staking_ForceUnstakeCall(in registry.DecodedFields) *pbgear.Staking_ForceUnstakeCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ForceUnstakeCall{}
 	out.Stash = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
-	out.NumSlashingSpans = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.NumSlashingSpans = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_Staking_Id(in registry.DecodedFields) *pbgear.Staking_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_IncreaseValidatorCountCall(in registry.DecodedFields) *pbgear.Staking_IncreaseValidatorCountCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_IncreaseValidatorCountCall{}
-	out.Additional = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.Additional = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Staking_Index(in registry.DecodedFields) *pbgear.Staking_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Index{}
-	out.Value0 = To_Staking_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_Staking_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Staking_KickCall(in registry.DecodedFields) *pbgear.Staking_KickCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_KickCall{}
 	out.Who = To_repeated_SpRuntimeMultiaddressMultiAddress(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_SpRuntimeMultiaddressMultiAddress(f registry.DecodedFields) []*pbgear.SpRuntimeMultiaddressMultiAddress {
@@ -6973,6 +6977,7 @@ func To_repeated_SpRuntimeMultiaddressMultiAddress(f registry.DecodedFields) []*
 
 func To_Staking_MaxNominatorCount(in registry.DecodedFields) *pbgear.Staking_MaxNominatorCount {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_MaxNominatorCount{}
@@ -6988,6 +6993,7 @@ func To_Staking_MaxNominatorCount(in registry.DecodedFields) *pbgear.Staking_Max
 
 func To_Staking_MaxValidatorCount(in registry.DecodedFields) *pbgear.Staking_MaxValidatorCount {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_MaxValidatorCount{}
@@ -7003,6 +7009,7 @@ func To_Staking_MaxValidatorCount(in registry.DecodedFields) *pbgear.Staking_Max
 
 func To_Staking_MinCommission(in registry.DecodedFields) *pbgear.Staking_MinCommission {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_MinCommission{}
@@ -7018,6 +7025,7 @@ func To_Staking_MinCommission(in registry.DecodedFields) *pbgear.Staking_MinComm
 
 func To_Staking_MinNominatorBond(in registry.DecodedFields) *pbgear.Staking_MinNominatorBond {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_MinNominatorBond{}
@@ -7033,6 +7041,7 @@ func To_Staking_MinNominatorBond(in registry.DecodedFields) *pbgear.Staking_MinN
 
 func To_Staking_MinValidatorBond(in registry.DecodedFields) *pbgear.Staking_MinValidatorBond {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_MinValidatorBond{}
@@ -7048,16 +7057,17 @@ func To_Staking_MinValidatorBond(in registry.DecodedFields) *pbgear.Staking_MinV
 
 func To_Staking_NominateCall(in registry.DecodedFields) *pbgear.Staking_NominateCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_NominateCall{}
 	out.Targets = To_repeated_SpRuntimeMultiaddressMultiAddress(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_None(in registry.DecodedFields) *pbgear.Staking_None {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_None{}
@@ -7066,6 +7076,7 @@ func To_Staking_None(in registry.DecodedFields) *pbgear.Staking_None {
 
 func To_Staking_Noop(in registry.DecodedFields) *pbgear.Staking_Noop {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Noop{}
@@ -7074,18 +7085,18 @@ func To_Staking_Noop(in registry.DecodedFields) *pbgear.Staking_Noop {
 
 func To_Staking_PalletStakingValidatorPrefs(in registry.DecodedFields) *pbgear.Staking_PalletStakingValidatorPrefs {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_PalletStakingValidatorPrefs{}
-	out.Commission = To_CompactSpArithmeticPerThingsPerbill(fields[0].Value.(types.UCompact))
-
-	out.Blocked = To_bool(fields[1].Value.(registry.DecodedFields))
-
+	out.Commission = To_CompactSpArithmeticPerThingsPerbill(fields[0].Value.(registry.DecodedFields))
+	out.Blocked = To_bool(fields[1].Value.(types.Bool))
 	return out
 }
 
 func To_Staking_Payee(in registry.DecodedFields) *pbgear.Staking_Payee {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Payee{}
@@ -7101,18 +7112,18 @@ func To_Staking_Payee(in registry.DecodedFields) *pbgear.Staking_Payee {
 
 func To_Staking_PayoutStakersCall(in registry.DecodedFields) *pbgear.Staking_PayoutStakersCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_PayoutStakersCall{}
 	out.ValidatorStash = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
-	out.Era = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Era = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_Staking_Raw(in registry.DecodedFields) *pbgear.Staking_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Raw{}
@@ -7122,28 +7133,28 @@ func To_Staking_Raw(in registry.DecodedFields) *pbgear.Staking_Raw {
 
 func To_Staking_ReapStashCall(in registry.DecodedFields) *pbgear.Staking_ReapStashCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ReapStashCall{}
 	out.Stash = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
-	out.NumSlashingSpans = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.NumSlashingSpans = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_Staking_RebondCall(in registry.DecodedFields) *pbgear.Staking_RebondCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_RebondCall{}
-	out.Value = To_CompactString(fields[0].Value.(types.UCompact))
-
+	out.Value = To_CompactString(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Staking_Remove(in registry.DecodedFields) *pbgear.Staking_Remove {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Remove{}
@@ -7152,26 +7163,27 @@ func To_Staking_Remove(in registry.DecodedFields) *pbgear.Staking_Remove {
 
 func To_Staking_ScaleValidatorCountCall(in registry.DecodedFields) *pbgear.Staking_ScaleValidatorCountCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ScaleValidatorCountCall{}
 	out.Factor = To_SpArithmeticPerThingsPercent(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_Set(in registry.DecodedFields) *pbgear.Staking_Set {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Set{}
-	out.Value0 = To_string(fields[0].Value.(registry.DecodedFields))
-
+	out.Value0 = To_string(fields[0].Value.(types.U128))
 	return out
 }
 
 func To_Staking_SetControllerCall(in registry.DecodedFields) *pbgear.Staking_SetControllerCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_SetControllerCall{}
@@ -7180,66 +7192,62 @@ func To_Staking_SetControllerCall(in registry.DecodedFields) *pbgear.Staking_Set
 
 func To_Staking_SetInvulnerablesCall(in registry.DecodedFields) *pbgear.Staking_SetInvulnerablesCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_SetInvulnerablesCall{}
 	out.Invulnerables = To_repeated_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_SetMinCommissionCall(in registry.DecodedFields) *pbgear.Staking_SetMinCommissionCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_SetMinCommissionCall{}
 	out.New = To_SpArithmeticPerThingsPerbill(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_SetPayeeCall(in registry.DecodedFields) *pbgear.Staking_SetPayeeCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_SetPayeeCall{}
 	out.Payee = To_Staking_Payee(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_SetStakingConfigsCall(in registry.DecodedFields) *pbgear.Staking_SetStakingConfigsCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_SetStakingConfigsCall{}
 	out.MinNominatorBond = To_Staking_MinNominatorBond(fields[0].Value.(registry.DecodedFields))
-
 	out.MinValidatorBond = To_Staking_MinValidatorBond(fields[1].Value.(registry.DecodedFields))
-
 	out.MaxNominatorCount = To_Staking_MaxNominatorCount(fields[2].Value.(registry.DecodedFields))
-
 	out.MaxValidatorCount = To_Staking_MaxValidatorCount(fields[3].Value.(registry.DecodedFields))
-
 	out.ChillThreshold = To_Staking_ChillThreshold(fields[4].Value.(registry.DecodedFields))
-
 	out.MinCommission = To_Staking_MinCommission(fields[5].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_SetValidatorCountCall(in registry.DecodedFields) *pbgear.Staking_SetValidatorCountCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_SetValidatorCountCall{}
-	out.New = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.New = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Staking_Staked(in registry.DecodedFields) *pbgear.Staking_Staked {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Staked{}
@@ -7248,6 +7256,7 @@ func To_Staking_Staked(in registry.DecodedFields) *pbgear.Staking_Staked {
 
 func To_Staking_Stash(in registry.DecodedFields) *pbgear.Staking_Stash {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Stash{}
@@ -7256,6 +7265,7 @@ func To_Staking_Stash(in registry.DecodedFields) *pbgear.Staking_Stash {
 
 func To_Staking_Targets(in registry.DecodedFields) *pbgear.Staking_Targets {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Targets{}
@@ -7287,26 +7297,27 @@ func To_Staking_Targets(in registry.DecodedFields) *pbgear.Staking_Targets {
 
 func To_Staking_UnbondCall(in registry.DecodedFields) *pbgear.Staking_UnbondCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_UnbondCall{}
-	out.Value = To_CompactString(fields[0].Value.(types.UCompact))
-
+	out.Value = To_CompactString(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Staking_ValidateCall(in registry.DecodedFields) *pbgear.Staking_ValidateCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_ValidateCall{}
 	out.Prefs = To_Staking_PalletStakingValidatorPrefs(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Staking_Who(in registry.DecodedFields) *pbgear.Staking_Who {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_Who{}
@@ -7338,32 +7349,32 @@ func To_Staking_Who(in registry.DecodedFields) *pbgear.Staking_Who {
 
 func To_Staking_WithdrawUnbondedCall(in registry.DecodedFields) *pbgear.Staking_WithdrawUnbondedCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Staking_WithdrawUnbondedCall{}
-	out.NumSlashingSpans = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.NumSlashingSpans = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_System_KillPrefixCall(in registry.DecodedFields) *pbgear.System_KillPrefixCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_KillPrefixCall{}
 	out.Prefix = To_bytes(fields[0].Value.([]interface{}))
-	out.Subkeys = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Subkeys = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_System_KillStorageCall(in registry.DecodedFields) *pbgear.System_KillStorageCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_KillStorageCall{}
 	out.Keys = To_repeated_System_SystemKeysList(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_System_SystemKeysList(f registry.DecodedFields) []*pbgear.System_SystemKeysList {
@@ -7379,6 +7390,7 @@ func To_repeated_System_SystemKeysList(f registry.DecodedFields) []*pbgear.Syste
 
 func To_System_RemarkCall(in registry.DecodedFields) *pbgear.System_RemarkCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_RemarkCall{}
@@ -7388,6 +7400,7 @@ func To_System_RemarkCall(in registry.DecodedFields) *pbgear.System_RemarkCall {
 
 func To_System_RemarkWithEventCall(in registry.DecodedFields) *pbgear.System_RemarkWithEventCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_RemarkWithEventCall{}
@@ -7397,6 +7410,7 @@ func To_System_RemarkWithEventCall(in registry.DecodedFields) *pbgear.System_Rem
 
 func To_System_SetCodeCall(in registry.DecodedFields) *pbgear.System_SetCodeCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_SetCodeCall{}
@@ -7406,6 +7420,7 @@ func To_System_SetCodeCall(in registry.DecodedFields) *pbgear.System_SetCodeCall
 
 func To_System_SetCodeWithoutChecksCall(in registry.DecodedFields) *pbgear.System_SetCodeWithoutChecksCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_SetCodeWithoutChecksCall{}
@@ -7415,21 +7430,21 @@ func To_System_SetCodeWithoutChecksCall(in registry.DecodedFields) *pbgear.Syste
 
 func To_System_SetHeapPagesCall(in registry.DecodedFields) *pbgear.System_SetHeapPagesCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_SetHeapPagesCall{}
-	out.Pages = To_uint64(fields[0].Value.(registry.DecodedFields))
-
+	out.Pages = To_uint64(fields[0].Value.(types.U64))
 	return out
 }
 
 func To_System_SetStorageCall(in registry.DecodedFields) *pbgear.System_SetStorageCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_SetStorageCall{}
 	out.Items = To_repeated_System_TupleSystemItemsListSystemItemsList(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_System_TupleSystemItemsListSystemItemsList(f registry.DecodedFields) []*pbgear.System_TupleSystemItemsListSystemItemsList {
@@ -7445,6 +7460,7 @@ func To_repeated_System_TupleSystemItemsListSystemItemsList(f registry.DecodedFi
 
 func To_System_SystemKeysList(in registry.DecodedFields) *pbgear.System_SystemKeysList {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_SystemKeysList{}
@@ -7454,6 +7470,7 @@ func To_System_SystemKeysList(in registry.DecodedFields) *pbgear.System_SystemKe
 
 func To_System_TupleSystemItemsListSystemItemsList(in registry.DecodedFields) *pbgear.System_TupleSystemItemsListSystemItemsList {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.System_TupleSystemItemsListSystemItemsList{}
@@ -7464,16 +7481,17 @@ func To_System_TupleSystemItemsListSystemItemsList(in registry.DecodedFields) *p
 
 func To_Timestamp_SetCall(in registry.DecodedFields) *pbgear.Timestamp_SetCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Timestamp_SetCall{}
-	out.Now = To_CompactUint64(fields[0].Value.(types.UCompact))
-
+	out.Now = To_CompactUint64(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Treasury_Address20(in registry.DecodedFields) *pbgear.Treasury_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_Address20{}
@@ -7483,6 +7501,7 @@ func To_Treasury_Address20(in registry.DecodedFields) *pbgear.Treasury_Address20
 
 func To_Treasury_Address32(in registry.DecodedFields) *pbgear.Treasury_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_Address32{}
@@ -7492,16 +7511,17 @@ func To_Treasury_Address32(in registry.DecodedFields) *pbgear.Treasury_Address32
 
 func To_Treasury_ApproveProposalCall(in registry.DecodedFields) *pbgear.Treasury_ApproveProposalCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_ApproveProposalCall{}
-	out.ProposalId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.ProposalId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Treasury_Beneficiary(in registry.DecodedFields) *pbgear.Treasury_Beneficiary {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_Beneficiary{}
@@ -7533,15 +7553,15 @@ func To_Treasury_Beneficiary(in registry.DecodedFields) *pbgear.Treasury_Benefic
 
 func To_Treasury_CheckStatusCall(in registry.DecodedFields) *pbgear.Treasury_CheckStatusCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_CheckStatusCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
-func To_Treasury_CompactTupleNull(in types.UCompact) *pbgear.Treasury_CompactTupleNull {
+func To_Treasury_CompactTupleNull(in registry.DecodedFields) *pbgear.Treasury_CompactTupleNull {
 
 	out := &pbgear.Treasury_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -7550,48 +7570,48 @@ func To_Treasury_CompactTupleNull(in types.UCompact) *pbgear.Treasury_CompactTup
 
 func To_Treasury_Id(in registry.DecodedFields) *pbgear.Treasury_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Treasury_Index(in registry.DecodedFields) *pbgear.Treasury_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_Index{}
-	out.Value0 = To_Treasury_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_Treasury_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Treasury_PayoutCall(in registry.DecodedFields) *pbgear.Treasury_PayoutCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_PayoutCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Treasury_ProposeSpendCall(in registry.DecodedFields) *pbgear.Treasury_ProposeSpendCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_ProposeSpendCall{}
-	out.Value = To_CompactString(fields[0].Value.(types.UCompact))
-
+	out.Value = To_CompactString(fields[0].Value.(registry.DecodedFields))
 	out.Beneficiary = To_Treasury_Beneficiary(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Treasury_Raw(in registry.DecodedFields) *pbgear.Treasury_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_Raw{}
@@ -7601,91 +7621,83 @@ func To_Treasury_Raw(in registry.DecodedFields) *pbgear.Treasury_Raw {
 
 func To_Treasury_RejectProposalCall(in registry.DecodedFields) *pbgear.Treasury_RejectProposalCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_RejectProposalCall{}
-	out.ProposalId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.ProposalId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Treasury_RemoveApprovalCall(in registry.DecodedFields) *pbgear.Treasury_RemoveApprovalCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_RemoveApprovalCall{}
-	out.ProposalId = To_CompactUint32(fields[0].Value.(types.UCompact))
-
+	out.ProposalId = To_CompactUint32(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Treasury_SpendCall(in registry.DecodedFields) *pbgear.Treasury_SpendCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_SpendCall{}
 	out.AssetKind = To_Treasury_TupleNull(fields[0].Value.(registry.DecodedFields))
-
-	out.Amount = To_CompactString(fields[1].Value.(types.UCompact))
-
+	out.Amount = To_CompactString(fields[1].Value.(registry.DecodedFields))
 	out.Beneficiary = To_SpCoreCryptoAccountId32(fields[2].Value.(registry.DecodedFields))
-
-	out.ValidFrom = To_optional_uint32(fields[3].Value.(registry.DecodedFields))
-
+	out.ValidFrom = To_optional_uint32(fields[3].Value.(types.U32))
 	return out
 }
 
 func To_Treasury_SpendLocalCall(in registry.DecodedFields) *pbgear.Treasury_SpendLocalCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_SpendLocalCall{}
-	out.Amount = To_CompactString(fields[0].Value.(types.UCompact))
-
+	out.Amount = To_CompactString(fields[0].Value.(registry.DecodedFields))
 	out.Beneficiary = To_Treasury_Beneficiary(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Treasury_TupleNull(in registry.DecodedFields) *pbgear.Treasury_TupleNull {
 
-	fields := []*registry.DecodedField(in)
-	_ = fields
 	out := &pbgear.Treasury_TupleNull{}
 	return out
 }
 
 func To_Treasury_VoidSpendCall(in registry.DecodedFields) *pbgear.Treasury_VoidSpendCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Treasury_VoidSpendCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.Index = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_TupleFinalityGrandpaPrecommitspConsensusGrandpaAppSignature(in registry.DecodedFields) *pbgear.TupleFinalityGrandpaPrecommitspConsensusGrandpaAppSignature {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.TupleFinalityGrandpaPrecommitspConsensusGrandpaAppSignature{}
 	out.Value0 = To_FinalityGrandpaPrecommit(fields[0].Value.(registry.DecodedFields))
-
 	out.Value1 = To_SpConsensusGrandpaAppSignature(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(in registry.DecodedFields) *pbgear.TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature{}
 	out.Value0 = To_FinalityGrandpaPrevote(fields[0].Value.(registry.DecodedFields))
-
 	out.Value1 = To_SpConsensusGrandpaAppSignature(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
@@ -7697,20 +7709,21 @@ func To_TupleNull() *pbgear.TupleNull {
 
 func To_Uint32(in registry.DecodedFields) *pbgear.Uint32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Uint32{}
-	out.SlashIndices = To_uint32(fields[0].Value.(registry.DecodedFields))
-
+	out.SlashIndices = To_uint32(fields[0].Value.(types.U32))
 	return out
 }
 
 func To_Utility_AsDerivativeCall(in registry.DecodedFields) *pbgear.Utility_AsDerivativeCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_AsDerivativeCall{}
-	out.Index = To_uint32(fields[0].Value.(registry.DecodedFields))
+	out.Index = To_uint32(fields[0].Value.(types.U16))
 
 	switch {
 	case matchFields(fields, []int64{66}):
@@ -7835,6 +7848,7 @@ func To_Utility_AsDerivativeCall(in registry.DecodedFields) *pbgear.Utility_AsDe
 
 func To_Utility_AsOrigin(in registry.DecodedFields) *pbgear.Utility_AsOrigin {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_AsOrigin{}
@@ -7858,11 +7872,11 @@ func To_Utility_AsOrigin(in registry.DecodedFields) *pbgear.Utility_AsOrigin {
 
 func To_Utility_BatchAllCall(in registry.DecodedFields) *pbgear.Utility_BatchAllCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_BatchAllCall{}
 	out.Calls = To_repeated_VaraRuntimeRuntimeCall(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_VaraRuntimeRuntimeCall(f registry.DecodedFields) []*pbgear.VaraRuntimeRuntimeCall {
@@ -7878,16 +7892,17 @@ func To_repeated_VaraRuntimeRuntimeCall(f registry.DecodedFields) []*pbgear.Vara
 
 func To_Utility_BatchCall(in registry.DecodedFields) *pbgear.Utility_BatchCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_BatchCall{}
 	out.Calls = To_repeated_VaraRuntimeRuntimeCall(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Utility_DispatchAsCall(in registry.DecodedFields) *pbgear.Utility_DispatchAsCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_DispatchAsCall{}
@@ -8016,46 +8031,47 @@ func To_Utility_DispatchAsCall(in registry.DecodedFields) *pbgear.Utility_Dispat
 
 func To_Utility_ForceBatchCall(in registry.DecodedFields) *pbgear.Utility_ForceBatchCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_ForceBatchCall{}
 	out.Calls = To_repeated_VaraRuntimeRuntimeCall(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Utility_Origins(in registry.DecodedFields) *pbgear.Utility_Origins {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_Origins{}
 	out.Value0 = To_Value0(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Utility_System(in registry.DecodedFields) *pbgear.Utility_System {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_System{}
 	out.Value0 = To_Value0(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Utility_Void(in registry.DecodedFields) *pbgear.Utility_Void {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_Void{}
 	out.Value0 = To_Value0(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Utility_WithWeightCall(in registry.DecodedFields) *pbgear.Utility_WithWeightCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Utility_WithWeightCall{}
@@ -8179,12 +8195,12 @@ func To_Utility_WithWeightCall(in registry.DecodedFields) *pbgear.Utility_WithWe
 		}
 	}
 	out.Weight = To_SpWeightsWeightV2Weight(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Value0(in registry.DecodedFields) *pbgear.Value0 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Value0{}
@@ -8200,41 +8216,26 @@ func To_Value0(in registry.DecodedFields) *pbgear.Value0 {
 
 func To_VaraRuntimeNposSolution16(in registry.DecodedFields) *pbgear.VaraRuntimeNposSolution16 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.VaraRuntimeNposSolution16{}
 	out.Votes1 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactUint32(fields[0].Value.(registry.DecodedFields))
-
 	out.Votes2 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32TupleCompactUint32CompactSpArithmeticPerThingsPerU16CompactUint32(fields[1].Value.(registry.DecodedFields))
-
 	out.Votes3 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes3ListCompactUint32(fields[2].Value.(registry.DecodedFields))
-
 	out.Votes4 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes4ListCompactUint32(fields[3].Value.(registry.DecodedFields))
-
 	out.Votes5 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes5ListCompactUint32(fields[4].Value.(registry.DecodedFields))
-
 	out.Votes6 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes6ListCompactUint32(fields[5].Value.(registry.DecodedFields))
-
 	out.Votes7 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes7ListCompactUint32(fields[6].Value.(registry.DecodedFields))
-
 	out.Votes8 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes8ListCompactUint32(fields[7].Value.(registry.DecodedFields))
-
 	out.Votes9 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes9ListCompactUint32(fields[8].Value.(registry.DecodedFields))
-
 	out.Votes10 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes10ListCompactUint32(fields[9].Value.(registry.DecodedFields))
-
 	out.Votes11 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes11ListCompactUint32(fields[10].Value.(registry.DecodedFields))
-
 	out.Votes12 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes12ListCompactUint32(fields[11].Value.(registry.DecodedFields))
-
 	out.Votes13 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes13ListCompactUint32(fields[12].Value.(registry.DecodedFields))
-
 	out.Votes14 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes14ListCompactUint32(fields[13].Value.(registry.DecodedFields))
-
 	out.Votes15 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes15ListCompactUint32(fields[14].Value.(registry.DecodedFields))
-
 	out.Votes16 = To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMultiPhaseVotes16ListCompactUint32(fields[15].Value.(registry.DecodedFields))
-
 	return out
 }
 func To_repeated_ElectionProviderMultiPhase_TupleCompactUint32CompactUint32(f registry.DecodedFields) []*pbgear.ElectionProviderMultiPhase_TupleCompactUint32CompactUint32 {
@@ -8400,6 +8401,7 @@ func To_repeated_ElectionProviderMultiPhase_TupleCompactUint32ElectionProviderMu
 
 func To_VaraRuntimeRuntimeCall(in registry.DecodedFields) *pbgear.VaraRuntimeRuntimeCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.VaraRuntimeRuntimeCall{}
@@ -8527,22 +8529,20 @@ func To_VaraRuntimeRuntimeCall(in registry.DecodedFields) *pbgear.VaraRuntimeRun
 
 func To_VaraRuntimeSessionKeys(in registry.DecodedFields) *pbgear.VaraRuntimeSessionKeys {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.VaraRuntimeSessionKeys{}
 	out.Babe = To_SpConsensusBabeAppPublic(fields[0].Value.(registry.DecodedFields))
-
 	out.Grandpa = To_SpConsensusGrandpaAppPublic(fields[1].Value.(registry.DecodedFields))
-
 	out.ImOnline = To_ImOnline_PalletImOnlineSr25519AppSr25519Public(fields[2].Value.(registry.DecodedFields))
-
 	out.AuthorityDiscovery = To_SpAuthorityDiscoveryAppPublic(fields[3].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Vesting_Address20(in registry.DecodedFields) *pbgear.Vesting_Address20 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_Address20{}
@@ -8552,6 +8552,7 @@ func To_Vesting_Address20(in registry.DecodedFields) *pbgear.Vesting_Address20 {
 
 func To_Vesting_Address32(in registry.DecodedFields) *pbgear.Vesting_Address32 {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_Address32{}
@@ -8559,7 +8560,7 @@ func To_Vesting_Address32(in registry.DecodedFields) *pbgear.Vesting_Address32 {
 	return out
 }
 
-func To_Vesting_CompactTupleNull(in types.UCompact) *pbgear.Vesting_CompactTupleNull {
+func To_Vesting_CompactTupleNull(in registry.DecodedFields) *pbgear.Vesting_CompactTupleNull {
 
 	out := &pbgear.Vesting_CompactTupleNull{}
 	out.Value = To_TupleNull()
@@ -8568,66 +8569,62 @@ func To_Vesting_CompactTupleNull(in types.UCompact) *pbgear.Vesting_CompactTuple
 
 func To_Vesting_ForceVestedTransferCall(in registry.DecodedFields) *pbgear.Vesting_ForceVestedTransferCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_ForceVestedTransferCall{}
 	out.Source = To_Vesting_Source(fields[0].Value.(registry.DecodedFields))
-
 	out.Target = To_Vesting_Target(fields[1].Value.(registry.DecodedFields))
-
 	out.Schedule = To_Vesting_PalletVestingVestingInfoVestingInfo(fields[2].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Vesting_Id(in registry.DecodedFields) *pbgear.Vesting_Id {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_Id{}
 	out.Value0 = To_SpCoreCryptoAccountId32(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Vesting_Index(in registry.DecodedFields) *pbgear.Vesting_Index {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_Index{}
-	out.Value0 = To_Vesting_CompactTupleNull(fields[0].Value.(types.UCompact))
-
+	out.Value0 = To_Vesting_CompactTupleNull(fields[0].Value.(registry.DecodedFields))
 	return out
 }
 
 func To_Vesting_MergeSchedulesCall(in registry.DecodedFields) *pbgear.Vesting_MergeSchedulesCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_MergeSchedulesCall{}
-	out.Schedule1Index = To_uint32(fields[0].Value.(registry.DecodedFields))
-
-	out.Schedule2Index = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.Schedule1Index = To_uint32(fields[0].Value.(types.U32))
+	out.Schedule2Index = To_uint32(fields[1].Value.(types.U32))
 	return out
 }
 
 func To_Vesting_PalletVestingVestingInfoVestingInfo(in registry.DecodedFields) *pbgear.Vesting_PalletVestingVestingInfoVestingInfo {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_PalletVestingVestingInfoVestingInfo{}
-	out.Locked = To_string(fields[0].Value.(registry.DecodedFields))
-
-	out.PerBlock = To_string(fields[1].Value.(registry.DecodedFields))
-
-	out.StartingBlock = To_uint32(fields[2].Value.(registry.DecodedFields))
-
+	out.Locked = To_string(fields[0].Value.(types.U128))
+	out.PerBlock = To_string(fields[1].Value.(types.U128))
+	out.StartingBlock = To_uint32(fields[2].Value.(types.U32))
 	return out
 }
 
 func To_Vesting_Raw(in registry.DecodedFields) *pbgear.Vesting_Raw {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_Raw{}
@@ -8637,6 +8634,7 @@ func To_Vesting_Raw(in registry.DecodedFields) *pbgear.Vesting_Raw {
 
 func To_Vesting_Source(in registry.DecodedFields) *pbgear.Vesting_Source {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_Source{}
@@ -8668,6 +8666,7 @@ func To_Vesting_Source(in registry.DecodedFields) *pbgear.Vesting_Source {
 
 func To_Vesting_Target(in registry.DecodedFields) *pbgear.Vesting_Target {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_Target{}
@@ -8699,6 +8698,7 @@ func To_Vesting_Target(in registry.DecodedFields) *pbgear.Vesting_Target {
 
 func To_Vesting_VestCall(in registry.DecodedFields) *pbgear.Vesting_VestCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_VestCall{}
@@ -8707,42 +8707,40 @@ func To_Vesting_VestCall(in registry.DecodedFields) *pbgear.Vesting_VestCall {
 
 func To_Vesting_VestOtherCall(in registry.DecodedFields) *pbgear.Vesting_VestOtherCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_VestOtherCall{}
 	out.Target = To_Vesting_Target(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Vesting_VestedTransferCall(in registry.DecodedFields) *pbgear.Vesting_VestedTransferCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Vesting_VestedTransferCall{}
 	out.Target = To_Vesting_Target(fields[0].Value.(registry.DecodedFields))
-
 	out.Schedule = To_Vesting_PalletVestingVestingInfoVestingInfo(fields[1].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Whitelist_DispatchWhitelistedCallCall(in registry.DecodedFields) *pbgear.Whitelist_DispatchWhitelistedCallCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Whitelist_DispatchWhitelistedCallCall{}
 	out.CallHash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
-	out.CallEncodedLen = To_uint32(fields[1].Value.(registry.DecodedFields))
-
+	out.CallEncodedLen = To_uint32(fields[1].Value.(types.U32))
 	out.CallWeightWitness = To_SpWeightsWeightV2Weight(fields[2].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Whitelist_DispatchWhitelistedCallWithPreimageCall(in registry.DecodedFields) *pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall{}
@@ -8870,21 +8868,21 @@ func To_Whitelist_DispatchWhitelistedCallWithPreimageCall(in registry.DecodedFie
 
 func To_Whitelist_RemoveWhitelistedCallCall(in registry.DecodedFields) *pbgear.Whitelist_RemoveWhitelistedCallCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Whitelist_RemoveWhitelistedCallCall{}
 	out.CallHash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
 func To_Whitelist_WhitelistCallCall(in registry.DecodedFields) *pbgear.Whitelist_WhitelistCallCall {
 
+	// funcBody
 	fields := []*registry.DecodedField(in)
 	_ = fields
 	out := &pbgear.Whitelist_WhitelistCallCall{}
 	out.CallHash = To_PrimitiveTypesH256(fields[0].Value.(registry.DecodedFields))
-
 	return out
 }
 
@@ -8911,61 +8909,100 @@ func To_bytes(f []interface{}) []byte {
 	return out
 }
 
-func To_string(f registry.DecodedFields) string {
-	fields := []*registry.DecodedField(f)
+//func (t *Type) ToProtoType(options ...string) string {
+//	if t.IsBool {
+//		return "bool"
+//	}
+//
+//	if t.IsChar || t.IsStr || t.IsU128 || t.IsU256 || t.IsI128 || t.IsI256 {
+//		return "string"
+//	}
+//
+//	if t.IsU8 {
+//		return "uint8"
+//	}
+//
+//	if t.IsI8 {
+//		return "int8"
+//	}
+//
+//	if t.IsU16 || t.IsU32 {
+//		return "uint32"
+//	}
+//
+//	if t.IsU64 {
+//		return "uint64"
+//	}
+//
+//	if t.IsI16 || t.IsI32 {
+//		return "int32"
+//	}
+//
+//	if t.IsI64 {
+//		return "int64"
+//	}
+//
+//	panic("unknown type")
+//}
 
-	return string(To_bytes(fields[0].Value.([]interface{})))
+func To_string(i any) string {
+	switch v := i.(type) {
+	case types.Text:
+		return string(v)
+	case types.U128:
+		return v.String()
+	case types.U256:
+		return v.String()
+	case types.I128:
+		return v.String()
+	case types.I256:
+		return v.String()
+	default:
+		panic("Unknown type")
+	}
 }
 
-func To_uint32(f registry.DecodedFields) uint32 {
-	fields := []*registry.DecodedField(f)
-
-	return fields[0].Value.(uint32)
+func To_uint32(i any) uint32 {
+	switch v := i.(type) {
+	case types.U8:
+		return uint32(v)
+	case types.U16:
+		return uint32(v)
+	case types.U32:
+		return uint32(v)
+	default:
+		panic("Unknown type")
+	}
 }
 
-func To_uint64(f registry.DecodedFields) uint64 {
-	fields := []*registry.DecodedField(f)
-
-	return fields[0].Value.(uint64)
+func To_optional_uint32(i any) *uint32 {
+	o := To_uint32(i)
+	return &o
 }
 
-func To_bool(f registry.DecodedFields) bool {
-	fields := []*registry.DecodedField(f)
-
-	return fields[0].Value.(bool)
+func To_uint64(i types.U64) uint64 {
+	return uint64(i)
 }
 
-func To_optional_string(f registry.DecodedFields) *string {
-	fields := []*registry.DecodedField(f)
+func To_optional_uint64(i types.U64) *uint64 {
+	o := uint64(i)
+	return &o
+}
 
-	s := string(To_bytes(fields[0].Value.([]interface{})))
+func To_bool(b types.Bool) bool {
+	return bool(b)
+}
+
+func To_optional_string(a any) *string {
+	s := To_string(a)
 	return &s
 }
 
-func To_optional_uint32(f registry.DecodedFields) *uint32 {
-	fields := []*registry.DecodedField(f)
-
-	return fields[0].Value.(*uint32)
+func To_optional_bool(i types.Bool) *bool {
+	o := bool(i)
+	return &o
 }
 
-func To_optional_uint64(f registry.DecodedFields) *uint64 {
-	fields := []*registry.DecodedField(f)
-
-	return fields[0].Value.(*uint64)
-}
-
-func To_optional_bool(f registry.DecodedFields) *bool {
-	fields := []*registry.DecodedField(f)
-
-	return fields[0].Value.(*bool)
-}
-
-func To_repeated_uint32(f registry.DecodedFields) []uint32 {
-	fields := []*registry.DecodedField(f)
-
-	var out []uint32
-	for _, f := range fields {
-		out = append(out, f.Value.(uint32))
-	}
-	return out
+func To_repeated_uint32(a any) []uint32 {
+	panic("To_repeated_uint32")
 }

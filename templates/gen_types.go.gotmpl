@@ -11,7 +11,7 @@ import (
 {{- $messages := $generator.Messages }}
 
 {{- range $msg := $messages }}
-{{/*{{- if or (eq $msg.Pallet "Balances") (eq $msg.Pallet "")}}*/}}
+{{/*{{- if or (eq $msg.Pallet "") (eq $msg.Pallet "")}}*/}}
 {{- $funcName := $msg.ToFuncName $metadata }}
 {{- if eq $funcName "To_TupleNull" }}
     func {{ $funcName }}() {{ $msg.ReturnType $metadata }} {
@@ -19,7 +19,7 @@ import (
     func {{ $funcName }}(in {{ $generator.TypeForField $msg }}) {{ $msg.ReturnType $metadata }} {
 {{- end }}
     {{template "funcBody" wrap (newWrapItem "lookable" $msg "fields" $msg.Fields "outputType" ($msg.OutputType $metadata) "parentFullTypeName" ($msg.FullTypeName)) }}
-}
+    }
 
 {{- range $field := $msg.Fields }}
     {{- template "fieldFunc" wrap (newWrapItem "field" $field) -}}
@@ -41,20 +41,25 @@ import (
         {{- $childType := $generator.CompactChildType $field  }}
         {{- if $childType.IsPrimitive }}
             //{{ $outputType }}
-            return nil
+            panic("types.UCompact primitive")
         {{- else }}
             out := {{ $outputType }}{}
+            _ = out
             {{- $funcName := $field.ToFuncName $meta }}
-            {{- if eq $funcName "To_TupleNull" }}
-                out.{{ $field.ToFieldName }} = {{ $funcName }}()
+            {{- if hasSuffix $outputType "TupleNull"}}
+            out.{{ $field.ToFieldName }} = {{ $funcName }}()
             {{- else }}
-                out.{{ $field.ToFieldName }} = {{ $funcName }}(in)
+            // else types.UCompact
+            panic("else types.UCompact")
+{{/*            out.{{ $field.ToFieldName }} = {{ $funcName }}(in)*/}}
             {{- end }}
             return out
         {{- end }}
     {{- else }}
-        {{- if eq $outputType "&pbgear.TupleNull"}}
+
+        {{- if hasSuffix $outputType "TupleNull"}}
         {{- else }}
+            // funcBody
             fields := []*registry.DecodedField(in)
             _ = fields
         {{- end}}
@@ -80,13 +85,33 @@ import (
         {{- if eq $field.Type "bytes"}}
             out.{{ $field.ToFieldName }} = {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.([]interface{}))
         {{- else }}
-            out.{{ $field.ToFieldName }} = {{ $field.ToFuncName $meta }}(fields[{{$i}}].Value.({{ $generator.TypeForField $field }}))
-        {{ end }}
+            {{- $funcName := $field.ToFuncName $meta }}
+            {{- if eq $funcName "To_TupleNull" }}
+            out.{{ $field.ToFieldName }} = {{ $funcName }}()
+            {{- else }}
+                {{- $type := $generator.TypeForField $field }}
+
+                {{- if eq $type "types.UCompact"}}
+                    {{- $childType := $generator.CompactChildType $field  }}
+                    {{- if $childType.IsPrimitive }}
+                        panic("return types.UCompact primitive")
+                    {{- else }}
+            // return else types.UCompact IsPrimitive
+            out.{{ $field.ToFieldName }} = {{ $funcName }}(fields[{{$i}}].Value.(types.UCompact))
+                    {{- end }}
+                {{- else }}
+            out.{{ $field.ToFieldName }} = {{ $funcName }}(fields[{{$i}}].Value.({{ $type }}))
+                {{- end }}
+            {{- end }}
+        {{- end }}
     {{- end }}
     {{- end }}
     return out
 {{- end -}}
 
+{{- /* ============================= */}}
+{{- /* FIELD FUNC                        */}}
+{{- /* ============================= */}}
 {{ define "fieldFunc" }}
     {{- $field := .field }}
     {{- $meta := .generator.Metadata }}
@@ -205,61 +230,101 @@ func To_bytes(f []interface{}) []byte {
     return out
 }
 
-func To_string(f registry.DecodedFields) string {
-    fields := []*registry.DecodedField(f)
+//func (t *Type) ToProtoType(options ...string) string {
+//	if t.IsBool {
+//		return "bool"
+//	}
+//
+//	if t.IsChar || t.IsStr || t.IsU128 || t.IsU256 || t.IsI128 || t.IsI256 {
+//		return "string"
+//	}
+//
+//	if t.IsU8 {
+//		return "uint8"
+//	}
+//
+//	if t.IsI8 {
+//		return "int8"
+//	}
+//
+//	if t.IsU16 || t.IsU32 {
+//		return "uint32"
+//	}
+//
+//	if t.IsU64 {
+//		return "uint64"
+//	}
+//
+//	if t.IsI16 || t.IsI32 {
+//		return "int32"
+//	}
+//
+//	if t.IsI64 {
+//		return "int64"
+//	}
+//
+//	panic("unknown type")
+//}
 
-    return string(To_bytes(fields[0].Value.([]interface{})))
+func To_string(i any) string {
+    switch v := i.(type) {
+    case types.Text:
+        return string(v)
+    case types.U128:
+        return v.String()
+    case types.U256:
+        return v.String()
+    case types.I128:
+        return v.String()
+    case types.I256:
+        return v.String()
+    default:
+        panic("Unknown type")
+    }
 }
 
-func To_uint32(f registry.DecodedFields) uint32 {
-    fields := []*registry.DecodedField(f)
-
-    return fields[0].Value.(uint32)
+func To_uint32(i any) uint32 {
+    switch v := i.(type) {
+    case types.U8:
+        return uint32(v)
+    case types.U16:
+        return uint32(v)
+    case types.U32:
+        return uint32(v)
+    default:
+        panic("Unknown type")
+    }
 }
 
-func To_uint64(f registry.DecodedFields) uint64 {
-    fields := []*registry.DecodedField(f)
-
-    return fields[0].Value.(uint64)
+func To_optional_uint32(i any) *uint32 {
+    o := To_uint32(i)
+    return &o
 }
 
-func To_bool(f registry.DecodedFields) bool {
-    fields := []*registry.DecodedField(f)
-
-    return fields[0].Value.(bool)
+func To_uint64(i types.U64) uint64 {
+    return uint64(i)
 }
 
-func To_optional_string(f registry.DecodedFields) *string {
-    fields := []*registry.DecodedField(f)
+func To_optional_uint64(i types.U64) *uint64 {
+    o := uint64(i)
+    return &o
+}
 
-    s := string(To_bytes(fields[0].Value.([]interface{})))
+func To_bool(b types.Bool) bool {
+    return bool(b)
+}
+
+func To_optional_string(a any) *string {
+    s := To_string(a)
     return &s
 }
 
-func To_optional_uint32(f registry.DecodedFields) *uint32 {
-    fields := []*registry.DecodedField(f)
 
-    return fields[0].Value.(*uint32)
+func To_optional_bool(i types.Bool) *bool {
+    o := bool(i)
+    return &o
 }
 
-func To_optional_uint64(f registry.DecodedFields) *uint64 {
-    fields := []*registry.DecodedField(f)
-
-    return fields[0].Value.(*uint64)
-}
-
-func To_optional_bool(f registry.DecodedFields) *bool {
-    fields := []*registry.DecodedField(f)
-
-    return fields[0].Value.(*bool)
-}
-
-func To_repeated_uint32(f registry.DecodedFields) []uint32 {
-    fields := []*registry.DecodedField(f)
-
-    var out []uint32
-    for _, f := range fields {
-        out = append(out, f.Value.(uint32))
-    }
-    return out
+func To_repeated_uint32(a any) []uint32 {
+    panic("To_repeated_uint32")
 }

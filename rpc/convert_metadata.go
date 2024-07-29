@@ -292,7 +292,6 @@ func (c *TypeConverter) FieldForComposite(ttype substrateTypes.PortableTypeV14, 
 
 func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
 	if ttype.ID.Int64() == 65 {
-
 		return c.FieldFor65(ttype, palletName, callName, fieldName)
 	}
 
@@ -418,26 +417,15 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 	}
 
 	if ttype.Type.Def.IsComposite {
-		if len(ttype.Type.Def.Composite.Fields) == 1 {
-			field := ttype.Type.Def.Composite.Fields[0]
-			lookup := field.Type.Int64()
+		for i, f := range ttype.Type.Def.Composite.Fields {
+			lookup := f.Type.Int64()
 			lookupType := c.allMetadataTypes[lookup]
-
-			fName := string(field.Name)
-			if !field.HasName {
-				fName = "value"
+			fieldName := string(f.Name)
+			if !f.HasName {
+				fieldName = fmt.Sprintf("value%d", i)
 			}
-
-			f := c.FieldForType(lookupType, palletName, callName, fName)
-			msg.Fields = append(msg.Fields, f)
-		} else {
-			for _, f := range ttype.Type.Def.Composite.Fields {
-				lookup := f.Type.Int64()
-				lookupType := c.allMetadataTypes[lookup]
-				fieldName := string(f.Name)
-				field := c.FieldForType(lookupType, palletName, callName, fieldName)
-				msg.Fields = append(msg.Fields, field)
-			}
+			field := c.FieldForType(lookupType, palletName, callName, fieldName)
+			msg.Fields = append(msg.Fields, field)
 		}
 		msg.Pallet = palletNameFromPath(ttype.Type.Path, palletName, false)
 	}

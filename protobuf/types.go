@@ -4,10 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/streamingfast/firehose-gear/utils"
-
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	types2 "github.com/streamingfast/firehose-gear/types"
+	"github.com/streamingfast/firehose-gear/utils"
 )
 
 type Lookupable interface {

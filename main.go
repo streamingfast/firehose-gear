@@ -19,7 +19,7 @@ import (
 )
 
 func main() {
-	blockHash, err := types.NewHashFromHexString("0xad1ce65fb2dde8ee826f2b25999f873f92815224300cd3b747031123f4cb6611")
+	blockHash, err := types.NewHashFromHexString("0xdacec8ff307e047ff4dfa08a1a59dea0326b12902658e52de310a4214c04686c")
 	if err != nil {
 		log.Fatalf("Failed to create block hash: %v", err)
 	}
@@ -77,11 +77,15 @@ func main() {
 		call = stringy.New(call).PascalCase().Get()
 		structName := pallet + "_" + call + "_Call"
 
+		fmt.Println("structName")
 		switch structName {
 		case "Timestamp_Set_Call":
 			fmt.Println(call)
 		case "Balances_TransferKeepAlive_Call":
 			gen_types.To_Balances_TransferKeepAliveCall(extrinsic.CallFields)
+			fmt.Println(call)
+		case "Staking_Validate_Call":
+			gen_types.To_Staking_ValidateCall(extrinsic.CallFields)
 			fmt.Println(call)
 		}
 	}
