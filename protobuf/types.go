@@ -43,7 +43,7 @@ type Message struct {
 	Name     string
 	Fields   []Field
 	LookupID int64
-	IsCall   bool
+	IsPallet bool
 	IsEvent  bool
 }
 
@@ -80,7 +80,7 @@ func (m *Message) ProtoMessageName() string {
 }
 
 func (m *Message) ProtoMessageTypeName() string {
-	return m.Pallet + "_" + utils.ToPascalCase(m.Name)
+	return utils.ToPascalCase(m.Name)
 }
 
 func (m *Message) ProtoMessageFieldName() string {
