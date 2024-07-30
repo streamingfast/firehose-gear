@@ -97,38 +97,17 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	c.allMetadataTypes = allMetadataTypes
 
 	for _, pallet := range metadata.Pallets {
-		//if pallet.Name != "Staking" {
-		//	continue
-		//}
 		if pallet.HasCalls {
-			callIdx := pallet.Calls.Type.Int64()
+			idx := pallet.Calls.Type.Int64()
 			palletName := string(pallet.Name)
-			c.ProcessPalletCalls(callIdx, palletName)
+			c.ProcessPalletCalls(idx, palletName)
 		}
 
-		// if pallet.HasEvents {
-		// 	idx := pallet.Events.Type.Int64()
-		// 	variants := c.allMetadataTypes[idx]
-
-		// 	events := variants.Type.Def.Variant
-		// 	totalNumberOfCalls += len(events.Variants)
-		// 	for _, variant := range events.Variants {
-		// 		// if variant.Name != "as_multi_threshold_1" {
-		// 		// 	continue
-		// 		// }
-		// 		// fmt.Println("Processing call", variant.Name)
-
-		// 		palletName := string(pallet.Name)
-		// 		callName := string(variant.Name)
-		// 		messageName := stringy.New(palletName).PascalCase().Get() + "_" + stringy.New(callName).PascalCase().Get() + "_Call"
-		// 		message := &protobuf.Message{
-		// 			Name: messageName,
-		// 		}
-
-		// 		c.ProcessCallFields(variant, message, palletName, callName)
-		// 		c.seenMessages[message.Name] = message
-		// 	}
-		// }
+		if pallet.HasEvents {
+			idx := pallet.Events.Type.Int64()
+			palletName := string(pallet.Name)
+			c.ProcessPalletEvents(idx, palletName)
+		}
 	}
 
 	outputs := make([]*protobuf.Message, 0)
@@ -143,9 +122,6 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	sb.WriteString("package sf.gear.metadata.type.v1;\n")
 	sb.WriteString("option go_package = \"github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1;pbgear\";\n\n")
 	for _, out := range outputs {
-		if out.Name == "Tuple_Compact_uint32Compact_sp_arithmetic_per_things_PerU16" {
-			fmt.Println("WTF")
-		}
 		s := out.ToProto()
 		sb.WriteString(s)
 	}
@@ -162,28 +138,48 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 
 	calls := variants.Type.Def.Variant
 	for _, variant := range calls.Variants {
-		//if variant.Name != "chill_other" { //lowercase
-		//	continue
-		//}
 		callName := string(variant.Name)
 		message := &protobuf.Message{
 			Pallet:   palletName,
 			Name:     callName + "_Call",
 			LookupID: math.MaxInt64,
+			IsCall:   true,
 		}
 
-		c.ProcessCallFields(variant, message, palletName, callName)
+		for _, f := range variant.Fields {
+			fieldName := string(f.Name)
+			field := c.ProcessField(f, palletName, callName, fieldName)
+			if field != nil {
+				message.Fields = append(message.Fields, field)
+			}
+		}
+
 		c.messages[message.FullTypeName()] = message
 	}
 }
 
-func (c *TypeConverter) ProcessCallFields(variant substrateTypes.Si1Variant, message *protobuf.Message, palletName string, callName string) {
-	for _, f := range variant.Fields {
-		fieldName := string(f.Name)
-		field := c.ProcessField(f, palletName, callName, fieldName)
-		if field != nil {
-			message.Fields = append(message.Fields, field)
+func (c *TypeConverter) ProcessPalletEvents(callIdx int64, palletName string) {
+	variants := c.allMetadataTypes[callIdx]
+
+	events := variants.Type.Def.Variant
+	for _, variant := range events.Variants {
+		eventName := string(variant.Name)
+		message := &protobuf.Message{
+			Pallet:   palletName,
+			Name:     eventName + "_Event",
+			LookupID: math.MaxInt64,
+			IsEvent:  true,
 		}
+
+		for _, f := range variant.Fields {
+			fieldName := string(f.Name)
+			field := c.ProcessField(f, palletName, eventName, fieldName)
+			if field != nil {
+				message.Fields = append(message.Fields, field)
+			}
+		}
+
+		c.messages[message.FullTypeName()] = message
 	}
 }
 

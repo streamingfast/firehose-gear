@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"os"
 	"sort"
 	"testing"
 
@@ -22,11 +23,17 @@ func Test_Generator(t *testing.T) {
 	messages := mc.FetchMessages()
 	metadata := mc.FetchMetadata()
 
+	// sort the messages to have them in the same order on each run
 	sort.Slice(messages, func(i, j int) bool {
 		return messages[i].FullTypeName() < messages[j].FullTypeName()
 	})
 
 	gen := NewGenerator("../templates/gen_types.go.gotmpl", messages, metadata)
-	err = gen.Generate()
+	content, err := gen.Generate()
+	require.NoError(t, err)
+
+	require.NoError(t, err)
+
+	err = os.WriteFile("../templates/output.proto", content, 0644)
 	require.NoError(t, err)
 }

@@ -42,6 +42,8 @@ type Message struct {
 	Name     string
 	Fields   []Field
 	LookupID int64
+	IsCall   bool
+	IsEvent  bool
 }
 
 func (m *Message) GetLookupId() int64 {
@@ -55,6 +57,7 @@ func (m *Message) FullTypeName() string {
 	}
 	return utils.ToPascalCase(m.Pallet) + "_" + suffix
 }
+
 func (m *Message) ToFuncName(meta *types.Metadata) string {
 	name := "To_" + m.FullTypeName()
 	return name
@@ -63,6 +66,7 @@ func (m *Message) ToFuncName(meta *types.Metadata) string {
 func (m *Message) ReturnType(meta *types.Metadata) string {
 	return "*pbgear." + m.FullTypeName()
 }
+
 func (m *Message) OutputType(meta *types.Metadata) string {
 	return "&pbgear." + m.FullTypeName()
 }
@@ -73,6 +77,14 @@ func (m *Message) ProtoMessageName() string {
 		return suffix
 	}
 	return m.Pallet + "_" + suffix
+}
+
+func (m *Message) ProtoMessageTypeName() string {
+	return m.Pallet + "_" + utils.ToPascalCase(m.Name)
+}
+
+func (m *Message) ProtoMessageFieldName() string {
+	return strings.ToLower(m.Pallet + "_" + m.Name)
 }
 
 func (m *Message) ToProto() string {

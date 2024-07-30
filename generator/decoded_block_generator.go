@@ -5,39 +5,43 @@ import (
 	"fmt"
 	"os"
 	"text/template"
+
+	"github.com/streamingfast/firehose-gear/protobuf"
 )
 
 type DecodedBlockGenerator struct {
 	templatePath string
+	Messages     []*protobuf.Message
 }
 
-func NewDecodedBlockGenerator(templatePath string) *DecodedBlockGenerator {
+func NewDecodedBlockGenerator(templatePath string, messages []*protobuf.Message) *DecodedBlockGenerator {
 	return &DecodedBlockGenerator{
 		templatePath: templatePath,
+		Messages:     messages,
 	}
 }
 
-func (g *DecodedBlockGenerator) Generate() error {
+func (g *DecodedBlockGenerator) Generate() ([]byte, error) {
 	b, err := os.ReadFile(g.templatePath)
 	if err != nil {
-		return fmt.Errorf("failed to read file: %w", err)
+		return nil, fmt.Errorf("failed to read file: %w", err)
 	}
 
-	templ, err := template.New("").Funcs(nil).Parse(string(b))
+	funcMap := template.FuncMap{
+		"add": func(a, b int) int {
+			return a + b
+		},
+	}
+
+	templ, err := template.New("").Funcs(funcMap).Parse(string(b))
 	if err != nil {
-		return fmt.Errorf("failed to parse template: %w", err)
+		return nil, fmt.Errorf("failed to parse template: %w", err)
 	}
 
 	buffer := &bytes.Buffer{}
 	if err := templ.Execute(buffer, g); err != nil {
-		return fmt.Errorf("failed to execute template: %w", err)
+		return nil, fmt.Errorf("failed to execute template: %w", err)
 	}
 
-	content := buffer.Bytes()
-	err = os.WriteFile("../templates/decoded_block.proto", content, 0644)
-	if err != nil {
-		return fmt.Errorf("failed to write file: %w", err)
-	}
-
-	return nil
+	return buffer.Bytes(), nil
 }

@@ -20,14 +20,14 @@ func NewToolsConvertMetadataCmd(logger *zap.Logger, tracer logging.Tracer) *cobr
 		RunE:  convertMetadataE(logger, tracer),
 	}
 
-	cmd.Flags().String("block-hash", "", "Blockhash, prefixed by 0x, to fetch metadata from, leave empty for latest")
+	cmd.Flags().String("blockhash", "", "Blockhash, prefixed by 0x, to fetch metadata from, leave empty for latest")
 
 	return cmd
 }
 
 func convertMetadataE(logger *zap.Logger, tracer logging.Tracer) firecore.CommandExecutor {
 	return func(cmd *cobra.Command, args []string) error {
-		blockHash := sflags.MustGetString(cmd, "block-hash")
+		blockHash := sflags.MustGetString(cmd, "blockhash")
 		endpoint := args[0]
 
 		if endpoint == "" {

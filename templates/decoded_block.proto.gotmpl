@@ -1,7 +1,8 @@
 syntax = "proto3";
-package sf.gear.type.v1;
+package sf.gear.decoded.type.v1;
 
-option go_package = "github.com/streamingfast/firehose-gear/pb/sf/gear/type/v1;pbgear";
+option go_package = "github.com/streamingfast/firehose-gear/pb/sf/gear/decoded/type/v1;pbdecodedgear";
+import "sf/gear/metadata/type/v1/output.proto";
 
 
 message Block {
@@ -12,6 +13,9 @@ message Block {
   repeated Event events = 5;
   repeated DigestItem digest_items = 6;
   bytes justification = 7;
+  bytes raw_events = 8;
+  repeated DecodedExtrinsic decoded_extrinsics = 9;
+  repeated DecodedEvent decoded_events = 10;
 }
 
 message Header {
@@ -118,16 +122,12 @@ message CallIndex {
 
 message Event {
   string name = 1;
-  repeated DecodedEvent decoded_events = 2;
   // [2]byte
+  repeated DecodedEvent event = 2;
   bytes id = 3;
   Phase phase = 4;
   // [32]byte
   repeated bytes topics = 5;
-}
-
-message DecodedEvent {
-    {{ }}
 }
 
 message Phase {
@@ -135,18 +135,6 @@ message Phase {
    uint32 as_apply_extrinsic = 2;
    bool is_finalization = 3;
    bool is_initialization = 4;
-}
-
-message SignatureDef {
-  bool is_ed25519 = 1;
-  // [64]byte
-  bytes as_ed25519 = 2;
-  bool is_sr25519 = 3;
-  // [64]byte
-  bytes as_sr25519 = 4;
-  bool is_ecdsa = 5;
-  // [64]byte
-  bytes as_ecdsa = 6;
 }
 
 message MortalEra {
@@ -157,4 +145,38 @@ message MortalEra {
 message PaymentFields {
   // big.Int
   string tip = 1;
+}
+
+message DecodedExtrinsic {
+  RuntimeCall call = 1;
+}
+
+message DecodedEvent {
+  RuntimeEvent event = 1;
+}
+
+{{- $generator := . }}
+{{- $messages := $generator.Messages }}
+message RuntimeCall {
+  oneof call {
+    {{- $count := 1}}
+    {{- range $msg := $messages }}
+    {{- if $msg.IsCall }}
+    sf.gear.metadata.type.v1.{{ $msg.ProtoMessageTypeName }} {{ $msg.ProtoMessageFieldName }} = {{ $count }};
+    {{- $count = add $count 1 -}}
+    {{- end}}
+    {{- end }}
+  }
+}
+
+message RuntimeEvent {
+  oneof event {
+    {{- $count := 1}}
+    {{- range $msg := $messages }}
+    {{- if $msg.IsEvent }}
+    sf.gear.metadata.type.v1.{{ $msg.ProtoMessageTypeName }} {{ $msg.ProtoMessageFieldName }} = {{ $count }};
+    {{- $count = add $count 1 -}}
+    {{- end}}
+    {{- end }}
+  }
 }

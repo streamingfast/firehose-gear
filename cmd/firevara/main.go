@@ -20,6 +20,7 @@ func init() {
 
 	rootCmd.AddCommand(NewFetchCmd(logger, tracer))
 	rootCmd.AddCommand(ToolsCmd)
+	rootCmd.AddCommand(GenerateCmd)
 }
 
 func main() {

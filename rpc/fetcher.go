@@ -505,31 +505,15 @@ func convertMortalEra(era types.MortalEra) *pbgear.MortalEra {
 func convertEvents(events []*parser.Event) ([]*pbgear.Event, error) {
 	pbgearEvent := make([]*pbgear.Event, 0, len(events))
 	for _, evt := range events {
-		// encodedEvent, err := convertEvent(evt)
-		// if err != nil {
-		// 	return nil, err
-		// }
 
 		pbgearEvent = append(pbgearEvent, &pbgear.Event{
-			Name: evt.Name,
-			// EncodedEvent: encodedEvent,
+			Name:   evt.Name,
 			Id:     evt.EventID[:],
 			Phase:  convertPhase(evt.Phase),
 			Topics: convertTopics(evt.Topics),
 		})
 	}
 	return pbgearEvent, nil
-}
-
-func convertEvent(evt *parser.Event) ([]byte, error) {
-	buffer := bytes.NewBuffer(nil)
-	encoder := scale.NewEncoder(buffer)
-	err := encoder.Encode(evt)
-	if err != nil {
-		return nil, fmt.Errorf("failed to encode field: %w", err)
-	}
-
-	return buffer.Bytes(), nil
 }
 
 func convertPhase(phase *types.Phase) *pbgear.Phase {
@@ -539,8 +523,8 @@ func convertPhase(phase *types.Phase) *pbgear.Phase {
 		IsFinalization:   phase.IsFinalization,
 		IsInitialization: phase.IsInitialization,
 	}
-
 }
+
 func convertTopics(hashes []types.Hash) [][]byte {
 	topics := make([][]byte, 0, len(hashes))
 	for _, hash := range hashes {
