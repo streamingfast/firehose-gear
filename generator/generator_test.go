@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"fmt"
 	"os"
 	"sort"
 	"testing"
@@ -11,6 +12,8 @@ import (
 )
 
 func Test_Generator(t *testing.T) {
+
+	fmt.Println("Test_Generator")
 	gearClients := firecoreRPC.NewClients[*rpc.Client]()
 	gearClient, err := rpc.NewClient("https://vara-mainnet.public.blastapi.io")
 	require.NoError(t, err)
@@ -36,4 +39,5 @@ func Test_Generator(t *testing.T) {
 
 	err = os.WriteFile("../templates/output.proto", content, 0644)
 	require.NoError(t, err)
+	fmt.Println("All done!")
 }

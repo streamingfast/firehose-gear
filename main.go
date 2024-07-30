@@ -4,9 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"reflect"
 	"strings"
-
-	gen_types "github.com/streamingfast/firehose-gear/templates"
 
 	gsrpc "github.com/centrifuge/go-substrate-rpc-client/v4"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
@@ -16,10 +15,13 @@ import (
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/chain/generic"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	"github.com/gobeam/stringy"
+	gen_types "github.com/streamingfast/firehose-gear/templates"
 )
 
 func main() {
-	blockHash, err := types.NewHashFromHexString("0xad1ce65fb2dde8ee826f2b25999f873f92815224300cd3b747031123f4cb6611")
+	//blockHash, err := types.NewHashFromHexString("0xdacec8ff307e047ff4dfa08a1a59dea0326b12902658e52de310a4214c04686c")
+	//blockHash, err := types.NewHashFromHexString("0xce88000c2153e31e367b800723aa3d78c537834e20439b2eb4c5db3870cd8e4c")
+	blockHash, err := types.NewHashFromHexString("0xafd423f4bebb20864e535197b732c343ba72bb446574c9ceb117bf4f721098da")
 	if err != nil {
 		log.Fatalf("Failed to create block hash: %v", err)
 	}
@@ -75,14 +77,17 @@ func main() {
 		pallet := parts[0]
 		call := parts[1]
 		call = stringy.New(call).PascalCase().Get()
-		structName := pallet + "_" + call + "_Call"
 
-		switch structName {
-		case "Timestamp_Set_Call":
-			fmt.Println(call)
-		case "Balances_TransferKeepAlive_Call":
-			gen_types.To_Balances_TransferKeepAliveCall(extrinsic.CallFields)
-			fmt.Println(call)
+		structName := pallet + "_" + call + "Call"
+		funcName := "To_" + structName
+
+		if fn, found := gen_types.FuncMap[funcName]; found {
+			o := fn.Call([]reflect.Value{reflect.ValueOf(extrinsic.CallFields)})
+			fmt.Println(funcName+":", o)
+			continue
 		}
+
+		fmt.Println("WTF:", funcName)
+
 	}
 }
