@@ -6,8 +6,6 @@ import (
 	"os"
 	"strings"
 
-	"github.com/streamingfast/firehose-gear/utils"
-
 	substrateTypes "github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
 	"github.com/streamingfast/firehose-gear/protobuf"
@@ -100,11 +98,39 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 		//if pallet.Name != "Staking" {
 		//	continue
 		//}
+
+		palletMessage := &protobuf.Message{
+			Pallet:   "",
+			Name:     string(pallet.Name) + "_pallet",
+			LookupID: pallet.Calls.Type.Int64(),
+		}
+
 		if pallet.HasCalls {
 			callIdx := pallet.Calls.Type.Int64()
 			palletName := string(pallet.Name)
-			c.ProcessPalletCalls(callIdx, palletName)
+			calls := c.ProcessPalletCalls(callIdx, palletName)
+
+			oneOfCall := &protobuf.OneOfField{
+				Name: "call",
+			}
+
+			for i, call := range calls {
+				t := protobuf.BasicField{
+					Pallet:      call.Pallet,
+					Type:        call.Name,
+					Name:        call.Name,
+					LookupID:    call.LookupID,
+					VariantByte: int64(i),
+				}
+				oneOfCall.Types = append(oneOfCall.Types, &t)
+			}
+
+			palletMessage.Fields = append(palletMessage.Fields, oneOfCall)
 		}
+
+		//fmt.Println(palletMessage.ToProto())
+
+		c.messages[palletMessage.FullTypeName()] = palletMessage
 
 		// if pallet.HasEvents {
 		// 	idx := pallet.Events.Type.Int64()
@@ -157,7 +183,8 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 	return nil
 }
 
-func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
+func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) []protobuf.Message {
+	var out []protobuf.Message
 	variants := c.allMetadataTypes[callIdx]
 
 	calls := variants.Type.Def.Variant
@@ -168,13 +195,15 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) {
 		callName := string(variant.Name)
 		message := &protobuf.Message{
 			Pallet:   palletName,
-			Name:     callName + "_Call",
+			Name:     callName + "_call",
 			LookupID: math.MaxInt64,
 		}
 
 		c.ProcessCallFields(variant, message, palletName, callName)
 		c.messages[message.FullTypeName()] = message
+		out = append(out, *message)
 	}
+	return out
 }
 
 func (c *TypeConverter) ProcessCallFields(variant substrateTypes.Si1Variant, message *protobuf.Message, palletName string, callName string) {
@@ -218,10 +247,6 @@ func (c *TypeConverter) FieldForSequence(ttype substrateTypes.PortableTypeV14, p
 	lookupId := ttype.Type.Def.Sequence.Type.Int64()
 	lookupType := c.allMetadataTypes[lookupId]
 	typeName := c.ExtractTypeName(lookupType, palletName, callName, fieldName)
-
-	if strings.Contains(strings.ToLower(typeName), strings.ToLower("Digest_Item")) {
-		fmt.Println("")
-	}
 
 	if typeName == "uint8" || typeName == "int8" {
 		return &protobuf.BasicField{
@@ -268,14 +293,16 @@ func (c *TypeConverter) FieldForArray(ttype substrateTypes.PortableTypeV14, pall
 }
 
 func (c *TypeConverter) FieldForCompact(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string, primitive bool) *protobuf.BasicField {
-	name := c.ExtractTypeName(ttype, palletName, callName, fieldName)
 	childType := c.allMetadataTypes[ttype.Type.Def.Compact.Type.Int64()]
+	typeName := c.ExtractTypeName(childType, palletName, callName, fieldName)
 
 	return &protobuf.BasicField{
-		Pallet:   palletNameFromPath(childType.Type.Path, palletName, primitive),
-		Name:     fieldName,
-		Type:     name,
-		LookupID: ttype.ID.Int64(),
+		Pallet:    palletNameFromPath(childType.Type.Path, palletName, primitive),
+		Name:      fieldName,
+		Type:      typeName,
+		LookupID:  childType.ID.Int64(),
+		Compact:   true,
+		Primitive: primitive,
 	}
 }
 
@@ -358,7 +385,8 @@ func (c *TypeConverter) FieldForType(ttype substrateTypes.PortableTypeV14, palle
 		}
 	}
 
-	if !ttype.Type.Def.IsVariant {
+	if !ttype.Type.Def.IsVariant && !field.IsPrimitive() {
+
 		c.MessageForType(field.GetType(), ttype, palletName, callName, fieldName)
 	}
 
@@ -391,7 +419,6 @@ func (c *TypeConverter) ExtractTypeName(ttype substrateTypes.PortableTypeV14, pa
 		lookupId := ttype.Type.Def.Compact.Type.Int64()
 		lookupType := c.allMetadataTypes[lookupId]
 		typeName = c.ExtractTypeName(lookupType, palletName, callName, fieldName)
-		typeName = fmt.Sprintf("Compact_%s", typeName)
 	}
 
 	return typeName
@@ -488,37 +515,29 @@ func (c *TypeConverter) MessageForType(typeName string, ttype substrateTypes.Por
 }
 
 func (c *TypeConverter) FieldFor65(ttype substrateTypes.PortableTypeV14, palletName string, callName string, fieldName string) protobuf.Field {
-	of := &protobuf.OneOfField{
-		Pallet:   palletName,
+	field := &protobuf.OneOfField{
+		Pallet:   palletNameFromPath(ttype.Type.Path, palletName, false),
 		Name:     fieldName,
 		LookupID: ttype.ID.Int64(),
 	}
 
-	pallets := ttype.Type.Def.Variant.Variants
-	for _, v := range pallets { // 1. System
-		palletName := v.Name
-		calls := v.Fields
-		for _, call := range calls { // 1. 66
-			lookupId := call.Type.Int64()
-			palletCalls := c.allMetadataTypes[lookupId] // 1. System
-			palletCallNames := palletCalls.Type.Def.Variant.Variants
+	palletRefs := ttype.Type.Def.Variant.Variants
+	for _, ref := range palletRefs {
+		//refID := ref.Fields[0].Type.Int64()
+		pName := string(ref.Name)
+		//pType := c.allMetadataTypes[refID]
+		//calls := pType.Type.Def.Variant.Variants
 
-			for _, palletCallName := range palletCallNames { // remark
-				//lookupId := call.Type.Int64()
-				//ttype := c.allMetadataTypes[lookupId] // 1. System
-				//pallet := palletNameFromPath(ttype.Type.Path, string(palletName))
-				//pallet = utils.ToPascalCase(pallet)
-				of.Types = append(of.Types, &protobuf.BasicField{
-					Pallet:   string(palletName),
-					Name:     utils.ToSnakeCase(string(palletName) + "_" + string(palletCallName.Name)),
-					LookupID: math.MaxInt64,
-					Type:     string(palletCallName.Name) + "_Call",
-				})
-			}
-		}
+		field.Types = append(field.Types, &protobuf.BasicField{
+			Pallet:      "",
+			Name:        pName,
+			LookupID:    math.MaxInt64,
+			Type:        pName + "_Pallet",
+			VariantByte: int64(ref.Index),
+		})
 	}
 
-	return of
+	return field
 }
 
 func (c *TypeConverter) MessageForVariantTypes(name string, variant substrateTypes.Si1Variant, palletName string, callName string, fieldName string) *protobuf.Message {
@@ -611,10 +630,11 @@ func (c *TypeConverter) FieldForVariant(ttype substrateTypes.PortableTypeV14, pa
 	for _, v := range ttype.Type.Def.Variant.Variants {
 		typeName := string(v.Name)
 		oneOf.Types = append(oneOf.Types, &protobuf.BasicField{
-			Pallet:   palletName,
-			Name:     string(v.Name),
-			Type:     string(v.Name),
-			LookupID: math.MaxInt64,
+			Pallet:      palletName,
+			Name:        string(v.Name),
+			Type:        string(v.Name),
+			LookupID:    math.MaxInt64,
+			VariantByte: int64(v.Index),
 		})
 
 		m := c.MessageForVariantTypes(typeName, v, palletName, callName, string(v.Name))

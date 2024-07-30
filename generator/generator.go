@@ -129,30 +129,6 @@ func NewWrapItems(a ...any) []WrapItem {
 
 	return items
 }
-func (g *Generator) VariantChildIds(id int64) []string {
-	var out []string
-	ttype := g.Metadata.AsMetadataV14.EfficientLookup[id]
-	variant := ttype.Def.Variant
-	for _, v := range variant.Variants {
-		if len(v.Fields) == 0 {
-			return []string{"[]int64{}"}
-		}
-		var o []int64 //child of 94
-		for _, f := range v.Fields {
-			o = append(o, f.Type.Int64())
-		}
-		s := "[]int64{"
-		for _, v := range o {
-			s += fmt.Sprintf("%v, ", v)
-		}
-		s = s[:len(s)-2]
-		s += "}"
-
-		out = append(out, s)
-	}
-
-	return out
-}
 
 func (g *Generator) Wrap(items []WrapItem) map[any]any {
 	out := make(map[any]any)
@@ -164,6 +140,11 @@ func (g *Generator) Wrap(items []WrapItem) map[any]any {
 }
 
 func (g *Generator) TypeForField(field protobuf.Lookupable) string {
+
+	if field.GetName() == "sp_arithmetic_per_things_PerU16" {
+		fmt.Println("")
+	}
+
 	idx := field.GetLookupId()
 	if idx == math.MaxInt64 {
 		return "registry.DecodedFields"
@@ -204,7 +185,7 @@ func (g *Generator) TypeForField(field protobuf.Lookupable) string {
 		case types.IsStr:
 			return "types.Text"
 		case types.IsBool:
-			return "types.Bool"
+			return "bool"
 		}
 
 		//case ttype.Def.IsSequence:
@@ -227,15 +208,45 @@ func (g *Generator) CompactChildType(field protobuf.Field) types.Si1TypeDef {
 	return ttype.Def
 }
 
-//func (g *Generator) CompactToValue(field protobuf.Field) string {
-//	idx := field.GetLookupId()
-//	ttype := g.Metadata.AsMetadataV14.EfficientLookup[idx]
-//	childType := g.Metadata.AsMetadataV14.EfficientLookup[]
-//
-//	switch {
-//	case childType.Def.:
-//
-//	}
-//
-//	return
-//}
+func (g *Generator) LookupType(idx int64) types.Si1TypeDef {
+	if idx == math.MaxInt64 {
+		return types.Si1TypeDef{}
+	}
+	ttype := g.Metadata.AsMetadataV14.EfficientLookup[idx]
+	return ttype.Def
+}
+
+func (g *Generator) FuncNameForMessage(msg *protobuf.Message) string {
+	return "To_" + msg.FullTypeName()
+}
+func (g *Generator) FuncNameForOneOf(msg *protobuf.Message, field protobuf.Field) string {
+	return "Set_OneOf_" + msg.FullTypeName() + "_" + field.GetName()
+}
+
+func (g *Generator) FuncNameForOptional(msg *protobuf.Message, field protobuf.Field) string {
+	return "To_Optional_" + msg.FullTypeName() + "_" + field.GetName()
+}
+
+func (g *Generator) FuncNameForRepeated(msg *protobuf.Message, field protobuf.Field) string {
+	return "To_Repeated_" + msg.FullTypeName() + "_" + field.GetName()
+}
+
+func (g *Generator) FuncNameForField(msg *protobuf.Message, field protobuf.Field) string {
+	return "To_" + msg.FullTypeName() + "_" + field.GetName()
+}
+
+func (g *Generator) FuncNameForPrimitive(msg *protobuf.Message, field protobuf.Field) string {
+	if field.IsOptional() {
+		return "To_Optional_" + field.GetType()
+	}
+
+	if field.IsRepeated() {
+		return "To_Repeated_" + field.GetType()
+	}
+
+	return "To_" + field.GetType()
+}
+
+func (g *Generator) ReturnTypeForOneOf(msg *protobuf.Message, field protobuf.Field) string {
+	return "pbgear." + msg.FullTypeName() + "_" + field.GetType()
+}

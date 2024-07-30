@@ -10,6 +10,7 @@ import (
 )
 
 type Lookupable interface {
+	GetName() string
 	GetLookupId() int64
 }
 type Field interface {
@@ -18,12 +19,13 @@ type Field interface {
 	IsRepeated() bool
 	IsOneOf() bool
 	IsOptional() bool
+	IsCompact() bool
 	FullTypeName() string
 	GetType() string
+	GetName() string
 	GetLookupId() int64
 	ToGoTypeName(meta *types.Metadata) string
 	ToProto(idx int) (string, int)
-	ToFuncName(meta *types.Metadata) string
 	ToFieldName() string
 	ReturnType(meta *types.Metadata) string
 	OutputType(meta *types.Metadata) string
@@ -43,20 +45,20 @@ type Message struct {
 	LookupID int64
 }
 
+func (m *Message) GetName() string {
+	return m.Name
+}
+
 func (m *Message) GetLookupId() int64 {
 	return m.LookupID
 }
 
 func (m *Message) FullTypeName() string {
-	suffix := utils.ToPascalCase(m.Name, utils.CapitalizeCharAfterNum)
+	suffix := utils.ToPascalCase(m.Name, utils.CapitalizeCharAfterNum, utils.RemoveUnderscoreBeforeNum)
 	if m.Pallet == "" {
 		return suffix
 	}
 	return utils.ToPascalCase(m.Pallet) + "_" + suffix
-}
-func (m *Message) ToFuncName(meta *types.Metadata) string {
-	name := "To_" + m.FullTypeName()
-	return name
 }
 
 func (m *Message) ReturnType(meta *types.Metadata) string {
@@ -91,12 +93,22 @@ func (m *Message) ToProto() string {
 }
 
 type BasicField struct {
-	Optional  bool
-	Primitive bool
-	Pallet    string
-	Type      string
-	Name      string
-	LookupID  int64
+	Optional    bool
+	Primitive   bool
+	Pallet      string
+	Type        string
+	Name        string
+	LookupID    int64
+	Compact     bool
+	VariantByte int64
+}
+
+func (f *BasicField) IsCompact() bool {
+	return f.Compact
+}
+
+func (f *BasicField) GetName() string {
+	return f.Name
 }
 
 func (f *BasicField) GetLookupId() int64 {
@@ -125,7 +137,7 @@ func (f *BasicField) IsOneOf() bool {
 }
 
 func (f *BasicField) ToFieldName() string {
-	return utils.ToPascalCase(f.Name)
+	return utils.ToPascalCase(f.Name, utils.CapitalizeCharAfterNum, utils.RemoveUnderscoreBeforeNum)
 }
 
 func (f *BasicField) ToGoTypeName(meta *types.Metadata) string {
@@ -145,20 +157,12 @@ func (f *BasicField) FullTypeName() string {
 		return f.Type
 	}
 
-	suffix := utils.ToPascalCase(f.Type, utils.CapitalizeCharAfterNum)
+	suffix := utils.ToPascalCase(f.Type, utils.CapitalizeCharAfterNum, utils.RemoveUnderscoreBeforeNum)
 	if f.Pallet == "" {
 		return suffix
 	}
 
 	return utils.ToPascalCase(f.Pallet) + "_" + suffix
-}
-
-func (f *BasicField) ToFuncName(meta *types.Metadata) string {
-	if f.Optional {
-		return "To_optional_" + f.FullTypeName()
-	}
-	name := "To_" + f.FullTypeName()
-	return name
 }
 
 func (f *BasicField) ReturnType(meta *types.Metadata) string {
@@ -203,6 +207,14 @@ type RepeatedField struct {
 	Primitive bool
 }
 
+func (f *RepeatedField) IsCompact() bool {
+	return false
+}
+
+func (f *RepeatedField) GetName() string {
+	return f.Name
+}
+
 func (f *RepeatedField) GetLookupId() int64 {
 	return f.LookupID
 }
@@ -220,7 +232,7 @@ func (f *RepeatedField) IsOneOf() bool {
 }
 
 func (f *RepeatedField) ToFieldName() string {
-	return utils.ToPascalCase(f.Name)
+	return utils.ToPascalCase(f.Name, utils.RemoveUnderscoreBeforeNum)
 }
 
 func (f *RepeatedField) ToGoTypeName(meta *types.Metadata) string {
@@ -242,7 +254,7 @@ func (f *RepeatedField) FullTypeName() string {
 		return f.Type
 	}
 
-	suffix := utils.ToPascalCase(f.Type, utils.CapitalizeCharAfterNum)
+	suffix := utils.ToPascalCase(f.Type, utils.CapitalizeCharAfterNum, utils.RemoveUnderscoreBeforeNum)
 	if f.Pallet == "" {
 		return suffix
 	}
@@ -257,26 +269,22 @@ func (f *RepeatedField) ToChildFuncName(meta *types.Metadata) string {
 	return name
 }
 
-func (f *RepeatedField) ToFuncName(meta *types.Metadata) string {
-	return "To_repeated_" + f.FullTypeName()
-}
-
 func (f *RepeatedField) ReturnType(meta *types.Metadata) string {
 	if f.IsPrimitive() {
 		ttype := meta.AsMetadataV14.EfficientLookup[f.LookupID]
 		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
-		return "[]" + primitive.ToGoType()
+		return primitive.ToGoType()
 	}
-	return "[]*pbgear." + f.FullTypeName()
+	return "pbgear." + f.FullTypeName()
 
 }
 func (f *RepeatedField) OutputType(meta *types.Metadata) string {
 	if f.IsPrimitive() {
 		ttype := meta.AsMetadataV14.EfficientLookup[f.LookupID]
 		primitive := types2.ConvertPrimitiveType(ttype.Def.Primitive.Si0TypeDefPrimitive)
-		return "[]" + primitive.ToGoType()
+		return primitive.ToGoType()
 	}
-	return "[]*pbgear." + f.FullTypeName()
+	return f.FullTypeName()
 
 }
 
@@ -301,6 +309,13 @@ type OneOfField struct {
 	Primitive bool
 }
 
+func (f *OneOfField) IsCompact() bool {
+	return false
+}
+func (f *OneOfField) GetName() string {
+	return f.Name
+}
+
 func (f *OneOfField) GetLookupId() int64 {
 	return f.LookupID
 }
@@ -314,7 +329,7 @@ func (f *OneOfField) IsOptional() bool {
 }
 
 func (f *OneOfField) ToFieldName() string {
-	return utils.ToPascalCase(f.Name)
+	return utils.ToPascalCase(f.Name, utils.RemoveUnderscoreBeforeNum)
 }
 
 func (f *OneOfField) IsOneOf() bool {
@@ -333,15 +348,11 @@ func (f *OneOfField) GetType() string {
 	panic("OneOfField has not type")
 }
 func (f *OneOfField) FullTypeName() string {
-	suffix := utils.ToPascalCase(f.Name, utils.CapitalizeCharAfterNum)
+	suffix := utils.ToPascalCase(f.Name, utils.CapitalizeCharAfterNum, utils.RemoveUnderscoreBeforeNum)
 	if f.Pallet == "" {
 		return suffix
 	}
 	return utils.ToPascalCase(f.Pallet) + "_" + suffix
-}
-
-func (f *OneOfField) ToFuncName(meta *types.Metadata) string {
-	return "To_oneof_" + f.FullTypeName()
 }
 
 func (f *OneOfField) ReturnType(meta *types.Metadata) string {

@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"fmt"
 	"sort"
 	"testing"
 
@@ -10,6 +11,8 @@ import (
 )
 
 func Test_Generator(t *testing.T) {
+
+	fmt.Println("Test_Generator")
 	gearClients := firecoreRPC.NewClients[*rpc.Client]()
 	gearClient, err := rpc.NewClient("https://vara-mainnet.public.blastapi.io")
 	require.NoError(t, err)
@@ -28,5 +31,9 @@ func Test_Generator(t *testing.T) {
 
 	gen := NewGenerator("../templates/gen_types.go.gotmpl", messages, metadata)
 	err = gen.Generate()
+	if err != nil {
+		fmt.Println(err)
+	}
 	require.NoError(t, err)
+	fmt.Println("All done!")
 }
