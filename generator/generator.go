@@ -214,7 +214,7 @@ func (g *Generator) FuncNameForMessage(msg *protobuf.Message) string {
 	return "To_" + msg.FullTypeName()
 }
 func (g *Generator) FuncNameForOneOf(msg *protobuf.Message, field protobuf.Field) string {
-	return "Set_OneOf_" + msg.FullTypeName() + "_" + field.GetName()
+	return "To_OneOf_" + msg.FullTypeName() + "_" + field.GetName()
 }
 
 func (g *Generator) FuncNameForOptional(msg *protobuf.Message, field protobuf.Field) string {

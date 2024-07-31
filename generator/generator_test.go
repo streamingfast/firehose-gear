@@ -37,7 +37,7 @@ func Test_Generator(t *testing.T) {
 
 	require.NoError(t, err)
 
-	err = os.WriteFile("../templates/output.proto", content, 0644)
+	err = os.WriteFile("../templates/gen_types.go", content, 0644)
 	require.NoError(t, err)
 	fmt.Println("All done!")
 }

@@ -15,13 +15,13 @@ func To_AllowedSlots(in any) *pbgear.AllowedSlots {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_AllowedSlots_value(v.ValueAt(0))
+	v0 := To_OneOf_AllowedSlots_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_AllowedSlots_value(in any) any {
+func To_OneOf_AllowedSlots_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -91,13 +91,13 @@ func To_BabePallet(in any) *pbgear.BabePallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_BabePallet_call(v.ValueAt(0))
+	v0 := To_OneOf_BabePallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_BabePallet_call(in any) any {
+func To_OneOf_BabePallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -136,13 +136,13 @@ func To_Babe_Config(in any) *pbgear.Babe_Config {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Babe_Config_value(v.ValueAt(0))
+	v0 := To_OneOf_Babe_Config_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Babe_Config_value(in any) any {
+func To_OneOf_Babe_Config_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -175,13 +175,13 @@ func To_Babe_Logs(in any) *pbgear.Babe_Logs {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Babe_Logs_value(v.ValueAt(0))
+	v0 := To_OneOf_Babe_Logs_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Babe_Logs_value(in any) any {
+func To_OneOf_Babe_Logs_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -234,7 +234,15 @@ func To_Babe_PlanConfigChangeCall(in any) *pbgear.Babe_PlanConfigChangeCall {
 }
 
 func To_Babe_PlanConfigChangeCall_config(in any) *pbgear.Babe_Config {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Babe_Config(w) //simple field
 }
 
 func To_Babe_PreRuntime(in any) *pbgear.Babe_PreRuntime {
@@ -264,10 +272,26 @@ func To_Babe_ReportEquivocationCall(in any) *pbgear.Babe_ReportEquivocationCall 
 }
 
 func To_Babe_ReportEquivocationCall_equivocation_proof(in any) *pbgear.SpConsensusSlotsEquivocationProof {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusSlotsEquivocationProof(w) //simple field
 }
 func To_Babe_ReportEquivocationCall_key_owner_proof(in any) *pbgear.SpSessionMembershipProof {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpSessionMembershipProof(w) //simple field
 }
 
 func To_Babe_ReportEquivocationUnsignedCall(in any) *pbgear.Babe_ReportEquivocationUnsignedCall {
@@ -284,10 +308,26 @@ func To_Babe_ReportEquivocationUnsignedCall(in any) *pbgear.Babe_ReportEquivocat
 }
 
 func To_Babe_ReportEquivocationUnsignedCall_equivocation_proof(in any) *pbgear.SpConsensusSlotsEquivocationProof {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusSlotsEquivocationProof(w) //simple field
 }
 func To_Babe_ReportEquivocationUnsignedCall_key_owner_proof(in any) *pbgear.SpSessionMembershipProof {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpSessionMembershipProof(w) //simple field
 }
 
 func To_Babe_RuntimeEnvironmentUpdated(in any) *pbgear.Babe_RuntimeEnvironmentUpdated {
@@ -338,10 +378,26 @@ func To_Babe_V1(in any) *pbgear.Babe_V1 {
 }
 
 func To_Babe_V1_c(in any) *pbgear.Babe_TupleUint64Uint64 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Babe_TupleUint64Uint64(w) //simple field
 }
 func To_Babe_V1_allowed_slots(in any) *pbgear.AllowedSlots {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_AllowedSlots(w) //simple field
 }
 
 func To_BagsListPallet(in any) *pbgear.BagsListPallet {
@@ -350,13 +406,13 @@ func To_BagsListPallet(in any) *pbgear.BagsListPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_BagsListPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_BagsListPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_BagsListPallet_call(in any) any {
+func To_OneOf_BagsListPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -406,13 +462,13 @@ func To_BagsList_Dislocated(in any) *pbgear.BagsList_Dislocated {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_BagsList_Dislocated_value(v.ValueAt(0))
+	v0 := To_OneOf_BagsList_Dislocated_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_BagsList_Dislocated_value(in any) any {
+func To_OneOf_BagsList_Dislocated_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -448,13 +504,13 @@ func To_BagsList_Heavier(in any) *pbgear.BagsList_Heavier {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_BagsList_Heavier_value(v.ValueAt(0))
+	v0 := To_OneOf_BagsList_Heavier_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_BagsList_Heavier_value(in any) any {
+func To_OneOf_BagsList_Heavier_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -496,7 +552,15 @@ func To_BagsList_Id(in any) *pbgear.BagsList_Id {
 }
 
 func To_BagsList_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_BagsList_Index(in any) *pbgear.BagsList_Index {
@@ -511,7 +575,15 @@ func To_BagsList_Index(in any) *pbgear.BagsList_Index {
 }
 
 func To_BagsList_Index_value0(in any) *pbgear.BagsList_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_BagsList_TupleNull(w) //simple field
 }
 
 func To_BagsList_Lighter(in any) *pbgear.BagsList_Lighter {
@@ -520,13 +592,13 @@ func To_BagsList_Lighter(in any) *pbgear.BagsList_Lighter {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_BagsList_Lighter_value(v.ValueAt(0))
+	v0 := To_OneOf_BagsList_Lighter_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_BagsList_Lighter_value(in any) any {
+func To_OneOf_BagsList_Lighter_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -568,7 +640,15 @@ func To_BagsList_PutInFrontOfCall(in any) *pbgear.BagsList_PutInFrontOfCall {
 }
 
 func To_BagsList_PutInFrontOfCall_lighter(in any) *pbgear.BagsList_Lighter {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_BagsList_Lighter(w) //simple field
 }
 
 func To_BagsList_PutInFrontOfOtherCall(in any) *pbgear.BagsList_PutInFrontOfOtherCall {
@@ -585,10 +665,26 @@ func To_BagsList_PutInFrontOfOtherCall(in any) *pbgear.BagsList_PutInFrontOfOthe
 }
 
 func To_BagsList_PutInFrontOfOtherCall_heavier(in any) *pbgear.BagsList_Heavier {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_BagsList_Heavier(w) //simple field
 }
 func To_BagsList_PutInFrontOfOtherCall_lighter(in any) *pbgear.BagsList_Lighter {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_BagsList_Lighter(w) //simple field
 }
 
 func To_BagsList_Raw(in any) *pbgear.BagsList_Raw {
@@ -614,7 +710,15 @@ func To_BagsList_RebagCall(in any) *pbgear.BagsList_RebagCall {
 }
 
 func To_BagsList_RebagCall_dislocated(in any) *pbgear.BagsList_Dislocated {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_BagsList_Dislocated(w) //simple field
 }
 
 func To_BagsList_TupleNull(in any) *pbgear.BagsList_TupleNull {
@@ -629,7 +733,15 @@ func To_BagsList_TupleNull(in any) *pbgear.BagsList_TupleNull {
 }
 
 func To_BagsList_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_BalancesPallet(in any) *pbgear.BalancesPallet {
@@ -638,13 +750,13 @@ func To_BalancesPallet(in any) *pbgear.BalancesPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_BalancesPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_BalancesPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_BalancesPallet_call(in any) any {
+func To_OneOf_BalancesPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -710,13 +822,13 @@ func To_Balances_Dest(in any) *pbgear.Balances_Dest {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Balances_Dest_value(v.ValueAt(0))
+	v0 := To_OneOf_Balances_Dest_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Balances_Dest_value(in any) any {
+func To_OneOf_Balances_Dest_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -760,7 +872,15 @@ func To_Balances_ForceSetBalanceCall(in any) *pbgear.Balances_ForceSetBalanceCal
 }
 
 func To_Balances_ForceSetBalanceCall_who(in any) *pbgear.Balances_Who {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Balances_Who(w) //simple field
 }
 
 func To_Balances_ForceTransferCall(in any) *pbgear.Balances_ForceTransferCall {
@@ -779,10 +899,26 @@ func To_Balances_ForceTransferCall(in any) *pbgear.Balances_ForceTransferCall {
 }
 
 func To_Balances_ForceTransferCall_source(in any) *pbgear.Balances_Source {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Balances_Source(w) //simple field
 }
 func To_Balances_ForceTransferCall_dest(in any) *pbgear.Balances_Dest {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Balances_Dest(w) //simple field
 }
 
 func To_Balances_ForceUnreserveCall(in any) *pbgear.Balances_ForceUnreserveCall {
@@ -799,7 +935,15 @@ func To_Balances_ForceUnreserveCall(in any) *pbgear.Balances_ForceUnreserveCall 
 }
 
 func To_Balances_ForceUnreserveCall_who(in any) *pbgear.Balances_Who {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Balances_Who(w) //simple field
 }
 
 func To_Balances_Id(in any) *pbgear.Balances_Id {
@@ -814,7 +958,15 @@ func To_Balances_Id(in any) *pbgear.Balances_Id {
 }
 
 func To_Balances_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Balances_Index(in any) *pbgear.Balances_Index {
@@ -829,7 +981,15 @@ func To_Balances_Index(in any) *pbgear.Balances_Index {
 }
 
 func To_Balances_Index_value0(in any) *pbgear.Balances_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Balances_TupleNull(w) //simple field
 }
 
 func To_Balances_Raw(in any) *pbgear.Balances_Raw {
@@ -849,13 +1009,13 @@ func To_Balances_Source(in any) *pbgear.Balances_Source {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Balances_Source_value(v.ValueAt(0))
+	v0 := To_OneOf_Balances_Source_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Balances_Source_value(in any) any {
+func To_OneOf_Balances_Source_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -899,7 +1059,15 @@ func To_Balances_TransferAllCall(in any) *pbgear.Balances_TransferAllCall {
 }
 
 func To_Balances_TransferAllCall_dest(in any) *pbgear.Balances_Dest {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Balances_Dest(w) //simple field
 }
 
 func To_Balances_TransferAllowDeathCall(in any) *pbgear.Balances_TransferAllowDeathCall {
@@ -916,7 +1084,15 @@ func To_Balances_TransferAllowDeathCall(in any) *pbgear.Balances_TransferAllowDe
 }
 
 func To_Balances_TransferAllowDeathCall_dest(in any) *pbgear.Balances_Dest {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Balances_Dest(w) //simple field
 }
 
 func To_Balances_TransferKeepAliveCall(in any) *pbgear.Balances_TransferKeepAliveCall {
@@ -933,7 +1109,15 @@ func To_Balances_TransferKeepAliveCall(in any) *pbgear.Balances_TransferKeepAliv
 }
 
 func To_Balances_TransferKeepAliveCall_dest(in any) *pbgear.Balances_Dest {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Balances_Dest(w) //simple field
 }
 
 func To_Balances_TupleNull(in any) *pbgear.Balances_TupleNull {
@@ -948,7 +1132,15 @@ func To_Balances_TupleNull(in any) *pbgear.Balances_TupleNull {
 }
 
 func To_Balances_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_Balances_UpgradeAccountsCall(in any) *pbgear.Balances_UpgradeAccountsCall {
@@ -983,13 +1175,13 @@ func To_Balances_Who(in any) *pbgear.Balances_Who {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Balances_Who_value(v.ValueAt(0))
+	v0 := To_OneOf_Balances_Who_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Balances_Who_value(in any) any {
+func To_OneOf_Balances_Who_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -1036,13 +1228,13 @@ func To_BountiesPallet(in any) *pbgear.BountiesPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_BountiesPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_BountiesPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_BountiesPallet_call(in any) any {
+func To_OneOf_BountiesPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -1146,7 +1338,15 @@ func To_Bounties_AwardBountyCall(in any) *pbgear.Bounties_AwardBountyCall {
 }
 
 func To_Bounties_AwardBountyCall_beneficiary(in any) *pbgear.Bounties_Beneficiary {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Bounties_Beneficiary(w) //simple field
 }
 
 func To_Bounties_Beneficiary(in any) *pbgear.Bounties_Beneficiary {
@@ -1155,13 +1355,13 @@ func To_Bounties_Beneficiary(in any) *pbgear.Bounties_Beneficiary {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Bounties_Beneficiary_value(v.ValueAt(0))
+	v0 := To_OneOf_Bounties_Beneficiary_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Bounties_Beneficiary_value(in any) any {
+func To_OneOf_Bounties_Beneficiary_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -1219,13 +1419,13 @@ func To_Bounties_Curator(in any) *pbgear.Bounties_Curator {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Bounties_Curator_value(v.ValueAt(0))
+	v0 := To_OneOf_Bounties_Curator_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Bounties_Curator_value(in any) any {
+func To_OneOf_Bounties_Curator_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -1280,7 +1480,15 @@ func To_Bounties_Id(in any) *pbgear.Bounties_Id {
 }
 
 func To_Bounties_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Bounties_Index(in any) *pbgear.Bounties_Index {
@@ -1295,7 +1503,15 @@ func To_Bounties_Index(in any) *pbgear.Bounties_Index {
 }
 
 func To_Bounties_Index_value0(in any) *pbgear.Bounties_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Bounties_TupleNull(w) //simple field
 }
 
 func To_Bounties_ProposeBountyCall(in any) *pbgear.Bounties_ProposeBountyCall {
@@ -1327,7 +1543,15 @@ func To_Bounties_ProposeCuratorCall(in any) *pbgear.Bounties_ProposeCuratorCall 
 }
 
 func To_Bounties_ProposeCuratorCall_curator(in any) *pbgear.Bounties_Curator {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Bounties_Curator(w) //simple field
 }
 
 func To_Bounties_Raw(in any) *pbgear.Bounties_Raw {
@@ -1353,7 +1577,15 @@ func To_Bounties_TupleNull(in any) *pbgear.Bounties_TupleNull {
 }
 
 func To_Bounties_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_Bounties_UnassignCuratorCall(in any) *pbgear.Bounties_UnassignCuratorCall {
@@ -1373,13 +1605,13 @@ func To_ChildBountiesPallet(in any) *pbgear.ChildBountiesPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_ChildBountiesPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_ChildBountiesPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ChildBountiesPallet_call(in any) any {
+func To_OneOf_ChildBountiesPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -1483,7 +1715,15 @@ func To_ChildBounties_AwardChildBountyCall(in any) *pbgear.ChildBounties_AwardCh
 }
 
 func To_ChildBounties_AwardChildBountyCall_beneficiary(in any) *pbgear.ChildBounties_Beneficiary {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ChildBounties_Beneficiary(w) //simple field
 }
 
 func To_ChildBounties_Beneficiary(in any) *pbgear.ChildBounties_Beneficiary {
@@ -1492,13 +1732,13 @@ func To_ChildBounties_Beneficiary(in any) *pbgear.ChildBounties_Beneficiary {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_ChildBounties_Beneficiary_value(v.ValueAt(0))
+	v0 := To_OneOf_ChildBounties_Beneficiary_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ChildBounties_Beneficiary_value(in any) any {
+func To_OneOf_ChildBounties_Beneficiary_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -1560,13 +1800,13 @@ func To_ChildBounties_Curator(in any) *pbgear.ChildBounties_Curator {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_ChildBounties_Curator_value(v.ValueAt(0))
+	v0 := To_OneOf_ChildBounties_Curator_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ChildBounties_Curator_value(in any) any {
+func To_OneOf_ChildBounties_Curator_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -1608,7 +1848,15 @@ func To_ChildBounties_Id(in any) *pbgear.ChildBounties_Id {
 }
 
 func To_ChildBounties_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_ChildBounties_Index(in any) *pbgear.ChildBounties_Index {
@@ -1623,7 +1871,15 @@ func To_ChildBounties_Index(in any) *pbgear.ChildBounties_Index {
 }
 
 func To_ChildBounties_Index_value0(in any) *pbgear.ChildBounties_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ChildBounties_TupleNull(w) //simple field
 }
 
 func To_ChildBounties_ProposeCuratorCall(in any) *pbgear.ChildBounties_ProposeCuratorCall {
@@ -1644,7 +1900,15 @@ func To_ChildBounties_ProposeCuratorCall(in any) *pbgear.ChildBounties_ProposeCu
 }
 
 func To_ChildBounties_ProposeCuratorCall_curator(in any) *pbgear.ChildBounties_Curator {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ChildBounties_Curator(w) //simple field
 }
 
 func To_ChildBounties_Raw(in any) *pbgear.ChildBounties_Raw {
@@ -1670,7 +1934,15 @@ func To_ChildBounties_TupleNull(in any) *pbgear.ChildBounties_TupleNull {
 }
 
 func To_ChildBounties_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_ChildBounties_UnassignCuratorCall(in any) *pbgear.ChildBounties_UnassignCuratorCall {
@@ -1692,13 +1964,13 @@ func To_ConvictionVotingPallet(in any) *pbgear.ConvictionVotingPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_ConvictionVotingPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_ConvictionVotingPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ConvictionVotingPallet_call(in any) any {
+func To_OneOf_ConvictionVotingPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -1760,13 +2032,13 @@ func To_ConvictionVoting_Conviction(in any) *pbgear.ConvictionVoting_Conviction 
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_ConvictionVoting_Conviction_value(v.ValueAt(0))
+	v0 := To_OneOf_ConvictionVoting_Conviction_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ConvictionVoting_Conviction_value(in any) any {
+func To_OneOf_ConvictionVoting_Conviction_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -1822,10 +2094,26 @@ func To_ConvictionVoting_DelegateCall(in any) *pbgear.ConvictionVoting_DelegateC
 }
 
 func To_ConvictionVoting_DelegateCall_to(in any) *pbgear.ConvictionVoting_To {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ConvictionVoting_To(w) //simple field
 }
 func To_ConvictionVoting_DelegateCall_conviction(in any) *pbgear.ConvictionVoting_Conviction {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ConvictionVoting_Conviction(w) //simple field
 }
 
 func To_ConvictionVoting_Id(in any) *pbgear.ConvictionVoting_Id {
@@ -1840,7 +2128,15 @@ func To_ConvictionVoting_Id(in any) *pbgear.ConvictionVoting_Id {
 }
 
 func To_ConvictionVoting_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_ConvictionVoting_Index(in any) *pbgear.ConvictionVoting_Index {
@@ -1855,7 +2151,15 @@ func To_ConvictionVoting_Index(in any) *pbgear.ConvictionVoting_Index {
 }
 
 func To_ConvictionVoting_Index_value0(in any) *pbgear.ConvictionVoting_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ConvictionVoting_TupleNull(w) //simple field
 }
 
 func To_ConvictionVoting_Locked1X(in any) *pbgear.ConvictionVoting_Locked1X {
@@ -1952,7 +2256,15 @@ func To_ConvictionVoting_RemoveOtherVoteCall(in any) *pbgear.ConvictionVoting_Re
 }
 
 func To_ConvictionVoting_RemoveOtherVoteCall_target(in any) *pbgear.ConvictionVoting_Target {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ConvictionVoting_Target(w) //simple field
 }
 
 func To_ConvictionVoting_RemoveVoteCall(in any) *pbgear.ConvictionVoting_RemoveVoteCall {
@@ -2010,7 +2322,15 @@ func To_ConvictionVoting_Standard(in any) *pbgear.ConvictionVoting_Standard {
 }
 
 func To_ConvictionVoting_Standard_vote(in any) *pbgear.ConvictionVoting_PalletConvictionVotingVoteVote {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ConvictionVoting_PalletConvictionVotingVoteVote(w) //simple field
 }
 
 func To_ConvictionVoting_Target(in any) *pbgear.ConvictionVoting_Target {
@@ -2019,13 +2339,13 @@ func To_ConvictionVoting_Target(in any) *pbgear.ConvictionVoting_Target {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_ConvictionVoting_Target_value(v.ValueAt(0))
+	v0 := To_OneOf_ConvictionVoting_Target_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ConvictionVoting_Target_value(in any) any {
+func To_OneOf_ConvictionVoting_Target_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -2061,13 +2381,13 @@ func To_ConvictionVoting_To(in any) *pbgear.ConvictionVoting_To {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_ConvictionVoting_To_value(v.ValueAt(0))
+	v0 := To_OneOf_ConvictionVoting_To_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ConvictionVoting_To_value(in any) any {
+func To_OneOf_ConvictionVoting_To_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -2109,7 +2429,15 @@ func To_ConvictionVoting_TupleNull(in any) *pbgear.ConvictionVoting_TupleNull {
 }
 
 func To_ConvictionVoting_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_ConvictionVoting_UndelegateCall(in any) *pbgear.ConvictionVoting_UndelegateCall {
@@ -2137,7 +2465,15 @@ func To_ConvictionVoting_UnlockCall(in any) *pbgear.ConvictionVoting_UnlockCall 
 }
 
 func To_ConvictionVoting_UnlockCall_target(in any) *pbgear.ConvictionVoting_Target {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ConvictionVoting_Target(w) //simple field
 }
 
 func To_ConvictionVoting_Vote(in any) *pbgear.ConvictionVoting_Vote {
@@ -2146,13 +2482,13 @@ func To_ConvictionVoting_Vote(in any) *pbgear.ConvictionVoting_Vote {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_ConvictionVoting_Vote_value(v.ValueAt(0))
+	v0 := To_OneOf_ConvictionVoting_Vote_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ConvictionVoting_Vote_value(in any) any {
+func To_OneOf_ConvictionVoting_Vote_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -2188,7 +2524,15 @@ func To_ConvictionVoting_VoteCall(in any) *pbgear.ConvictionVoting_VoteCall {
 }
 
 func To_ConvictionVoting_VoteCall_vote(in any) *pbgear.ConvictionVoting_Vote {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ConvictionVoting_Vote(w) //simple field
 }
 
 func To_ElectionProviderMultiPhasePallet(in any) *pbgear.ElectionProviderMultiPhasePallet {
@@ -2197,13 +2541,13 @@ func To_ElectionProviderMultiPhasePallet(in any) *pbgear.ElectionProviderMultiPh
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_ElectionProviderMultiPhasePallet_call(v.ValueAt(0))
+	v0 := To_OneOf_ElectionProviderMultiPhasePallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ElectionProviderMultiPhasePallet_call(in any) any {
+func To_OneOf_ElectionProviderMultiPhasePallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -2262,10 +2606,26 @@ func To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(i
 }
 
 func To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution_solution(in any) *pbgear.VaraRuntimeNposSolution16 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_VaraRuntimeNposSolution16(w) //simple field
 }
 func To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution_score(in any) *pbgear.SpNposElectionsElectionScore {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpNposElectionsElectionScore(w) //simple field
 }
 
 func To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize(in any) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize {
@@ -2319,6 +2679,7 @@ func To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall(in any) *pbgear.
 }
 
 func To_Optional_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall_maybe_next_score(in any) *pbgear.SpNposElectionsElectionScore {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
 
@@ -2334,7 +2695,15 @@ func To_ElectionProviderMultiPhase_SubmitCall(in any) *pbgear.ElectionProviderMu
 }
 
 func To_ElectionProviderMultiPhase_SubmitCall_raw_solution(in any) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(w) //simple field
 }
 
 func To_ElectionProviderMultiPhase_SubmitUnsignedCall(in any) *pbgear.ElectionProviderMultiPhase_SubmitUnsignedCall {
@@ -2351,10 +2720,26 @@ func To_ElectionProviderMultiPhase_SubmitUnsignedCall(in any) *pbgear.ElectionPr
 }
 
 func To_ElectionProviderMultiPhase_SubmitUnsignedCall_raw_solution(in any) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(w) //simple field
 }
 func To_ElectionProviderMultiPhase_SubmitUnsignedCall_witness(in any) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize(w) //simple field
 }
 
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport(in any) *pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
@@ -2371,10 +2756,26 @@ func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSu
 }
 
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport_value1(in any) *pbgear.SpNposElectionsSupport {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpNposElectionsSupport(w) //simple field
 }
 
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String(in any) *pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String {
@@ -2391,7 +2792,15 @@ func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String(in any) *p
 }
 
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes10Listuint32(in any) *pbgear.ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes10Listuint32 {
@@ -2828,7 +3237,15 @@ func To_ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16(in any
 }
 
 func To_ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16_value1(in any) *pbgear.SpArithmeticPerThingsPerU16 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpArithmeticPerThingsPerU16(w) //simple field
 }
 
 func To_ElectionProviderMultiPhase_TupleUint32TupleUint32SpArithmeticPerThingsPerU16Uint32(in any) *pbgear.ElectionProviderMultiPhase_TupleUint32TupleUint32SpArithmeticPerThingsPerU16Uint32 {
@@ -2847,7 +3264,15 @@ func To_ElectionProviderMultiPhase_TupleUint32TupleUint32SpArithmeticPerThingsPe
 }
 
 func To_ElectionProviderMultiPhase_TupleUint32TupleUint32SpArithmeticPerThingsPerU16Uint32_value1(in any) *pbgear.ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16(w) //simple field
 }
 
 func To_ElectionProviderMultiPhase_TupleUint32Uint32(in any) *pbgear.ElectionProviderMultiPhase_TupleUint32Uint32 {
@@ -2869,13 +3294,13 @@ func To_FellowshipCollectivePallet(in any) *pbgear.FellowshipCollectivePallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_FellowshipCollectivePallet_call(v.ValueAt(0))
+	v0 := To_OneOf_FellowshipCollectivePallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_FellowshipCollectivePallet_call(in any) any {
+func To_OneOf_FellowshipCollectivePallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -2921,7 +3346,15 @@ func To_FellowshipCollective_AddMemberCall(in any) *pbgear.FellowshipCollective_
 }
 
 func To_FellowshipCollective_AddMemberCall_who(in any) *pbgear.FellowshipCollective_Who {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FellowshipCollective_Who(w) //simple field
 }
 
 func To_FellowshipCollective_Address20(in any) *pbgear.FellowshipCollective_Address20 {
@@ -2971,7 +3404,15 @@ func To_FellowshipCollective_DemoteMemberCall(in any) *pbgear.FellowshipCollecti
 }
 
 func To_FellowshipCollective_DemoteMemberCall_who(in any) *pbgear.FellowshipCollective_Who {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FellowshipCollective_Who(w) //simple field
 }
 
 func To_FellowshipCollective_Id(in any) *pbgear.FellowshipCollective_Id {
@@ -2986,7 +3427,15 @@ func To_FellowshipCollective_Id(in any) *pbgear.FellowshipCollective_Id {
 }
 
 func To_FellowshipCollective_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_FellowshipCollective_Index(in any) *pbgear.FellowshipCollective_Index {
@@ -3001,7 +3450,15 @@ func To_FellowshipCollective_Index(in any) *pbgear.FellowshipCollective_Index {
 }
 
 func To_FellowshipCollective_Index_value0(in any) *pbgear.FellowshipCollective_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FellowshipCollective_TupleNull(w) //simple field
 }
 
 func To_FellowshipCollective_PromoteMemberCall(in any) *pbgear.FellowshipCollective_PromoteMemberCall {
@@ -3016,7 +3473,15 @@ func To_FellowshipCollective_PromoteMemberCall(in any) *pbgear.FellowshipCollect
 }
 
 func To_FellowshipCollective_PromoteMemberCall_who(in any) *pbgear.FellowshipCollective_Who {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FellowshipCollective_Who(w) //simple field
 }
 
 func To_FellowshipCollective_Raw(in any) *pbgear.FellowshipCollective_Raw {
@@ -3044,7 +3509,15 @@ func To_FellowshipCollective_RemoveMemberCall(in any) *pbgear.FellowshipCollecti
 }
 
 func To_FellowshipCollective_RemoveMemberCall_who(in any) *pbgear.FellowshipCollective_Who {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FellowshipCollective_Who(w) //simple field
 }
 
 func To_FellowshipCollective_TupleNull(in any) *pbgear.FellowshipCollective_TupleNull {
@@ -3059,7 +3532,15 @@ func To_FellowshipCollective_TupleNull(in any) *pbgear.FellowshipCollective_Tupl
 }
 
 func To_FellowshipCollective_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_FellowshipCollective_VoteCall(in any) *pbgear.FellowshipCollective_VoteCall {
@@ -3081,13 +3562,13 @@ func To_FellowshipCollective_Who(in any) *pbgear.FellowshipCollective_Who {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_FellowshipCollective_Who_value(v.ValueAt(0))
+	v0 := To_OneOf_FellowshipCollective_Who_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_FellowshipCollective_Who_value(in any) any {
+func To_OneOf_FellowshipCollective_Who_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -3123,13 +3604,13 @@ func To_FellowshipReferendaPallet(in any) *pbgear.FellowshipReferendaPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_FellowshipReferendaPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_FellowshipReferendaPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_FellowshipReferendaPallet_call(in any) any {
+func To_OneOf_FellowshipReferendaPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -3214,13 +3695,13 @@ func To_FellowshipReferenda_EnactmentMoment(in any) *pbgear.FellowshipReferenda_
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_FellowshipReferenda_EnactmentMoment_value(v.ValueAt(0))
+	v0 := To_OneOf_FellowshipReferenda_EnactmentMoment_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_FellowshipReferenda_EnactmentMoment_value(in any) any {
+func To_OneOf_FellowshipReferenda_EnactmentMoment_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -3250,7 +3731,15 @@ func To_FellowshipReferenda_Inline(in any) *pbgear.FellowshipReferenda_Inline {
 }
 
 func To_FellowshipReferenda_Inline_value0(in any) *pbgear.BoundedCollectionsBoundedVecBoundedVec {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_BoundedCollectionsBoundedVecBoundedVec(w) //simple field
 }
 
 func To_FellowshipReferenda_KillCall(in any) *pbgear.FellowshipReferenda_KillCall {
@@ -3276,7 +3765,15 @@ func To_FellowshipReferenda_Legacy(in any) *pbgear.FellowshipReferenda_Legacy {
 }
 
 func To_FellowshipReferenda_Legacy_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_FellowshipReferenda_Lookup(in any) *pbgear.FellowshipReferenda_Lookup {
@@ -3293,7 +3790,15 @@ func To_FellowshipReferenda_Lookup(in any) *pbgear.FellowshipReferenda_Lookup {
 }
 
 func To_FellowshipReferenda_Lookup_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_FellowshipReferenda_NudgeReferendumCall(in any) *pbgear.FellowshipReferenda_NudgeReferendumCall {
@@ -3330,7 +3835,15 @@ func To_FellowshipReferenda_Origins(in any) *pbgear.FellowshipReferenda_Origins 
 }
 
 func To_FellowshipReferenda_Origins_value0(in any) *pbgear.Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Value0(w) //simple field
 }
 
 func To_FellowshipReferenda_PlaceDecisionDepositCall(in any) *pbgear.FellowshipReferenda_PlaceDecisionDepositCall {
@@ -3350,13 +3863,13 @@ func To_FellowshipReferenda_Proposal(in any) *pbgear.FellowshipReferenda_Proposa
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_FellowshipReferenda_Proposal_value(v.ValueAt(0))
+	v0 := To_OneOf_FellowshipReferenda_Proposal_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_FellowshipReferenda_Proposal_value(in any) any {
+func To_OneOf_FellowshipReferenda_Proposal_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -3384,13 +3897,13 @@ func To_FellowshipReferenda_ProposalOrigin(in any) *pbgear.FellowshipReferenda_P
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_FellowshipReferenda_ProposalOrigin_value(v.ValueAt(0))
+	v0 := To_OneOf_FellowshipReferenda_ProposalOrigin_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_FellowshipReferenda_ProposalOrigin_value(in any) any {
+func To_OneOf_FellowshipReferenda_ProposalOrigin_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -3448,6 +3961,7 @@ func To_FellowshipReferenda_SetMetadataCall(in any) *pbgear.FellowshipReferenda_
 }
 
 func To_Optional_FellowshipReferenda_SetMetadataCall_maybe_hash(in any) *pbgear.PrimitiveTypesH256 {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
 
@@ -3467,13 +3981,37 @@ func To_FellowshipReferenda_SubmitCall(in any) *pbgear.FellowshipReferenda_Submi
 }
 
 func To_FellowshipReferenda_SubmitCall_proposal_origin(in any) *pbgear.FellowshipReferenda_ProposalOrigin {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FellowshipReferenda_ProposalOrigin(w) //simple field
 }
 func To_FellowshipReferenda_SubmitCall_proposal(in any) *pbgear.FellowshipReferenda_Proposal {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FellowshipReferenda_Proposal(w) //simple field
 }
 func To_FellowshipReferenda_SubmitCall_enactment_moment(in any) *pbgear.FellowshipReferenda_EnactmentMoment {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FellowshipReferenda_EnactmentMoment(w) //simple field
 }
 
 func To_FellowshipReferenda_System(in any) *pbgear.FellowshipReferenda_System {
@@ -3488,7 +4026,15 @@ func To_FellowshipReferenda_System(in any) *pbgear.FellowshipReferenda_System {
 }
 
 func To_FellowshipReferenda_System_value0(in any) *pbgear.Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Value0(w) //simple field
 }
 
 func To_FellowshipReferenda_Void(in any) *pbgear.FellowshipReferenda_Void {
@@ -3503,7 +4049,15 @@ func To_FellowshipReferenda_Void(in any) *pbgear.FellowshipReferenda_Void {
 }
 
 func To_FellowshipReferenda_Void_value0(in any) *pbgear.Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Value0(w) //simple field
 }
 
 func To_FinalityGrandpaEquivocation(in any) *pbgear.FinalityGrandpaEquivocation {
@@ -3524,13 +4078,37 @@ func To_FinalityGrandpaEquivocation(in any) *pbgear.FinalityGrandpaEquivocation 
 }
 
 func To_FinalityGrandpaEquivocation_identity(in any) *pbgear.SpConsensusGrandpaAppPublic {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusGrandpaAppPublic(w) //simple field
 }
 func To_FinalityGrandpaEquivocation_first(in any) *pbgear.TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(w) //simple field
 }
 func To_FinalityGrandpaEquivocation_second(in any) *pbgear.TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(w) //simple field
 }
 
 func To_FinalityGrandpaPrecommit(in any) *pbgear.FinalityGrandpaPrecommit {
@@ -3547,7 +4125,15 @@ func To_FinalityGrandpaPrecommit(in any) *pbgear.FinalityGrandpaPrecommit {
 }
 
 func To_FinalityGrandpaPrecommit_target_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_FinalityGrandpaPrevote(in any) *pbgear.FinalityGrandpaPrevote {
@@ -3564,7 +4150,15 @@ func To_FinalityGrandpaPrevote(in any) *pbgear.FinalityGrandpaPrevote {
 }
 
 func To_FinalityGrandpaPrevote_target_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_GearBankPallet(in any) *pbgear.GearBankPallet {
@@ -3605,13 +4199,13 @@ func To_GearPallet(in any) *pbgear.GearPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_GearPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_GearPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_GearPallet_call(in any) any {
+func To_OneOf_GearPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -3683,13 +4277,13 @@ func To_GearVoucherPallet(in any) *pbgear.GearVoucherPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_GearVoucherPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_GearVoucherPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_GearVoucherPallet_call(in any) any {
+func To_OneOf_GearVoucherPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -3729,13 +4323,13 @@ func To_GearVoucher_AppendPrograms(in any) *pbgear.GearVoucher_AppendPrograms {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_GearVoucher_AppendPrograms_value(v.ValueAt(0))
+	v0 := To_OneOf_GearVoucher_AppendPrograms_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_GearVoucher_AppendPrograms_value(in any) any {
+func To_OneOf_GearVoucher_AppendPrograms_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -3759,13 +4353,13 @@ func To_GearVoucher_Call(in any) *pbgear.GearVoucher_Call {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_GearVoucher_Call_value(v.ValueAt(0))
+	v0 := To_OneOf_GearVoucher_Call_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_GearVoucher_Call_value(in any) any {
+func To_OneOf_GearVoucher_Call_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -3805,10 +4399,26 @@ func To_GearVoucher_CallCall(in any) *pbgear.GearVoucher_CallCall {
 }
 
 func To_GearVoucher_CallCall_voucher_id(in any) *pbgear.GearVoucher_PalletGearVoucherInternalVoucherId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GearVoucher_PalletGearVoucherInternalVoucherId(w) //simple field
 }
 func To_GearVoucher_CallCall_call(in any) *pbgear.GearVoucher_Call {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GearVoucher_Call(w) //simple field
 }
 
 func To_GearVoucher_CallDeprecatedCall(in any) *pbgear.GearVoucher_CallDeprecatedCall {
@@ -3823,7 +4433,15 @@ func To_GearVoucher_CallDeprecatedCall(in any) *pbgear.GearVoucher_CallDeprecate
 }
 
 func To_GearVoucher_CallDeprecatedCall_call(in any) *pbgear.GearVoucher_Call {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GearVoucher_Call(w) //simple field
 }
 
 func To_GearVoucher_DeclineCall(in any) *pbgear.GearVoucher_DeclineCall {
@@ -3838,7 +4456,15 @@ func To_GearVoucher_DeclineCall(in any) *pbgear.GearVoucher_DeclineCall {
 }
 
 func To_GearVoucher_DeclineCall_voucher_id(in any) *pbgear.GearVoucher_PalletGearVoucherInternalVoucherId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GearVoucher_PalletGearVoucherInternalVoucherId(w) //simple field
 }
 
 func To_GearVoucher_DeclineVoucher(in any) *pbgear.GearVoucher_DeclineVoucher {
@@ -3869,9 +4495,18 @@ func To_GearVoucher_IssueCall(in any) *pbgear.GearVoucher_IssueCall {
 }
 
 func To_GearVoucher_IssueCall_spender(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 func To_Optional_GearVoucher_IssueCall_programs(in any) *pbgear.BTreeSet {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
 
@@ -3908,10 +4543,26 @@ func To_GearVoucher_RevokeCall(in any) *pbgear.GearVoucher_RevokeCall {
 }
 
 func To_GearVoucher_RevokeCall_spender(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 func To_GearVoucher_RevokeCall_voucher_id(in any) *pbgear.GearVoucher_PalletGearVoucherInternalVoucherId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GearVoucher_PalletGearVoucherInternalVoucherId(w) //simple field
 }
 
 func To_GearVoucher_SendMessage(in any) *pbgear.GearVoucher_SendMessage {
@@ -3934,7 +4585,15 @@ func To_GearVoucher_SendMessage(in any) *pbgear.GearVoucher_SendMessage {
 }
 
 func To_GearVoucher_SendMessage_destination(in any) *pbgear.GprimitivesActorId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GprimitivesActorId(w) //simple field
 }
 
 func To_GearVoucher_SendReply(in any) *pbgear.GearVoucher_SendReply {
@@ -3957,7 +4616,15 @@ func To_GearVoucher_SendReply(in any) *pbgear.GearVoucher_SendReply {
 }
 
 func To_GearVoucher_SendReply_reply_to_id(in any) *pbgear.GprimitivesMessageId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GprimitivesMessageId(w) //simple field
 }
 
 func To_GearVoucher_Some(in any) *pbgear.GearVoucher_Some {
@@ -3972,7 +4639,15 @@ func To_GearVoucher_Some(in any) *pbgear.GearVoucher_Some {
 }
 
 func To_GearVoucher_Some_value0(in any) *pbgear.BTreeSet {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_BTreeSet(w) //simple field
 }
 
 func To_GearVoucher_UpdateCall(in any) *pbgear.GearVoucher_UpdateCall {
@@ -3999,15 +4674,33 @@ func To_GearVoucher_UpdateCall(in any) *pbgear.GearVoucher_UpdateCall {
 }
 
 func To_GearVoucher_UpdateCall_spender(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 func To_GearVoucher_UpdateCall_voucher_id(in any) *pbgear.GearVoucher_PalletGearVoucherInternalVoucherId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GearVoucher_PalletGearVoucherInternalVoucherId(w) //simple field
 }
 func To_Optional_GearVoucher_UpdateCall_move_ownership(in any) *pbgear.SpCoreCryptoAccountId32 {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
 func To_Optional_GearVoucher_UpdateCall_append_programs(in any) *pbgear.GearVoucher_AppendPrograms {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
 
@@ -4034,7 +4727,15 @@ func To_Gear_ClaimValueCall(in any) *pbgear.Gear_ClaimValueCall {
 }
 
 func To_Gear_ClaimValueCall_message_id(in any) *pbgear.GprimitivesMessageId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GprimitivesMessageId(w) //simple field
 }
 
 func To_Gear_CreateProgramCall(in any) *pbgear.Gear_CreateProgramCall {
@@ -4059,7 +4760,15 @@ func To_Gear_CreateProgramCall(in any) *pbgear.Gear_CreateProgramCall {
 }
 
 func To_Gear_CreateProgramCall_code_id(in any) *pbgear.GprimitivesCodeId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GprimitivesCodeId(w) //simple field
 }
 
 func To_Gear_RunCall(in any) *pbgear.Gear_RunCall {
@@ -4093,7 +4802,15 @@ func To_Gear_SendMessageCall(in any) *pbgear.Gear_SendMessageCall {
 }
 
 func To_Gear_SendMessageCall_destination(in any) *pbgear.GprimitivesActorId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GprimitivesActorId(w) //simple field
 }
 
 func To_Gear_SendReplyCall(in any) *pbgear.Gear_SendReplyCall {
@@ -4116,7 +4833,15 @@ func To_Gear_SendReplyCall(in any) *pbgear.Gear_SendReplyCall {
 }
 
 func To_Gear_SendReplyCall_reply_to_id(in any) *pbgear.GprimitivesMessageId {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_GprimitivesMessageId(w) //simple field
 }
 
 func To_Gear_SetExecuteInherentCall(in any) *pbgear.Gear_SetExecuteInherentCall {
@@ -4201,13 +4926,13 @@ func To_GrandpaPallet(in any) *pbgear.GrandpaPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_GrandpaPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_GrandpaPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_GrandpaPallet_call(in any) any {
+func To_OneOf_GrandpaPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -4235,13 +4960,13 @@ func To_Grandpa_Equivocation(in any) *pbgear.Grandpa_Equivocation {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Grandpa_Equivocation_value(v.ValueAt(0))
+	v0 := To_OneOf_Grandpa_Equivocation_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Grandpa_Equivocation_value(in any) any {
+func To_OneOf_Grandpa_Equivocation_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -4295,7 +5020,15 @@ func To_Grandpa_Precommit(in any) *pbgear.Grandpa_Precommit {
 }
 
 func To_Grandpa_Precommit_value0(in any) *pbgear.FinalityGrandpaEquivocation {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FinalityGrandpaEquivocation(w) //simple field
 }
 
 func To_Grandpa_Prevote(in any) *pbgear.Grandpa_Prevote {
@@ -4310,7 +5043,15 @@ func To_Grandpa_Prevote(in any) *pbgear.Grandpa_Prevote {
 }
 
 func To_Grandpa_Prevote_value0(in any) *pbgear.FinalityGrandpaEquivocation {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FinalityGrandpaEquivocation(w) //simple field
 }
 
 func To_Grandpa_ReportEquivocationCall(in any) *pbgear.Grandpa_ReportEquivocationCall {
@@ -4327,10 +5068,26 @@ func To_Grandpa_ReportEquivocationCall(in any) *pbgear.Grandpa_ReportEquivocatio
 }
 
 func To_Grandpa_ReportEquivocationCall_equivocation_proof(in any) *pbgear.SpConsensusGrandpaEquivocationProof {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusGrandpaEquivocationProof(w) //simple field
 }
 func To_Grandpa_ReportEquivocationCall_key_owner_proof(in any) *pbgear.SpSessionMembershipProof {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpSessionMembershipProof(w) //simple field
 }
 
 func To_Grandpa_ReportEquivocationUnsignedCall(in any) *pbgear.Grandpa_ReportEquivocationUnsignedCall {
@@ -4347,10 +5104,26 @@ func To_Grandpa_ReportEquivocationUnsignedCall(in any) *pbgear.Grandpa_ReportEqu
 }
 
 func To_Grandpa_ReportEquivocationUnsignedCall_equivocation_proof(in any) *pbgear.SpConsensusGrandpaEquivocationProof {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusGrandpaEquivocationProof(w) //simple field
 }
 func To_Grandpa_ReportEquivocationUnsignedCall_key_owner_proof(in any) *pbgear.SpSessionMembershipProof {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpSessionMembershipProof(w) //simple field
 }
 
 func To_HistoricalPallet(in any) *pbgear.HistoricalPallet {
@@ -4367,13 +5140,13 @@ func To_IdentityPallet(in any) *pbgear.IdentityPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_IdentityPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_IdentityPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_IdentityPallet_call(in any) any {
+func To_OneOf_IdentityPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -4449,13 +5222,13 @@ func To_Identity_Account(in any) *pbgear.Identity_Account {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Account_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Account_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Account_value(in any) any {
+func To_OneOf_Identity_Account_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -4497,7 +5270,15 @@ func To_Identity_AddRegistrarCall(in any) *pbgear.Identity_AddRegistrarCall {
 }
 
 func To_Identity_AddRegistrarCall_account(in any) *pbgear.Identity_Account {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Account(w) //simple field
 }
 
 func To_Identity_AddSubCall(in any) *pbgear.Identity_AddSubCall {
@@ -4514,10 +5295,26 @@ func To_Identity_AddSubCall(in any) *pbgear.Identity_AddSubCall {
 }
 
 func To_Identity_AddSubCall_sub(in any) *pbgear.Identity_Sub {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Sub(w) //simple field
 }
 func To_Identity_AddSubCall_data(in any) *pbgear.Identity_Data {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Data(w) //simple field
 }
 
 func To_Identity_Address20(in any) *pbgear.Identity_Address20 {
@@ -4578,13 +5375,13 @@ func To_Identity_Data(in any) *pbgear.Identity_Data {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Data_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Data_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Data_value(in any) any {
+func To_OneOf_Identity_Data_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -4752,13 +5549,13 @@ func To_Identity_Display(in any) *pbgear.Identity_Display {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Display_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Display_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Display_value(in any) any {
+func To_OneOf_Identity_Display_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -4926,13 +5723,13 @@ func To_Identity_Email(in any) *pbgear.Identity_Email {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Email_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Email_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Email_value(in any) any {
+func To_OneOf_Identity_Email_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -5125,7 +5922,15 @@ func To_Identity_Id(in any) *pbgear.Identity_Id {
 }
 
 func To_Identity_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Identity_Image(in any) *pbgear.Identity_Image {
@@ -5134,13 +5939,13 @@ func To_Identity_Image(in any) *pbgear.Identity_Image {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Image_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Image_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Image_value(in any) any {
+func To_OneOf_Identity_Image_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -5314,7 +6119,15 @@ func To_Identity_Index(in any) *pbgear.Identity_Index {
 }
 
 func To_Identity_Index_value0(in any) *pbgear.Identity_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_TupleNull(w) //simple field
 }
 
 func To_Identity_Judgement(in any) *pbgear.Identity_Judgement {
@@ -5323,13 +6136,13 @@ func To_Identity_Judgement(in any) *pbgear.Identity_Judgement {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Judgement_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Judgement_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Judgement_value(in any) any {
+func To_OneOf_Identity_Judgement_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -5390,7 +6203,15 @@ func To_Identity_KillIdentityCall(in any) *pbgear.Identity_KillIdentityCall {
 }
 
 func To_Identity_KillIdentityCall_target(in any) *pbgear.Identity_Target {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Target(w) //simple field
 }
 
 func To_Identity_KnownGood(in any) *pbgear.Identity_KnownGood {
@@ -5407,13 +6228,13 @@ func To_Identity_Legal(in any) *pbgear.Identity_Legal {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Legal_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Legal_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Legal_value(in any) any {
+func To_OneOf_Identity_Legal_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -5589,13 +6410,13 @@ func To_Identity_New(in any) *pbgear.Identity_New {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_New_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_New_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_New_value(in any) any {
+func To_OneOf_Identity_New_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -5669,28 +6490,92 @@ func To_Identity_PalletIdentitySimpleIdentityInfo(in any) *pbgear.Identity_Palle
 }
 
 func To_Identity_PalletIdentitySimpleIdentityInfo_additional(in any) *pbgear.BoundedCollectionsBoundedVecBoundedVec {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_BoundedCollectionsBoundedVecBoundedVec(w) //simple field
 }
 func To_Identity_PalletIdentitySimpleIdentityInfo_display(in any) *pbgear.Identity_Display {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Display(w) //simple field
 }
 func To_Identity_PalletIdentitySimpleIdentityInfo_legal(in any) *pbgear.Identity_Legal {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Legal(w) //simple field
 }
 func To_Identity_PalletIdentitySimpleIdentityInfo_web(in any) *pbgear.Identity_Web {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Web(w) //simple field
 }
 func To_Identity_PalletIdentitySimpleIdentityInfo_riot(in any) *pbgear.Identity_Riot {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Riot(w) //simple field
 }
 func To_Identity_PalletIdentitySimpleIdentityInfo_email(in any) *pbgear.Identity_Email {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Email(w) //simple field
 }
 func To_Identity_PalletIdentitySimpleIdentityInfo_image(in any) *pbgear.Identity_Image {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Image(w) //simple field
 }
 func To_Identity_PalletIdentitySimpleIdentityInfo_twitter(in any) *pbgear.Identity_Twitter {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Twitter(w) //simple field
 }
 
 func To_Identity_PalletIdentityTypesBitFlags(in any) *pbgear.Identity_PalletIdentityTypesBitFlags {
@@ -5722,13 +6607,37 @@ func To_Identity_ProvideJudgementCall(in any) *pbgear.Identity_ProvideJudgementC
 }
 
 func To_Identity_ProvideJudgementCall_target(in any) *pbgear.Identity_Target {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Target(w) //simple field
 }
 func To_Identity_ProvideJudgementCall_judgement(in any) *pbgear.Identity_Judgement {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Judgement(w) //simple field
 }
 func To_Identity_ProvideJudgementCall_identity(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_Identity_QuitSubCall(in any) *pbgear.Identity_QuitSubCall {
@@ -6133,7 +7042,15 @@ func To_Identity_RemoveSubCall(in any) *pbgear.Identity_RemoveSubCall {
 }
 
 func To_Identity_RemoveSubCall_sub(in any) *pbgear.Identity_Sub {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Sub(w) //simple field
 }
 
 func To_Identity_RenameSubCall(in any) *pbgear.Identity_RenameSubCall {
@@ -6150,10 +7067,26 @@ func To_Identity_RenameSubCall(in any) *pbgear.Identity_RenameSubCall {
 }
 
 func To_Identity_RenameSubCall_sub(in any) *pbgear.Identity_Sub {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Sub(w) //simple field
 }
 func To_Identity_RenameSubCall_data(in any) *pbgear.Identity_Data {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Data(w) //simple field
 }
 
 func To_Identity_RequestJudgementCall(in any) *pbgear.Identity_RequestJudgementCall {
@@ -6175,13 +7108,13 @@ func To_Identity_Riot(in any) *pbgear.Identity_Riot {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Riot_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Riot_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Riot_value(in any) any {
+func To_OneOf_Identity_Riot_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -6357,7 +7290,15 @@ func To_Identity_SetAccountIdCall(in any) *pbgear.Identity_SetAccountIdCall {
 }
 
 func To_Identity_SetAccountIdCall_new(in any) *pbgear.Identity_New {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_New(w) //simple field
 }
 
 func To_Identity_SetFeeCall(in any) *pbgear.Identity_SetFeeCall {
@@ -6387,7 +7328,15 @@ func To_Identity_SetFieldsCall(in any) *pbgear.Identity_SetFieldsCall {
 }
 
 func To_Identity_SetFieldsCall_fields(in any) *pbgear.Identity_PalletIdentityTypesBitFlags {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_PalletIdentityTypesBitFlags(w) //simple field
 }
 
 func To_Identity_SetIdentityCall(in any) *pbgear.Identity_SetIdentityCall {
@@ -6402,7 +7351,15 @@ func To_Identity_SetIdentityCall(in any) *pbgear.Identity_SetIdentityCall {
 }
 
 func To_Identity_SetIdentityCall_info(in any) *pbgear.Identity_PalletIdentitySimpleIdentityInfo {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_PalletIdentitySimpleIdentityInfo(w) //simple field
 }
 
 func To_Identity_SetSubsCall(in any) *pbgear.Identity_SetSubsCall {
@@ -6459,13 +7416,13 @@ func To_Identity_Sub(in any) *pbgear.Identity_Sub {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Sub_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Sub_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Sub_value(in any) any {
+func To_OneOf_Identity_Sub_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -6501,13 +7458,13 @@ func To_Identity_Target(in any) *pbgear.Identity_Target {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Target_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Target_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Target_value(in any) any {
+func To_OneOf_Identity_Target_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -6549,7 +7506,15 @@ func To_Identity_TupleNull(in any) *pbgear.Identity_TupleNull {
 }
 
 func To_Identity_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData(in any) *pbgear.Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData {
@@ -6566,10 +7531,26 @@ func To_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData(in any) *pb
 }
 
 func To_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData_value0(in any) *pbgear.Identity_Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Value0(w) //simple field
 }
 func To_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData_value1(in any) *pbgear.Identity_Value1 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Value1(w) //simple field
 }
 
 func To_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(in any) *pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData {
@@ -6586,10 +7567,26 @@ func To_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData(in any) *pb
 }
 
 func To_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 func To_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData_value1(in any) *pbgear.Identity_Value1 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Identity_Value1(w) //simple field
 }
 
 func To_Identity_Twitter(in any) *pbgear.Identity_Twitter {
@@ -6598,13 +7595,13 @@ func To_Identity_Twitter(in any) *pbgear.Identity_Twitter {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Twitter_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Twitter_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Twitter_value(in any) any {
+func To_OneOf_Identity_Twitter_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -6780,13 +7777,13 @@ func To_Identity_Value0(in any) *pbgear.Identity_Value0 {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Value0_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Value0_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Value0_value(in any) any {
+func To_OneOf_Identity_Value0_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -6954,13 +7951,13 @@ func To_Identity_Value1(in any) *pbgear.Identity_Value1 {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Value1_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Value1_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Value1_value(in any) any {
+func To_OneOf_Identity_Value1_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -7128,13 +8125,13 @@ func To_Identity_Web(in any) *pbgear.Identity_Web {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Identity_Web_value(v.ValueAt(0))
+	v0 := To_OneOf_Identity_Web_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Identity_Web_value(in any) any {
+func To_OneOf_Identity_Web_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -7302,13 +8299,13 @@ func To_ImOnlinePallet(in any) *pbgear.ImOnlinePallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_ImOnlinePallet_call(v.ValueAt(0))
+	v0 := To_OneOf_ImOnlinePallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ImOnlinePallet_call(in any) any {
+func To_OneOf_ImOnlinePallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -7336,10 +8333,26 @@ func To_ImOnline_HeartbeatCall(in any) *pbgear.ImOnline_HeartbeatCall {
 }
 
 func To_ImOnline_HeartbeatCall_heartbeat(in any) *pbgear.ImOnline_PalletImOnlineHeartbeat {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ImOnline_PalletImOnlineHeartbeat(w) //simple field
 }
 func To_ImOnline_HeartbeatCall_signature(in any) *pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Signature {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ImOnline_PalletImOnlineSr25519AppSr25519Signature(w) //simple field
 }
 
 func To_ImOnline_PalletImOnlineHeartbeat(in any) *pbgear.ImOnline_PalletImOnlineHeartbeat {
@@ -7371,7 +8384,15 @@ func To_ImOnline_PalletImOnlineSr25519AppSr25519Public(in any) *pbgear.ImOnline_
 }
 
 func To_ImOnline_PalletImOnlineSr25519AppSr25519Public_value0(in any) *pbgear.SpCoreSr25519Public {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreSr25519Public(w) //simple field
 }
 
 func To_ImOnline_PalletImOnlineSr25519AppSr25519Signature(in any) *pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Signature {
@@ -7386,7 +8407,15 @@ func To_ImOnline_PalletImOnlineSr25519AppSr25519Signature(in any) *pbgear.ImOnli
 }
 
 func To_ImOnline_PalletImOnlineSr25519AppSr25519Signature_value0(in any) *pbgear.SpCoreSr25519Signature {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreSr25519Signature(w) //simple field
 }
 
 func To_MultisigPallet(in any) *pbgear.MultisigPallet {
@@ -7395,13 +8424,13 @@ func To_MultisigPallet(in any) *pbgear.MultisigPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_MultisigPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_MultisigPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_MultisigPallet_call(in any) any {
+func To_OneOf_MultisigPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -7461,10 +8490,19 @@ func To_Repeated_Multisig_ApproveAsMultiCall_other_signatories(in any) []*pbgear
 	return nil //funcForRepeatedField
 }
 func To_Optional_Multisig_ApproveAsMultiCall_maybe_timepoint(in any) *pbgear.Multisig_PalletMultisigTimepoint {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
 func To_Multisig_ApproveAsMultiCall_max_weight(in any) *pbgear.SpWeightsWeightV2Weight {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpWeightsWeightV2Weight(w) //simple field
 }
 
 func To_Multisig_AsMultiCall(in any) *pbgear.Multisig_AsMultiCall {
@@ -7479,7 +8517,7 @@ func To_Multisig_AsMultiCall(in any) *pbgear.Multisig_AsMultiCall {
 	// optional field MaybeTimepoint
 	out.MaybeTimepoint = To_Optional_Multisig_AsMultiCall_maybe_timepoint(v.ValueAt(2))
 	// oneOf field Call
-	v3 := Set_OneOf_Multisig_AsMultiCall_call(v.ValueAt(3))
+	v3 := To_OneOf_Multisig_AsMultiCall_call(v.ValueAt(3))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v3))
 	// field MaxWeight
 	out.MaxWeight = To_Multisig_AsMultiCall_max_weight(v.ValueAt(4))
@@ -7502,9 +8540,10 @@ func To_Repeated_Multisig_AsMultiCall_other_signatories(in any) []*pbgear.SpCore
 	return nil //funcForRepeatedField
 }
 func To_Optional_Multisig_AsMultiCall_maybe_timepoint(in any) *pbgear.Multisig_PalletMultisigTimepoint {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
-func Set_OneOf_Multisig_AsMultiCall_call(in any) any {
+func To_OneOf_Multisig_AsMultiCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -7630,7 +8669,15 @@ func Set_OneOf_Multisig_AsMultiCall_call(in any) any {
 	}
 }
 func To_Multisig_AsMultiCall_max_weight(in any) *pbgear.SpWeightsWeightV2Weight {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpWeightsWeightV2Weight(w) //simple field
 }
 
 func To_Multisig_AsMultiThreshold1Call(in any) *pbgear.Multisig_AsMultiThreshold1Call {
@@ -7641,7 +8688,7 @@ func To_Multisig_AsMultiThreshold1Call(in any) *pbgear.Multisig_AsMultiThreshold
 	// repeated field OtherSignatories
 	out.OtherSignatories = To_Repeated_Multisig_AsMultiThreshold1Call_other_signatories(v.ValueAt(0))
 	// oneOf field Call
-	v1 := Set_OneOf_Multisig_AsMultiThreshold1Call_call(v.ValueAt(1))
+	v1 := To_OneOf_Multisig_AsMultiThreshold1Call_call(v.ValueAt(1))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v1))
 
 	return out //from message
@@ -7661,7 +8708,7 @@ func To_Repeated_Multisig_AsMultiThreshold1Call_other_signatories(in any) []*pbg
 	}
 	return nil //funcForRepeatedField
 }
-func Set_OneOf_Multisig_AsMultiThreshold1Call_call(in any) any {
+func To_OneOf_Multisig_AsMultiThreshold1Call_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -7819,7 +8866,15 @@ func To_Repeated_Multisig_CancelAsMultiCall_other_signatories(in any) []*pbgear.
 	return nil //funcForRepeatedField
 }
 func To_Multisig_CancelAsMultiCall_timepoint(in any) *pbgear.Multisig_PalletMultisigTimepoint {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Multisig_PalletMultisigTimepoint(w) //simple field
 }
 
 func To_Multisig_PalletMultisigTimepoint(in any) *pbgear.Multisig_PalletMultisigTimepoint {
@@ -7841,13 +8896,13 @@ func To_NominationPoolsPallet(in any) *pbgear.NominationPoolsPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_NominationPoolsPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_NominationPoolsPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPoolsPallet_call(in any) any {
+func To_OneOf_NominationPoolsPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -7998,7 +9053,15 @@ func To_NominationPools_BondExtraCall(in any) *pbgear.NominationPools_BondExtraC
 }
 
 func To_NominationPools_BondExtraCall_extra(in any) *pbgear.NominationPools_Extra {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Extra(w) //simple field
 }
 
 func To_NominationPools_BondExtraOtherCall(in any) *pbgear.NominationPools_BondExtraOtherCall {
@@ -8015,10 +9078,26 @@ func To_NominationPools_BondExtraOtherCall(in any) *pbgear.NominationPools_BondE
 }
 
 func To_NominationPools_BondExtraOtherCall_member(in any) *pbgear.NominationPools_Member {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Member(w) //simple field
 }
 func To_NominationPools_BondExtraOtherCall_extra(in any) *pbgear.NominationPools_Extra {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Extra(w) //simple field
 }
 
 func To_NominationPools_Bouncer(in any) *pbgear.NominationPools_Bouncer {
@@ -8027,13 +9106,13 @@ func To_NominationPools_Bouncer(in any) *pbgear.NominationPools_Bouncer {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_Bouncer_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_Bouncer_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_Bouncer_value(in any) any {
+func To_OneOf_NominationPools_Bouncer_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8105,7 +9184,15 @@ func To_NominationPools_ClaimPayoutOtherCall(in any) *pbgear.NominationPools_Cla
 }
 
 func To_NominationPools_ClaimPayoutOtherCall_other(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_NominationPools_CreateCall(in any) *pbgear.NominationPools_CreateCall {
@@ -8126,13 +9213,37 @@ func To_NominationPools_CreateCall(in any) *pbgear.NominationPools_CreateCall {
 }
 
 func To_NominationPools_CreateCall_root(in any) *pbgear.NominationPools_Root {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Root(w) //simple field
 }
 func To_NominationPools_CreateCall_nominator(in any) *pbgear.NominationPools_Nominator {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Nominator(w) //simple field
 }
 func To_NominationPools_CreateCall_bouncer(in any) *pbgear.NominationPools_Bouncer {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Bouncer(w) //simple field
 }
 
 func To_NominationPools_CreateWithPoolIdCall(in any) *pbgear.NominationPools_CreateWithPoolIdCall {
@@ -8155,13 +9266,37 @@ func To_NominationPools_CreateWithPoolIdCall(in any) *pbgear.NominationPools_Cre
 }
 
 func To_NominationPools_CreateWithPoolIdCall_root(in any) *pbgear.NominationPools_Root {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Root(w) //simple field
 }
 func To_NominationPools_CreateWithPoolIdCall_nominator(in any) *pbgear.NominationPools_Nominator {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Nominator(w) //simple field
 }
 func To_NominationPools_CreateWithPoolIdCall_bouncer(in any) *pbgear.NominationPools_Bouncer {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Bouncer(w) //simple field
 }
 
 func To_NominationPools_Destroying(in any) *pbgear.NominationPools_Destroying {
@@ -8178,13 +9313,13 @@ func To_NominationPools_Extra(in any) *pbgear.NominationPools_Extra {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_Extra_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_Extra_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_Extra_value(in any) any {
+func To_OneOf_NominationPools_Extra_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8219,13 +9354,13 @@ func To_NominationPools_GlobalMaxCommission(in any) *pbgear.NominationPools_Glob
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_GlobalMaxCommission_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_GlobalMaxCommission_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_GlobalMaxCommission_value(in any) any {
+func To_OneOf_NominationPools_GlobalMaxCommission_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8259,7 +9394,15 @@ func To_NominationPools_Id(in any) *pbgear.NominationPools_Id {
 }
 
 func To_NominationPools_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_NominationPools_Index(in any) *pbgear.NominationPools_Index {
@@ -8274,7 +9417,15 @@ func To_NominationPools_Index(in any) *pbgear.NominationPools_Index {
 }
 
 func To_NominationPools_Index_value0(in any) *pbgear.NominationPools_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_TupleNull(w) //simple field
 }
 
 func To_NominationPools_JoinCall(in any) *pbgear.NominationPools_JoinCall {
@@ -8296,13 +9447,13 @@ func To_NominationPools_MaxMembers(in any) *pbgear.NominationPools_MaxMembers {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_MaxMembers_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_MaxMembers_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_MaxMembers_value(in any) any {
+func To_OneOf_NominationPools_MaxMembers_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8330,13 +9481,13 @@ func To_NominationPools_MaxMembersPerPool(in any) *pbgear.NominationPools_MaxMem
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_MaxMembersPerPool_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_MaxMembersPerPool_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_MaxMembersPerPool_value(in any) any {
+func To_OneOf_NominationPools_MaxMembersPerPool_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8364,13 +9515,13 @@ func To_NominationPools_MaxPools(in any) *pbgear.NominationPools_MaxPools {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_MaxPools_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_MaxPools_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_MaxPools_value(in any) any {
+func To_OneOf_NominationPools_MaxPools_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8398,13 +9549,13 @@ func To_NominationPools_Member(in any) *pbgear.NominationPools_Member {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_Member_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_Member_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_Member_value(in any) any {
+func To_OneOf_NominationPools_Member_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8440,13 +9591,13 @@ func To_NominationPools_MemberAccount(in any) *pbgear.NominationPools_MemberAcco
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_MemberAccount_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_MemberAccount_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_MemberAccount_value(in any) any {
+func To_OneOf_NominationPools_MemberAccount_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8482,13 +9633,13 @@ func To_NominationPools_MinCreateBond(in any) *pbgear.NominationPools_MinCreateB
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_MinCreateBond_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_MinCreateBond_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_MinCreateBond_value(in any) any {
+func To_OneOf_NominationPools_MinCreateBond_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8516,13 +9667,13 @@ func To_NominationPools_MinJoinBond(in any) *pbgear.NominationPools_MinJoinBond 
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_MinJoinBond_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_MinJoinBond_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_MinJoinBond_value(in any) any {
+func To_OneOf_NominationPools_MinJoinBond_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8550,13 +9701,13 @@ func To_NominationPools_NewBouncer(in any) *pbgear.NominationPools_NewBouncer {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_NewBouncer_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_NewBouncer_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_NewBouncer_value(in any) any {
+func To_OneOf_NominationPools_NewBouncer_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8584,13 +9735,13 @@ func To_NominationPools_NewNominator(in any) *pbgear.NominationPools_NewNominato
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_NewNominator_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_NewNominator_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_NewNominator_value(in any) any {
+func To_OneOf_NominationPools_NewNominator_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8618,13 +9769,13 @@ func To_NominationPools_NewRoot(in any) *pbgear.NominationPools_NewRoot {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_NewRoot_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_NewRoot_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_NewRoot_value(in any) any {
+func To_OneOf_NominationPools_NewRoot_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8680,13 +9831,13 @@ func To_NominationPools_Nominator(in any) *pbgear.NominationPools_Nominator {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_Nominator_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_Nominator_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_Nominator_value(in any) any {
+func To_OneOf_NominationPools_Nominator_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8746,7 +9897,15 @@ func To_NominationPools_PalletNominationPoolsCommissionChangeRate(in any) *pbgea
 }
 
 func To_NominationPools_PalletNominationPoolsCommissionChangeRate_max_increase(in any) *pbgear.SpArithmeticPerThingsPerbill {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpArithmeticPerThingsPerbill(w) //simple field
 }
 
 func To_NominationPools_Permission(in any) *pbgear.NominationPools_Permission {
@@ -8755,13 +9914,13 @@ func To_NominationPools_Permission(in any) *pbgear.NominationPools_Permission {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_Permission_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_Permission_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_Permission_value(in any) any {
+func To_OneOf_NominationPools_Permission_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8865,13 +10024,13 @@ func To_NominationPools_Root(in any) *pbgear.NominationPools_Root {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_Root_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_Root_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_Root_value(in any) any {
+func To_OneOf_NominationPools_Root_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -8924,7 +10083,15 @@ func To_NominationPools_SetClaimPermissionCall(in any) *pbgear.NominationPools_S
 }
 
 func To_NominationPools_SetClaimPermissionCall_permission(in any) *pbgear.NominationPools_Permission {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_Permission(w) //simple field
 }
 
 func To_NominationPools_SetCommissionCall(in any) *pbgear.NominationPools_SetCommissionCall {
@@ -8941,6 +10108,7 @@ func To_NominationPools_SetCommissionCall(in any) *pbgear.NominationPools_SetCom
 }
 
 func To_Optional_NominationPools_SetCommissionCall_new_commission(in any) *pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
 
@@ -8958,7 +10126,15 @@ func To_NominationPools_SetCommissionChangeRateCall(in any) *pbgear.NominationPo
 }
 
 func To_NominationPools_SetCommissionChangeRateCall_change_rate(in any) *pbgear.NominationPools_PalletNominationPoolsCommissionChangeRate {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_PalletNominationPoolsCommissionChangeRate(w) //simple field
 }
 
 func To_NominationPools_SetCommissionMaxCall(in any) *pbgear.NominationPools_SetCommissionMaxCall {
@@ -8975,7 +10151,15 @@ func To_NominationPools_SetCommissionMaxCall(in any) *pbgear.NominationPools_Set
 }
 
 func To_NominationPools_SetCommissionMaxCall_max_commission(in any) *pbgear.SpArithmeticPerThingsPerbill {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpArithmeticPerThingsPerbill(w) //simple field
 }
 
 func To_NominationPools_SetConfigsCall(in any) *pbgear.NominationPools_SetConfigsCall {
@@ -9000,22 +10184,70 @@ func To_NominationPools_SetConfigsCall(in any) *pbgear.NominationPools_SetConfig
 }
 
 func To_NominationPools_SetConfigsCall_min_join_bond(in any) *pbgear.NominationPools_MinJoinBond {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_MinJoinBond(w) //simple field
 }
 func To_NominationPools_SetConfigsCall_min_create_bond(in any) *pbgear.NominationPools_MinCreateBond {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_MinCreateBond(w) //simple field
 }
 func To_NominationPools_SetConfigsCall_max_pools(in any) *pbgear.NominationPools_MaxPools {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_MaxPools(w) //simple field
 }
 func To_NominationPools_SetConfigsCall_max_members(in any) *pbgear.NominationPools_MaxMembers {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_MaxMembers(w) //simple field
 }
 func To_NominationPools_SetConfigsCall_max_members_per_pool(in any) *pbgear.NominationPools_MaxMembersPerPool {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_MaxMembersPerPool(w) //simple field
 }
 func To_NominationPools_SetConfigsCall_global_max_commission(in any) *pbgear.NominationPools_GlobalMaxCommission {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_GlobalMaxCommission(w) //simple field
 }
 
 func To_NominationPools_SetMetadataCall(in any) *pbgear.NominationPools_SetMetadataCall {
@@ -9045,7 +10277,15 @@ func To_NominationPools_SetStateCall(in any) *pbgear.NominationPools_SetStateCal
 }
 
 func To_NominationPools_SetStateCall_state(in any) *pbgear.NominationPools_State {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_State(w) //simple field
 }
 
 func To_NominationPools_State(in any) *pbgear.NominationPools_State {
@@ -9054,13 +10294,13 @@ func To_NominationPools_State(in any) *pbgear.NominationPools_State {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_NominationPools_State_value(v.ValueAt(0))
+	v0 := To_OneOf_NominationPools_State_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_NominationPools_State_value(in any) any {
+func To_OneOf_NominationPools_State_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -9094,7 +10334,15 @@ func To_NominationPools_TupleNull(in any) *pbgear.NominationPools_TupleNull {
 }
 
 func To_NominationPools_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32(in any) *pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 {
@@ -9111,10 +10359,26 @@ func To_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32
 }
 
 func To_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32_value0(in any) *pbgear.SpArithmeticPerThingsPerbill {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpArithmeticPerThingsPerbill(w) //simple field
 }
 func To_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32_value1(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_NominationPools_UnbondCall(in any) *pbgear.NominationPools_UnbondCall {
@@ -9131,7 +10395,15 @@ func To_NominationPools_UnbondCall(in any) *pbgear.NominationPools_UnbondCall {
 }
 
 func To_NominationPools_UnbondCall_member_account(in any) *pbgear.NominationPools_MemberAccount {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_MemberAccount(w) //simple field
 }
 
 func To_NominationPools_UpdateRolesCall(in any) *pbgear.NominationPools_UpdateRolesCall {
@@ -9152,13 +10424,37 @@ func To_NominationPools_UpdateRolesCall(in any) *pbgear.NominationPools_UpdateRo
 }
 
 func To_NominationPools_UpdateRolesCall_new_root(in any) *pbgear.NominationPools_NewRoot {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_NewRoot(w) //simple field
 }
 func To_NominationPools_UpdateRolesCall_new_nominator(in any) *pbgear.NominationPools_NewNominator {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_NewNominator(w) //simple field
 }
 func To_NominationPools_UpdateRolesCall_new_bouncer(in any) *pbgear.NominationPools_NewBouncer {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_NewBouncer(w) //simple field
 }
 
 func To_NominationPools_WithdrawUnbondedCall(in any) *pbgear.NominationPools_WithdrawUnbondedCall {
@@ -9175,7 +10471,15 @@ func To_NominationPools_WithdrawUnbondedCall(in any) *pbgear.NominationPools_Wit
 }
 
 func To_NominationPools_WithdrawUnbondedCall_member_account(in any) *pbgear.NominationPools_MemberAccount {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_NominationPools_MemberAccount(w) //simple field
 }
 
 func To_None(in any) *pbgear.None {
@@ -9208,13 +10512,13 @@ func To_PreimagePallet(in any) *pbgear.PreimagePallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_PreimagePallet_call(v.ValueAt(0))
+	v0 := To_OneOf_PreimagePallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_PreimagePallet_call(in any) any {
+func To_OneOf_PreimagePallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -9293,7 +10597,15 @@ func To_Preimage_RequestPreimageCall(in any) *pbgear.Preimage_RequestPreimageCal
 }
 
 func To_Preimage_RequestPreimageCall_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_Preimage_UnnotePreimageCall(in any) *pbgear.Preimage_UnnotePreimageCall {
@@ -9308,7 +10620,15 @@ func To_Preimage_UnnotePreimageCall(in any) *pbgear.Preimage_UnnotePreimageCall 
 }
 
 func To_Preimage_UnnotePreimageCall_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_Preimage_UnrequestPreimageCall(in any) *pbgear.Preimage_UnrequestPreimageCall {
@@ -9323,7 +10643,15 @@ func To_Preimage_UnrequestPreimageCall(in any) *pbgear.Preimage_UnrequestPreimag
 }
 
 func To_Preimage_UnrequestPreimageCall_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_PrimaryAndSecondaryPlainSlots(in any) *pbgear.PrimaryAndSecondaryPlainSlots {
@@ -9367,13 +10695,13 @@ func To_ProxyPallet(in any) *pbgear.ProxyPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_ProxyPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_ProxyPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ProxyPallet_call(in any) any {
+func To_OneOf_ProxyPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -9439,10 +10767,26 @@ func To_Proxy_AddProxyCall(in any) *pbgear.Proxy_AddProxyCall {
 }
 
 func To_Proxy_AddProxyCall_delegate(in any) *pbgear.Proxy_Delegate {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_Delegate(w) //simple field
 }
 func To_Proxy_AddProxyCall_proxy_type(in any) *pbgear.Proxy_ProxyType {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_ProxyType(w) //simple field
 }
 
 func To_Proxy_Address20(in any) *pbgear.Proxy_Address20 {
@@ -9481,10 +10825,26 @@ func To_Proxy_AnnounceCall(in any) *pbgear.Proxy_AnnounceCall {
 }
 
 func To_Proxy_AnnounceCall_real(in any) *pbgear.Proxy_Real {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_Real(w) //simple field
 }
 func To_Proxy_AnnounceCall_call_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_Proxy_Any(in any) *pbgear.Proxy_Any {
@@ -9519,7 +10879,15 @@ func To_Proxy_CreatePureCall(in any) *pbgear.Proxy_CreatePureCall {
 }
 
 func To_Proxy_CreatePureCall_proxy_type(in any) *pbgear.Proxy_ProxyType {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_ProxyType(w) //simple field
 }
 
 func To_Proxy_Delegate(in any) *pbgear.Proxy_Delegate {
@@ -9528,13 +10896,13 @@ func To_Proxy_Delegate(in any) *pbgear.Proxy_Delegate {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Proxy_Delegate_value(v.ValueAt(0))
+	v0 := To_OneOf_Proxy_Delegate_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Proxy_Delegate_value(in any) any {
+func To_OneOf_Proxy_Delegate_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -9570,13 +10938,13 @@ func To_Proxy_ForceProxyType(in any) *pbgear.Proxy_ForceProxyType {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Proxy_ForceProxyType_value(v.ValueAt(0))
+	v0 := To_OneOf_Proxy_ForceProxyType_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Proxy_ForceProxyType_value(in any) any {
+func To_OneOf_Proxy_ForceProxyType_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -9630,7 +10998,15 @@ func To_Proxy_Id(in any) *pbgear.Proxy_Id {
 }
 
 func To_Proxy_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Proxy_IdentityJudgement(in any) *pbgear.Proxy_IdentityJudgement {
@@ -9653,7 +11029,15 @@ func To_Proxy_Index(in any) *pbgear.Proxy_Index {
 }
 
 func To_Proxy_Index_value0(in any) *pbgear.Proxy_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_TupleNull(w) //simple field
 }
 
 func To_Proxy_KillPureCall(in any) *pbgear.Proxy_KillPureCall {
@@ -9676,10 +11060,26 @@ func To_Proxy_KillPureCall(in any) *pbgear.Proxy_KillPureCall {
 }
 
 func To_Proxy_KillPureCall_spawner(in any) *pbgear.Proxy_Spawner {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_Spawner(w) //simple field
 }
 func To_Proxy_KillPureCall_proxy_type(in any) *pbgear.Proxy_ProxyType {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_ProxyType(w) //simple field
 }
 
 func To_Proxy_NonTransfer(in any) *pbgear.Proxy_NonTransfer {
@@ -9702,22 +11102,39 @@ func To_Proxy_ProxyAnnouncedCall(in any) *pbgear.Proxy_ProxyAnnouncedCall {
 	// optional field ForceProxyType
 	out.ForceProxyType = To_Optional_Proxy_ProxyAnnouncedCall_force_proxy_type(v.ValueAt(2))
 	// oneOf field Call
-	v3 := Set_OneOf_Proxy_ProxyAnnouncedCall_call(v.ValueAt(3))
+	v3 := To_OneOf_Proxy_ProxyAnnouncedCall_call(v.ValueAt(3))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v3))
 
 	return out //from message
 }
 
 func To_Proxy_ProxyAnnouncedCall_delegate(in any) *pbgear.Proxy_Delegate {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_Delegate(w) //simple field
 }
 func To_Proxy_ProxyAnnouncedCall_real(in any) *pbgear.Proxy_Real {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_Real(w) //simple field
 }
 func To_Optional_Proxy_ProxyAnnouncedCall_force_proxy_type(in any) *pbgear.Proxy_ForceProxyType {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
-func Set_OneOf_Proxy_ProxyAnnouncedCall_call(in any) any {
+func To_OneOf_Proxy_ProxyAnnouncedCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -9853,19 +11270,28 @@ func To_Proxy_ProxyCall(in any) *pbgear.Proxy_ProxyCall {
 	// optional field ForceProxyType
 	out.ForceProxyType = To_Optional_Proxy_ProxyCall_force_proxy_type(v.ValueAt(1))
 	// oneOf field Call
-	v2 := Set_OneOf_Proxy_ProxyCall_call(v.ValueAt(2))
+	v2 := To_OneOf_Proxy_ProxyCall_call(v.ValueAt(2))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v2))
 
 	return out //from message
 }
 
 func To_Proxy_ProxyCall_real(in any) *pbgear.Proxy_Real {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_Real(w) //simple field
 }
 func To_Optional_Proxy_ProxyCall_force_proxy_type(in any) *pbgear.Proxy_ForceProxyType {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
-func Set_OneOf_Proxy_ProxyCall_call(in any) any {
+func To_OneOf_Proxy_ProxyCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -9997,13 +11423,13 @@ func To_Proxy_ProxyType(in any) *pbgear.Proxy_ProxyType {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Proxy_ProxyType_value(v.ValueAt(0))
+	v0 := To_OneOf_Proxy_ProxyType_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Proxy_ProxyType_value(in any) any {
+func To_OneOf_Proxy_ProxyType_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -10054,13 +11480,13 @@ func To_Proxy_Real(in any) *pbgear.Proxy_Real {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Proxy_Real_value(v.ValueAt(0))
+	v0 := To_OneOf_Proxy_Real_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Proxy_Real_value(in any) any {
+func To_OneOf_Proxy_Real_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -10104,10 +11530,26 @@ func To_Proxy_RejectAnnouncementCall(in any) *pbgear.Proxy_RejectAnnouncementCal
 }
 
 func To_Proxy_RejectAnnouncementCall_delegate(in any) *pbgear.Proxy_Delegate {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_Delegate(w) //simple field
 }
 func To_Proxy_RejectAnnouncementCall_call_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_Proxy_RemoveAnnouncementCall(in any) *pbgear.Proxy_RemoveAnnouncementCall {
@@ -10124,10 +11566,26 @@ func To_Proxy_RemoveAnnouncementCall(in any) *pbgear.Proxy_RemoveAnnouncementCal
 }
 
 func To_Proxy_RemoveAnnouncementCall_real(in any) *pbgear.Proxy_Real {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_Real(w) //simple field
 }
 func To_Proxy_RemoveAnnouncementCall_call_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_Proxy_RemoveProxiesCall(in any) *pbgear.Proxy_RemoveProxiesCall {
@@ -10154,10 +11612,26 @@ func To_Proxy_RemoveProxyCall(in any) *pbgear.Proxy_RemoveProxyCall {
 }
 
 func To_Proxy_RemoveProxyCall_delegate(in any) *pbgear.Proxy_Delegate {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_Delegate(w) //simple field
 }
 func To_Proxy_RemoveProxyCall_proxy_type(in any) *pbgear.Proxy_ProxyType {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Proxy_ProxyType(w) //simple field
 }
 
 func To_Proxy_Spawner(in any) *pbgear.Proxy_Spawner {
@@ -10166,13 +11640,13 @@ func To_Proxy_Spawner(in any) *pbgear.Proxy_Spawner {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Proxy_Spawner_value(v.ValueAt(0))
+	v0 := To_OneOf_Proxy_Spawner_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Proxy_Spawner_value(in any) any {
+func To_OneOf_Proxy_Spawner_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -10222,7 +11696,15 @@ func To_Proxy_TupleNull(in any) *pbgear.Proxy_TupleNull {
 }
 
 func To_Proxy_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_ReferendaPallet(in any) *pbgear.ReferendaPallet {
@@ -10231,13 +11713,13 @@ func To_ReferendaPallet(in any) *pbgear.ReferendaPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_ReferendaPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_ReferendaPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_ReferendaPallet_call(in any) any {
+func To_OneOf_ReferendaPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -10322,13 +11804,13 @@ func To_Referenda_EnactmentMoment(in any) *pbgear.Referenda_EnactmentMoment {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Referenda_EnactmentMoment_value(v.ValueAt(0))
+	v0 := To_OneOf_Referenda_EnactmentMoment_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Referenda_EnactmentMoment_value(in any) any {
+func To_OneOf_Referenda_EnactmentMoment_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -10358,7 +11840,15 @@ func To_Referenda_Inline(in any) *pbgear.Referenda_Inline {
 }
 
 func To_Referenda_Inline_value0(in any) *pbgear.BoundedCollectionsBoundedVecBoundedVec {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_BoundedCollectionsBoundedVecBoundedVec(w) //simple field
 }
 
 func To_Referenda_KillCall(in any) *pbgear.Referenda_KillCall {
@@ -10384,7 +11874,15 @@ func To_Referenda_Legacy(in any) *pbgear.Referenda_Legacy {
 }
 
 func To_Referenda_Legacy_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_Referenda_Lookup(in any) *pbgear.Referenda_Lookup {
@@ -10401,7 +11899,15 @@ func To_Referenda_Lookup(in any) *pbgear.Referenda_Lookup {
 }
 
 func To_Referenda_Lookup_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_Referenda_NudgeReferendumCall(in any) *pbgear.Referenda_NudgeReferendumCall {
@@ -10438,7 +11944,15 @@ func To_Referenda_Origins(in any) *pbgear.Referenda_Origins {
 }
 
 func To_Referenda_Origins_value0(in any) *pbgear.Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Value0(w) //simple field
 }
 
 func To_Referenda_PlaceDecisionDepositCall(in any) *pbgear.Referenda_PlaceDecisionDepositCall {
@@ -10458,13 +11972,13 @@ func To_Referenda_Proposal(in any) *pbgear.Referenda_Proposal {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Referenda_Proposal_value(v.ValueAt(0))
+	v0 := To_OneOf_Referenda_Proposal_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Referenda_Proposal_value(in any) any {
+func To_OneOf_Referenda_Proposal_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -10492,13 +12006,13 @@ func To_Referenda_ProposalOrigin(in any) *pbgear.Referenda_ProposalOrigin {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Referenda_ProposalOrigin_value(v.ValueAt(0))
+	v0 := To_OneOf_Referenda_ProposalOrigin_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Referenda_ProposalOrigin_value(in any) any {
+func To_OneOf_Referenda_ProposalOrigin_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -10556,6 +12070,7 @@ func To_Referenda_SetMetadataCall(in any) *pbgear.Referenda_SetMetadataCall {
 }
 
 func To_Optional_Referenda_SetMetadataCall_maybe_hash(in any) *pbgear.PrimitiveTypesH256 {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
 
@@ -10575,13 +12090,37 @@ func To_Referenda_SubmitCall(in any) *pbgear.Referenda_SubmitCall {
 }
 
 func To_Referenda_SubmitCall_proposal_origin(in any) *pbgear.Referenda_ProposalOrigin {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Referenda_ProposalOrigin(w) //simple field
 }
 func To_Referenda_SubmitCall_proposal(in any) *pbgear.Referenda_Proposal {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Referenda_Proposal(w) //simple field
 }
 func To_Referenda_SubmitCall_enactment_moment(in any) *pbgear.Referenda_EnactmentMoment {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Referenda_EnactmentMoment(w) //simple field
 }
 
 func To_Referenda_System(in any) *pbgear.Referenda_System {
@@ -10596,7 +12135,15 @@ func To_Referenda_System(in any) *pbgear.Referenda_System {
 }
 
 func To_Referenda_System_value0(in any) *pbgear.Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Value0(w) //simple field
 }
 
 func To_Referenda_Void(in any) *pbgear.Referenda_Void {
@@ -10611,7 +12158,15 @@ func To_Referenda_Void(in any) *pbgear.Referenda_Void {
 }
 
 func To_Referenda_Void_value0(in any) *pbgear.Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Value0(w) //simple field
 }
 
 func To_Root(in any) *pbgear.Root {
@@ -10628,13 +12183,13 @@ func To_SchedulerPallet(in any) *pbgear.SchedulerPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_SchedulerPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_SchedulerPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_SchedulerPallet_call(in any) any {
+func To_OneOf_SchedulerPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -10704,16 +12259,17 @@ func To_Scheduler_ScheduleAfterCall(in any) *pbgear.Scheduler_ScheduleAfterCall 
 	// primitive field Priority
 	out.Priority = To_uint32(v.ValueAt(2))
 	// oneOf field Call
-	v3 := Set_OneOf_Scheduler_ScheduleAfterCall_call(v.ValueAt(3))
+	v3 := To_OneOf_Scheduler_ScheduleAfterCall_call(v.ValueAt(3))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v3))
 
 	return out //from message
 }
 
 func To_Optional_Scheduler_ScheduleAfterCall_maybe_periodic(in any) *pbgear.Scheduler_TupleUint32Uint32 {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
-func Set_OneOf_Scheduler_ScheduleAfterCall_call(in any) any {
+func To_OneOf_Scheduler_ScheduleAfterCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -10851,16 +12407,17 @@ func To_Scheduler_ScheduleCall(in any) *pbgear.Scheduler_ScheduleCall {
 	// primitive field Priority
 	out.Priority = To_uint32(v.ValueAt(2))
 	// oneOf field Call
-	v3 := Set_OneOf_Scheduler_ScheduleCall_call(v.ValueAt(3))
+	v3 := To_OneOf_Scheduler_ScheduleCall_call(v.ValueAt(3))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v3))
 
 	return out //from message
 }
 
 func To_Optional_Scheduler_ScheduleCall_maybe_periodic(in any) *pbgear.Scheduler_TupleUint32Uint32 {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
-func Set_OneOf_Scheduler_ScheduleCall_call(in any) any {
+func To_OneOf_Scheduler_ScheduleCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -11000,16 +12557,17 @@ func To_Scheduler_ScheduleNamedAfterCall(in any) *pbgear.Scheduler_ScheduleNamed
 	// primitive field Priority
 	out.Priority = To_uint32(v.ValueAt(3))
 	// oneOf field Call
-	v4 := Set_OneOf_Scheduler_ScheduleNamedAfterCall_call(v.ValueAt(4))
+	v4 := To_OneOf_Scheduler_ScheduleNamedAfterCall_call(v.ValueAt(4))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v4))
 
 	return out //from message
 }
 
 func To_Optional_Scheduler_ScheduleNamedAfterCall_maybe_periodic(in any) *pbgear.Scheduler_TupleUint32Uint32 {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
-func Set_OneOf_Scheduler_ScheduleNamedAfterCall_call(in any) any {
+func To_OneOf_Scheduler_ScheduleNamedAfterCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -11149,16 +12707,17 @@ func To_Scheduler_ScheduleNamedCall(in any) *pbgear.Scheduler_ScheduleNamedCall 
 	// primitive field Priority
 	out.Priority = To_uint32(v.ValueAt(3))
 	// oneOf field Call
-	v4 := Set_OneOf_Scheduler_ScheduleNamedCall_call(v.ValueAt(4))
+	v4 := To_OneOf_Scheduler_ScheduleNamedCall_call(v.ValueAt(4))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v4))
 
 	return out //from message
 }
 
 func To_Optional_Scheduler_ScheduleNamedCall_maybe_periodic(in any) *pbgear.Scheduler_TupleUint32Uint32 {
+	panic("Not implemented")
 	return nil //funcForOptionalField
 }
-func Set_OneOf_Scheduler_ScheduleNamedCall_call(in any) any {
+func To_OneOf_Scheduler_ScheduleNamedCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -11303,13 +12862,13 @@ func To_SessionPallet(in any) *pbgear.SessionPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_SessionPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_SessionPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_SessionPallet_call(in any) any {
+func To_OneOf_SessionPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -11349,7 +12908,15 @@ func To_Session_SetKeysCall(in any) *pbgear.Session_SetKeysCall {
 }
 
 func To_Session_SetKeysCall_keys(in any) *pbgear.VaraRuntimeSessionKeys {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_VaraRuntimeSessionKeys(w) //simple field
 }
 
 func To_Signed(in any) *pbgear.Signed {
@@ -11364,7 +12931,15 @@ func To_Signed(in any) *pbgear.Signed {
 }
 
 func To_Signed_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_SpArithmeticPerThingsPerU16(in any) *pbgear.SpArithmeticPerThingsPerU16 {
@@ -11412,7 +12987,15 @@ func To_SpAuthorityDiscoveryAppPublic(in any) *pbgear.SpAuthorityDiscoveryAppPub
 }
 
 func To_SpAuthorityDiscoveryAppPublic_value0(in any) *pbgear.SpCoreSr25519Public {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreSr25519Public(w) //simple field
 }
 
 func To_SpConsensusBabeAppPublic(in any) *pbgear.SpConsensusBabeAppPublic {
@@ -11427,7 +13010,15 @@ func To_SpConsensusBabeAppPublic(in any) *pbgear.SpConsensusBabeAppPublic {
 }
 
 func To_SpConsensusBabeAppPublic_value0(in any) *pbgear.SpCoreSr25519Public {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreSr25519Public(w) //simple field
 }
 
 func To_SpConsensusGrandpaAppPublic(in any) *pbgear.SpConsensusGrandpaAppPublic {
@@ -11442,7 +13033,15 @@ func To_SpConsensusGrandpaAppPublic(in any) *pbgear.SpConsensusGrandpaAppPublic 
 }
 
 func To_SpConsensusGrandpaAppPublic_value0(in any) *pbgear.SpCoreEd25519Public {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreEd25519Public(w) //simple field
 }
 
 func To_SpConsensusGrandpaAppSignature(in any) *pbgear.SpConsensusGrandpaAppSignature {
@@ -11457,7 +13056,15 @@ func To_SpConsensusGrandpaAppSignature(in any) *pbgear.SpConsensusGrandpaAppSign
 }
 
 func To_SpConsensusGrandpaAppSignature_value0(in any) *pbgear.SpCoreEd25519Signature {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreEd25519Signature(w) //simple field
 }
 
 func To_SpConsensusGrandpaEquivocationProof(in any) *pbgear.SpConsensusGrandpaEquivocationProof {
@@ -11474,7 +13081,15 @@ func To_SpConsensusGrandpaEquivocationProof(in any) *pbgear.SpConsensusGrandpaEq
 }
 
 func To_SpConsensusGrandpaEquivocationProof_equivocation(in any) *pbgear.Grandpa_Equivocation {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Grandpa_Equivocation(w) //simple field
 }
 
 func To_SpConsensusSlotsEquivocationProof(in any) *pbgear.SpConsensusSlotsEquivocationProof {
@@ -11495,16 +13110,48 @@ func To_SpConsensusSlotsEquivocationProof(in any) *pbgear.SpConsensusSlotsEquivo
 }
 
 func To_SpConsensusSlotsEquivocationProof_offender(in any) *pbgear.SpConsensusBabeAppPublic {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusBabeAppPublic(w) //simple field
 }
 func To_SpConsensusSlotsEquivocationProof_slot(in any) *pbgear.SpConsensusSlotsSlot {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusSlotsSlot(w) //simple field
 }
 func To_SpConsensusSlotsEquivocationProof_first_header(in any) *pbgear.SpRuntimeGenericHeaderHeader {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpRuntimeGenericHeaderHeader(w) //simple field
 }
 func To_SpConsensusSlotsEquivocationProof_second_header(in any) *pbgear.SpRuntimeGenericHeaderHeader {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpRuntimeGenericHeaderHeader(w) //simple field
 }
 
 func To_SpConsensusSlotsSlot(in any) *pbgear.SpConsensusSlotsSlot {
@@ -11654,7 +13301,15 @@ func To_SpRuntimeGenericDigestDigestItem(in any) *pbgear.SpRuntimeGenericDigestD
 }
 
 func To_SpRuntimeGenericDigestDigestItem_logs(in any) *pbgear.Babe_Logs {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Babe_Logs(w) //simple field
 }
 
 func To_SpRuntimeGenericHeaderHeader(in any) *pbgear.SpRuntimeGenericHeaderHeader {
@@ -11677,16 +13332,48 @@ func To_SpRuntimeGenericHeaderHeader(in any) *pbgear.SpRuntimeGenericHeaderHeade
 }
 
 func To_SpRuntimeGenericHeaderHeader_parent_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 func To_SpRuntimeGenericHeaderHeader_state_root(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 func To_SpRuntimeGenericHeaderHeader_extrinsics_root(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 func To_SpRuntimeGenericHeaderHeader_digest(in any) *pbgear.SpRuntimeGenericDigestDigest {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpRuntimeGenericDigestDigest(w) //simple field
 }
 
 func To_SpRuntimeMultiaddressMultiAddress(in any) *pbgear.SpRuntimeMultiaddressMultiAddress {
@@ -11701,7 +13388,15 @@ func To_SpRuntimeMultiaddressMultiAddress(in any) *pbgear.SpRuntimeMultiaddressM
 }
 
 func To_SpRuntimeMultiaddressMultiAddress_targets(in any) *pbgear.Staking_Targets {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_Targets(w) //simple field
 }
 
 func To_SpSessionMembershipProof(in any) *pbgear.SpSessionMembershipProof {
@@ -11753,13 +13448,13 @@ func To_StakingPallet(in any) *pbgear.StakingPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_StakingPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_StakingPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_StakingPallet_call(in any) any {
+func To_OneOf_StakingPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -11879,13 +13574,13 @@ func To_StakingRewardsPallet(in any) *pbgear.StakingRewardsPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_StakingRewardsPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_StakingRewardsPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_StakingRewardsPallet_call(in any) any {
+func To_OneOf_StakingRewardsPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -11958,7 +13653,15 @@ func To_StakingRewards_ForceRefillCall(in any) *pbgear.StakingRewards_ForceRefil
 }
 
 func To_StakingRewards_ForceRefillCall_from(in any) *pbgear.StakingRewards_From {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_StakingRewards_From(w) //simple field
 }
 
 func To_StakingRewards_From(in any) *pbgear.StakingRewards_From {
@@ -11967,13 +13670,13 @@ func To_StakingRewards_From(in any) *pbgear.StakingRewards_From {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_StakingRewards_From_value(v.ValueAt(0))
+	v0 := To_OneOf_StakingRewards_From_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_StakingRewards_From_value(in any) any {
+func To_OneOf_StakingRewards_From_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12015,7 +13718,15 @@ func To_StakingRewards_Id(in any) *pbgear.StakingRewards_Id {
 }
 
 func To_StakingRewards_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_StakingRewards_Index(in any) *pbgear.StakingRewards_Index {
@@ -12030,7 +13741,15 @@ func To_StakingRewards_Index(in any) *pbgear.StakingRewards_Index {
 }
 
 func To_StakingRewards_Index_value0(in any) *pbgear.StakingRewards_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_StakingRewards_TupleNull(w) //simple field
 }
 
 func To_StakingRewards_Raw(in any) *pbgear.StakingRewards_Raw {
@@ -12061,13 +13780,13 @@ func To_StakingRewards_To(in any) *pbgear.StakingRewards_To {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_StakingRewards_To_value(v.ValueAt(0))
+	v0 := To_OneOf_StakingRewards_To_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_StakingRewards_To_value(in any) any {
+func To_OneOf_StakingRewards_To_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12109,7 +13828,15 @@ func To_StakingRewards_TupleNull(in any) *pbgear.StakingRewards_TupleNull {
 }
 
 func To_StakingRewards_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_StakingRewards_WithdrawCall(in any) *pbgear.StakingRewards_WithdrawCall {
@@ -12126,7 +13853,15 @@ func To_StakingRewards_WithdrawCall(in any) *pbgear.StakingRewards_WithdrawCall 
 }
 
 func To_StakingRewards_WithdrawCall_to(in any) *pbgear.StakingRewards_To {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_StakingRewards_To(w) //simple field
 }
 
 func To_Staking_Account(in any) *pbgear.Staking_Account {
@@ -12141,7 +13876,15 @@ func To_Staking_Account(in any) *pbgear.Staking_Account {
 }
 
 func To_Staking_Account_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Staking_Address20(in any) *pbgear.Staking_Address20 {
@@ -12180,7 +13923,15 @@ func To_Staking_BondCall(in any) *pbgear.Staking_BondCall {
 }
 
 func To_Staking_BondCall_payee(in any) *pbgear.Staking_Payee {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_Payee(w) //simple field
 }
 
 func To_Staking_BondExtraCall(in any) *pbgear.Staking_BondExtraCall {
@@ -12227,7 +13978,15 @@ func To_Staking_ChillOtherCall(in any) *pbgear.Staking_ChillOtherCall {
 }
 
 func To_Staking_ChillOtherCall_controller(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Staking_ChillThreshold(in any) *pbgear.Staking_ChillThreshold {
@@ -12236,13 +13995,13 @@ func To_Staking_ChillThreshold(in any) *pbgear.Staking_ChillThreshold {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Staking_ChillThreshold_value(v.ValueAt(0))
+	v0 := To_OneOf_Staking_ChillThreshold_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Staking_ChillThreshold_value(in any) any {
+func To_OneOf_Staking_ChillThreshold_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12284,7 +14043,15 @@ func To_Staking_ForceApplyMinCommissionCall(in any) *pbgear.Staking_ForceApplyMi
 }
 
 func To_Staking_ForceApplyMinCommissionCall_validator_stash(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Staking_ForceNewEraAlwaysCall(in any) *pbgear.Staking_ForceNewEraAlwaysCall {
@@ -12325,7 +14092,15 @@ func To_Staking_ForceUnstakeCall(in any) *pbgear.Staking_ForceUnstakeCall {
 }
 
 func To_Staking_ForceUnstakeCall_stash(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Staking_Id(in any) *pbgear.Staking_Id {
@@ -12340,7 +14115,15 @@ func To_Staking_Id(in any) *pbgear.Staking_Id {
 }
 
 func To_Staking_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Staking_IncreaseValidatorCountCall(in any) *pbgear.Staking_IncreaseValidatorCountCall {
@@ -12366,7 +14149,15 @@ func To_Staking_Index(in any) *pbgear.Staking_Index {
 }
 
 func To_Staking_Index_value0(in any) *pbgear.Staking_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_TupleNull(w) //simple field
 }
 
 func To_Staking_KickCall(in any) *pbgear.Staking_KickCall {
@@ -12401,13 +14192,13 @@ func To_Staking_MaxNominatorCount(in any) *pbgear.Staking_MaxNominatorCount {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Staking_MaxNominatorCount_value(v.ValueAt(0))
+	v0 := To_OneOf_Staking_MaxNominatorCount_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Staking_MaxNominatorCount_value(in any) any {
+func To_OneOf_Staking_MaxNominatorCount_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12435,13 +14226,13 @@ func To_Staking_MaxValidatorCount(in any) *pbgear.Staking_MaxValidatorCount {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Staking_MaxValidatorCount_value(v.ValueAt(0))
+	v0 := To_OneOf_Staking_MaxValidatorCount_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Staking_MaxValidatorCount_value(in any) any {
+func To_OneOf_Staking_MaxValidatorCount_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12469,13 +14260,13 @@ func To_Staking_MinCommission(in any) *pbgear.Staking_MinCommission {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Staking_MinCommission_value(v.ValueAt(0))
+	v0 := To_OneOf_Staking_MinCommission_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Staking_MinCommission_value(in any) any {
+func To_OneOf_Staking_MinCommission_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12503,13 +14294,13 @@ func To_Staking_MinNominatorBond(in any) *pbgear.Staking_MinNominatorBond {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Staking_MinNominatorBond_value(v.ValueAt(0))
+	v0 := To_OneOf_Staking_MinNominatorBond_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Staking_MinNominatorBond_value(in any) any {
+func To_OneOf_Staking_MinNominatorBond_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12537,13 +14328,13 @@ func To_Staking_MinValidatorBond(in any) *pbgear.Staking_MinValidatorBond {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Staking_MinValidatorBond_value(v.ValueAt(0))
+	v0 := To_OneOf_Staking_MinValidatorBond_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Staking_MinValidatorBond_value(in any) any {
+func To_OneOf_Staking_MinValidatorBond_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12621,7 +14412,15 @@ func To_Staking_PalletStakingValidatorPrefs(in any) *pbgear.Staking_PalletStakin
 }
 
 func To_Staking_PalletStakingValidatorPrefs_commission(in any) *pbgear.SpArithmeticPerThingsPerbill {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpArithmeticPerThingsPerbill(w) //simple field
 }
 
 func To_Staking_Payee(in any) *pbgear.Staking_Payee {
@@ -12630,13 +14429,13 @@ func To_Staking_Payee(in any) *pbgear.Staking_Payee {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Staking_Payee_value(v.ValueAt(0))
+	v0 := To_OneOf_Staking_Payee_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Staking_Payee_value(in any) any {
+func To_OneOf_Staking_Payee_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12680,7 +14479,15 @@ func To_Staking_PayoutStakersCall(in any) *pbgear.Staking_PayoutStakersCall {
 }
 
 func To_Staking_PayoutStakersCall_validator_stash(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Staking_Raw(in any) *pbgear.Staking_Raw {
@@ -12708,7 +14515,15 @@ func To_Staking_ReapStashCall(in any) *pbgear.Staking_ReapStashCall {
 }
 
 func To_Staking_ReapStashCall_stash(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Staking_RebondCall(in any) *pbgear.Staking_RebondCall {
@@ -12742,7 +14557,15 @@ func To_Staking_ScaleValidatorCountCall(in any) *pbgear.Staking_ScaleValidatorCo
 }
 
 func To_Staking_ScaleValidatorCountCall_factor(in any) *pbgear.SpArithmeticPerThingsPercent {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpArithmeticPerThingsPercent(w) //simple field
 }
 
 func To_Staking_Set(in any) *pbgear.Staking_Set {
@@ -12802,7 +14625,15 @@ func To_Staking_SetMinCommissionCall(in any) *pbgear.Staking_SetMinCommissionCal
 }
 
 func To_Staking_SetMinCommissionCall_new(in any) *pbgear.SpArithmeticPerThingsPerbill {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpArithmeticPerThingsPerbill(w) //simple field
 }
 
 func To_Staking_SetPayeeCall(in any) *pbgear.Staking_SetPayeeCall {
@@ -12817,7 +14648,15 @@ func To_Staking_SetPayeeCall(in any) *pbgear.Staking_SetPayeeCall {
 }
 
 func To_Staking_SetPayeeCall_payee(in any) *pbgear.Staking_Payee {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_Payee(w) //simple field
 }
 
 func To_Staking_SetStakingConfigsCall(in any) *pbgear.Staking_SetStakingConfigsCall {
@@ -12842,22 +14681,70 @@ func To_Staking_SetStakingConfigsCall(in any) *pbgear.Staking_SetStakingConfigsC
 }
 
 func To_Staking_SetStakingConfigsCall_min_nominator_bond(in any) *pbgear.Staking_MinNominatorBond {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_MinNominatorBond(w) //simple field
 }
 func To_Staking_SetStakingConfigsCall_min_validator_bond(in any) *pbgear.Staking_MinValidatorBond {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_MinValidatorBond(w) //simple field
 }
 func To_Staking_SetStakingConfigsCall_max_nominator_count(in any) *pbgear.Staking_MaxNominatorCount {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_MaxNominatorCount(w) //simple field
 }
 func To_Staking_SetStakingConfigsCall_max_validator_count(in any) *pbgear.Staking_MaxValidatorCount {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_MaxValidatorCount(w) //simple field
 }
 func To_Staking_SetStakingConfigsCall_chill_threshold(in any) *pbgear.Staking_ChillThreshold {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_ChillThreshold(w) //simple field
 }
 func To_Staking_SetStakingConfigsCall_min_commission(in any) *pbgear.Staking_MinCommission {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_MinCommission(w) //simple field
 }
 
 func To_Staking_SetValidatorCountCall(in any) *pbgear.Staking_SetValidatorCountCall {
@@ -12893,13 +14780,13 @@ func To_Staking_Targets(in any) *pbgear.Staking_Targets {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Staking_Targets_value(v.ValueAt(0))
+	v0 := To_OneOf_Staking_Targets_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Staking_Targets_value(in any) any {
+func To_OneOf_Staking_Targets_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -12941,7 +14828,15 @@ func To_Staking_TupleNull(in any) *pbgear.Staking_TupleNull {
 }
 
 func To_Staking_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_Staking_UnbondCall(in any) *pbgear.Staking_UnbondCall {
@@ -12967,7 +14862,15 @@ func To_Staking_ValidateCall(in any) *pbgear.Staking_ValidateCall {
 }
 
 func To_Staking_ValidateCall_prefs(in any) *pbgear.Staking_PalletStakingValidatorPrefs {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Staking_PalletStakingValidatorPrefs(w) //simple field
 }
 
 func To_Staking_Who(in any) *pbgear.Staking_Who {
@@ -12976,13 +14879,13 @@ func To_Staking_Who(in any) *pbgear.Staking_Who {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Staking_Who_value(v.ValueAt(0))
+	v0 := To_OneOf_Staking_Who_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Staking_Who_value(in any) any {
+func To_OneOf_Staking_Who_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -13029,13 +14932,13 @@ func To_SystemPallet(in any) *pbgear.SystemPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_SystemPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_SystemPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_SystemPallet_call(in any) any {
+func To_OneOf_SystemPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -13227,13 +15130,13 @@ func To_TimestampPallet(in any) *pbgear.TimestampPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_TimestampPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_TimestampPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_TimestampPallet_call(in any) any {
+func To_OneOf_TimestampPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -13272,13 +15175,13 @@ func To_TreasuryPallet(in any) *pbgear.TreasuryPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_TreasuryPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_TreasuryPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_TreasuryPallet_call(in any) any {
+func To_OneOf_TreasuryPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -13363,13 +15266,13 @@ func To_Treasury_Beneficiary(in any) *pbgear.Treasury_Beneficiary {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Treasury_Beneficiary_value(v.ValueAt(0))
+	v0 := To_OneOf_Treasury_Beneficiary_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Treasury_Beneficiary_value(in any) any {
+func To_OneOf_Treasury_Beneficiary_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -13422,7 +15325,15 @@ func To_Treasury_Id(in any) *pbgear.Treasury_Id {
 }
 
 func To_Treasury_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Treasury_Index(in any) *pbgear.Treasury_Index {
@@ -13437,7 +15348,15 @@ func To_Treasury_Index(in any) *pbgear.Treasury_Index {
 }
 
 func To_Treasury_Index_value0(in any) *pbgear.Treasury_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Treasury_TupleNull(w) //simple field
 }
 
 func To_Treasury_PayoutCall(in any) *pbgear.Treasury_PayoutCall {
@@ -13465,7 +15384,15 @@ func To_Treasury_ProposeSpendCall(in any) *pbgear.Treasury_ProposeSpendCall {
 }
 
 func To_Treasury_ProposeSpendCall_beneficiary(in any) *pbgear.Treasury_Beneficiary {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Treasury_Beneficiary(w) //simple field
 }
 
 func To_Treasury_Raw(in any) *pbgear.Treasury_Raw {
@@ -13519,10 +15446,26 @@ func To_Treasury_SpendCall(in any) *pbgear.Treasury_SpendCall {
 }
 
 func To_Treasury_SpendCall_asset_kind(in any) *pbgear.Treasury_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Treasury_TupleNull(w) //simple field
 }
 func To_Treasury_SpendCall_beneficiary(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Treasury_SpendLocalCall(in any) *pbgear.Treasury_SpendLocalCall {
@@ -13539,7 +15482,15 @@ func To_Treasury_SpendLocalCall(in any) *pbgear.Treasury_SpendLocalCall {
 }
 
 func To_Treasury_SpendLocalCall_beneficiary(in any) *pbgear.Treasury_Beneficiary {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Treasury_Beneficiary(w) //simple field
 }
 
 func To_Treasury_TupleNull(in any) *pbgear.Treasury_TupleNull {
@@ -13554,7 +15505,15 @@ func To_Treasury_TupleNull(in any) *pbgear.Treasury_TupleNull {
 }
 
 func To_Treasury_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_Treasury_VoidSpendCall(in any) *pbgear.Treasury_VoidSpendCall {
@@ -13582,10 +15541,26 @@ func To_TupleFinalityGrandpaPrecommitspConsensusGrandpaAppSignature(in any) *pbg
 }
 
 func To_TupleFinalityGrandpaPrecommitspConsensusGrandpaAppSignature_value0(in any) *pbgear.FinalityGrandpaPrecommit {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FinalityGrandpaPrecommit(w) //simple field
 }
 func To_TupleFinalityGrandpaPrecommitspConsensusGrandpaAppSignature_value1(in any) *pbgear.SpConsensusGrandpaAppSignature {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusGrandpaAppSignature(w) //simple field
 }
 
 func To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(in any) *pbgear.TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature {
@@ -13602,10 +15577,26 @@ func To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature(in any) *pbgea
 }
 
 func To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature_value0(in any) *pbgear.FinalityGrandpaPrevote {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_FinalityGrandpaPrevote(w) //simple field
 }
 func To_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature_value1(in any) *pbgear.SpConsensusGrandpaAppSignature {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusGrandpaAppSignature(w) //simple field
 }
 
 func To_TupleNull(in any) *pbgear.TupleNull {
@@ -13622,13 +15613,13 @@ func To_UtilityPallet(in any) *pbgear.UtilityPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_UtilityPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_UtilityPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_UtilityPallet_call(in any) any {
+func To_OneOf_UtilityPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -13670,13 +15661,13 @@ func To_Utility_AsDerivativeCall(in any) *pbgear.Utility_AsDerivativeCall {
 	// primitive field Index
 	out.Index = To_uint32(v.ValueAt(0))
 	// oneOf field Call
-	v1 := Set_OneOf_Utility_AsDerivativeCall_call(v.ValueAt(1))
+	v1 := To_OneOf_Utility_AsDerivativeCall_call(v.ValueAt(1))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v1))
 
 	return out //from message
 }
 
-func Set_OneOf_Utility_AsDerivativeCall_call(in any) any {
+func To_OneOf_Utility_AsDerivativeCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -13808,13 +15799,13 @@ func To_Utility_AsOrigin(in any) *pbgear.Utility_AsOrigin {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Utility_AsOrigin_value(v.ValueAt(0))
+	v0 := To_OneOf_Utility_AsOrigin_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Utility_AsOrigin_value(in any) any {
+func To_OneOf_Utility_AsOrigin_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -13896,16 +15887,24 @@ func To_Utility_DispatchAsCall(in any) *pbgear.Utility_DispatchAsCall {
 	// field AsOrigin
 	out.AsOrigin = To_Utility_DispatchAsCall_as_origin(v.ValueAt(0))
 	// oneOf field Call
-	v1 := Set_OneOf_Utility_DispatchAsCall_call(v.ValueAt(1))
+	v1 := To_OneOf_Utility_DispatchAsCall_call(v.ValueAt(1))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v1))
 
 	return out //from message
 }
 
 func To_Utility_DispatchAsCall_as_origin(in any) *pbgear.Utility_AsOrigin {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Utility_AsOrigin(w) //simple field
 }
-func Set_OneOf_Utility_DispatchAsCall_call(in any) any {
+func To_OneOf_Utility_DispatchAsCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -14069,7 +16068,15 @@ func To_Utility_Origins(in any) *pbgear.Utility_Origins {
 }
 
 func To_Utility_Origins_value0(in any) *pbgear.Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Value0(w) //simple field
 }
 
 func To_Utility_System(in any) *pbgear.Utility_System {
@@ -14084,7 +16091,15 @@ func To_Utility_System(in any) *pbgear.Utility_System {
 }
 
 func To_Utility_System_value0(in any) *pbgear.Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Value0(w) //simple field
 }
 
 func To_Utility_Void(in any) *pbgear.Utility_Void {
@@ -14099,7 +16114,15 @@ func To_Utility_Void(in any) *pbgear.Utility_Void {
 }
 
 func To_Utility_Void_value0(in any) *pbgear.Value0 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Value0(w) //simple field
 }
 
 func To_Utility_WithWeightCall(in any) *pbgear.Utility_WithWeightCall {
@@ -14108,7 +16131,7 @@ func To_Utility_WithWeightCall(in any) *pbgear.Utility_WithWeightCall {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_Utility_WithWeightCall_call(v.ValueAt(0))
+	v0 := To_OneOf_Utility_WithWeightCall_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 	// field Weight
 	out.Weight = To_Utility_WithWeightCall_weight(v.ValueAt(1))
@@ -14116,7 +16139,7 @@ func To_Utility_WithWeightCall(in any) *pbgear.Utility_WithWeightCall {
 	return out //from message
 }
 
-func Set_OneOf_Utility_WithWeightCall_call(in any) any {
+func To_OneOf_Utility_WithWeightCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -14242,7 +16265,15 @@ func Set_OneOf_Utility_WithWeightCall_call(in any) any {
 	}
 }
 func To_Utility_WithWeightCall_weight(in any) *pbgear.SpWeightsWeightV2Weight {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpWeightsWeightV2Weight(w) //simple field
 }
 
 func To_Value0(in any) *pbgear.Value0 {
@@ -14251,13 +16282,13 @@ func To_Value0(in any) *pbgear.Value0 {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Value0_value(v.ValueAt(0))
+	v0 := To_OneOf_Value0_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Value0_value(in any) any {
+func To_OneOf_Value0_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -14566,13 +16597,13 @@ func To_VaraRuntimeRuntimeCall(in any) *pbgear.VaraRuntimeRuntimeCall {
 	_ = v
 
 	// oneOf field Calls
-	v0 := Set_OneOf_VaraRuntimeRuntimeCall_calls(v.ValueAt(0))
+	v0 := To_OneOf_VaraRuntimeRuntimeCall_calls(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Calls").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_VaraRuntimeRuntimeCall_calls(in any) any {
+func To_OneOf_VaraRuntimeRuntimeCall_calls(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -14716,16 +16747,48 @@ func To_VaraRuntimeSessionKeys(in any) *pbgear.VaraRuntimeSessionKeys {
 }
 
 func To_VaraRuntimeSessionKeys_babe(in any) *pbgear.SpConsensusBabeAppPublic {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusBabeAppPublic(w) //simple field
 }
 func To_VaraRuntimeSessionKeys_grandpa(in any) *pbgear.SpConsensusGrandpaAppPublic {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpConsensusGrandpaAppPublic(w) //simple field
 }
 func To_VaraRuntimeSessionKeys_im_online(in any) *pbgear.ImOnline_PalletImOnlineSr25519AppSr25519Public {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_ImOnline_PalletImOnlineSr25519AppSr25519Public(w) //simple field
 }
 func To_VaraRuntimeSessionKeys_authority_discovery(in any) *pbgear.SpAuthorityDiscoveryAppPublic {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpAuthorityDiscoveryAppPublic(w) //simple field
 }
 
 func To_VestingPallet(in any) *pbgear.VestingPallet {
@@ -14734,13 +16797,13 @@ func To_VestingPallet(in any) *pbgear.VestingPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_VestingPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_VestingPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_VestingPallet_call(in any) any {
+func To_OneOf_VestingPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -14808,13 +16871,37 @@ func To_Vesting_ForceVestedTransferCall(in any) *pbgear.Vesting_ForceVestedTrans
 }
 
 func To_Vesting_ForceVestedTransferCall_source(in any) *pbgear.Vesting_Source {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Vesting_Source(w) //simple field
 }
 func To_Vesting_ForceVestedTransferCall_target(in any) *pbgear.Vesting_Target {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Vesting_Target(w) //simple field
 }
 func To_Vesting_ForceVestedTransferCall_schedule(in any) *pbgear.Vesting_PalletVestingVestingInfoVestingInfo {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Vesting_PalletVestingVestingInfoVestingInfo(w) //simple field
 }
 
 func To_Vesting_Id(in any) *pbgear.Vesting_Id {
@@ -14829,7 +16916,15 @@ func To_Vesting_Id(in any) *pbgear.Vesting_Id {
 }
 
 func To_Vesting_Id_value0(in any) *pbgear.SpCoreCryptoAccountId32 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpCoreCryptoAccountId32(w) //simple field
 }
 
 func To_Vesting_Index(in any) *pbgear.Vesting_Index {
@@ -14844,7 +16939,15 @@ func To_Vesting_Index(in any) *pbgear.Vesting_Index {
 }
 
 func To_Vesting_Index_value0(in any) *pbgear.Vesting_TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Vesting_TupleNull(w) //simple field
 }
 
 func To_Vesting_MergeSchedulesCall(in any) *pbgear.Vesting_MergeSchedulesCall {
@@ -14892,13 +16995,13 @@ func To_Vesting_Source(in any) *pbgear.Vesting_Source {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Vesting_Source_value(v.ValueAt(0))
+	v0 := To_OneOf_Vesting_Source_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Vesting_Source_value(in any) any {
+func To_OneOf_Vesting_Source_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -14934,13 +17037,13 @@ func To_Vesting_Target(in any) *pbgear.Vesting_Target {
 	_ = v
 
 	// oneOf field Value
-	v0 := Set_OneOf_Vesting_Target_value(v.ValueAt(0))
+	v0 := To_OneOf_Vesting_Target_value(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Value").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Vesting_Target_value(in any) any {
+func To_OneOf_Vesting_Target_value(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -14982,7 +17085,15 @@ func To_Vesting_TupleNull(in any) *pbgear.Vesting_TupleNull {
 }
 
 func To_Vesting_TupleNull_value(in any) *pbgear.TupleNull {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_TupleNull(w) //simple field
 }
 
 func To_Vesting_VestCall(in any) *pbgear.Vesting_VestCall {
@@ -15005,7 +17116,15 @@ func To_Vesting_VestOtherCall(in any) *pbgear.Vesting_VestOtherCall {
 }
 
 func To_Vesting_VestOtherCall_target(in any) *pbgear.Vesting_Target {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Vesting_Target(w) //simple field
 }
 
 func To_Vesting_VestedTransferCall(in any) *pbgear.Vesting_VestedTransferCall {
@@ -15022,10 +17141,26 @@ func To_Vesting_VestedTransferCall(in any) *pbgear.Vesting_VestedTransferCall {
 }
 
 func To_Vesting_VestedTransferCall_target(in any) *pbgear.Vesting_Target {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Vesting_Target(w) //simple field
 }
 func To_Vesting_VestedTransferCall_schedule(in any) *pbgear.Vesting_PalletVestingVestingInfoVestingInfo {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_Vesting_PalletVestingVestingInfoVestingInfo(w) //simple field
 }
 
 func To_WhitelistPallet(in any) *pbgear.WhitelistPallet {
@@ -15034,13 +17169,13 @@ func To_WhitelistPallet(in any) *pbgear.WhitelistPallet {
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_WhitelistPallet_call(v.ValueAt(0))
+	v0 := To_OneOf_WhitelistPallet_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_WhitelistPallet_call(in any) any {
+func To_OneOf_WhitelistPallet_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -15082,10 +17217,26 @@ func To_Whitelist_DispatchWhitelistedCallCall(in any) *pbgear.Whitelist_Dispatch
 }
 
 func To_Whitelist_DispatchWhitelistedCallCall_call_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 func To_Whitelist_DispatchWhitelistedCallCall_call_weight_witness(in any) *pbgear.SpWeightsWeightV2Weight {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_SpWeightsWeightV2Weight(w) //simple field
 }
 
 func To_Whitelist_DispatchWhitelistedCallWithPreimageCall(in any) *pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall {
@@ -15094,13 +17245,13 @@ func To_Whitelist_DispatchWhitelistedCallWithPreimageCall(in any) *pbgear.Whitel
 	_ = v
 
 	// oneOf field Call
-	v0 := Set_OneOf_Whitelist_DispatchWhitelistedCallWithPreimageCall_call(v.ValueAt(0))
+	v0 := To_OneOf_Whitelist_DispatchWhitelistedCallWithPreimageCall_call(v.ValueAt(0))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
 }
 
-func Set_OneOf_Whitelist_DispatchWhitelistedCallWithPreimageCall_call(in any) any {
+func To_OneOf_Whitelist_DispatchWhitelistedCallWithPreimageCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
 	param := variantIn.Value
 
@@ -15238,7 +17389,15 @@ func To_Whitelist_RemoveWhitelistedCallCall(in any) *pbgear.Whitelist_RemoveWhit
 }
 
 func To_Whitelist_RemoveWhitelistedCallCall_call_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 func To_Whitelist_WhitelistCallCall(in any) *pbgear.Whitelist_WhitelistCallCall {
@@ -15253,7 +17412,15 @@ func To_Whitelist_WhitelistCallCall(in any) *pbgear.Whitelist_WhitelistCallCall 
 }
 
 func To_Whitelist_WhitelistCallCall_call_hash(in any) *pbgear.PrimitiveTypesH256 {
-	return nil //simple field
+	v := in.(registry.Valuable)
+	var w any
+	if i, ok := v.(registry.Valuable); ok {
+		w = &Wrap{Value: i}
+	} else {
+		w = v.ValueAt(0)
+	}
+
+	return To_PrimitiveTypesH256(w) //simple field
 }
 
 type Wrap struct {

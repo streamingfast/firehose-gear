@@ -166,9 +166,17 @@ func {{ $funcName }}(in any) {{ $msg.ReturnType $meta }} {
     {{- $seen := $generator.IsSeen $funcName }}
     {{- $ignore := $generator.Seen $funcName}}
     {{- if not $seen }}
-        func {{ $funcName }}(in any) {{ $field.ReturnType  $meta }} {
-        return nil //simple field
-        }
+func {{ $funcName }}(in any) {{ $field.ReturnType  $meta }} {
+    v := in.(registry.Valuable)
+    var w any
+    if i, ok := v.(registry.Valuable); ok {
+        w = &Wrap{Value: i}
+    } else{
+        w = v.ValueAt(0)
+    }
+
+    return To_{{ $field.FullTypeName }}(w) //simple field
+}
     {{- end }}
 {{- end }}
 
@@ -218,6 +226,7 @@ func {{ $funcName }}(in any) []*{{ $field.ReturnType  $meta }} {
 {{- $ignore := $generator.Seen $funcName}}
 {{- if and (not $seen) (not $field.Primitive) }}
 func {{ $funcName }}(in any) {{ $field.ReturnType  $meta }} {
+    panic("Not implemented")
     return nil //funcForOptionalField
 }
 {{- end }}
