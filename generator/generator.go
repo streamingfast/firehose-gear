@@ -226,7 +226,7 @@ func (g *Generator) FuncNameForRepeated(msg *protobuf.Message, field protobuf.Fi
 }
 
 func (g *Generator) FuncNameForField(msg *protobuf.Message, field protobuf.Field) string {
-	return "To_" + msg.FullTypeName() + "_" + field.GetName()
+	return "To_" + field.FullTypeName()
 }
 
 func (g *Generator) FuncNameForPrimitive(msg *protobuf.Message, field protobuf.Field) string {

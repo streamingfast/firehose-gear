@@ -15,5 +15,8 @@ func Test_ConvertMetadata(t *testing.T) {
 
 	mc := NewMetadataConverter(gearClients, nil, nil)
 	err = mc.Convert("")
+	if err != nil {
+		println("")
+	}
 	require.NoError(t, err)
 }

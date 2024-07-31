@@ -90,6 +90,10 @@ func (m *Message) ProtoMessageFieldName() string {
 func (m *Message) ToProto() string {
 	var sb strings.Builder
 
+	if m.Name == "V1" {
+		println("")
+	}
+
 	sb.WriteString("message " + m.FullTypeName() + " {\n")
 	idx := 0
 	str := ""
@@ -318,6 +322,7 @@ type OneOfField struct {
 	Types     []*BasicField
 	LookupID  int64
 	Primitive bool
+	Optional  bool
 }
 
 func (f *OneOfField) IsCompact() bool {
@@ -377,9 +382,17 @@ func (f *OneOfField) OutputType(meta *types.Metadata) string {
 func (f *OneOfField) ToProto(idx int) (string, int) {
 	var sb strings.Builder
 
-	sb.WriteString("oneof " + f.Name + " {\n")
+	if len(f.Types) == 0 {
+		return "", idx
+	}
+
+	name := utils.ToSnakeCase(f.Name)
+	//if f.Pallet != "" {
+	//	name = strings.ToLower(f.Pallet) + "_" + name
+	//}
+	sb.WriteString("oneof " + name + " {\n")
 	for _, field := range f.Types {
-		sb.WriteString(fmt.Sprintf("\t\t%s %s = %d;\n", field.FullTypeName(), utils.ToSnakeCase(field.Name), idx))
+		sb.WriteString(fmt.Sprintf("\t\t%s %s = %d;\n", field.FullTypeName(), utils.ToSnakeCase(f.Name)+"_"+utils.ToSnakeCase(field.Name), idx))
 		idx++
 	}
 	sb.WriteString("\t}")
@@ -388,7 +401,7 @@ func (f *OneOfField) ToProto(idx int) (string, int) {
 }
 
 func (f *OneOfField) SetOptional() {
-	panic("One field can not be set with an optional")
+	f.Optional = true
 }
 
 func (f *OneOfField) IsPrimitive() bool {

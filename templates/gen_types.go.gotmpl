@@ -28,6 +28,10 @@ import (
 {{- $meta := .generator.Metadata }}
 {{- $generator := .generator }}
 {{- $funcName := $generator.FuncNameForMessage $msg }}
+{{- $seen := $generator.IsSeen $funcName }}
+{{- $ignore := $generator.Seen $funcName}}
+
+{{- if and (not $seen) }}
 func {{ $funcName }}(in any) {{ $msg.ReturnType $meta }} {
     out := {{$msg.OutputType $meta}}{}
     v := in.(registry.Valuable)
@@ -37,10 +41,9 @@ func {{ $funcName }}(in any) {{ $msg.ReturnType $meta }} {
 
     return out //from message
 }
-
 {{- template "funcForMessageFieldsTo" wrap ( newWrapItem "fields" $msg.Fields "msg" $msg)}}
-
-{{ end }}
+{{- end }}
+{{- end }}
 
 {{- /* ============================= */}}
 {{- /* MESSAGE Fields                */}}
@@ -73,7 +76,7 @@ func {{ $funcName }}(in any) {{ $msg.ReturnType $meta }} {
 {{- $index := .index }}
 {{- $meta := .generator.Metadata }}
 {{- $generator := .generator }}
-    // field {{ $field.ToFieldName }}
+    // field {{ $field.ToFieldName }} To_{{ $field.FullTypeName }}(w)
     out.{{ $field.ToFieldName }} = {{ $generator.FuncNameForField $msg $field }}(v.ValueAt({{ $index }}))
 {{- end }}
 
@@ -147,7 +150,7 @@ func {{ $funcName }}(in any) {{ $msg.ReturnType $meta }} {
             {{- template "funcForOneOfField" wrap ( newWrapItem "field" $field "index" $index "msg" $msg) }}
         {{- else if $field.IsPrimitive }}
         {{- else }}
-            {{- template "funcForField" wrap ( newWrapItem "field" $field "index" $index "msg" $msg) }}
+{{/*            {{- template "funcForField" wrap ( newWrapItem "field" $field "index" $index "msg" $msg) }}*/}}
         {{- end }}
     {{- end }}
 {{- end }}
@@ -198,9 +201,9 @@ func {{ $funcName }}(in any) []*{{ $field.ReturnType  $meta }} {
     items := in.([]interface{})
 
     var out []*{{ $field.ReturnType  $meta }}
-    for _, item := range items { //ugly ack the will bite later
+    for _, item := range items {
 		w := item
-		if i, ok := w.(registry.Valuable); ok {
+		if i, ok := w.(registry.Valuable); ok {//ugly ack the will bite later
 			w = &Wrap{Value: i}
 		}
         o := To_{{ $field.FullTypeName }}(w)
@@ -248,19 +251,22 @@ func {{ $funcName }}(in any) {{ $field.ReturnType  $meta }} {
 
 {{- if not $seen }}
 func {{ $funcName }} (in any) any  {
+{{- if not $field.Types }}
+    return nil
+{{- else }}
     variantIn := in.(*registry.VariantWTF)
     param := variantIn.Value
-
     switch variantIn.VariantByte {
     {{- range  $t := $field.Types}}
     case {{ $t.VariantByte }}:
-        return &pbgear.{{$msg.FullTypeName}}_{{$t.ToFieldName}}{
-            {{$t.ToFieldName}}: To_{{ $t.FullTypeName }}(param),
+        return &pbgear.{{$msg.FullTypeName}}_{{ $field.ToFieldName }}{{$t.ToFieldName}}{
+        {{ $field.ToFieldName }}{{$t.ToFieldName}}: To_{{ $t.FullTypeName }}(param),
         }
     {{- end }}
     default:
         panic(fmt.Sprintf("Unknown variant byte: %d", variantIn.VariantByte))
     }
+{{- end }}
 }
 {{- end }}
 {{- end }}

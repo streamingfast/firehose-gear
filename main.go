@@ -20,8 +20,8 @@ import (
 
 func main() {
 	//blockHash, err := types.NewHashFromHexString("0xdacec8ff307e047ff4dfa08a1a59dea0326b12902658e52de310a4214c04686c")
-	//blockHash, err := types.NewHashFromHexString("0xce88000c2153e31e367b800723aa3d78c537834e20439b2eb4c5db3870cd8e4c")
-	blockHash, err := types.NewHashFromHexString("0xafd423f4bebb20864e535197b732c343ba72bb446574c9ceb117bf4f721098da")
+	blockHash, err := types.NewHashFromHexString("0xce88000c2153e31e367b800723aa3d78c537834e20439b2eb4c5db3870cd8e4c")
+	//blockHash, err := types.NewHashFromHexString("0xafd423f4bebb20864e535197b732c343ba72bb446574c9ceb117bf4f721098da")
 	if err != nil {
 		log.Fatalf("Failed to create block hash: %v", err)
 	}

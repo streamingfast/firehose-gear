@@ -33,8 +33,10 @@ func Test_Generator(t *testing.T) {
 
 	gen := NewGenerator("../templates/gen_types.go.gotmpl", messages, metadata)
 	content, err := gen.Generate()
-	require.NoError(t, err)
 
+	if err != nil {
+		fmt.Println("Error:", err)
+	}
 	require.NoError(t, err)
 
 	err = os.WriteFile("../templates/gen_types.go", content, 0644)
