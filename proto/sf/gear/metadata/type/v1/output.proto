@@ -1,0 +1,4590 @@
+syntax = "proto3";
+package sf.gear.metadata.type.v1;
+option go_package = "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1;pbgear";
+
+message BagsListPallet {
+	oneof call {
+		BagsList_RebagCall call_rebag_call = 1;
+		BagsList_PutInFrontOfCall call_put_in_front_of_call = 2;
+		BagsList_PutInFrontOfOtherCall call_put_in_front_of_other_call = 3;
+	}
+}
+message Staking_MinNominatorBond {
+	oneof min_nominator_bond {
+		Staking_Noop min_nominator_bond_noop = 1;
+		Staking_Set min_nominator_bond_set = 2;
+		Staking_Remove min_nominator_bond_remove = 3;
+	}
+}
+message Treasurer {
+}
+message Identity_Raw {
+	bytes value0 = 1;
+}
+message Identity_Account {
+	oneof account {
+		Identity_Id account_id = 1;
+		Identity_Index account_index = 2;
+		Identity_Raw account_raw = 3;
+		Identity_Address32 account_address32 = 4;
+		Identity_Address20 account_address20 = 5;
+	}
+}
+message Vesting_VestOtherCall {
+	oneof target {
+		Vesting_Id target_id = 1;
+		Vesting_Index target_index = 2;
+		Vesting_Raw target_raw = 3;
+		Vesting_Address32 target_address32 = 4;
+		Vesting_Address20 target_address20 = 5;
+	}
+}
+message BagsList_PutInFrontOfOtherCall {
+	oneof heavier {
+		BagsList_Id heavier_id = 1;
+		BagsList_Index heavier_index = 2;
+		BagsList_Raw heavier_raw = 3;
+		BagsList_Address32 heavier_address32 = 4;
+		BagsList_Address20 heavier_address20 = 5;
+	}
+	oneof lighter {
+		BagsList_Id lighter_id = 6;
+		BagsList_Index lighter_index = 7;
+		BagsList_Raw lighter_raw = 8;
+		BagsList_Address32 lighter_address32 = 9;
+		BagsList_Address20 lighter_address20 = 10;
+	}
+}
+message GearVoucherPallet {
+	oneof call {
+		GearVoucher_IssueCall call_issue_call = 1;
+		GearVoucher_CallCall call_call_call = 2;
+		GearVoucher_RevokeCall call_revoke_call = 3;
+		GearVoucher_UpdateCall call_update_call = 4;
+		GearVoucher_CallDeprecatedCall call_call_deprecated_call = 5;
+		GearVoucher_DeclineCall call_decline_call = 6;
+	}
+}
+message FellowshipInitiates {
+}
+message BountiesPallet {
+	oneof call {
+		Bounties_ProposeBountyCall call_propose_bounty_call = 1;
+		Bounties_ApproveBountyCall call_approve_bounty_call = 2;
+		Bounties_ProposeCuratorCall call_propose_curator_call = 3;
+		Bounties_UnassignCuratorCall call_unassign_curator_call = 4;
+		Bounties_AcceptCuratorCall call_accept_curator_call = 5;
+		Bounties_AwardBountyCall call_award_bounty_call = 6;
+		Bounties_ClaimBountyCall call_claim_bounty_call = 7;
+		Bounties_CloseBountyCall call_close_bounty_call = 8;
+		Bounties_ExtendBountyExpiryCall call_extend_bounty_expiry_call = 9;
+	}
+}
+message SpCoreEd25519Public {
+	bytes value0 = 1;
+}
+message Bounties_Address20 {
+	bytes value0 = 1;
+}
+message Bounties_ApproveBountyCall {
+	uint32 bounty_id = 1;
+}
+message NominationPools_Rewards {
+}
+message ConvictionVoting_None {
+}
+message Proxy_RemoveProxyCall {
+	oneof delegate {
+		Proxy_Id delegate_id = 1;
+		Proxy_Index delegate_index = 2;
+		Proxy_Raw delegate_raw = 3;
+		Proxy_Address32 delegate_address32 = 4;
+		Proxy_Address20 delegate_address20 = 5;
+	}
+	oneof proxy_type {
+		Proxy_Any proxy_type_any = 6;
+		Proxy_NonTransfer proxy_type_non_transfer = 7;
+		Proxy_Governance proxy_type_governance = 8;
+		Proxy_Staking proxy_type_staking = 9;
+		Proxy_IdentityJudgement proxy_type_identity_judgement = 10;
+		Proxy_CancelProxy proxy_type_cancel_proxy = 11;
+	}
+	uint32 delay = 12;
+}
+message Treasury_Index {
+	Treasury_TupleNull value0 = 1;
+}
+message ConvictionVoting_Locked1X {
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes11Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message PrimitiveTypesH256 {
+	bytes value0 = 1;
+}
+message Balances_Who {
+	oneof who {
+		Balances_Id who_id = 1;
+		Balances_Index who_index = 2;
+		Balances_Raw who_raw = 3;
+		Balances_Address32 who_address32 = 4;
+		Balances_Address20 who_address20 = 5;
+	}
+}
+message Treasury_TupleNull {
+	TupleNull value = 1;
+}
+message StakingAdmin {
+}
+message Identity_Raw20 {
+	bytes value0 = 1;
+}
+message SpSessionMembershipProof {
+	uint32 session = 1;
+	repeated Babe_BabeTrieNodesList trie_nodes = 2;
+	uint32 validator_count = 3;
+}
+message Vesting_Target {
+	oneof target {
+		Vesting_Id target_id = 1;
+		Vesting_Index target_index = 2;
+		Vesting_Raw target_raw = 3;
+		Vesting_Address32 target_address32 = 4;
+		Vesting_Address20 target_address20 = 5;
+	}
+}
+message Staking_SetControllerCall {
+}
+message FellowshipCollective_Who {
+	oneof who {
+		FellowshipCollective_Id who_id = 1;
+		FellowshipCollective_Index who_index = 2;
+		FellowshipCollective_Raw who_raw = 3;
+		FellowshipCollective_Address32 who_address32 = 4;
+		FellowshipCollective_Address20 who_address20 = 5;
+	}
+}
+message FellowshipReferenda_Void {
+	
+}
+message FellowshipReferenda_NudgeReferendumCall {
+	uint32 index = 1;
+}
+message Proxy_Index {
+	Proxy_TupleNull value0 = 1;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes14Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message BagsList_Lighter {
+	oneof lighter {
+		BagsList_Id lighter_id = 1;
+		BagsList_Index lighter_index = 2;
+		BagsList_Raw lighter_raw = 3;
+		BagsList_Address32 lighter_address32 = 4;
+		BagsList_Address20 lighter_address20 = 5;
+	}
+}
+message Staking_Account {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall {
+	optional SpNposElectionsElectionScore maybe_next_score = 1;
+}
+message GearVoucher_PalletGearVoucherInternalVoucherId {
+	bytes value0 = 1;
+}
+message TimestampPallet {
+	oneof call {
+		Timestamp_SetCall call_set_call = 1;
+	}
+}
+message IdentityPallet {
+	oneof call {
+		Identity_AddRegistrarCall call_add_registrar_call = 1;
+		Identity_SetIdentityCall call_set_identity_call = 2;
+		Identity_SetSubsCall call_set_subs_call = 3;
+		Identity_ClearIdentityCall call_clear_identity_call = 4;
+		Identity_RequestJudgementCall call_request_judgement_call = 5;
+		Identity_CancelRequestCall call_cancel_request_call = 6;
+		Identity_SetFeeCall call_set_fee_call = 7;
+		Identity_SetAccountIdCall call_set_account_id_call = 8;
+		Identity_SetFieldsCall call_set_fields_call = 9;
+		Identity_ProvideJudgementCall call_provide_judgement_call = 10;
+		Identity_KillIdentityCall call_kill_identity_call = 11;
+		Identity_AddSubCall call_add_sub_call = 12;
+		Identity_RenameSubCall call_rename_sub_call = 13;
+		Identity_RemoveSubCall call_remove_sub_call = 14;
+		Identity_QuitSubCall call_quit_sub_call = 15;
+	}
+}
+message FellowshipReferenda_Legacy {
+	PrimitiveTypesH256 hash = 1;
+}
+message Identity_New {
+	oneof new {
+		Identity_Id new_id = 1;
+		Identity_Index new_index = 2;
+		Identity_Raw new_raw = 3;
+		Identity_Address32 new_address32 = 4;
+		Identity_Address20 new_address20 = 5;
+	}
+}
+message Identity_Target {
+	oneof target {
+		Identity_Id target_id = 1;
+		Identity_Index target_index = 2;
+		Identity_Raw target_raw = 3;
+		Identity_Address32 target_address32 = 4;
+		Identity_Address20 target_address20 = 5;
+	}
+}
+message Proxy_Address32 {
+	bytes value0 = 1;
+}
+message VaraRuntimeNposSolution16 {
+	repeated ElectionProviderMultiPhase_TupleUint32Uint32 votes1 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32TupleUint32SpArithmeticPerThingsPerU16Uint32 votes2 = 2;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes3Listuint32 votes3 = 3;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes4Listuint32 votes4 = 4;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes5Listuint32 votes5 = 5;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes6Listuint32 votes6 = 6;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes7Listuint32 votes7 = 7;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes8Listuint32 votes8 = 8;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes9Listuint32 votes9 = 9;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes10Listuint32 votes10 = 10;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes11Listuint32 votes11 = 11;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes12Listuint32 votes12 = 12;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes13Listuint32 votes13 = 13;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes14Listuint32 votes14 = 14;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes15Listuint32 votes15 = 15;
+	repeated ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes16Listuint32 votes16 = 16;
+}
+message NominationPools_PermissionlessWithdraw {
+}
+message Grandpa_GrandpaTrieNodesList {
+	bytes trie_nodes = 1;
+}
+message ConvictionVoting_RemoveVoteCall {
+	optional uint32 class = 1;
+	uint32 index = 2;
+}
+message NominationPools_SetCommissionMaxCall {
+	uint32 pool_id = 1;
+	SpArithmeticPerThingsPerbill max_commission = 2;
+}
+message Identity_Raw27 {
+	bytes value0 = 1;
+}
+message Staking_SetStakingConfigsCall {
+	oneof min_nominator_bond {
+		Staking_Noop min_nominator_bond_noop = 1;
+		Staking_Set min_nominator_bond_set = 2;
+		Staking_Remove min_nominator_bond_remove = 3;
+	}
+	oneof min_validator_bond {
+		Staking_Noop min_validator_bond_noop = 4;
+		Staking_Set min_validator_bond_set = 5;
+		Staking_Remove min_validator_bond_remove = 6;
+	}
+	oneof max_nominator_count {
+		Staking_Noop max_nominator_count_noop = 7;
+		Staking_Set max_nominator_count_set = 8;
+		Staking_Remove max_nominator_count_remove = 9;
+	}
+	oneof max_validator_count {
+		Staking_Noop max_validator_count_noop = 10;
+		Staking_Set max_validator_count_set = 11;
+		Staking_Remove max_validator_count_remove = 12;
+	}
+	oneof chill_threshold {
+		Staking_Noop chill_threshold_noop = 13;
+		Staking_Set chill_threshold_set = 14;
+		Staking_Remove chill_threshold_remove = 15;
+	}
+	oneof min_commission {
+		Staking_Noop min_commission_noop = 16;
+		Staking_Set min_commission_set = 17;
+		Staking_Remove min_commission_remove = 18;
+	}
+}
+message ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize {
+	uint32 voters = 1;
+	uint32 targets = 2;
+}
+message Bounties_AwardBountyCall {
+	uint32 bounty_id = 1;
+	oneof beneficiary {
+		Bounties_Id beneficiary_id = 2;
+		Bounties_Index beneficiary_index = 3;
+		Bounties_Raw beneficiary_raw = 4;
+		Bounties_Address32 beneficiary_address32 = 5;
+		Bounties_Address20 beneficiary_address20 = 6;
+	}
+}
+message NominationPools_AdjustPoolDepositCall {
+	uint32 pool_id = 1;
+}
+message Balances_Address20 {
+	bytes value0 = 1;
+}
+message Staking_Address32 {
+	bytes value0 = 1;
+}
+message Fellowship2Dan {
+}
+message Identity_SetFieldsCall {
+	uint32 index = 1;
+	Identity_PalletIdentityTypesBitFlags fields = 2;
+}
+message NominationPools_NominateCall {
+	uint32 pool_id = 1;
+	repeated SpCoreCryptoAccountId32 validators = 2;
+}
+message Balances_UpgradeAccountsCall {
+	repeated SpCoreCryptoAccountId32 who = 1;
+}
+message Vesting_Index {
+	Vesting_TupleNull value0 = 1;
+}
+message Utility_AsDerivativeCall {
+	uint32 index = 1;
+	oneof call {
+		SystemPallet call_system = 2;
+		TimestampPallet call_timestamp = 3;
+		BabePallet call_babe = 4;
+		GrandpaPallet call_grandpa = 5;
+		BalancesPallet call_balances = 6;
+		VestingPallet call_vesting = 7;
+		BagsListPallet call_bags_list = 8;
+		ImOnlinePallet call_im_online = 9;
+		StakingPallet call_staking = 10;
+		SessionPallet call_session = 11;
+		TreasuryPallet call_treasury = 12;
+		UtilityPallet call_utility = 13;
+		ConvictionVotingPallet call_conviction_voting = 14;
+		ReferendaPallet call_referenda = 15;
+		FellowshipCollectivePallet call_fellowship_collective = 16;
+		FellowshipReferendaPallet call_fellowship_referenda = 17;
+		WhitelistPallet call_whitelist = 18;
+		SchedulerPallet call_scheduler = 19;
+		PreimagePallet call_preimage = 20;
+		IdentityPallet call_identity = 21;
+		ProxyPallet call_proxy = 22;
+		MultisigPallet call_multisig = 23;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 24;
+		BountiesPallet call_bounties = 25;
+		ChildBountiesPallet call_child_bounties = 26;
+		NominationPoolsPallet call_nomination_pools = 27;
+		GearPallet call_gear = 28;
+		StakingRewardsPallet call_staking_rewards = 29;
+		GearVoucherPallet call_gear_voucher = 30;
+	}
+}
+message Fellowship1Dan {
+}
+message ConvictionVoting_Locked4X {
+}
+message Proxy_Delegate {
+	oneof delegate {
+		Proxy_Id delegate_id = 1;
+		Proxy_Index delegate_index = 2;
+		Proxy_Raw delegate_raw = 3;
+		Proxy_Address32 delegate_address32 = 4;
+		Proxy_Address20 delegate_address20 = 5;
+	}
+}
+message ElectionProviderMultiPhase_TupleUint32Uint32 {
+	uint32 value0 = 1;
+	uint32 value1 = 2;
+}
+message Bounties_Raw {
+	bytes value0 = 1;
+}
+message Staking_MinCommission {
+	oneof min_commission {
+		Staking_Noop min_commission_noop = 1;
+		Staking_Set min_commission_set = 2;
+		Staking_Remove min_commission_remove = 3;
+	}
+}
+message Treasury_PayoutCall {
+	uint32 index = 1;
+}
+message StakingRewards_To {
+	oneof to {
+		StakingRewards_Id to_id = 1;
+		StakingRewards_Index to_index = 2;
+		StakingRewards_Raw to_raw = 3;
+		StakingRewards_Address32 to_address32 = 4;
+		StakingRewards_Address20 to_address20 = 5;
+	}
+}
+message SpArithmeticPerThingsPerU16 {
+	uint32 value0 = 1;
+}
+message Babe_PlanConfigChangeCall {
+	oneof config {
+		Babe_V1 config_v1 = 1;
+	}
+}
+message FellowshipReferenda_After {
+	uint32 value0 = 1;
+}
+message Identity_Raw5 {
+	bytes value0 = 1;
+}
+message NominationPools_JoinCall {
+	string amount = 1;
+	uint32 pool_id = 2;
+}
+message Balances_TransferAllowDeathCall {
+	oneof dest {
+		Balances_Id dest_id = 1;
+		Balances_Index dest_index = 2;
+		Balances_Raw dest_raw = 3;
+		Balances_Address32 dest_address32 = 4;
+		Balances_Address20 dest_address20 = 5;
+	}
+	string value = 6;
+}
+message Staking_Set {
+	string value0 = 1;
+}
+message ChildBounties_CloseChildBountyCall {
+	uint32 parent_bounty_id = 1;
+	uint32 child_bounty_id = 2;
+}
+message NominationPools_Extra {
+	oneof extra {
+		NominationPools_FreeBalance extra_free_balance = 1;
+		NominationPools_Rewards extra_rewards = 2;
+	}
+}
+message SpAuthorityDiscoveryAppPublic {
+	SpCoreSr25519Public value0 = 1;
+}
+message ChildBounties_Index {
+	ChildBounties_TupleNull value0 = 1;
+}
+message GprimitivesMessageId {
+	bytes value0 = 1;
+}
+message GearVoucher_CallDeprecatedCall {
+	oneof call {
+		GearVoucher_SendMessage call_send_message = 1;
+		GearVoucher_SendReply call_send_reply = 2;
+		GearVoucher_UploadCode call_upload_code = 3;
+		GearVoucher_DeclineVoucher call_decline_voucher = 4;
+	}
+}
+message Staking_Remove {
+}
+message Identity_Raw32 {
+	bytes value0 = 1;
+}
+message ImOnline_PalletImOnlineSr25519AppSr25519Public {
+	SpCoreSr25519Public value0 = 1;
+}
+message Scheduler_ScheduleNamedCall {
+	bytes id = 1;
+	uint32 when = 2;
+	optional Scheduler_TupleUint32Uint32 maybe_periodic = 3;
+	uint32 priority = 4;
+	oneof call {
+		SystemPallet call_system = 5;
+		TimestampPallet call_timestamp = 6;
+		BabePallet call_babe = 7;
+		GrandpaPallet call_grandpa = 8;
+		BalancesPallet call_balances = 9;
+		VestingPallet call_vesting = 10;
+		BagsListPallet call_bags_list = 11;
+		ImOnlinePallet call_im_online = 12;
+		StakingPallet call_staking = 13;
+		SessionPallet call_session = 14;
+		TreasuryPallet call_treasury = 15;
+		UtilityPallet call_utility = 16;
+		ConvictionVotingPallet call_conviction_voting = 17;
+		ReferendaPallet call_referenda = 18;
+		FellowshipCollectivePallet call_fellowship_collective = 19;
+		FellowshipReferendaPallet call_fellowship_referenda = 20;
+		WhitelistPallet call_whitelist = 21;
+		SchedulerPallet call_scheduler = 22;
+		PreimagePallet call_preimage = 23;
+		IdentityPallet call_identity = 24;
+		ProxyPallet call_proxy = 25;
+		MultisigPallet call_multisig = 26;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 27;
+		BountiesPallet call_bounties = 28;
+		ChildBountiesPallet call_child_bounties = 29;
+		NominationPoolsPallet call_nomination_pools = 30;
+		GearPallet call_gear = 31;
+		StakingRewardsPallet call_staking_rewards = 32;
+		GearVoucherPallet call_gear_voucher = 33;
+	}
+}
+message Staking_ForceNewEraCall {
+}
+message TreasuryPallet {
+	oneof call {
+		Treasury_ProposeSpendCall call_propose_spend_call = 1;
+		Treasury_RejectProposalCall call_reject_proposal_call = 2;
+		Treasury_ApproveProposalCall call_approve_proposal_call = 3;
+		Treasury_SpendLocalCall call_spend_local_call = 4;
+		Treasury_RemoveApprovalCall call_remove_approval_call = 5;
+		Treasury_SpendCall call_spend_call = 6;
+		Treasury_PayoutCall call_payout_call = 7;
+		Treasury_CheckStatusCall call_check_status_call = 8;
+		Treasury_VoidSpendCall call_void_spend_call = 9;
+	}
+}
+message Utility_BatchAllCall {
+	repeated VaraRuntimeRuntimeCall calls = 1;
+}
+message Fellowship5Dan {
+}
+message Identity_FeePaid {
+	string value0 = 1;
+}
+message ChildBounties_Raw {
+	bytes value0 = 1;
+}
+message AuthorityDiscoveryPallet {
+}
+message Babe_V1 {
+	Babe_TupleUint64Uint64 c = 1;
+	oneof allowed_slots {
+		Babe_PrimarySlots allowed_slots_primary_slots = 2;
+		Babe_PrimaryAndSecondaryPlainSlots allowed_slots_primary_and_secondary_plain_slots = 3;
+		Babe_PrimaryAndSecondaryVrfSlots allowed_slots_primary_and_secondary_vrf_slots = 4;
+	}
+}
+message ConvictionVoting_Index {
+	ConvictionVoting_TupleNull value0 = 1;
+}
+message Staking_Index {
+	Staking_TupleNull value0 = 1;
+}
+message Treasury_Raw {
+	bytes value0 = 1;
+}
+message Proxy_ForceProxyType {
+	oneof force_proxy_type {
+		Proxy_Any force_proxy_type_any = 1;
+		Proxy_NonTransfer force_proxy_type_non_transfer = 2;
+		Proxy_Governance force_proxy_type_governance = 3;
+		Proxy_Staking force_proxy_type_staking = 4;
+		Proxy_IdentityJudgement force_proxy_type_identity_judgement = 5;
+		Proxy_CancelProxy force_proxy_type_cancel_proxy = 6;
+	}
+}
+message StakingRewards_ForceRefillCall {
+	oneof from {
+		StakingRewards_Id from_id = 1;
+		StakingRewards_Index from_index = 2;
+		StakingRewards_Raw from_raw = 3;
+		StakingRewards_Address32 from_address32 = 4;
+		StakingRewards_Address20 from_address20 = 5;
+	}
+	string value = 6;
+}
+message FellowshipCollective_CleanupPollCall {
+	uint32 poll_index = 1;
+	uint32 max = 2;
+}
+message Identity_Raw1 {
+	bytes value0 = 1;
+}
+message Referenda_SubmitCall {
+	oneof proposal_origin {
+		Referenda_System proposal_origin_system = 1;
+		Referenda_Origins proposal_origin_origins = 2;
+		Referenda_Void proposal_origin_void = 3;
+	}
+	oneof proposal {
+		Referenda_Legacy proposal_legacy = 4;
+		Referenda_Inline proposal_inline = 5;
+		Referenda_Lookup proposal_lookup = 6;
+	}
+	oneof enactment_moment {
+		Referenda_At enactment_moment_at = 7;
+		Referenda_After enactment_moment_after = 8;
+	}
+}
+message Bounties_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message NominationPools_PoolWithdrawUnbondedCall {
+	uint32 pool_id = 1;
+	uint32 num_slashing_spans = 2;
+}
+message StakingRewards_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message TupleNull {
+}
+message Staking_ForceNoErasCall {
+}
+message Staking_Noop {
+}
+message Bounties_CloseBountyCall {
+	uint32 bounty_id = 1;
+}
+message StakingRewards_Address32 {
+	bytes value0 = 1;
+}
+message BTreeSet {
+	repeated GprimitivesActorId value0 = 1;
+}
+message Babe_Other {
+	bytes value0 = 1;
+}
+message Balances_Address32 {
+	bytes value0 = 1;
+}
+message VaraRuntimeRuntimeCall {
+	oneof calls {
+		SystemPallet calls_system = 1;
+		TimestampPallet calls_timestamp = 2;
+		BabePallet calls_babe = 3;
+		GrandpaPallet calls_grandpa = 4;
+		BalancesPallet calls_balances = 5;
+		VestingPallet calls_vesting = 6;
+		BagsListPallet calls_bags_list = 7;
+		ImOnlinePallet calls_im_online = 8;
+		StakingPallet calls_staking = 9;
+		SessionPallet calls_session = 10;
+		TreasuryPallet calls_treasury = 11;
+		UtilityPallet calls_utility = 12;
+		ConvictionVotingPallet calls_conviction_voting = 13;
+		ReferendaPallet calls_referenda = 14;
+		FellowshipCollectivePallet calls_fellowship_collective = 15;
+		FellowshipReferendaPallet calls_fellowship_referenda = 16;
+		WhitelistPallet calls_whitelist = 17;
+		SchedulerPallet calls_scheduler = 18;
+		PreimagePallet calls_preimage = 19;
+		IdentityPallet calls_identity = 20;
+		ProxyPallet calls_proxy = 21;
+		MultisigPallet calls_multisig = 22;
+		ElectionProviderMultiPhasePallet calls_election_provider_multi_phase = 23;
+		BountiesPallet calls_bounties = 24;
+		ChildBountiesPallet calls_child_bounties = 25;
+		NominationPoolsPallet calls_nomination_pools = 26;
+		GearPallet calls_gear = 27;
+		StakingRewardsPallet calls_staking_rewards = 28;
+		GearVoucherPallet calls_gear_voucher = 29;
+	}
+}
+message Babe_RuntimeEnvironmentUpdated {
+}
+message Vesting_Source {
+	oneof source {
+		Vesting_Id source_id = 1;
+		Vesting_Index source_index = 2;
+		Vesting_Raw source_raw = 3;
+		Vesting_Address32 source_address32 = 4;
+		Vesting_Address20 source_address20 = 5;
+	}
+}
+message SpCoreCryptoAccountId32 {
+	bytes value0 = 1;
+}
+message Preimage_EnsureUpdatedCall {
+	repeated PrimitiveTypesH256 hashes = 1;
+}
+message NominationPoolsPallet {
+	oneof call {
+		NominationPools_JoinCall call_join_call = 1;
+		NominationPools_BondExtraCall call_bond_extra_call = 2;
+		NominationPools_ClaimPayoutCall call_claim_payout_call = 3;
+		NominationPools_UnbondCall call_unbond_call = 4;
+		NominationPools_PoolWithdrawUnbondedCall call_pool_withdraw_unbonded_call = 5;
+		NominationPools_WithdrawUnbondedCall call_withdraw_unbonded_call = 6;
+		NominationPools_CreateCall call_create_call = 7;
+		NominationPools_CreateWithPoolIdCall call_create_with_pool_id_call = 8;
+		NominationPools_NominateCall call_nominate_call = 9;
+		NominationPools_SetStateCall call_set_state_call = 10;
+		NominationPools_SetMetadataCall call_set_metadata_call = 11;
+		NominationPools_SetConfigsCall call_set_configs_call = 12;
+		NominationPools_UpdateRolesCall call_update_roles_call = 13;
+		NominationPools_ChillCall call_chill_call = 14;
+		NominationPools_BondExtraOtherCall call_bond_extra_other_call = 15;
+		NominationPools_SetClaimPermissionCall call_set_claim_permission_call = 16;
+		NominationPools_ClaimPayoutOtherCall call_claim_payout_other_call = 17;
+		NominationPools_SetCommissionCall call_set_commission_call = 18;
+		NominationPools_SetCommissionMaxCall call_set_commission_max_call = 19;
+		NominationPools_SetCommissionChangeRateCall call_set_commission_change_rate_call = 20;
+		NominationPools_ClaimCommissionCall call_claim_commission_call = 21;
+		NominationPools_AdjustPoolDepositCall call_adjust_pool_deposit_call = 22;
+	}
+}
+message ConvictionVoting_RemoveOtherVoteCall {
+	oneof target {
+		ConvictionVoting_Id target_id = 1;
+		ConvictionVoting_Index target_index = 2;
+		ConvictionVoting_Raw target_raw = 3;
+		ConvictionVoting_Address32 target_address32 = 4;
+		ConvictionVoting_Address20 target_address20 = 5;
+	}
+	uint32 class = 6;
+	uint32 index = 7;
+}
+message Identity_PalletIdentitySimpleIdentityInfo {
+	BoundedCollectionsBoundedVecBoundedVec additional = 1;
+	oneof display {
+		Identity_None display_none = 2;
+		Identity_Raw0 display_raw0 = 3;
+		Identity_Raw1 display_raw1 = 4;
+		Identity_Raw2 display_raw2 = 5;
+		Identity_Raw3 display_raw3 = 6;
+		Identity_Raw4 display_raw4 = 7;
+		Identity_Raw5 display_raw5 = 8;
+		Identity_Raw6 display_raw6 = 9;
+		Identity_Raw7 display_raw7 = 10;
+		Identity_Raw8 display_raw8 = 11;
+		Identity_Raw9 display_raw9 = 12;
+		Identity_Raw10 display_raw10 = 13;
+		Identity_Raw11 display_raw11 = 14;
+		Identity_Raw12 display_raw12 = 15;
+		Identity_Raw13 display_raw13 = 16;
+		Identity_Raw14 display_raw14 = 17;
+		Identity_Raw15 display_raw15 = 18;
+		Identity_Raw16 display_raw16 = 19;
+		Identity_Raw17 display_raw17 = 20;
+		Identity_Raw18 display_raw18 = 21;
+		Identity_Raw19 display_raw19 = 22;
+		Identity_Raw20 display_raw20 = 23;
+		Identity_Raw21 display_raw21 = 24;
+		Identity_Raw22 display_raw22 = 25;
+		Identity_Raw23 display_raw23 = 26;
+		Identity_Raw24 display_raw24 = 27;
+		Identity_Raw25 display_raw25 = 28;
+		Identity_Raw26 display_raw26 = 29;
+		Identity_Raw27 display_raw27 = 30;
+		Identity_Raw28 display_raw28 = 31;
+		Identity_Raw29 display_raw29 = 32;
+		Identity_Raw30 display_raw30 = 33;
+		Identity_Raw31 display_raw31 = 34;
+		Identity_Raw32 display_raw32 = 35;
+		Identity_BlakeTwo256 display_blake_two256 = 36;
+		Identity_Sha256 display_sha256 = 37;
+		Identity_Keccak256 display_keccak256 = 38;
+		Identity_ShaThree256 display_sha_three256 = 39;
+	}
+	oneof legal {
+		Identity_None legal_none = 40;
+		Identity_Raw0 legal_raw0 = 41;
+		Identity_Raw1 legal_raw1 = 42;
+		Identity_Raw2 legal_raw2 = 43;
+		Identity_Raw3 legal_raw3 = 44;
+		Identity_Raw4 legal_raw4 = 45;
+		Identity_Raw5 legal_raw5 = 46;
+		Identity_Raw6 legal_raw6 = 47;
+		Identity_Raw7 legal_raw7 = 48;
+		Identity_Raw8 legal_raw8 = 49;
+		Identity_Raw9 legal_raw9 = 50;
+		Identity_Raw10 legal_raw10 = 51;
+		Identity_Raw11 legal_raw11 = 52;
+		Identity_Raw12 legal_raw12 = 53;
+		Identity_Raw13 legal_raw13 = 54;
+		Identity_Raw14 legal_raw14 = 55;
+		Identity_Raw15 legal_raw15 = 56;
+		Identity_Raw16 legal_raw16 = 57;
+		Identity_Raw17 legal_raw17 = 58;
+		Identity_Raw18 legal_raw18 = 59;
+		Identity_Raw19 legal_raw19 = 60;
+		Identity_Raw20 legal_raw20 = 61;
+		Identity_Raw21 legal_raw21 = 62;
+		Identity_Raw22 legal_raw22 = 63;
+		Identity_Raw23 legal_raw23 = 64;
+		Identity_Raw24 legal_raw24 = 65;
+		Identity_Raw25 legal_raw25 = 66;
+		Identity_Raw26 legal_raw26 = 67;
+		Identity_Raw27 legal_raw27 = 68;
+		Identity_Raw28 legal_raw28 = 69;
+		Identity_Raw29 legal_raw29 = 70;
+		Identity_Raw30 legal_raw30 = 71;
+		Identity_Raw31 legal_raw31 = 72;
+		Identity_Raw32 legal_raw32 = 73;
+		Identity_BlakeTwo256 legal_blake_two256 = 74;
+		Identity_Sha256 legal_sha256 = 75;
+		Identity_Keccak256 legal_keccak256 = 76;
+		Identity_ShaThree256 legal_sha_three256 = 77;
+	}
+	oneof web {
+		Identity_None web_none = 78;
+		Identity_Raw0 web_raw0 = 79;
+		Identity_Raw1 web_raw1 = 80;
+		Identity_Raw2 web_raw2 = 81;
+		Identity_Raw3 web_raw3 = 82;
+		Identity_Raw4 web_raw4 = 83;
+		Identity_Raw5 web_raw5 = 84;
+		Identity_Raw6 web_raw6 = 85;
+		Identity_Raw7 web_raw7 = 86;
+		Identity_Raw8 web_raw8 = 87;
+		Identity_Raw9 web_raw9 = 88;
+		Identity_Raw10 web_raw10 = 89;
+		Identity_Raw11 web_raw11 = 90;
+		Identity_Raw12 web_raw12 = 91;
+		Identity_Raw13 web_raw13 = 92;
+		Identity_Raw14 web_raw14 = 93;
+		Identity_Raw15 web_raw15 = 94;
+		Identity_Raw16 web_raw16 = 95;
+		Identity_Raw17 web_raw17 = 96;
+		Identity_Raw18 web_raw18 = 97;
+		Identity_Raw19 web_raw19 = 98;
+		Identity_Raw20 web_raw20 = 99;
+		Identity_Raw21 web_raw21 = 100;
+		Identity_Raw22 web_raw22 = 101;
+		Identity_Raw23 web_raw23 = 102;
+		Identity_Raw24 web_raw24 = 103;
+		Identity_Raw25 web_raw25 = 104;
+		Identity_Raw26 web_raw26 = 105;
+		Identity_Raw27 web_raw27 = 106;
+		Identity_Raw28 web_raw28 = 107;
+		Identity_Raw29 web_raw29 = 108;
+		Identity_Raw30 web_raw30 = 109;
+		Identity_Raw31 web_raw31 = 110;
+		Identity_Raw32 web_raw32 = 111;
+		Identity_BlakeTwo256 web_blake_two256 = 112;
+		Identity_Sha256 web_sha256 = 113;
+		Identity_Keccak256 web_keccak256 = 114;
+		Identity_ShaThree256 web_sha_three256 = 115;
+	}
+	oneof riot {
+		Identity_None riot_none = 116;
+		Identity_Raw0 riot_raw0 = 117;
+		Identity_Raw1 riot_raw1 = 118;
+		Identity_Raw2 riot_raw2 = 119;
+		Identity_Raw3 riot_raw3 = 120;
+		Identity_Raw4 riot_raw4 = 121;
+		Identity_Raw5 riot_raw5 = 122;
+		Identity_Raw6 riot_raw6 = 123;
+		Identity_Raw7 riot_raw7 = 124;
+		Identity_Raw8 riot_raw8 = 125;
+		Identity_Raw9 riot_raw9 = 126;
+		Identity_Raw10 riot_raw10 = 127;
+		Identity_Raw11 riot_raw11 = 128;
+		Identity_Raw12 riot_raw12 = 129;
+		Identity_Raw13 riot_raw13 = 130;
+		Identity_Raw14 riot_raw14 = 131;
+		Identity_Raw15 riot_raw15 = 132;
+		Identity_Raw16 riot_raw16 = 133;
+		Identity_Raw17 riot_raw17 = 134;
+		Identity_Raw18 riot_raw18 = 135;
+		Identity_Raw19 riot_raw19 = 136;
+		Identity_Raw20 riot_raw20 = 137;
+		Identity_Raw21 riot_raw21 = 138;
+		Identity_Raw22 riot_raw22 = 139;
+		Identity_Raw23 riot_raw23 = 140;
+		Identity_Raw24 riot_raw24 = 141;
+		Identity_Raw25 riot_raw25 = 142;
+		Identity_Raw26 riot_raw26 = 143;
+		Identity_Raw27 riot_raw27 = 144;
+		Identity_Raw28 riot_raw28 = 145;
+		Identity_Raw29 riot_raw29 = 146;
+		Identity_Raw30 riot_raw30 = 147;
+		Identity_Raw31 riot_raw31 = 148;
+		Identity_Raw32 riot_raw32 = 149;
+		Identity_BlakeTwo256 riot_blake_two256 = 150;
+		Identity_Sha256 riot_sha256 = 151;
+		Identity_Keccak256 riot_keccak256 = 152;
+		Identity_ShaThree256 riot_sha_three256 = 153;
+	}
+	oneof email {
+		Identity_None email_none = 154;
+		Identity_Raw0 email_raw0 = 155;
+		Identity_Raw1 email_raw1 = 156;
+		Identity_Raw2 email_raw2 = 157;
+		Identity_Raw3 email_raw3 = 158;
+		Identity_Raw4 email_raw4 = 159;
+		Identity_Raw5 email_raw5 = 160;
+		Identity_Raw6 email_raw6 = 161;
+		Identity_Raw7 email_raw7 = 162;
+		Identity_Raw8 email_raw8 = 163;
+		Identity_Raw9 email_raw9 = 164;
+		Identity_Raw10 email_raw10 = 165;
+		Identity_Raw11 email_raw11 = 166;
+		Identity_Raw12 email_raw12 = 167;
+		Identity_Raw13 email_raw13 = 168;
+		Identity_Raw14 email_raw14 = 169;
+		Identity_Raw15 email_raw15 = 170;
+		Identity_Raw16 email_raw16 = 171;
+		Identity_Raw17 email_raw17 = 172;
+		Identity_Raw18 email_raw18 = 173;
+		Identity_Raw19 email_raw19 = 174;
+		Identity_Raw20 email_raw20 = 175;
+		Identity_Raw21 email_raw21 = 176;
+		Identity_Raw22 email_raw22 = 177;
+		Identity_Raw23 email_raw23 = 178;
+		Identity_Raw24 email_raw24 = 179;
+		Identity_Raw25 email_raw25 = 180;
+		Identity_Raw26 email_raw26 = 181;
+		Identity_Raw27 email_raw27 = 182;
+		Identity_Raw28 email_raw28 = 183;
+		Identity_Raw29 email_raw29 = 184;
+		Identity_Raw30 email_raw30 = 185;
+		Identity_Raw31 email_raw31 = 186;
+		Identity_Raw32 email_raw32 = 187;
+		Identity_BlakeTwo256 email_blake_two256 = 188;
+		Identity_Sha256 email_sha256 = 189;
+		Identity_Keccak256 email_keccak256 = 190;
+		Identity_ShaThree256 email_sha_three256 = 191;
+	}
+	bytes pgp_fingerprint = 192;
+	oneof image {
+		Identity_None image_none = 193;
+		Identity_Raw0 image_raw0 = 194;
+		Identity_Raw1 image_raw1 = 195;
+		Identity_Raw2 image_raw2 = 196;
+		Identity_Raw3 image_raw3 = 197;
+		Identity_Raw4 image_raw4 = 198;
+		Identity_Raw5 image_raw5 = 199;
+		Identity_Raw6 image_raw6 = 200;
+		Identity_Raw7 image_raw7 = 201;
+		Identity_Raw8 image_raw8 = 202;
+		Identity_Raw9 image_raw9 = 203;
+		Identity_Raw10 image_raw10 = 204;
+		Identity_Raw11 image_raw11 = 205;
+		Identity_Raw12 image_raw12 = 206;
+		Identity_Raw13 image_raw13 = 207;
+		Identity_Raw14 image_raw14 = 208;
+		Identity_Raw15 image_raw15 = 209;
+		Identity_Raw16 image_raw16 = 210;
+		Identity_Raw17 image_raw17 = 211;
+		Identity_Raw18 image_raw18 = 212;
+		Identity_Raw19 image_raw19 = 213;
+		Identity_Raw20 image_raw20 = 214;
+		Identity_Raw21 image_raw21 = 215;
+		Identity_Raw22 image_raw22 = 216;
+		Identity_Raw23 image_raw23 = 217;
+		Identity_Raw24 image_raw24 = 218;
+		Identity_Raw25 image_raw25 = 219;
+		Identity_Raw26 image_raw26 = 220;
+		Identity_Raw27 image_raw27 = 221;
+		Identity_Raw28 image_raw28 = 222;
+		Identity_Raw29 image_raw29 = 223;
+		Identity_Raw30 image_raw30 = 224;
+		Identity_Raw31 image_raw31 = 225;
+		Identity_Raw32 image_raw32 = 226;
+		Identity_BlakeTwo256 image_blake_two256 = 227;
+		Identity_Sha256 image_sha256 = 228;
+		Identity_Keccak256 image_keccak256 = 229;
+		Identity_ShaThree256 image_sha_three256 = 230;
+	}
+	oneof twitter {
+		Identity_None twitter_none = 231;
+		Identity_Raw0 twitter_raw0 = 232;
+		Identity_Raw1 twitter_raw1 = 233;
+		Identity_Raw2 twitter_raw2 = 234;
+		Identity_Raw3 twitter_raw3 = 235;
+		Identity_Raw4 twitter_raw4 = 236;
+		Identity_Raw5 twitter_raw5 = 237;
+		Identity_Raw6 twitter_raw6 = 238;
+		Identity_Raw7 twitter_raw7 = 239;
+		Identity_Raw8 twitter_raw8 = 240;
+		Identity_Raw9 twitter_raw9 = 241;
+		Identity_Raw10 twitter_raw10 = 242;
+		Identity_Raw11 twitter_raw11 = 243;
+		Identity_Raw12 twitter_raw12 = 244;
+		Identity_Raw13 twitter_raw13 = 245;
+		Identity_Raw14 twitter_raw14 = 246;
+		Identity_Raw15 twitter_raw15 = 247;
+		Identity_Raw16 twitter_raw16 = 248;
+		Identity_Raw17 twitter_raw17 = 249;
+		Identity_Raw18 twitter_raw18 = 250;
+		Identity_Raw19 twitter_raw19 = 251;
+		Identity_Raw20 twitter_raw20 = 252;
+		Identity_Raw21 twitter_raw21 = 253;
+		Identity_Raw22 twitter_raw22 = 254;
+		Identity_Raw23 twitter_raw23 = 255;
+		Identity_Raw24 twitter_raw24 = 256;
+		Identity_Raw25 twitter_raw25 = 257;
+		Identity_Raw26 twitter_raw26 = 258;
+		Identity_Raw27 twitter_raw27 = 259;
+		Identity_Raw28 twitter_raw28 = 260;
+		Identity_Raw29 twitter_raw29 = 261;
+		Identity_Raw30 twitter_raw30 = 262;
+		Identity_Raw31 twitter_raw31 = 263;
+		Identity_Raw32 twitter_raw32 = 264;
+		Identity_BlakeTwo256 twitter_blake_two256 = 265;
+		Identity_Sha256 twitter_sha256 = 266;
+		Identity_Keccak256 twitter_keccak256 = 267;
+		Identity_ShaThree256 twitter_sha_three256 = 268;
+	}
+}
+message FellowshipReferenda_ProposalOrigin {
+	oneof proposal_origin {
+		FellowshipReferenda_System proposal_origin_system = 1;
+		FellowshipReferenda_Origins proposal_origin_origins = 2;
+		FellowshipReferenda_Void proposal_origin_void = 3;
+	}
+}
+message Bounties_TupleNull {
+	TupleNull value = 1;
+}
+message NominationPools_PermissionlessCompound {
+}
+message Grandpa_FinalityGrandpaPrevote {
+	PrimitiveTypesH256 target_hash = 1;
+	uint32 target_number = 2;
+}
+message Session_PurgeKeysCall {
+}
+message TransactionPaymentPallet {
+}
+message OffencesPallet {
+}
+message NominationPools_FreeBalance {
+	string value0 = 1;
+}
+message NominationPools_BondExtraCall {
+	oneof extra {
+		NominationPools_FreeBalance extra_free_balance = 1;
+		NominationPools_Rewards extra_rewards = 2;
+	}
+}
+message NominationPools_MaxMembers {
+	oneof max_members {
+		NominationPools_Noop max_members_noop = 1;
+		NominationPools_Set max_members_set = 2;
+		NominationPools_Remove max_members_remove = 3;
+	}
+}
+message Grandpa_Equivocation {
+	oneof equivocation {
+		Grandpa_Prevote equivocation_prevote = 1;
+		Grandpa_Precommit equivocation_precommit = 2;
+	}
+}
+message Grandpa_NoteStalledCall {
+	uint32 delay = 1;
+	uint32 best_finalized_block_number = 2;
+}
+message BigTipper {
+}
+message FellowshipCollective_VoteCall {
+	uint32 poll = 1;
+	bool aye = 2;
+}
+message Identity_Twitter {
+	oneof twitter {
+		Identity_None twitter_none = 1;
+		Identity_Raw0 twitter_raw0 = 2;
+		Identity_Raw1 twitter_raw1 = 3;
+		Identity_Raw2 twitter_raw2 = 4;
+		Identity_Raw3 twitter_raw3 = 5;
+		Identity_Raw4 twitter_raw4 = 6;
+		Identity_Raw5 twitter_raw5 = 7;
+		Identity_Raw6 twitter_raw6 = 8;
+		Identity_Raw7 twitter_raw7 = 9;
+		Identity_Raw8 twitter_raw8 = 10;
+		Identity_Raw9 twitter_raw9 = 11;
+		Identity_Raw10 twitter_raw10 = 12;
+		Identity_Raw11 twitter_raw11 = 13;
+		Identity_Raw12 twitter_raw12 = 14;
+		Identity_Raw13 twitter_raw13 = 15;
+		Identity_Raw14 twitter_raw14 = 16;
+		Identity_Raw15 twitter_raw15 = 17;
+		Identity_Raw16 twitter_raw16 = 18;
+		Identity_Raw17 twitter_raw17 = 19;
+		Identity_Raw18 twitter_raw18 = 20;
+		Identity_Raw19 twitter_raw19 = 21;
+		Identity_Raw20 twitter_raw20 = 22;
+		Identity_Raw21 twitter_raw21 = 23;
+		Identity_Raw22 twitter_raw22 = 24;
+		Identity_Raw23 twitter_raw23 = 25;
+		Identity_Raw24 twitter_raw24 = 26;
+		Identity_Raw25 twitter_raw25 = 27;
+		Identity_Raw26 twitter_raw26 = 28;
+		Identity_Raw27 twitter_raw27 = 29;
+		Identity_Raw28 twitter_raw28 = 30;
+		Identity_Raw29 twitter_raw29 = 31;
+		Identity_Raw30 twitter_raw30 = 32;
+		Identity_Raw31 twitter_raw31 = 33;
+		Identity_Raw32 twitter_raw32 = 34;
+		Identity_BlakeTwo256 twitter_blake_two256 = 35;
+		Identity_Sha256 twitter_sha256 = 36;
+		Identity_Keccak256 twitter_keccak256 = 37;
+		Identity_ShaThree256 twitter_sha_three256 = 38;
+	}
+}
+message ImOnline_PalletImOnlineHeartbeat {
+	uint32 block_number = 1;
+	uint32 session_index = 2;
+	uint32 authority_index = 3;
+	uint32 validators_len = 4;
+}
+message Staking_ValidateCall {
+	Staking_PalletStakingValidatorPrefs prefs = 1;
+}
+message Staking_SetPayeeCall {
+	oneof payee {
+		Staking_Staked payee_staked = 1;
+		Staking_Stash payee_stash = 2;
+		Staking_Controller payee_controller = 3;
+		Staking_Account payee_account = 4;
+		Staking_None payee_none = 5;
+	}
+}
+message Identity_Raw14 {
+	bytes value0 = 1;
+}
+message ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution {
+	VaraRuntimeNposSolution16 solution = 1;
+	SpNposElectionsElectionScore score = 2;
+	uint32 round = 3;
+}
+message Babe_ReportEquivocationCall {
+	SpConsensusSlotsEquivocationProof equivocation_proof = 1;
+	SpSessionMembershipProof key_owner_proof = 2;
+}
+message Staking_Targets {
+	oneof targets {
+		Staking_Id targets_id = 1;
+		Staking_Index targets_index = 2;
+		Staking_Raw targets_raw = 3;
+		Staking_Address32 targets_address32 = 4;
+		Staking_Address20 targets_address20 = 5;
+	}
+}
+message Identity_KillIdentityCall {
+	oneof target {
+		Identity_Id target_id = 1;
+		Identity_Index target_index = 2;
+		Identity_Raw target_raw = 3;
+		Identity_Address32 target_address32 = 4;
+		Identity_Address20 target_address20 = 5;
+	}
+}
+message ChildBounties_Curator {
+	oneof curator {
+		ChildBounties_Id curator_id = 1;
+		ChildBounties_Index curator_index = 2;
+		ChildBounties_Raw curator_raw = 3;
+		ChildBounties_Address32 curator_address32 = 4;
+		ChildBounties_Address20 curator_address20 = 5;
+	}
+}
+message Gear_UploadCodeCall {
+	bytes code = 1;
+}
+message Balances_ForceUnreserveCall {
+	oneof who {
+		Balances_Id who_id = 1;
+		Balances_Index who_index = 2;
+		Balances_Raw who_raw = 3;
+		Balances_Address32 who_address32 = 4;
+		Balances_Address20 who_address20 = 5;
+	}
+	string amount = 6;
+}
+message Utility_DispatchAsCall {
+	oneof as_origin {
+		Utility_System as_origin_system = 1;
+		Utility_Origins as_origin_origins = 2;
+		Utility_Void as_origin_void = 3;
+	}
+	oneof call {
+		SystemPallet call_system = 4;
+		TimestampPallet call_timestamp = 5;
+		BabePallet call_babe = 6;
+		GrandpaPallet call_grandpa = 7;
+		BalancesPallet call_balances = 8;
+		VestingPallet call_vesting = 9;
+		BagsListPallet call_bags_list = 10;
+		ImOnlinePallet call_im_online = 11;
+		StakingPallet call_staking = 12;
+		SessionPallet call_session = 13;
+		TreasuryPallet call_treasury = 14;
+		UtilityPallet call_utility = 15;
+		ConvictionVotingPallet call_conviction_voting = 16;
+		ReferendaPallet call_referenda = 17;
+		FellowshipCollectivePallet call_fellowship_collective = 18;
+		FellowshipReferendaPallet call_fellowship_referenda = 19;
+		WhitelistPallet call_whitelist = 20;
+		SchedulerPallet call_scheduler = 21;
+		PreimagePallet call_preimage = 22;
+		IdentityPallet call_identity = 23;
+		ProxyPallet call_proxy = 24;
+		MultisigPallet call_multisig = 25;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 26;
+		BountiesPallet call_bounties = 27;
+		ChildBountiesPallet call_child_bounties = 28;
+		NominationPoolsPallet call_nomination_pools = 29;
+		GearPallet call_gear = 30;
+		StakingRewardsPallet call_staking_rewards = 31;
+		GearVoucherPallet call_gear_voucher = 32;
+	}
+}
+message Identity_Raw25 {
+	bytes value0 = 1;
+}
+message Referenda_KillCall {
+	uint32 index = 1;
+}
+message ReferendaPallet {
+	oneof call {
+		Referenda_SubmitCall call_submit_call = 1;
+		Referenda_PlaceDecisionDepositCall call_place_decision_deposit_call = 2;
+		Referenda_RefundDecisionDepositCall call_refund_decision_deposit_call = 3;
+		Referenda_CancelCall call_cancel_call = 4;
+		Referenda_KillCall call_kill_call = 5;
+		Referenda_NudgeReferendumCall call_nudge_referendum_call = 6;
+		Referenda_OneFewerDecidingCall call_one_fewer_deciding_call = 7;
+		Referenda_RefundSubmissionDepositCall call_refund_submission_deposit_call = 8;
+		Referenda_SetMetadataCall call_set_metadata_call = 9;
+	}
+}
+message FellowshipCollective_Address20 {
+	bytes value0 = 1;
+}
+message ChildBounties_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message NominationPools_Raw {
+	bytes value0 = 1;
+}
+message BagsList_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message GeneralAdmin {
+}
+message NominationPools_SetStateCall {
+	uint32 pool_id = 1;
+	oneof state {
+		NominationPools_Open state_open = 2;
+		NominationPools_Blocked state_blocked = 3;
+		NominationPools_Destroying state_destroying = 4;
+	}
+}
+message NominationPools_NewNominator {
+	oneof new_nominator {
+		NominationPools_Noop new_nominator_noop = 1;
+		NominationPools_Set new_nominator_set = 2;
+		NominationPools_Remove new_nominator_remove = 3;
+	}
+}
+message Identity_Email {
+	oneof email {
+		Identity_None email_none = 1;
+		Identity_Raw0 email_raw0 = 2;
+		Identity_Raw1 email_raw1 = 3;
+		Identity_Raw2 email_raw2 = 4;
+		Identity_Raw3 email_raw3 = 5;
+		Identity_Raw4 email_raw4 = 6;
+		Identity_Raw5 email_raw5 = 7;
+		Identity_Raw6 email_raw6 = 8;
+		Identity_Raw7 email_raw7 = 9;
+		Identity_Raw8 email_raw8 = 10;
+		Identity_Raw9 email_raw9 = 11;
+		Identity_Raw10 email_raw10 = 12;
+		Identity_Raw11 email_raw11 = 13;
+		Identity_Raw12 email_raw12 = 14;
+		Identity_Raw13 email_raw13 = 15;
+		Identity_Raw14 email_raw14 = 16;
+		Identity_Raw15 email_raw15 = 17;
+		Identity_Raw16 email_raw16 = 18;
+		Identity_Raw17 email_raw17 = 19;
+		Identity_Raw18 email_raw18 = 20;
+		Identity_Raw19 email_raw19 = 21;
+		Identity_Raw20 email_raw20 = 22;
+		Identity_Raw21 email_raw21 = 23;
+		Identity_Raw22 email_raw22 = 24;
+		Identity_Raw23 email_raw23 = 25;
+		Identity_Raw24 email_raw24 = 26;
+		Identity_Raw25 email_raw25 = 27;
+		Identity_Raw26 email_raw26 = 28;
+		Identity_Raw27 email_raw27 = 29;
+		Identity_Raw28 email_raw28 = 30;
+		Identity_Raw29 email_raw29 = 31;
+		Identity_Raw30 email_raw30 = 32;
+		Identity_Raw31 email_raw31 = 33;
+		Identity_Raw32 email_raw32 = 34;
+		Identity_BlakeTwo256 email_blake_two256 = 35;
+		Identity_Sha256 email_sha256 = 36;
+		Identity_Keccak256 email_keccak256 = 37;
+		Identity_ShaThree256 email_sha_three256 = 38;
+	}
+}
+message Bounties_ExtendBountyExpiryCall {
+	uint32 bounty_id = 1;
+	bytes remark = 2;
+}
+message Proxy_RemoveProxiesCall {
+}
+message Multisig_PalletMultisigTimepoint {
+	uint32 height = 1;
+	uint32 index = 2;
+}
+message ChildBounties_AddChildBountyCall {
+	uint32 parent_bounty_id = 1;
+	string value = 2;
+	bytes description = 3;
+}
+message NominationPools_MaxPools {
+	oneof max_pools {
+		NominationPools_Noop max_pools_noop = 1;
+		NominationPools_Set max_pools_set = 2;
+		NominationPools_Remove max_pools_remove = 3;
+	}
+}
+message Fellowship3Dan {
+}
+message ConvictionVoting_TupleNull {
+	TupleNull value = 1;
+}
+message FellowshipExperts {
+}
+message ConvictionVoting_UnlockCall {
+	uint32 class = 1;
+	oneof target {
+		ConvictionVoting_Id target_id = 2;
+		ConvictionVoting_Index target_index = 3;
+		ConvictionVoting_Raw target_raw = 4;
+		ConvictionVoting_Address32 target_address32 = 5;
+		ConvictionVoting_Address20 target_address20 = 6;
+	}
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes7Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message GprimitivesCodeId {
+	bytes value0 = 1;
+}
+message Staking_UnbondCall {
+	string value = 1;
+}
+message MediumSpender {
+}
+message Identity_Erroneous {
+}
+message Balances_Index {
+	Balances_TupleNull value0 = 1;
+}
+message Identity_KnownGood {
+}
+message Identity_Raw18 {
+	bytes value0 = 1;
+}
+message Identity_Image {
+	oneof image {
+		Identity_None image_none = 1;
+		Identity_Raw0 image_raw0 = 2;
+		Identity_Raw1 image_raw1 = 3;
+		Identity_Raw2 image_raw2 = 4;
+		Identity_Raw3 image_raw3 = 5;
+		Identity_Raw4 image_raw4 = 6;
+		Identity_Raw5 image_raw5 = 7;
+		Identity_Raw6 image_raw6 = 8;
+		Identity_Raw7 image_raw7 = 9;
+		Identity_Raw8 image_raw8 = 10;
+		Identity_Raw9 image_raw9 = 11;
+		Identity_Raw10 image_raw10 = 12;
+		Identity_Raw11 image_raw11 = 13;
+		Identity_Raw12 image_raw12 = 14;
+		Identity_Raw13 image_raw13 = 15;
+		Identity_Raw14 image_raw14 = 16;
+		Identity_Raw15 image_raw15 = 17;
+		Identity_Raw16 image_raw16 = 18;
+		Identity_Raw17 image_raw17 = 19;
+		Identity_Raw18 image_raw18 = 20;
+		Identity_Raw19 image_raw19 = 21;
+		Identity_Raw20 image_raw20 = 22;
+		Identity_Raw21 image_raw21 = 23;
+		Identity_Raw22 image_raw22 = 24;
+		Identity_Raw23 image_raw23 = 25;
+		Identity_Raw24 image_raw24 = 26;
+		Identity_Raw25 image_raw25 = 27;
+		Identity_Raw26 image_raw26 = 28;
+		Identity_Raw27 image_raw27 = 29;
+		Identity_Raw28 image_raw28 = 30;
+		Identity_Raw29 image_raw29 = 31;
+		Identity_Raw30 image_raw30 = 32;
+		Identity_Raw31 image_raw31 = 33;
+		Identity_Raw32 image_raw32 = 34;
+		Identity_BlakeTwo256 image_blake_two256 = 35;
+		Identity_Sha256 image_sha256 = 36;
+		Identity_Keccak256 image_keccak256 = 37;
+		Identity_ShaThree256 image_sha_three256 = 38;
+	}
+}
+message Identity_CancelRequestCall {
+	uint32 reg_index = 1;
+}
+message Identity_SetFeeCall {
+	uint32 index = 1;
+	string fee = 2;
+}
+message Identity_RenameSubCall {
+	oneof sub {
+		Identity_Id sub_id = 1;
+		Identity_Index sub_index = 2;
+		Identity_Raw sub_raw = 3;
+		Identity_Address32 sub_address32 = 4;
+		Identity_Address20 sub_address20 = 5;
+	}
+	oneof data {
+		Identity_None data_none = 6;
+		Identity_Raw0 data_raw0 = 7;
+		Identity_Raw1 data_raw1 = 8;
+		Identity_Raw2 data_raw2 = 9;
+		Identity_Raw3 data_raw3 = 10;
+		Identity_Raw4 data_raw4 = 11;
+		Identity_Raw5 data_raw5 = 12;
+		Identity_Raw6 data_raw6 = 13;
+		Identity_Raw7 data_raw7 = 14;
+		Identity_Raw8 data_raw8 = 15;
+		Identity_Raw9 data_raw9 = 16;
+		Identity_Raw10 data_raw10 = 17;
+		Identity_Raw11 data_raw11 = 18;
+		Identity_Raw12 data_raw12 = 19;
+		Identity_Raw13 data_raw13 = 20;
+		Identity_Raw14 data_raw14 = 21;
+		Identity_Raw15 data_raw15 = 22;
+		Identity_Raw16 data_raw16 = 23;
+		Identity_Raw17 data_raw17 = 24;
+		Identity_Raw18 data_raw18 = 25;
+		Identity_Raw19 data_raw19 = 26;
+		Identity_Raw20 data_raw20 = 27;
+		Identity_Raw21 data_raw21 = 28;
+		Identity_Raw22 data_raw22 = 29;
+		Identity_Raw23 data_raw23 = 30;
+		Identity_Raw24 data_raw24 = 31;
+		Identity_Raw25 data_raw25 = 32;
+		Identity_Raw26 data_raw26 = 33;
+		Identity_Raw27 data_raw27 = 34;
+		Identity_Raw28 data_raw28 = 35;
+		Identity_Raw29 data_raw29 = 36;
+		Identity_Raw30 data_raw30 = 37;
+		Identity_Raw31 data_raw31 = 38;
+		Identity_Raw32 data_raw32 = 39;
+		Identity_BlakeTwo256 data_blake_two256 = 40;
+		Identity_Sha256 data_sha256 = 41;
+		Identity_Keccak256 data_keccak256 = 42;
+		Identity_ShaThree256 data_sha_three256 = 43;
+	}
+}
+message NominationPools_Permissioned {
+}
+message SpRuntimeGenericDigestDigest {
+	repeated SpRuntimeGenericDigestDigestItem logs = 1;
+}
+message ConvictionVoting_To {
+	oneof to {
+		ConvictionVoting_Id to_id = 1;
+		ConvictionVoting_Index to_index = 2;
+		ConvictionVoting_Raw to_raw = 3;
+		ConvictionVoting_Address32 to_address32 = 4;
+		ConvictionVoting_Address20 to_address20 = 5;
+	}
+}
+message NominationPools_SetCommissionCall {
+	uint32 pool_id = 1;
+	optional NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 new_commission = 2;
+}
+message GearVoucher_Call {
+	oneof call {
+		GearVoucher_SendMessage call_send_message = 1;
+		GearVoucher_SendReply call_send_reply = 2;
+		GearVoucher_UploadCode call_upload_code = 3;
+		GearVoucher_DeclineVoucher call_decline_voucher = 4;
+	}
+}
+message FellowshipReferendaPallet {
+	oneof call {
+		FellowshipReferenda_SubmitCall call_submit_call = 1;
+		FellowshipReferenda_PlaceDecisionDepositCall call_place_decision_deposit_call = 2;
+		FellowshipReferenda_RefundDecisionDepositCall call_refund_decision_deposit_call = 3;
+		FellowshipReferenda_CancelCall call_cancel_call = 4;
+		FellowshipReferenda_KillCall call_kill_call = 5;
+		FellowshipReferenda_NudgeReferendumCall call_nudge_referendum_call = 6;
+		FellowshipReferenda_OneFewerDecidingCall call_one_fewer_deciding_call = 7;
+		FellowshipReferenda_RefundSubmissionDepositCall call_refund_submission_deposit_call = 8;
+		FellowshipReferenda_SetMetadataCall call_set_metadata_call = 9;
+	}
+}
+message Identity_Sub {
+	oneof sub {
+		Identity_Id sub_id = 1;
+		Identity_Index sub_index = 2;
+		Identity_Raw sub_raw = 3;
+		Identity_Address32 sub_address32 = 4;
+		Identity_Address20 sub_address20 = 5;
+	}
+}
+message Identity_AddSubCall {
+	oneof sub {
+		Identity_Id sub_id = 1;
+		Identity_Index sub_index = 2;
+		Identity_Raw sub_raw = 3;
+		Identity_Address32 sub_address32 = 4;
+		Identity_Address20 sub_address20 = 5;
+	}
+	oneof data {
+		Identity_None data_none = 6;
+		Identity_Raw0 data_raw0 = 7;
+		Identity_Raw1 data_raw1 = 8;
+		Identity_Raw2 data_raw2 = 9;
+		Identity_Raw3 data_raw3 = 10;
+		Identity_Raw4 data_raw4 = 11;
+		Identity_Raw5 data_raw5 = 12;
+		Identity_Raw6 data_raw6 = 13;
+		Identity_Raw7 data_raw7 = 14;
+		Identity_Raw8 data_raw8 = 15;
+		Identity_Raw9 data_raw9 = 16;
+		Identity_Raw10 data_raw10 = 17;
+		Identity_Raw11 data_raw11 = 18;
+		Identity_Raw12 data_raw12 = 19;
+		Identity_Raw13 data_raw13 = 20;
+		Identity_Raw14 data_raw14 = 21;
+		Identity_Raw15 data_raw15 = 22;
+		Identity_Raw16 data_raw16 = 23;
+		Identity_Raw17 data_raw17 = 24;
+		Identity_Raw18 data_raw18 = 25;
+		Identity_Raw19 data_raw19 = 26;
+		Identity_Raw20 data_raw20 = 27;
+		Identity_Raw21 data_raw21 = 28;
+		Identity_Raw22 data_raw22 = 29;
+		Identity_Raw23 data_raw23 = 30;
+		Identity_Raw24 data_raw24 = 31;
+		Identity_Raw25 data_raw25 = 32;
+		Identity_Raw26 data_raw26 = 33;
+		Identity_Raw27 data_raw27 = 34;
+		Identity_Raw28 data_raw28 = 35;
+		Identity_Raw29 data_raw29 = 36;
+		Identity_Raw30 data_raw30 = 37;
+		Identity_Raw31 data_raw31 = 38;
+		Identity_Raw32 data_raw32 = 39;
+		Identity_BlakeTwo256 data_blake_two256 = 40;
+		Identity_Sha256 data_sha256 = 41;
+		Identity_Keccak256 data_keccak256 = 42;
+		Identity_ShaThree256 data_sha_three256 = 43;
+	}
+}
+message ElectionProviderMultiPhase_SubmitCall {
+	ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution raw_solution = 1;
+}
+message NominationPools_PalletNominationPoolsCommissionChangeRate {
+	SpArithmeticPerThingsPerbill max_increase = 1;
+	uint32 min_delay = 2;
+}
+message GearVoucher_SendReply {
+	GprimitivesMessageId reply_to_id = 1;
+	bytes payload = 2;
+	uint64 gas_limit = 3;
+	string value = 4;
+	bool keep_alive = 5;
+}
+message Timestamp_SetCall {
+	uint64 now = 1;
+}
+message SpArithmeticPerThingsPercent {
+	uint32 value0 = 1;
+}
+message Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData {
+	SpCoreCryptoAccountId32 value0 = 1;
+	oneof value1 {
+		Identity_None value1_none = 2;
+		Identity_Raw0 value1_raw0 = 3;
+		Identity_Raw1 value1_raw1 = 4;
+		Identity_Raw2 value1_raw2 = 5;
+		Identity_Raw3 value1_raw3 = 6;
+		Identity_Raw4 value1_raw4 = 7;
+		Identity_Raw5 value1_raw5 = 8;
+		Identity_Raw6 value1_raw6 = 9;
+		Identity_Raw7 value1_raw7 = 10;
+		Identity_Raw8 value1_raw8 = 11;
+		Identity_Raw9 value1_raw9 = 12;
+		Identity_Raw10 value1_raw10 = 13;
+		Identity_Raw11 value1_raw11 = 14;
+		Identity_Raw12 value1_raw12 = 15;
+		Identity_Raw13 value1_raw13 = 16;
+		Identity_Raw14 value1_raw14 = 17;
+		Identity_Raw15 value1_raw15 = 18;
+		Identity_Raw16 value1_raw16 = 19;
+		Identity_Raw17 value1_raw17 = 20;
+		Identity_Raw18 value1_raw18 = 21;
+		Identity_Raw19 value1_raw19 = 22;
+		Identity_Raw20 value1_raw20 = 23;
+		Identity_Raw21 value1_raw21 = 24;
+		Identity_Raw22 value1_raw22 = 25;
+		Identity_Raw23 value1_raw23 = 26;
+		Identity_Raw24 value1_raw24 = 27;
+		Identity_Raw25 value1_raw25 = 28;
+		Identity_Raw26 value1_raw26 = 29;
+		Identity_Raw27 value1_raw27 = 30;
+		Identity_Raw28 value1_raw28 = 31;
+		Identity_Raw29 value1_raw29 = 32;
+		Identity_Raw30 value1_raw30 = 33;
+		Identity_Raw31 value1_raw31 = 34;
+		Identity_Raw32 value1_raw32 = 35;
+		Identity_BlakeTwo256 value1_blake_two256 = 36;
+		Identity_Sha256 value1_sha256 = 37;
+		Identity_Keccak256 value1_keccak256 = 38;
+		Identity_ShaThree256 value1_sha_three256 = 39;
+	}
+}
+message Proxy_AnnounceCall {
+	oneof real {
+		Proxy_Id real_id = 1;
+		Proxy_Index real_index = 2;
+		Proxy_Raw real_raw = 3;
+		Proxy_Address32 real_address32 = 4;
+		Proxy_Address20 real_address20 = 5;
+	}
+	PrimitiveTypesH256 call_hash = 6;
+}
+message ProxyPallet {
+	oneof call {
+		Proxy_ProxyCall call_proxy_call = 1;
+		Proxy_AddProxyCall call_add_proxy_call = 2;
+		Proxy_RemoveProxyCall call_remove_proxy_call = 3;
+		Proxy_RemoveProxiesCall call_remove_proxies_call = 4;
+		Proxy_CreatePureCall call_create_pure_call = 5;
+		Proxy_KillPureCall call_kill_pure_call = 6;
+		Proxy_AnnounceCall call_announce_call = 7;
+		Proxy_RemoveAnnouncementCall call_remove_announcement_call = 8;
+		Proxy_RejectAnnouncementCall call_reject_announcement_call = 9;
+		Proxy_ProxyAnnouncedCall call_proxy_announced_call = 10;
+	}
+}
+message Staking_Staked {
+}
+message Referenda_Inline {
+	BoundedCollectionsBoundedVecBoundedVec value0 = 1;
+}
+message NominationPools_ChillCall {
+	uint32 pool_id = 1;
+}
+message GearPallet {
+	oneof call {
+		Gear_UploadCodeCall call_upload_code_call = 1;
+		Gear_UploadProgramCall call_upload_program_call = 2;
+		Gear_CreateProgramCall call_create_program_call = 3;
+		Gear_SendMessageCall call_send_message_call = 4;
+		Gear_SendReplyCall call_send_reply_call = 5;
+		Gear_ClaimValueCall call_claim_value_call = 6;
+		Gear_RunCall call_run_call = 7;
+		Gear_SetExecuteInherentCall call_set_execute_inherent_call = 8;
+	}
+}
+message Identity_Sha256 {
+	bytes value0 = 1;
+}
+message Identity_Unknown {
+}
+message ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
+	SpCoreCryptoAccountId32 value0 = 1;
+	SpNposElectionsSupport value1 = 2;
+}
+message Identity_BlakeTwo256 {
+	bytes value0 = 1;
+}
+message Proxy_CancelProxy {
+}
+message Proxy_CreatePureCall {
+	oneof proxy_type {
+		Proxy_Any proxy_type_any = 1;
+		Proxy_NonTransfer proxy_type_non_transfer = 2;
+		Proxy_Governance proxy_type_governance = 3;
+		Proxy_Staking proxy_type_staking = 4;
+		Proxy_IdentityJudgement proxy_type_identity_judgement = 5;
+		Proxy_CancelProxy proxy_type_cancel_proxy = 6;
+	}
+	uint32 delay = 7;
+	uint32 index = 8;
+}
+message Staking_WithdrawUnbondedCall {
+	uint32 num_slashing_spans = 1;
+}
+message Staking_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message Identity_Address32 {
+	bytes value0 = 1;
+}
+message Identity_Raw13 {
+	bytes value0 = 1;
+}
+message Identity_Raw28 {
+	bytes value0 = 1;
+}
+message NominationPools_Member {
+	oneof member {
+		NominationPools_Id member_id = 1;
+		NominationPools_Index member_index = 2;
+		NominationPools_Raw member_raw = 3;
+		NominationPools_Address32 member_address32 = 4;
+		NominationPools_Address20 member_address20 = 5;
+	}
+}
+message Staking_BondCall {
+	string value = 1;
+	oneof payee {
+		Staking_Staked payee_staked = 2;
+		Staking_Stash payee_stash = 3;
+		Staking_Controller payee_controller = 4;
+		Staking_Account payee_account = 5;
+		Staking_None payee_none = 6;
+	}
+}
+message Utility_ForceBatchCall {
+	repeated VaraRuntimeRuntimeCall calls = 1;
+}
+message ChildBounties_Address32 {
+	bytes value0 = 1;
+}
+message NominationPools_Noop {
+}
+message NominationPools_SetConfigsCall {
+	oneof min_join_bond {
+		NominationPools_Noop min_join_bond_noop = 1;
+		NominationPools_Set min_join_bond_set = 2;
+		NominationPools_Remove min_join_bond_remove = 3;
+	}
+	oneof min_create_bond {
+		NominationPools_Noop min_create_bond_noop = 4;
+		NominationPools_Set min_create_bond_set = 5;
+		NominationPools_Remove min_create_bond_remove = 6;
+	}
+	oneof max_pools {
+		NominationPools_Noop max_pools_noop = 7;
+		NominationPools_Set max_pools_set = 8;
+		NominationPools_Remove max_pools_remove = 9;
+	}
+	oneof max_members {
+		NominationPools_Noop max_members_noop = 10;
+		NominationPools_Set max_members_set = 11;
+		NominationPools_Remove max_members_remove = 12;
+	}
+	oneof max_members_per_pool {
+		NominationPools_Noop max_members_per_pool_noop = 13;
+		NominationPools_Set max_members_per_pool_set = 14;
+		NominationPools_Remove max_members_per_pool_remove = 15;
+	}
+	oneof global_max_commission {
+		NominationPools_Noop global_max_commission_noop = 16;
+		NominationPools_Set global_max_commission_set = 17;
+		NominationPools_Remove global_max_commission_remove = 18;
+	}
+}
+message ConvictionVoting_Locked6X {
+}
+message Identity_Raw10 {
+	bytes value0 = 1;
+}
+message ConvictionVotingPallet {
+	oneof call {
+		ConvictionVoting_VoteCall call_vote_call = 1;
+		ConvictionVoting_DelegateCall call_delegate_call = 2;
+		ConvictionVoting_UndelegateCall call_undelegate_call = 3;
+		ConvictionVoting_UnlockCall call_unlock_call = 4;
+		ConvictionVoting_RemoveVoteCall call_remove_vote_call = 5;
+		ConvictionVoting_RemoveOtherVoteCall call_remove_other_vote_call = 6;
+	}
+}
+message Scheduler_ScheduleAfterCall {
+	uint32 after = 1;
+	optional Scheduler_TupleUint32Uint32 maybe_periodic = 2;
+	uint32 priority = 3;
+	oneof call {
+		SystemPallet call_system = 4;
+		TimestampPallet call_timestamp = 5;
+		BabePallet call_babe = 6;
+		GrandpaPallet call_grandpa = 7;
+		BalancesPallet call_balances = 8;
+		VestingPallet call_vesting = 9;
+		BagsListPallet call_bags_list = 10;
+		ImOnlinePallet call_im_online = 11;
+		StakingPallet call_staking = 12;
+		SessionPallet call_session = 13;
+		TreasuryPallet call_treasury = 14;
+		UtilityPallet call_utility = 15;
+		ConvictionVotingPallet call_conviction_voting = 16;
+		ReferendaPallet call_referenda = 17;
+		FellowshipCollectivePallet call_fellowship_collective = 18;
+		FellowshipReferendaPallet call_fellowship_referenda = 19;
+		WhitelistPallet call_whitelist = 20;
+		SchedulerPallet call_scheduler = 21;
+		PreimagePallet call_preimage = 22;
+		IdentityPallet call_identity = 23;
+		ProxyPallet call_proxy = 24;
+		MultisigPallet call_multisig = 25;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 26;
+		BountiesPallet call_bounties = 27;
+		ChildBountiesPallet call_child_bounties = 28;
+		NominationPoolsPallet call_nomination_pools = 29;
+		GearPallet call_gear = 30;
+		StakingRewardsPallet call_staking_rewards = 31;
+		GearVoucherPallet call_gear_voucher = 32;
+	}
+}
+message Identity_Riot {
+	oneof riot {
+		Identity_None riot_none = 1;
+		Identity_Raw0 riot_raw0 = 2;
+		Identity_Raw1 riot_raw1 = 3;
+		Identity_Raw2 riot_raw2 = 4;
+		Identity_Raw3 riot_raw3 = 5;
+		Identity_Raw4 riot_raw4 = 6;
+		Identity_Raw5 riot_raw5 = 7;
+		Identity_Raw6 riot_raw6 = 8;
+		Identity_Raw7 riot_raw7 = 9;
+		Identity_Raw8 riot_raw8 = 10;
+		Identity_Raw9 riot_raw9 = 11;
+		Identity_Raw10 riot_raw10 = 12;
+		Identity_Raw11 riot_raw11 = 13;
+		Identity_Raw12 riot_raw12 = 14;
+		Identity_Raw13 riot_raw13 = 15;
+		Identity_Raw14 riot_raw14 = 16;
+		Identity_Raw15 riot_raw15 = 17;
+		Identity_Raw16 riot_raw16 = 18;
+		Identity_Raw17 riot_raw17 = 19;
+		Identity_Raw18 riot_raw18 = 20;
+		Identity_Raw19 riot_raw19 = 21;
+		Identity_Raw20 riot_raw20 = 22;
+		Identity_Raw21 riot_raw21 = 23;
+		Identity_Raw22 riot_raw22 = 24;
+		Identity_Raw23 riot_raw23 = 25;
+		Identity_Raw24 riot_raw24 = 26;
+		Identity_Raw25 riot_raw25 = 27;
+		Identity_Raw26 riot_raw26 = 28;
+		Identity_Raw27 riot_raw27 = 29;
+		Identity_Raw28 riot_raw28 = 30;
+		Identity_Raw29 riot_raw29 = 31;
+		Identity_Raw30 riot_raw30 = 32;
+		Identity_Raw31 riot_raw31 = 33;
+		Identity_Raw32 riot_raw32 = 34;
+		Identity_BlakeTwo256 riot_blake_two256 = 35;
+		Identity_Sha256 riot_sha256 = 36;
+		Identity_Keccak256 riot_keccak256 = 37;
+		Identity_ShaThree256 riot_sha_three256 = 38;
+	}
+}
+message Bounties_UnassignCuratorCall {
+	uint32 bounty_id = 1;
+}
+message Bounties_ClaimBountyCall {
+	uint32 bounty_id = 1;
+}
+message GearVoucher_UploadCode {
+	bytes code = 1;
+}
+message Grandpa_SpConsensusGrandpaEquivocationProof {
+	uint64 set_id = 1;
+	oneof equivocation {
+		Grandpa_Prevote equivocation_prevote = 2;
+		Grandpa_Precommit equivocation_precommit = 3;
+	}
+}
+message Utility_BatchCall {
+	repeated VaraRuntimeRuntimeCall calls = 1;
+}
+message Grandpa_Prevote {
+	Grandpa_FinalityGrandpaEquivocation value0 = 1;
+}
+message Staking_KickCall {
+	repeated SpRuntimeMultiaddressMultiAddress who = 1;
+}
+message Referenda_SetMetadataCall {
+	uint32 index = 1;
+	optional PrimitiveTypesH256 maybe_hash = 2;
+}
+message NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 {
+	SpArithmeticPerThingsPerbill value0 = 1;
+	SpCoreCryptoAccountId32 value1 = 2;
+}
+message System_SetCodeCall {
+	bytes code = 1;
+}
+message SpRuntimeGenericDigestDigestItem {
+	oneof logs {
+		Babe_PreRuntime logs_pre_runtime = 1;
+		Babe_Consensus logs_consensus = 2;
+		Babe_Seal logs_seal = 3;
+		Babe_Other logs_other = 4;
+		Babe_RuntimeEnvironmentUpdated logs_runtime_environment_updated = 5;
+	}
+}
+message Fellowship7Dan {
+}
+message Referenda_Lookup {
+	PrimitiveTypesH256 hash = 1;
+	uint32 len = 2;
+}
+message MultisigPallet {
+	oneof call {
+		Multisig_AsMultiThreshold1Call call_as_multi_threshold1_call = 1;
+		Multisig_AsMultiCall call_as_multi_call = 2;
+		Multisig_ApproveAsMultiCall call_approve_as_multi_call = 3;
+		Multisig_CancelAsMultiCall call_cancel_as_multi_call = 4;
+	}
+}
+message Staking_TupleNull {
+	TupleNull value = 1;
+}
+message WhitelistedCaller {
+}
+message Fellowship8Dan {
+}
+message FellowshipCollective_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message Proxy_Address20 {
+	bytes value0 = 1;
+}
+message Balances_TransferKeepAliveCall {
+	oneof dest {
+		Balances_Id dest_id = 1;
+		Balances_Index dest_index = 2;
+		Balances_Raw dest_raw = 3;
+		Balances_Address32 dest_address32 = 4;
+		Balances_Address20 dest_address20 = 5;
+	}
+	string value = 6;
+}
+message StakingPallet {
+	oneof call {
+		Staking_BondCall call_bond_call = 1;
+		Staking_BondExtraCall call_bond_extra_call = 2;
+		Staking_UnbondCall call_unbond_call = 3;
+		Staking_WithdrawUnbondedCall call_withdraw_unbonded_call = 4;
+		Staking_ValidateCall call_validate_call = 5;
+		Staking_NominateCall call_nominate_call = 6;
+		Staking_ChillCall call_chill_call = 7;
+		Staking_SetPayeeCall call_set_payee_call = 8;
+		Staking_SetControllerCall call_set_controller_call = 9;
+		Staking_SetValidatorCountCall call_set_validator_count_call = 10;
+		Staking_IncreaseValidatorCountCall call_increase_validator_count_call = 11;
+		Staking_ScaleValidatorCountCall call_scale_validator_count_call = 12;
+		Staking_ForceNoErasCall call_force_no_eras_call = 13;
+		Staking_ForceNewEraCall call_force_new_era_call = 14;
+		Staking_SetInvulnerablesCall call_set_invulnerables_call = 15;
+		Staking_ForceUnstakeCall call_force_unstake_call = 16;
+		Staking_ForceNewEraAlwaysCall call_force_new_era_always_call = 17;
+		Staking_CancelDeferredSlashCall call_cancel_deferred_slash_call = 18;
+		Staking_PayoutStakersCall call_payout_stakers_call = 19;
+		Staking_RebondCall call_rebond_call = 20;
+		Staking_ReapStashCall call_reap_stash_call = 21;
+		Staking_KickCall call_kick_call = 22;
+		Staking_SetStakingConfigsCall call_set_staking_configs_call = 23;
+		Staking_ChillOtherCall call_chill_other_call = 24;
+		Staking_ForceApplyMinCommissionCall call_force_apply_min_commission_call = 25;
+		Staking_SetMinCommissionCall call_set_min_commission_call = 26;
+	}
+}
+message Staking_ChillThreshold {
+	oneof chill_threshold {
+		Staking_Noop chill_threshold_noop = 1;
+		Staking_Set chill_threshold_set = 2;
+		Staking_Remove chill_threshold_remove = 3;
+	}
+}
+message Identity_Index {
+	Identity_TupleNull value0 = 1;
+}
+message Identity_AddRegistrarCall {
+	oneof account {
+		Identity_Id account_id = 1;
+		Identity_Index account_index = 2;
+		Identity_Raw account_raw = 3;
+		Identity_Address32 account_address32 = 4;
+		Identity_Address20 account_address20 = 5;
+	}
+}
+message Identity_Raw31 {
+	bytes value0 = 1;
+}
+message GearVoucher_IssueCall {
+	SpCoreCryptoAccountId32 spender = 1;
+	string balance = 2;
+	optional BTreeSet programs = 3;
+	bool code_uploading = 4;
+	uint32 duration = 5;
+}
+message Balances_ForceSetBalanceCall {
+	oneof who {
+		Balances_Id who_id = 1;
+		Balances_Index who_index = 2;
+		Balances_Raw who_raw = 3;
+		Balances_Address32 who_address32 = 4;
+		Balances_Address20 who_address20 = 5;
+	}
+	string new_free = 6;
+}
+message BagsList_Heavier {
+	oneof heavier {
+		BagsList_Id heavier_id = 1;
+		BagsList_Index heavier_index = 2;
+		BagsList_Raw heavier_raw = 3;
+		BagsList_Address32 heavier_address32 = 4;
+		BagsList_Address20 heavier_address20 = 5;
+	}
+}
+message Babe_Logs {
+	oneof logs {
+		Babe_PreRuntime logs_pre_runtime = 1;
+		Babe_Consensus logs_consensus = 2;
+		Babe_Seal logs_seal = 3;
+		Babe_Other logs_other = 4;
+		Babe_RuntimeEnvironmentUpdated logs_runtime_environment_updated = 5;
+	}
+}
+message Utility_AsOrigin {
+	oneof as_origin {
+		Utility_System as_origin_system = 1;
+		Utility_Origins as_origin_origins = 2;
+		Utility_Void as_origin_void = 3;
+	}
+}
+message FellowshipReferenda_RefundDecisionDepositCall {
+	uint32 index = 1;
+}
+message Identity_Judgement {
+	oneof judgement {
+		Identity_Unknown judgement_unknown = 1;
+		Identity_FeePaid judgement_fee_paid = 2;
+		Identity_Reasonable judgement_reasonable = 3;
+		Identity_KnownGood judgement_known_good = 4;
+		Identity_OutOfDate judgement_out_of_date = 5;
+		Identity_LowQuality judgement_low_quality = 6;
+		Identity_Erroneous judgement_erroneous = 7;
+	}
+}
+message BagsList_Dislocated {
+	oneof dislocated {
+		BagsList_Id dislocated_id = 1;
+		BagsList_Index dislocated_index = 2;
+		BagsList_Raw dislocated_raw = 3;
+		BagsList_Address32 dislocated_address32 = 4;
+		BagsList_Address20 dislocated_address20 = 5;
+	}
+}
+message Referenda_At {
+	uint32 value0 = 1;
+}
+message Grandpa_TupleFinalityGrandpaPrecommitspConsensusGrandpaAppSignature {
+	Grandpa_FinalityGrandpaPrecommit value0 = 1;
+	Grandpa_SpConsensusGrandpaAppSignature value1 = 2;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes3Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message Referenda_Origins {
+	oneof value0 {
+		StakingAdmin value0_staking_admin = 1;
+		Treasurer value0_treasurer = 2;
+		FellowshipAdmin value0_fellowship_admin = 3;
+		GeneralAdmin value0_general_admin = 4;
+		ReferendumCanceller value0_referendum_canceller = 5;
+		ReferendumKiller value0_referendum_killer = 6;
+		SmallTipper value0_small_tipper = 7;
+		BigTipper value0_big_tipper = 8;
+		SmallSpender value0_small_spender = 9;
+		MediumSpender value0_medium_spender = 10;
+		BigSpender value0_big_spender = 11;
+		WhitelistedCaller value0_whitelisted_caller = 12;
+		FellowshipInitiates value0_fellowship_initiates = 13;
+		Fellows value0_fellows = 14;
+		FellowshipExperts value0_fellowship_experts = 15;
+		FellowshipMasters value0_fellowship_masters = 16;
+		Fellowship1Dan value0_fellowship1_dan = 17;
+		Fellowship2Dan value0_fellowship2_dan = 18;
+		Fellowship3Dan value0_fellowship3_dan = 19;
+		Fellowship4Dan value0_fellowship4_dan = 20;
+		Fellowship5Dan value0_fellowship5_dan = 21;
+		Fellowship6Dan value0_fellowship6_dan = 22;
+		Fellowship7Dan value0_fellowship7_dan = 23;
+		Fellowship8Dan value0_fellowship8_dan = 24;
+		Fellowship9Dan value0_fellowship9_dan = 25;
+	}
+}
+message GprimitivesActorId {
+	bytes value0 = 1;
+}
+message Staking_MaxValidatorCount {
+	oneof max_validator_count {
+		Staking_Noop max_validator_count_noop = 1;
+		Staking_Set max_validator_count_set = 2;
+		Staking_Remove max_validator_count_remove = 3;
+	}
+}
+message ConvictionVoting_Split {
+	string aye = 1;
+	string nay = 2;
+}
+message Referenda_EnactmentMoment {
+	oneof enactment_moment {
+		Referenda_At enactment_moment_at = 1;
+		Referenda_After enactment_moment_after = 2;
+	}
+}
+message Referenda_NudgeReferendumCall {
+	uint32 index = 1;
+}
+message FellowshipReferenda_SetMetadataCall {
+	uint32 index = 1;
+	optional PrimitiveTypesH256 maybe_hash = 2;
+}
+message Vesting_TupleNull {
+	TupleNull value = 1;
+}
+message Treasury_Address20 {
+	bytes value0 = 1;
+}
+message Staking_CancelDeferredSlashCall {
+	uint32 era = 1;
+	repeated uint32 slash_indices = 2;
+}
+message None {
+}
+message FellowshipReferenda_KillCall {
+	uint32 index = 1;
+}
+message Identity_Keccak256 {
+	bytes value0 = 1;
+}
+message Gear_SendMessageCall {
+	GprimitivesActorId destination = 1;
+	bytes payload = 2;
+	uint64 gas_limit = 3;
+	string value = 4;
+	bool keep_alive = 5;
+}
+message StakingRewardsPallet {
+	oneof call {
+		StakingRewards_RefillCall call_refill_call = 1;
+		StakingRewards_ForceRefillCall call_force_refill_call = 2;
+		StakingRewards_WithdrawCall call_withdraw_call = 3;
+		StakingRewards_AlignSupplyCall call_align_supply_call = 4;
+	}
+}
+message SpCoreSr25519Signature {
+	bytes value0 = 1;
+}
+message Staking_NominateCall {
+	repeated SpRuntimeMultiaddressMultiAddress targets = 1;
+}
+message Scheduler_ScheduleCall {
+	uint32 when = 1;
+	optional Scheduler_TupleUint32Uint32 maybe_periodic = 2;
+	uint32 priority = 3;
+	oneof call {
+		SystemPallet call_system = 4;
+		TimestampPallet call_timestamp = 5;
+		BabePallet call_babe = 6;
+		GrandpaPallet call_grandpa = 7;
+		BalancesPallet call_balances = 8;
+		VestingPallet call_vesting = 9;
+		BagsListPallet call_bags_list = 10;
+		ImOnlinePallet call_im_online = 11;
+		StakingPallet call_staking = 12;
+		SessionPallet call_session = 13;
+		TreasuryPallet call_treasury = 14;
+		UtilityPallet call_utility = 15;
+		ConvictionVotingPallet call_conviction_voting = 16;
+		ReferendaPallet call_referenda = 17;
+		FellowshipCollectivePallet call_fellowship_collective = 18;
+		FellowshipReferendaPallet call_fellowship_referenda = 19;
+		WhitelistPallet call_whitelist = 20;
+		SchedulerPallet call_scheduler = 21;
+		PreimagePallet call_preimage = 22;
+		IdentityPallet call_identity = 23;
+		ProxyPallet call_proxy = 24;
+		MultisigPallet call_multisig = 25;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 26;
+		BountiesPallet call_bounties = 27;
+		ChildBountiesPallet call_child_bounties = 28;
+		NominationPoolsPallet call_nomination_pools = 29;
+		GearPallet call_gear = 30;
+		StakingRewardsPallet call_staking_rewards = 31;
+		GearVoucherPallet call_gear_voucher = 32;
+	}
+}
+message Identity_Raw9 {
+	bytes value0 = 1;
+}
+message Bounties_Address32 {
+	bytes value0 = 1;
+}
+message Babe_PrimaryAndSecondaryPlainSlots {
+}
+message Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature {
+	Grandpa_FinalityGrandpaPrevote value0 = 1;
+	Grandpa_SpConsensusGrandpaAppSignature value1 = 2;
+}
+message ImOnline_PalletImOnlineSr25519AppSr25519Signature {
+	SpCoreSr25519Signature value0 = 1;
+}
+message Staking_PalletStakingValidatorPrefs {
+	SpArithmeticPerThingsPerbill commission = 1;
+	bool blocked = 2;
+}
+message Staking_ScaleValidatorCountCall {
+	SpArithmeticPerThingsPercent factor = 1;
+}
+message Treasury_SpendLocalCall {
+	string amount = 1;
+	oneof beneficiary {
+		Treasury_Id beneficiary_id = 2;
+		Treasury_Index beneficiary_index = 3;
+		Treasury_Raw beneficiary_raw = 4;
+		Treasury_Address32 beneficiary_address32 = 5;
+		Treasury_Address20 beneficiary_address20 = 6;
+	}
+}
+message NominationPools_Open {
+}
+message System_SystemKeysList {
+	bytes keys = 1;
+}
+message Balances_ForceTransferCall {
+	oneof source {
+		Balances_Id source_id = 1;
+		Balances_Index source_index = 2;
+		Balances_Raw source_raw = 3;
+		Balances_Address32 source_address32 = 4;
+		Balances_Address20 source_address20 = 5;
+	}
+	oneof dest {
+		Balances_Id dest_id = 6;
+		Balances_Index dest_index = 7;
+		Balances_Raw dest_raw = 8;
+		Balances_Address32 dest_address32 = 9;
+		Balances_Address20 dest_address20 = 10;
+	}
+	string value = 11;
+}
+message Treasury_Address32 {
+	bytes value0 = 1;
+}
+message BigSpender {
+}
+message Referenda_RefundSubmissionDepositCall {
+	uint32 index = 1;
+}
+message Identity_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message ChildBountiesPallet {
+	oneof call {
+		ChildBounties_AddChildBountyCall call_add_child_bounty_call = 1;
+		ChildBounties_ProposeCuratorCall call_propose_curator_call = 2;
+		ChildBounties_AcceptCuratorCall call_accept_curator_call = 3;
+		ChildBounties_UnassignCuratorCall call_unassign_curator_call = 4;
+		ChildBounties_AwardChildBountyCall call_award_child_bounty_call = 5;
+		ChildBounties_ClaimChildBountyCall call_claim_child_bounty_call = 6;
+		ChildBounties_CloseChildBountyCall call_close_child_bounty_call = 7;
+	}
+}
+message NominationPools_MinCreateBond {
+	oneof min_create_bond {
+		NominationPools_Noop min_create_bond_noop = 1;
+		NominationPools_Set min_create_bond_set = 2;
+		NominationPools_Remove min_create_bond_remove = 3;
+	}
+}
+message System_RemarkWithEventCall {
+	bytes remark = 1;
+}
+message VestingPallet {
+	oneof call {
+		Vesting_VestCall call_vest_call = 1;
+		Vesting_VestOtherCall call_vest_other_call = 2;
+		Vesting_VestedTransferCall call_vested_transfer_call = 3;
+		Vesting_ForceVestedTransferCall call_force_vested_transfer_call = 4;
+		Vesting_MergeSchedulesCall call_merge_schedules_call = 5;
+	}
+}
+message Treasury_ApproveProposalCall {
+	uint32 proposal_id = 1;
+}
+message Whitelist_DispatchWhitelistedCallCall {
+	PrimitiveTypesH256 call_hash = 1;
+	uint32 call_encoded_len = 2;
+	SpWeightsWeightV2Weight call_weight_witness = 3;
+}
+message WhitelistPallet {
+	oneof call {
+		Whitelist_WhitelistCallCall call_whitelist_call_call = 1;
+		Whitelist_RemoveWhitelistedCallCall call_remove_whitelisted_call_call = 2;
+		Whitelist_DispatchWhitelistedCallCall call_dispatch_whitelisted_call_call = 3;
+		Whitelist_DispatchWhitelistedCallWithPreimageCall call_dispatch_whitelisted_call_with_preimage_call = 4;
+	}
+}
+message Proxy_KillPureCall {
+	oneof spawner {
+		Proxy_Id spawner_id = 1;
+		Proxy_Index spawner_index = 2;
+		Proxy_Raw spawner_raw = 3;
+		Proxy_Address32 spawner_address32 = 4;
+		Proxy_Address20 spawner_address20 = 5;
+	}
+	oneof proxy_type {
+		Proxy_Any proxy_type_any = 6;
+		Proxy_NonTransfer proxy_type_non_transfer = 7;
+		Proxy_Governance proxy_type_governance = 8;
+		Proxy_Staking proxy_type_staking = 9;
+		Proxy_IdentityJudgement proxy_type_identity_judgement = 10;
+		Proxy_CancelProxy proxy_type_cancel_proxy = 11;
+	}
+	uint32 index = 12;
+	uint32 height = 13;
+	uint32 ext_index = 14;
+}
+message Multisig_AsMultiThreshold1Call {
+	repeated SpCoreCryptoAccountId32 other_signatories = 1;
+	oneof call {
+		SystemPallet call_system = 2;
+		TimestampPallet call_timestamp = 3;
+		BabePallet call_babe = 4;
+		GrandpaPallet call_grandpa = 5;
+		BalancesPallet call_balances = 6;
+		VestingPallet call_vesting = 7;
+		BagsListPallet call_bags_list = 8;
+		ImOnlinePallet call_im_online = 9;
+		StakingPallet call_staking = 10;
+		SessionPallet call_session = 11;
+		TreasuryPallet call_treasury = 12;
+		UtilityPallet call_utility = 13;
+		ConvictionVotingPallet call_conviction_voting = 14;
+		ReferendaPallet call_referenda = 15;
+		FellowshipCollectivePallet call_fellowship_collective = 16;
+		FellowshipReferendaPallet call_fellowship_referenda = 17;
+		WhitelistPallet call_whitelist = 18;
+		SchedulerPallet call_scheduler = 19;
+		PreimagePallet call_preimage = 20;
+		IdentityPallet call_identity = 21;
+		ProxyPallet call_proxy = 22;
+		MultisigPallet call_multisig = 23;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 24;
+		BountiesPallet call_bounties = 25;
+		ChildBountiesPallet call_child_bounties = 26;
+		NominationPoolsPallet call_nomination_pools = 27;
+		GearPallet call_gear = 28;
+		StakingRewardsPallet call_staking_rewards = 29;
+		GearVoucherPallet call_gear_voucher = 30;
+	}
+}
+message ChildBounties_Beneficiary {
+	oneof beneficiary {
+		ChildBounties_Id beneficiary_id = 1;
+		ChildBounties_Index beneficiary_index = 2;
+		ChildBounties_Raw beneficiary_raw = 3;
+		ChildBounties_Address32 beneficiary_address32 = 4;
+		ChildBounties_Address20 beneficiary_address20 = 5;
+	}
+}
+message System_TupleSystemItemsListSystemItemsList {
+	bytes value0 = 1;
+	bytes value1 = 2;
+}
+message Balances_Raw {
+	bytes value0 = 1;
+}
+message GearVoucher_UpdateCall {
+	SpCoreCryptoAccountId32 spender = 1;
+	GearVoucher_PalletGearVoucherInternalVoucherId voucher_id = 2;
+	optional SpCoreCryptoAccountId32 move_ownership = 3;
+	optional string balance_top_up = 4;
+	oneof append_programs {
+		GearVoucher_None append_programs_none = 5;
+		GearVoucher_Some append_programs_some = 6;
+	}
+	optional bool code_uploading = 7;
+	optional uint32 prolong_duration = 8;
+}
+message Grandpa_FinalityGrandpaEquivocation {
+	uint64 round_number = 1;
+	Grandpa_SpConsensusGrandpaAppPublic identity = 2;
+	Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature first = 3;
+	Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature second = 4;
+}
+message SpRuntimeMultiaddressMultiAddress {
+	oneof targets {
+		Staking_Id targets_id = 1;
+		Staking_Index targets_index = 2;
+		Staking_Raw targets_raw = 3;
+		Staking_Address32 targets_address32 = 4;
+		Staking_Address20 targets_address20 = 5;
+	}
+}
+message Staking_IncreaseValidatorCountCall {
+	uint32 additional = 1;
+}
+message Bounties_AcceptCuratorCall {
+	uint32 bounty_id = 1;
+}
+message SpCoreSr25519Public {
+	bytes value0 = 1;
+}
+message SpConsensusSlotsSlot {
+	uint64 value0 = 1;
+}
+message Balances_Source {
+	oneof source {
+		Balances_Id source_id = 1;
+		Balances_Index source_index = 2;
+		Balances_Raw source_raw = 3;
+		Balances_Address32 source_address32 = 4;
+		Balances_Address20 source_address20 = 5;
+	}
+}
+message Identity_Address20 {
+	bytes value0 = 1;
+}
+message Identity_Raw2 {
+	bytes value0 = 1;
+}
+message Babe_Consensus {
+	bytes value0 = 1;
+	bytes value1 = 2;
+}
+message SpConsensusSlotsEquivocationProof {
+	Babe_SpConsensusBabeAppPublic offender = 1;
+	SpConsensusSlotsSlot slot = 2;
+	SpRuntimeGenericHeaderHeader first_header = 3;
+	SpRuntimeGenericHeaderHeader second_header = 4;
+}
+message ConvictionVoting_SplitAbstain {
+	string aye = 1;
+	string nay = 2;
+	string abstain = 3;
+}
+message FellowshipReferenda_Inline {
+	BoundedCollectionsBoundedVecBoundedVec value0 = 1;
+}
+message StakingRewards_AlignSupplyCall {
+	string target = 1;
+}
+message Staking_BondExtraCall {
+	string max_additional = 1;
+}
+message VaraRuntimeSessionKeys {
+	SpConsensusBabeAppPublic babe = 1;
+	SpConsensusGrandpaAppPublic grandpa = 2;
+	ImOnline_PalletImOnlineSr25519AppSr25519Public im_online = 3;
+	SpAuthorityDiscoveryAppPublic authority_discovery = 4;
+}
+message Staking_Controller {
+}
+message NominationPools_Permission {
+	oneof permission {
+		NominationPools_Permissioned permission_permissioned = 1;
+		NominationPools_PermissionlessCompound permission_permissionless_compound = 2;
+		NominationPools_PermissionlessWithdraw permission_permissionless_withdraw = 3;
+		NominationPools_PermissionlessAll permission_permissionless_all = 4;
+	}
+}
+message FellowshipCollective_TupleNull {
+	TupleNull value = 1;
+}
+message Scheduler_CancelCall {
+	uint32 when = 1;
+	uint32 index = 2;
+}
+message Identity_Raw15 {
+	bytes value0 = 1;
+}
+message Identity_ClearIdentityCall {
+}
+message Proxy_ProxyType {
+	oneof proxy_type {
+		Proxy_Any proxy_type_any = 1;
+		Proxy_NonTransfer proxy_type_non_transfer = 2;
+		Proxy_Governance proxy_type_governance = 3;
+		Proxy_Staking proxy_type_staking = 4;
+		Proxy_IdentityJudgement proxy_type_identity_judgement = 5;
+		Proxy_CancelProxy proxy_type_cancel_proxy = 6;
+	}
+}
+message Bounties_Curator {
+	oneof curator {
+		Bounties_Id curator_id = 1;
+		Bounties_Index curator_index = 2;
+		Bounties_Raw curator_raw = 3;
+		Bounties_Address32 curator_address32 = 4;
+		Bounties_Address20 curator_address20 = 5;
+	}
+}
+message Babe_Seal {
+	bytes value0 = 1;
+	bytes value1 = 2;
+}
+message Staking_Address20 {
+	bytes value0 = 1;
+}
+message NominationPools_NewBouncer {
+	oneof new_bouncer {
+		NominationPools_Noop new_bouncer_noop = 1;
+		NominationPools_Set new_bouncer_set = 2;
+		NominationPools_Remove new_bouncer_remove = 3;
+	}
+}
+message ConvictionVoting_Address32 {
+	bytes value0 = 1;
+}
+message FellowshipCollective_AddMemberCall {
+	oneof who {
+		FellowshipCollective_Id who_id = 1;
+		FellowshipCollective_Index who_index = 2;
+		FellowshipCollective_Raw who_raw = 3;
+		FellowshipCollective_Address32 who_address32 = 4;
+		FellowshipCollective_Address20 who_address20 = 5;
+	}
+}
+message Identity_Value0 {
+	oneof value0 {
+		Identity_None value0_none = 1;
+		Identity_Raw0 value0_raw0 = 2;
+		Identity_Raw1 value0_raw1 = 3;
+		Identity_Raw2 value0_raw2 = 4;
+		Identity_Raw3 value0_raw3 = 5;
+		Identity_Raw4 value0_raw4 = 6;
+		Identity_Raw5 value0_raw5 = 7;
+		Identity_Raw6 value0_raw6 = 8;
+		Identity_Raw7 value0_raw7 = 9;
+		Identity_Raw8 value0_raw8 = 10;
+		Identity_Raw9 value0_raw9 = 11;
+		Identity_Raw10 value0_raw10 = 12;
+		Identity_Raw11 value0_raw11 = 13;
+		Identity_Raw12 value0_raw12 = 14;
+		Identity_Raw13 value0_raw13 = 15;
+		Identity_Raw14 value0_raw14 = 16;
+		Identity_Raw15 value0_raw15 = 17;
+		Identity_Raw16 value0_raw16 = 18;
+		Identity_Raw17 value0_raw17 = 19;
+		Identity_Raw18 value0_raw18 = 20;
+		Identity_Raw19 value0_raw19 = 21;
+		Identity_Raw20 value0_raw20 = 22;
+		Identity_Raw21 value0_raw21 = 23;
+		Identity_Raw22 value0_raw22 = 24;
+		Identity_Raw23 value0_raw23 = 25;
+		Identity_Raw24 value0_raw24 = 26;
+		Identity_Raw25 value0_raw25 = 27;
+		Identity_Raw26 value0_raw26 = 28;
+		Identity_Raw27 value0_raw27 = 29;
+		Identity_Raw28 value0_raw28 = 30;
+		Identity_Raw29 value0_raw29 = 31;
+		Identity_Raw30 value0_raw30 = 32;
+		Identity_Raw31 value0_raw31 = 33;
+		Identity_Raw32 value0_raw32 = 34;
+		Identity_BlakeTwo256 value0_blake_two256 = 35;
+		Identity_Sha256 value0_sha256 = 36;
+		Identity_Keccak256 value0_keccak256 = 37;
+		Identity_ShaThree256 value0_sha_three256 = 38;
+	}
+}
+message Proxy_Real {
+	oneof real {
+		Proxy_Id real_id = 1;
+		Proxy_Index real_index = 2;
+		Proxy_Raw real_raw = 3;
+		Proxy_Address32 real_address32 = 4;
+		Proxy_Address20 real_address20 = 5;
+	}
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes8Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message NominationPools_ClaimPayoutOtherCall {
+	SpCoreCryptoAccountId32 other = 1;
+}
+message BagsList_PutInFrontOfCall {
+	oneof lighter {
+		BagsList_Id lighter_id = 1;
+		BagsList_Index lighter_index = 2;
+		BagsList_Raw lighter_raw = 3;
+		BagsList_Address32 lighter_address32 = 4;
+		BagsList_Address20 lighter_address20 = 5;
+	}
+}
+message ConvictionVoting_PalletConvictionVotingVoteVote {
+	uint32 value0 = 1;
+}
+message NominationPools_Nominator {
+	oneof nominator {
+		NominationPools_Id nominator_id = 1;
+		NominationPools_Index nominator_index = 2;
+		NominationPools_Raw nominator_raw = 3;
+		NominationPools_Address32 nominator_address32 = 4;
+		NominationPools_Address20 nominator_address20 = 5;
+	}
+}
+message NominationPools_PermissionlessAll {
+}
+message OriginsPallet {
+}
+message NominationPools_Index {
+	NominationPools_TupleNull value0 = 1;
+}
+message GearVoucher_DeclineVoucher {
+}
+message Fellowship4Dan {
+}
+message NominationPools_MaxMembersPerPool {
+	oneof max_members_per_pool {
+		NominationPools_Noop max_members_per_pool_noop = 1;
+		NominationPools_Set max_members_per_pool_set = 2;
+		NominationPools_Remove max_members_per_pool_remove = 3;
+	}
+}
+message GearVoucher_Some {
+	BTreeSet value0 = 1;
+}
+message Grandpa_ReportEquivocationCall {
+	Grandpa_SpConsensusGrandpaEquivocationProof equivocation_proof = 1;
+	SpSessionMembershipProof key_owner_proof = 2;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes16Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message SpWeightsWeightV2Weight {
+	uint64 ref_time = 1;
+	uint64 proof_size = 2;
+}
+message Referenda_CancelCall {
+	uint32 index = 1;
+}
+message Identity_Raw22 {
+	bytes value0 = 1;
+}
+message Treasury_ProposeSpendCall {
+	string value = 1;
+	oneof beneficiary {
+		Treasury_Id beneficiary_id = 2;
+		Treasury_Index beneficiary_index = 3;
+		Treasury_Raw beneficiary_raw = 4;
+		Treasury_Address32 beneficiary_address32 = 5;
+		Treasury_Address20 beneficiary_address20 = 6;
+	}
+}
+message HistoricalPallet {
+}
+message Grandpa_ReportEquivocationUnsignedCall {
+	Grandpa_SpConsensusGrandpaEquivocationProof equivocation_proof = 1;
+	SpSessionMembershipProof key_owner_proof = 2;
+}
+message ElectionProviderMultiPhase_TupleUint32TupleUint32SpArithmeticPerThingsPerU16Uint32 {
+	uint32 value0 = 1;
+	ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message ChildBounties_Address20 {
+	bytes value0 = 1;
+}
+message NominationPools_Set {
+	string value0 = 1;
+}
+message Treasury_VoidSpendCall {
+	uint32 index = 1;
+}
+message Identity_Raw26 {
+	bytes value0 = 1;
+}
+message Referenda_After {
+	uint32 value0 = 1;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes12Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message NominationPools_SetMetadataCall {
+	uint32 pool_id = 1;
+	bytes metadata = 2;
+}
+message Gear_SetExecuteInherentCall {
+	bool value = 1;
+}
+message BagsList_Raw {
+	bytes value0 = 1;
+}
+message Treasury_RejectProposalCall {
+	uint32 proposal_id = 1;
+}
+message SpNposElectionsElectionScore {
+	string minimal_stake = 1;
+	string sum_stake = 2;
+	string sum_stake_squared = 3;
+}
+message ElectionProviderMultiPhase_GovernanceFallbackCall {
+	optional uint32 maybe_max_voters = 1;
+	optional uint32 maybe_max_targets = 2;
+}
+message NominationPools_Address20 {
+	bytes value0 = 1;
+}
+message NominationPools_Destroying {
+}
+message Treasury_SpendCall {
+	Treasury_TupleNull asset_kind = 1;
+	string amount = 2;
+	SpCoreCryptoAccountId32 beneficiary = 3;
+	optional uint32 valid_from = 4;
+}
+message Identity_Raw6 {
+	bytes value0 = 1;
+}
+message BagsList_Index {
+	BagsList_TupleNull value0 = 1;
+}
+message PreimagePallet {
+	oneof call {
+		Preimage_NotePreimageCall call_note_preimage_call = 1;
+		Preimage_UnnotePreimageCall call_unnote_preimage_call = 2;
+		Preimage_RequestPreimageCall call_request_preimage_call = 3;
+		Preimage_UnrequestPreimageCall call_unrequest_preimage_call = 4;
+		Preimage_EnsureUpdatedCall call_ensure_updated_call = 5;
+	}
+}
+message Identity_Raw29 {
+	bytes value0 = 1;
+}
+message Identity_Value1 {
+	oneof value1 {
+		Identity_None value1_none = 1;
+		Identity_Raw0 value1_raw0 = 2;
+		Identity_Raw1 value1_raw1 = 3;
+		Identity_Raw2 value1_raw2 = 4;
+		Identity_Raw3 value1_raw3 = 5;
+		Identity_Raw4 value1_raw4 = 6;
+		Identity_Raw5 value1_raw5 = 7;
+		Identity_Raw6 value1_raw6 = 8;
+		Identity_Raw7 value1_raw7 = 9;
+		Identity_Raw8 value1_raw8 = 10;
+		Identity_Raw9 value1_raw9 = 11;
+		Identity_Raw10 value1_raw10 = 12;
+		Identity_Raw11 value1_raw11 = 13;
+		Identity_Raw12 value1_raw12 = 14;
+		Identity_Raw13 value1_raw13 = 15;
+		Identity_Raw14 value1_raw14 = 16;
+		Identity_Raw15 value1_raw15 = 17;
+		Identity_Raw16 value1_raw16 = 18;
+		Identity_Raw17 value1_raw17 = 19;
+		Identity_Raw18 value1_raw18 = 20;
+		Identity_Raw19 value1_raw19 = 21;
+		Identity_Raw20 value1_raw20 = 22;
+		Identity_Raw21 value1_raw21 = 23;
+		Identity_Raw22 value1_raw22 = 24;
+		Identity_Raw23 value1_raw23 = 25;
+		Identity_Raw24 value1_raw24 = 26;
+		Identity_Raw25 value1_raw25 = 27;
+		Identity_Raw26 value1_raw26 = 28;
+		Identity_Raw27 value1_raw27 = 29;
+		Identity_Raw28 value1_raw28 = 30;
+		Identity_Raw29 value1_raw29 = 31;
+		Identity_Raw30 value1_raw30 = 32;
+		Identity_Raw31 value1_raw31 = 33;
+		Identity_Raw32 value1_raw32 = 34;
+		Identity_BlakeTwo256 value1_blake_two256 = 35;
+		Identity_Sha256 value1_sha256 = 36;
+		Identity_Keccak256 value1_keccak256 = 37;
+		Identity_ShaThree256 value1_sha_three256 = 38;
+	}
+}
+message Proxy_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message Proxy_TupleNull {
+	TupleNull value = 1;
+}
+message Babe_BabeTrieNodesList {
+	bytes trie_nodes = 1;
+}
+message Babe_AllowedSlots {
+	oneof allowed_slots {
+		Babe_PrimarySlots allowed_slots_primary_slots = 1;
+		Babe_PrimaryAndSecondaryPlainSlots allowed_slots_primary_and_secondary_plain_slots = 2;
+		Babe_PrimaryAndSecondaryVrfSlots allowed_slots_primary_and_secondary_vrf_slots = 3;
+	}
+}
+message ChildBounties_ClaimChildBountyCall {
+	uint32 parent_bounty_id = 1;
+	uint32 child_bounty_id = 2;
+}
+message ChildBounties_ProposeCuratorCall {
+	uint32 parent_bounty_id = 1;
+	uint32 child_bounty_id = 2;
+	oneof curator {
+		ChildBounties_Id curator_id = 3;
+		ChildBounties_Index curator_index = 4;
+		ChildBounties_Raw curator_raw = 5;
+		ChildBounties_Address32 curator_address32 = 6;
+		ChildBounties_Address20 curator_address20 = 7;
+	}
+	string fee = 8;
+}
+message Vesting_VestedTransferCall {
+	oneof target {
+		Vesting_Id target_id = 1;
+		Vesting_Index target_index = 2;
+		Vesting_Raw target_raw = 3;
+		Vesting_Address32 target_address32 = 4;
+		Vesting_Address20 target_address20 = 5;
+	}
+	Vesting_PalletVestingVestingInfoVestingInfo schedule = 6;
+}
+message BagsList_Address32 {
+	bytes value0 = 1;
+}
+message Treasury_CheckStatusCall {
+	uint32 index = 1;
+}
+message Fellows {
+}
+message Utility_Origins {
+	oneof value0 {
+		StakingAdmin value0_staking_admin = 1;
+		Treasurer value0_treasurer = 2;
+		FellowshipAdmin value0_fellowship_admin = 3;
+		GeneralAdmin value0_general_admin = 4;
+		ReferendumCanceller value0_referendum_canceller = 5;
+		ReferendumKiller value0_referendum_killer = 6;
+		SmallTipper value0_small_tipper = 7;
+		BigTipper value0_big_tipper = 8;
+		SmallSpender value0_small_spender = 9;
+		MediumSpender value0_medium_spender = 10;
+		BigSpender value0_big_spender = 11;
+		WhitelistedCaller value0_whitelisted_caller = 12;
+		FellowshipInitiates value0_fellowship_initiates = 13;
+		Fellows value0_fellows = 14;
+		FellowshipExperts value0_fellowship_experts = 15;
+		FellowshipMasters value0_fellowship_masters = 16;
+		Fellowship1Dan value0_fellowship1_dan = 17;
+		Fellowship2Dan value0_fellowship2_dan = 18;
+		Fellowship3Dan value0_fellowship3_dan = 19;
+		Fellowship4Dan value0_fellowship4_dan = 20;
+		Fellowship5Dan value0_fellowship5_dan = 21;
+		Fellowship6Dan value0_fellowship6_dan = 22;
+		Fellowship7Dan value0_fellowship7_dan = 23;
+		Fellowship8Dan value0_fellowship8_dan = 24;
+		Fellowship9Dan value0_fellowship9_dan = 25;
+	}
+}
+message ConvictionVoting_Address20 {
+	bytes value0 = 1;
+}
+message Preimage_RequestPreimageCall {
+	PrimitiveTypesH256 hash = 1;
+}
+message Identity_Raw7 {
+	bytes value0 = 1;
+}
+message Babe_TupleUint64Uint64 {
+	uint64 value0 = 1;
+	uint64 value1 = 2;
+}
+message BalancesPallet {
+	oneof call {
+		Balances_TransferAllowDeathCall call_transfer_allow_death_call = 1;
+		Balances_ForceTransferCall call_force_transfer_call = 2;
+		Balances_TransferKeepAliveCall call_transfer_keep_alive_call = 3;
+		Balances_TransferAllCall call_transfer_all_call = 4;
+		Balances_ForceUnreserveCall call_force_unreserve_call = 5;
+		Balances_UpgradeAccountsCall call_upgrade_accounts_call = 6;
+		Balances_ForceSetBalanceCall call_force_set_balance_call = 7;
+	}
+}
+message Proxy_RejectAnnouncementCall {
+	oneof delegate {
+		Proxy_Id delegate_id = 1;
+		Proxy_Index delegate_index = 2;
+		Proxy_Raw delegate_raw = 3;
+		Proxy_Address32 delegate_address32 = 4;
+		Proxy_Address20 delegate_address20 = 5;
+	}
+	PrimitiveTypesH256 call_hash = 6;
+}
+message NominationPools_GlobalMaxCommission {
+	oneof global_max_commission {
+		NominationPools_Noop global_max_commission_noop = 1;
+		NominationPools_Set global_max_commission_set = 2;
+		NominationPools_Remove global_max_commission_remove = 3;
+	}
+}
+message SpConsensusGrandpaAppPublic {
+	SpCoreEd25519Public value0 = 1;
+}
+message ReferendumCanceller {
+}
+message ConvictionVoting_Locked3X {
+}
+message ConvictionVoting_UndelegateCall {
+	uint32 class = 1;
+}
+message Referenda_RefundDecisionDepositCall {
+	uint32 index = 1;
+}
+message Identity_Raw4 {
+	bytes value0 = 1;
+}
+message Vesting_Raw {
+	bytes value0 = 1;
+}
+message ImOnline_HeartbeatCall {
+	ImOnline_PalletImOnlineHeartbeat heartbeat = 1;
+	ImOnline_PalletImOnlineSr25519AppSr25519Signature signature = 2;
+}
+message ChildBounties_TupleNull {
+	TupleNull value = 1;
+}
+message GearVoucher_None {
+}
+message Proxy_Staking {
+}
+message Bounties_ProposeCuratorCall {
+	uint32 bounty_id = 1;
+	oneof curator {
+		Bounties_Id curator_id = 2;
+		Bounties_Index curator_index = 3;
+		Bounties_Raw curator_raw = 4;
+		Bounties_Address32 curator_address32 = 5;
+		Bounties_Address20 curator_address20 = 6;
+	}
+	string fee = 7;
+}
+message FellowshipCollective_RemoveMemberCall {
+	oneof who {
+		FellowshipCollective_Id who_id = 1;
+		FellowshipCollective_Index who_index = 2;
+		FellowshipCollective_Raw who_raw = 3;
+		FellowshipCollective_Address32 who_address32 = 4;
+		FellowshipCollective_Address20 who_address20 = 5;
+	}
+	uint32 min_rank = 6;
+}
+message ElectionProviderMultiPhasePallet {
+	oneof call {
+		ElectionProviderMultiPhase_SubmitUnsignedCall call_submit_unsigned_call = 1;
+		ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall call_set_minimum_untrusted_score_call = 2;
+		ElectionProviderMultiPhase_SetEmergencyElectionResultCall call_set_emergency_election_result_call = 3;
+		ElectionProviderMultiPhase_SubmitCall call_submit_call = 4;
+		ElectionProviderMultiPhase_GovernanceFallbackCall call_governance_fallback_call = 5;
+	}
+}
+message FellowshipReferenda_RefundSubmissionDepositCall {
+	uint32 index = 1;
+}
+message ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 {
+	uint32 value0 = 1;
+	SpArithmeticPerThingsPerU16 value1 = 2;
+}
+message Balances_TransferAllCall {
+	oneof dest {
+		Balances_Id dest_id = 1;
+		Balances_Index dest_index = 2;
+		Balances_Raw dest_raw = 3;
+		Balances_Address32 dest_address32 = 4;
+		Balances_Address20 dest_address20 = 5;
+	}
+	bool keep_alive = 6;
+}
+message Staking_ForceNewEraAlwaysCall {
+}
+message Gear_RunCall {
+	optional uint64 max_gas = 1;
+}
+message System_SetStorageCall {
+	repeated System_TupleSystemItemsListSystemItemsList items = 1;
+}
+message ConvictionVoting_VoteCall {
+	uint32 poll_index = 1;
+	oneof vote {
+		ConvictionVoting_Standard vote_standard = 2;
+		ConvictionVoting_Split vote_split = 3;
+		ConvictionVoting_SplitAbstain vote_split_abstain = 4;
+	}
+}
+message Fellowship6Dan {
+}
+message BoundedCollectionsBoundedVecBoundedVec {
+	bytes value0 = 1;
+}
+message FellowshipReferenda_Proposal {
+	oneof proposal {
+		FellowshipReferenda_Legacy proposal_legacy = 1;
+		FellowshipReferenda_Inline proposal_inline = 2;
+		FellowshipReferenda_Lookup proposal_lookup = 3;
+	}
+}
+message NominationPools_Root {
+	oneof root {
+		NominationPools_Id root_id = 1;
+		NominationPools_Index root_index = 2;
+		NominationPools_Raw root_raw = 3;
+		NominationPools_Address32 root_address32 = 4;
+		NominationPools_Address20 root_address20 = 5;
+	}
+}
+message Grandpa_SpConsensusGrandpaAppSignature {
+	SpCoreEd25519Signature value0 = 1;
+}
+message Staking_ForceUnstakeCall {
+	SpCoreCryptoAccountId32 stash = 1;
+	uint32 num_slashing_spans = 2;
+}
+message Root {
+}
+message ConvictionVoting_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message FellowshipCollective_Address32 {
+	bytes value0 = 1;
+}
+message Identity_SetAccountIdCall {
+	uint32 index = 1;
+	oneof new {
+		Identity_Id new_id = 2;
+		Identity_Index new_index = 3;
+		Identity_Raw new_raw = 4;
+		Identity_Address32 new_address32 = 5;
+		Identity_Address20 new_address20 = 6;
+	}
+}
+message ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String {
+	SpCoreCryptoAccountId32 value0 = 1;
+	string value1 = 2;
+}
+message NominationPools_NewRoot {
+	oneof new_root {
+		NominationPools_Noop new_root_noop = 1;
+		NominationPools_Set new_root_set = 2;
+		NominationPools_Remove new_root_remove = 3;
+	}
+}
+message System_SetHeapPagesCall {
+	uint64 pages = 1;
+}
+message BagsList_TupleNull {
+	TupleNull value = 1;
+}
+message NominationPools_ClaimCommissionCall {
+	uint32 pool_id = 1;
+}
+message Scheduler_CancelNamedCall {
+	bytes id = 1;
+}
+message Staking_SetValidatorCountCall {
+	uint32 new = 1;
+}
+message FellowshipReferenda_OneFewerDecidingCall {
+	uint32 track = 1;
+}
+message FellowshipCollective_Index {
+	FellowshipCollective_TupleNull value0 = 1;
+}
+message SchedulerPallet {
+	oneof call {
+		Scheduler_ScheduleCall call_schedule_call = 1;
+		Scheduler_CancelCall call_cancel_call = 2;
+		Scheduler_ScheduleNamedCall call_schedule_named_call = 3;
+		Scheduler_CancelNamedCall call_cancel_named_call = 4;
+		Scheduler_ScheduleAfterCall call_schedule_after_call = 5;
+		Scheduler_ScheduleNamedAfterCall call_schedule_named_after_call = 6;
+	}
+}
+message Identity_Raw19 {
+	bytes value0 = 1;
+}
+message ElectionProviderMultiPhase_SubmitUnsignedCall {
+	ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution raw_solution = 1;
+	ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize witness = 2;
+}
+message StakingRewards_TupleNull {
+	TupleNull value = 1;
+}
+message FellowshipAdmin {
+}
+message Utility_Void {
+	
+}
+message Scheduler_TupleUint32Uint32 {
+	uint32 value0 = 1;
+	uint32 value1 = 2;
+}
+message Identity_ShaThree256 {
+	bytes value0 = 1;
+}
+message Identity_OutOfDate {
+}
+message NominationPools_TupleNull {
+	TupleNull value = 1;
+}
+message System_KillPrefixCall {
+	bytes prefix = 1;
+	uint32 subkeys = 2;
+}
+message Session_SetKeysCall {
+	VaraRuntimeSessionKeys keys = 1;
+	bytes proof = 2;
+}
+message FellowshipCollective_PromoteMemberCall {
+	oneof who {
+		FellowshipCollective_Id who_id = 1;
+		FellowshipCollective_Index who_index = 2;
+		FellowshipCollective_Raw who_raw = 3;
+		FellowshipCollective_Address32 who_address32 = 4;
+		FellowshipCollective_Address20 who_address20 = 5;
+	}
+}
+message NominationPools_WithdrawUnbondedCall {
+	oneof member_account {
+		NominationPools_Id member_account_id = 1;
+		NominationPools_Index member_account_index = 2;
+		NominationPools_Raw member_account_raw = 3;
+		NominationPools_Address32 member_account_address32 = 4;
+		NominationPools_Address20 member_account_address20 = 5;
+	}
+	uint32 num_slashing_spans = 6;
+}
+message GearProgramPallet {
+}
+message BagsList_RebagCall {
+	oneof dislocated {
+		BagsList_Id dislocated_id = 1;
+		BagsList_Index dislocated_index = 2;
+		BagsList_Raw dislocated_raw = 3;
+		BagsList_Address32 dislocated_address32 = 4;
+		BagsList_Address20 dislocated_address20 = 5;
+	}
+}
+message Treasury_RemoveApprovalCall {
+	uint32 proposal_id = 1;
+}
+message Staking_None {
+}
+message ConvictionVoting_Standard {
+	ConvictionVoting_PalletConvictionVotingVoteVote vote = 1;
+	string balance = 2;
+}
+message Whitelist_RemoveWhitelistedCallCall {
+	PrimitiveTypesH256 call_hash = 1;
+}
+message Identity_Raw8 {
+	bytes value0 = 1;
+}
+message Identity_SetSubsCall {
+	repeated Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData subs = 1;
+}
+message Proxy_Raw {
+	bytes value0 = 1;
+}
+message Babe_SpConsensusBabeAppPublic {
+	SpCoreSr25519Public value0 = 1;
+}
+message SpCoreEd25519Signature {
+	bytes value0 = 1;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes10Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message Multisig_AsMultiCall {
+	uint32 threshold = 1;
+	repeated SpCoreCryptoAccountId32 other_signatories = 2;
+	optional Multisig_PalletMultisigTimepoint maybe_timepoint = 3;
+	oneof call {
+		SystemPallet call_system = 4;
+		TimestampPallet call_timestamp = 5;
+		BabePallet call_babe = 6;
+		GrandpaPallet call_grandpa = 7;
+		BalancesPallet call_balances = 8;
+		VestingPallet call_vesting = 9;
+		BagsListPallet call_bags_list = 10;
+		ImOnlinePallet call_im_online = 11;
+		StakingPallet call_staking = 12;
+		SessionPallet call_session = 13;
+		TreasuryPallet call_treasury = 14;
+		UtilityPallet call_utility = 15;
+		ConvictionVotingPallet call_conviction_voting = 16;
+		ReferendaPallet call_referenda = 17;
+		FellowshipCollectivePallet call_fellowship_collective = 18;
+		FellowshipReferendaPallet call_fellowship_referenda = 19;
+		WhitelistPallet call_whitelist = 20;
+		SchedulerPallet call_scheduler = 21;
+		PreimagePallet call_preimage = 22;
+		IdentityPallet call_identity = 23;
+		ProxyPallet call_proxy = 24;
+		MultisigPallet call_multisig = 25;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 26;
+		BountiesPallet call_bounties = 27;
+		ChildBountiesPallet call_child_bounties = 28;
+		NominationPoolsPallet call_nomination_pools = 29;
+		GearPallet call_gear = 30;
+		StakingRewardsPallet call_staking_rewards = 31;
+		GearVoucherPallet call_gear_voucher = 32;
+	}
+	SpWeightsWeightV2Weight max_weight = 33;
+}
+message Proxy_NonTransfer {
+}
+message Proxy_RemoveAnnouncementCall {
+	oneof real {
+		Proxy_Id real_id = 1;
+		Proxy_Index real_index = 2;
+		Proxy_Raw real_raw = 3;
+		Proxy_Address32 real_address32 = 4;
+		Proxy_Address20 real_address20 = 5;
+	}
+	PrimitiveTypesH256 call_hash = 6;
+}
+message Identity_QuitSubCall {
+}
+message Staking_RebondCall {
+	string value = 1;
+}
+message ConvictionVoting_Conviction {
+	oneof conviction {
+		ConvictionVoting_None conviction_none = 1;
+		ConvictionVoting_Locked1X conviction_locked1x = 2;
+		ConvictionVoting_Locked2X conviction_locked2x = 3;
+		ConvictionVoting_Locked3X conviction_locked3x = 4;
+		ConvictionVoting_Locked4X conviction_locked4x = 5;
+		ConvictionVoting_Locked5X conviction_locked5x = 6;
+		ConvictionVoting_Locked6X conviction_locked6x = 7;
+	}
+}
+message Staking_ChillOtherCall {
+	SpCoreCryptoAccountId32 controller = 1;
+}
+message Scheduler_ScheduleNamedAfterCall {
+	bytes id = 1;
+	uint32 after = 2;
+	optional Scheduler_TupleUint32Uint32 maybe_periodic = 3;
+	uint32 priority = 4;
+	oneof call {
+		SystemPallet call_system = 5;
+		TimestampPallet call_timestamp = 6;
+		BabePallet call_babe = 7;
+		GrandpaPallet call_grandpa = 8;
+		BalancesPallet call_balances = 9;
+		VestingPallet call_vesting = 10;
+		BagsListPallet call_bags_list = 11;
+		ImOnlinePallet call_im_online = 12;
+		StakingPallet call_staking = 13;
+		SessionPallet call_session = 14;
+		TreasuryPallet call_treasury = 15;
+		UtilityPallet call_utility = 16;
+		ConvictionVotingPallet call_conviction_voting = 17;
+		ReferendaPallet call_referenda = 18;
+		FellowshipCollectivePallet call_fellowship_collective = 19;
+		FellowshipReferendaPallet call_fellowship_referenda = 20;
+		WhitelistPallet call_whitelist = 21;
+		SchedulerPallet call_scheduler = 22;
+		PreimagePallet call_preimage = 23;
+		IdentityPallet call_identity = 24;
+		ProxyPallet call_proxy = 25;
+		MultisigPallet call_multisig = 26;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 27;
+		BountiesPallet call_bounties = 28;
+		ChildBountiesPallet call_child_bounties = 29;
+		NominationPoolsPallet call_nomination_pools = 30;
+		GearPallet call_gear = 31;
+		StakingRewardsPallet call_staking_rewards = 32;
+		GearVoucherPallet call_gear_voucher = 33;
+	}
+}
+message Identity_Raw24 {
+	bytes value0 = 1;
+}
+message Identity_Data {
+	oneof data {
+		Identity_None data_none = 1;
+		Identity_Raw0 data_raw0 = 2;
+		Identity_Raw1 data_raw1 = 3;
+		Identity_Raw2 data_raw2 = 4;
+		Identity_Raw3 data_raw3 = 5;
+		Identity_Raw4 data_raw4 = 6;
+		Identity_Raw5 data_raw5 = 7;
+		Identity_Raw6 data_raw6 = 8;
+		Identity_Raw7 data_raw7 = 9;
+		Identity_Raw8 data_raw8 = 10;
+		Identity_Raw9 data_raw9 = 11;
+		Identity_Raw10 data_raw10 = 12;
+		Identity_Raw11 data_raw11 = 13;
+		Identity_Raw12 data_raw12 = 14;
+		Identity_Raw13 data_raw13 = 15;
+		Identity_Raw14 data_raw14 = 16;
+		Identity_Raw15 data_raw15 = 17;
+		Identity_Raw16 data_raw16 = 18;
+		Identity_Raw17 data_raw17 = 19;
+		Identity_Raw18 data_raw18 = 20;
+		Identity_Raw19 data_raw19 = 21;
+		Identity_Raw20 data_raw20 = 22;
+		Identity_Raw21 data_raw21 = 23;
+		Identity_Raw22 data_raw22 = 24;
+		Identity_Raw23 data_raw23 = 25;
+		Identity_Raw24 data_raw24 = 26;
+		Identity_Raw25 data_raw25 = 27;
+		Identity_Raw26 data_raw26 = 28;
+		Identity_Raw27 data_raw27 = 29;
+		Identity_Raw28 data_raw28 = 30;
+		Identity_Raw29 data_raw29 = 31;
+		Identity_Raw30 data_raw30 = 32;
+		Identity_Raw31 data_raw31 = 33;
+		Identity_Raw32 data_raw32 = 34;
+		Identity_BlakeTwo256 data_blake_two256 = 35;
+		Identity_Sha256 data_sha256 = 36;
+		Identity_Keccak256 data_keccak256 = 37;
+		Identity_ShaThree256 data_sha_three256 = 38;
+	}
+}
+message Bounties_Beneficiary {
+	oneof beneficiary {
+		Bounties_Id beneficiary_id = 1;
+		Bounties_Index beneficiary_index = 2;
+		Bounties_Raw beneficiary_raw = 3;
+		Bounties_Address32 beneficiary_address32 = 4;
+		Bounties_Address20 beneficiary_address20 = 5;
+	}
+}
+message Babe_PrimaryAndSecondaryVrfSlots {
+}
+message ImOnlinePallet {
+	oneof call {
+		ImOnline_HeartbeatCall call_heartbeat_call = 1;
+	}
+}
+message Proxy_Any {
+}
+message SpNposElectionsSupport {
+	string total = 1;
+	repeated ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String voters = 2;
+}
+message BabePallet {
+	oneof call {
+		Babe_ReportEquivocationCall call_report_equivocation_call = 1;
+		Babe_ReportEquivocationUnsignedCall call_report_equivocation_unsigned_call = 2;
+		Babe_PlanConfigChangeCall call_plan_config_change_call = 3;
+	}
+}
+message Identity_Raw3 {
+	bytes value0 = 1;
+}
+message Identity_Raw16 {
+	bytes value0 = 1;
+}
+message Identity_RequestJudgementCall {
+	uint32 reg_index = 1;
+	string max_fee = 2;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes4Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message Vesting_PalletVestingVestingInfoVestingInfo {
+	string locked = 1;
+	string per_block = 2;
+	uint32 starting_block = 3;
+}
+message Preimage_NotePreimageCall {
+	bytes bytes = 1;
+}
+message NominationPools_CreateCall {
+	string amount = 1;
+	oneof root {
+		NominationPools_Id root_id = 2;
+		NominationPools_Index root_index = 3;
+		NominationPools_Raw root_raw = 4;
+		NominationPools_Address32 root_address32 = 5;
+		NominationPools_Address20 root_address20 = 6;
+	}
+	oneof nominator {
+		NominationPools_Id nominator_id = 7;
+		NominationPools_Index nominator_index = 8;
+		NominationPools_Raw nominator_raw = 9;
+		NominationPools_Address32 nominator_address32 = 10;
+		NominationPools_Address20 nominator_address20 = 11;
+	}
+	oneof bouncer {
+		NominationPools_Id bouncer_id = 12;
+		NominationPools_Index bouncer_index = 13;
+		NominationPools_Raw bouncer_raw = 14;
+		NominationPools_Address32 bouncer_address32 = 15;
+		NominationPools_Address20 bouncer_address20 = 16;
+	}
+}
+message NominationPools_SetClaimPermissionCall {
+	oneof permission {
+		NominationPools_Permissioned permission_permissioned = 1;
+		NominationPools_PermissionlessCompound permission_permissionless_compound = 2;
+		NominationPools_PermissionlessWithdraw permission_permissionless_withdraw = 3;
+		NominationPools_PermissionlessAll permission_permissionless_all = 4;
+	}
+}
+message GearVoucher_CallCall {
+	GearVoucher_PalletGearVoucherInternalVoucherId voucher_id = 1;
+	oneof call {
+		GearVoucher_SendMessage call_send_message = 2;
+		GearVoucher_SendReply call_send_reply = 3;
+		GearVoucher_UploadCode call_upload_code = 4;
+		GearVoucher_DeclineVoucher call_decline_voucher = 5;
+	}
+}
+message FellowshipReferenda_EnactmentMoment {
+	oneof enactment_moment {
+		FellowshipReferenda_At enactment_moment_at = 1;
+		FellowshipReferenda_After enactment_moment_after = 2;
+	}
+}
+message Whitelist_WhitelistCallCall {
+	PrimitiveTypesH256 call_hash = 1;
+}
+message Referenda_Legacy {
+	PrimitiveTypesH256 hash = 1;
+}
+message Identity_SetIdentityCall {
+	Identity_PalletIdentitySimpleIdentityInfo info = 1;
+}
+message ChildBounties_AcceptCuratorCall {
+	uint32 parent_bounty_id = 1;
+	uint32 child_bounty_id = 2;
+}
+message Staking_ChillCall {
+}
+message ConvictionVoting_Locked5X {
+}
+message Staking_Who {
+	oneof who {
+		Staking_Id who_id = 1;
+		Staking_Index who_index = 2;
+		Staking_Raw who_raw = 3;
+		Staking_Address32 who_address32 = 4;
+		Staking_Address20 who_address20 = 5;
+	}
+}
+message Identity_Raw21 {
+	bytes value0 = 1;
+}
+message Proxy_Governance {
+}
+message Babe_ReportEquivocationUnsignedCall {
+	SpConsensusSlotsEquivocationProof equivocation_proof = 1;
+	SpSessionMembershipProof key_owner_proof = 2;
+}
+message Balances_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes6Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message ChildBounties_UnassignCuratorCall {
+	uint32 parent_bounty_id = 1;
+	uint32 child_bounty_id = 2;
+}
+message StakingRewards_Raw {
+	bytes value0 = 1;
+}
+message GearBuiltinPallet {
+}
+message Babe_PrimarySlots {
+}
+message ConvictionVoting_Raw {
+	bytes value0 = 1;
+}
+message NominationPools_Remove {
+}
+message GearVoucher_SendMessage {
+	GprimitivesActorId destination = 1;
+	bytes payload = 2;
+	uint64 gas_limit = 3;
+	string value = 4;
+	bool keep_alive = 5;
+}
+message GearVoucher_RevokeCall {
+	SpCoreCryptoAccountId32 spender = 1;
+	GearVoucher_PalletGearVoucherInternalVoucherId voucher_id = 2;
+}
+message Staking_Raw {
+	bytes value0 = 1;
+}
+message Identity_Raw0 {
+	bytes value0 = 1;
+}
+message Signed {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message SmallTipper {
+}
+message Multisig_ApproveAsMultiCall {
+	uint32 threshold = 1;
+	repeated SpCoreCryptoAccountId32 other_signatories = 2;
+	optional Multisig_PalletMultisigTimepoint maybe_timepoint = 3;
+	bytes call_hash = 4;
+	SpWeightsWeightV2Weight max_weight = 5;
+}
+message ChildBounties_AwardChildBountyCall {
+	uint32 parent_bounty_id = 1;
+	uint32 child_bounty_id = 2;
+	oneof beneficiary {
+		ChildBounties_Id beneficiary_id = 3;
+		ChildBounties_Index beneficiary_index = 4;
+		ChildBounties_Raw beneficiary_raw = 5;
+		ChildBounties_Address32 beneficiary_address32 = 6;
+		ChildBounties_Address20 beneficiary_address20 = 7;
+	}
+}
+message NominationPools_Address32 {
+	bytes value0 = 1;
+}
+message NominationPools_Blocked {
+}
+message Staking_ForceApplyMinCommissionCall {
+	SpCoreCryptoAccountId32 validator_stash = 1;
+}
+message SessionPallet {
+	oneof call {
+		Session_SetKeysCall call_set_keys_call = 1;
+		Session_PurgeKeysCall call_purge_keys_call = 2;
+	}
+}
+message NominationPools_State {
+	oneof state {
+		NominationPools_Open state_open = 1;
+		NominationPools_Blocked state_blocked = 2;
+		NominationPools_Destroying state_destroying = 3;
+	}
+}
+message Staking_MaxNominatorCount {
+	oneof max_nominator_count {
+		Staking_Noop max_nominator_count_noop = 1;
+		Staking_Set max_nominator_count_set = 2;
+		Staking_Remove max_nominator_count_remove = 3;
+	}
+}
+message NominationPools_CreateWithPoolIdCall {
+	string amount = 1;
+	oneof root {
+		NominationPools_Id root_id = 2;
+		NominationPools_Index root_index = 3;
+		NominationPools_Raw root_raw = 4;
+		NominationPools_Address32 root_address32 = 5;
+		NominationPools_Address20 root_address20 = 6;
+	}
+	oneof nominator {
+		NominationPools_Id nominator_id = 7;
+		NominationPools_Index nominator_index = 8;
+		NominationPools_Raw nominator_raw = 9;
+		NominationPools_Address32 nominator_address32 = 10;
+		NominationPools_Address20 nominator_address20 = 11;
+	}
+	oneof bouncer {
+		NominationPools_Id bouncer_id = 12;
+		NominationPools_Index bouncer_index = 13;
+		NominationPools_Raw bouncer_raw = 14;
+		NominationPools_Address32 bouncer_address32 = 15;
+		NominationPools_Address20 bouncer_address20 = 16;
+	}
+	uint32 pool_id = 17;
+}
+message Identity_PalletIdentityTypesBitFlags {
+	uint64 value0 = 1;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes15Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message Bounties_Index {
+	Bounties_TupleNull value0 = 1;
+}
+message NominationPools_ClaimPayoutCall {
+}
+message GearVoucher_AppendPrograms {
+	oneof append_programs {
+		GearVoucher_None append_programs_none = 1;
+		GearVoucher_Some append_programs_some = 2;
+	}
+}
+message Vesting_MergeSchedulesCall {
+	uint32 schedule1_index = 1;
+	uint32 schedule2_index = 2;
+}
+message Identity_Legal {
+	oneof legal {
+		Identity_None legal_none = 1;
+		Identity_Raw0 legal_raw0 = 2;
+		Identity_Raw1 legal_raw1 = 3;
+		Identity_Raw2 legal_raw2 = 4;
+		Identity_Raw3 legal_raw3 = 5;
+		Identity_Raw4 legal_raw4 = 6;
+		Identity_Raw5 legal_raw5 = 7;
+		Identity_Raw6 legal_raw6 = 8;
+		Identity_Raw7 legal_raw7 = 9;
+		Identity_Raw8 legal_raw8 = 10;
+		Identity_Raw9 legal_raw9 = 11;
+		Identity_Raw10 legal_raw10 = 12;
+		Identity_Raw11 legal_raw11 = 13;
+		Identity_Raw12 legal_raw12 = 14;
+		Identity_Raw13 legal_raw13 = 15;
+		Identity_Raw14 legal_raw14 = 16;
+		Identity_Raw15 legal_raw15 = 17;
+		Identity_Raw16 legal_raw16 = 18;
+		Identity_Raw17 legal_raw17 = 19;
+		Identity_Raw18 legal_raw18 = 20;
+		Identity_Raw19 legal_raw19 = 21;
+		Identity_Raw20 legal_raw20 = 22;
+		Identity_Raw21 legal_raw21 = 23;
+		Identity_Raw22 legal_raw22 = 24;
+		Identity_Raw23 legal_raw23 = 25;
+		Identity_Raw24 legal_raw24 = 26;
+		Identity_Raw25 legal_raw25 = 27;
+		Identity_Raw26 legal_raw26 = 28;
+		Identity_Raw27 legal_raw27 = 29;
+		Identity_Raw28 legal_raw28 = 30;
+		Identity_Raw29 legal_raw29 = 31;
+		Identity_Raw30 legal_raw30 = 32;
+		Identity_Raw31 legal_raw31 = 33;
+		Identity_Raw32 legal_raw32 = 34;
+		Identity_BlakeTwo256 legal_blake_two256 = 35;
+		Identity_Sha256 legal_sha256 = 36;
+		Identity_Keccak256 legal_keccak256 = 37;
+		Identity_ShaThree256 legal_sha_three256 = 38;
+	}
+}
+message Proxy_ProxyAnnouncedCall {
+	oneof delegate {
+		Proxy_Id delegate_id = 1;
+		Proxy_Index delegate_index = 2;
+		Proxy_Raw delegate_raw = 3;
+		Proxy_Address32 delegate_address32 = 4;
+		Proxy_Address20 delegate_address20 = 5;
+	}
+	oneof real {
+		Proxy_Id real_id = 6;
+		Proxy_Index real_index = 7;
+		Proxy_Raw real_raw = 8;
+		Proxy_Address32 real_address32 = 9;
+		Proxy_Address20 real_address20 = 10;
+	}
+	oneof force_proxy_type {
+		Proxy_Any force_proxy_type_any = 11;
+		Proxy_NonTransfer force_proxy_type_non_transfer = 12;
+		Proxy_Governance force_proxy_type_governance = 13;
+		Proxy_Staking force_proxy_type_staking = 14;
+		Proxy_IdentityJudgement force_proxy_type_identity_judgement = 15;
+		Proxy_CancelProxy force_proxy_type_cancel_proxy = 16;
+	}
+	oneof call {
+		SystemPallet call_system = 17;
+		TimestampPallet call_timestamp = 18;
+		BabePallet call_babe = 19;
+		GrandpaPallet call_grandpa = 20;
+		BalancesPallet call_balances = 21;
+		VestingPallet call_vesting = 22;
+		BagsListPallet call_bags_list = 23;
+		ImOnlinePallet call_im_online = 24;
+		StakingPallet call_staking = 25;
+		SessionPallet call_session = 26;
+		TreasuryPallet call_treasury = 27;
+		UtilityPallet call_utility = 28;
+		ConvictionVotingPallet call_conviction_voting = 29;
+		ReferendaPallet call_referenda = 30;
+		FellowshipCollectivePallet call_fellowship_collective = 31;
+		FellowshipReferendaPallet call_fellowship_referenda = 32;
+		WhitelistPallet call_whitelist = 33;
+		SchedulerPallet call_scheduler = 34;
+		PreimagePallet call_preimage = 35;
+		IdentityPallet call_identity = 36;
+		ProxyPallet call_proxy = 37;
+		MultisigPallet call_multisig = 38;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 39;
+		BountiesPallet call_bounties = 40;
+		ChildBountiesPallet call_child_bounties = 41;
+		NominationPoolsPallet call_nomination_pools = 42;
+		GearPallet call_gear = 43;
+		StakingRewardsPallet call_staking_rewards = 44;
+		GearVoucherPallet call_gear_voucher = 45;
+	}
+}
+message StakingRewards_RefillCall {
+	string value = 1;
+}
+message Identity_Raw23 {
+	bytes value0 = 1;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes9Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message Gear_ClaimValueCall {
+	GprimitivesMessageId message_id = 1;
+}
+message StakingRewards_WithdrawCall {
+	oneof to {
+		StakingRewards_Id to_id = 1;
+		StakingRewards_Index to_index = 2;
+		StakingRewards_Raw to_raw = 3;
+		StakingRewards_Address32 to_address32 = 4;
+		StakingRewards_Address20 to_address20 = 5;
+	}
+	string value = 6;
+}
+message BagsList_Address20 {
+	bytes value0 = 1;
+}
+message Staking_Stash {
+}
+message StakingRewards_Index {
+	StakingRewards_TupleNull value0 = 1;
+}
+message Babe_PreRuntime {
+	bytes value0 = 1;
+	bytes value1 = 2;
+}
+message NominationPools_UnbondCall {
+	oneof member_account {
+		NominationPools_Id member_account_id = 1;
+		NominationPools_Index member_account_index = 2;
+		NominationPools_Raw member_account_raw = 3;
+		NominationPools_Address32 member_account_address32 = 4;
+		NominationPools_Address20 member_account_address20 = 5;
+	}
+	string unbonding_points = 6;
+}
+message Referenda_PlaceDecisionDepositCall {
+	uint32 index = 1;
+}
+message NominationPools_SetCommissionChangeRateCall {
+	uint32 pool_id = 1;
+	NominationPools_PalletNominationPoolsCommissionChangeRate change_rate = 2;
+}
+message Staking_PayoutStakersCall {
+	SpCoreCryptoAccountId32 validator_stash = 1;
+	uint32 era = 2;
+}
+message Fellowship9Dan {
+}
+message Identity_TupleNull {
+	TupleNull value = 1;
+}
+message Identity_None {
+}
+message Identity_Web {
+	oneof web {
+		Identity_None web_none = 1;
+		Identity_Raw0 web_raw0 = 2;
+		Identity_Raw1 web_raw1 = 3;
+		Identity_Raw2 web_raw2 = 4;
+		Identity_Raw3 web_raw3 = 5;
+		Identity_Raw4 web_raw4 = 6;
+		Identity_Raw5 web_raw5 = 7;
+		Identity_Raw6 web_raw6 = 8;
+		Identity_Raw7 web_raw7 = 9;
+		Identity_Raw8 web_raw8 = 10;
+		Identity_Raw9 web_raw9 = 11;
+		Identity_Raw10 web_raw10 = 12;
+		Identity_Raw11 web_raw11 = 13;
+		Identity_Raw12 web_raw12 = 14;
+		Identity_Raw13 web_raw13 = 15;
+		Identity_Raw14 web_raw14 = 16;
+		Identity_Raw15 web_raw15 = 17;
+		Identity_Raw16 web_raw16 = 18;
+		Identity_Raw17 web_raw17 = 19;
+		Identity_Raw18 web_raw18 = 20;
+		Identity_Raw19 web_raw19 = 21;
+		Identity_Raw20 web_raw20 = 22;
+		Identity_Raw21 web_raw21 = 23;
+		Identity_Raw22 web_raw22 = 24;
+		Identity_Raw23 web_raw23 = 25;
+		Identity_Raw24 web_raw24 = 26;
+		Identity_Raw25 web_raw25 = 27;
+		Identity_Raw26 web_raw26 = 28;
+		Identity_Raw27 web_raw27 = 29;
+		Identity_Raw28 web_raw28 = 30;
+		Identity_Raw29 web_raw29 = 31;
+		Identity_Raw30 web_raw30 = 32;
+		Identity_Raw31 web_raw31 = 33;
+		Identity_Raw32 web_raw32 = 34;
+		Identity_BlakeTwo256 web_blake_two256 = 35;
+		Identity_Sha256 web_sha256 = 36;
+		Identity_Keccak256 web_keccak256 = 37;
+		Identity_ShaThree256 web_sha_three256 = 38;
+	}
+}
+message Identity_LowQuality {
+}
+message GearSchedulerPallet {
+}
+message Balances_TupleNull {
+	TupleNull value = 1;
+}
+message Vesting_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message GearPaymentPallet {
+}
+message FellowshipReferenda_Lookup {
+	PrimitiveTypesH256 hash = 1;
+	uint32 len = 2;
+}
+message Proxy_Spawner {
+	oneof spawner {
+		Proxy_Id spawner_id = 1;
+		Proxy_Index spawner_index = 2;
+		Proxy_Raw spawner_raw = 3;
+		Proxy_Address32 spawner_address32 = 4;
+		Proxy_Address20 spawner_address20 = 5;
+	}
+}
+message StakingRewards_From {
+	oneof from {
+		StakingRewards_Id from_id = 1;
+		StakingRewards_Index from_index = 2;
+		StakingRewards_Raw from_raw = 3;
+		StakingRewards_Address32 from_address32 = 4;
+		StakingRewards_Address20 from_address20 = 5;
+	}
+}
+message GearVoucher_DeclineCall {
+	GearVoucher_PalletGearVoucherInternalVoucherId voucher_id = 1;
+}
+message Referenda_System {
+	oneof value0 {
+		Root value0_root = 1;
+		Signed value0_signed = 2;
+		None value0_none = 3;
+	}
+}
+message Referenda_ProposalOrigin {
+	oneof proposal_origin {
+		Referenda_System proposal_origin_system = 1;
+		Referenda_Origins proposal_origin_origins = 2;
+		Referenda_Void proposal_origin_void = 3;
+	}
+}
+message NominationPools_MinJoinBond {
+	oneof min_join_bond {
+		NominationPools_Noop min_join_bond_noop = 1;
+		NominationPools_Set min_join_bond_set = 2;
+		NominationPools_Remove min_join_bond_remove = 3;
+	}
+}
+message Gear_SendReplyCall {
+	GprimitivesMessageId reply_to_id = 1;
+	bytes payload = 2;
+	uint64 gas_limit = 3;
+	string value = 4;
+	bool keep_alive = 5;
+}
+message SpConsensusBabeAppPublic {
+	SpCoreSr25519Public value0 = 1;
+}
+message Referenda_OneFewerDecidingCall {
+	uint32 track = 1;
+}
+message FellowshipReferenda_Origins {
+	oneof value0 {
+		StakingAdmin value0_staking_admin = 1;
+		Treasurer value0_treasurer = 2;
+		FellowshipAdmin value0_fellowship_admin = 3;
+		GeneralAdmin value0_general_admin = 4;
+		ReferendumCanceller value0_referendum_canceller = 5;
+		ReferendumKiller value0_referendum_killer = 6;
+		SmallTipper value0_small_tipper = 7;
+		BigTipper value0_big_tipper = 8;
+		SmallSpender value0_small_spender = 9;
+		MediumSpender value0_medium_spender = 10;
+		BigSpender value0_big_spender = 11;
+		WhitelistedCaller value0_whitelisted_caller = 12;
+		FellowshipInitiates value0_fellowship_initiates = 13;
+		Fellows value0_fellows = 14;
+		FellowshipExperts value0_fellowship_experts = 15;
+		FellowshipMasters value0_fellowship_masters = 16;
+		Fellowship1Dan value0_fellowship1_dan = 17;
+		Fellowship2Dan value0_fellowship2_dan = 18;
+		Fellowship3Dan value0_fellowship3_dan = 19;
+		Fellowship4Dan value0_fellowship4_dan = 20;
+		Fellowship5Dan value0_fellowship5_dan = 21;
+		Fellowship6Dan value0_fellowship6_dan = 22;
+		Fellowship7Dan value0_fellowship7_dan = 23;
+		Fellowship8Dan value0_fellowship8_dan = 24;
+		Fellowship9Dan value0_fellowship9_dan = 25;
+	}
+}
+message Gear_CreateProgramCall {
+	GprimitivesCodeId code_id = 1;
+	bytes salt = 2;
+	bytes init_payload = 3;
+	uint64 gas_limit = 4;
+	string value = 5;
+	bool keep_alive = 6;
+}
+message Grandpa_SpConsensusGrandpaAppPublic {
+	SpCoreEd25519Public value0 = 1;
+}
+message Grandpa_FinalityGrandpaPrecommit {
+	PrimitiveTypesH256 target_hash = 1;
+	uint32 target_number = 2;
+}
+message Treasury_Beneficiary {
+	oneof beneficiary {
+		Treasury_Id beneficiary_id = 1;
+		Treasury_Index beneficiary_index = 2;
+		Treasury_Raw beneficiary_raw = 3;
+		Treasury_Address32 beneficiary_address32 = 4;
+		Treasury_Address20 beneficiary_address20 = 5;
+	}
+}
+message Referenda_Void {
+	
+}
+message FellowshipReferenda_PlaceDecisionDepositCall {
+	uint32 index = 1;
+}
+message ConvictionVoting_Target {
+	oneof target {
+		ConvictionVoting_Id target_id = 1;
+		ConvictionVoting_Index target_index = 2;
+		ConvictionVoting_Raw target_raw = 3;
+		ConvictionVoting_Address32 target_address32 = 4;
+		ConvictionVoting_Address20 target_address20 = 5;
+	}
+}
+message Referenda_Proposal {
+	oneof proposal {
+		Referenda_Legacy proposal_legacy = 1;
+		Referenda_Inline proposal_inline = 2;
+		Referenda_Lookup proposal_lookup = 3;
+	}
+}
+message FellowshipReferenda_SubmitCall {
+	oneof proposal_origin {
+		FellowshipReferenda_System proposal_origin_system = 1;
+		FellowshipReferenda_Origins proposal_origin_origins = 2;
+		FellowshipReferenda_Void proposal_origin_void = 3;
+	}
+	oneof proposal {
+		FellowshipReferenda_Legacy proposal_legacy = 4;
+		FellowshipReferenda_Inline proposal_inline = 5;
+		FellowshipReferenda_Lookup proposal_lookup = 6;
+	}
+	oneof enactment_moment {
+		FellowshipReferenda_At enactment_moment_at = 7;
+		FellowshipReferenda_After enactment_moment_after = 8;
+	}
+}
+message Value0 {
+	oneof value0 {
+		Root value0_root = 1;
+		Signed value0_signed = 2;
+		None value0_none = 3;
+	}
+}
+message ConvictionVoting_DelegateCall {
+	uint32 class = 1;
+	oneof to {
+		ConvictionVoting_Id to_id = 2;
+		ConvictionVoting_Index to_index = 3;
+		ConvictionVoting_Raw to_raw = 4;
+		ConvictionVoting_Address32 to_address32 = 5;
+		ConvictionVoting_Address20 to_address20 = 6;
+	}
+	oneof conviction {
+		ConvictionVoting_None conviction_none = 7;
+		ConvictionVoting_Locked1X conviction_locked1x = 8;
+		ConvictionVoting_Locked2X conviction_locked2x = 9;
+		ConvictionVoting_Locked3X conviction_locked3x = 10;
+		ConvictionVoting_Locked4X conviction_locked4x = 11;
+		ConvictionVoting_Locked5X conviction_locked5x = 12;
+		ConvictionVoting_Locked6X conviction_locked6x = 13;
+	}
+	string balance = 14;
+}
+message FellowshipReferenda_CancelCall {
+	uint32 index = 1;
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes5Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message NominationPools_MemberAccount {
+	oneof member_account {
+		NominationPools_Id member_account_id = 1;
+		NominationPools_Index member_account_index = 2;
+		NominationPools_Raw member_account_raw = 3;
+		NominationPools_Address32 member_account_address32 = 4;
+		NominationPools_Address20 member_account_address20 = 5;
+	}
+}
+message System_KillStorageCall {
+	repeated System_SystemKeysList keys = 1;
+}
+message SpRuntimeGenericHeaderHeader {
+	PrimitiveTypesH256 parent_hash = 1;
+	uint32 number = 2;
+	PrimitiveTypesH256 state_root = 3;
+	PrimitiveTypesH256 extrinsics_root = 4;
+	SpRuntimeGenericDigestDigest digest = 5;
+}
+message Preimage_UnnotePreimageCall {
+	PrimitiveTypesH256 hash = 1;
+}
+message Identity_RemoveSubCall {
+	oneof sub {
+		Identity_Id sub_id = 1;
+		Identity_Index sub_index = 2;
+		Identity_Raw sub_raw = 3;
+		Identity_Address32 sub_address32 = 4;
+		Identity_Address20 sub_address20 = 5;
+	}
+}
+message Bounties_ProposeBountyCall {
+	string value = 1;
+	bytes description = 2;
+}
+message GearMessengerPallet {
+}
+message Gear_UploadProgramCall {
+	bytes code = 1;
+	bytes salt = 2;
+	bytes init_payload = 3;
+	uint64 gas_limit = 4;
+	string value = 5;
+	bool keep_alive = 6;
+}
+message GearBankPallet {
+}
+message GrandpaPallet {
+	oneof call {
+		Grandpa_ReportEquivocationCall call_report_equivocation_call = 1;
+		Grandpa_ReportEquivocationUnsignedCall call_report_equivocation_unsigned_call = 2;
+		Grandpa_NoteStalledCall call_note_stalled_call = 3;
+	}
+}
+message UtilityPallet {
+	oneof call {
+		Utility_BatchCall call_batch_call = 1;
+		Utility_AsDerivativeCall call_as_derivative_call = 2;
+		Utility_BatchAllCall call_batch_all_call = 3;
+		Utility_DispatchAsCall call_dispatch_as_call = 4;
+		Utility_ForceBatchCall call_force_batch_call = 5;
+		Utility_WithWeightCall call_with_weight_call = 6;
+	}
+}
+message Utility_WithWeightCall {
+	oneof call {
+		SystemPallet call_system = 1;
+		TimestampPallet call_timestamp = 2;
+		BabePallet call_babe = 3;
+		GrandpaPallet call_grandpa = 4;
+		BalancesPallet call_balances = 5;
+		VestingPallet call_vesting = 6;
+		BagsListPallet call_bags_list = 7;
+		ImOnlinePallet call_im_online = 8;
+		StakingPallet call_staking = 9;
+		SessionPallet call_session = 10;
+		TreasuryPallet call_treasury = 11;
+		UtilityPallet call_utility = 12;
+		ConvictionVotingPallet call_conviction_voting = 13;
+		ReferendaPallet call_referenda = 14;
+		FellowshipCollectivePallet call_fellowship_collective = 15;
+		FellowshipReferendaPallet call_fellowship_referenda = 16;
+		WhitelistPallet call_whitelist = 17;
+		SchedulerPallet call_scheduler = 18;
+		PreimagePallet call_preimage = 19;
+		IdentityPallet call_identity = 20;
+		ProxyPallet call_proxy = 21;
+		MultisigPallet call_multisig = 22;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 23;
+		BountiesPallet call_bounties = 24;
+		ChildBountiesPallet call_child_bounties = 25;
+		NominationPoolsPallet call_nomination_pools = 26;
+		GearPallet call_gear = 27;
+		StakingRewardsPallet call_staking_rewards = 28;
+		GearVoucherPallet call_gear_voucher = 29;
+	}
+	SpWeightsWeightV2Weight weight = 30;
+}
+message FellowshipReferenda_System {
+	oneof value0 {
+		Root value0_root = 1;
+		Signed value0_signed = 2;
+		None value0_none = 3;
+	}
+}
+message NominationPools_BondExtraOtherCall {
+	oneof member {
+		NominationPools_Id member_id = 1;
+		NominationPools_Index member_index = 2;
+		NominationPools_Raw member_raw = 3;
+		NominationPools_Address32 member_address32 = 4;
+		NominationPools_Address20 member_address20 = 5;
+	}
+	oneof extra {
+		NominationPools_FreeBalance extra_free_balance = 6;
+		NominationPools_Rewards extra_rewards = 7;
+	}
+}
+message GearGasPallet {
+}
+message Grandpa_Precommit {
+	Grandpa_FinalityGrandpaEquivocation value0 = 1;
+}
+message Utility_System {
+	oneof value0 {
+		Root value0_root = 1;
+		Signed value0_signed = 2;
+		None value0_none = 3;
+	}
+}
+message Staking_SetMinCommissionCall {
+	SpArithmeticPerThingsPerbill new = 1;
+}
+message FellowshipReferenda_At {
+	uint32 value0 = 1;
+}
+message Preimage_UnrequestPreimageCall {
+	PrimitiveTypesH256 hash = 1;
+}
+message Identity_Reasonable {
+}
+message Proxy_AddProxyCall {
+	oneof delegate {
+		Proxy_Id delegate_id = 1;
+		Proxy_Index delegate_index = 2;
+		Proxy_Raw delegate_raw = 3;
+		Proxy_Address32 delegate_address32 = 4;
+		Proxy_Address20 delegate_address20 = 5;
+	}
+	oneof proxy_type {
+		Proxy_Any proxy_type_any = 6;
+		Proxy_NonTransfer proxy_type_non_transfer = 7;
+		Proxy_Governance proxy_type_governance = 8;
+		Proxy_Staking proxy_type_staking = 9;
+		Proxy_IdentityJudgement proxy_type_identity_judgement = 10;
+		Proxy_CancelProxy proxy_type_cancel_proxy = 11;
+	}
+	uint32 delay = 12;
+}
+message System_RemarkCall {
+	bytes remark = 1;
+}
+message Staking_SetInvulnerablesCall {
+	repeated SpCoreCryptoAccountId32 invulnerables = 1;
+}
+message NominationPools_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message NominationPools_Bouncer {
+	oneof bouncer {
+		NominationPools_Id bouncer_id = 1;
+		NominationPools_Index bouncer_index = 2;
+		NominationPools_Raw bouncer_raw = 3;
+		NominationPools_Address32 bouncer_address32 = 4;
+		NominationPools_Address20 bouncer_address20 = 5;
+	}
+}
+message ReferendumKiller {
+}
+message Whitelist_DispatchWhitelistedCallWithPreimageCall {
+	oneof call {
+		SystemPallet call_system = 1;
+		TimestampPallet call_timestamp = 2;
+		BabePallet call_babe = 3;
+		GrandpaPallet call_grandpa = 4;
+		BalancesPallet call_balances = 5;
+		VestingPallet call_vesting = 6;
+		BagsListPallet call_bags_list = 7;
+		ImOnlinePallet call_im_online = 8;
+		StakingPallet call_staking = 9;
+		SessionPallet call_session = 10;
+		TreasuryPallet call_treasury = 11;
+		UtilityPallet call_utility = 12;
+		ConvictionVotingPallet call_conviction_voting = 13;
+		ReferendaPallet call_referenda = 14;
+		FellowshipCollectivePallet call_fellowship_collective = 15;
+		FellowshipReferendaPallet call_fellowship_referenda = 16;
+		WhitelistPallet call_whitelist = 17;
+		SchedulerPallet call_scheduler = 18;
+		PreimagePallet call_preimage = 19;
+		IdentityPallet call_identity = 20;
+		ProxyPallet call_proxy = 21;
+		MultisigPallet call_multisig = 22;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 23;
+		BountiesPallet call_bounties = 24;
+		ChildBountiesPallet call_child_bounties = 25;
+		NominationPoolsPallet call_nomination_pools = 26;
+		GearPallet call_gear = 27;
+		StakingRewardsPallet call_staking_rewards = 28;
+		GearVoucherPallet call_gear_voucher = 29;
+	}
+}
+message FellowshipCollectivePallet {
+	oneof call {
+		FellowshipCollective_AddMemberCall call_add_member_call = 1;
+		FellowshipCollective_PromoteMemberCall call_promote_member_call = 2;
+		FellowshipCollective_DemoteMemberCall call_demote_member_call = 3;
+		FellowshipCollective_RemoveMemberCall call_remove_member_call = 4;
+		FellowshipCollective_VoteCall call_vote_call = 5;
+		FellowshipCollective_CleanupPollCall call_cleanup_poll_call = 6;
+	}
+}
+message Vesting_ForceVestedTransferCall {
+	oneof source {
+		Vesting_Id source_id = 1;
+		Vesting_Index source_index = 2;
+		Vesting_Raw source_raw = 3;
+		Vesting_Address32 source_address32 = 4;
+		Vesting_Address20 source_address20 = 5;
+	}
+	oneof target {
+		Vesting_Id target_id = 6;
+		Vesting_Index target_index = 7;
+		Vesting_Raw target_raw = 8;
+		Vesting_Address32 target_address32 = 9;
+		Vesting_Address20 target_address20 = 10;
+	}
+	Vesting_PalletVestingVestingInfoVestingInfo schedule = 11;
+}
+message SmallSpender {
+}
+message Identity_Raw30 {
+	bytes value0 = 1;
+}
+message Identity_ProvideJudgementCall {
+	uint32 reg_index = 1;
+	oneof target {
+		Identity_Id target_id = 2;
+		Identity_Index target_index = 3;
+		Identity_Raw target_raw = 4;
+		Identity_Address32 target_address32 = 5;
+		Identity_Address20 target_address20 = 6;
+	}
+	oneof judgement {
+		Identity_Unknown judgement_unknown = 7;
+		Identity_FeePaid judgement_fee_paid = 8;
+		Identity_Reasonable judgement_reasonable = 9;
+		Identity_KnownGood judgement_known_good = 10;
+		Identity_OutOfDate judgement_out_of_date = 11;
+		Identity_LowQuality judgement_low_quality = 12;
+		Identity_Erroneous judgement_erroneous = 13;
+	}
+	PrimitiveTypesH256 identity = 14;
+}
+message Multisig_CancelAsMultiCall {
+	uint32 threshold = 1;
+	repeated SpCoreCryptoAccountId32 other_signatories = 2;
+	Multisig_PalletMultisigTimepoint timepoint = 3;
+	bytes call_hash = 4;
+}
+message NominationPools_UpdateRolesCall {
+	uint32 pool_id = 1;
+	oneof new_root {
+		NominationPools_Noop new_root_noop = 2;
+		NominationPools_Set new_root_set = 3;
+		NominationPools_Remove new_root_remove = 4;
+	}
+	oneof new_nominator {
+		NominationPools_Noop new_nominator_noop = 5;
+		NominationPools_Set new_nominator_set = 6;
+		NominationPools_Remove new_nominator_remove = 7;
+	}
+	oneof new_bouncer {
+		NominationPools_Noop new_bouncer_noop = 8;
+		NominationPools_Set new_bouncer_set = 9;
+		NominationPools_Remove new_bouncer_remove = 10;
+	}
+}
+message System_SetCodeWithoutChecksCall {
+	bytes code = 1;
+}
+message Vesting_Address32 {
+	bytes value0 = 1;
+}
+message Staking_MinValidatorBond {
+	oneof min_validator_bond {
+		Staking_Noop min_validator_bond_noop = 1;
+		Staking_Set min_validator_bond_set = 2;
+		Staking_Remove min_validator_bond_remove = 3;
+	}
+}
+message Treasury_Id {
+	SpCoreCryptoAccountId32 value0 = 1;
+}
+message ConvictionVoting_Locked2X {
+}
+message StakingRewards_Address20 {
+	bytes value0 = 1;
+}
+message SpArithmeticPerThingsPerbill {
+	uint32 value0 = 1;
+}
+message Staking_ReapStashCall {
+	SpCoreCryptoAccountId32 stash = 1;
+	uint32 num_slashing_spans = 2;
+}
+message FellowshipCollective_Raw {
+	bytes value0 = 1;
+}
+message ElectionProviderMultiPhase_SetEmergencyElectionResultCall {
+	repeated ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport supports = 1;
+}
+message SystemPallet {
+	oneof call {
+		System_RemarkCall call_remark_call = 1;
+		System_SetHeapPagesCall call_set_heap_pages_call = 2;
+		System_SetCodeCall call_set_code_call = 3;
+		System_SetCodeWithoutChecksCall call_set_code_without_checks_call = 4;
+		System_SetStorageCall call_set_storage_call = 5;
+		System_KillStorageCall call_kill_storage_call = 6;
+		System_KillPrefixCall call_kill_prefix_call = 7;
+		System_RemarkWithEventCall call_remark_with_event_call = 8;
+	}
+}
+message Babe_Config {
+	oneof config {
+		Babe_V1 config_v1 = 1;
+	}
+}
+message Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData {
+	oneof value0 {
+		Identity_None value0_none = 1;
+		Identity_Raw0 value0_raw0 = 2;
+		Identity_Raw1 value0_raw1 = 3;
+		Identity_Raw2 value0_raw2 = 4;
+		Identity_Raw3 value0_raw3 = 5;
+		Identity_Raw4 value0_raw4 = 6;
+		Identity_Raw5 value0_raw5 = 7;
+		Identity_Raw6 value0_raw6 = 8;
+		Identity_Raw7 value0_raw7 = 9;
+		Identity_Raw8 value0_raw8 = 10;
+		Identity_Raw9 value0_raw9 = 11;
+		Identity_Raw10 value0_raw10 = 12;
+		Identity_Raw11 value0_raw11 = 13;
+		Identity_Raw12 value0_raw12 = 14;
+		Identity_Raw13 value0_raw13 = 15;
+		Identity_Raw14 value0_raw14 = 16;
+		Identity_Raw15 value0_raw15 = 17;
+		Identity_Raw16 value0_raw16 = 18;
+		Identity_Raw17 value0_raw17 = 19;
+		Identity_Raw18 value0_raw18 = 20;
+		Identity_Raw19 value0_raw19 = 21;
+		Identity_Raw20 value0_raw20 = 22;
+		Identity_Raw21 value0_raw21 = 23;
+		Identity_Raw22 value0_raw22 = 24;
+		Identity_Raw23 value0_raw23 = 25;
+		Identity_Raw24 value0_raw24 = 26;
+		Identity_Raw25 value0_raw25 = 27;
+		Identity_Raw26 value0_raw26 = 28;
+		Identity_Raw27 value0_raw27 = 29;
+		Identity_Raw28 value0_raw28 = 30;
+		Identity_Raw29 value0_raw29 = 31;
+		Identity_Raw30 value0_raw30 = 32;
+		Identity_Raw31 value0_raw31 = 33;
+		Identity_Raw32 value0_raw32 = 34;
+		Identity_BlakeTwo256 value0_blake_two256 = 35;
+		Identity_Sha256 value0_sha256 = 36;
+		Identity_Keccak256 value0_keccak256 = 37;
+		Identity_ShaThree256 value0_sha_three256 = 38;
+	}
+	oneof value1 {
+		Identity_None value1_none = 39;
+		Identity_Raw0 value1_raw0 = 40;
+		Identity_Raw1 value1_raw1 = 41;
+		Identity_Raw2 value1_raw2 = 42;
+		Identity_Raw3 value1_raw3 = 43;
+		Identity_Raw4 value1_raw4 = 44;
+		Identity_Raw5 value1_raw5 = 45;
+		Identity_Raw6 value1_raw6 = 46;
+		Identity_Raw7 value1_raw7 = 47;
+		Identity_Raw8 value1_raw8 = 48;
+		Identity_Raw9 value1_raw9 = 49;
+		Identity_Raw10 value1_raw10 = 50;
+		Identity_Raw11 value1_raw11 = 51;
+		Identity_Raw12 value1_raw12 = 52;
+		Identity_Raw13 value1_raw13 = 53;
+		Identity_Raw14 value1_raw14 = 54;
+		Identity_Raw15 value1_raw15 = 55;
+		Identity_Raw16 value1_raw16 = 56;
+		Identity_Raw17 value1_raw17 = 57;
+		Identity_Raw18 value1_raw18 = 58;
+		Identity_Raw19 value1_raw19 = 59;
+		Identity_Raw20 value1_raw20 = 60;
+		Identity_Raw21 value1_raw21 = 61;
+		Identity_Raw22 value1_raw22 = 62;
+		Identity_Raw23 value1_raw23 = 63;
+		Identity_Raw24 value1_raw24 = 64;
+		Identity_Raw25 value1_raw25 = 65;
+		Identity_Raw26 value1_raw26 = 66;
+		Identity_Raw27 value1_raw27 = 67;
+		Identity_Raw28 value1_raw28 = 68;
+		Identity_Raw29 value1_raw29 = 69;
+		Identity_Raw30 value1_raw30 = 70;
+		Identity_Raw31 value1_raw31 = 71;
+		Identity_Raw32 value1_raw32 = 72;
+		Identity_BlakeTwo256 value1_blake_two256 = 73;
+		Identity_Sha256 value1_sha256 = 74;
+		Identity_Keccak256 value1_keccak256 = 75;
+		Identity_ShaThree256 value1_sha_three256 = 76;
+	}
+}
+message Proxy_IdentityJudgement {
+}
+message AuthorshipPallet {
+}
+message Vesting_VestCall {
+}
+message FellowshipMasters {
+}
+message FellowshipCollective_DemoteMemberCall {
+	oneof who {
+		FellowshipCollective_Id who_id = 1;
+		FellowshipCollective_Index who_index = 2;
+		FellowshipCollective_Raw who_raw = 3;
+		FellowshipCollective_Address32 who_address32 = 4;
+		FellowshipCollective_Address20 who_address20 = 5;
+	}
+}
+message Identity_Raw17 {
+	bytes value0 = 1;
+}
+message Identity_Display {
+	oneof display {
+		Identity_None display_none = 1;
+		Identity_Raw0 display_raw0 = 2;
+		Identity_Raw1 display_raw1 = 3;
+		Identity_Raw2 display_raw2 = 4;
+		Identity_Raw3 display_raw3 = 5;
+		Identity_Raw4 display_raw4 = 6;
+		Identity_Raw5 display_raw5 = 7;
+		Identity_Raw6 display_raw6 = 8;
+		Identity_Raw7 display_raw7 = 9;
+		Identity_Raw8 display_raw8 = 10;
+		Identity_Raw9 display_raw9 = 11;
+		Identity_Raw10 display_raw10 = 12;
+		Identity_Raw11 display_raw11 = 13;
+		Identity_Raw12 display_raw12 = 14;
+		Identity_Raw13 display_raw13 = 15;
+		Identity_Raw14 display_raw14 = 16;
+		Identity_Raw15 display_raw15 = 17;
+		Identity_Raw16 display_raw16 = 18;
+		Identity_Raw17 display_raw17 = 19;
+		Identity_Raw18 display_raw18 = 20;
+		Identity_Raw19 display_raw19 = 21;
+		Identity_Raw20 display_raw20 = 22;
+		Identity_Raw21 display_raw21 = 23;
+		Identity_Raw22 display_raw22 = 24;
+		Identity_Raw23 display_raw23 = 25;
+		Identity_Raw24 display_raw24 = 26;
+		Identity_Raw25 display_raw25 = 27;
+		Identity_Raw26 display_raw26 = 28;
+		Identity_Raw27 display_raw27 = 29;
+		Identity_Raw28 display_raw28 = 30;
+		Identity_Raw29 display_raw29 = 31;
+		Identity_Raw30 display_raw30 = 32;
+		Identity_Raw31 display_raw31 = 33;
+		Identity_Raw32 display_raw32 = 34;
+		Identity_BlakeTwo256 display_blake_two256 = 35;
+		Identity_Sha256 display_sha256 = 36;
+		Identity_Keccak256 display_keccak256 = 37;
+		Identity_ShaThree256 display_sha_three256 = 38;
+	}
+}
+message Proxy_ProxyCall {
+	oneof real {
+		Proxy_Id real_id = 1;
+		Proxy_Index real_index = 2;
+		Proxy_Raw real_raw = 3;
+		Proxy_Address32 real_address32 = 4;
+		Proxy_Address20 real_address20 = 5;
+	}
+	oneof force_proxy_type {
+		Proxy_Any force_proxy_type_any = 6;
+		Proxy_NonTransfer force_proxy_type_non_transfer = 7;
+		Proxy_Governance force_proxy_type_governance = 8;
+		Proxy_Staking force_proxy_type_staking = 9;
+		Proxy_IdentityJudgement force_proxy_type_identity_judgement = 10;
+		Proxy_CancelProxy force_proxy_type_cancel_proxy = 11;
+	}
+	oneof call {
+		SystemPallet call_system = 12;
+		TimestampPallet call_timestamp = 13;
+		BabePallet call_babe = 14;
+		GrandpaPallet call_grandpa = 15;
+		BalancesPallet call_balances = 16;
+		VestingPallet call_vesting = 17;
+		BagsListPallet call_bags_list = 18;
+		ImOnlinePallet call_im_online = 19;
+		StakingPallet call_staking = 20;
+		SessionPallet call_session = 21;
+		TreasuryPallet call_treasury = 22;
+		UtilityPallet call_utility = 23;
+		ConvictionVotingPallet call_conviction_voting = 24;
+		ReferendaPallet call_referenda = 25;
+		FellowshipCollectivePallet call_fellowship_collective = 26;
+		FellowshipReferendaPallet call_fellowship_referenda = 27;
+		WhitelistPallet call_whitelist = 28;
+		SchedulerPallet call_scheduler = 29;
+		PreimagePallet call_preimage = 30;
+		IdentityPallet call_identity = 31;
+		ProxyPallet call_proxy = 32;
+		MultisigPallet call_multisig = 33;
+		ElectionProviderMultiPhasePallet call_election_provider_multi_phase = 34;
+		BountiesPallet call_bounties = 35;
+		ChildBountiesPallet call_child_bounties = 36;
+		NominationPoolsPallet call_nomination_pools = 37;
+		GearPallet call_gear = 38;
+		StakingRewardsPallet call_staking_rewards = 39;
+		GearVoucherPallet call_gear_voucher = 40;
+	}
+}
+message ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes13Listuint32 {
+	uint32 value0 = 1;
+	repeated ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16 value1 = 2;
+	uint32 value2 = 3;
+}
+message Vesting_Address20 {
+	bytes value0 = 1;
+}
+message Staking_Payee {
+	oneof payee {
+		Staking_Staked payee_staked = 1;
+		Staking_Stash payee_stash = 2;
+		Staking_Controller payee_controller = 3;
+		Staking_Account payee_account = 4;
+		Staking_None payee_none = 5;
+	}
+}
+message Identity_Raw11 {
+	bytes value0 = 1;
+}
+message Identity_Raw12 {
+	bytes value0 = 1;
+}
+message Balances_Dest {
+	oneof dest {
+		Balances_Id dest_id = 1;
+		Balances_Index dest_index = 2;
+		Balances_Raw dest_raw = 3;
+		Balances_Address32 dest_address32 = 4;
+		Balances_Address20 dest_address20 = 5;
+	}
+}
+message ConvictionVoting_Vote {
+	oneof vote {
+		ConvictionVoting_Standard vote_standard = 1;
+		ConvictionVoting_Split vote_split = 2;
+		ConvictionVoting_SplitAbstain vote_split_abstain = 3;
+	}
+}
