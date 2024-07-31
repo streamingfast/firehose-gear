@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"sort"
 	"strings"
 
@@ -24,7 +25,7 @@ func NewToolsGenerateExtrinsicProto(logger *zap.Logger, tracer logging.Tracer) *
 	}
 
 	cmd.Flags().String("blockhash", "", "Blockhash, prefixed by 0x, to fetch metadata from, leave empty for latest")
-	cmd.Flags().String("output", "proto/sf/gear/extrinsic/type/v1/extrinsic.proto", "Output extrinsic file location")
+	cmd.Flags().String("output", "extrinsic.proto", "Extrinsic proto file name")
 
 	return cmd
 }
@@ -43,7 +44,7 @@ func generateDecodedBlockE(logger *zap.Logger, tracer logging.Tracer) firecore.C
 			blockhash = "0x" + blockhash
 		}
 
-		logger.Info("generating decoded block", zap.String("endpoint", endpoint), zap.String("blockhash", blockhash), zap.String("output_path", outputPath))
+		logger.Info("generating extrinsic proto", zap.String("endpoint", endpoint), zap.String("blockhash", blockhash), zap.String("output_path", outputPath))
 
 		gearClients := firecoreRPC.NewClients[*rpc.Client]()
 		gearClient, err := rpc.NewClient(endpoint)
@@ -51,8 +52,8 @@ func generateDecodedBlockE(logger *zap.Logger, tracer logging.Tracer) firecore.C
 			return fmt.Errorf("error creating gear client: %w", err)
 		}
 		gearClients.Add(gearClient)
-
 		metadataConverter := rpc.NewMetadataConverter(gearClients, logger, tracer)
+
 		err = metadataConverter.Convert(blockhash)
 		if err != nil {
 			return fmt.Errorf("converting metadata: %w", err)
@@ -68,15 +69,17 @@ func generateDecodedBlockE(logger *zap.Logger, tracer logging.Tracer) firecore.C
 		dbg := generator.NewDecodedBlockGenerator("templates/extrinsic.proto.gotmpl", messages)
 		content, err := dbg.Generate()
 		if err != nil {
-			return fmt.Errorf("generating decoded block: %w", err)
+			return fmt.Errorf("generating extrinsic proto: %w", err)
 		}
 
-		err = os.MkdirAll("proto/sf/gear/extrinsic/type/v1", os.ModePerm)
+		directoryPath := "proto/sf/gear/extrinsic/type/v1"
+
+		err = os.MkdirAll(directoryPath, os.ModePerm)
 		if err != nil {
 			return fmt.Errorf("failed to create directory: %w", err)
 		}
 
-		err = os.WriteFile(outputPath, content, 0644)
+		err = os.WriteFile(filepath.Join(directoryPath, outputPath), content, 0644)
 		if err != nil {
 			return fmt.Errorf("failed to write file: %w", err)
 		}

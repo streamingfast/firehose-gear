@@ -30,7 +30,7 @@ func Test_DecodeBlockExtrinsics(t *testing.T) {
 	gearClients.Add(gearClient)
 
 	rpcFetcher := NewFetcher(gearClients, fetchInterval, latestBlockRetryInterval, logger)
-	b, _, err := rpcFetcher.Fetch(context.Background(), 14090409)
+	b, _, err := rpcFetcher.Fetch(context.Background(), 14090501)
 	require.NoError(t, err)
 
 	pbGearBlock := &pbgear.Block{}

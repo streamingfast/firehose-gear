@@ -3,7 +3,6 @@ package sf.gear.extrinsic.type.v1;
 
 option go_package = "github.com/streamingfast/firehose-gear/pb/sf/gear/extrinsic/type/v1;pbgearextrinsic";
 import "sf/gear/metadata/type/v1/output.proto";
-
 message RuntimeCall {
   oneof call {
     sf.gear.metadata.type.v1.Babe_PlanConfigChangeCall babe_plan_config_change_call = 1;
