@@ -16,15 +16,15 @@ import (
 	"go.uber.org/zap"
 )
 
-func NewToolsGenerateDecodedBlock(logger *zap.Logger, tracer logging.Tracer) *cobra.Command {
+func NewToolsGenerateExtrinsicProto(logger *zap.Logger, tracer logging.Tracer) *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "block-proto <endpoint>",
-		Short: "Fetch the latest metadata from a block and generate the decoded block proto",
+		Use:   "extrinsic-proto <endpoint>",
+		Short: "Fetch the latest metadata from a block and generate the extrinsic proto",
 		RunE:  generateDecodedBlockE(logger, tracer),
 	}
 
 	cmd.Flags().String("blockhash", "", "Blockhash, prefixed by 0x, to fetch metadata from, leave empty for latest")
-	cmd.Flags().String("output", "proto/sf/gear/decoded/type/v1/block.proto", "Output decoded block file location")
+	cmd.Flags().String("output", "proto/sf/gear/extrinsic/type/v1/extrinsic.proto", "Output extrinsic file location")
 
 	return cmd
 }
@@ -65,10 +65,15 @@ func generateDecodedBlockE(logger *zap.Logger, tracer logging.Tracer) firecore.C
 			return messages[i].FullTypeName() < messages[j].FullTypeName()
 		})
 
-		dbg := generator.NewDecodedBlockGenerator("templates/decoded_block.proto.gotmpl", messages)
+		dbg := generator.NewDecodedBlockGenerator("templates/extrinsic.proto.gotmpl", messages)
 		content, err := dbg.Generate()
 		if err != nil {
 			return fmt.Errorf("generating decoded block: %w", err)
+		}
+
+		err = os.MkdirAll("proto/sf/gear/extrinsic/type/v1", os.ModePerm)
+		if err != nil {
+			return fmt.Errorf("failed to create directory: %w", err)
 		}
 
 		err = os.WriteFile(outputPath, content, 0644)

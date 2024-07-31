@@ -43,8 +43,13 @@ type Message struct {
 	Name     string
 	Fields   []Field
 	LookupID int64
-	IsPallet bool
+	IsCall   bool
 	IsEvent  bool
+}
+
+func (m *Message) WrapTypeName() string {
+	pallet := strings.Title(strings.ToLower(m.Pallet))
+	return pallet + utils.ToPascalCase(m.Name, utils.UnderscoreBetweenLetterAndNum)
 }
 
 func (m *Message) GetName() string {
@@ -80,7 +85,10 @@ func (m *Message) ProtoMessageName() string {
 }
 
 func (m *Message) ProtoMessageTypeName() string {
-	return utils.ToPascalCase(m.Name)
+	if m.Pallet == "" {
+		panic("expecting pallet name")
+	}
+	return m.Pallet + "_" + utils.ToPascalCase(m.Name)
 }
 
 func (m *Message) ProtoMessageFieldName() string {

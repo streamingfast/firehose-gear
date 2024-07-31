@@ -6,17 +6,21 @@ import (
 	"encoding/hex"
 	"fmt"
 	"math/big"
+	"reflect"
 	"strings"
 	"time"
 
 	cclient "github.com/centrifuge/go-substrate-rpc-client/v4/client"
+	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/parser"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types/codec"
+	"github.com/gobeam/stringy"
 	pbbstream "github.com/streamingfast/bstream/pb/sf/bstream/v1"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
 	pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/type/v1"
+	gen_types "github.com/streamingfast/firehose-gear/templates"
 	"go.uber.org/zap"
 	"google.golang.org/protobuf/types/known/anypb"
 	"google.golang.org/protobuf/types/known/timestamppb"
@@ -46,6 +50,7 @@ type Fetcher struct {
 
 	latestBlockNum uint64
 	metadata       *types.Metadata
+	callRegistry   registry.CallRegistry
 
 	lastBlockInfo *LastBlockInfo
 }
@@ -96,7 +101,7 @@ func (f *Fetcher) Fetch(ctx context.Context, requestBlockNum uint64) (b *pbbstre
 	}
 
 	f.logger.Info("converting block", zap.Uint64("block_num", requestBlockNum), zap.Uint32("spec_version", f.lastBlockInfo.specVersion))
-	bstreamBlock, err := convertBlock(blockData, f.lastBlockInfo.specVersion)
+	bstreamBlock, err := f.convertBlock(blockData, f.lastBlockInfo.specVersion)
 	if err != nil {
 		f.logger.Warn("converting block", zap.Uint64("block_num", requestBlockNum), zap.Error(err))
 		return nil, false, fmt.Errorf("converting block %d from rpc response: %w", requestBlockNum, err)
@@ -142,7 +147,7 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 		requestedBlockSpecVersion := uint32(runtimeVersion.SpecVersion)
 
 		if f.metadata == nil { // bootstraping
-			_, err := f.setMetadata(blockHash, client, requestedBlockSpecVersion, requestedBlockNum)
+			_, err := f.setMetadataAndCallRegistry(blockHash, client, requestedBlockSpecVersion, requestedBlockNum)
 			if err != nil {
 				return nil, fmt.Errorf("failed to update metadata: %w", err)
 			}
@@ -176,7 +181,7 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 		}
 
 		if shouldUpdateMetadata(requestedBlockSpecVersion, parentSpecVersion, isForward(f.lastBlockInfo.blockNum, requestedBlockNum)) {
-			b, err := f.setMetadata(blockHash, client, requestedBlockSpecVersion, requestedBlockNum)
+			b, err := f.setMetadataAndCallRegistry(blockHash, client, requestedBlockSpecVersion, requestedBlockNum)
 			if err != nil {
 				return nil, fmt.Errorf("failed to update metadata: %w", err)
 			}
@@ -202,7 +207,7 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 	})
 }
 
-func (f *Fetcher) setMetadata(blockHash types.Hash, client *Client, requestedBlockSpecVersion uint32, requestedBlockNum uint64) ([]byte, error) {
+func (f *Fetcher) setMetadataAndCallRegistry(blockHash types.Hash, client *Client, requestedBlockSpecVersion uint32, requestedBlockNum uint64) ([]byte, error) {
 	var metadataHex string
 	err := cclient.CallWithBlockHash(client.client.Client, &metadataHex, "state_getMetadata", &blockHash)
 	if err != nil {
@@ -217,6 +222,14 @@ func (f *Fetcher) setMetadata(blockHash types.Hash, client *Client, requestedBlo
 
 	f.logger.Info("metadata fetched", zap.Uint32("spec_version", requestedBlockSpecVersion), zap.Uint64("block_num", requestedBlockNum))
 	f.metadata = metadata
+
+	factory := registry.NewFactory()
+	callRegistry, err := factory.CreateCallRegistry(f.metadata)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create call registry: %w", err)
+	}
+
+	f.callRegistry = callRegistry
 
 	b, err := hex.DecodeString(strings.TrimPrefix(metadataHex, "0x"))
 	if err != nil {
@@ -256,7 +269,7 @@ func (f *Fetcher) fetchLatestBlockNum(_ context.Context) (uint64, error) {
 	})
 }
 
-func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block, error) {
+func (f *Fetcher) convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block, error) {
 	convertedEvents, err := convertEvents(data.events)
 	if err != nil {
 		return nil, fmt.Errorf("failed to convert events: %w", err)
@@ -286,6 +299,14 @@ func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block,
 			return nil, fmt.Errorf("unable to decode timestamp: %w", err)
 		}
 	}
+
+	decodedExtrinsics, err := extrinsicsToProto(f.callRegistry, block.Extrinsics)
+	if err != nil {
+		return nil, fmt.Errorf("failed to decode extrinsics: %w", err)
+	}
+
+	fmt.Println("doudou: decodedExtrinsics", len(decodedExtrinsics))
+	block.DecodedExtrinsics = decodedExtrinsics
 
 	anyBlock, err := anypb.New(block)
 	if err != nil {
@@ -531,4 +552,113 @@ func convertTopics(hashes []types.Hash) [][]byte {
 		topics = append(topics, hash[:])
 	}
 	return topics
+}
+
+func decodeCallExtrinsics(callRegistry registry.CallRegistry, extrinsic *pbgear.Extrinsic) (string, registry.DecodedFields, error) {
+	callIndex := extrinsic.Method.CallIndex
+	args := extrinsic.Method.Args
+
+	callDecoder, ok := callRegistry[convertCallIndex(callIndex)]
+	if !ok {
+		return "", nil, fmt.Errorf("failed to get call decoder")
+	}
+
+	decoder := scale.NewDecoder(bytes.NewReader(args))
+
+	callFields, err := callDecoder.Decode(decoder)
+	if err != nil {
+		return "", nil, fmt.Errorf("failed to decode call: %w", err)
+	}
+
+	return callDecoder.Name, callFields, nil
+}
+
+func convertCallIndex(ci *pbgear.CallIndex) types.CallIndex {
+	return types.CallIndex{
+		SectionIndex: uint8(ci.SectionIndex),
+		MethodIndex:  uint8(ci.MethodIndex),
+	}
+}
+
+func extrinsicsToProto(callRegistry registry.CallRegistry, extrinsics []*pbgear.Extrinsic) ([]*pbgear.DecodedExtrinsic, error) {
+	var decodedExtrinsics []*pbgear.DecodedExtrinsic
+	for _, extrinsic := range extrinsics {
+		callName, decodedFields, err := decodeCallExtrinsics(callRegistry, extrinsic)
+		if err != nil {
+			return nil, fmt.Errorf("failed to decode extrinsic: %w", err)
+		}
+
+		parts := strings.Split(callName, ".")
+		pallet := parts[0]
+		call := parts[1]
+		call = stringy.New(call).PascalCase().Get()
+		structName := pallet + "_" + call + "Call"
+		funcName := "To_" + structName
+
+		if fn, found := gen_types.FuncMap[funcName]; found {
+			o := fn.Call([]reflect.Value{reflect.ValueOf(decodedFields)})
+
+			decodedExtrinsic := &pbgear.DecodedExtrinsic{}
+
+			reflect.ValueOf(decodedExtrinsic).Elem().FieldByName("Call").Set(o[0])
+			decodedExtrinsics = append(decodedExtrinsics, decodedExtrinsic)
+		}
+	}
+	return decodedExtrinsics, nil
+}
+
+func decodeEvents(eventRegistry registry.EventRegistry, storageEvents []byte) ([]*parser.Event, error) {
+	decoder := scale.NewDecoder(bytes.NewReader(storageEvents))
+
+	eventsCount, err := decoder.DecodeUintCompact()
+	if err != nil {
+		return nil, fmt.Errorf("failed to decode events count: %w", err)
+	}
+
+	var events []*parser.Event
+
+	for i := uint64(0); i < eventsCount.Uint64(); i++ {
+		var phase types.Phase
+
+		err := decoder.Decode(&phase)
+		if err != nil {
+			return nil, fmt.Errorf("failed to decode phase: %w", err)
+		}
+
+		var eventID types.EventID
+
+		err = decoder.Decode(&eventID)
+		if err != nil {
+			return nil, fmt.Errorf("failed to decode event ID: %w", err)
+		}
+
+		eventDecoder, ok := eventRegistry[eventID]
+		if !ok {
+			return nil, fmt.Errorf("failed to get event decoder")
+		}
+
+		eventFields, err := eventDecoder.Decode(decoder)
+		if err != nil {
+			return nil, fmt.Errorf("failed to decode event fields: %w", err)
+		}
+
+		var topics []types.Hash
+
+		err = decoder.Decode(&topics)
+		if err != nil {
+			return nil, fmt.Errorf("failed to decode topics: %w", err)
+		}
+
+		event := &parser.Event{
+			Name:    eventDecoder.Name,
+			Fields:  eventFields,
+			EventID: eventID,
+			Phase:   &phase,
+			Topics:  topics,
+		}
+
+		events = append(events, event)
+	}
+
+	return events, nil
 }

@@ -6,6 +6,7 @@ import (
 
     "github.com/centrifuge/go-substrate-rpc-client/v4/registry"
     "github.com/centrifuge/go-substrate-rpc-client/v4/types"
+    pbgearextrinsic "github.com/streamingfast/firehose-gear/pb/sf/gear/extrinsic/type/v1"
     pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1"
 )
 
@@ -41,6 +42,18 @@ func {{ $funcName }}(in any) {{ $msg.ReturnType $meta }} {
 
     return out //from message
 }
+
+{{- $numOfFields := len $msg.Fields }}
+{{- if and ($msg.IsCall) (ne $numOfFields 0) }}
+func {{ $funcName }}_wrap(in any) *pbgearextrinsic.RuntimeCall{
+    res := {{ $funcName }}(in)
+    out := &pbgearextrinsic.RuntimeCall_{{ $msg.WrapTypeName }}{ }
+    reflect.ValueOf(out).Elem().FieldByName("{{ $msg.WrapTypeName }}").Set(reflect.ValueOf(res))
+    return &pbgearextrinsic.RuntimeCall{
+        Call: out,
+    }
+}
+{{- end }}
 {{- template "funcForMessageFieldsTo" wrap ( newWrapItem "fields" $msg.Fields "msg" $msg)}}
 {{- end }}
 {{- end }}
@@ -386,11 +399,15 @@ func To_Repeated_uint32(a any) []uint32 {
 }
 
 var FuncMap map[string]reflect.Value
+
 func init(){
     FuncMap = make(map[string]reflect.Value)
 
 {{- range $msg := $messages }}
+    {{- $numOfFields := len $msg.Fields }}
+    {{- if and ($msg.IsCall) (ne $numOfFields 0) }}
     {{- $funcName := $generator.FuncNameForMessage $msg }}
-    FuncMap["{{ $funcName }}"] = reflect.ValueOf({{ $funcName }})
+    FuncMap["{{ $funcName }}"] = reflect.ValueOf({{ $funcName }}_wrap)
+    {{- end}}
 {{- end }}
 }

@@ -1,0 +1,20 @@
+syntax = "proto3";
+package sf.gear.extrinsic.type.v1;
+
+option go_package = "github.com/streamingfast/firehose-gear/pb/sf/gear/extrinsic/type/v1;pbgearextrinsic";
+import "sf/gear/metadata/type/v1/output.proto";
+
+{{- $generator := . }}
+{{- $messages := $generator.Messages }}
+message RuntimeCall {
+  oneof call {
+    {{- $count := 1}}
+    {{- range $msg := $messages }}
+    {{- $numOfFields := len $msg.Fields }}
+    {{- if and ($msg.IsCall) (ne $numOfFields 0) }}
+    sf.gear.metadata.type.v1.{{ $msg.ProtoMessageTypeName }} {{ $msg.ProtoMessageFieldName }} = {{ $count }};
+    {{- $count = add $count 1 -}}
+    {{- end}}
+    {{- end }}
+  }
+}

@@ -1,7 +1,6 @@
 package rpc
 
 import (
-	"bytes"
 	"context"
 	"log"
 	"testing"
@@ -9,9 +8,6 @@ import (
 
 	gsrpc "github.com/centrifuge/go-substrate-rpc-client/v4"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
-	"github.com/centrifuge/go-substrate-rpc-client/v4/registry/parser"
-	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
-	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	firecoreRPC "github.com/streamingfast/firehose-core/rpc"
 	pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/type/v1"
 	"github.com/stretchr/testify/require"
@@ -50,11 +46,11 @@ func Test_DecodeBlockExtrinsics(t *testing.T) {
 	factory := registry.NewFactory()
 	callRegistry, err := factory.CreateCallRegistry(metadata)
 	require.NoError(t, err)
+	_ = callRegistry
 
-	for _, extrinsic := range pbGearBlock.Extrinsics {
-		decodedFields := decodeCallExtrinsics(t, callRegistry, extrinsic)
-		_ = decodedFields
-	}
+	decodedExtrinsics, err := extrinsicsToProto(callRegistry, pbGearBlock.Extrinsics)
+	require.NoError(t, err)
+	_ = decodedExtrinsics
 }
 
 func Test_DecodeBlockEvents(t *testing.T) {
@@ -89,71 +85,7 @@ func Test_DecodeBlockEvents(t *testing.T) {
 	eventRegistry, err := factory.CreateEventRegistry(metadata)
 	require.NoError(t, err)
 
-	decodedFields := decodeEvents(t, eventRegistry, pbGearBlock.RawEvents)
+	decodedFields, err := decodeEvents(eventRegistry, pbGearBlock.RawEvents)
+	require.NoError(t, err)
 	_ = decodedFields
-}
-
-func convertCallIndex(ci *pbgear.CallIndex) types.CallIndex {
-	return types.CallIndex{
-		SectionIndex: uint8(ci.SectionIndex),
-		MethodIndex:  uint8(ci.MethodIndex),
-	}
-}
-
-func decodeCallExtrinsics(t *testing.T, callRegistry registry.CallRegistry, extrinsic *pbgear.Extrinsic) registry.DecodedFields {
-	callIndex := extrinsic.Method.CallIndex
-	args := extrinsic.Method.Args
-
-	callDecoder, ok := callRegistry[convertCallIndex(callIndex)]
-	require.True(t, ok)
-
-	decoder := scale.NewDecoder(bytes.NewReader(args))
-
-	callFields, err := callDecoder.Decode(decoder)
-	require.NoError(t, err)
-	return callFields
-}
-
-func decodeEvents(t *testing.T, eventRegistry registry.EventRegistry, storageEvents []byte) []*parser.Event {
-	decoder := scale.NewDecoder(bytes.NewReader(storageEvents))
-
-	eventsCount, err := decoder.DecodeUintCompact()
-	require.NoError(t, err)
-
-	var events []*parser.Event
-
-	for i := uint64(0); i < eventsCount.Uint64(); i++ {
-		var phase types.Phase
-
-		err := decoder.Decode(&phase)
-		require.NoError(t, err)
-
-		var eventID types.EventID
-
-		err = decoder.Decode(&eventID)
-		require.NoError(t, err)
-
-		eventDecoder, ok := eventRegistry[eventID]
-		require.True(t, ok)
-
-		eventFields, err := eventDecoder.Decode(decoder)
-		require.NoError(t, err)
-
-		var topics []types.Hash
-
-		err = decoder.Decode(&topics)
-		require.NoError(t, err)
-
-		event := &parser.Event{
-			Name:    eventDecoder.Name,
-			Fields:  eventFields,
-			EventID: eventID,
-			Phase:   &phase,
-			Topics:  topics,
-		}
-
-		events = append(events, event)
-	}
-
-	return events
 }

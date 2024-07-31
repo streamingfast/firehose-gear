@@ -134,11 +134,6 @@ func (g *Generator) Wrap(items []WrapItem) map[any]any {
 }
 
 func (g *Generator) TypeForField(field protobuf.Lookupable) string {
-
-	if field.GetName() == "sp_arithmetic_per_things_PerU16" {
-		fmt.Println("")
-	}
-
 	idx := field.GetLookupId()
 	if idx == math.MaxInt64 {
 		return "registry.DecodedFields"

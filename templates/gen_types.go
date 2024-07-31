@@ -6,6 +6,7 @@ import (
 
 	"github.com/centrifuge/go-substrate-rpc-client/v4/registry"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
+	pbgearextrinsic "github.com/streamingfast/firehose-gear/pb/sf/gear/extrinsic/type/v1"
 	pbgear "github.com/streamingfast/firehose-gear/pb/sf/gear/metadata/type/v1"
 )
 
@@ -224,6 +225,14 @@ func To_Babe_PlanConfigChangeCall(in any) *pbgear.Babe_PlanConfigChangeCall {
 
 	return out //from message
 }
+func To_Babe_PlanConfigChangeCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Babe_PlanConfigChangeCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BabePlanConfigChangeCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BabePlanConfigChangeCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Babe_PlanConfigChangeCall_config(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -286,6 +295,14 @@ func To_Babe_ReportEquivocationCall(in any) *pbgear.Babe_ReportEquivocationCall 
 
 	return out //from message
 }
+func To_Babe_ReportEquivocationCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Babe_ReportEquivocationCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BabeReportEquivocationCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BabeReportEquivocationCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Babe_ReportEquivocationUnsignedCall(in any) *pbgear.Babe_ReportEquivocationUnsignedCall {
 	out := &pbgear.Babe_ReportEquivocationUnsignedCall{}
@@ -298,6 +315,14 @@ func To_Babe_ReportEquivocationUnsignedCall(in any) *pbgear.Babe_ReportEquivocat
 	out.KeyOwnerProof = To_SpSessionMembershipProof(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Babe_ReportEquivocationUnsignedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Babe_ReportEquivocationUnsignedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BabeReportEquivocationUnsignedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BabeReportEquivocationUnsignedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Babe_RuntimeEnvironmentUpdated(in any) *pbgear.Babe_RuntimeEnvironmentUpdated {
@@ -586,6 +611,14 @@ func To_BagsList_PutInFrontOfCall(in any) *pbgear.BagsList_PutInFrontOfCall {
 
 	return out //from message
 }
+func To_BagsList_PutInFrontOfCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_BagsList_PutInFrontOfCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BagslistPutInFrontOfCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BagslistPutInFrontOfCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_BagsList_PutInFrontOfCall_lighter(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -628,6 +661,14 @@ func To_BagsList_PutInFrontOfOtherCall(in any) *pbgear.BagsList_PutInFrontOfOthe
 	reflect.ValueOf(out).Elem().FieldByName("Lighter").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_BagsList_PutInFrontOfOtherCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_BagsList_PutInFrontOfOtherCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BagslistPutInFrontOfOtherCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BagslistPutInFrontOfOtherCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_BagsList_PutInFrontOfOtherCall_heavier(in any) any {
@@ -707,6 +748,14 @@ func To_BagsList_RebagCall(in any) *pbgear.BagsList_RebagCall {
 	reflect.ValueOf(out).Elem().FieldByName("Dislocated").Set(reflect.ValueOf(v0))
 
 	return out //from message
+}
+func To_BagsList_RebagCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_BagsList_RebagCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BagslistRebagCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BagslistRebagCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_BagsList_RebagCall_dislocated(in any) any {
@@ -871,6 +920,14 @@ func To_Balances_ForceSetBalanceCall(in any) *pbgear.Balances_ForceSetBalanceCal
 
 	return out //from message
 }
+func To_Balances_ForceSetBalanceCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Balances_ForceSetBalanceCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BalancesForceSetBalanceCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BalancesForceSetBalanceCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Balances_ForceSetBalanceCall_who(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -915,6 +972,14 @@ func To_Balances_ForceTransferCall(in any) *pbgear.Balances_ForceTransferCall {
 	out.Value = To_string(v.ValueAt(2))
 
 	return out //from message
+}
+func To_Balances_ForceTransferCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Balances_ForceTransferCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BalancesForceTransferCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BalancesForceTransferCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Balances_ForceTransferCall_source(in any) any {
@@ -985,6 +1050,14 @@ func To_Balances_ForceUnreserveCall(in any) *pbgear.Balances_ForceUnreserveCall 
 	out.Amount = To_string(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Balances_ForceUnreserveCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Balances_ForceUnreserveCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BalancesForceUnreserveCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BalancesForceUnreserveCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Balances_ForceUnreserveCall_who(in any) any {
@@ -1101,6 +1174,14 @@ func To_Balances_TransferAllCall(in any) *pbgear.Balances_TransferAllCall {
 
 	return out //from message
 }
+func To_Balances_TransferAllCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Balances_TransferAllCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BalancesTransferAllCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BalancesTransferAllCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Balances_TransferAllCall_dest(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -1143,6 +1224,14 @@ func To_Balances_TransferAllowDeathCall(in any) *pbgear.Balances_TransferAllowDe
 
 	return out //from message
 }
+func To_Balances_TransferAllowDeathCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Balances_TransferAllowDeathCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BalancesTransferAllowDeathCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BalancesTransferAllowDeathCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Balances_TransferAllowDeathCall_dest(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -1184,6 +1273,14 @@ func To_Balances_TransferKeepAliveCall(in any) *pbgear.Balances_TransferKeepAliv
 	out.Value = To_string(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Balances_TransferKeepAliveCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Balances_TransferKeepAliveCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BalancesTransferKeepAliveCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BalancesTransferKeepAliveCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Balances_TransferKeepAliveCall_dest(in any) any {
@@ -1234,6 +1331,14 @@ func To_Balances_UpgradeAccountsCall(in any) *pbgear.Balances_UpgradeAccountsCal
 	out.Who = To_Repeated_Balances_UpgradeAccountsCall_who(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Balances_UpgradeAccountsCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Balances_UpgradeAccountsCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BalancesUpgradeAccountsCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BalancesUpgradeAccountsCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Repeated_Balances_UpgradeAccountsCall_who(in any) []*pbgear.SpCoreCryptoAccountId32 {
@@ -1383,6 +1488,14 @@ func To_Bounties_AcceptCuratorCall(in any) *pbgear.Bounties_AcceptCuratorCall {
 
 	return out //from message
 }
+func To_Bounties_AcceptCuratorCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Bounties_AcceptCuratorCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BountiesAcceptCuratorCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BountiesAcceptCuratorCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Bounties_Address20(in any) *pbgear.Bounties_Address20 {
 	out := &pbgear.Bounties_Address20{}
@@ -1416,6 +1529,14 @@ func To_Bounties_ApproveBountyCall(in any) *pbgear.Bounties_ApproveBountyCall {
 
 	return out //from message
 }
+func To_Bounties_ApproveBountyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Bounties_ApproveBountyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BountiesApproveBountyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BountiesApproveBountyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Bounties_AwardBountyCall(in any) *pbgear.Bounties_AwardBountyCall {
 	out := &pbgear.Bounties_AwardBountyCall{}
@@ -1429,6 +1550,14 @@ func To_Bounties_AwardBountyCall(in any) *pbgear.Bounties_AwardBountyCall {
 	reflect.ValueOf(out).Elem().FieldByName("Beneficiary").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_Bounties_AwardBountyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Bounties_AwardBountyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BountiesAwardBountyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BountiesAwardBountyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Bounties_AwardBountyCall_beneficiary(in any) any {
@@ -1509,6 +1638,14 @@ func To_Bounties_ClaimBountyCall(in any) *pbgear.Bounties_ClaimBountyCall {
 
 	return out //from message
 }
+func To_Bounties_ClaimBountyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Bounties_ClaimBountyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BountiesClaimBountyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BountiesClaimBountyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Bounties_CloseBountyCall(in any) *pbgear.Bounties_CloseBountyCall {
 	out := &pbgear.Bounties_CloseBountyCall{}
@@ -1519,6 +1656,14 @@ func To_Bounties_CloseBountyCall(in any) *pbgear.Bounties_CloseBountyCall {
 	out.BountyId = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Bounties_CloseBountyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Bounties_CloseBountyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BountiesCloseBountyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BountiesCloseBountyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Bounties_Curator(in any) *pbgear.Bounties_Curator {
@@ -1573,6 +1718,14 @@ func To_Bounties_ExtendBountyExpiryCall(in any) *pbgear.Bounties_ExtendBountyExp
 
 	return out //from message
 }
+func To_Bounties_ExtendBountyExpiryCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Bounties_ExtendBountyExpiryCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BountiesExtendBountyExpiryCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BountiesExtendBountyExpiryCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Bounties_Id(in any) *pbgear.Bounties_Id {
 	out := &pbgear.Bounties_Id{}
@@ -1608,6 +1761,14 @@ func To_Bounties_ProposeBountyCall(in any) *pbgear.Bounties_ProposeBountyCall {
 
 	return out //from message
 }
+func To_Bounties_ProposeBountyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Bounties_ProposeBountyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BountiesProposeBountyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BountiesProposeBountyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Bounties_ProposeCuratorCall(in any) *pbgear.Bounties_ProposeCuratorCall {
 	out := &pbgear.Bounties_ProposeCuratorCall{}
@@ -1623,6 +1784,14 @@ func To_Bounties_ProposeCuratorCall(in any) *pbgear.Bounties_ProposeCuratorCall 
 	out.Fee = To_string(v.ValueAt(2))
 
 	return out //from message
+}
+func To_Bounties_ProposeCuratorCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Bounties_ProposeCuratorCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BountiesProposeCuratorCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BountiesProposeCuratorCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Bounties_ProposeCuratorCall_curator(in any) any {
@@ -1685,6 +1854,14 @@ func To_Bounties_UnassignCuratorCall(in any) *pbgear.Bounties_UnassignCuratorCal
 
 	return out //from message
 }
+func To_Bounties_UnassignCuratorCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Bounties_UnassignCuratorCall(in)
+	out := &pbgearextrinsic.RuntimeCall_BountiesUnassignCuratorCall{}
+	reflect.ValueOf(out).Elem().FieldByName("BountiesUnassignCuratorCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_ChildBountiesPallet(in any) *pbgear.ChildBountiesPallet {
 	out := &pbgear.ChildBountiesPallet{}
@@ -1746,6 +1923,14 @@ func To_ChildBounties_AcceptCuratorCall(in any) *pbgear.ChildBounties_AcceptCura
 
 	return out //from message
 }
+func To_ChildBounties_AcceptCuratorCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ChildBounties_AcceptCuratorCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ChildbountiesAcceptCuratorCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ChildbountiesAcceptCuratorCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_ChildBounties_AddChildBountyCall(in any) *pbgear.ChildBounties_AddChildBountyCall {
 	out := &pbgear.ChildBounties_AddChildBountyCall{}
@@ -1760,6 +1945,14 @@ func To_ChildBounties_AddChildBountyCall(in any) *pbgear.ChildBounties_AddChildB
 	out.Description = To_bytes(v.ValueAt(2))
 
 	return out //from message
+}
+func To_ChildBounties_AddChildBountyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ChildBounties_AddChildBountyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ChildbountiesAddChildBountyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ChildbountiesAddChildBountyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_ChildBounties_Address20(in any) *pbgear.ChildBounties_Address20 {
@@ -1798,6 +1991,14 @@ func To_ChildBounties_AwardChildBountyCall(in any) *pbgear.ChildBounties_AwardCh
 	reflect.ValueOf(out).Elem().FieldByName("Beneficiary").Set(reflect.ValueOf(v2))
 
 	return out //from message
+}
+func To_ChildBounties_AwardChildBountyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ChildBounties_AwardChildBountyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ChildbountiesAwardChildBountyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ChildbountiesAwardChildBountyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_ChildBounties_AwardChildBountyCall_beneficiary(in any) any {
@@ -1880,6 +2081,14 @@ func To_ChildBounties_ClaimChildBountyCall(in any) *pbgear.ChildBounties_ClaimCh
 
 	return out //from message
 }
+func To_ChildBounties_ClaimChildBountyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ChildBounties_ClaimChildBountyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ChildbountiesClaimChildBountyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ChildbountiesClaimChildBountyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_ChildBounties_CloseChildBountyCall(in any) *pbgear.ChildBounties_CloseChildBountyCall {
 	out := &pbgear.ChildBounties_CloseChildBountyCall{}
@@ -1892,6 +2101,14 @@ func To_ChildBounties_CloseChildBountyCall(in any) *pbgear.ChildBounties_CloseCh
 	out.ChildBountyId = To_uint32(v.ValueAt(1))
 
 	return out //from message
+}
+func To_ChildBounties_CloseChildBountyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ChildBounties_CloseChildBountyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ChildbountiesCloseChildBountyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ChildbountiesCloseChildBountyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_ChildBounties_Curator(in any) *pbgear.ChildBounties_Curator {
@@ -1973,6 +2190,14 @@ func To_ChildBounties_ProposeCuratorCall(in any) *pbgear.ChildBounties_ProposeCu
 
 	return out //from message
 }
+func To_ChildBounties_ProposeCuratorCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ChildBounties_ProposeCuratorCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ChildbountiesProposeCuratorCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ChildbountiesProposeCuratorCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_ChildBounties_ProposeCuratorCall_curator(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -2035,6 +2260,14 @@ func To_ChildBounties_UnassignCuratorCall(in any) *pbgear.ChildBounties_Unassign
 	out.ChildBountyId = To_uint32(v.ValueAt(1))
 
 	return out //from message
+}
+func To_ChildBounties_UnassignCuratorCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ChildBounties_UnassignCuratorCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ChildbountiesUnassignCuratorCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ChildbountiesUnassignCuratorCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_ConvictionVotingPallet(in any) *pbgear.ConvictionVotingPallet {
@@ -2168,6 +2401,14 @@ func To_ConvictionVoting_DelegateCall(in any) *pbgear.ConvictionVoting_DelegateC
 	out.Balance = To_string(v.ValueAt(3))
 
 	return out //from message
+}
+func To_ConvictionVoting_DelegateCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ConvictionVoting_DelegateCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ConvictionvotingDelegateCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ConvictionvotingDelegateCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_ConvictionVoting_DelegateCall_to(in any) any {
@@ -2349,6 +2590,14 @@ func To_ConvictionVoting_RemoveOtherVoteCall(in any) *pbgear.ConvictionVoting_Re
 
 	return out //from message
 }
+func To_ConvictionVoting_RemoveOtherVoteCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ConvictionVoting_RemoveOtherVoteCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ConvictionvotingRemoveOtherVoteCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ConvictionvotingRemoveOtherVoteCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_ConvictionVoting_RemoveOtherVoteCall_target(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -2389,6 +2638,14 @@ func To_ConvictionVoting_RemoveVoteCall(in any) *pbgear.ConvictionVoting_RemoveV
 	out.Index = To_uint32(v.ValueAt(1))
 
 	return out //from message
+}
+func To_ConvictionVoting_RemoveVoteCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ConvictionVoting_RemoveVoteCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ConvictionvotingRemoveVoteCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ConvictionvotingRemoveVoteCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_ConvictionVoting_Split(in any) *pbgear.ConvictionVoting_Split {
@@ -2533,6 +2790,14 @@ func To_ConvictionVoting_UndelegateCall(in any) *pbgear.ConvictionVoting_Undeleg
 
 	return out //from message
 }
+func To_ConvictionVoting_UndelegateCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ConvictionVoting_UndelegateCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ConvictionvotingUndelegateCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ConvictionvotingUndelegateCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_ConvictionVoting_UnlockCall(in any) *pbgear.ConvictionVoting_UnlockCall {
 	out := &pbgear.ConvictionVoting_UnlockCall{}
@@ -2546,6 +2811,14 @@ func To_ConvictionVoting_UnlockCall(in any) *pbgear.ConvictionVoting_UnlockCall 
 	reflect.ValueOf(out).Elem().FieldByName("Target").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_ConvictionVoting_UnlockCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ConvictionVoting_UnlockCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ConvictionvotingUnlockCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ConvictionvotingUnlockCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_ConvictionVoting_UnlockCall_target(in any) any {
@@ -2621,6 +2894,14 @@ func To_ConvictionVoting_VoteCall(in any) *pbgear.ConvictionVoting_VoteCall {
 
 	return out //from message
 }
+func To_ConvictionVoting_VoteCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ConvictionVoting_VoteCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ConvictionvotingVoteCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ConvictionvotingVoteCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_ConvictionVoting_VoteCall_vote(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -2694,6 +2975,14 @@ func To_ElectionProviderMultiPhase_GovernanceFallbackCall(in any) *pbgear.Electi
 
 	return out //from message
 }
+func To_ElectionProviderMultiPhase_GovernanceFallbackCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ElectionProviderMultiPhase_GovernanceFallbackCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ElectionprovidermultiphaseGovernanceFallbackCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ElectionprovidermultiphaseGovernanceFallbackCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution(in any) *pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution {
 	out := &pbgear.ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution{}
@@ -2733,6 +3022,14 @@ func To_ElectionProviderMultiPhase_SetEmergencyElectionResultCall(in any) *pbgea
 
 	return out //from message
 }
+func To_ElectionProviderMultiPhase_SetEmergencyElectionResultCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ElectionProviderMultiPhase_SetEmergencyElectionResultCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ElectionprovidermultiphaseSetEmergencyElectionResultCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ElectionprovidermultiphaseSetEmergencyElectionResultCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Repeated_ElectionProviderMultiPhase_SetEmergencyElectionResultCall_supports(in any) []*pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
 	items := in.([]interface{})
@@ -2758,6 +3055,14 @@ func To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall(in any) *pbgear.
 
 	return out //from message
 }
+func To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ElectionprovidermultiphaseSetMinimumUntrustedScoreCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ElectionprovidermultiphaseSetMinimumUntrustedScoreCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Optional_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall_maybe_next_score(in any) *pbgear.SpNposElectionsElectionScore {
 	panic("Not implemented")
@@ -2773,6 +3078,14 @@ func To_ElectionProviderMultiPhase_SubmitCall(in any) *pbgear.ElectionProviderMu
 
 	return out //from message
 }
+func To_ElectionProviderMultiPhase_SubmitCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ElectionProviderMultiPhase_SubmitCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ElectionprovidermultiphaseSubmitCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ElectionprovidermultiphaseSubmitCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_ElectionProviderMultiPhase_SubmitUnsignedCall(in any) *pbgear.ElectionProviderMultiPhase_SubmitUnsignedCall {
 	out := &pbgear.ElectionProviderMultiPhase_SubmitUnsignedCall{}
@@ -2785,6 +3098,14 @@ func To_ElectionProviderMultiPhase_SubmitUnsignedCall(in any) *pbgear.ElectionPr
 	out.Witness = To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize(v.ValueAt(1))
 
 	return out //from message
+}
+func To_ElectionProviderMultiPhase_SubmitUnsignedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ElectionProviderMultiPhase_SubmitUnsignedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ElectionprovidermultiphaseSubmitUnsignedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ElectionprovidermultiphaseSubmitUnsignedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport(in any) *pbgear.ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport {
@@ -3403,6 +3724,14 @@ func To_FellowshipCollective_AddMemberCall(in any) *pbgear.FellowshipCollective_
 
 	return out //from message
 }
+func To_FellowshipCollective_AddMemberCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipCollective_AddMemberCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipcollectiveAddMemberCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipcollectiveAddMemberCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_FellowshipCollective_AddMemberCall_who(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -3466,6 +3795,14 @@ func To_FellowshipCollective_CleanupPollCall(in any) *pbgear.FellowshipCollectiv
 
 	return out //from message
 }
+func To_FellowshipCollective_CleanupPollCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipCollective_CleanupPollCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipcollectiveCleanupPollCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipcollectiveCleanupPollCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_FellowshipCollective_DemoteMemberCall(in any) *pbgear.FellowshipCollective_DemoteMemberCall {
 	out := &pbgear.FellowshipCollective_DemoteMemberCall{}
@@ -3477,6 +3814,14 @@ func To_FellowshipCollective_DemoteMemberCall(in any) *pbgear.FellowshipCollecti
 	reflect.ValueOf(out).Elem().FieldByName("Who").Set(reflect.ValueOf(v0))
 
 	return out //from message
+}
+func To_FellowshipCollective_DemoteMemberCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipCollective_DemoteMemberCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipcollectiveDemoteMemberCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipcollectiveDemoteMemberCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_FellowshipCollective_DemoteMemberCall_who(in any) any {
@@ -3540,6 +3885,14 @@ func To_FellowshipCollective_PromoteMemberCall(in any) *pbgear.FellowshipCollect
 
 	return out //from message
 }
+func To_FellowshipCollective_PromoteMemberCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipCollective_PromoteMemberCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipcollectivePromoteMemberCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipcollectivePromoteMemberCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_FellowshipCollective_PromoteMemberCall_who(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -3593,6 +3946,14 @@ func To_FellowshipCollective_RemoveMemberCall(in any) *pbgear.FellowshipCollecti
 
 	return out //from message
 }
+func To_FellowshipCollective_RemoveMemberCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipCollective_RemoveMemberCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipcollectiveRemoveMemberCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipcollectiveRemoveMemberCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_FellowshipCollective_RemoveMemberCall_who(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -3644,6 +4005,14 @@ func To_FellowshipCollective_VoteCall(in any) *pbgear.FellowshipCollective_VoteC
 	out.Aye = To_bool(v.ValueAt(1))
 
 	return out //from message
+}
+func To_FellowshipCollective_VoteCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipCollective_VoteCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipcollectiveVoteCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipcollectiveVoteCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_FellowshipCollective_Who(in any) *pbgear.FellowshipCollective_Who {
@@ -3798,6 +4167,14 @@ func To_FellowshipReferenda_CancelCall(in any) *pbgear.FellowshipReferenda_Cance
 
 	return out //from message
 }
+func To_FellowshipReferenda_CancelCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipReferenda_CancelCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipreferendaCancelCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipreferendaCancelCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_FellowshipReferenda_EnactmentMoment(in any) *pbgear.FellowshipReferenda_EnactmentMoment {
 	out := &pbgear.FellowshipReferenda_EnactmentMoment{}
@@ -3848,6 +4225,14 @@ func To_FellowshipReferenda_KillCall(in any) *pbgear.FellowshipReferenda_KillCal
 
 	return out //from message
 }
+func To_FellowshipReferenda_KillCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipReferenda_KillCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipreferendaKillCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipreferendaKillCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_FellowshipReferenda_Legacy(in any) *pbgear.FellowshipReferenda_Legacy {
 	out := &pbgear.FellowshipReferenda_Legacy{}
@@ -3883,6 +4268,14 @@ func To_FellowshipReferenda_NudgeReferendumCall(in any) *pbgear.FellowshipRefere
 
 	return out //from message
 }
+func To_FellowshipReferenda_NudgeReferendumCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipReferenda_NudgeReferendumCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipreferendaNudgeReferendumCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipreferendaNudgeReferendumCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_FellowshipReferenda_OneFewerDecidingCall(in any) *pbgear.FellowshipReferenda_OneFewerDecidingCall {
 	out := &pbgear.FellowshipReferenda_OneFewerDecidingCall{}
@@ -3893,6 +4286,14 @@ func To_FellowshipReferenda_OneFewerDecidingCall(in any) *pbgear.FellowshipRefer
 	out.Track = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_FellowshipReferenda_OneFewerDecidingCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipReferenda_OneFewerDecidingCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipreferendaOneFewerDecidingCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipreferendaOneFewerDecidingCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_FellowshipReferenda_Origins(in any) *pbgear.FellowshipReferenda_Origins {
@@ -4025,6 +4426,14 @@ func To_FellowshipReferenda_PlaceDecisionDepositCall(in any) *pbgear.FellowshipR
 
 	return out //from message
 }
+func To_FellowshipReferenda_PlaceDecisionDepositCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipReferenda_PlaceDecisionDepositCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipreferendaPlaceDecisionDepositCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipreferendaPlaceDecisionDepositCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_FellowshipReferenda_Proposal(in any) *pbgear.FellowshipReferenda_Proposal {
 	out := &pbgear.FellowshipReferenda_Proposal{}
@@ -4100,6 +4509,14 @@ func To_FellowshipReferenda_RefundDecisionDepositCall(in any) *pbgear.Fellowship
 
 	return out //from message
 }
+func To_FellowshipReferenda_RefundDecisionDepositCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipReferenda_RefundDecisionDepositCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipreferendaRefundDecisionDepositCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipreferendaRefundDecisionDepositCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_FellowshipReferenda_RefundSubmissionDepositCall(in any) *pbgear.FellowshipReferenda_RefundSubmissionDepositCall {
 	out := &pbgear.FellowshipReferenda_RefundSubmissionDepositCall{}
@@ -4110,6 +4527,14 @@ func To_FellowshipReferenda_RefundSubmissionDepositCall(in any) *pbgear.Fellowsh
 	out.Index = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_FellowshipReferenda_RefundSubmissionDepositCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipReferenda_RefundSubmissionDepositCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipreferendaRefundSubmissionDepositCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipreferendaRefundSubmissionDepositCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_FellowshipReferenda_SetMetadataCall(in any) *pbgear.FellowshipReferenda_SetMetadataCall {
@@ -4123,6 +4548,14 @@ func To_FellowshipReferenda_SetMetadataCall(in any) *pbgear.FellowshipReferenda_
 	out.MaybeHash = To_Optional_FellowshipReferenda_SetMetadataCall_maybe_hash(v.ValueAt(1))
 
 	return out //from message
+}
+func To_FellowshipReferenda_SetMetadataCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipReferenda_SetMetadataCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipreferendaSetMetadataCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipreferendaSetMetadataCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Optional_FellowshipReferenda_SetMetadataCall_maybe_hash(in any) *pbgear.PrimitiveTypesH256 {
@@ -4145,6 +4578,14 @@ func To_FellowshipReferenda_SubmitCall(in any) *pbgear.FellowshipReferenda_Submi
 	reflect.ValueOf(out).Elem().FieldByName("EnactmentMoment").Set(reflect.ValueOf(v2))
 
 	return out //from message
+}
+func To_FellowshipReferenda_SubmitCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_FellowshipReferenda_SubmitCall(in)
+	out := &pbgearextrinsic.RuntimeCall_FellowshipreferendaSubmitCall{}
+	reflect.ValueOf(out).Elem().FieldByName("FellowshipreferendaSubmitCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_FellowshipReferenda_SubmitCall_proposal_origin(in any) any {
@@ -4479,6 +4920,14 @@ func To_GearVoucher_CallCall(in any) *pbgear.GearVoucher_CallCall {
 
 	return out //from message
 }
+func To_GearVoucher_CallCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_GearVoucher_CallCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearvoucherCallCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearvoucherCallCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_GearVoucher_CallCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -4515,6 +4964,14 @@ func To_GearVoucher_CallDeprecatedCall(in any) *pbgear.GearVoucher_CallDeprecate
 
 	return out //from message
 }
+func To_GearVoucher_CallDeprecatedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_GearVoucher_CallDeprecatedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearvoucherCallDeprecatedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearvoucherCallDeprecatedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_GearVoucher_CallDeprecatedCall_call(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -4550,6 +5007,14 @@ func To_GearVoucher_DeclineCall(in any) *pbgear.GearVoucher_DeclineCall {
 
 	return out //from message
 }
+func To_GearVoucher_DeclineCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_GearVoucher_DeclineCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearvoucherDeclineCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearvoucherDeclineCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_GearVoucher_DeclineVoucher(in any) *pbgear.GearVoucher_DeclineVoucher {
 	out := &pbgear.GearVoucher_DeclineVoucher{}
@@ -4576,6 +5041,14 @@ func To_GearVoucher_IssueCall(in any) *pbgear.GearVoucher_IssueCall {
 	out.Duration = To_uint32(v.ValueAt(4))
 
 	return out //from message
+}
+func To_GearVoucher_IssueCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_GearVoucher_IssueCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearvoucherIssueCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearvoucherIssueCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Optional_GearVoucher_IssueCall_programs(in any) *pbgear.BTreeSet {
@@ -4612,6 +5085,14 @@ func To_GearVoucher_RevokeCall(in any) *pbgear.GearVoucher_RevokeCall {
 	out.VoucherId = To_GearVoucher_PalletGearVoucherInternalVoucherId(v.ValueAt(1))
 
 	return out //from message
+}
+func To_GearVoucher_RevokeCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_GearVoucher_RevokeCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearvoucherRevokeCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearvoucherRevokeCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_GearVoucher_SendMessage(in any) *pbgear.GearVoucher_SendMessage {
@@ -4686,6 +5167,14 @@ func To_GearVoucher_UpdateCall(in any) *pbgear.GearVoucher_UpdateCall {
 
 	return out //from message
 }
+func To_GearVoucher_UpdateCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_GearVoucher_UpdateCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearvoucherUpdateCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearvoucherUpdateCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Optional_GearVoucher_UpdateCall_move_ownership(in any) *pbgear.SpCoreCryptoAccountId32 {
 	panic("Not implemented")
@@ -4728,6 +5217,14 @@ func To_Gear_ClaimValueCall(in any) *pbgear.Gear_ClaimValueCall {
 
 	return out //from message
 }
+func To_Gear_ClaimValueCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Gear_ClaimValueCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearClaimValueCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearClaimValueCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Gear_CreateProgramCall(in any) *pbgear.Gear_CreateProgramCall {
 	out := &pbgear.Gear_CreateProgramCall{}
@@ -4749,6 +5246,14 @@ func To_Gear_CreateProgramCall(in any) *pbgear.Gear_CreateProgramCall {
 
 	return out //from message
 }
+func To_Gear_CreateProgramCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Gear_CreateProgramCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearCreateProgramCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearCreateProgramCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Gear_RunCall(in any) *pbgear.Gear_RunCall {
 	out := &pbgear.Gear_RunCall{}
@@ -4759,6 +5264,14 @@ func To_Gear_RunCall(in any) *pbgear.Gear_RunCall {
 	out.MaxGas = To_Optional_uint64(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Gear_RunCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Gear_RunCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearRunCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearRunCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Gear_SendMessageCall(in any) *pbgear.Gear_SendMessageCall {
@@ -4779,6 +5292,14 @@ func To_Gear_SendMessageCall(in any) *pbgear.Gear_SendMessageCall {
 
 	return out //from message
 }
+func To_Gear_SendMessageCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Gear_SendMessageCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearSendMessageCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearSendMessageCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Gear_SendReplyCall(in any) *pbgear.Gear_SendReplyCall {
 	out := &pbgear.Gear_SendReplyCall{}
@@ -4798,6 +5319,14 @@ func To_Gear_SendReplyCall(in any) *pbgear.Gear_SendReplyCall {
 
 	return out //from message
 }
+func To_Gear_SendReplyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Gear_SendReplyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearSendReplyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearSendReplyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Gear_SetExecuteInherentCall(in any) *pbgear.Gear_SetExecuteInherentCall {
 	out := &pbgear.Gear_SetExecuteInherentCall{}
@@ -4809,6 +5338,14 @@ func To_Gear_SetExecuteInherentCall(in any) *pbgear.Gear_SetExecuteInherentCall 
 
 	return out //from message
 }
+func To_Gear_SetExecuteInherentCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Gear_SetExecuteInherentCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearSetExecuteInherentCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearSetExecuteInherentCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Gear_UploadCodeCall(in any) *pbgear.Gear_UploadCodeCall {
 	out := &pbgear.Gear_UploadCodeCall{}
@@ -4819,6 +5356,14 @@ func To_Gear_UploadCodeCall(in any) *pbgear.Gear_UploadCodeCall {
 	out.Code = To_bytes(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Gear_UploadCodeCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Gear_UploadCodeCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearUploadCodeCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearUploadCodeCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Gear_UploadProgramCall(in any) *pbgear.Gear_UploadProgramCall {
@@ -4840,6 +5385,14 @@ func To_Gear_UploadProgramCall(in any) *pbgear.Gear_UploadProgramCall {
 	out.KeepAlive = To_bool(v.ValueAt(5))
 
 	return out //from message
+}
+func To_Gear_UploadProgramCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Gear_UploadProgramCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GearUploadProgramCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GearUploadProgramCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_GeneralAdmin(in any) *pbgear.GeneralAdmin {
@@ -5009,6 +5562,14 @@ func To_Grandpa_NoteStalledCall(in any) *pbgear.Grandpa_NoteStalledCall {
 
 	return out //from message
 }
+func To_Grandpa_NoteStalledCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Grandpa_NoteStalledCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GrandpaNoteStalledCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GrandpaNoteStalledCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Grandpa_Precommit(in any) *pbgear.Grandpa_Precommit {
 	out := &pbgear.Grandpa_Precommit{}
@@ -5044,6 +5605,14 @@ func To_Grandpa_ReportEquivocationCall(in any) *pbgear.Grandpa_ReportEquivocatio
 
 	return out //from message
 }
+func To_Grandpa_ReportEquivocationCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Grandpa_ReportEquivocationCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GrandpaReportEquivocationCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GrandpaReportEquivocationCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Grandpa_ReportEquivocationUnsignedCall(in any) *pbgear.Grandpa_ReportEquivocationUnsignedCall {
 	out := &pbgear.Grandpa_ReportEquivocationUnsignedCall{}
@@ -5056,6 +5625,14 @@ func To_Grandpa_ReportEquivocationUnsignedCall(in any) *pbgear.Grandpa_ReportEqu
 	out.KeyOwnerProof = To_SpSessionMembershipProof(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Grandpa_ReportEquivocationUnsignedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Grandpa_ReportEquivocationUnsignedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_GrandpaReportEquivocationUnsignedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("GrandpaReportEquivocationUnsignedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Grandpa_SpConsensusGrandpaAppPublic(in any) *pbgear.Grandpa_SpConsensusGrandpaAppPublic {
@@ -5275,6 +5852,14 @@ func To_Identity_AddRegistrarCall(in any) *pbgear.Identity_AddRegistrarCall {
 
 	return out //from message
 }
+func To_Identity_AddRegistrarCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_AddRegistrarCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentityAddRegistrarCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentityAddRegistrarCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Identity_AddRegistrarCall_account(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -5317,6 +5902,14 @@ func To_Identity_AddSubCall(in any) *pbgear.Identity_AddSubCall {
 	reflect.ValueOf(out).Elem().FieldByName("Data").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_Identity_AddSubCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_AddSubCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentityAddSubCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentityAddSubCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Identity_AddSubCall_sub(in any) any {
@@ -5549,6 +6142,14 @@ func To_Identity_CancelRequestCall(in any) *pbgear.Identity_CancelRequestCall {
 	out.RegIndex = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Identity_CancelRequestCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_CancelRequestCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentityCancelRequestCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentityCancelRequestCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Identity_ClearIdentityCall(in any) *pbgear.Identity_ClearIdentityCall {
@@ -6357,6 +6958,14 @@ func To_Identity_KillIdentityCall(in any) *pbgear.Identity_KillIdentityCall {
 	reflect.ValueOf(out).Elem().FieldByName("Target").Set(reflect.ValueOf(v0))
 
 	return out //from message
+}
+func To_Identity_KillIdentityCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_KillIdentityCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentityKillIdentityCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentityKillIdentityCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Identity_KillIdentityCall_target(in any) any {
@@ -7814,6 +8423,14 @@ func To_Identity_ProvideJudgementCall(in any) *pbgear.Identity_ProvideJudgementC
 
 	return out //from message
 }
+func To_Identity_ProvideJudgementCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_ProvideJudgementCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentityProvideJudgementCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentityProvideJudgementCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Identity_ProvideJudgementCall_target(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -8281,6 +8898,14 @@ func To_Identity_RemoveSubCall(in any) *pbgear.Identity_RemoveSubCall {
 
 	return out //from message
 }
+func To_Identity_RemoveSubCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_RemoveSubCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentityRemoveSubCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentityRemoveSubCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Identity_RemoveSubCall_sub(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -8323,6 +8948,14 @@ func To_Identity_RenameSubCall(in any) *pbgear.Identity_RenameSubCall {
 	reflect.ValueOf(out).Elem().FieldByName("Data").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_Identity_RenameSubCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_RenameSubCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentityRenameSubCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentityRenameSubCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Identity_RenameSubCall_sub(in any) any {
@@ -8525,6 +9158,14 @@ func To_Identity_RequestJudgementCall(in any) *pbgear.Identity_RequestJudgementC
 
 	return out //from message
 }
+func To_Identity_RequestJudgementCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_RequestJudgementCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentityRequestJudgementCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentityRequestJudgementCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Identity_Riot(in any) *pbgear.Identity_Riot {
 	out := &pbgear.Identity_Riot{}
@@ -8711,6 +9352,14 @@ func To_Identity_SetAccountIdCall(in any) *pbgear.Identity_SetAccountIdCall {
 
 	return out //from message
 }
+func To_Identity_SetAccountIdCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_SetAccountIdCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentitySetAccountIdCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentitySetAccountIdCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Identity_SetAccountIdCall_new(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -8752,6 +9401,14 @@ func To_Identity_SetFeeCall(in any) *pbgear.Identity_SetFeeCall {
 
 	return out //from message
 }
+func To_Identity_SetFeeCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_SetFeeCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentitySetFeeCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentitySetFeeCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Identity_SetFieldsCall(in any) *pbgear.Identity_SetFieldsCall {
 	out := &pbgear.Identity_SetFieldsCall{}
@@ -8765,6 +9422,14 @@ func To_Identity_SetFieldsCall(in any) *pbgear.Identity_SetFieldsCall {
 
 	return out //from message
 }
+func To_Identity_SetFieldsCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_SetFieldsCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentitySetFieldsCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentitySetFieldsCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Identity_SetIdentityCall(in any) *pbgear.Identity_SetIdentityCall {
 	out := &pbgear.Identity_SetIdentityCall{}
@@ -8776,6 +9441,14 @@ func To_Identity_SetIdentityCall(in any) *pbgear.Identity_SetIdentityCall {
 
 	return out //from message
 }
+func To_Identity_SetIdentityCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_SetIdentityCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentitySetIdentityCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentitySetIdentityCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Identity_SetSubsCall(in any) *pbgear.Identity_SetSubsCall {
 	out := &pbgear.Identity_SetSubsCall{}
@@ -8786,6 +9459,14 @@ func To_Identity_SetSubsCall(in any) *pbgear.Identity_SetSubsCall {
 	out.Subs = To_Repeated_Identity_SetSubsCall_subs(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Identity_SetSubsCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Identity_SetSubsCall(in)
+	out := &pbgearextrinsic.RuntimeCall_IdentitySetSubsCall{}
+	reflect.ValueOf(out).Elem().FieldByName("IdentitySetSubsCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Repeated_Identity_SetSubsCall_subs(in any) []*pbgear.Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData {
@@ -10156,6 +10837,14 @@ func To_ImOnline_HeartbeatCall(in any) *pbgear.ImOnline_HeartbeatCall {
 
 	return out //from message
 }
+func To_ImOnline_HeartbeatCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_ImOnline_HeartbeatCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ImonlineHeartbeatCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ImonlineHeartbeatCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_ImOnline_PalletImOnlineHeartbeat(in any) *pbgear.ImOnline_PalletImOnlineHeartbeat {
 	out := &pbgear.ImOnline_PalletImOnlineHeartbeat{}
@@ -10258,6 +10947,14 @@ func To_Multisig_ApproveAsMultiCall(in any) *pbgear.Multisig_ApproveAsMultiCall 
 
 	return out //from message
 }
+func To_Multisig_ApproveAsMultiCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Multisig_ApproveAsMultiCall(in)
+	out := &pbgearextrinsic.RuntimeCall_MultisigApproveAsMultiCall{}
+	reflect.ValueOf(out).Elem().FieldByName("MultisigApproveAsMultiCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Repeated_Multisig_ApproveAsMultiCall_other_signatories(in any) []*pbgear.SpCoreCryptoAccountId32 {
 	items := in.([]interface{})
@@ -10296,6 +10993,14 @@ func To_Multisig_AsMultiCall(in any) *pbgear.Multisig_AsMultiCall {
 	out.MaxWeight = To_SpWeightsWeightV2Weight(v.ValueAt(4))
 
 	return out //from message
+}
+func To_Multisig_AsMultiCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Multisig_AsMultiCall(in)
+	out := &pbgearextrinsic.RuntimeCall_MultisigAsMultiCall{}
+	reflect.ValueOf(out).Elem().FieldByName("MultisigAsMultiCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Repeated_Multisig_AsMultiCall_other_signatories(in any) []*pbgear.SpCoreCryptoAccountId32 {
@@ -10454,6 +11159,14 @@ func To_Multisig_AsMultiThreshold1Call(in any) *pbgear.Multisig_AsMultiThreshold
 
 	return out //from message
 }
+func To_Multisig_AsMultiThreshold1Call_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Multisig_AsMultiThreshold1Call(in)
+	out := &pbgearextrinsic.RuntimeCall_MultisigAsMultiThreshold_1Call{}
+	reflect.ValueOf(out).Elem().FieldByName("MultisigAsMultiThreshold_1Call").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Repeated_Multisig_AsMultiThreshold1Call_other_signatories(in any) []*pbgear.SpCoreCryptoAccountId32 {
 	items := in.([]interface{})
@@ -10608,6 +11321,14 @@ func To_Multisig_CancelAsMultiCall(in any) *pbgear.Multisig_CancelAsMultiCall {
 	out.CallHash = To_bytes(v.ValueAt(3))
 
 	return out //from message
+}
+func To_Multisig_CancelAsMultiCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Multisig_CancelAsMultiCall(in)
+	out := &pbgearextrinsic.RuntimeCall_MultisigCancelAsMultiCall{}
+	reflect.ValueOf(out).Elem().FieldByName("MultisigCancelAsMultiCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Repeated_Multisig_CancelAsMultiCall_other_signatories(in any) []*pbgear.SpCoreCryptoAccountId32 {
@@ -10778,6 +11499,14 @@ func To_NominationPools_AdjustPoolDepositCall(in any) *pbgear.NominationPools_Ad
 
 	return out //from message
 }
+func To_NominationPools_AdjustPoolDepositCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_AdjustPoolDepositCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsAdjustPoolDepositCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsAdjustPoolDepositCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_NominationPools_Blocked(in any) *pbgear.NominationPools_Blocked {
 	out := &pbgear.NominationPools_Blocked{}
@@ -10797,6 +11526,14 @@ func To_NominationPools_BondExtraCall(in any) *pbgear.NominationPools_BondExtraC
 	reflect.ValueOf(out).Elem().FieldByName("Extra").Set(reflect.ValueOf(v0))
 
 	return out //from message
+}
+func To_NominationPools_BondExtraCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_BondExtraCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsBondExtraCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsBondExtraCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_NominationPools_BondExtraCall_extra(in any) any {
@@ -10828,6 +11565,14 @@ func To_NominationPools_BondExtraOtherCall(in any) *pbgear.NominationPools_BondE
 	reflect.ValueOf(out).Elem().FieldByName("Extra").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_NominationPools_BondExtraOtherCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_BondExtraOtherCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsBondExtraOtherCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsBondExtraOtherCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_NominationPools_BondExtraOtherCall_member(in any) any {
@@ -10924,6 +11669,14 @@ func To_NominationPools_ChillCall(in any) *pbgear.NominationPools_ChillCall {
 
 	return out //from message
 }
+func To_NominationPools_ChillCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_ChillCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsChillCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsChillCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_NominationPools_ClaimCommissionCall(in any) *pbgear.NominationPools_ClaimCommissionCall {
 	out := &pbgear.NominationPools_ClaimCommissionCall{}
@@ -10934,6 +11687,14 @@ func To_NominationPools_ClaimCommissionCall(in any) *pbgear.NominationPools_Clai
 	out.PoolId = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_NominationPools_ClaimCommissionCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_ClaimCommissionCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsClaimCommissionCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsClaimCommissionCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_NominationPools_ClaimPayoutCall(in any) *pbgear.NominationPools_ClaimPayoutCall {
@@ -10954,6 +11715,14 @@ func To_NominationPools_ClaimPayoutOtherCall(in any) *pbgear.NominationPools_Cla
 
 	return out //from message
 }
+func To_NominationPools_ClaimPayoutOtherCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_ClaimPayoutOtherCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsClaimPayoutOtherCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsClaimPayoutOtherCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_NominationPools_CreateCall(in any) *pbgear.NominationPools_CreateCall {
 	out := &pbgear.NominationPools_CreateCall{}
@@ -10973,6 +11742,14 @@ func To_NominationPools_CreateCall(in any) *pbgear.NominationPools_CreateCall {
 	reflect.ValueOf(out).Elem().FieldByName("Bouncer").Set(reflect.ValueOf(v3))
 
 	return out //from message
+}
+func To_NominationPools_CreateCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_CreateCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsCreateCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsCreateCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_NominationPools_CreateCall_root(in any) any {
@@ -11079,6 +11856,14 @@ func To_NominationPools_CreateWithPoolIdCall(in any) *pbgear.NominationPools_Cre
 	out.PoolId = To_uint32(v.ValueAt(4))
 
 	return out //from message
+}
+func To_NominationPools_CreateWithPoolIdCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_CreateWithPoolIdCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsCreateWithPoolIdCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsCreateWithPoolIdCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_NominationPools_CreateWithPoolIdCall_root(in any) any {
@@ -11277,6 +12062,14 @@ func To_NominationPools_JoinCall(in any) *pbgear.NominationPools_JoinCall {
 	out.PoolId = To_uint32(v.ValueAt(1))
 
 	return out //from message
+}
+func To_NominationPools_JoinCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_JoinCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsJoinCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsJoinCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_NominationPools_MaxMembers(in any) *pbgear.NominationPools_MaxMembers {
@@ -11627,6 +12420,14 @@ func To_NominationPools_NominateCall(in any) *pbgear.NominationPools_NominateCal
 
 	return out //from message
 }
+func To_NominationPools_NominateCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_NominateCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsNominateCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsNominateCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Repeated_NominationPools_NominateCall_validators(in any) []*pbgear.SpCoreCryptoAccountId32 {
 	items := in.([]interface{})
@@ -11791,6 +12592,14 @@ func To_NominationPools_PoolWithdrawUnbondedCall(in any) *pbgear.NominationPools
 
 	return out //from message
 }
+func To_NominationPools_PoolWithdrawUnbondedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_PoolWithdrawUnbondedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsPoolWithdrawUnbondedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsPoolWithdrawUnbondedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_NominationPools_Raw(in any) *pbgear.NominationPools_Raw {
 	out := &pbgear.NominationPools_Raw{}
@@ -11881,6 +12690,14 @@ func To_NominationPools_SetClaimPermissionCall(in any) *pbgear.NominationPools_S
 
 	return out //from message
 }
+func To_NominationPools_SetClaimPermissionCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_SetClaimPermissionCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsSetClaimPermissionCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsSetClaimPermissionCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_NominationPools_SetClaimPermissionCall_permission(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -11918,6 +12735,14 @@ func To_NominationPools_SetCommissionCall(in any) *pbgear.NominationPools_SetCom
 
 	return out //from message
 }
+func To_NominationPools_SetCommissionCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_SetCommissionCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsSetCommissionCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsSetCommissionCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Optional_NominationPools_SetCommissionCall_new_commission(in any) *pbgear.NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32 {
 	panic("Not implemented")
@@ -11935,6 +12760,14 @@ func To_NominationPools_SetCommissionChangeRateCall(in any) *pbgear.NominationPo
 
 	return out //from message
 }
+func To_NominationPools_SetCommissionChangeRateCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_SetCommissionChangeRateCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsSetCommissionChangeRateCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsSetCommissionChangeRateCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_NominationPools_SetCommissionMaxCall(in any) *pbgear.NominationPools_SetCommissionMaxCall {
 	out := &pbgear.NominationPools_SetCommissionMaxCall{}
@@ -11947,6 +12780,14 @@ func To_NominationPools_SetCommissionMaxCall(in any) *pbgear.NominationPools_Set
 	out.MaxCommission = To_SpArithmeticPerThingsPerbill(v.ValueAt(1))
 
 	return out //from message
+}
+func To_NominationPools_SetCommissionMaxCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_SetCommissionMaxCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsSetCommissionMaxCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsSetCommissionMaxCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_NominationPools_SetConfigsCall(in any) *pbgear.NominationPools_SetConfigsCall {
@@ -11974,6 +12815,14 @@ func To_NominationPools_SetConfigsCall(in any) *pbgear.NominationPools_SetConfig
 	reflect.ValueOf(out).Elem().FieldByName("GlobalMaxCommission").Set(reflect.ValueOf(v5))
 
 	return out //from message
+}
+func To_NominationPools_SetConfigsCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_SetConfigsCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsSetConfigsCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsSetConfigsCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_NominationPools_SetConfigsCall_min_join_bond(in any) any {
@@ -12108,6 +12957,14 @@ func To_NominationPools_SetMetadataCall(in any) *pbgear.NominationPools_SetMetad
 
 	return out //from message
 }
+func To_NominationPools_SetMetadataCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_SetMetadataCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsSetMetadataCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsSetMetadataCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_NominationPools_SetStateCall(in any) *pbgear.NominationPools_SetStateCall {
 	out := &pbgear.NominationPools_SetStateCall{}
@@ -12121,6 +12978,14 @@ func To_NominationPools_SetStateCall(in any) *pbgear.NominationPools_SetStateCal
 	reflect.ValueOf(out).Elem().FieldByName("State").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_NominationPools_SetStateCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_SetStateCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsSetStateCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsSetStateCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_NominationPools_SetStateCall_state(in any) any {
@@ -12212,6 +13077,14 @@ func To_NominationPools_UnbondCall(in any) *pbgear.NominationPools_UnbondCall {
 
 	return out //from message
 }
+func To_NominationPools_UnbondCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_UnbondCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsUnbondCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsUnbondCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_NominationPools_UnbondCall_member_account(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -12259,6 +13132,14 @@ func To_NominationPools_UpdateRolesCall(in any) *pbgear.NominationPools_UpdateRo
 	reflect.ValueOf(out).Elem().FieldByName("NewBouncer").Set(reflect.ValueOf(v3))
 
 	return out //from message
+}
+func To_NominationPools_UpdateRolesCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_UpdateRolesCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsUpdateRolesCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsUpdateRolesCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_NominationPools_UpdateRolesCall_new_root(in any) any {
@@ -12333,6 +13214,14 @@ func To_NominationPools_WithdrawUnbondedCall(in any) *pbgear.NominationPools_Wit
 	out.NumSlashingSpans = To_uint32(v.ValueAt(1))
 
 	return out //from message
+}
+func To_NominationPools_WithdrawUnbondedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_NominationPools_WithdrawUnbondedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_NominationpoolsWithdrawUnbondedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("NominationpoolsWithdrawUnbondedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_NominationPools_WithdrawUnbondedCall_member_account(in any) any {
@@ -12437,6 +13326,14 @@ func To_Preimage_EnsureUpdatedCall(in any) *pbgear.Preimage_EnsureUpdatedCall {
 
 	return out //from message
 }
+func To_Preimage_EnsureUpdatedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Preimage_EnsureUpdatedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_PreimageEnsureUpdatedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("PreimageEnsureUpdatedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Repeated_Preimage_EnsureUpdatedCall_hashes(in any) []*pbgear.PrimitiveTypesH256 {
 	items := in.([]interface{})
@@ -12462,6 +13359,14 @@ func To_Preimage_NotePreimageCall(in any) *pbgear.Preimage_NotePreimageCall {
 
 	return out //from message
 }
+func To_Preimage_NotePreimageCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Preimage_NotePreimageCall(in)
+	out := &pbgearextrinsic.RuntimeCall_PreimageNotePreimageCall{}
+	reflect.ValueOf(out).Elem().FieldByName("PreimageNotePreimageCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Preimage_RequestPreimageCall(in any) *pbgear.Preimage_RequestPreimageCall {
 	out := &pbgear.Preimage_RequestPreimageCall{}
@@ -12472,6 +13377,14 @@ func To_Preimage_RequestPreimageCall(in any) *pbgear.Preimage_RequestPreimageCal
 	out.Hash = To_PrimitiveTypesH256(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Preimage_RequestPreimageCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Preimage_RequestPreimageCall(in)
+	out := &pbgearextrinsic.RuntimeCall_PreimageRequestPreimageCall{}
+	reflect.ValueOf(out).Elem().FieldByName("PreimageRequestPreimageCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Preimage_UnnotePreimageCall(in any) *pbgear.Preimage_UnnotePreimageCall {
@@ -12484,6 +13397,14 @@ func To_Preimage_UnnotePreimageCall(in any) *pbgear.Preimage_UnnotePreimageCall 
 
 	return out //from message
 }
+func To_Preimage_UnnotePreimageCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Preimage_UnnotePreimageCall(in)
+	out := &pbgearextrinsic.RuntimeCall_PreimageUnnotePreimageCall{}
+	reflect.ValueOf(out).Elem().FieldByName("PreimageUnnotePreimageCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Preimage_UnrequestPreimageCall(in any) *pbgear.Preimage_UnrequestPreimageCall {
 	out := &pbgear.Preimage_UnrequestPreimageCall{}
@@ -12494,6 +13415,14 @@ func To_Preimage_UnrequestPreimageCall(in any) *pbgear.Preimage_UnrequestPreimag
 	out.Hash = To_PrimitiveTypesH256(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Preimage_UnrequestPreimageCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Preimage_UnrequestPreimageCall(in)
+	out := &pbgearextrinsic.RuntimeCall_PreimageUnrequestPreimageCall{}
+	reflect.ValueOf(out).Elem().FieldByName("PreimageUnrequestPreimageCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_PrimitiveTypesH256(in any) *pbgear.PrimitiveTypesH256 {
@@ -12582,6 +13511,14 @@ func To_Proxy_AddProxyCall(in any) *pbgear.Proxy_AddProxyCall {
 	out.Delay = To_uint32(v.ValueAt(2))
 
 	return out //from message
+}
+func To_Proxy_AddProxyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Proxy_AddProxyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ProxyAddProxyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ProxyAddProxyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Proxy_AddProxyCall_delegate(in any) any {
@@ -12679,6 +13616,14 @@ func To_Proxy_AnnounceCall(in any) *pbgear.Proxy_AnnounceCall {
 
 	return out //from message
 }
+func To_Proxy_AnnounceCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Proxy_AnnounceCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ProxyAnnounceCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ProxyAnnounceCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Proxy_AnnounceCall_real(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -12739,6 +13684,14 @@ func To_Proxy_CreatePureCall(in any) *pbgear.Proxy_CreatePureCall {
 	out.Index = To_uint32(v.ValueAt(2))
 
 	return out //from message
+}
+func To_Proxy_CreatePureCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Proxy_CreatePureCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ProxyCreatePureCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ProxyCreatePureCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Proxy_CreatePureCall_proxy_type(in any) any {
@@ -12915,6 +13868,14 @@ func To_Proxy_KillPureCall(in any) *pbgear.Proxy_KillPureCall {
 
 	return out //from message
 }
+func To_Proxy_KillPureCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Proxy_KillPureCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ProxyKillPureCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ProxyKillPureCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Proxy_KillPureCall_spawner(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -13003,6 +13964,14 @@ func To_Proxy_ProxyAnnouncedCall(in any) *pbgear.Proxy_ProxyAnnouncedCall {
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v3))
 
 	return out //from message
+}
+func To_Proxy_ProxyAnnouncedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Proxy_ProxyAnnouncedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ProxyProxyAnnouncedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ProxyProxyAnnouncedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Proxy_ProxyAnnouncedCall_delegate(in any) any {
@@ -13233,6 +14202,14 @@ func To_Proxy_ProxyCall(in any) *pbgear.Proxy_ProxyCall {
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v2))
 
 	return out //from message
+}
+func To_Proxy_ProxyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Proxy_ProxyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ProxyProxyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ProxyProxyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Proxy_ProxyCall_real(in any) any {
@@ -13527,6 +14504,14 @@ func To_Proxy_RejectAnnouncementCall(in any) *pbgear.Proxy_RejectAnnouncementCal
 
 	return out //from message
 }
+func To_Proxy_RejectAnnouncementCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Proxy_RejectAnnouncementCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ProxyRejectAnnouncementCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ProxyRejectAnnouncementCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Proxy_RejectAnnouncementCall_delegate(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -13569,6 +14554,14 @@ func To_Proxy_RemoveAnnouncementCall(in any) *pbgear.Proxy_RemoveAnnouncementCal
 	out.CallHash = To_PrimitiveTypesH256(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Proxy_RemoveAnnouncementCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Proxy_RemoveAnnouncementCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ProxyRemoveAnnouncementCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ProxyRemoveAnnouncementCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Proxy_RemoveAnnouncementCall_real(in any) any {
@@ -13623,6 +14616,14 @@ func To_Proxy_RemoveProxyCall(in any) *pbgear.Proxy_RemoveProxyCall {
 	out.Delay = To_uint32(v.ValueAt(2))
 
 	return out //from message
+}
+func To_Proxy_RemoveProxyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Proxy_RemoveProxyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ProxyRemoveProxyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ProxyRemoveProxyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Proxy_RemoveProxyCall_delegate(in any) any {
@@ -13832,6 +14833,14 @@ func To_Referenda_CancelCall(in any) *pbgear.Referenda_CancelCall {
 
 	return out //from message
 }
+func To_Referenda_CancelCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Referenda_CancelCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ReferendaCancelCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ReferendaCancelCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Referenda_EnactmentMoment(in any) *pbgear.Referenda_EnactmentMoment {
 	out := &pbgear.Referenda_EnactmentMoment{}
@@ -13882,6 +14891,14 @@ func To_Referenda_KillCall(in any) *pbgear.Referenda_KillCall {
 
 	return out //from message
 }
+func To_Referenda_KillCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Referenda_KillCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ReferendaKillCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ReferendaKillCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Referenda_Legacy(in any) *pbgear.Referenda_Legacy {
 	out := &pbgear.Referenda_Legacy{}
@@ -13917,6 +14934,14 @@ func To_Referenda_NudgeReferendumCall(in any) *pbgear.Referenda_NudgeReferendumC
 
 	return out //from message
 }
+func To_Referenda_NudgeReferendumCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Referenda_NudgeReferendumCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ReferendaNudgeReferendumCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ReferendaNudgeReferendumCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Referenda_OneFewerDecidingCall(in any) *pbgear.Referenda_OneFewerDecidingCall {
 	out := &pbgear.Referenda_OneFewerDecidingCall{}
@@ -13927,6 +14952,14 @@ func To_Referenda_OneFewerDecidingCall(in any) *pbgear.Referenda_OneFewerDecidin
 	out.Track = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Referenda_OneFewerDecidingCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Referenda_OneFewerDecidingCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ReferendaOneFewerDecidingCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ReferendaOneFewerDecidingCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Referenda_Origins(in any) *pbgear.Referenda_Origins {
@@ -14059,6 +15092,14 @@ func To_Referenda_PlaceDecisionDepositCall(in any) *pbgear.Referenda_PlaceDecisi
 
 	return out //from message
 }
+func To_Referenda_PlaceDecisionDepositCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Referenda_PlaceDecisionDepositCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ReferendaPlaceDecisionDepositCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ReferendaPlaceDecisionDepositCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Referenda_Proposal(in any) *pbgear.Referenda_Proposal {
 	out := &pbgear.Referenda_Proposal{}
@@ -14134,6 +15175,14 @@ func To_Referenda_RefundDecisionDepositCall(in any) *pbgear.Referenda_RefundDeci
 
 	return out //from message
 }
+func To_Referenda_RefundDecisionDepositCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Referenda_RefundDecisionDepositCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ReferendaRefundDecisionDepositCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ReferendaRefundDecisionDepositCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Referenda_RefundSubmissionDepositCall(in any) *pbgear.Referenda_RefundSubmissionDepositCall {
 	out := &pbgear.Referenda_RefundSubmissionDepositCall{}
@@ -14144,6 +15193,14 @@ func To_Referenda_RefundSubmissionDepositCall(in any) *pbgear.Referenda_RefundSu
 	out.Index = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Referenda_RefundSubmissionDepositCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Referenda_RefundSubmissionDepositCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ReferendaRefundSubmissionDepositCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ReferendaRefundSubmissionDepositCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Referenda_SetMetadataCall(in any) *pbgear.Referenda_SetMetadataCall {
@@ -14157,6 +15214,14 @@ func To_Referenda_SetMetadataCall(in any) *pbgear.Referenda_SetMetadataCall {
 	out.MaybeHash = To_Optional_Referenda_SetMetadataCall_maybe_hash(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Referenda_SetMetadataCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Referenda_SetMetadataCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ReferendaSetMetadataCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ReferendaSetMetadataCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Optional_Referenda_SetMetadataCall_maybe_hash(in any) *pbgear.PrimitiveTypesH256 {
@@ -14179,6 +15244,14 @@ func To_Referenda_SubmitCall(in any) *pbgear.Referenda_SubmitCall {
 	reflect.ValueOf(out).Elem().FieldByName("EnactmentMoment").Set(reflect.ValueOf(v2))
 
 	return out //from message
+}
+func To_Referenda_SubmitCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Referenda_SubmitCall(in)
+	out := &pbgearextrinsic.RuntimeCall_ReferendaSubmitCall{}
+	reflect.ValueOf(out).Elem().FieldByName("ReferendaSubmitCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Referenda_SubmitCall_proposal_origin(in any) any {
@@ -14364,6 +15437,14 @@ func To_Scheduler_CancelCall(in any) *pbgear.Scheduler_CancelCall {
 
 	return out //from message
 }
+func To_Scheduler_CancelCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Scheduler_CancelCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SchedulerCancelCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SchedulerCancelCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Scheduler_CancelNamedCall(in any) *pbgear.Scheduler_CancelNamedCall {
 	out := &pbgear.Scheduler_CancelNamedCall{}
@@ -14374,6 +15455,14 @@ func To_Scheduler_CancelNamedCall(in any) *pbgear.Scheduler_CancelNamedCall {
 	out.Id = To_bytes(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Scheduler_CancelNamedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Scheduler_CancelNamedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SchedulerCancelNamedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SchedulerCancelNamedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Scheduler_ScheduleAfterCall(in any) *pbgear.Scheduler_ScheduleAfterCall {
@@ -14392,6 +15481,14 @@ func To_Scheduler_ScheduleAfterCall(in any) *pbgear.Scheduler_ScheduleAfterCall 
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v3))
 
 	return out //from message
+}
+func To_Scheduler_ScheduleAfterCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Scheduler_ScheduleAfterCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SchedulerScheduleAfterCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SchedulerScheduleAfterCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Optional_Scheduler_ScheduleAfterCall_maybe_periodic(in any) *pbgear.Scheduler_TupleUint32Uint32 {
@@ -14538,6 +15635,14 @@ func To_Scheduler_ScheduleCall(in any) *pbgear.Scheduler_ScheduleCall {
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v3))
 
 	return out //from message
+}
+func To_Scheduler_ScheduleCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Scheduler_ScheduleCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SchedulerScheduleCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SchedulerScheduleCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Optional_Scheduler_ScheduleCall_maybe_periodic(in any) *pbgear.Scheduler_TupleUint32Uint32 {
@@ -14687,6 +15792,14 @@ func To_Scheduler_ScheduleNamedAfterCall(in any) *pbgear.Scheduler_ScheduleNamed
 
 	return out //from message
 }
+func To_Scheduler_ScheduleNamedAfterCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Scheduler_ScheduleNamedAfterCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SchedulerScheduleNamedAfterCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SchedulerScheduleNamedAfterCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Optional_Scheduler_ScheduleNamedAfterCall_maybe_periodic(in any) *pbgear.Scheduler_TupleUint32Uint32 {
 	panic("Not implemented")
@@ -14834,6 +15947,14 @@ func To_Scheduler_ScheduleNamedCall(in any) *pbgear.Scheduler_ScheduleNamedCall 
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v4))
 
 	return out //from message
+}
+func To_Scheduler_ScheduleNamedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Scheduler_ScheduleNamedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SchedulerScheduleNamedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SchedulerScheduleNamedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Optional_Scheduler_ScheduleNamedCall_maybe_periodic(in any) *pbgear.Scheduler_TupleUint32Uint32 {
@@ -15024,6 +16145,14 @@ func To_Session_SetKeysCall(in any) *pbgear.Session_SetKeysCall {
 	out.Proof = To_bytes(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Session_SetKeysCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Session_SetKeysCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SessionSetKeysCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SessionSetKeysCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Signed(in any) *pbgear.Signed {
@@ -15610,6 +16739,14 @@ func To_StakingRewards_AlignSupplyCall(in any) *pbgear.StakingRewards_AlignSuppl
 
 	return out //from message
 }
+func To_StakingRewards_AlignSupplyCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_StakingRewards_AlignSupplyCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingrewardsAlignSupplyCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingrewardsAlignSupplyCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_StakingRewards_ForceRefillCall(in any) *pbgear.StakingRewards_ForceRefillCall {
 	out := &pbgear.StakingRewards_ForceRefillCall{}
@@ -15623,6 +16760,14 @@ func To_StakingRewards_ForceRefillCall(in any) *pbgear.StakingRewards_ForceRefil
 	out.Value = To_string(v.ValueAt(1))
 
 	return out //from message
+}
+func To_StakingRewards_ForceRefillCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_StakingRewards_ForceRefillCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingrewardsForceRefillCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingrewardsForceRefillCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_StakingRewards_ForceRefillCall_from(in any) any {
@@ -15736,6 +16881,14 @@ func To_StakingRewards_RefillCall(in any) *pbgear.StakingRewards_RefillCall {
 
 	return out //from message
 }
+func To_StakingRewards_RefillCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_StakingRewards_RefillCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingrewardsRefillCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingrewardsRefillCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_StakingRewards_To(in any) *pbgear.StakingRewards_To {
 	out := &pbgear.StakingRewards_To{}
@@ -15800,6 +16953,14 @@ func To_StakingRewards_WithdrawCall(in any) *pbgear.StakingRewards_WithdrawCall 
 	out.Value = To_string(v.ValueAt(1))
 
 	return out //from message
+}
+func To_StakingRewards_WithdrawCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_StakingRewards_WithdrawCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingrewardsWithdrawCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingrewardsWithdrawCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_StakingRewards_WithdrawCall_to(in any) any {
@@ -15876,6 +17037,14 @@ func To_Staking_BondCall(in any) *pbgear.Staking_BondCall {
 
 	return out //from message
 }
+func To_Staking_BondCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_BondCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingBondCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingBondCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Staking_BondCall_payee(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -15915,6 +17084,14 @@ func To_Staking_BondExtraCall(in any) *pbgear.Staking_BondExtraCall {
 
 	return out //from message
 }
+func To_Staking_BondExtraCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_BondExtraCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingBondExtraCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingBondExtraCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Staking_CancelDeferredSlashCall(in any) *pbgear.Staking_CancelDeferredSlashCall {
 	out := &pbgear.Staking_CancelDeferredSlashCall{}
@@ -15927,6 +17104,14 @@ func To_Staking_CancelDeferredSlashCall(in any) *pbgear.Staking_CancelDeferredSl
 	out.SlashIndices = To_Repeated_uint32(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Staking_CancelDeferredSlashCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_CancelDeferredSlashCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingCancelDeferredSlashCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingCancelDeferredSlashCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Staking_ChillCall(in any) *pbgear.Staking_ChillCall {
@@ -15946,6 +17131,14 @@ func To_Staking_ChillOtherCall(in any) *pbgear.Staking_ChillOtherCall {
 	out.Controller = To_SpCoreCryptoAccountId32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Staking_ChillOtherCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_ChillOtherCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingChillOtherCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingChillOtherCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Staking_ChillThreshold(in any) *pbgear.Staking_ChillThreshold {
@@ -15998,6 +17191,14 @@ func To_Staking_ForceApplyMinCommissionCall(in any) *pbgear.Staking_ForceApplyMi
 
 	return out //from message
 }
+func To_Staking_ForceApplyMinCommissionCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_ForceApplyMinCommissionCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingForceApplyMinCommissionCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingForceApplyMinCommissionCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Staking_ForceNewEraAlwaysCall(in any) *pbgear.Staking_ForceNewEraAlwaysCall {
 	out := &pbgear.Staking_ForceNewEraAlwaysCall{}
@@ -16035,6 +17236,14 @@ func To_Staking_ForceUnstakeCall(in any) *pbgear.Staking_ForceUnstakeCall {
 
 	return out //from message
 }
+func To_Staking_ForceUnstakeCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_ForceUnstakeCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingForceUnstakeCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingForceUnstakeCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Staking_Id(in any) *pbgear.Staking_Id {
 	out := &pbgear.Staking_Id{}
@@ -16057,6 +17266,14 @@ func To_Staking_IncreaseValidatorCountCall(in any) *pbgear.Staking_IncreaseValid
 
 	return out //from message
 }
+func To_Staking_IncreaseValidatorCountCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_IncreaseValidatorCountCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingIncreaseValidatorCountCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingIncreaseValidatorCountCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Staking_Index(in any) *pbgear.Staking_Index {
 	out := &pbgear.Staking_Index{}
@@ -16078,6 +17295,14 @@ func To_Staking_KickCall(in any) *pbgear.Staking_KickCall {
 	out.Who = To_Repeated_Staking_KickCall_who(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Staking_KickCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_KickCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingKickCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingKickCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Repeated_Staking_KickCall_who(in any) []*pbgear.SpRuntimeMultiaddressMultiAddress {
@@ -16264,6 +17489,14 @@ func To_Staking_NominateCall(in any) *pbgear.Staking_NominateCall {
 
 	return out //from message
 }
+func To_Staking_NominateCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_NominateCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingNominateCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingNominateCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Repeated_Staking_NominateCall_targets(in any) []*pbgear.SpRuntimeMultiaddressMultiAddress {
 	items := in.([]interface{})
@@ -16360,6 +17593,14 @@ func To_Staking_PayoutStakersCall(in any) *pbgear.Staking_PayoutStakersCall {
 
 	return out //from message
 }
+func To_Staking_PayoutStakersCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_PayoutStakersCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingPayoutStakersCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingPayoutStakersCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Staking_Raw(in any) *pbgear.Staking_Raw {
 	out := &pbgear.Staking_Raw{}
@@ -16384,6 +17625,14 @@ func To_Staking_ReapStashCall(in any) *pbgear.Staking_ReapStashCall {
 
 	return out //from message
 }
+func To_Staking_ReapStashCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_ReapStashCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingReapStashCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingReapStashCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Staking_RebondCall(in any) *pbgear.Staking_RebondCall {
 	out := &pbgear.Staking_RebondCall{}
@@ -16394,6 +17643,14 @@ func To_Staking_RebondCall(in any) *pbgear.Staking_RebondCall {
 	out.Value = To_string(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Staking_RebondCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_RebondCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingRebondCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingRebondCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Staking_Remove(in any) *pbgear.Staking_Remove {
@@ -16413,6 +17670,14 @@ func To_Staking_ScaleValidatorCountCall(in any) *pbgear.Staking_ScaleValidatorCo
 	out.Factor = To_SpArithmeticPerThingsPercent(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Staking_ScaleValidatorCountCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_ScaleValidatorCountCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingScaleValidatorCountCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingScaleValidatorCountCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Staking_Set(in any) *pbgear.Staking_Set {
@@ -16444,6 +17709,14 @@ func To_Staking_SetInvulnerablesCall(in any) *pbgear.Staking_SetInvulnerablesCal
 
 	return out //from message
 }
+func To_Staking_SetInvulnerablesCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_SetInvulnerablesCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingSetInvulnerablesCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingSetInvulnerablesCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Repeated_Staking_SetInvulnerablesCall_invulnerables(in any) []*pbgear.SpCoreCryptoAccountId32 {
 	items := in.([]interface{})
@@ -16469,6 +17742,14 @@ func To_Staking_SetMinCommissionCall(in any) *pbgear.Staking_SetMinCommissionCal
 
 	return out //from message
 }
+func To_Staking_SetMinCommissionCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_SetMinCommissionCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingSetMinCommissionCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingSetMinCommissionCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Staking_SetPayeeCall(in any) *pbgear.Staking_SetPayeeCall {
 	out := &pbgear.Staking_SetPayeeCall{}
@@ -16480,6 +17761,14 @@ func To_Staking_SetPayeeCall(in any) *pbgear.Staking_SetPayeeCall {
 	reflect.ValueOf(out).Elem().FieldByName("Payee").Set(reflect.ValueOf(v0))
 
 	return out //from message
+}
+func To_Staking_SetPayeeCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_SetPayeeCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingSetPayeeCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingSetPayeeCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Staking_SetPayeeCall_payee(in any) any {
@@ -16535,6 +17824,14 @@ func To_Staking_SetStakingConfigsCall(in any) *pbgear.Staking_SetStakingConfigsC
 	reflect.ValueOf(out).Elem().FieldByName("MinCommission").Set(reflect.ValueOf(v5))
 
 	return out //from message
+}
+func To_Staking_SetStakingConfigsCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_SetStakingConfigsCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingSetStakingConfigsCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingSetStakingConfigsCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Staking_SetStakingConfigsCall_min_nominator_bond(in any) any {
@@ -16667,6 +17964,14 @@ func To_Staking_SetValidatorCountCall(in any) *pbgear.Staking_SetValidatorCountC
 
 	return out //from message
 }
+func To_Staking_SetValidatorCountCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_SetValidatorCountCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingSetValidatorCountCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingSetValidatorCountCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Staking_Staked(in any) *pbgear.Staking_Staked {
 	out := &pbgear.Staking_Staked{}
@@ -16745,6 +18050,14 @@ func To_Staking_UnbondCall(in any) *pbgear.Staking_UnbondCall {
 
 	return out //from message
 }
+func To_Staking_UnbondCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_UnbondCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingUnbondCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingUnbondCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Staking_ValidateCall(in any) *pbgear.Staking_ValidateCall {
 	out := &pbgear.Staking_ValidateCall{}
@@ -16755,6 +18068,14 @@ func To_Staking_ValidateCall(in any) *pbgear.Staking_ValidateCall {
 	out.Prefs = To_Staking_PalletStakingValidatorPrefs(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Staking_ValidateCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_ValidateCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingValidateCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingValidateCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Staking_Who(in any) *pbgear.Staking_Who {
@@ -16806,6 +18127,14 @@ func To_Staking_WithdrawUnbondedCall(in any) *pbgear.Staking_WithdrawUnbondedCal
 	out.NumSlashingSpans = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Staking_WithdrawUnbondedCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Staking_WithdrawUnbondedCall(in)
+	out := &pbgearextrinsic.RuntimeCall_StakingWithdrawUnbondedCall{}
+	reflect.ValueOf(out).Elem().FieldByName("StakingWithdrawUnbondedCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_SystemPallet(in any) *pbgear.SystemPallet {
@@ -16872,6 +18201,14 @@ func To_System_KillPrefixCall(in any) *pbgear.System_KillPrefixCall {
 
 	return out //from message
 }
+func To_System_KillPrefixCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_System_KillPrefixCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SystemKillPrefixCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SystemKillPrefixCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_System_KillStorageCall(in any) *pbgear.System_KillStorageCall {
 	out := &pbgear.System_KillStorageCall{}
@@ -16882,6 +18219,14 @@ func To_System_KillStorageCall(in any) *pbgear.System_KillStorageCall {
 	out.Keys = To_Repeated_System_KillStorageCall_keys(v.ValueAt(0))
 
 	return out //from message
+}
+func To_System_KillStorageCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_System_KillStorageCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SystemKillStorageCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SystemKillStorageCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Repeated_System_KillStorageCall_keys(in any) []*pbgear.System_SystemKeysList {
@@ -16908,6 +18253,14 @@ func To_System_RemarkCall(in any) *pbgear.System_RemarkCall {
 
 	return out //from message
 }
+func To_System_RemarkCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_System_RemarkCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SystemRemarkCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SystemRemarkCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_System_RemarkWithEventCall(in any) *pbgear.System_RemarkWithEventCall {
 	out := &pbgear.System_RemarkWithEventCall{}
@@ -16918,6 +18271,14 @@ func To_System_RemarkWithEventCall(in any) *pbgear.System_RemarkWithEventCall {
 	out.Remark = To_bytes(v.ValueAt(0))
 
 	return out //from message
+}
+func To_System_RemarkWithEventCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_System_RemarkWithEventCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SystemRemarkWithEventCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SystemRemarkWithEventCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_System_SetCodeCall(in any) *pbgear.System_SetCodeCall {
@@ -16930,6 +18291,14 @@ func To_System_SetCodeCall(in any) *pbgear.System_SetCodeCall {
 
 	return out //from message
 }
+func To_System_SetCodeCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_System_SetCodeCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SystemSetCodeCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SystemSetCodeCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_System_SetCodeWithoutChecksCall(in any) *pbgear.System_SetCodeWithoutChecksCall {
 	out := &pbgear.System_SetCodeWithoutChecksCall{}
@@ -16940,6 +18309,14 @@ func To_System_SetCodeWithoutChecksCall(in any) *pbgear.System_SetCodeWithoutChe
 	out.Code = To_bytes(v.ValueAt(0))
 
 	return out //from message
+}
+func To_System_SetCodeWithoutChecksCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_System_SetCodeWithoutChecksCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SystemSetCodeWithoutChecksCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SystemSetCodeWithoutChecksCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_System_SetHeapPagesCall(in any) *pbgear.System_SetHeapPagesCall {
@@ -16952,6 +18329,14 @@ func To_System_SetHeapPagesCall(in any) *pbgear.System_SetHeapPagesCall {
 
 	return out //from message
 }
+func To_System_SetHeapPagesCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_System_SetHeapPagesCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SystemSetHeapPagesCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SystemSetHeapPagesCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_System_SetStorageCall(in any) *pbgear.System_SetStorageCall {
 	out := &pbgear.System_SetStorageCall{}
@@ -16962,6 +18347,14 @@ func To_System_SetStorageCall(in any) *pbgear.System_SetStorageCall {
 	out.Items = To_Repeated_System_SetStorageCall_items(v.ValueAt(0))
 
 	return out //from message
+}
+func To_System_SetStorageCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_System_SetStorageCall(in)
+	out := &pbgearextrinsic.RuntimeCall_SystemSetStorageCall{}
+	reflect.ValueOf(out).Elem().FieldByName("SystemSetStorageCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Repeated_System_SetStorageCall_items(in any) []*pbgear.System_TupleSystemItemsListSystemItemsList {
@@ -17035,6 +18428,14 @@ func To_Timestamp_SetCall(in any) *pbgear.Timestamp_SetCall {
 	out.Now = To_uint64(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Timestamp_SetCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Timestamp_SetCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TimestampSetCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TimestampSetCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_TransactionPaymentPallet(in any) *pbgear.TransactionPaymentPallet {
@@ -17141,6 +18542,14 @@ func To_Treasury_ApproveProposalCall(in any) *pbgear.Treasury_ApproveProposalCal
 
 	return out //from message
 }
+func To_Treasury_ApproveProposalCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Treasury_ApproveProposalCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TreasuryApproveProposalCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TreasuryApproveProposalCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Treasury_Beneficiary(in any) *pbgear.Treasury_Beneficiary {
 	out := &pbgear.Treasury_Beneficiary{}
@@ -17192,6 +18601,14 @@ func To_Treasury_CheckStatusCall(in any) *pbgear.Treasury_CheckStatusCall {
 
 	return out //from message
 }
+func To_Treasury_CheckStatusCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Treasury_CheckStatusCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TreasuryCheckStatusCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TreasuryCheckStatusCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Treasury_Id(in any) *pbgear.Treasury_Id {
 	out := &pbgear.Treasury_Id{}
@@ -17225,6 +18642,14 @@ func To_Treasury_PayoutCall(in any) *pbgear.Treasury_PayoutCall {
 
 	return out //from message
 }
+func To_Treasury_PayoutCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Treasury_PayoutCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TreasuryPayoutCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TreasuryPayoutCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Treasury_ProposeSpendCall(in any) *pbgear.Treasury_ProposeSpendCall {
 	out := &pbgear.Treasury_ProposeSpendCall{}
@@ -17238,6 +18663,14 @@ func To_Treasury_ProposeSpendCall(in any) *pbgear.Treasury_ProposeSpendCall {
 	reflect.ValueOf(out).Elem().FieldByName("Beneficiary").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_Treasury_ProposeSpendCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Treasury_ProposeSpendCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TreasuryProposeSpendCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TreasuryProposeSpendCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Treasury_ProposeSpendCall_beneficiary(in any) any {
@@ -17289,6 +18722,14 @@ func To_Treasury_RejectProposalCall(in any) *pbgear.Treasury_RejectProposalCall 
 
 	return out //from message
 }
+func To_Treasury_RejectProposalCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Treasury_RejectProposalCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TreasuryRejectProposalCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TreasuryRejectProposalCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Treasury_RemoveApprovalCall(in any) *pbgear.Treasury_RemoveApprovalCall {
 	out := &pbgear.Treasury_RemoveApprovalCall{}
@@ -17299,6 +18740,14 @@ func To_Treasury_RemoveApprovalCall(in any) *pbgear.Treasury_RemoveApprovalCall 
 	out.ProposalId = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Treasury_RemoveApprovalCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Treasury_RemoveApprovalCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TreasuryRemoveApprovalCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TreasuryRemoveApprovalCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Treasury_SpendCall(in any) *pbgear.Treasury_SpendCall {
@@ -17317,6 +18766,14 @@ func To_Treasury_SpendCall(in any) *pbgear.Treasury_SpendCall {
 
 	return out //from message
 }
+func To_Treasury_SpendCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Treasury_SpendCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TreasurySpendCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TreasurySpendCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Treasury_SpendLocalCall(in any) *pbgear.Treasury_SpendLocalCall {
 	out := &pbgear.Treasury_SpendLocalCall{}
@@ -17330,6 +18787,14 @@ func To_Treasury_SpendLocalCall(in any) *pbgear.Treasury_SpendLocalCall {
 	reflect.ValueOf(out).Elem().FieldByName("Beneficiary").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_Treasury_SpendLocalCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Treasury_SpendLocalCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TreasurySpendLocalCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TreasurySpendLocalCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Treasury_SpendLocalCall_beneficiary(in any) any {
@@ -17380,6 +18845,14 @@ func To_Treasury_VoidSpendCall(in any) *pbgear.Treasury_VoidSpendCall {
 	out.Index = To_uint32(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Treasury_VoidSpendCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Treasury_VoidSpendCall(in)
+	out := &pbgearextrinsic.RuntimeCall_TreasuryVoidSpendCall{}
+	reflect.ValueOf(out).Elem().FieldByName("TreasuryVoidSpendCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_TupleNull(in any) *pbgear.TupleNull {
@@ -17446,6 +18919,14 @@ func To_Utility_AsDerivativeCall(in any) *pbgear.Utility_AsDerivativeCall {
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_Utility_AsDerivativeCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Utility_AsDerivativeCall(in)
+	out := &pbgearextrinsic.RuntimeCall_UtilityAsDerivativeCall{}
+	reflect.ValueOf(out).Elem().FieldByName("UtilityAsDerivativeCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Utility_AsDerivativeCall_call(in any) any {
@@ -17614,6 +19095,14 @@ func To_Utility_BatchAllCall(in any) *pbgear.Utility_BatchAllCall {
 
 	return out //from message
 }
+func To_Utility_BatchAllCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Utility_BatchAllCall(in)
+	out := &pbgearextrinsic.RuntimeCall_UtilityBatchAllCall{}
+	reflect.ValueOf(out).Elem().FieldByName("UtilityBatchAllCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Repeated_Utility_BatchAllCall_calls(in any) []*pbgear.VaraRuntimeRuntimeCall {
 	items := in.([]interface{})
@@ -17638,6 +19127,14 @@ func To_Utility_BatchCall(in any) *pbgear.Utility_BatchCall {
 	out.Calls = To_Repeated_Utility_BatchCall_calls(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Utility_BatchCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Utility_BatchCall(in)
+	out := &pbgearextrinsic.RuntimeCall_UtilityBatchCall{}
+	reflect.ValueOf(out).Elem().FieldByName("UtilityBatchCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Repeated_Utility_BatchCall_calls(in any) []*pbgear.VaraRuntimeRuntimeCall {
@@ -17667,6 +19164,14 @@ func To_Utility_DispatchAsCall(in any) *pbgear.Utility_DispatchAsCall {
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v1))
 
 	return out //from message
+}
+func To_Utility_DispatchAsCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Utility_DispatchAsCall(in)
+	out := &pbgearextrinsic.RuntimeCall_UtilityDispatchAsCall{}
+	reflect.ValueOf(out).Elem().FieldByName("UtilityDispatchAsCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Utility_DispatchAsCall_as_origin(in any) any {
@@ -17822,6 +19327,14 @@ func To_Utility_ForceBatchCall(in any) *pbgear.Utility_ForceBatchCall {
 	out.Calls = To_Repeated_Utility_ForceBatchCall_calls(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Utility_ForceBatchCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Utility_ForceBatchCall(in)
+	out := &pbgearextrinsic.RuntimeCall_UtilityForceBatchCall{}
+	reflect.ValueOf(out).Elem().FieldByName("UtilityForceBatchCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Repeated_Utility_ForceBatchCall_calls(in any) []*pbgear.VaraRuntimeRuntimeCall {
@@ -18017,6 +19530,14 @@ func To_Utility_WithWeightCall(in any) *pbgear.Utility_WithWeightCall {
 	out.Weight = To_SpWeightsWeightV2Weight(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Utility_WithWeightCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Utility_WithWeightCall(in)
+	out := &pbgearextrinsic.RuntimeCall_UtilityWithWeightCall{}
+	reflect.ValueOf(out).Elem().FieldByName("UtilityWithWeightCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Utility_WithWeightCall_call(in any) any {
@@ -18687,6 +20208,14 @@ func To_Vesting_ForceVestedTransferCall(in any) *pbgear.Vesting_ForceVestedTrans
 
 	return out //from message
 }
+func To_Vesting_ForceVestedTransferCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Vesting_ForceVestedTransferCall(in)
+	out := &pbgearextrinsic.RuntimeCall_VestingForceVestedTransferCall{}
+	reflect.ValueOf(out).Elem().FieldByName("VestingForceVestedTransferCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Vesting_ForceVestedTransferCall_source(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -18778,6 +20307,14 @@ func To_Vesting_MergeSchedulesCall(in any) *pbgear.Vesting_MergeSchedulesCall {
 	out.Schedule2Index = To_uint32(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Vesting_MergeSchedulesCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Vesting_MergeSchedulesCall(in)
+	out := &pbgearextrinsic.RuntimeCall_VestingMergeSchedulesCall{}
+	reflect.ValueOf(out).Elem().FieldByName("VestingMergeSchedulesCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_Vesting_PalletVestingVestingInfoVestingInfo(in any) *pbgear.Vesting_PalletVestingVestingInfoVestingInfo {
@@ -18916,6 +20453,14 @@ func To_Vesting_VestOtherCall(in any) *pbgear.Vesting_VestOtherCall {
 
 	return out //from message
 }
+func To_Vesting_VestOtherCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Vesting_VestOtherCall(in)
+	out := &pbgearextrinsic.RuntimeCall_VestingVestOtherCall{}
+	reflect.ValueOf(out).Elem().FieldByName("VestingVestOtherCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_OneOf_Vesting_VestOtherCall_target(in any) any {
 	variantIn := in.(*registry.VariantWTF)
@@ -18957,6 +20502,14 @@ func To_Vesting_VestedTransferCall(in any) *pbgear.Vesting_VestedTransferCall {
 	out.Schedule = To_Vesting_PalletVestingVestingInfoVestingInfo(v.ValueAt(1))
 
 	return out //from message
+}
+func To_Vesting_VestedTransferCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Vesting_VestedTransferCall(in)
+	out := &pbgearextrinsic.RuntimeCall_VestingVestedTransferCall{}
+	reflect.ValueOf(out).Elem().FieldByName("VestingVestedTransferCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Vesting_VestedTransferCall_target(in any) any {
@@ -19038,6 +20591,14 @@ func To_Whitelist_DispatchWhitelistedCallCall(in any) *pbgear.Whitelist_Dispatch
 
 	return out //from message
 }
+func To_Whitelist_DispatchWhitelistedCallCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Whitelist_DispatchWhitelistedCallCall(in)
+	out := &pbgearextrinsic.RuntimeCall_WhitelistDispatchWhitelistedCallCall{}
+	reflect.ValueOf(out).Elem().FieldByName("WhitelistDispatchWhitelistedCallCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Whitelist_DispatchWhitelistedCallWithPreimageCall(in any) *pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall {
 	out := &pbgear.Whitelist_DispatchWhitelistedCallWithPreimageCall{}
@@ -19049,6 +20610,14 @@ func To_Whitelist_DispatchWhitelistedCallWithPreimageCall(in any) *pbgear.Whitel
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v0))
 
 	return out //from message
+}
+func To_Whitelist_DispatchWhitelistedCallWithPreimageCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Whitelist_DispatchWhitelistedCallWithPreimageCall(in)
+	out := &pbgearextrinsic.RuntimeCall_WhitelistDispatchWhitelistedCallWithPreimageCall{}
+	reflect.ValueOf(out).Elem().FieldByName("WhitelistDispatchWhitelistedCallWithPreimageCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_OneOf_Whitelist_DispatchWhitelistedCallWithPreimageCall_call(in any) any {
@@ -19185,6 +20754,14 @@ func To_Whitelist_RemoveWhitelistedCallCall(in any) *pbgear.Whitelist_RemoveWhit
 
 	return out //from message
 }
+func To_Whitelist_RemoveWhitelistedCallCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Whitelist_RemoveWhitelistedCallCall(in)
+	out := &pbgearextrinsic.RuntimeCall_WhitelistRemoveWhitelistedCallCall{}
+	reflect.ValueOf(out).Elem().FieldByName("WhitelistRemoveWhitelistedCallCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
+}
 
 func To_Whitelist_WhitelistCallCall(in any) *pbgear.Whitelist_WhitelistCallCall {
 	out := &pbgear.Whitelist_WhitelistCallCall{}
@@ -19195,6 +20772,14 @@ func To_Whitelist_WhitelistCallCall(in any) *pbgear.Whitelist_WhitelistCallCall 
 	out.CallHash = To_PrimitiveTypesH256(v.ValueAt(0))
 
 	return out //from message
+}
+func To_Whitelist_WhitelistCallCall_wrap(in any) *pbgearextrinsic.RuntimeCall {
+	res := To_Whitelist_WhitelistCallCall(in)
+	out := &pbgearextrinsic.RuntimeCall_WhitelistWhitelistCallCall{}
+	reflect.ValueOf(out).Elem().FieldByName("WhitelistWhitelistCallCall").Set(reflect.ValueOf(res))
+	return &pbgearextrinsic.RuntimeCall{
+		Call: out,
+	}
 }
 
 func To_WhitelistedCaller(in any) *pbgear.WhitelistedCaller {
@@ -19323,639 +20908,202 @@ var FuncMap map[string]reflect.Value
 
 func init() {
 	FuncMap = make(map[string]reflect.Value)
-	FuncMap["To_AuthorityDiscoveryPallet"] = reflect.ValueOf(To_AuthorityDiscoveryPallet)
-	FuncMap["To_AuthorshipPallet"] = reflect.ValueOf(To_AuthorshipPallet)
-	FuncMap["To_BTreeSet"] = reflect.ValueOf(To_BTreeSet)
-	FuncMap["To_BabePallet"] = reflect.ValueOf(To_BabePallet)
-	FuncMap["To_Babe_AllowedSlots"] = reflect.ValueOf(To_Babe_AllowedSlots)
-	FuncMap["To_Babe_BabeTrieNodesList"] = reflect.ValueOf(To_Babe_BabeTrieNodesList)
-	FuncMap["To_Babe_Config"] = reflect.ValueOf(To_Babe_Config)
-	FuncMap["To_Babe_Consensus"] = reflect.ValueOf(To_Babe_Consensus)
-	FuncMap["To_Babe_Logs"] = reflect.ValueOf(To_Babe_Logs)
-	FuncMap["To_Babe_Other"] = reflect.ValueOf(To_Babe_Other)
-	FuncMap["To_Babe_PlanConfigChangeCall"] = reflect.ValueOf(To_Babe_PlanConfigChangeCall)
-	FuncMap["To_Babe_PreRuntime"] = reflect.ValueOf(To_Babe_PreRuntime)
-	FuncMap["To_Babe_PrimaryAndSecondaryPlainSlots"] = reflect.ValueOf(To_Babe_PrimaryAndSecondaryPlainSlots)
-	FuncMap["To_Babe_PrimaryAndSecondaryVrfSlots"] = reflect.ValueOf(To_Babe_PrimaryAndSecondaryVrfSlots)
-	FuncMap["To_Babe_PrimarySlots"] = reflect.ValueOf(To_Babe_PrimarySlots)
-	FuncMap["To_Babe_ReportEquivocationCall"] = reflect.ValueOf(To_Babe_ReportEquivocationCall)
-	FuncMap["To_Babe_ReportEquivocationUnsignedCall"] = reflect.ValueOf(To_Babe_ReportEquivocationUnsignedCall)
-	FuncMap["To_Babe_RuntimeEnvironmentUpdated"] = reflect.ValueOf(To_Babe_RuntimeEnvironmentUpdated)
-	FuncMap["To_Babe_Seal"] = reflect.ValueOf(To_Babe_Seal)
-	FuncMap["To_Babe_SpConsensusBabeAppPublic"] = reflect.ValueOf(To_Babe_SpConsensusBabeAppPublic)
-	FuncMap["To_Babe_TupleUint64Uint64"] = reflect.ValueOf(To_Babe_TupleUint64Uint64)
-	FuncMap["To_Babe_V1"] = reflect.ValueOf(To_Babe_V1)
-	FuncMap["To_BagsListPallet"] = reflect.ValueOf(To_BagsListPallet)
-	FuncMap["To_BagsList_Address20"] = reflect.ValueOf(To_BagsList_Address20)
-	FuncMap["To_BagsList_Address32"] = reflect.ValueOf(To_BagsList_Address32)
-	FuncMap["To_BagsList_Dislocated"] = reflect.ValueOf(To_BagsList_Dislocated)
-	FuncMap["To_BagsList_Heavier"] = reflect.ValueOf(To_BagsList_Heavier)
-	FuncMap["To_BagsList_Id"] = reflect.ValueOf(To_BagsList_Id)
-	FuncMap["To_BagsList_Index"] = reflect.ValueOf(To_BagsList_Index)
-	FuncMap["To_BagsList_Lighter"] = reflect.ValueOf(To_BagsList_Lighter)
-	FuncMap["To_BagsList_PutInFrontOfCall"] = reflect.ValueOf(To_BagsList_PutInFrontOfCall)
-	FuncMap["To_BagsList_PutInFrontOfOtherCall"] = reflect.ValueOf(To_BagsList_PutInFrontOfOtherCall)
-	FuncMap["To_BagsList_Raw"] = reflect.ValueOf(To_BagsList_Raw)
-	FuncMap["To_BagsList_RebagCall"] = reflect.ValueOf(To_BagsList_RebagCall)
-	FuncMap["To_BagsList_TupleNull"] = reflect.ValueOf(To_BagsList_TupleNull)
-	FuncMap["To_BalancesPallet"] = reflect.ValueOf(To_BalancesPallet)
-	FuncMap["To_Balances_Address20"] = reflect.ValueOf(To_Balances_Address20)
-	FuncMap["To_Balances_Address32"] = reflect.ValueOf(To_Balances_Address32)
-	FuncMap["To_Balances_Dest"] = reflect.ValueOf(To_Balances_Dest)
-	FuncMap["To_Balances_ForceSetBalanceCall"] = reflect.ValueOf(To_Balances_ForceSetBalanceCall)
-	FuncMap["To_Balances_ForceTransferCall"] = reflect.ValueOf(To_Balances_ForceTransferCall)
-	FuncMap["To_Balances_ForceUnreserveCall"] = reflect.ValueOf(To_Balances_ForceUnreserveCall)
-	FuncMap["To_Balances_Id"] = reflect.ValueOf(To_Balances_Id)
-	FuncMap["To_Balances_Index"] = reflect.ValueOf(To_Balances_Index)
-	FuncMap["To_Balances_Raw"] = reflect.ValueOf(To_Balances_Raw)
-	FuncMap["To_Balances_Source"] = reflect.ValueOf(To_Balances_Source)
-	FuncMap["To_Balances_TransferAllCall"] = reflect.ValueOf(To_Balances_TransferAllCall)
-	FuncMap["To_Balances_TransferAllowDeathCall"] = reflect.ValueOf(To_Balances_TransferAllowDeathCall)
-	FuncMap["To_Balances_TransferKeepAliveCall"] = reflect.ValueOf(To_Balances_TransferKeepAliveCall)
-	FuncMap["To_Balances_TupleNull"] = reflect.ValueOf(To_Balances_TupleNull)
-	FuncMap["To_Balances_UpgradeAccountsCall"] = reflect.ValueOf(To_Balances_UpgradeAccountsCall)
-	FuncMap["To_Balances_Who"] = reflect.ValueOf(To_Balances_Who)
-	FuncMap["To_BigSpender"] = reflect.ValueOf(To_BigSpender)
-	FuncMap["To_BigTipper"] = reflect.ValueOf(To_BigTipper)
-	FuncMap["To_BoundedCollectionsBoundedVecBoundedVec"] = reflect.ValueOf(To_BoundedCollectionsBoundedVecBoundedVec)
-	FuncMap["To_BountiesPallet"] = reflect.ValueOf(To_BountiesPallet)
-	FuncMap["To_Bounties_AcceptCuratorCall"] = reflect.ValueOf(To_Bounties_AcceptCuratorCall)
-	FuncMap["To_Bounties_Address20"] = reflect.ValueOf(To_Bounties_Address20)
-	FuncMap["To_Bounties_Address32"] = reflect.ValueOf(To_Bounties_Address32)
-	FuncMap["To_Bounties_ApproveBountyCall"] = reflect.ValueOf(To_Bounties_ApproveBountyCall)
-	FuncMap["To_Bounties_AwardBountyCall"] = reflect.ValueOf(To_Bounties_AwardBountyCall)
-	FuncMap["To_Bounties_Beneficiary"] = reflect.ValueOf(To_Bounties_Beneficiary)
-	FuncMap["To_Bounties_ClaimBountyCall"] = reflect.ValueOf(To_Bounties_ClaimBountyCall)
-	FuncMap["To_Bounties_CloseBountyCall"] = reflect.ValueOf(To_Bounties_CloseBountyCall)
-	FuncMap["To_Bounties_Curator"] = reflect.ValueOf(To_Bounties_Curator)
-	FuncMap["To_Bounties_ExtendBountyExpiryCall"] = reflect.ValueOf(To_Bounties_ExtendBountyExpiryCall)
-	FuncMap["To_Bounties_Id"] = reflect.ValueOf(To_Bounties_Id)
-	FuncMap["To_Bounties_Index"] = reflect.ValueOf(To_Bounties_Index)
-	FuncMap["To_Bounties_ProposeBountyCall"] = reflect.ValueOf(To_Bounties_ProposeBountyCall)
-	FuncMap["To_Bounties_ProposeCuratorCall"] = reflect.ValueOf(To_Bounties_ProposeCuratorCall)
-	FuncMap["To_Bounties_Raw"] = reflect.ValueOf(To_Bounties_Raw)
-	FuncMap["To_Bounties_TupleNull"] = reflect.ValueOf(To_Bounties_TupleNull)
-	FuncMap["To_Bounties_UnassignCuratorCall"] = reflect.ValueOf(To_Bounties_UnassignCuratorCall)
-	FuncMap["To_ChildBountiesPallet"] = reflect.ValueOf(To_ChildBountiesPallet)
-	FuncMap["To_ChildBounties_AcceptCuratorCall"] = reflect.ValueOf(To_ChildBounties_AcceptCuratorCall)
-	FuncMap["To_ChildBounties_AddChildBountyCall"] = reflect.ValueOf(To_ChildBounties_AddChildBountyCall)
-	FuncMap["To_ChildBounties_Address20"] = reflect.ValueOf(To_ChildBounties_Address20)
-	FuncMap["To_ChildBounties_Address32"] = reflect.ValueOf(To_ChildBounties_Address32)
-	FuncMap["To_ChildBounties_AwardChildBountyCall"] = reflect.ValueOf(To_ChildBounties_AwardChildBountyCall)
-	FuncMap["To_ChildBounties_Beneficiary"] = reflect.ValueOf(To_ChildBounties_Beneficiary)
-	FuncMap["To_ChildBounties_ClaimChildBountyCall"] = reflect.ValueOf(To_ChildBounties_ClaimChildBountyCall)
-	FuncMap["To_ChildBounties_CloseChildBountyCall"] = reflect.ValueOf(To_ChildBounties_CloseChildBountyCall)
-	FuncMap["To_ChildBounties_Curator"] = reflect.ValueOf(To_ChildBounties_Curator)
-	FuncMap["To_ChildBounties_Id"] = reflect.ValueOf(To_ChildBounties_Id)
-	FuncMap["To_ChildBounties_Index"] = reflect.ValueOf(To_ChildBounties_Index)
-	FuncMap["To_ChildBounties_ProposeCuratorCall"] = reflect.ValueOf(To_ChildBounties_ProposeCuratorCall)
-	FuncMap["To_ChildBounties_Raw"] = reflect.ValueOf(To_ChildBounties_Raw)
-	FuncMap["To_ChildBounties_TupleNull"] = reflect.ValueOf(To_ChildBounties_TupleNull)
-	FuncMap["To_ChildBounties_UnassignCuratorCall"] = reflect.ValueOf(To_ChildBounties_UnassignCuratorCall)
-	FuncMap["To_ConvictionVotingPallet"] = reflect.ValueOf(To_ConvictionVotingPallet)
-	FuncMap["To_ConvictionVoting_Address20"] = reflect.ValueOf(To_ConvictionVoting_Address20)
-	FuncMap["To_ConvictionVoting_Address32"] = reflect.ValueOf(To_ConvictionVoting_Address32)
-	FuncMap["To_ConvictionVoting_Conviction"] = reflect.ValueOf(To_ConvictionVoting_Conviction)
-	FuncMap["To_ConvictionVoting_DelegateCall"] = reflect.ValueOf(To_ConvictionVoting_DelegateCall)
-	FuncMap["To_ConvictionVoting_Id"] = reflect.ValueOf(To_ConvictionVoting_Id)
-	FuncMap["To_ConvictionVoting_Index"] = reflect.ValueOf(To_ConvictionVoting_Index)
-	FuncMap["To_ConvictionVoting_Locked1X"] = reflect.ValueOf(To_ConvictionVoting_Locked1X)
-	FuncMap["To_ConvictionVoting_Locked2X"] = reflect.ValueOf(To_ConvictionVoting_Locked2X)
-	FuncMap["To_ConvictionVoting_Locked3X"] = reflect.ValueOf(To_ConvictionVoting_Locked3X)
-	FuncMap["To_ConvictionVoting_Locked4X"] = reflect.ValueOf(To_ConvictionVoting_Locked4X)
-	FuncMap["To_ConvictionVoting_Locked5X"] = reflect.ValueOf(To_ConvictionVoting_Locked5X)
-	FuncMap["To_ConvictionVoting_Locked6X"] = reflect.ValueOf(To_ConvictionVoting_Locked6X)
-	FuncMap["To_ConvictionVoting_None"] = reflect.ValueOf(To_ConvictionVoting_None)
-	FuncMap["To_ConvictionVoting_PalletConvictionVotingVoteVote"] = reflect.ValueOf(To_ConvictionVoting_PalletConvictionVotingVoteVote)
-	FuncMap["To_ConvictionVoting_Raw"] = reflect.ValueOf(To_ConvictionVoting_Raw)
-	FuncMap["To_ConvictionVoting_RemoveOtherVoteCall"] = reflect.ValueOf(To_ConvictionVoting_RemoveOtherVoteCall)
-	FuncMap["To_ConvictionVoting_RemoveVoteCall"] = reflect.ValueOf(To_ConvictionVoting_RemoveVoteCall)
-	FuncMap["To_ConvictionVoting_Split"] = reflect.ValueOf(To_ConvictionVoting_Split)
-	FuncMap["To_ConvictionVoting_SplitAbstain"] = reflect.ValueOf(To_ConvictionVoting_SplitAbstain)
-	FuncMap["To_ConvictionVoting_Standard"] = reflect.ValueOf(To_ConvictionVoting_Standard)
-	FuncMap["To_ConvictionVoting_Target"] = reflect.ValueOf(To_ConvictionVoting_Target)
-	FuncMap["To_ConvictionVoting_To"] = reflect.ValueOf(To_ConvictionVoting_To)
-	FuncMap["To_ConvictionVoting_TupleNull"] = reflect.ValueOf(To_ConvictionVoting_TupleNull)
-	FuncMap["To_ConvictionVoting_UndelegateCall"] = reflect.ValueOf(To_ConvictionVoting_UndelegateCall)
-	FuncMap["To_ConvictionVoting_UnlockCall"] = reflect.ValueOf(To_ConvictionVoting_UnlockCall)
-	FuncMap["To_ConvictionVoting_Vote"] = reflect.ValueOf(To_ConvictionVoting_Vote)
-	FuncMap["To_ConvictionVoting_VoteCall"] = reflect.ValueOf(To_ConvictionVoting_VoteCall)
-	FuncMap["To_ElectionProviderMultiPhasePallet"] = reflect.ValueOf(To_ElectionProviderMultiPhasePallet)
-	FuncMap["To_ElectionProviderMultiPhase_GovernanceFallbackCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_GovernanceFallbackCall)
-	FuncMap["To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution"] = reflect.ValueOf(To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseRawSolution)
-	FuncMap["To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize"] = reflect.ValueOf(To_ElectionProviderMultiPhase_PalletElectionProviderMultiPhaseSolutionOrSnapshotSize)
-	FuncMap["To_ElectionProviderMultiPhase_SetEmergencyElectionResultCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_SetEmergencyElectionResultCall)
-	FuncMap["To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall)
-	FuncMap["To_ElectionProviderMultiPhase_SubmitCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_SubmitCall)
-	FuncMap["To_ElectionProviderMultiPhase_SubmitUnsignedCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_SubmitUnsignedCall)
-	FuncMap["To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32SpNposElectionsSupport)
-	FuncMap["To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleSpCoreCryptoAccountId32String)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes10Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes10Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes11Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes11Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes12Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes12Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes13Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes13Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes14Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes14Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes15Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes15Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes16Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes16Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes3Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes3Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes4Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes4Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes5Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes5Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes6Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes6Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes7Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes7Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes8Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes8Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes9Listuint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32ElectionProviderMultiPhaseVotes9Listuint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32SpArithmeticPerThingsPerU16)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32TupleUint32SpArithmeticPerThingsPerU16Uint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32TupleUint32SpArithmeticPerThingsPerU16Uint32)
-	FuncMap["To_ElectionProviderMultiPhase_TupleUint32Uint32"] = reflect.ValueOf(To_ElectionProviderMultiPhase_TupleUint32Uint32)
-	FuncMap["To_Fellows"] = reflect.ValueOf(To_Fellows)
-	FuncMap["To_Fellowship1Dan"] = reflect.ValueOf(To_Fellowship1Dan)
-	FuncMap["To_Fellowship2Dan"] = reflect.ValueOf(To_Fellowship2Dan)
-	FuncMap["To_Fellowship3Dan"] = reflect.ValueOf(To_Fellowship3Dan)
-	FuncMap["To_Fellowship4Dan"] = reflect.ValueOf(To_Fellowship4Dan)
-	FuncMap["To_Fellowship5Dan"] = reflect.ValueOf(To_Fellowship5Dan)
-	FuncMap["To_Fellowship6Dan"] = reflect.ValueOf(To_Fellowship6Dan)
-	FuncMap["To_Fellowship7Dan"] = reflect.ValueOf(To_Fellowship7Dan)
-	FuncMap["To_Fellowship8Dan"] = reflect.ValueOf(To_Fellowship8Dan)
-	FuncMap["To_Fellowship9Dan"] = reflect.ValueOf(To_Fellowship9Dan)
-	FuncMap["To_FellowshipAdmin"] = reflect.ValueOf(To_FellowshipAdmin)
-	FuncMap["To_FellowshipCollectivePallet"] = reflect.ValueOf(To_FellowshipCollectivePallet)
-	FuncMap["To_FellowshipCollective_AddMemberCall"] = reflect.ValueOf(To_FellowshipCollective_AddMemberCall)
-	FuncMap["To_FellowshipCollective_Address20"] = reflect.ValueOf(To_FellowshipCollective_Address20)
-	FuncMap["To_FellowshipCollective_Address32"] = reflect.ValueOf(To_FellowshipCollective_Address32)
-	FuncMap["To_FellowshipCollective_CleanupPollCall"] = reflect.ValueOf(To_FellowshipCollective_CleanupPollCall)
-	FuncMap["To_FellowshipCollective_DemoteMemberCall"] = reflect.ValueOf(To_FellowshipCollective_DemoteMemberCall)
-	FuncMap["To_FellowshipCollective_Id"] = reflect.ValueOf(To_FellowshipCollective_Id)
-	FuncMap["To_FellowshipCollective_Index"] = reflect.ValueOf(To_FellowshipCollective_Index)
-	FuncMap["To_FellowshipCollective_PromoteMemberCall"] = reflect.ValueOf(To_FellowshipCollective_PromoteMemberCall)
-	FuncMap["To_FellowshipCollective_Raw"] = reflect.ValueOf(To_FellowshipCollective_Raw)
-	FuncMap["To_FellowshipCollective_RemoveMemberCall"] = reflect.ValueOf(To_FellowshipCollective_RemoveMemberCall)
-	FuncMap["To_FellowshipCollective_TupleNull"] = reflect.ValueOf(To_FellowshipCollective_TupleNull)
-	FuncMap["To_FellowshipCollective_VoteCall"] = reflect.ValueOf(To_FellowshipCollective_VoteCall)
-	FuncMap["To_FellowshipCollective_Who"] = reflect.ValueOf(To_FellowshipCollective_Who)
-	FuncMap["To_FellowshipExperts"] = reflect.ValueOf(To_FellowshipExperts)
-	FuncMap["To_FellowshipInitiates"] = reflect.ValueOf(To_FellowshipInitiates)
-	FuncMap["To_FellowshipMasters"] = reflect.ValueOf(To_FellowshipMasters)
-	FuncMap["To_FellowshipReferendaPallet"] = reflect.ValueOf(To_FellowshipReferendaPallet)
-	FuncMap["To_FellowshipReferenda_After"] = reflect.ValueOf(To_FellowshipReferenda_After)
-	FuncMap["To_FellowshipReferenda_At"] = reflect.ValueOf(To_FellowshipReferenda_At)
-	FuncMap["To_FellowshipReferenda_CancelCall"] = reflect.ValueOf(To_FellowshipReferenda_CancelCall)
-	FuncMap["To_FellowshipReferenda_EnactmentMoment"] = reflect.ValueOf(To_FellowshipReferenda_EnactmentMoment)
-	FuncMap["To_FellowshipReferenda_Inline"] = reflect.ValueOf(To_FellowshipReferenda_Inline)
-	FuncMap["To_FellowshipReferenda_KillCall"] = reflect.ValueOf(To_FellowshipReferenda_KillCall)
-	FuncMap["To_FellowshipReferenda_Legacy"] = reflect.ValueOf(To_FellowshipReferenda_Legacy)
-	FuncMap["To_FellowshipReferenda_Lookup"] = reflect.ValueOf(To_FellowshipReferenda_Lookup)
-	FuncMap["To_FellowshipReferenda_NudgeReferendumCall"] = reflect.ValueOf(To_FellowshipReferenda_NudgeReferendumCall)
-	FuncMap["To_FellowshipReferenda_OneFewerDecidingCall"] = reflect.ValueOf(To_FellowshipReferenda_OneFewerDecidingCall)
-	FuncMap["To_FellowshipReferenda_Origins"] = reflect.ValueOf(To_FellowshipReferenda_Origins)
-	FuncMap["To_FellowshipReferenda_PlaceDecisionDepositCall"] = reflect.ValueOf(To_FellowshipReferenda_PlaceDecisionDepositCall)
-	FuncMap["To_FellowshipReferenda_Proposal"] = reflect.ValueOf(To_FellowshipReferenda_Proposal)
-	FuncMap["To_FellowshipReferenda_ProposalOrigin"] = reflect.ValueOf(To_FellowshipReferenda_ProposalOrigin)
-	FuncMap["To_FellowshipReferenda_RefundDecisionDepositCall"] = reflect.ValueOf(To_FellowshipReferenda_RefundDecisionDepositCall)
-	FuncMap["To_FellowshipReferenda_RefundSubmissionDepositCall"] = reflect.ValueOf(To_FellowshipReferenda_RefundSubmissionDepositCall)
-	FuncMap["To_FellowshipReferenda_SetMetadataCall"] = reflect.ValueOf(To_FellowshipReferenda_SetMetadataCall)
-	FuncMap["To_FellowshipReferenda_SubmitCall"] = reflect.ValueOf(To_FellowshipReferenda_SubmitCall)
-	FuncMap["To_FellowshipReferenda_System"] = reflect.ValueOf(To_FellowshipReferenda_System)
-	FuncMap["To_FellowshipReferenda_Void"] = reflect.ValueOf(To_FellowshipReferenda_Void)
-	FuncMap["To_GearBankPallet"] = reflect.ValueOf(To_GearBankPallet)
-	FuncMap["To_GearBuiltinPallet"] = reflect.ValueOf(To_GearBuiltinPallet)
-	FuncMap["To_GearGasPallet"] = reflect.ValueOf(To_GearGasPallet)
-	FuncMap["To_GearMessengerPallet"] = reflect.ValueOf(To_GearMessengerPallet)
-	FuncMap["To_GearPallet"] = reflect.ValueOf(To_GearPallet)
-	FuncMap["To_GearPaymentPallet"] = reflect.ValueOf(To_GearPaymentPallet)
-	FuncMap["To_GearProgramPallet"] = reflect.ValueOf(To_GearProgramPallet)
-	FuncMap["To_GearSchedulerPallet"] = reflect.ValueOf(To_GearSchedulerPallet)
-	FuncMap["To_GearVoucherPallet"] = reflect.ValueOf(To_GearVoucherPallet)
-	FuncMap["To_GearVoucher_AppendPrograms"] = reflect.ValueOf(To_GearVoucher_AppendPrograms)
-	FuncMap["To_GearVoucher_Call"] = reflect.ValueOf(To_GearVoucher_Call)
-	FuncMap["To_GearVoucher_CallCall"] = reflect.ValueOf(To_GearVoucher_CallCall)
-	FuncMap["To_GearVoucher_CallDeprecatedCall"] = reflect.ValueOf(To_GearVoucher_CallDeprecatedCall)
-	FuncMap["To_GearVoucher_DeclineCall"] = reflect.ValueOf(To_GearVoucher_DeclineCall)
-	FuncMap["To_GearVoucher_DeclineVoucher"] = reflect.ValueOf(To_GearVoucher_DeclineVoucher)
-	FuncMap["To_GearVoucher_IssueCall"] = reflect.ValueOf(To_GearVoucher_IssueCall)
-	FuncMap["To_GearVoucher_None"] = reflect.ValueOf(To_GearVoucher_None)
-	FuncMap["To_GearVoucher_PalletGearVoucherInternalVoucherId"] = reflect.ValueOf(To_GearVoucher_PalletGearVoucherInternalVoucherId)
-	FuncMap["To_GearVoucher_RevokeCall"] = reflect.ValueOf(To_GearVoucher_RevokeCall)
-	FuncMap["To_GearVoucher_SendMessage"] = reflect.ValueOf(To_GearVoucher_SendMessage)
-	FuncMap["To_GearVoucher_SendReply"] = reflect.ValueOf(To_GearVoucher_SendReply)
-	FuncMap["To_GearVoucher_Some"] = reflect.ValueOf(To_GearVoucher_Some)
-	FuncMap["To_GearVoucher_UpdateCall"] = reflect.ValueOf(To_GearVoucher_UpdateCall)
-	FuncMap["To_GearVoucher_UploadCode"] = reflect.ValueOf(To_GearVoucher_UploadCode)
-	FuncMap["To_Gear_ClaimValueCall"] = reflect.ValueOf(To_Gear_ClaimValueCall)
-	FuncMap["To_Gear_CreateProgramCall"] = reflect.ValueOf(To_Gear_CreateProgramCall)
-	FuncMap["To_Gear_RunCall"] = reflect.ValueOf(To_Gear_RunCall)
-	FuncMap["To_Gear_SendMessageCall"] = reflect.ValueOf(To_Gear_SendMessageCall)
-	FuncMap["To_Gear_SendReplyCall"] = reflect.ValueOf(To_Gear_SendReplyCall)
-	FuncMap["To_Gear_SetExecuteInherentCall"] = reflect.ValueOf(To_Gear_SetExecuteInherentCall)
-	FuncMap["To_Gear_UploadCodeCall"] = reflect.ValueOf(To_Gear_UploadCodeCall)
-	FuncMap["To_Gear_UploadProgramCall"] = reflect.ValueOf(To_Gear_UploadProgramCall)
-	FuncMap["To_GeneralAdmin"] = reflect.ValueOf(To_GeneralAdmin)
-	FuncMap["To_GprimitivesActorId"] = reflect.ValueOf(To_GprimitivesActorId)
-	FuncMap["To_GprimitivesCodeId"] = reflect.ValueOf(To_GprimitivesCodeId)
-	FuncMap["To_GprimitivesMessageId"] = reflect.ValueOf(To_GprimitivesMessageId)
-	FuncMap["To_GrandpaPallet"] = reflect.ValueOf(To_GrandpaPallet)
-	FuncMap["To_Grandpa_Equivocation"] = reflect.ValueOf(To_Grandpa_Equivocation)
-	FuncMap["To_Grandpa_FinalityGrandpaEquivocation"] = reflect.ValueOf(To_Grandpa_FinalityGrandpaEquivocation)
-	FuncMap["To_Grandpa_FinalityGrandpaPrecommit"] = reflect.ValueOf(To_Grandpa_FinalityGrandpaPrecommit)
-	FuncMap["To_Grandpa_FinalityGrandpaPrevote"] = reflect.ValueOf(To_Grandpa_FinalityGrandpaPrevote)
-	FuncMap["To_Grandpa_GrandpaTrieNodesList"] = reflect.ValueOf(To_Grandpa_GrandpaTrieNodesList)
-	FuncMap["To_Grandpa_NoteStalledCall"] = reflect.ValueOf(To_Grandpa_NoteStalledCall)
-	FuncMap["To_Grandpa_Precommit"] = reflect.ValueOf(To_Grandpa_Precommit)
-	FuncMap["To_Grandpa_Prevote"] = reflect.ValueOf(To_Grandpa_Prevote)
-	FuncMap["To_Grandpa_ReportEquivocationCall"] = reflect.ValueOf(To_Grandpa_ReportEquivocationCall)
-	FuncMap["To_Grandpa_ReportEquivocationUnsignedCall"] = reflect.ValueOf(To_Grandpa_ReportEquivocationUnsignedCall)
-	FuncMap["To_Grandpa_SpConsensusGrandpaAppPublic"] = reflect.ValueOf(To_Grandpa_SpConsensusGrandpaAppPublic)
-	FuncMap["To_Grandpa_SpConsensusGrandpaAppSignature"] = reflect.ValueOf(To_Grandpa_SpConsensusGrandpaAppSignature)
-	FuncMap["To_Grandpa_SpConsensusGrandpaEquivocationProof"] = reflect.ValueOf(To_Grandpa_SpConsensusGrandpaEquivocationProof)
-	FuncMap["To_Grandpa_TupleFinalityGrandpaPrecommitspConsensusGrandpaAppSignature"] = reflect.ValueOf(To_Grandpa_TupleFinalityGrandpaPrecommitspConsensusGrandpaAppSignature)
-	FuncMap["To_Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature"] = reflect.ValueOf(To_Grandpa_TupleFinalityGrandpaPrevotespConsensusGrandpaAppSignature)
-	FuncMap["To_HistoricalPallet"] = reflect.ValueOf(To_HistoricalPallet)
-	FuncMap["To_IdentityPallet"] = reflect.ValueOf(To_IdentityPallet)
-	FuncMap["To_Identity_Account"] = reflect.ValueOf(To_Identity_Account)
-	FuncMap["To_Identity_AddRegistrarCall"] = reflect.ValueOf(To_Identity_AddRegistrarCall)
-	FuncMap["To_Identity_AddSubCall"] = reflect.ValueOf(To_Identity_AddSubCall)
-	FuncMap["To_Identity_Address20"] = reflect.ValueOf(To_Identity_Address20)
-	FuncMap["To_Identity_Address32"] = reflect.ValueOf(To_Identity_Address32)
-	FuncMap["To_Identity_BlakeTwo256"] = reflect.ValueOf(To_Identity_BlakeTwo256)
-	FuncMap["To_Identity_CancelRequestCall"] = reflect.ValueOf(To_Identity_CancelRequestCall)
-	FuncMap["To_Identity_ClearIdentityCall"] = reflect.ValueOf(To_Identity_ClearIdentityCall)
-	FuncMap["To_Identity_Data"] = reflect.ValueOf(To_Identity_Data)
-	FuncMap["To_Identity_Display"] = reflect.ValueOf(To_Identity_Display)
-	FuncMap["To_Identity_Email"] = reflect.ValueOf(To_Identity_Email)
-	FuncMap["To_Identity_Erroneous"] = reflect.ValueOf(To_Identity_Erroneous)
-	FuncMap["To_Identity_FeePaid"] = reflect.ValueOf(To_Identity_FeePaid)
-	FuncMap["To_Identity_Id"] = reflect.ValueOf(To_Identity_Id)
-	FuncMap["To_Identity_Image"] = reflect.ValueOf(To_Identity_Image)
-	FuncMap["To_Identity_Index"] = reflect.ValueOf(To_Identity_Index)
-	FuncMap["To_Identity_Judgement"] = reflect.ValueOf(To_Identity_Judgement)
-	FuncMap["To_Identity_Keccak256"] = reflect.ValueOf(To_Identity_Keccak256)
-	FuncMap["To_Identity_KillIdentityCall"] = reflect.ValueOf(To_Identity_KillIdentityCall)
-	FuncMap["To_Identity_KnownGood"] = reflect.ValueOf(To_Identity_KnownGood)
-	FuncMap["To_Identity_Legal"] = reflect.ValueOf(To_Identity_Legal)
-	FuncMap["To_Identity_LowQuality"] = reflect.ValueOf(To_Identity_LowQuality)
-	FuncMap["To_Identity_New"] = reflect.ValueOf(To_Identity_New)
-	FuncMap["To_Identity_None"] = reflect.ValueOf(To_Identity_None)
-	FuncMap["To_Identity_OutOfDate"] = reflect.ValueOf(To_Identity_OutOfDate)
-	FuncMap["To_Identity_PalletIdentitySimpleIdentityInfo"] = reflect.ValueOf(To_Identity_PalletIdentitySimpleIdentityInfo)
-	FuncMap["To_Identity_PalletIdentityTypesBitFlags"] = reflect.ValueOf(To_Identity_PalletIdentityTypesBitFlags)
-	FuncMap["To_Identity_ProvideJudgementCall"] = reflect.ValueOf(To_Identity_ProvideJudgementCall)
-	FuncMap["To_Identity_QuitSubCall"] = reflect.ValueOf(To_Identity_QuitSubCall)
-	FuncMap["To_Identity_Raw"] = reflect.ValueOf(To_Identity_Raw)
-	FuncMap["To_Identity_Raw0"] = reflect.ValueOf(To_Identity_Raw0)
-	FuncMap["To_Identity_Raw1"] = reflect.ValueOf(To_Identity_Raw1)
-	FuncMap["To_Identity_Raw10"] = reflect.ValueOf(To_Identity_Raw10)
-	FuncMap["To_Identity_Raw11"] = reflect.ValueOf(To_Identity_Raw11)
-	FuncMap["To_Identity_Raw12"] = reflect.ValueOf(To_Identity_Raw12)
-	FuncMap["To_Identity_Raw13"] = reflect.ValueOf(To_Identity_Raw13)
-	FuncMap["To_Identity_Raw14"] = reflect.ValueOf(To_Identity_Raw14)
-	FuncMap["To_Identity_Raw15"] = reflect.ValueOf(To_Identity_Raw15)
-	FuncMap["To_Identity_Raw16"] = reflect.ValueOf(To_Identity_Raw16)
-	FuncMap["To_Identity_Raw17"] = reflect.ValueOf(To_Identity_Raw17)
-	FuncMap["To_Identity_Raw18"] = reflect.ValueOf(To_Identity_Raw18)
-	FuncMap["To_Identity_Raw19"] = reflect.ValueOf(To_Identity_Raw19)
-	FuncMap["To_Identity_Raw2"] = reflect.ValueOf(To_Identity_Raw2)
-	FuncMap["To_Identity_Raw20"] = reflect.ValueOf(To_Identity_Raw20)
-	FuncMap["To_Identity_Raw21"] = reflect.ValueOf(To_Identity_Raw21)
-	FuncMap["To_Identity_Raw22"] = reflect.ValueOf(To_Identity_Raw22)
-	FuncMap["To_Identity_Raw23"] = reflect.ValueOf(To_Identity_Raw23)
-	FuncMap["To_Identity_Raw24"] = reflect.ValueOf(To_Identity_Raw24)
-	FuncMap["To_Identity_Raw25"] = reflect.ValueOf(To_Identity_Raw25)
-	FuncMap["To_Identity_Raw26"] = reflect.ValueOf(To_Identity_Raw26)
-	FuncMap["To_Identity_Raw27"] = reflect.ValueOf(To_Identity_Raw27)
-	FuncMap["To_Identity_Raw28"] = reflect.ValueOf(To_Identity_Raw28)
-	FuncMap["To_Identity_Raw29"] = reflect.ValueOf(To_Identity_Raw29)
-	FuncMap["To_Identity_Raw3"] = reflect.ValueOf(To_Identity_Raw3)
-	FuncMap["To_Identity_Raw30"] = reflect.ValueOf(To_Identity_Raw30)
-	FuncMap["To_Identity_Raw31"] = reflect.ValueOf(To_Identity_Raw31)
-	FuncMap["To_Identity_Raw32"] = reflect.ValueOf(To_Identity_Raw32)
-	FuncMap["To_Identity_Raw4"] = reflect.ValueOf(To_Identity_Raw4)
-	FuncMap["To_Identity_Raw5"] = reflect.ValueOf(To_Identity_Raw5)
-	FuncMap["To_Identity_Raw6"] = reflect.ValueOf(To_Identity_Raw6)
-	FuncMap["To_Identity_Raw7"] = reflect.ValueOf(To_Identity_Raw7)
-	FuncMap["To_Identity_Raw8"] = reflect.ValueOf(To_Identity_Raw8)
-	FuncMap["To_Identity_Raw9"] = reflect.ValueOf(To_Identity_Raw9)
-	FuncMap["To_Identity_Reasonable"] = reflect.ValueOf(To_Identity_Reasonable)
-	FuncMap["To_Identity_RemoveSubCall"] = reflect.ValueOf(To_Identity_RemoveSubCall)
-	FuncMap["To_Identity_RenameSubCall"] = reflect.ValueOf(To_Identity_RenameSubCall)
-	FuncMap["To_Identity_RequestJudgementCall"] = reflect.ValueOf(To_Identity_RequestJudgementCall)
-	FuncMap["To_Identity_Riot"] = reflect.ValueOf(To_Identity_Riot)
-	FuncMap["To_Identity_SetAccountIdCall"] = reflect.ValueOf(To_Identity_SetAccountIdCall)
-	FuncMap["To_Identity_SetFeeCall"] = reflect.ValueOf(To_Identity_SetFeeCall)
-	FuncMap["To_Identity_SetFieldsCall"] = reflect.ValueOf(To_Identity_SetFieldsCall)
-	FuncMap["To_Identity_SetIdentityCall"] = reflect.ValueOf(To_Identity_SetIdentityCall)
-	FuncMap["To_Identity_SetSubsCall"] = reflect.ValueOf(To_Identity_SetSubsCall)
-	FuncMap["To_Identity_Sha256"] = reflect.ValueOf(To_Identity_Sha256)
-	FuncMap["To_Identity_ShaThree256"] = reflect.ValueOf(To_Identity_ShaThree256)
-	FuncMap["To_Identity_Sub"] = reflect.ValueOf(To_Identity_Sub)
-	FuncMap["To_Identity_Target"] = reflect.ValueOf(To_Identity_Target)
-	FuncMap["To_Identity_TupleNull"] = reflect.ValueOf(To_Identity_TupleNull)
-	FuncMap["To_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData"] = reflect.ValueOf(To_Identity_TuplePalletIdentityTypesDatapalletIdentityTypesData)
-	FuncMap["To_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData"] = reflect.ValueOf(To_Identity_TupleSpCoreCryptoAccountId32PalletIdentityTypesData)
-	FuncMap["To_Identity_Twitter"] = reflect.ValueOf(To_Identity_Twitter)
-	FuncMap["To_Identity_Unknown"] = reflect.ValueOf(To_Identity_Unknown)
-	FuncMap["To_Identity_Value0"] = reflect.ValueOf(To_Identity_Value0)
-	FuncMap["To_Identity_Value1"] = reflect.ValueOf(To_Identity_Value1)
-	FuncMap["To_Identity_Web"] = reflect.ValueOf(To_Identity_Web)
-	FuncMap["To_ImOnlinePallet"] = reflect.ValueOf(To_ImOnlinePallet)
-	FuncMap["To_ImOnline_HeartbeatCall"] = reflect.ValueOf(To_ImOnline_HeartbeatCall)
-	FuncMap["To_ImOnline_PalletImOnlineHeartbeat"] = reflect.ValueOf(To_ImOnline_PalletImOnlineHeartbeat)
-	FuncMap["To_ImOnline_PalletImOnlineSr25519AppSr25519Public"] = reflect.ValueOf(To_ImOnline_PalletImOnlineSr25519AppSr25519Public)
-	FuncMap["To_ImOnline_PalletImOnlineSr25519AppSr25519Signature"] = reflect.ValueOf(To_ImOnline_PalletImOnlineSr25519AppSr25519Signature)
-	FuncMap["To_MediumSpender"] = reflect.ValueOf(To_MediumSpender)
-	FuncMap["To_MultisigPallet"] = reflect.ValueOf(To_MultisigPallet)
-	FuncMap["To_Multisig_ApproveAsMultiCall"] = reflect.ValueOf(To_Multisig_ApproveAsMultiCall)
-	FuncMap["To_Multisig_AsMultiCall"] = reflect.ValueOf(To_Multisig_AsMultiCall)
-	FuncMap["To_Multisig_AsMultiThreshold1Call"] = reflect.ValueOf(To_Multisig_AsMultiThreshold1Call)
-	FuncMap["To_Multisig_CancelAsMultiCall"] = reflect.ValueOf(To_Multisig_CancelAsMultiCall)
-	FuncMap["To_Multisig_PalletMultisigTimepoint"] = reflect.ValueOf(To_Multisig_PalletMultisigTimepoint)
-	FuncMap["To_NominationPoolsPallet"] = reflect.ValueOf(To_NominationPoolsPallet)
-	FuncMap["To_NominationPools_Address20"] = reflect.ValueOf(To_NominationPools_Address20)
-	FuncMap["To_NominationPools_Address32"] = reflect.ValueOf(To_NominationPools_Address32)
-	FuncMap["To_NominationPools_AdjustPoolDepositCall"] = reflect.ValueOf(To_NominationPools_AdjustPoolDepositCall)
-	FuncMap["To_NominationPools_Blocked"] = reflect.ValueOf(To_NominationPools_Blocked)
-	FuncMap["To_NominationPools_BondExtraCall"] = reflect.ValueOf(To_NominationPools_BondExtraCall)
-	FuncMap["To_NominationPools_BondExtraOtherCall"] = reflect.ValueOf(To_NominationPools_BondExtraOtherCall)
-	FuncMap["To_NominationPools_Bouncer"] = reflect.ValueOf(To_NominationPools_Bouncer)
-	FuncMap["To_NominationPools_ChillCall"] = reflect.ValueOf(To_NominationPools_ChillCall)
-	FuncMap["To_NominationPools_ClaimCommissionCall"] = reflect.ValueOf(To_NominationPools_ClaimCommissionCall)
-	FuncMap["To_NominationPools_ClaimPayoutCall"] = reflect.ValueOf(To_NominationPools_ClaimPayoutCall)
-	FuncMap["To_NominationPools_ClaimPayoutOtherCall"] = reflect.ValueOf(To_NominationPools_ClaimPayoutOtherCall)
-	FuncMap["To_NominationPools_CreateCall"] = reflect.ValueOf(To_NominationPools_CreateCall)
-	FuncMap["To_NominationPools_CreateWithPoolIdCall"] = reflect.ValueOf(To_NominationPools_CreateWithPoolIdCall)
-	FuncMap["To_NominationPools_Destroying"] = reflect.ValueOf(To_NominationPools_Destroying)
-	FuncMap["To_NominationPools_Extra"] = reflect.ValueOf(To_NominationPools_Extra)
-	FuncMap["To_NominationPools_FreeBalance"] = reflect.ValueOf(To_NominationPools_FreeBalance)
-	FuncMap["To_NominationPools_GlobalMaxCommission"] = reflect.ValueOf(To_NominationPools_GlobalMaxCommission)
-	FuncMap["To_NominationPools_Id"] = reflect.ValueOf(To_NominationPools_Id)
-	FuncMap["To_NominationPools_Index"] = reflect.ValueOf(To_NominationPools_Index)
-	FuncMap["To_NominationPools_JoinCall"] = reflect.ValueOf(To_NominationPools_JoinCall)
-	FuncMap["To_NominationPools_MaxMembers"] = reflect.ValueOf(To_NominationPools_MaxMembers)
-	FuncMap["To_NominationPools_MaxMembersPerPool"] = reflect.ValueOf(To_NominationPools_MaxMembersPerPool)
-	FuncMap["To_NominationPools_MaxPools"] = reflect.ValueOf(To_NominationPools_MaxPools)
-	FuncMap["To_NominationPools_Member"] = reflect.ValueOf(To_NominationPools_Member)
-	FuncMap["To_NominationPools_MemberAccount"] = reflect.ValueOf(To_NominationPools_MemberAccount)
-	FuncMap["To_NominationPools_MinCreateBond"] = reflect.ValueOf(To_NominationPools_MinCreateBond)
-	FuncMap["To_NominationPools_MinJoinBond"] = reflect.ValueOf(To_NominationPools_MinJoinBond)
-	FuncMap["To_NominationPools_NewBouncer"] = reflect.ValueOf(To_NominationPools_NewBouncer)
-	FuncMap["To_NominationPools_NewNominator"] = reflect.ValueOf(To_NominationPools_NewNominator)
-	FuncMap["To_NominationPools_NewRoot"] = reflect.ValueOf(To_NominationPools_NewRoot)
-	FuncMap["To_NominationPools_NominateCall"] = reflect.ValueOf(To_NominationPools_NominateCall)
-	FuncMap["To_NominationPools_Nominator"] = reflect.ValueOf(To_NominationPools_Nominator)
-	FuncMap["To_NominationPools_Noop"] = reflect.ValueOf(To_NominationPools_Noop)
-	FuncMap["To_NominationPools_Open"] = reflect.ValueOf(To_NominationPools_Open)
-	FuncMap["To_NominationPools_PalletNominationPoolsCommissionChangeRate"] = reflect.ValueOf(To_NominationPools_PalletNominationPoolsCommissionChangeRate)
-	FuncMap["To_NominationPools_Permission"] = reflect.ValueOf(To_NominationPools_Permission)
-	FuncMap["To_NominationPools_Permissioned"] = reflect.ValueOf(To_NominationPools_Permissioned)
-	FuncMap["To_NominationPools_PermissionlessAll"] = reflect.ValueOf(To_NominationPools_PermissionlessAll)
-	FuncMap["To_NominationPools_PermissionlessCompound"] = reflect.ValueOf(To_NominationPools_PermissionlessCompound)
-	FuncMap["To_NominationPools_PermissionlessWithdraw"] = reflect.ValueOf(To_NominationPools_PermissionlessWithdraw)
-	FuncMap["To_NominationPools_PoolWithdrawUnbondedCall"] = reflect.ValueOf(To_NominationPools_PoolWithdrawUnbondedCall)
-	FuncMap["To_NominationPools_Raw"] = reflect.ValueOf(To_NominationPools_Raw)
-	FuncMap["To_NominationPools_Remove"] = reflect.ValueOf(To_NominationPools_Remove)
-	FuncMap["To_NominationPools_Rewards"] = reflect.ValueOf(To_NominationPools_Rewards)
-	FuncMap["To_NominationPools_Root"] = reflect.ValueOf(To_NominationPools_Root)
-	FuncMap["To_NominationPools_Set"] = reflect.ValueOf(To_NominationPools_Set)
-	FuncMap["To_NominationPools_SetClaimPermissionCall"] = reflect.ValueOf(To_NominationPools_SetClaimPermissionCall)
-	FuncMap["To_NominationPools_SetCommissionCall"] = reflect.ValueOf(To_NominationPools_SetCommissionCall)
-	FuncMap["To_NominationPools_SetCommissionChangeRateCall"] = reflect.ValueOf(To_NominationPools_SetCommissionChangeRateCall)
-	FuncMap["To_NominationPools_SetCommissionMaxCall"] = reflect.ValueOf(To_NominationPools_SetCommissionMaxCall)
-	FuncMap["To_NominationPools_SetConfigsCall"] = reflect.ValueOf(To_NominationPools_SetConfigsCall)
-	FuncMap["To_NominationPools_SetMetadataCall"] = reflect.ValueOf(To_NominationPools_SetMetadataCall)
-	FuncMap["To_NominationPools_SetStateCall"] = reflect.ValueOf(To_NominationPools_SetStateCall)
-	FuncMap["To_NominationPools_State"] = reflect.ValueOf(To_NominationPools_State)
-	FuncMap["To_NominationPools_TupleNull"] = reflect.ValueOf(To_NominationPools_TupleNull)
-	FuncMap["To_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32"] = reflect.ValueOf(To_NominationPools_TupleSpArithmeticPerThingsPerbillspCoreCryptoAccountId32)
-	FuncMap["To_NominationPools_UnbondCall"] = reflect.ValueOf(To_NominationPools_UnbondCall)
-	FuncMap["To_NominationPools_UpdateRolesCall"] = reflect.ValueOf(To_NominationPools_UpdateRolesCall)
-	FuncMap["To_NominationPools_WithdrawUnbondedCall"] = reflect.ValueOf(To_NominationPools_WithdrawUnbondedCall)
-	FuncMap["To_None"] = reflect.ValueOf(To_None)
-	FuncMap["To_OffencesPallet"] = reflect.ValueOf(To_OffencesPallet)
-	FuncMap["To_OriginsPallet"] = reflect.ValueOf(To_OriginsPallet)
-	FuncMap["To_PreimagePallet"] = reflect.ValueOf(To_PreimagePallet)
-	FuncMap["To_Preimage_EnsureUpdatedCall"] = reflect.ValueOf(To_Preimage_EnsureUpdatedCall)
-	FuncMap["To_Preimage_NotePreimageCall"] = reflect.ValueOf(To_Preimage_NotePreimageCall)
-	FuncMap["To_Preimage_RequestPreimageCall"] = reflect.ValueOf(To_Preimage_RequestPreimageCall)
-	FuncMap["To_Preimage_UnnotePreimageCall"] = reflect.ValueOf(To_Preimage_UnnotePreimageCall)
-	FuncMap["To_Preimage_UnrequestPreimageCall"] = reflect.ValueOf(To_Preimage_UnrequestPreimageCall)
-	FuncMap["To_PrimitiveTypesH256"] = reflect.ValueOf(To_PrimitiveTypesH256)
-	FuncMap["To_ProxyPallet"] = reflect.ValueOf(To_ProxyPallet)
-	FuncMap["To_Proxy_AddProxyCall"] = reflect.ValueOf(To_Proxy_AddProxyCall)
-	FuncMap["To_Proxy_Address20"] = reflect.ValueOf(To_Proxy_Address20)
-	FuncMap["To_Proxy_Address32"] = reflect.ValueOf(To_Proxy_Address32)
-	FuncMap["To_Proxy_AnnounceCall"] = reflect.ValueOf(To_Proxy_AnnounceCall)
-	FuncMap["To_Proxy_Any"] = reflect.ValueOf(To_Proxy_Any)
-	FuncMap["To_Proxy_CancelProxy"] = reflect.ValueOf(To_Proxy_CancelProxy)
-	FuncMap["To_Proxy_CreatePureCall"] = reflect.ValueOf(To_Proxy_CreatePureCall)
-	FuncMap["To_Proxy_Delegate"] = reflect.ValueOf(To_Proxy_Delegate)
-	FuncMap["To_Proxy_ForceProxyType"] = reflect.ValueOf(To_Proxy_ForceProxyType)
-	FuncMap["To_Proxy_Governance"] = reflect.ValueOf(To_Proxy_Governance)
-	FuncMap["To_Proxy_Id"] = reflect.ValueOf(To_Proxy_Id)
-	FuncMap["To_Proxy_IdentityJudgement"] = reflect.ValueOf(To_Proxy_IdentityJudgement)
-	FuncMap["To_Proxy_Index"] = reflect.ValueOf(To_Proxy_Index)
-	FuncMap["To_Proxy_KillPureCall"] = reflect.ValueOf(To_Proxy_KillPureCall)
-	FuncMap["To_Proxy_NonTransfer"] = reflect.ValueOf(To_Proxy_NonTransfer)
-	FuncMap["To_Proxy_ProxyAnnouncedCall"] = reflect.ValueOf(To_Proxy_ProxyAnnouncedCall)
-	FuncMap["To_Proxy_ProxyCall"] = reflect.ValueOf(To_Proxy_ProxyCall)
-	FuncMap["To_Proxy_ProxyType"] = reflect.ValueOf(To_Proxy_ProxyType)
-	FuncMap["To_Proxy_Raw"] = reflect.ValueOf(To_Proxy_Raw)
-	FuncMap["To_Proxy_Real"] = reflect.ValueOf(To_Proxy_Real)
-	FuncMap["To_Proxy_RejectAnnouncementCall"] = reflect.ValueOf(To_Proxy_RejectAnnouncementCall)
-	FuncMap["To_Proxy_RemoveAnnouncementCall"] = reflect.ValueOf(To_Proxy_RemoveAnnouncementCall)
-	FuncMap["To_Proxy_RemoveProxiesCall"] = reflect.ValueOf(To_Proxy_RemoveProxiesCall)
-	FuncMap["To_Proxy_RemoveProxyCall"] = reflect.ValueOf(To_Proxy_RemoveProxyCall)
-	FuncMap["To_Proxy_Spawner"] = reflect.ValueOf(To_Proxy_Spawner)
-	FuncMap["To_Proxy_Staking"] = reflect.ValueOf(To_Proxy_Staking)
-	FuncMap["To_Proxy_TupleNull"] = reflect.ValueOf(To_Proxy_TupleNull)
-	FuncMap["To_ReferendaPallet"] = reflect.ValueOf(To_ReferendaPallet)
-	FuncMap["To_Referenda_After"] = reflect.ValueOf(To_Referenda_After)
-	FuncMap["To_Referenda_At"] = reflect.ValueOf(To_Referenda_At)
-	FuncMap["To_Referenda_CancelCall"] = reflect.ValueOf(To_Referenda_CancelCall)
-	FuncMap["To_Referenda_EnactmentMoment"] = reflect.ValueOf(To_Referenda_EnactmentMoment)
-	FuncMap["To_Referenda_Inline"] = reflect.ValueOf(To_Referenda_Inline)
-	FuncMap["To_Referenda_KillCall"] = reflect.ValueOf(To_Referenda_KillCall)
-	FuncMap["To_Referenda_Legacy"] = reflect.ValueOf(To_Referenda_Legacy)
-	FuncMap["To_Referenda_Lookup"] = reflect.ValueOf(To_Referenda_Lookup)
-	FuncMap["To_Referenda_NudgeReferendumCall"] = reflect.ValueOf(To_Referenda_NudgeReferendumCall)
-	FuncMap["To_Referenda_OneFewerDecidingCall"] = reflect.ValueOf(To_Referenda_OneFewerDecidingCall)
-	FuncMap["To_Referenda_Origins"] = reflect.ValueOf(To_Referenda_Origins)
-	FuncMap["To_Referenda_PlaceDecisionDepositCall"] = reflect.ValueOf(To_Referenda_PlaceDecisionDepositCall)
-	FuncMap["To_Referenda_Proposal"] = reflect.ValueOf(To_Referenda_Proposal)
-	FuncMap["To_Referenda_ProposalOrigin"] = reflect.ValueOf(To_Referenda_ProposalOrigin)
-	FuncMap["To_Referenda_RefundDecisionDepositCall"] = reflect.ValueOf(To_Referenda_RefundDecisionDepositCall)
-	FuncMap["To_Referenda_RefundSubmissionDepositCall"] = reflect.ValueOf(To_Referenda_RefundSubmissionDepositCall)
-	FuncMap["To_Referenda_SetMetadataCall"] = reflect.ValueOf(To_Referenda_SetMetadataCall)
-	FuncMap["To_Referenda_SubmitCall"] = reflect.ValueOf(To_Referenda_SubmitCall)
-	FuncMap["To_Referenda_System"] = reflect.ValueOf(To_Referenda_System)
-	FuncMap["To_Referenda_Void"] = reflect.ValueOf(To_Referenda_Void)
-	FuncMap["To_ReferendumCanceller"] = reflect.ValueOf(To_ReferendumCanceller)
-	FuncMap["To_ReferendumKiller"] = reflect.ValueOf(To_ReferendumKiller)
-	FuncMap["To_Root"] = reflect.ValueOf(To_Root)
-	FuncMap["To_SchedulerPallet"] = reflect.ValueOf(To_SchedulerPallet)
-	FuncMap["To_Scheduler_CancelCall"] = reflect.ValueOf(To_Scheduler_CancelCall)
-	FuncMap["To_Scheduler_CancelNamedCall"] = reflect.ValueOf(To_Scheduler_CancelNamedCall)
-	FuncMap["To_Scheduler_ScheduleAfterCall"] = reflect.ValueOf(To_Scheduler_ScheduleAfterCall)
-	FuncMap["To_Scheduler_ScheduleCall"] = reflect.ValueOf(To_Scheduler_ScheduleCall)
-	FuncMap["To_Scheduler_ScheduleNamedAfterCall"] = reflect.ValueOf(To_Scheduler_ScheduleNamedAfterCall)
-	FuncMap["To_Scheduler_ScheduleNamedCall"] = reflect.ValueOf(To_Scheduler_ScheduleNamedCall)
-	FuncMap["To_Scheduler_TupleUint32Uint32"] = reflect.ValueOf(To_Scheduler_TupleUint32Uint32)
-	FuncMap["To_SessionPallet"] = reflect.ValueOf(To_SessionPallet)
-	FuncMap["To_Session_PurgeKeysCall"] = reflect.ValueOf(To_Session_PurgeKeysCall)
-	FuncMap["To_Session_SetKeysCall"] = reflect.ValueOf(To_Session_SetKeysCall)
-	FuncMap["To_Signed"] = reflect.ValueOf(To_Signed)
-	FuncMap["To_SmallSpender"] = reflect.ValueOf(To_SmallSpender)
-	FuncMap["To_SmallTipper"] = reflect.ValueOf(To_SmallTipper)
-	FuncMap["To_SpArithmeticPerThingsPerU16"] = reflect.ValueOf(To_SpArithmeticPerThingsPerU16)
-	FuncMap["To_SpArithmeticPerThingsPerbill"] = reflect.ValueOf(To_SpArithmeticPerThingsPerbill)
-	FuncMap["To_SpArithmeticPerThingsPercent"] = reflect.ValueOf(To_SpArithmeticPerThingsPercent)
-	FuncMap["To_SpAuthorityDiscoveryAppPublic"] = reflect.ValueOf(To_SpAuthorityDiscoveryAppPublic)
-	FuncMap["To_SpConsensusBabeAppPublic"] = reflect.ValueOf(To_SpConsensusBabeAppPublic)
-	FuncMap["To_SpConsensusGrandpaAppPublic"] = reflect.ValueOf(To_SpConsensusGrandpaAppPublic)
-	FuncMap["To_SpConsensusSlotsEquivocationProof"] = reflect.ValueOf(To_SpConsensusSlotsEquivocationProof)
-	FuncMap["To_SpConsensusSlotsSlot"] = reflect.ValueOf(To_SpConsensusSlotsSlot)
-	FuncMap["To_SpCoreCryptoAccountId32"] = reflect.ValueOf(To_SpCoreCryptoAccountId32)
-	FuncMap["To_SpCoreEd25519Public"] = reflect.ValueOf(To_SpCoreEd25519Public)
-	FuncMap["To_SpCoreEd25519Signature"] = reflect.ValueOf(To_SpCoreEd25519Signature)
-	FuncMap["To_SpCoreSr25519Public"] = reflect.ValueOf(To_SpCoreSr25519Public)
-	FuncMap["To_SpCoreSr25519Signature"] = reflect.ValueOf(To_SpCoreSr25519Signature)
-	FuncMap["To_SpNposElectionsElectionScore"] = reflect.ValueOf(To_SpNposElectionsElectionScore)
-	FuncMap["To_SpNposElectionsSupport"] = reflect.ValueOf(To_SpNposElectionsSupport)
-	FuncMap["To_SpRuntimeGenericDigestDigest"] = reflect.ValueOf(To_SpRuntimeGenericDigestDigest)
-	FuncMap["To_SpRuntimeGenericDigestDigestItem"] = reflect.ValueOf(To_SpRuntimeGenericDigestDigestItem)
-	FuncMap["To_SpRuntimeGenericHeaderHeader"] = reflect.ValueOf(To_SpRuntimeGenericHeaderHeader)
-	FuncMap["To_SpRuntimeMultiaddressMultiAddress"] = reflect.ValueOf(To_SpRuntimeMultiaddressMultiAddress)
-	FuncMap["To_SpSessionMembershipProof"] = reflect.ValueOf(To_SpSessionMembershipProof)
-	FuncMap["To_SpWeightsWeightV2Weight"] = reflect.ValueOf(To_SpWeightsWeightV2Weight)
-	FuncMap["To_StakingAdmin"] = reflect.ValueOf(To_StakingAdmin)
-	FuncMap["To_StakingPallet"] = reflect.ValueOf(To_StakingPallet)
-	FuncMap["To_StakingRewardsPallet"] = reflect.ValueOf(To_StakingRewardsPallet)
-	FuncMap["To_StakingRewards_Address20"] = reflect.ValueOf(To_StakingRewards_Address20)
-	FuncMap["To_StakingRewards_Address32"] = reflect.ValueOf(To_StakingRewards_Address32)
-	FuncMap["To_StakingRewards_AlignSupplyCall"] = reflect.ValueOf(To_StakingRewards_AlignSupplyCall)
-	FuncMap["To_StakingRewards_ForceRefillCall"] = reflect.ValueOf(To_StakingRewards_ForceRefillCall)
-	FuncMap["To_StakingRewards_From"] = reflect.ValueOf(To_StakingRewards_From)
-	FuncMap["To_StakingRewards_Id"] = reflect.ValueOf(To_StakingRewards_Id)
-	FuncMap["To_StakingRewards_Index"] = reflect.ValueOf(To_StakingRewards_Index)
-	FuncMap["To_StakingRewards_Raw"] = reflect.ValueOf(To_StakingRewards_Raw)
-	FuncMap["To_StakingRewards_RefillCall"] = reflect.ValueOf(To_StakingRewards_RefillCall)
-	FuncMap["To_StakingRewards_To"] = reflect.ValueOf(To_StakingRewards_To)
-	FuncMap["To_StakingRewards_TupleNull"] = reflect.ValueOf(To_StakingRewards_TupleNull)
-	FuncMap["To_StakingRewards_WithdrawCall"] = reflect.ValueOf(To_StakingRewards_WithdrawCall)
-	FuncMap["To_Staking_Account"] = reflect.ValueOf(To_Staking_Account)
-	FuncMap["To_Staking_Address20"] = reflect.ValueOf(To_Staking_Address20)
-	FuncMap["To_Staking_Address32"] = reflect.ValueOf(To_Staking_Address32)
-	FuncMap["To_Staking_BondCall"] = reflect.ValueOf(To_Staking_BondCall)
-	FuncMap["To_Staking_BondExtraCall"] = reflect.ValueOf(To_Staking_BondExtraCall)
-	FuncMap["To_Staking_CancelDeferredSlashCall"] = reflect.ValueOf(To_Staking_CancelDeferredSlashCall)
-	FuncMap["To_Staking_ChillCall"] = reflect.ValueOf(To_Staking_ChillCall)
-	FuncMap["To_Staking_ChillOtherCall"] = reflect.ValueOf(To_Staking_ChillOtherCall)
-	FuncMap["To_Staking_ChillThreshold"] = reflect.ValueOf(To_Staking_ChillThreshold)
-	FuncMap["To_Staking_Controller"] = reflect.ValueOf(To_Staking_Controller)
-	FuncMap["To_Staking_ForceApplyMinCommissionCall"] = reflect.ValueOf(To_Staking_ForceApplyMinCommissionCall)
-	FuncMap["To_Staking_ForceNewEraAlwaysCall"] = reflect.ValueOf(To_Staking_ForceNewEraAlwaysCall)
-	FuncMap["To_Staking_ForceNewEraCall"] = reflect.ValueOf(To_Staking_ForceNewEraCall)
-	FuncMap["To_Staking_ForceNoErasCall"] = reflect.ValueOf(To_Staking_ForceNoErasCall)
-	FuncMap["To_Staking_ForceUnstakeCall"] = reflect.ValueOf(To_Staking_ForceUnstakeCall)
-	FuncMap["To_Staking_Id"] = reflect.ValueOf(To_Staking_Id)
-	FuncMap["To_Staking_IncreaseValidatorCountCall"] = reflect.ValueOf(To_Staking_IncreaseValidatorCountCall)
-	FuncMap["To_Staking_Index"] = reflect.ValueOf(To_Staking_Index)
-	FuncMap["To_Staking_KickCall"] = reflect.ValueOf(To_Staking_KickCall)
-	FuncMap["To_Staking_MaxNominatorCount"] = reflect.ValueOf(To_Staking_MaxNominatorCount)
-	FuncMap["To_Staking_MaxValidatorCount"] = reflect.ValueOf(To_Staking_MaxValidatorCount)
-	FuncMap["To_Staking_MinCommission"] = reflect.ValueOf(To_Staking_MinCommission)
-	FuncMap["To_Staking_MinNominatorBond"] = reflect.ValueOf(To_Staking_MinNominatorBond)
-	FuncMap["To_Staking_MinValidatorBond"] = reflect.ValueOf(To_Staking_MinValidatorBond)
-	FuncMap["To_Staking_NominateCall"] = reflect.ValueOf(To_Staking_NominateCall)
-	FuncMap["To_Staking_None"] = reflect.ValueOf(To_Staking_None)
-	FuncMap["To_Staking_Noop"] = reflect.ValueOf(To_Staking_Noop)
-	FuncMap["To_Staking_PalletStakingValidatorPrefs"] = reflect.ValueOf(To_Staking_PalletStakingValidatorPrefs)
-	FuncMap["To_Staking_Payee"] = reflect.ValueOf(To_Staking_Payee)
-	FuncMap["To_Staking_PayoutStakersCall"] = reflect.ValueOf(To_Staking_PayoutStakersCall)
-	FuncMap["To_Staking_Raw"] = reflect.ValueOf(To_Staking_Raw)
-	FuncMap["To_Staking_ReapStashCall"] = reflect.ValueOf(To_Staking_ReapStashCall)
-	FuncMap["To_Staking_RebondCall"] = reflect.ValueOf(To_Staking_RebondCall)
-	FuncMap["To_Staking_Remove"] = reflect.ValueOf(To_Staking_Remove)
-	FuncMap["To_Staking_ScaleValidatorCountCall"] = reflect.ValueOf(To_Staking_ScaleValidatorCountCall)
-	FuncMap["To_Staking_Set"] = reflect.ValueOf(To_Staking_Set)
-	FuncMap["To_Staking_SetControllerCall"] = reflect.ValueOf(To_Staking_SetControllerCall)
-	FuncMap["To_Staking_SetInvulnerablesCall"] = reflect.ValueOf(To_Staking_SetInvulnerablesCall)
-	FuncMap["To_Staking_SetMinCommissionCall"] = reflect.ValueOf(To_Staking_SetMinCommissionCall)
-	FuncMap["To_Staking_SetPayeeCall"] = reflect.ValueOf(To_Staking_SetPayeeCall)
-	FuncMap["To_Staking_SetStakingConfigsCall"] = reflect.ValueOf(To_Staking_SetStakingConfigsCall)
-	FuncMap["To_Staking_SetValidatorCountCall"] = reflect.ValueOf(To_Staking_SetValidatorCountCall)
-	FuncMap["To_Staking_Staked"] = reflect.ValueOf(To_Staking_Staked)
-	FuncMap["To_Staking_Stash"] = reflect.ValueOf(To_Staking_Stash)
-	FuncMap["To_Staking_Targets"] = reflect.ValueOf(To_Staking_Targets)
-	FuncMap["To_Staking_TupleNull"] = reflect.ValueOf(To_Staking_TupleNull)
-	FuncMap["To_Staking_UnbondCall"] = reflect.ValueOf(To_Staking_UnbondCall)
-	FuncMap["To_Staking_ValidateCall"] = reflect.ValueOf(To_Staking_ValidateCall)
-	FuncMap["To_Staking_Who"] = reflect.ValueOf(To_Staking_Who)
-	FuncMap["To_Staking_WithdrawUnbondedCall"] = reflect.ValueOf(To_Staking_WithdrawUnbondedCall)
-	FuncMap["To_SystemPallet"] = reflect.ValueOf(To_SystemPallet)
-	FuncMap["To_System_KillPrefixCall"] = reflect.ValueOf(To_System_KillPrefixCall)
-	FuncMap["To_System_KillStorageCall"] = reflect.ValueOf(To_System_KillStorageCall)
-	FuncMap["To_System_RemarkCall"] = reflect.ValueOf(To_System_RemarkCall)
-	FuncMap["To_System_RemarkWithEventCall"] = reflect.ValueOf(To_System_RemarkWithEventCall)
-	FuncMap["To_System_SetCodeCall"] = reflect.ValueOf(To_System_SetCodeCall)
-	FuncMap["To_System_SetCodeWithoutChecksCall"] = reflect.ValueOf(To_System_SetCodeWithoutChecksCall)
-	FuncMap["To_System_SetHeapPagesCall"] = reflect.ValueOf(To_System_SetHeapPagesCall)
-	FuncMap["To_System_SetStorageCall"] = reflect.ValueOf(To_System_SetStorageCall)
-	FuncMap["To_System_SystemKeysList"] = reflect.ValueOf(To_System_SystemKeysList)
-	FuncMap["To_System_TupleSystemItemsListSystemItemsList"] = reflect.ValueOf(To_System_TupleSystemItemsListSystemItemsList)
-	FuncMap["To_TimestampPallet"] = reflect.ValueOf(To_TimestampPallet)
-	FuncMap["To_Timestamp_SetCall"] = reflect.ValueOf(To_Timestamp_SetCall)
-	FuncMap["To_TransactionPaymentPallet"] = reflect.ValueOf(To_TransactionPaymentPallet)
-	FuncMap["To_Treasurer"] = reflect.ValueOf(To_Treasurer)
-	FuncMap["To_TreasuryPallet"] = reflect.ValueOf(To_TreasuryPallet)
-	FuncMap["To_Treasury_Address20"] = reflect.ValueOf(To_Treasury_Address20)
-	FuncMap["To_Treasury_Address32"] = reflect.ValueOf(To_Treasury_Address32)
-	FuncMap["To_Treasury_ApproveProposalCall"] = reflect.ValueOf(To_Treasury_ApproveProposalCall)
-	FuncMap["To_Treasury_Beneficiary"] = reflect.ValueOf(To_Treasury_Beneficiary)
-	FuncMap["To_Treasury_CheckStatusCall"] = reflect.ValueOf(To_Treasury_CheckStatusCall)
-	FuncMap["To_Treasury_Id"] = reflect.ValueOf(To_Treasury_Id)
-	FuncMap["To_Treasury_Index"] = reflect.ValueOf(To_Treasury_Index)
-	FuncMap["To_Treasury_PayoutCall"] = reflect.ValueOf(To_Treasury_PayoutCall)
-	FuncMap["To_Treasury_ProposeSpendCall"] = reflect.ValueOf(To_Treasury_ProposeSpendCall)
-	FuncMap["To_Treasury_Raw"] = reflect.ValueOf(To_Treasury_Raw)
-	FuncMap["To_Treasury_RejectProposalCall"] = reflect.ValueOf(To_Treasury_RejectProposalCall)
-	FuncMap["To_Treasury_RemoveApprovalCall"] = reflect.ValueOf(To_Treasury_RemoveApprovalCall)
-	FuncMap["To_Treasury_SpendCall"] = reflect.ValueOf(To_Treasury_SpendCall)
-	FuncMap["To_Treasury_SpendLocalCall"] = reflect.ValueOf(To_Treasury_SpendLocalCall)
-	FuncMap["To_Treasury_TupleNull"] = reflect.ValueOf(To_Treasury_TupleNull)
-	FuncMap["To_Treasury_VoidSpendCall"] = reflect.ValueOf(To_Treasury_VoidSpendCall)
-	FuncMap["To_TupleNull"] = reflect.ValueOf(To_TupleNull)
-	FuncMap["To_UtilityPallet"] = reflect.ValueOf(To_UtilityPallet)
-	FuncMap["To_Utility_AsDerivativeCall"] = reflect.ValueOf(To_Utility_AsDerivativeCall)
-	FuncMap["To_Utility_AsOrigin"] = reflect.ValueOf(To_Utility_AsOrigin)
-	FuncMap["To_Utility_BatchAllCall"] = reflect.ValueOf(To_Utility_BatchAllCall)
-	FuncMap["To_Utility_BatchCall"] = reflect.ValueOf(To_Utility_BatchCall)
-	FuncMap["To_Utility_DispatchAsCall"] = reflect.ValueOf(To_Utility_DispatchAsCall)
-	FuncMap["To_Utility_ForceBatchCall"] = reflect.ValueOf(To_Utility_ForceBatchCall)
-	FuncMap["To_Utility_Origins"] = reflect.ValueOf(To_Utility_Origins)
-	FuncMap["To_Utility_System"] = reflect.ValueOf(To_Utility_System)
-	FuncMap["To_Utility_Void"] = reflect.ValueOf(To_Utility_Void)
-	FuncMap["To_Utility_WithWeightCall"] = reflect.ValueOf(To_Utility_WithWeightCall)
-	FuncMap["To_Value0"] = reflect.ValueOf(To_Value0)
-	FuncMap["To_VaraRuntimeNposSolution16"] = reflect.ValueOf(To_VaraRuntimeNposSolution16)
-	FuncMap["To_VaraRuntimeRuntimeCall"] = reflect.ValueOf(To_VaraRuntimeRuntimeCall)
-	FuncMap["To_VaraRuntimeSessionKeys"] = reflect.ValueOf(To_VaraRuntimeSessionKeys)
-	FuncMap["To_VestingPallet"] = reflect.ValueOf(To_VestingPallet)
-	FuncMap["To_Vesting_Address20"] = reflect.ValueOf(To_Vesting_Address20)
-	FuncMap["To_Vesting_Address32"] = reflect.ValueOf(To_Vesting_Address32)
-	FuncMap["To_Vesting_ForceVestedTransferCall"] = reflect.ValueOf(To_Vesting_ForceVestedTransferCall)
-	FuncMap["To_Vesting_Id"] = reflect.ValueOf(To_Vesting_Id)
-	FuncMap["To_Vesting_Index"] = reflect.ValueOf(To_Vesting_Index)
-	FuncMap["To_Vesting_MergeSchedulesCall"] = reflect.ValueOf(To_Vesting_MergeSchedulesCall)
-	FuncMap["To_Vesting_PalletVestingVestingInfoVestingInfo"] = reflect.ValueOf(To_Vesting_PalletVestingVestingInfoVestingInfo)
-	FuncMap["To_Vesting_Raw"] = reflect.ValueOf(To_Vesting_Raw)
-	FuncMap["To_Vesting_Source"] = reflect.ValueOf(To_Vesting_Source)
-	FuncMap["To_Vesting_Target"] = reflect.ValueOf(To_Vesting_Target)
-	FuncMap["To_Vesting_TupleNull"] = reflect.ValueOf(To_Vesting_TupleNull)
-	FuncMap["To_Vesting_VestCall"] = reflect.ValueOf(To_Vesting_VestCall)
-	FuncMap["To_Vesting_VestOtherCall"] = reflect.ValueOf(To_Vesting_VestOtherCall)
-	FuncMap["To_Vesting_VestedTransferCall"] = reflect.ValueOf(To_Vesting_VestedTransferCall)
-	FuncMap["To_WhitelistPallet"] = reflect.ValueOf(To_WhitelistPallet)
-	FuncMap["To_Whitelist_DispatchWhitelistedCallCall"] = reflect.ValueOf(To_Whitelist_DispatchWhitelistedCallCall)
-	FuncMap["To_Whitelist_DispatchWhitelistedCallWithPreimageCall"] = reflect.ValueOf(To_Whitelist_DispatchWhitelistedCallWithPreimageCall)
-	FuncMap["To_Whitelist_RemoveWhitelistedCallCall"] = reflect.ValueOf(To_Whitelist_RemoveWhitelistedCallCall)
-	FuncMap["To_Whitelist_WhitelistCallCall"] = reflect.ValueOf(To_Whitelist_WhitelistCallCall)
-	FuncMap["To_WhitelistedCaller"] = reflect.ValueOf(To_WhitelistedCaller)
+	FuncMap["To_Babe_PlanConfigChangeCall"] = reflect.ValueOf(To_Babe_PlanConfigChangeCall_wrap)
+	FuncMap["To_Babe_ReportEquivocationCall"] = reflect.ValueOf(To_Babe_ReportEquivocationCall_wrap)
+	FuncMap["To_Babe_ReportEquivocationUnsignedCall"] = reflect.ValueOf(To_Babe_ReportEquivocationUnsignedCall_wrap)
+	FuncMap["To_BagsList_PutInFrontOfCall"] = reflect.ValueOf(To_BagsList_PutInFrontOfCall_wrap)
+	FuncMap["To_BagsList_PutInFrontOfOtherCall"] = reflect.ValueOf(To_BagsList_PutInFrontOfOtherCall_wrap)
+	FuncMap["To_BagsList_RebagCall"] = reflect.ValueOf(To_BagsList_RebagCall_wrap)
+	FuncMap["To_Balances_ForceSetBalanceCall"] = reflect.ValueOf(To_Balances_ForceSetBalanceCall_wrap)
+	FuncMap["To_Balances_ForceTransferCall"] = reflect.ValueOf(To_Balances_ForceTransferCall_wrap)
+	FuncMap["To_Balances_ForceUnreserveCall"] = reflect.ValueOf(To_Balances_ForceUnreserveCall_wrap)
+	FuncMap["To_Balances_TransferAllCall"] = reflect.ValueOf(To_Balances_TransferAllCall_wrap)
+	FuncMap["To_Balances_TransferAllowDeathCall"] = reflect.ValueOf(To_Balances_TransferAllowDeathCall_wrap)
+	FuncMap["To_Balances_TransferKeepAliveCall"] = reflect.ValueOf(To_Balances_TransferKeepAliveCall_wrap)
+	FuncMap["To_Balances_UpgradeAccountsCall"] = reflect.ValueOf(To_Balances_UpgradeAccountsCall_wrap)
+	FuncMap["To_Bounties_AcceptCuratorCall"] = reflect.ValueOf(To_Bounties_AcceptCuratorCall_wrap)
+	FuncMap["To_Bounties_ApproveBountyCall"] = reflect.ValueOf(To_Bounties_ApproveBountyCall_wrap)
+	FuncMap["To_Bounties_AwardBountyCall"] = reflect.ValueOf(To_Bounties_AwardBountyCall_wrap)
+	FuncMap["To_Bounties_ClaimBountyCall"] = reflect.ValueOf(To_Bounties_ClaimBountyCall_wrap)
+	FuncMap["To_Bounties_CloseBountyCall"] = reflect.ValueOf(To_Bounties_CloseBountyCall_wrap)
+	FuncMap["To_Bounties_ExtendBountyExpiryCall"] = reflect.ValueOf(To_Bounties_ExtendBountyExpiryCall_wrap)
+	FuncMap["To_Bounties_ProposeBountyCall"] = reflect.ValueOf(To_Bounties_ProposeBountyCall_wrap)
+	FuncMap["To_Bounties_ProposeCuratorCall"] = reflect.ValueOf(To_Bounties_ProposeCuratorCall_wrap)
+	FuncMap["To_Bounties_UnassignCuratorCall"] = reflect.ValueOf(To_Bounties_UnassignCuratorCall_wrap)
+	FuncMap["To_ChildBounties_AcceptCuratorCall"] = reflect.ValueOf(To_ChildBounties_AcceptCuratorCall_wrap)
+	FuncMap["To_ChildBounties_AddChildBountyCall"] = reflect.ValueOf(To_ChildBounties_AddChildBountyCall_wrap)
+	FuncMap["To_ChildBounties_AwardChildBountyCall"] = reflect.ValueOf(To_ChildBounties_AwardChildBountyCall_wrap)
+	FuncMap["To_ChildBounties_ClaimChildBountyCall"] = reflect.ValueOf(To_ChildBounties_ClaimChildBountyCall_wrap)
+	FuncMap["To_ChildBounties_CloseChildBountyCall"] = reflect.ValueOf(To_ChildBounties_CloseChildBountyCall_wrap)
+	FuncMap["To_ChildBounties_ProposeCuratorCall"] = reflect.ValueOf(To_ChildBounties_ProposeCuratorCall_wrap)
+	FuncMap["To_ChildBounties_UnassignCuratorCall"] = reflect.ValueOf(To_ChildBounties_UnassignCuratorCall_wrap)
+	FuncMap["To_ConvictionVoting_DelegateCall"] = reflect.ValueOf(To_ConvictionVoting_DelegateCall_wrap)
+	FuncMap["To_ConvictionVoting_RemoveOtherVoteCall"] = reflect.ValueOf(To_ConvictionVoting_RemoveOtherVoteCall_wrap)
+	FuncMap["To_ConvictionVoting_RemoveVoteCall"] = reflect.ValueOf(To_ConvictionVoting_RemoveVoteCall_wrap)
+	FuncMap["To_ConvictionVoting_UndelegateCall"] = reflect.ValueOf(To_ConvictionVoting_UndelegateCall_wrap)
+	FuncMap["To_ConvictionVoting_UnlockCall"] = reflect.ValueOf(To_ConvictionVoting_UnlockCall_wrap)
+	FuncMap["To_ConvictionVoting_VoteCall"] = reflect.ValueOf(To_ConvictionVoting_VoteCall_wrap)
+	FuncMap["To_ElectionProviderMultiPhase_GovernanceFallbackCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_GovernanceFallbackCall_wrap)
+	FuncMap["To_ElectionProviderMultiPhase_SetEmergencyElectionResultCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_SetEmergencyElectionResultCall_wrap)
+	FuncMap["To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall_wrap)
+	FuncMap["To_ElectionProviderMultiPhase_SubmitCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_SubmitCall_wrap)
+	FuncMap["To_ElectionProviderMultiPhase_SubmitUnsignedCall"] = reflect.ValueOf(To_ElectionProviderMultiPhase_SubmitUnsignedCall_wrap)
+	FuncMap["To_FellowshipCollective_AddMemberCall"] = reflect.ValueOf(To_FellowshipCollective_AddMemberCall_wrap)
+	FuncMap["To_FellowshipCollective_CleanupPollCall"] = reflect.ValueOf(To_FellowshipCollective_CleanupPollCall_wrap)
+	FuncMap["To_FellowshipCollective_DemoteMemberCall"] = reflect.ValueOf(To_FellowshipCollective_DemoteMemberCall_wrap)
+	FuncMap["To_FellowshipCollective_PromoteMemberCall"] = reflect.ValueOf(To_FellowshipCollective_PromoteMemberCall_wrap)
+	FuncMap["To_FellowshipCollective_RemoveMemberCall"] = reflect.ValueOf(To_FellowshipCollective_RemoveMemberCall_wrap)
+	FuncMap["To_FellowshipCollective_VoteCall"] = reflect.ValueOf(To_FellowshipCollective_VoteCall_wrap)
+	FuncMap["To_FellowshipReferenda_CancelCall"] = reflect.ValueOf(To_FellowshipReferenda_CancelCall_wrap)
+	FuncMap["To_FellowshipReferenda_KillCall"] = reflect.ValueOf(To_FellowshipReferenda_KillCall_wrap)
+	FuncMap["To_FellowshipReferenda_NudgeReferendumCall"] = reflect.ValueOf(To_FellowshipReferenda_NudgeReferendumCall_wrap)
+	FuncMap["To_FellowshipReferenda_OneFewerDecidingCall"] = reflect.ValueOf(To_FellowshipReferenda_OneFewerDecidingCall_wrap)
+	FuncMap["To_FellowshipReferenda_PlaceDecisionDepositCall"] = reflect.ValueOf(To_FellowshipReferenda_PlaceDecisionDepositCall_wrap)
+	FuncMap["To_FellowshipReferenda_RefundDecisionDepositCall"] = reflect.ValueOf(To_FellowshipReferenda_RefundDecisionDepositCall_wrap)
+	FuncMap["To_FellowshipReferenda_RefundSubmissionDepositCall"] = reflect.ValueOf(To_FellowshipReferenda_RefundSubmissionDepositCall_wrap)
+	FuncMap["To_FellowshipReferenda_SetMetadataCall"] = reflect.ValueOf(To_FellowshipReferenda_SetMetadataCall_wrap)
+	FuncMap["To_FellowshipReferenda_SubmitCall"] = reflect.ValueOf(To_FellowshipReferenda_SubmitCall_wrap)
+	FuncMap["To_GearVoucher_CallCall"] = reflect.ValueOf(To_GearVoucher_CallCall_wrap)
+	FuncMap["To_GearVoucher_CallDeprecatedCall"] = reflect.ValueOf(To_GearVoucher_CallDeprecatedCall_wrap)
+	FuncMap["To_GearVoucher_DeclineCall"] = reflect.ValueOf(To_GearVoucher_DeclineCall_wrap)
+	FuncMap["To_GearVoucher_IssueCall"] = reflect.ValueOf(To_GearVoucher_IssueCall_wrap)
+	FuncMap["To_GearVoucher_RevokeCall"] = reflect.ValueOf(To_GearVoucher_RevokeCall_wrap)
+	FuncMap["To_GearVoucher_UpdateCall"] = reflect.ValueOf(To_GearVoucher_UpdateCall_wrap)
+	FuncMap["To_Gear_ClaimValueCall"] = reflect.ValueOf(To_Gear_ClaimValueCall_wrap)
+	FuncMap["To_Gear_CreateProgramCall"] = reflect.ValueOf(To_Gear_CreateProgramCall_wrap)
+	FuncMap["To_Gear_RunCall"] = reflect.ValueOf(To_Gear_RunCall_wrap)
+	FuncMap["To_Gear_SendMessageCall"] = reflect.ValueOf(To_Gear_SendMessageCall_wrap)
+	FuncMap["To_Gear_SendReplyCall"] = reflect.ValueOf(To_Gear_SendReplyCall_wrap)
+	FuncMap["To_Gear_SetExecuteInherentCall"] = reflect.ValueOf(To_Gear_SetExecuteInherentCall_wrap)
+	FuncMap["To_Gear_UploadCodeCall"] = reflect.ValueOf(To_Gear_UploadCodeCall_wrap)
+	FuncMap["To_Gear_UploadProgramCall"] = reflect.ValueOf(To_Gear_UploadProgramCall_wrap)
+	FuncMap["To_Grandpa_NoteStalledCall"] = reflect.ValueOf(To_Grandpa_NoteStalledCall_wrap)
+	FuncMap["To_Grandpa_ReportEquivocationCall"] = reflect.ValueOf(To_Grandpa_ReportEquivocationCall_wrap)
+	FuncMap["To_Grandpa_ReportEquivocationUnsignedCall"] = reflect.ValueOf(To_Grandpa_ReportEquivocationUnsignedCall_wrap)
+	FuncMap["To_Identity_AddRegistrarCall"] = reflect.ValueOf(To_Identity_AddRegistrarCall_wrap)
+	FuncMap["To_Identity_AddSubCall"] = reflect.ValueOf(To_Identity_AddSubCall_wrap)
+	FuncMap["To_Identity_CancelRequestCall"] = reflect.ValueOf(To_Identity_CancelRequestCall_wrap)
+	FuncMap["To_Identity_KillIdentityCall"] = reflect.ValueOf(To_Identity_KillIdentityCall_wrap)
+	FuncMap["To_Identity_ProvideJudgementCall"] = reflect.ValueOf(To_Identity_ProvideJudgementCall_wrap)
+	FuncMap["To_Identity_RemoveSubCall"] = reflect.ValueOf(To_Identity_RemoveSubCall_wrap)
+	FuncMap["To_Identity_RenameSubCall"] = reflect.ValueOf(To_Identity_RenameSubCall_wrap)
+	FuncMap["To_Identity_RequestJudgementCall"] = reflect.ValueOf(To_Identity_RequestJudgementCall_wrap)
+	FuncMap["To_Identity_SetAccountIdCall"] = reflect.ValueOf(To_Identity_SetAccountIdCall_wrap)
+	FuncMap["To_Identity_SetFeeCall"] = reflect.ValueOf(To_Identity_SetFeeCall_wrap)
+	FuncMap["To_Identity_SetFieldsCall"] = reflect.ValueOf(To_Identity_SetFieldsCall_wrap)
+	FuncMap["To_Identity_SetIdentityCall"] = reflect.ValueOf(To_Identity_SetIdentityCall_wrap)
+	FuncMap["To_Identity_SetSubsCall"] = reflect.ValueOf(To_Identity_SetSubsCall_wrap)
+	FuncMap["To_ImOnline_HeartbeatCall"] = reflect.ValueOf(To_ImOnline_HeartbeatCall_wrap)
+	FuncMap["To_Multisig_ApproveAsMultiCall"] = reflect.ValueOf(To_Multisig_ApproveAsMultiCall_wrap)
+	FuncMap["To_Multisig_AsMultiCall"] = reflect.ValueOf(To_Multisig_AsMultiCall_wrap)
+	FuncMap["To_Multisig_AsMultiThreshold1Call"] = reflect.ValueOf(To_Multisig_AsMultiThreshold1Call_wrap)
+	FuncMap["To_Multisig_CancelAsMultiCall"] = reflect.ValueOf(To_Multisig_CancelAsMultiCall_wrap)
+	FuncMap["To_NominationPools_AdjustPoolDepositCall"] = reflect.ValueOf(To_NominationPools_AdjustPoolDepositCall_wrap)
+	FuncMap["To_NominationPools_BondExtraCall"] = reflect.ValueOf(To_NominationPools_BondExtraCall_wrap)
+	FuncMap["To_NominationPools_BondExtraOtherCall"] = reflect.ValueOf(To_NominationPools_BondExtraOtherCall_wrap)
+	FuncMap["To_NominationPools_ChillCall"] = reflect.ValueOf(To_NominationPools_ChillCall_wrap)
+	FuncMap["To_NominationPools_ClaimCommissionCall"] = reflect.ValueOf(To_NominationPools_ClaimCommissionCall_wrap)
+	FuncMap["To_NominationPools_ClaimPayoutOtherCall"] = reflect.ValueOf(To_NominationPools_ClaimPayoutOtherCall_wrap)
+	FuncMap["To_NominationPools_CreateCall"] = reflect.ValueOf(To_NominationPools_CreateCall_wrap)
+	FuncMap["To_NominationPools_CreateWithPoolIdCall"] = reflect.ValueOf(To_NominationPools_CreateWithPoolIdCall_wrap)
+	FuncMap["To_NominationPools_JoinCall"] = reflect.ValueOf(To_NominationPools_JoinCall_wrap)
+	FuncMap["To_NominationPools_NominateCall"] = reflect.ValueOf(To_NominationPools_NominateCall_wrap)
+	FuncMap["To_NominationPools_PoolWithdrawUnbondedCall"] = reflect.ValueOf(To_NominationPools_PoolWithdrawUnbondedCall_wrap)
+	FuncMap["To_NominationPools_SetClaimPermissionCall"] = reflect.ValueOf(To_NominationPools_SetClaimPermissionCall_wrap)
+	FuncMap["To_NominationPools_SetCommissionCall"] = reflect.ValueOf(To_NominationPools_SetCommissionCall_wrap)
+	FuncMap["To_NominationPools_SetCommissionChangeRateCall"] = reflect.ValueOf(To_NominationPools_SetCommissionChangeRateCall_wrap)
+	FuncMap["To_NominationPools_SetCommissionMaxCall"] = reflect.ValueOf(To_NominationPools_SetCommissionMaxCall_wrap)
+	FuncMap["To_NominationPools_SetConfigsCall"] = reflect.ValueOf(To_NominationPools_SetConfigsCall_wrap)
+	FuncMap["To_NominationPools_SetMetadataCall"] = reflect.ValueOf(To_NominationPools_SetMetadataCall_wrap)
+	FuncMap["To_NominationPools_SetStateCall"] = reflect.ValueOf(To_NominationPools_SetStateCall_wrap)
+	FuncMap["To_NominationPools_UnbondCall"] = reflect.ValueOf(To_NominationPools_UnbondCall_wrap)
+	FuncMap["To_NominationPools_UpdateRolesCall"] = reflect.ValueOf(To_NominationPools_UpdateRolesCall_wrap)
+	FuncMap["To_NominationPools_WithdrawUnbondedCall"] = reflect.ValueOf(To_NominationPools_WithdrawUnbondedCall_wrap)
+	FuncMap["To_Preimage_EnsureUpdatedCall"] = reflect.ValueOf(To_Preimage_EnsureUpdatedCall_wrap)
+	FuncMap["To_Preimage_NotePreimageCall"] = reflect.ValueOf(To_Preimage_NotePreimageCall_wrap)
+	FuncMap["To_Preimage_RequestPreimageCall"] = reflect.ValueOf(To_Preimage_RequestPreimageCall_wrap)
+	FuncMap["To_Preimage_UnnotePreimageCall"] = reflect.ValueOf(To_Preimage_UnnotePreimageCall_wrap)
+	FuncMap["To_Preimage_UnrequestPreimageCall"] = reflect.ValueOf(To_Preimage_UnrequestPreimageCall_wrap)
+	FuncMap["To_Proxy_AddProxyCall"] = reflect.ValueOf(To_Proxy_AddProxyCall_wrap)
+	FuncMap["To_Proxy_AnnounceCall"] = reflect.ValueOf(To_Proxy_AnnounceCall_wrap)
+	FuncMap["To_Proxy_CreatePureCall"] = reflect.ValueOf(To_Proxy_CreatePureCall_wrap)
+	FuncMap["To_Proxy_KillPureCall"] = reflect.ValueOf(To_Proxy_KillPureCall_wrap)
+	FuncMap["To_Proxy_ProxyAnnouncedCall"] = reflect.ValueOf(To_Proxy_ProxyAnnouncedCall_wrap)
+	FuncMap["To_Proxy_ProxyCall"] = reflect.ValueOf(To_Proxy_ProxyCall_wrap)
+	FuncMap["To_Proxy_RejectAnnouncementCall"] = reflect.ValueOf(To_Proxy_RejectAnnouncementCall_wrap)
+	FuncMap["To_Proxy_RemoveAnnouncementCall"] = reflect.ValueOf(To_Proxy_RemoveAnnouncementCall_wrap)
+	FuncMap["To_Proxy_RemoveProxyCall"] = reflect.ValueOf(To_Proxy_RemoveProxyCall_wrap)
+	FuncMap["To_Referenda_CancelCall"] = reflect.ValueOf(To_Referenda_CancelCall_wrap)
+	FuncMap["To_Referenda_KillCall"] = reflect.ValueOf(To_Referenda_KillCall_wrap)
+	FuncMap["To_Referenda_NudgeReferendumCall"] = reflect.ValueOf(To_Referenda_NudgeReferendumCall_wrap)
+	FuncMap["To_Referenda_OneFewerDecidingCall"] = reflect.ValueOf(To_Referenda_OneFewerDecidingCall_wrap)
+	FuncMap["To_Referenda_PlaceDecisionDepositCall"] = reflect.ValueOf(To_Referenda_PlaceDecisionDepositCall_wrap)
+	FuncMap["To_Referenda_RefundDecisionDepositCall"] = reflect.ValueOf(To_Referenda_RefundDecisionDepositCall_wrap)
+	FuncMap["To_Referenda_RefundSubmissionDepositCall"] = reflect.ValueOf(To_Referenda_RefundSubmissionDepositCall_wrap)
+	FuncMap["To_Referenda_SetMetadataCall"] = reflect.ValueOf(To_Referenda_SetMetadataCall_wrap)
+	FuncMap["To_Referenda_SubmitCall"] = reflect.ValueOf(To_Referenda_SubmitCall_wrap)
+	FuncMap["To_Scheduler_CancelCall"] = reflect.ValueOf(To_Scheduler_CancelCall_wrap)
+	FuncMap["To_Scheduler_CancelNamedCall"] = reflect.ValueOf(To_Scheduler_CancelNamedCall_wrap)
+	FuncMap["To_Scheduler_ScheduleAfterCall"] = reflect.ValueOf(To_Scheduler_ScheduleAfterCall_wrap)
+	FuncMap["To_Scheduler_ScheduleCall"] = reflect.ValueOf(To_Scheduler_ScheduleCall_wrap)
+	FuncMap["To_Scheduler_ScheduleNamedAfterCall"] = reflect.ValueOf(To_Scheduler_ScheduleNamedAfterCall_wrap)
+	FuncMap["To_Scheduler_ScheduleNamedCall"] = reflect.ValueOf(To_Scheduler_ScheduleNamedCall_wrap)
+	FuncMap["To_Session_SetKeysCall"] = reflect.ValueOf(To_Session_SetKeysCall_wrap)
+	FuncMap["To_StakingRewards_AlignSupplyCall"] = reflect.ValueOf(To_StakingRewards_AlignSupplyCall_wrap)
+	FuncMap["To_StakingRewards_ForceRefillCall"] = reflect.ValueOf(To_StakingRewards_ForceRefillCall_wrap)
+	FuncMap["To_StakingRewards_RefillCall"] = reflect.ValueOf(To_StakingRewards_RefillCall_wrap)
+	FuncMap["To_StakingRewards_WithdrawCall"] = reflect.ValueOf(To_StakingRewards_WithdrawCall_wrap)
+	FuncMap["To_Staking_BondCall"] = reflect.ValueOf(To_Staking_BondCall_wrap)
+	FuncMap["To_Staking_BondExtraCall"] = reflect.ValueOf(To_Staking_BondExtraCall_wrap)
+	FuncMap["To_Staking_CancelDeferredSlashCall"] = reflect.ValueOf(To_Staking_CancelDeferredSlashCall_wrap)
+	FuncMap["To_Staking_ChillOtherCall"] = reflect.ValueOf(To_Staking_ChillOtherCall_wrap)
+	FuncMap["To_Staking_ForceApplyMinCommissionCall"] = reflect.ValueOf(To_Staking_ForceApplyMinCommissionCall_wrap)
+	FuncMap["To_Staking_ForceUnstakeCall"] = reflect.ValueOf(To_Staking_ForceUnstakeCall_wrap)
+	FuncMap["To_Staking_IncreaseValidatorCountCall"] = reflect.ValueOf(To_Staking_IncreaseValidatorCountCall_wrap)
+	FuncMap["To_Staking_KickCall"] = reflect.ValueOf(To_Staking_KickCall_wrap)
+	FuncMap["To_Staking_NominateCall"] = reflect.ValueOf(To_Staking_NominateCall_wrap)
+	FuncMap["To_Staking_PayoutStakersCall"] = reflect.ValueOf(To_Staking_PayoutStakersCall_wrap)
+	FuncMap["To_Staking_ReapStashCall"] = reflect.ValueOf(To_Staking_ReapStashCall_wrap)
+	FuncMap["To_Staking_RebondCall"] = reflect.ValueOf(To_Staking_RebondCall_wrap)
+	FuncMap["To_Staking_ScaleValidatorCountCall"] = reflect.ValueOf(To_Staking_ScaleValidatorCountCall_wrap)
+	FuncMap["To_Staking_SetInvulnerablesCall"] = reflect.ValueOf(To_Staking_SetInvulnerablesCall_wrap)
+	FuncMap["To_Staking_SetMinCommissionCall"] = reflect.ValueOf(To_Staking_SetMinCommissionCall_wrap)
+	FuncMap["To_Staking_SetPayeeCall"] = reflect.ValueOf(To_Staking_SetPayeeCall_wrap)
+	FuncMap["To_Staking_SetStakingConfigsCall"] = reflect.ValueOf(To_Staking_SetStakingConfigsCall_wrap)
+	FuncMap["To_Staking_SetValidatorCountCall"] = reflect.ValueOf(To_Staking_SetValidatorCountCall_wrap)
+	FuncMap["To_Staking_UnbondCall"] = reflect.ValueOf(To_Staking_UnbondCall_wrap)
+	FuncMap["To_Staking_ValidateCall"] = reflect.ValueOf(To_Staking_ValidateCall_wrap)
+	FuncMap["To_Staking_WithdrawUnbondedCall"] = reflect.ValueOf(To_Staking_WithdrawUnbondedCall_wrap)
+	FuncMap["To_System_KillPrefixCall"] = reflect.ValueOf(To_System_KillPrefixCall_wrap)
+	FuncMap["To_System_KillStorageCall"] = reflect.ValueOf(To_System_KillStorageCall_wrap)
+	FuncMap["To_System_RemarkCall"] = reflect.ValueOf(To_System_RemarkCall_wrap)
+	FuncMap["To_System_RemarkWithEventCall"] = reflect.ValueOf(To_System_RemarkWithEventCall_wrap)
+	FuncMap["To_System_SetCodeCall"] = reflect.ValueOf(To_System_SetCodeCall_wrap)
+	FuncMap["To_System_SetCodeWithoutChecksCall"] = reflect.ValueOf(To_System_SetCodeWithoutChecksCall_wrap)
+	FuncMap["To_System_SetHeapPagesCall"] = reflect.ValueOf(To_System_SetHeapPagesCall_wrap)
+	FuncMap["To_System_SetStorageCall"] = reflect.ValueOf(To_System_SetStorageCall_wrap)
+	FuncMap["To_Timestamp_SetCall"] = reflect.ValueOf(To_Timestamp_SetCall_wrap)
+	FuncMap["To_Treasury_ApproveProposalCall"] = reflect.ValueOf(To_Treasury_ApproveProposalCall_wrap)
+	FuncMap["To_Treasury_CheckStatusCall"] = reflect.ValueOf(To_Treasury_CheckStatusCall_wrap)
+	FuncMap["To_Treasury_PayoutCall"] = reflect.ValueOf(To_Treasury_PayoutCall_wrap)
+	FuncMap["To_Treasury_ProposeSpendCall"] = reflect.ValueOf(To_Treasury_ProposeSpendCall_wrap)
+	FuncMap["To_Treasury_RejectProposalCall"] = reflect.ValueOf(To_Treasury_RejectProposalCall_wrap)
+	FuncMap["To_Treasury_RemoveApprovalCall"] = reflect.ValueOf(To_Treasury_RemoveApprovalCall_wrap)
+	FuncMap["To_Treasury_SpendCall"] = reflect.ValueOf(To_Treasury_SpendCall_wrap)
+	FuncMap["To_Treasury_SpendLocalCall"] = reflect.ValueOf(To_Treasury_SpendLocalCall_wrap)
+	FuncMap["To_Treasury_VoidSpendCall"] = reflect.ValueOf(To_Treasury_VoidSpendCall_wrap)
+	FuncMap["To_Utility_AsDerivativeCall"] = reflect.ValueOf(To_Utility_AsDerivativeCall_wrap)
+	FuncMap["To_Utility_BatchAllCall"] = reflect.ValueOf(To_Utility_BatchAllCall_wrap)
+	FuncMap["To_Utility_BatchCall"] = reflect.ValueOf(To_Utility_BatchCall_wrap)
+	FuncMap["To_Utility_DispatchAsCall"] = reflect.ValueOf(To_Utility_DispatchAsCall_wrap)
+	FuncMap["To_Utility_ForceBatchCall"] = reflect.ValueOf(To_Utility_ForceBatchCall_wrap)
+	FuncMap["To_Utility_WithWeightCall"] = reflect.ValueOf(To_Utility_WithWeightCall_wrap)
+	FuncMap["To_Vesting_ForceVestedTransferCall"] = reflect.ValueOf(To_Vesting_ForceVestedTransferCall_wrap)
+	FuncMap["To_Vesting_MergeSchedulesCall"] = reflect.ValueOf(To_Vesting_MergeSchedulesCall_wrap)
+	FuncMap["To_Vesting_VestOtherCall"] = reflect.ValueOf(To_Vesting_VestOtherCall_wrap)
+	FuncMap["To_Vesting_VestedTransferCall"] = reflect.ValueOf(To_Vesting_VestedTransferCall_wrap)
+	FuncMap["To_Whitelist_DispatchWhitelistedCallCall"] = reflect.ValueOf(To_Whitelist_DispatchWhitelistedCallCall_wrap)
+	FuncMap["To_Whitelist_DispatchWhitelistedCallWithPreimageCall"] = reflect.ValueOf(To_Whitelist_DispatchWhitelistedCallWithPreimageCall_wrap)
+	FuncMap["To_Whitelist_RemoveWhitelistedCallCall"] = reflect.ValueOf(To_Whitelist_RemoveWhitelistedCallCall_wrap)
+	FuncMap["To_Whitelist_WhitelistCallCall"] = reflect.ValueOf(To_Whitelist_WhitelistCallCall_wrap)
 }

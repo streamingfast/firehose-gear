@@ -3,7 +3,6 @@ package rpc
 import (
 	"fmt"
 	"math"
-	"os"
 	"strings"
 
 	substrateTypes "github.com/centrifuge/go-substrate-rpc-client/v4/types"
@@ -103,7 +102,6 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 			Pallet:   "",
 			Name:     string(pallet.Name) + "_pallet",
 			LookupID: pallet.Calls.Type.Int64(),
-			IsPallet: true,
 		}
 
 		if pallet.HasCalls {
@@ -173,10 +171,10 @@ func (c *TypeConverter) convertTypesFromv14(metadata substrateTypes.MetadataV14)
 		s := out.ToProto()
 		sb.WriteString(s)
 	}
-	err := os.WriteFile("../proto/sf/gear/metadata/type/v1/output.proto", []byte(sb.String()), 0644)
-	if err != nil {
-		return fmt.Errorf("writing output.proto: %w", err)
-	}
+	// err := os.WriteFile("../proto/sf/gear/metadata/type/v1/output.proto", []byte(sb.String()), 0644)
+	// if err != nil {
+	// 	return fmt.Errorf("writing output.proto: %w", err)
+	// }
 
 	return nil
 }
@@ -192,6 +190,7 @@ func (c *TypeConverter) ProcessPalletCalls(callIdx int64, palletName string) []p
 			Pallet:   palletName,
 			Name:     callName + "_call",
 			LookupID: math.MaxInt64,
+			IsCall:   true,
 		}
 
 		for _, f := range variant.Fields {
