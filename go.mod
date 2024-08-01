@@ -6,7 +6,7 @@ toolchain go1.22.3
 
 replace github.com/jhump/protoreflect => github.com/streamingfast/protoreflect v0.0.0-20231205191344-4b629d20ce8d
 
-replace github.com/centrifuge/go-substrate-rpc-client/v4 => github.com/streamingfast/go-substrate-rpc-client/v4 v4.0.0-20240730223728-a684c50db2db
+replace github.com/centrifuge/go-substrate-rpc-client/v4 => github.com/streamingfast/go-substrate-rpc-client/v4 v4.0.0-20240801151340-0470057f21cd
 
 require (
 	github.com/centrifuge/go-substrate-rpc-client/v4 v4.2.1

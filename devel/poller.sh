@@ -1,4 +1,4 @@
-firecore start reader-node \
+firecore start reader-node merger \
  --config-file= \
 --log-format=stackdriver \
 --log-to-file=false \
@@ -6,6 +6,7 @@ firecore start reader-node \
 --common-auto-max-procs  \
 --common-auto-mem-limit-percent=90  \
 --common-one-block-store-url=data/oneblock  \
+--common-merged-blocks-store-url=data/merged \
 --common-first-streamable-block=0  \
 --reader-node-data-dir=data/oneblock  \
 --reader-node-working-dir=data/work  \
@@ -15,6 +16,4 @@ firecore start reader-node \
 --reader-node-grpc-listen-addr=:9001  \
 --reader-node-manager-api-addr=:8080  \
 --reader-node-path=firevara  \
---reader-node-arguments='fetch 9684500  \
---state-dir data  \
---endpoints https://vara-mainnet.public.blastapi.io'
+--reader-node-arguments='fetch 0 --state-dir data --endpoints https://vara-mainnet.public.blastapi.io'

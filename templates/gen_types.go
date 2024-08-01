@@ -2754,7 +2754,9 @@ func To_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall(in any) *pbgear.
 	_ = v
 
 	// optional field MaybeNextScore
-	out.MaybeNextScore = To_Optional_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall_maybe_next_score(v.ValueAt(0))
+	if v.HasValue() {
+		out.MaybeNextScore = To_Optional_ElectionProviderMultiPhase_SetMinimumUntrustedScoreCall_maybe_next_score(v.ValueAt(0))
+	}
 
 	return out //from message
 }
@@ -4120,7 +4122,9 @@ func To_FellowshipReferenda_SetMetadataCall(in any) *pbgear.FellowshipReferenda_
 	// primitive field Index
 	out.Index = To_uint32(v.ValueAt(0))
 	// optional field MaybeHash
-	out.MaybeHash = To_Optional_FellowshipReferenda_SetMetadataCall_maybe_hash(v.ValueAt(1))
+	if v.HasValue() {
+		out.MaybeHash = To_Optional_FellowshipReferenda_SetMetadataCall_maybe_hash(v.ValueAt(1))
+	}
 
 	return out //from message
 }
@@ -4569,7 +4573,9 @@ func To_GearVoucher_IssueCall(in any) *pbgear.GearVoucher_IssueCall {
 	// primitive field Balance
 	out.Balance = To_string(v.ValueAt(1))
 	// optional field Programs
-	out.Programs = To_Optional_GearVoucher_IssueCall_programs(v.ValueAt(2))
+	if v.HasValue() {
+		out.Programs = To_Optional_GearVoucher_IssueCall_programs(v.ValueAt(2))
+	}
 	// primitive field CodeUploading
 	out.CodeUploading = To_bool(v.ValueAt(3))
 	// primitive field Duration
@@ -4673,7 +4679,9 @@ func To_GearVoucher_UpdateCall(in any) *pbgear.GearVoucher_UpdateCall {
 	// field VoucherId To_GearVoucher_PalletGearVoucherInternalVoucherId(w)
 	out.VoucherId = To_GearVoucher_PalletGearVoucherInternalVoucherId(v.ValueAt(1))
 	// optional field MoveOwnership
-	out.MoveOwnership = To_Optional_GearVoucher_UpdateCall_move_ownership(v.ValueAt(2))
+	if v.HasValue() {
+		out.MoveOwnership = To_Optional_GearVoucher_UpdateCall_move_ownership(v.ValueAt(2))
+	}
 	// primitive field BalanceTopUp
 	out.BalanceTopUp = To_Optional_string(v.ValueAt(3))
 	// oneOf field AppendPrograms
@@ -10250,7 +10258,9 @@ func To_Multisig_ApproveAsMultiCall(in any) *pbgear.Multisig_ApproveAsMultiCall 
 	// repeated field OtherSignatories
 	out.OtherSignatories = To_Repeated_Multisig_ApproveAsMultiCall_other_signatories(v.ValueAt(1))
 	// optional field MaybeTimepoint
-	out.MaybeTimepoint = To_Optional_Multisig_ApproveAsMultiCall_maybe_timepoint(v.ValueAt(2))
+	if v.HasValue() {
+		out.MaybeTimepoint = To_Optional_Multisig_ApproveAsMultiCall_maybe_timepoint(v.ValueAt(2))
+	}
 	// primitive field CallHash
 	out.CallHash = To_bytes(v.ValueAt(3))
 	// field MaxWeight To_SpWeightsWeightV2Weight(w)
@@ -10288,7 +10298,9 @@ func To_Multisig_AsMultiCall(in any) *pbgear.Multisig_AsMultiCall {
 	// repeated field OtherSignatories
 	out.OtherSignatories = To_Repeated_Multisig_AsMultiCall_other_signatories(v.ValueAt(1))
 	// optional field MaybeTimepoint
-	out.MaybeTimepoint = To_Optional_Multisig_AsMultiCall_maybe_timepoint(v.ValueAt(2))
+	if v.HasValue() {
+		out.MaybeTimepoint = To_Optional_Multisig_AsMultiCall_maybe_timepoint(v.ValueAt(2))
+	}
 	// oneOf field Call
 	v3 := To_OneOf_Multisig_AsMultiCall_call(v.ValueAt(3))
 	reflect.ValueOf(out).Elem().FieldByName("Call").Set(reflect.ValueOf(v3))
@@ -11914,7 +11926,9 @@ func To_NominationPools_SetCommissionCall(in any) *pbgear.NominationPools_SetCom
 	// primitive field PoolId
 	out.PoolId = To_uint32(v.ValueAt(0))
 	// optional field NewCommission
-	out.NewCommission = To_Optional_NominationPools_SetCommissionCall_new_commission(v.ValueAt(1))
+	if v.HasValue() {
+		out.NewCommission = To_Optional_NominationPools_SetCommissionCall_new_commission(v.ValueAt(1))
+	}
 
 	return out //from message
 }
@@ -14154,7 +14168,9 @@ func To_Referenda_SetMetadataCall(in any) *pbgear.Referenda_SetMetadataCall {
 	// primitive field Index
 	out.Index = To_uint32(v.ValueAt(0))
 	// optional field MaybeHash
-	out.MaybeHash = To_Optional_Referenda_SetMetadataCall_maybe_hash(v.ValueAt(1))
+	if v.HasValue() {
+		out.MaybeHash = To_Optional_Referenda_SetMetadataCall_maybe_hash(v.ValueAt(1))
+	}
 
 	return out //from message
 }
@@ -14384,7 +14400,9 @@ func To_Scheduler_ScheduleAfterCall(in any) *pbgear.Scheduler_ScheduleAfterCall 
 	// primitive field After
 	out.After = To_uint32(v.ValueAt(0))
 	// optional field MaybePeriodic
-	out.MaybePeriodic = To_Optional_Scheduler_ScheduleAfterCall_maybe_periodic(v.ValueAt(1))
+	if v.HasValue() {
+		out.MaybePeriodic = To_Optional_Scheduler_ScheduleAfterCall_maybe_periodic(v.ValueAt(1))
+	}
 	// primitive field Priority
 	out.Priority = To_uint32(v.ValueAt(2))
 	// oneOf field Call
@@ -14530,7 +14548,9 @@ func To_Scheduler_ScheduleCall(in any) *pbgear.Scheduler_ScheduleCall {
 	// primitive field When
 	out.When = To_uint32(v.ValueAt(0))
 	// optional field MaybePeriodic
-	out.MaybePeriodic = To_Optional_Scheduler_ScheduleCall_maybe_periodic(v.ValueAt(1))
+	if v.HasValue() {
+		out.MaybePeriodic = To_Optional_Scheduler_ScheduleCall_maybe_periodic(v.ValueAt(1))
+	}
 	// primitive field Priority
 	out.Priority = To_uint32(v.ValueAt(2))
 	// oneOf field Call
@@ -14678,7 +14698,9 @@ func To_Scheduler_ScheduleNamedAfterCall(in any) *pbgear.Scheduler_ScheduleNamed
 	// primitive field After
 	out.After = To_uint32(v.ValueAt(1))
 	// optional field MaybePeriodic
-	out.MaybePeriodic = To_Optional_Scheduler_ScheduleNamedAfterCall_maybe_periodic(v.ValueAt(2))
+	if v.HasValue() {
+		out.MaybePeriodic = To_Optional_Scheduler_ScheduleNamedAfterCall_maybe_periodic(v.ValueAt(2))
+	}
 	// primitive field Priority
 	out.Priority = To_uint32(v.ValueAt(3))
 	// oneOf field Call
@@ -14826,7 +14848,9 @@ func To_Scheduler_ScheduleNamedCall(in any) *pbgear.Scheduler_ScheduleNamedCall 
 	// primitive field When
 	out.When = To_uint32(v.ValueAt(1))
 	// optional field MaybePeriodic
-	out.MaybePeriodic = To_Optional_Scheduler_ScheduleNamedCall_maybe_periodic(v.ValueAt(2))
+	if v.HasValue() {
+		out.MaybePeriodic = To_Optional_Scheduler_ScheduleNamedCall_maybe_periodic(v.ValueAt(2))
+	}
 	// primitive field Priority
 	out.Priority = To_uint32(v.ValueAt(3))
 	// oneOf field Call
