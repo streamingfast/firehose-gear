@@ -2,9 +2,6 @@ syntax = "proto3";
 package sf.gear.type.v1;
 
 option go_package = "github.com/streamingfast/firehose-gear/pb/sf/gear/type/v1;pbgear";
-import "sf/gear/metadata/type/v1/output.proto";
-import "sf/gear/extrinsic/type/v1/extrinsic.proto";
-
 
 message Block {
   uint64 number = 1;
@@ -15,7 +12,6 @@ message Block {
   repeated DigestItem digest_items = 6;
   bytes justification = 7;
   bytes raw_events = 8;
-  repeated DecodedExtrinsic decoded_extrinsics = 9;
 }
 
 message Header {
@@ -144,10 +140,4 @@ message MortalEra {
 message PaymentFields {
   // big.Int
   string tip = 1;
-}
-
-message DecodedExtrinsic {
-  uint32 version = 1;
-  Signature signature = 2;
-  sf.gear.extrinsic.type.v1.RuntimeCall call = 3;
 }
