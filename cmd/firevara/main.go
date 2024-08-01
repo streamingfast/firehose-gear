@@ -19,8 +19,6 @@ func init() {
 	logging.InstantiateLoggers(logging.WithDefaultLevel(zap.InfoLevel))
 
 	rootCmd.AddCommand(NewFetchCmd(logger, tracer))
-	rootCmd.AddCommand(ToolsCmd)
-	rootCmd.AddCommand(GenerateCmd)
 }
 
 func main() {
