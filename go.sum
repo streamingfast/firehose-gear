@@ -478,6 +478,8 @@ github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pkg/sftp v1.13.1/go.mod h1:3HaPG6Dq1ILlpPZRO0HVMrsydcdLt6HRDccSgb87qRg=
+github.com/planetscale/vtprotobuf v0.6.0 h1:nBeETjudeJ5ZgBHUz1fVHvbqUKnYOXNhsIEabROxmNA=
+github.com/planetscale/vtprotobuf v0.6.0/go.mod h1:t/avpk3KcrXxUnYOhZhMXJlSEyie6gQbtLq5NM3loB8=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prashantv/gostub v1.1.0 h1:BTyx3RfQjRHnUWaGF9oQos79AlQ5k8WNktv7VGvVH4g=
@@ -552,8 +554,8 @@ github.com/streamingfast/dtracing v0.0.0-20220305214756-b5c0e8699839 h1:K6mJPvh1
 github.com/streamingfast/dtracing v0.0.0-20220305214756-b5c0e8699839/go.mod h1:huOJyjMYS6K8upTuxDxaNd+emD65RrXoVBvh8f1/7Ns=
 github.com/streamingfast/firehose-core v1.5.6-0.20240718130745-448b71acbd14 h1:Bxmvty3q6gbUhA1v7b5YMcCix7DWi+AIP6/vMnUzhOM=
 github.com/streamingfast/firehose-core v1.5.6-0.20240718130745-448b71acbd14/go.mod h1:EVtYPdSL8gfYltqQ2ebWgzFzFLHU8n8OEgSb+cRIoNU=
-github.com/streamingfast/go-substrate-rpc-client/v4 v4.0.0-20240801151340-0470057f21cd h1:rOKiic9S3dY9L4CrEtLd5vjet887FY6w6SJqtdrfPwA=
-github.com/streamingfast/go-substrate-rpc-client/v4 v4.0.0-20240801151340-0470057f21cd/go.mod h1:k61SBXqYmnZO4frAJyH3iuqjolYrYsq79r8EstmklDY=
+github.com/streamingfast/go-substrate-rpc-client/v4 v4.0.0-20240802141237-cb3f49e2ebd1 h1:rHVniwrzgiRLISXDp911GmyiUmLjZELavntibFlwEp8=
+github.com/streamingfast/go-substrate-rpc-client/v4 v4.0.0-20240802141237-cb3f49e2ebd1/go.mod h1:k61SBXqYmnZO4frAJyH3iuqjolYrYsq79r8EstmklDY=
 github.com/streamingfast/logging v0.0.0-20210811175431-f3b44b61606a/go.mod h1:4GdqELhZOXj4xwc4IaBmzofzdErGynnaSzuzxy0ZIBo=
 github.com/streamingfast/logging v0.0.0-20220304183711-ddba33d79e27/go.mod h1:4GdqELhZOXj4xwc4IaBmzofzdErGynnaSzuzxy0ZIBo=
 github.com/streamingfast/logging v0.0.0-20220304214715-bc750a74b424/go.mod h1:VlduQ80JcGJSargkRU4Sg9Xo63wZD/l8A5NC/Uo1/uU=
