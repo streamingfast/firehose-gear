@@ -32,9 +32,9 @@ type FetchedBlockData struct {
 }
 
 type LastBlockInfo struct {
-	blockNum    uint64
-	blockHash   types.Hash
-	specVersion uint32
+	blockNum        uint64
+	blockHash       types.Hash
+	specVersionHash string
 }
 
 type Fetcher struct {
@@ -72,7 +72,6 @@ func (f *Fetcher) Fetch(ctx context.Context, requestBlockNum uint64) (b *pbbstre
 	f.logger.Info("gear fetching block", zap.Uint64("block_num", requestBlockNum))
 
 	sleepDuration := time.Duration(0)
-	//TODO: move this logic in the firecore binary, as we do this in all the fetchers
 	for f.latestBlockNum < requestBlockNum {
 		time.Sleep(sleepDuration)
 
@@ -95,8 +94,8 @@ func (f *Fetcher) Fetch(ctx context.Context, requestBlockNum uint64) (b *pbbstre
 		return nil, false, fmt.Errorf("fetching block data: %w", err)
 	}
 
-	f.logger.Info("converting block", zap.Uint64("block_num", requestBlockNum), zap.Uint32("spec_version", f.lastBlockInfo.specVersion))
-	bstreamBlock, err := convertBlock(blockData, f.lastBlockInfo.specVersion)
+	f.logger.Info("converting block", zap.Uint64("block_num", requestBlockNum), zap.Uint32("spec_version", f.lastBlockInfo.specVersionHash))
+	bstreamBlock, err := convertBlock(blockData, f.lastBlockInfo.specVersionHash)
 	if err != nil {
 		f.logger.Warn("converting block", zap.Uint64("block_num", requestBlockNum), zap.Error(err))
 		return nil, false, fmt.Errorf("converting block %d from rpc response: %w", requestBlockNum, err)
@@ -153,7 +152,7 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 		shouldFetchParentVersion := true
 		if block.Block.Header.ParentHash == f.lastBlockInfo.blockHash {
 			shouldFetchParentVersion = false
-			parentSpecVersion = f.lastBlockInfo.specVersion
+			parentSpecVersion = f.lastBlockInfo.specVersionHash
 		}
 
 		if requestedBlockNum == 0 {
@@ -193,9 +192,9 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 		}
 
 		f.lastBlockInfo = &LastBlockInfo{
-			blockNum:    requestedBlockNum,
-			blockHash:   blockHash,
-			specVersion: requestedBlockSpecVersion,
+			blockNum:        requestedBlockNum,
+			blockHash:       blockHash,
+			specVersionHash: requestedBlockSpecVersion,
 		}
 
 		return fetchedBlockData, nil

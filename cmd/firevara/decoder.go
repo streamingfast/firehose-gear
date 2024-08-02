@@ -102,7 +102,8 @@ func decodeRunE(logger *zap.Logger, tracer logging.Tracer) func(cmd *cobra.Comma
 				if err != nil {
 					return fmt.Errorf("creating call registry: %w", err)
 				}
-				decoder.SetCallRegistry(callRegistry)
+				_ = callRegistry
+				// decoder.SetCallRegistry(callRegistry)
 				//todo: save has last metadata seen and reload it at startup
 			}
 
