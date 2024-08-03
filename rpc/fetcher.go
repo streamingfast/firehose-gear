@@ -22,6 +22,8 @@ import (
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
 
+var storageKeyRuntimeBlob = "3a636f6465"
+
 type FetchedBlockData struct {
 	latestFinalizedHead uint64
 	blockHash           types.Hash
@@ -34,6 +36,7 @@ type FetchedBlockData struct {
 type LastBlockInfo struct {
 	blockNum        uint64
 	blockHash       types.Hash
+	specVersion     uint32
 	specVersionHash string
 }
 
@@ -94,8 +97,8 @@ func (f *Fetcher) Fetch(ctx context.Context, requestBlockNum uint64) (b *pbbstre
 		return nil, false, fmt.Errorf("fetching block data: %w", err)
 	}
 
-	f.logger.Info("converting block", zap.Uint64("block_num", requestBlockNum), zap.Uint32("spec_version", f.lastBlockInfo.specVersionHash))
-	bstreamBlock, err := convertBlock(blockData, f.lastBlockInfo.specVersionHash)
+	f.logger.Info("converting block", zap.Uint64("block_num", requestBlockNum), zap.Uint32("spec_version", f.lastBlockInfo.specVersion))
+	bstreamBlock, err := convertBlock(blockData, f.lastBlockInfo.specVersion)
 	if err != nil {
 		f.logger.Warn("converting block", zap.Uint64("block_num", requestBlockNum), zap.Error(err))
 		return nil, false, fmt.Errorf("converting block %d from rpc response: %w", requestBlockNum, err)
@@ -133,53 +136,11 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 			block:               block,
 		}
 
-		runtimeVersion, err := client.state.GetRuntimeVersion(blockHash)
-		if err != nil {
-			return nil, fmt.Errorf("failed to get runtime version at block hash %s: %w", blockHash.Hex(), err)
-		}
-
-		requestedBlockSpecVersion := uint32(runtimeVersion.SpecVersion)
-
 		if f.metadata == nil { // bootstraping
-			_, err := f.setMetadata(blockHash, client, requestedBlockSpecVersion, requestedBlockNum)
+			_, err := f.setMetadata(blockHash, client)
 			if err != nil {
 				return nil, fmt.Errorf("failed to update metadata: %w", err)
 			}
-		}
-
-		parentSpecVersion := uint32(0)
-
-		shouldFetchParentVersion := true
-		if block.Block.Header.ParentHash == f.lastBlockInfo.blockHash {
-			shouldFetchParentVersion = false
-			parentSpecVersion = f.lastBlockInfo.specVersionHash
-		}
-
-		if requestedBlockNum == 0 {
-			shouldFetchParentVersion = false
-		}
-
-		f.logger.Info(
-			"requested block spec version",
-			zap.Uint32("spec_version", requestedBlockSpecVersion),
-			zap.Uint64("block_num", requestedBlockNum),
-		)
-
-		if shouldFetchParentVersion {
-			pSpecVersion, err := f.fetchParentSpecVersion(client, block.Block.Header.ParentHash)
-			if err != nil {
-				return nil, fmt.Errorf("failed to fetch parent spec version: %w", err)
-			}
-			f.logger.Info("fetched parent spec version", zap.Uint32("spec_version", pSpecVersion), zap.Uint64("block_num", requestedBlockNum-1))
-			parentSpecVersion = pSpecVersion
-		}
-
-		if shouldUpdateMetadata(requestedBlockSpecVersion, parentSpecVersion, isForward(f.lastBlockInfo.blockNum, requestedBlockNum)) {
-			b, err := f.setMetadata(blockHash, client, requestedBlockSpecVersion, requestedBlockNum)
-			if err != nil {
-				return nil, fmt.Errorf("failed to update metadata: %w", err)
-			}
-			fetchedBlockData.rawMetadata = b
 		}
 
 		if requestedBlockNum > 0 {
@@ -191,17 +152,60 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 			fetchedBlockData.rawEvents = []byte(*storageEvents)
 		}
 
+		// fetch the spec version hash at each block
+		currentSpecVersionHash, err := f.fetchStorageHash(client, blockHash)
+		if err != nil {
+			return nil, fmt.Errorf("failed to get runtime version at block hash %s: %w", blockHash.Hex(), err)
+		}
+
+		previousSpecVersionHash := ""
+		shouldFetchStorageHash := true
+		if block.Block.Header.ParentHash == f.lastBlockInfo.blockHash {
+			shouldFetchStorageHash = false
+			previousSpecVersionHash = f.lastBlockInfo.specVersionHash
+		}
+
+		// edge case, the first block of the chain contains no data except for the block number and hash
+		if requestedBlockNum == 0 {
+			shouldFetchStorageHash = false
+		}
+
+		if shouldFetchStorageHash {
+			blobHash, err := f.fetchStorageHash(client, block.Block.Header.ParentHash)
+			if err != nil {
+				return nil, fmt.Errorf("failed to fetch storage hash: %w", err)
+			}
+			previousSpecVersionHash = blobHash
+		}
+
+		runtimeSpecVersion := f.lastBlockInfo.specVersion
+		if shouldUpdateMetadata(currentSpecVersionHash, previousSpecVersionHash, isForward(f.lastBlockInfo.blockNum, requestedBlockNum)) {
+			runtimeVersion, err := client.state.GetRuntimeVersion(blockHash)
+			if err != nil {
+				return nil, fmt.Errorf("failed to get runtime version at block hash %s: %w", blockHash.Hex(), err)
+			}
+			runtimeSpecVersion = uint32(runtimeVersion.SpecVersion)
+
+			b, err := f.setMetadata(blockHash, client)
+			if err != nil {
+				return nil, fmt.Errorf("failed to update metadata: %w", err)
+			}
+			fetchedBlockData.rawMetadata = b
+		}
+
+		f.logger.Info("block spec version", zap.Uint64("version", uint64(runtimeSpecVersion)))
 		f.lastBlockInfo = &LastBlockInfo{
 			blockNum:        requestedBlockNum,
 			blockHash:       blockHash,
-			specVersionHash: requestedBlockSpecVersion,
+			specVersionHash: currentSpecVersionHash,
+			specVersion:     runtimeSpecVersion,
 		}
 
 		return fetchedBlockData, nil
 	})
 }
 
-func (f *Fetcher) setMetadata(blockHash types.Hash, client *Client, requestedBlockSpecVersion uint32, requestedBlockNum uint64) ([]byte, error) {
+func (f *Fetcher) setMetadata(blockHash types.Hash, client *Client) ([]byte, error) {
 	var metadataHex string
 	err := cclient.CallWithBlockHash(client.client.Client, &metadataHex, "state_getMetadata", &blockHash)
 	if err != nil {
@@ -214,7 +218,6 @@ func (f *Fetcher) setMetadata(blockHash types.Hash, client *Client, requestedBlo
 		return nil, fmt.Errorf("failed to decode metadata: %w", err)
 	}
 
-	f.logger.Info("metadata fetched", zap.Uint32("spec_version", requestedBlockSpecVersion), zap.Uint64("block_num", requestedBlockNum))
 	f.metadata = metadata
 
 	b, err := hex.DecodeString(strings.TrimPrefix(metadataHex, "0x"))
@@ -224,10 +227,25 @@ func (f *Fetcher) setMetadata(blockHash types.Hash, client *Client, requestedBlo
 	return b, nil
 }
 
-func (f *Fetcher) fetchParentSpecVersion(client *Client, parentBlockHash types.Hash) (uint32, error) {
-	parentRuntimeVersion, err := client.state.GetRuntimeVersion(parentBlockHash)
+func (f *Fetcher) fetchStorageHash(client *Client, blockhash types.Hash) (string, error) {
+	b, err := hex.DecodeString(storageKeyRuntimeBlob)
 	if err != nil {
-		return 0, fmt.Errorf("failed to get runtime version at block hash %s: %w", parentBlockHash.Hex(), err)
+		return "", fmt.Errorf("failed to decode storage key: %w", err)
+	}
+
+	key := types.NewStorageKey(b)
+	hash, err := client.state.GetStorageHash(key, blockhash)
+	if err != nil {
+		return "", fmt.Errorf("failed to get storage hash: %w", err)
+	}
+
+	return hash.Hex(), nil
+}
+
+func (f *Fetcher) fetchParentSpecVersion(client *Client, parentBlockhash types.Hash) (uint32, error) {
+	parentRuntimeVersion, err := client.state.GetRuntimeVersion(parentBlockhash)
+	if err != nil {
+		return 0, fmt.Errorf("failed to get runtime version at block hash %s: %w", parentBlockhash.Hex(), err)
 	}
 
 	return uint32(parentRuntimeVersion.SpecVersion), nil
@@ -237,12 +255,12 @@ func isForward(lastProcessedBlockNum, requestedBlockNum uint64) bool {
 	return lastProcessedBlockNum <= requestedBlockNum
 }
 
-func shouldUpdateMetadata(specVersion uint32, parentSpecVersion uint32, isForward bool) bool {
+func shouldUpdateMetadata(specVersionHash string, parentSpecVersionHash string, isForward bool) bool {
 	if !isForward {
 		return false
 	}
 
-	return specVersion != parentSpecVersion
+	return specVersionHash != parentSpecVersionHash
 }
 
 func (f *Fetcher) fetchLatestBlockNum(_ context.Context) (uint64, error) {
