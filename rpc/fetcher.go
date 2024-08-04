@@ -136,11 +136,19 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 			block:               block,
 		}
 
-		if f.metadata == nil { // bootstraping
+		runtimeSpecVersion := f.lastBlockInfo.specVersion
+		if isBoostraping(f.metadata, f.lastBlockInfo.specVersion) { // bootstraping
+			fmt.Println("doudou: bootstraping")
 			_, err := f.setMetadata(blockHash, client)
 			if err != nil {
 				return nil, fmt.Errorf("failed to update metadata: %w", err)
 			}
+
+			runtimeVersion, err := client.state.GetRuntimeVersion(blockHash)
+			if err != nil {
+				return nil, fmt.Errorf("failed to get runtime version at block hash %s: %w", blockHash.Hex(), err)
+			}
+			runtimeSpecVersion = uint32(runtimeVersion.SpecVersion)
 		}
 
 		if requestedBlockNum > 0 {
@@ -178,7 +186,6 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 			previousSpecVersionHash = blobHash
 		}
 
-		runtimeSpecVersion := f.lastBlockInfo.specVersion
 		if shouldUpdateMetadata(currentSpecVersionHash, previousSpecVersionHash, isForward(f.lastBlockInfo.blockNum, requestedBlockNum)) {
 			runtimeVersion, err := client.state.GetRuntimeVersion(blockHash)
 			if err != nil {
@@ -261,6 +268,10 @@ func shouldUpdateMetadata(specVersionHash string, parentSpecVersionHash string, 
 	}
 
 	return specVersionHash != parentSpecVersionHash
+}
+
+func isBoostraping(metadata *types.Metadata, specVersion uint32) bool {
+	return metadata == nil || specVersion == 0
 }
 
 func (f *Fetcher) fetchLatestBlockNum(_ context.Context) (uint64, error) {
