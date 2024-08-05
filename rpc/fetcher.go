@@ -138,7 +138,6 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 
 		runtimeSpecVersion := f.lastBlockInfo.specVersion
 		if isBoostraping(f.metadata, f.lastBlockInfo.specVersion) { // bootstraping
-			fmt.Println("doudou: bootstraping")
 			_, err := f.setMetadata(blockHash, client)
 			if err != nil {
 				return nil, fmt.Errorf("failed to update metadata: %w", err)
