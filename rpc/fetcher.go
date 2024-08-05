@@ -137,7 +137,7 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 		}
 
 		runtimeSpecVersion := f.lastBlockInfo.specVersion
-		if isBoostraping(f.metadata, f.lastBlockInfo.specVersion) { // bootstraping
+		if isBoostraping(f.metadata) { // bootstraping
 			f.logger.Info("boostraping metadata and spec version", zap.String("block_hash", blockHash.Hex()))
 			_, err := f.setMetadata(blockHash, client)
 			if err != nil {
@@ -161,30 +161,10 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 			fetchedBlockData.rawEvents = []byte(*storageEvents)
 		}
 
-		// fetch the spec version hash at each block
+		previousSpecVersionHash := f.lastBlockInfo.specVersionHash
 		currentSpecVersionHash, err := f.fetchStorageHash(client, blockHash)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get runtime version at block hash %s: %w", blockHash.Hex(), err)
-		}
-
-		previousSpecVersionHash := ""
-		shouldFetchStorageHash := true
-		if block.Block.Header.ParentHash == f.lastBlockInfo.blockHash {
-			shouldFetchStorageHash = false
-			previousSpecVersionHash = f.lastBlockInfo.specVersionHash
-		}
-
-		// edge case, the first block of the chain contains no data except for the block number and hash
-		if requestedBlockNum == 0 {
-			shouldFetchStorageHash = false
-		}
-
-		if shouldFetchStorageHash {
-			blobHash, err := f.fetchStorageHash(client, block.Block.Header.ParentHash)
-			if err != nil {
-				return nil, fmt.Errorf("failed to fetch storage hash: %w", err)
-			}
-			previousSpecVersionHash = blobHash
 		}
 
 		if shouldUpdateMetadata(currentSpecVersionHash, previousSpecVersionHash, isForward(f.lastBlockInfo.blockNum, requestedBlockNum)) {
@@ -271,8 +251,8 @@ func shouldUpdateMetadata(specVersionHash string, parentSpecVersionHash string, 
 	return specVersionHash != parentSpecVersionHash
 }
 
-func isBoostraping(metadata *types.Metadata, specVersion uint32) bool {
-	return metadata == nil || specVersion == 0
+func isBoostraping(metadata *types.Metadata) bool {
+	return metadata == nil
 }
 
 func (f *Fetcher) fetchLatestBlockNum(_ context.Context) (uint64, error) {
