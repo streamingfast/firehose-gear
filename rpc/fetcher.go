@@ -138,7 +138,7 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 
 		runtimeSpecVersion := f.lastBlockInfo.specVersion
 		if isBoostraping(f.metadata, f.lastBlockInfo.specVersion) { // bootstraping
-			f.logger.Info("boostraping metadata and spec version")
+			f.logger.Info("boostraping metadata and spec version", zap.String("block_hash", blockHash.Hex()))
 			_, err := f.setMetadata(blockHash, client)
 			if err != nil {
 				return nil, fmt.Errorf("failed to update metadata: %w", err)
@@ -149,7 +149,7 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 				return nil, fmt.Errorf("failed to get runtime version at block hash %s: %w", blockHash.Hex(), err)
 			}
 			runtimeSpecVersion = uint32(runtimeVersion.SpecVersion)
-			f.logger.Info("boostraped metadata and spec version", zap.Uint64("version", uint64(runtimeSpecVersion)))
+			f.logger.Info("boostraped metadata and spec version", zap.Uint64("version", uint64(runtimeSpecVersion)), zap.String("block_hash", blockHash.Hex()))
 		}
 
 		if requestedBlockNum > 0 {
