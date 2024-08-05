@@ -149,6 +149,7 @@ func (f *Fetcher) fetchBlockData(_ context.Context, requestedBlockNum uint64) (*
 				return nil, fmt.Errorf("failed to get runtime version at block hash %s: %w", blockHash.Hex(), err)
 			}
 			runtimeSpecVersion = uint32(runtimeVersion.SpecVersion)
+			f.logger.Info("boostraped metadata and spec version", zap.Uint64("version", uint64(runtimeSpecVersion)))
 		}
 
 		if requestedBlockNum > 0 {
