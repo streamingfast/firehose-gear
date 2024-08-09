@@ -307,8 +307,13 @@ func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block,
 	}
 
 	libNum := uint64(0)
-	if latestFinalizedHead > block.Number && block.Number > 0 {
-		libNum = block.Number - 1
+	if latestFinalizedHead > block.Number {
+		if block.Number > 0 {
+			libNum = block.Number - 1
+		}
+
+	} else {
+		libNum = latestFinalizedHead
 	}
 
 	bstreamBlock := &pbbstream.Block{
