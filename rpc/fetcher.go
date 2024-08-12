@@ -294,11 +294,10 @@ func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block,
 		if err != nil {
 			return nil, fmt.Errorf("unable to decode timestamp: %w", err)
 		}
-		timestamppb.New(time.UnixMilli(t.Int64()))
+		timestamp = timestamppb.New(time.UnixMilli(t.Int64()))
 	}
 
 	block.Timestamp = timestamp
-
 	anyBlock, err := anypb.New(block)
 	if err != nil {
 		return nil, fmt.Errorf("unable to create anypb: %w", err)
