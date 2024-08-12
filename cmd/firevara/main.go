@@ -21,6 +21,7 @@ func init() {
 	rootCmd.AddCommand(NewFetchCmd(logger, tracer))
 	rootCmd.AddCommand(NewDecoderCmd(logger, tracer))
 	rootCmd.AddCommand(NewToolsFetchMetadataCmd(logger, tracer))
+	rootCmd.AddCommand(NewToolsFixMissingTimestampBlocks(logger, tracer))
 }
 
 func main() {
