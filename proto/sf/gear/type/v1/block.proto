@@ -8,12 +8,12 @@ message Block {
   uint64 number = 1;
   bytes hash = 2;
   Header header = 3;
-  google.protobuf.Timestamp timestamp = 5;
-  repeated Extrinsic extrinsics = 6;
-  repeated Event events = 7;
-  repeated DigestItem digest_items = 8;
-  bytes justification = 9;
-  bytes raw_events = 10;
+  repeated Extrinsic extrinsics = 4;
+  repeated Event events = 5;
+  repeated DigestItem digest_items = 6;
+  bytes justification = 7;
+  bytes raw_events = 8;
+  google.protobuf.Timestamp timestamp = 9;
 }
 
 message Header {
@@ -128,10 +128,10 @@ message Event {
 }
 
 message Phase {
-   bool is_apply_extrinsic = 1;
-   uint32 as_apply_extrinsic = 2;
-   bool is_finalization = 3;
-   bool is_initialization = 4;
+  bool is_apply_extrinsic = 1;
+  uint32 as_apply_extrinsic = 2;
+  bool is_finalization = 3;
+  bool is_initialization = 4;
 }
 
 message MortalEra {
