@@ -7,8 +7,10 @@ package pbgear
 import (
 	fmt "fmt"
 	protohelpers "github.com/planetscale/vtprotobuf/protohelpers"
+	timestamppb1 "github.com/planetscale/vtprotobuf/types/known/timestamppb"
 	proto "google.golang.org/protobuf/proto"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	io "io"
 	unsafe "unsafe"
 )
@@ -27,6 +29,7 @@ func (m *Block) CloneVT() *Block {
 	r := new(Block)
 	r.Number = m.Number
 	r.Header = m.Header.CloneVT()
+	r.Timestamp = (*timestamppb.Timestamp)((*timestamppb1.Timestamp)(m.Timestamp).CloneVT())
 	if rhs := m.Hash; rhs != nil {
 		tmpBytes := make([]byte, len(rhs))
 		copy(tmpBytes, rhs)
@@ -555,6 +558,9 @@ func (this *Block) EqualVT(that *Block) bool {
 		return false
 	}
 	if !this.Header.EqualVT(that.Header) {
+		return false
+	}
+	if !(*timestamppb1.Timestamp)(this.Timestamp).EqualVT((*timestamppb1.Timestamp)(that.Timestamp)) {
 		return false
 	}
 	if len(this.Extrinsics) != len(that.Extrinsics) {
@@ -1246,14 +1252,14 @@ func (m *Block) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 		copy(dAtA[i:], m.RawEvents)
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(len(m.RawEvents)))
 		i--
-		dAtA[i] = 0x42
+		dAtA[i] = 0x52
 	}
 	if len(m.Justification) > 0 {
 		i -= len(m.Justification)
 		copy(dAtA[i:], m.Justification)
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(len(m.Justification)))
 		i--
-		dAtA[i] = 0x3a
+		dAtA[i] = 0x4a
 	}
 	if len(m.DigestItems) > 0 {
 		for iNdEx := len(m.DigestItems) - 1; iNdEx >= 0; iNdEx-- {
@@ -1264,7 +1270,7 @@ func (m *Block) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 			i -= size
 			i = protohelpers.EncodeVarint(dAtA, i, uint64(size))
 			i--
-			dAtA[i] = 0x32
+			dAtA[i] = 0x42
 		}
 	}
 	if len(m.Events) > 0 {
@@ -1276,7 +1282,7 @@ func (m *Block) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 			i -= size
 			i = protohelpers.EncodeVarint(dAtA, i, uint64(size))
 			i--
-			dAtA[i] = 0x2a
+			dAtA[i] = 0x3a
 		}
 	}
 	if len(m.Extrinsics) > 0 {
@@ -1288,8 +1294,18 @@ func (m *Block) MarshalToSizedBufferVT(dAtA []byte) (int, error) {
 			i -= size
 			i = protohelpers.EncodeVarint(dAtA, i, uint64(size))
 			i--
-			dAtA[i] = 0x22
+			dAtA[i] = 0x32
 		}
+	}
+	if m.Timestamp != nil {
+		size, err := (*timestamppb1.Timestamp)(m.Timestamp).MarshalToSizedBufferVT(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(size))
+		i--
+		dAtA[i] = 0x2a
 	}
 	if m.Header != nil {
 		size, err := m.Header.MarshalToSizedBufferVT(dAtA[:i])
@@ -2456,14 +2472,14 @@ func (m *Block) MarshalToSizedBufferVTStrict(dAtA []byte) (int, error) {
 		copy(dAtA[i:], m.RawEvents)
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(len(m.RawEvents)))
 		i--
-		dAtA[i] = 0x42
+		dAtA[i] = 0x52
 	}
 	if len(m.Justification) > 0 {
 		i -= len(m.Justification)
 		copy(dAtA[i:], m.Justification)
 		i = protohelpers.EncodeVarint(dAtA, i, uint64(len(m.Justification)))
 		i--
-		dAtA[i] = 0x3a
+		dAtA[i] = 0x4a
 	}
 	if len(m.DigestItems) > 0 {
 		for iNdEx := len(m.DigestItems) - 1; iNdEx >= 0; iNdEx-- {
@@ -2474,7 +2490,7 @@ func (m *Block) MarshalToSizedBufferVTStrict(dAtA []byte) (int, error) {
 			i -= size
 			i = protohelpers.EncodeVarint(dAtA, i, uint64(size))
 			i--
-			dAtA[i] = 0x32
+			dAtA[i] = 0x42
 		}
 	}
 	if len(m.Events) > 0 {
@@ -2486,7 +2502,7 @@ func (m *Block) MarshalToSizedBufferVTStrict(dAtA []byte) (int, error) {
 			i -= size
 			i = protohelpers.EncodeVarint(dAtA, i, uint64(size))
 			i--
-			dAtA[i] = 0x2a
+			dAtA[i] = 0x3a
 		}
 	}
 	if len(m.Extrinsics) > 0 {
@@ -2498,8 +2514,18 @@ func (m *Block) MarshalToSizedBufferVTStrict(dAtA []byte) (int, error) {
 			i -= size
 			i = protohelpers.EncodeVarint(dAtA, i, uint64(size))
 			i--
-			dAtA[i] = 0x22
+			dAtA[i] = 0x32
 		}
+	}
+	if m.Timestamp != nil {
+		size, err := (*timestamppb1.Timestamp)(m.Timestamp).MarshalToSizedBufferVTStrict(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = protohelpers.EncodeVarint(dAtA, i, uint64(size))
+		i--
+		dAtA[i] = 0x2a
 	}
 	if m.Header != nil {
 		size, err := m.Header.MarshalToSizedBufferVTStrict(dAtA[:i])
@@ -3681,6 +3707,10 @@ func (m *Block) SizeVT() (n int) {
 		l = m.Header.SizeVT()
 		n += 1 + l + protohelpers.SizeOfVarint(uint64(l))
 	}
+	if m.Timestamp != nil {
+		l = (*timestamppb1.Timestamp)(m.Timestamp).SizeVT()
+		n += 1 + l + protohelpers.SizeOfVarint(uint64(l))
+	}
 	if len(m.Extrinsics) > 0 {
 		for _, e := range m.Extrinsics {
 			l = e.SizeVT()
@@ -4267,7 +4297,43 @@ func (m *Block) UnmarshalVT(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 4:
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Timestamp", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protohelpers.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return protohelpers.ErrInvalidLength
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return protohelpers.ErrInvalidLength
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Timestamp == nil {
+				m.Timestamp = &timestamppb.Timestamp{}
+			}
+			if err := (*timestamppb1.Timestamp)(m.Timestamp).UnmarshalVT(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 6:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Extrinsics", wireType)
 			}
@@ -4301,7 +4367,7 @@ func (m *Block) UnmarshalVT(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 5:
+		case 7:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Events", wireType)
 			}
@@ -4335,7 +4401,7 @@ func (m *Block) UnmarshalVT(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 6:
+		case 8:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field DigestItems", wireType)
 			}
@@ -4369,7 +4435,7 @@ func (m *Block) UnmarshalVT(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 7:
+		case 9:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Justification", wireType)
 			}
@@ -4403,7 +4469,7 @@ func (m *Block) UnmarshalVT(dAtA []byte) error {
 				m.Justification = []byte{}
 			}
 			iNdEx = postIndex
-		case 8:
+		case 10:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field RawEvents", wireType)
 			}
@@ -7186,7 +7252,43 @@ func (m *Block) UnmarshalVTUnsafe(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 4:
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Timestamp", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protohelpers.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return protohelpers.ErrInvalidLength
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return protohelpers.ErrInvalidLength
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Timestamp == nil {
+				m.Timestamp = &timestamppb.Timestamp{}
+			}
+			if err := (*timestamppb1.Timestamp)(m.Timestamp).UnmarshalVTUnsafe(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 6:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Extrinsics", wireType)
 			}
@@ -7220,7 +7322,7 @@ func (m *Block) UnmarshalVTUnsafe(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 5:
+		case 7:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Events", wireType)
 			}
@@ -7254,7 +7356,7 @@ func (m *Block) UnmarshalVTUnsafe(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 6:
+		case 8:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field DigestItems", wireType)
 			}
@@ -7288,7 +7390,7 @@ func (m *Block) UnmarshalVTUnsafe(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
-		case 7:
+		case 9:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field Justification", wireType)
 			}
@@ -7319,7 +7421,7 @@ func (m *Block) UnmarshalVTUnsafe(dAtA []byte) error {
 			}
 			m.Justification = dAtA[iNdEx:postIndex]
 			iNdEx = postIndex
-		case 8:
+		case 10:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field RawEvents", wireType)
 			}

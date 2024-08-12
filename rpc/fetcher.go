@@ -286,15 +286,18 @@ func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block,
 		RawEvents:     data.rawEvents,
 	}
 
-	timestamp := big.NewInt(0)
+	var timestamp *timestamppb.Timestamp
 	if b.Block.Header.Number > 0 {
 		timestampBytes := b.Block.Extrinsics[0].Method.Args
 		timestampDecoder := scale.NewDecoder(bytes.NewBuffer(timestampBytes))
-		timestamp, err = timestampDecoder.DecodeUintCompact()
+		t, err := timestampDecoder.DecodeUintCompact()
 		if err != nil {
 			return nil, fmt.Errorf("unable to decode timestamp: %w", err)
 		}
+		timestamppb.New(time.UnixMilli(t.Int64()))
 	}
+
+	block.Timestamp = timestamp
 
 	anyBlock, err := anypb.New(block)
 	if err != nil {
@@ -320,7 +323,7 @@ func convertBlock(data *FetchedBlockData, specVersion uint32) (*pbbstream.Block,
 		Number:    block.Number,
 		Id:        hex.EncodeToString(block.Hash),
 		ParentId:  hex.EncodeToString(block.Header.ParentHash),
-		Timestamp: timestamppb.New(time.UnixMilli(timestamp.Int64())),
+		Timestamp: timestamp,
 		LibNum:    libNum,
 		ParentNum: parentBlockNum,
 		Payload:   anyBlock,
