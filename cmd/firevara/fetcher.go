@@ -26,7 +26,7 @@ func NewFetchCmd(logger *zap.Logger, tracer logging.Tracer) *cobra.Command {
 	cmd.Flags().String("state-dir", "/data", "location to store the cursor.json")
 	cmd.Flags().Duration("interval-between-fetch", 0, "interval between fetch")
 	cmd.Flags().Duration("latest-block-retry-interval", time.Second, "interval between fetch when latest block is not available yet")
-	cmd.Flags().Int64("block-fetch-batch-size", 1, "number of block to fetch in parallel")
+	cmd.Flags().Uint64("block-fetch-batch-size", 1, "number of block to fetch in parallel")
 
 	return cmd
 }
@@ -42,7 +42,7 @@ func fetchRunE(logger *zap.Logger, tracer logging.Tracer) firecore.CommandExecut
 		}
 
 		fetchInterval := sflags.MustGetDuration(cmd, "interval-between-fetch")
-		batchSize := sflags.MustGetInt(cmd, "block-fetch-batch-size")
+		batchSize := sflags.MustGetUint64(cmd, "block-fetch-batch-size")
 
 		logger.Info(
 			"launching firehose-gear poller",
