@@ -23,13 +23,4 @@ The below command with start streaming Firehose Vara blocks, check `proto/sg/gea
 firevara fetch {FIRST_STREAMABLE_BLOCK} --endpoints {VARA_RPC_ENDPOINT} --state-dir {STATE_DIR}
 ```
 
-## Contributing
 
-Report any protocol-specific issues in their
-[respective repositories](https://github.com/streamingfast/streamingfast#protocols)
-
-**Please first refer to the general
-[StreamingFast contribution guide](https://github.com/streamingfast/streamingfast/blob/master/CONTRIBUTING.md)**,
-if you wish to contribute to this code base.
-
-This codebase uses unit tests extensively, please write and run tests.
