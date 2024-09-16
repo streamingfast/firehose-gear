@@ -1,1 +1,15 @@
-firecore start merger --config-file= --log-format=stackdriver --log-to-file=false --data-dir=data --common-auto-max-procs --common-auto-mem-limit-percent=90 --merger-prune-forked-blocks-after=200000 --common-first-streamable-block=0 --merger-time-between-store-lookups=2s --merger-time-between-store-pruning=30s --common-forked-blocks-store-url=data/forked --merger-grpc-listen-addr=:9000 --common-merged-blocks-store-url=data/merged --common-one-block-store-url=data/oneblock
+firecore start merger \
+  --config-file= \
+  --log-format=stackdriver \
+  --log-to-file=false \
+  --data-dir=data \
+  --common-auto-max-procs \
+  --common-auto-mem-limit-percent=90 \
+  --merger-prune-forked-blocks-after=200000 \
+  --common-first-streamable-block=1000000  \
+  --merger-time-between-store-lookups=2s \
+  --merger-time-between-store-pruning=30s \
+  --common-forked-blocks-store-url=data/forked \
+  --merger-grpc-listen-addr=:9000 \
+  --common-merged-blocks-store-url=data/merged \
+  --common-one-block-store-url=data/oneblock

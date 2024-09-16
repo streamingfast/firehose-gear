@@ -23,6 +23,14 @@ The below command with start streaming Firehose Vara blocks, check `proto/sg/gea
 firevara fetch {FIRST_STREAMABLE_BLOCK} --endpoints {VARA_RPC_ENDPOINT} --state-dir {STATE_DIR}
 ```
 
+## Fetching the metadata
+
+To fetch the metadata, pass in a Blockhash.
+
+```bash
+curl --location 'https://vara-mainnet.public.blastapi.io' --header 'Content-Type: application/json' --data '{ "id": 1, "jsonrpc": "2.0", "method": "state_getMetadata", "params": ["$BLOCKHASH"] }' | jq .result
+```
+
 ## Contributing
 
 Report any protocol-specific issues in their

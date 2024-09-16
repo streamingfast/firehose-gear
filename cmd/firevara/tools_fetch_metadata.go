@@ -2,9 +2,13 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 
+	gsrpc "github.com/centrifuge/go-substrate-rpc-client/v4"
+	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	"github.com/spf13/cobra"
 	firecore "github.com/streamingfast/firehose-core"
 	"github.com/streamingfast/logging"
@@ -18,13 +22,19 @@ func NewToolsFetchMetadataCmd(logger *zap.Logger, tracer logging.Tracer) *cobra.
 		RunE:  toolsFetchMetadataRunE(logger, tracer),
 	}
 
+	cmd.Flags().String("spec-version-path", "", "Spec Versions text file, format: <version> <blockhash>")
+
 	return cmd
 }
 
-func toolsFetchMetadataRunE(logger *zap.Logger, tracer logging.Tracer) firecore.CommandExecutor {
+type SpecVerion struct {
+	SpecVersion string
+	BlockHash   string
+}
+
+func toolsFetchMetadataRunE(logger *zap.Logger, _ logging.Tracer) firecore.CommandExecutor {
 	return func(cmd *cobra.Command, args []string) (err error) {
-		// curl --location 'https://vara-mainnet.public.blastapi.io' --header 'Content-Type: application/json' --data '{ "id": 1, "jsonrpc": "2.0", "method": "state_getMetadata", "params": ["0x68a1e81e50b4bd3c7bc35727eca22d31cd68808294d71863bbfac8da38514cf4"] }' | jq .result
-		filePath := "/Users/eduardvoiculescu/git/streamingfast/firehose-gear/cmd/firebara/tools-data/specVersions.txt"
+		filePath := cmd.Flag("spec-version-path").Value.String()
 		readFile, err := os.Open(filePath)
 
 		if err != nil {
@@ -38,10 +48,41 @@ func toolsFetchMetadataRunE(logger *zap.Logger, tracer logging.Tracer) firecore.
 			fileLines = append(fileLines, fileScanner.Text())
 		}
 
-		readFile.Close()
+		defer readFile.Close()
 
+		specVersions := make([]*SpecVerion, 0)
 		for _, line := range fileLines {
-			fmt.Println(line)
+			l := strings.Split(line, " ")
+			specVersions = append(specVersions, &SpecVerion{
+				SpecVersion: l[0],
+				BlockHash:   l[1],
+			})
+		}
+
+		url := "https://vara-mainnet.public.blastapi.io" // Replace with the actual URL of your Gear Tech node
+		api, err := gsrpc.NewSubstrateAPI(url)
+
+		for _, sv := range specVersions {
+			logger.Debug("fetching metadata for spec version", zap.String("version", sv.SpecVersion), zap.String("block_hash", sv.BlockHash))
+			blockhash, err := types.NewHashFromHexString(sv.BlockHash)
+			if err != nil {
+				return fmt.Errorf("failed to convert block hash: %w", err)
+			}
+
+			metadata, err := api.RPC.State.GetMetadata(blockhash)
+			if err != nil {
+				return fmt.Errorf("failed to get metadata: %w", err)
+			}
+
+			b, err := json.Marshal(metadata)
+			if err != nil {
+				return fmt.Errorf("failed to marshal metadata: %w", err)
+			}
+
+			err = os.WriteFile(fmt.Sprintf("%s.json", sv.SpecVersion), b, 0644)
+			if err != nil {
+				return fmt.Errorf("failed to write metadata: %w", err)
+			}
 		}
 
 		return
