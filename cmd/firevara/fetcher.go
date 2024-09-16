@@ -26,6 +26,7 @@ func NewFetchCmd(logger *zap.Logger, tracer logging.Tracer) *cobra.Command {
 	cmd.Flags().String("state-dir", "/data", "location to store the cursor.json")
 	cmd.Flags().Duration("interval-between-fetch", 0, "interval between fetch")
 	cmd.Flags().Duration("latest-block-retry-interval", time.Second, "interval between fetch when latest block is not available yet")
+	cmd.Flags().Int("block-fetch-batch-size", 1, "number of block to fetch in parallel")
 
 	return cmd
 }
@@ -41,6 +42,7 @@ func fetchRunE(logger *zap.Logger, tracer logging.Tracer) firecore.CommandExecut
 		}
 
 		fetchInterval := sflags.MustGetDuration(cmd, "interval-between-fetch")
+		batchSize := sflags.MustGetInt(cmd, "block-fetch-batch-size")
 
 		logger.Info(
 			"launching firehose-gear poller",
@@ -72,7 +74,7 @@ func fetchRunE(logger *zap.Logger, tracer logging.Tracer) firecore.CommandExecut
 		)
 
 		// never use batch downloading for blocks
-		err = poller.Run(ctx, startBlock, 1)
+		err = poller.Run(ctx, startBlock, int(batchSize))
 		if err != nil {
 			return fmt.Errorf("running poller: %w", err)
 		}
