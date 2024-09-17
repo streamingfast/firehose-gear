@@ -5,11 +5,14 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"path/filepath"
+	"slices"
 	"strings"
 
 	gsrpc "github.com/centrifuge/go-substrate-rpc-client/v4"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 	"github.com/spf13/cobra"
+	"github.com/streamingfast/cli/sflags"
 	firecore "github.com/streamingfast/firehose-core"
 	"github.com/streamingfast/logging"
 	"go.uber.org/zap"
@@ -23,6 +26,8 @@ func NewToolsFetchMetadataCmd(logger *zap.Logger, tracer logging.Tracer) *cobra.
 	}
 
 	cmd.Flags().String("spec-version-path", "", "Spec Versions text file, format: <version> <blockhash>")
+	cmd.Flags().StringArray("versions", []string{"all"}, "Spec Versions to save locally, format: <version>.json")
+	cmd.Flags().String("output-dir", "metadata", "Output directory to save the metadata")
 
 	return cmd
 }
@@ -34,7 +39,8 @@ type SpecVerion struct {
 
 func toolsFetchMetadataRunE(logger *zap.Logger, _ logging.Tracer) firecore.CommandExecutor {
 	return func(cmd *cobra.Command, args []string) (err error) {
-		filePath := cmd.Flag("spec-version-path").Value.String()
+		filePath := sflags.MustGetString(cmd, "spec-version-path")
+		logger.Debug("spec version file path", zap.String("path", filePath))
 		readFile, err := os.Open(filePath)
 
 		if err != nil {
@@ -61,27 +67,50 @@ func toolsFetchMetadataRunE(logger *zap.Logger, _ logging.Tracer) firecore.Comma
 
 		url := "https://vara-mainnet.public.blastapi.io" // Replace with the actual URL of your Gear Tech node
 		api, err := gsrpc.NewSubstrateAPI(url)
+		versionsToSave := sflags.MustGetStringArray(cmd, "versions")
+		logger.Debug("spec versions to save", zap.Strings("versions", versionsToSave))
+		saveAll := false
+		if len(versionsToSave) == 1 && versionsToSave[0] == "all" {
+			saveAll = true
+		}
+
+		outputDir := sflags.MustGetString(cmd, "output-dir")
+		logger.Debug("output directory", zap.String("dir", outputDir))
+		if _, err := os.Stat(outputDir); os.IsNotExist(err) {
+			err = os.Mkdir(outputDir, 0755)
+			if err != nil {
+				return fmt.Errorf("failed to create output directory: %w", err)
+			}
+		}
 
 		for _, sv := range specVersions {
-			logger.Debug("fetching metadata for spec version", zap.String("version", sv.SpecVersion), zap.String("block_hash", sv.BlockHash))
-			blockhash, err := types.NewHashFromHexString(sv.BlockHash)
-			if err != nil {
-				return fmt.Errorf("failed to convert block hash: %w", err)
-			}
+			if saveAll || slices.Contains(versionsToSave, sv.SpecVersion) {
+				logger.Debug("fetching metadata for spec version", zap.String("version", sv.SpecVersion), zap.String("block_hash", sv.BlockHash))
+				blockhash, err := types.NewHashFromHexString(sv.BlockHash)
+				if err != nil {
+					return fmt.Errorf("failed to convert block hash: %w", err)
+				}
 
-			metadata, err := api.RPC.State.GetMetadata(blockhash)
-			if err != nil {
-				return fmt.Errorf("failed to get metadata: %w", err)
-			}
+				metadata, err := api.RPC.State.GetMetadata(blockhash)
+				if err != nil {
+					return fmt.Errorf("failed to get metadata: %w", err)
+				}
 
-			b, err := json.Marshal(metadata)
-			if err != nil {
-				return fmt.Errorf("failed to marshal metadata: %w", err)
-			}
+				b, err := json.Marshal(metadata)
+				if err != nil {
+					return fmt.Errorf("failed to marshal metadata: %w", err)
+				}
 
-			err = os.WriteFile(fmt.Sprintf("%s.json", sv.SpecVersion), b, 0644)
-			if err != nil {
-				return fmt.Errorf("failed to write metadata: %w", err)
+				filename := fmt.Sprintf("%s.json", sv.SpecVersion)
+				dst, err := os.Create(filepath.Join(outputDir, filename))
+				if err != nil {
+					return fmt.Errorf("failed to create metadata file: %w", err)
+				}
+
+				_, err = dst.WriteString(string(b))
+				if err != nil {
+					return fmt.Errorf("failed to write metadata file: %w", err)
+				}
 			}
 		}
 
