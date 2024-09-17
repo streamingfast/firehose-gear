@@ -96,7 +96,7 @@ func toolsFetchMetadataRunE(logger *zap.Logger, _ logging.Tracer) firecore.Comma
 					return fmt.Errorf("failed to get metadata: %w", err)
 				}
 
-				b, err := json.Marshal(metadata)
+				b, err := json.MarshalIndent(metadata, "", "  ")
 				if err != nil {
 					return fmt.Errorf("failed to marshal metadata: %w", err)
 				}
