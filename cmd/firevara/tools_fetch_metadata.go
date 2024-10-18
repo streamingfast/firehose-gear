@@ -101,7 +101,7 @@ func toolsFetchMetadataRunE(logger *zap.Logger, _ logging.Tracer) firecore.Comma
 					return fmt.Errorf("failed to marshal metadata: %w", err)
 				}
 
-				filename := fmt.Sprintf("%s.json", sv.SpecVersion)
+				filename := fmt.Sprintf("metadata%s.json", sv.SpecVersion)
 				dst, err := os.Create(filepath.Join(outputDir, filename))
 				if err != nil {
 					return fmt.Errorf("failed to create metadata file: %w", err)
